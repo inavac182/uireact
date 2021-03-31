@@ -1,0 +1,8 @@
+coverage
+dist
+node_modules
+output
+__snapshots__
+__mocks__
+build
+static

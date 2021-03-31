@@ -1,0 +1,28 @@
+{
+  "name": "@uitulkit/button",
+  "description": "Button component from @uitulkit library",
+  "respository": "https://github.com/inavac182/uitulkit",
+  "license": "MIT",
+  "version": "0.1.0",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": " rm -rf dist node_modules coverage",
+    "tsc": "tsc",
+    "watch": "tsc --watch",
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --fix --max-warnings=0",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "lint": "npm run lint:styles && npm run tsc && npm run eslint",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0 < 17",
+    "react-dom": ">= 16.8.0 < 17",
+    "@types/styled-components": "^5.1.0",
+    "styled-components": "^5.1.1"
+  }
+}

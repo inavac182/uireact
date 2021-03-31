@@ -1,0 +1,9 @@
+node_modules
+build
+dist
+res
+coverage
+__mocks__
+__tests__
+coverage
+*.config.js

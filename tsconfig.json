@@ -1,23 +1,10 @@
 {
   "extends": "./tsconfig.build.json",
-  "include": ["packages/**/*"],
+
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
-      "@uitulkit/button": ["button/src"],
-      "@uitulkit/card": ["card/src"],
-      "@uitulkit/colsgrid": ["colsgrid/src"],
-      "@uitulkit/flexgrid": ["flexgrid/src"],
-      "@uitulkit/foundation": ["foundation/src"],
-      "@uitulkit/list": ["list/src"],
-      "@uitulkit/text": ["text/src"],
-      "@uitulkit/view": ["view/src"],
-      "@uitulkit/checkbox": ["checkbox/src"],
-      "@uitulkit/dropdown": ["dropdown/src"],
-      "@uitulkit/input": ["input/src"],
-      "@uitulkit/table": ["table/src"],
-      "@uitulkit/icon": ["icon/src"],
-      "@uitulkit/*": ["*/src"]
+      "@ui-react/button": ["button/src"]
     }
   }
 }
