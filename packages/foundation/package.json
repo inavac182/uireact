@@ -1,6 +1,6 @@
 {
-  "name": "@ui-react/card",
-  "description": "Card component from ui-react library",
+  "name": "@ui-react/foundation",
+  "description": "Foundation package needed for @ui-react packages",
   "respository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
   "version": "0.1.0",
@@ -13,8 +13,8 @@
   "scripts": {
     "clean": " rm -rf dist node_modules coverage",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --fix --max-warnings=0",
+    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
-    "lint": "npm run lint:styles && npm run tsc && npm run eslint",
     "test": "jest",
     "tsc": "tsc"
   },

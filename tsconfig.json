@@ -2,9 +2,6 @@
   "extends": "./tsconfig.build.json",
 
   "compilerOptions": {
-    "baseUrl": "./packages",
-    "paths": {
-      "@ui-react/button": ["button/src"]
-    }
+    "baseUrl": "./packages"
   }
 }
