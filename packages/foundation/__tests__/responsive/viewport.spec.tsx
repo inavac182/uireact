@@ -11,7 +11,9 @@ beforeEach(() => {
 describe('using breakpoint', () => {
   test('should render correctly when breakpoint is large', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.LARGE}><p>Render in large</p></UiViewport>
+      <UiViewport breakpoint={Breakpoints.LARGE}>
+        <p>Render in large</p>
+      </UiViewport>
     );
 
     expect(screen.getByText('Render in large')).toBeVisible();
@@ -26,7 +28,9 @@ describe('using breakpoint', () => {
 
   test('should render correctly when breakpoint is medium', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.MEDIUM}><p>Render in medium</p></UiViewport>
+      <UiViewport breakpoint={Breakpoints.MEDIUM}>
+        <p>Render in medium</p>
+      </UiViewport>
     );
 
     expect(screen.queryByText('Render in medium')).not.toBeInTheDocument();
@@ -41,7 +45,9 @@ describe('using breakpoint', () => {
 
   test('should render correctly when breakpoint is small', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.SMALL}><p>Render in small</p></UiViewport>
+      <UiViewport breakpoint={Breakpoints.SMALL}>
+        <p>Render in small</p>
+      </UiViewport>
     );
 
     expect(screen.queryByText('Render in small')).not.toBeInTheDocument();
@@ -58,7 +64,9 @@ describe('using breakpoint', () => {
 describe('using breakpoins string', () => {
   test('should render correctly when breakpoints string is l|m', () => {
     render(
-      <UiViewport breakpoints='l|m'><p>Render in large and medium</p></UiViewport>
+      <UiViewport breakpoints="l|m">
+        <p>Render in large and medium</p>
+      </UiViewport>
     );
 
     expect(screen.getByText('Render in large and medium')).toBeVisible();
@@ -80,7 +88,9 @@ describe('using breakpoins string', () => {
 
   test('should render correctly when breakpoints string is l|s', () => {
     render(
-      <UiViewport breakpoints='l|s'><p>Render in large and small</p></UiViewport>
+      <UiViewport breakpoints="l|s">
+        <p>Render in large and small</p>
+      </UiViewport>
     );
 
     expect(screen.getByText('Render in large and small')).toBeVisible();
@@ -102,7 +112,9 @@ describe('using breakpoins string', () => {
 
   test('should render correctly when breakpoints string is m|s', () => {
     render(
-      <UiViewport breakpoints='m|s'><p>Render in medium and small</p></UiViewport>
+      <UiViewport breakpoints="m|s">
+        <p>Render in medium and small</p>
+      </UiViewport>
     );
 
     expect(screen.queryByText('Render in medium and small')).not.toBeInTheDocument();
