@@ -1,0 +1,40 @@
+---
+name: Viewport
+menu: Foundation
+---
+
+import { Playground } from 'docz';
+import { UiViewport, Breakpoints } from '../src/';
+import { UiBox } from '../src/private/'
+
+# UiViewport
+----------
+## Using specific breakpoint
+
+<Playground>
+  <UiViewport breakpoint={Breakpoints.LARGE}>
+    <UiBox>
+      Hey, I'm in Large!
+    </UiBox>
+  </UiViewport>
+  <UiViewport breakpoint={Breakpoints.MEDIUM}>
+    <UiBox>
+      I appear in Medium!!
+    </UiBox>
+  </UiViewport>
+  <UiViewport breakpoint={Breakpoints.SMALL}>
+    <UiBox>
+      And I'm in Small!
+    </UiBox>
+  </UiViewport>
+</Playground>
+
+## Using a set of breakpoints
+
+<Playground>
+  <UiViewport breakpoints='l|s'>
+    <UiBox>
+      Hey, I appear in Large and Small!!
+    </UiBox>
+  </UiViewport>
+</Playground>

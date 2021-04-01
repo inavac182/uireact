@@ -12,12 +12,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": " rm -rf dist node_modules coverage",
-    "tsc": "tsc",
-    "watch": "tsc --watch",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --fix --max-warnings=0",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "lint": "npm run lint:styles && npm run tsc && npm run eslint",
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 17",
