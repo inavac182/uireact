@@ -5,7 +5,6 @@ import { act } from 'react-dom/test-utils';
 import { Breakpoints, UiViewport } from '../../src';
 import { BreakpointsSizes } from '../../src/responsive/breakpoints-sizes';
 
-
 beforeEach(() => {
   global.innerWidth = BreakpointsSizes.l.min;
 });
