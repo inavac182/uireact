@@ -1,15 +1,28 @@
 ---
-name: Viewport
+name: UiViewport
 menu: Foundation
 ---
 
-import { Playground } from 'docz';
+import { Playground, Props } from 'docz';
 import { UiViewport, Breakpoints } from '../src/';
 import { UiBox } from '../src/private/'
 
 # UiViewport
 ----------
-## Using specific breakpoint
+
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">v1.0.0</a></sup>
+
+> This component make it easy to render/remove components from the DOM based on the props.
+
+## Installation
+
+This component is exported as part of the package @ui-react/foundation
+
+> npm i @ui-react/foundation
+
+## Usages
+
+### Using specific breakpoint
 
 <Playground>
   <UiViewport breakpoint={Breakpoints.LARGE}>
@@ -29,7 +42,7 @@ import { UiBox } from '../src/private/'
   </UiViewport>
 </Playground>
 
-## Using a set of breakpoints
+### Using a set of breakpoints
 
 <Playground>
   <UiViewport breakpoints='l|s'>
@@ -38,3 +51,14 @@ import { UiBox } from '../src/private/'
     </UiBox>
   </UiViewport>
 </Playground>
+
+## Props
+
+<Props of={UiViewport} />
+
+
+**NOTES:**
+
+If you ask why there's not `"l|m|s"` combination in breakpoints is because well, if you need something to render in that scenario then you don't need a `UiViewport` 🤘.
+
+If you don't set any breakpoint then the children will never be rendered as there won't be any criteria to match ✍️

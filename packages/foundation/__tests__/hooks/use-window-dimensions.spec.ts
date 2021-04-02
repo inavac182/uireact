@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks/server';
 
-import { breakpointsSizes } from '../../src/responsive/breakpoints-sizes';
+import { BreakpointsSizes } from '../../src/responsive/breakpoints-sizes';
 import { useWindowDimensions } from '../../src/hooks/use-window-dimensions';
 
 test('useWindowDimensions() returns correct sizing when is hydrated', () => {
@@ -15,7 +15,7 @@ test('useWindowDimensions() returns correct sizing when is hydrated', () => {
 test('useWindowDimensions() returns correct size when is NOT hydrated', () => {
   const { result } = renderHook(() => useWindowDimensions());
 
-  expect(result.current.width).toBe(breakpointsSizes.l.min);
+  expect(result.current.width).toBe(BreakpointsSizes.l.min);
 });
 
 test('useWindowDimensions() call window.addEventListener when hydrated', () => {

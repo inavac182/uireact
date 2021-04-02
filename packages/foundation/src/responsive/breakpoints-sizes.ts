@@ -1,4 +1,4 @@
-export const breakpointsSizes = {
+export const BreakpointsSizes = {
   s: {
     max: 579,
   },

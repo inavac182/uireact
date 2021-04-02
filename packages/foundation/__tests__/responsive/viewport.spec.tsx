@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-
-import { Breakpoints, breakpointsSizes, UiViewport } from '../../src';
 import { act } from 'react-dom/test-utils';
 
+import { Breakpoints, UiViewport } from '../../src';
+import { BreakpointsSizes } from '../../src/responsive/breakpoints-sizes';
+
+
 beforeEach(() => {
-  global.innerWidth = breakpointsSizes.l.min;
+  global.innerWidth = BreakpointsSizes.l.min;
 });
 
 describe('using breakpoint', () => {
@@ -19,7 +21,7 @@ describe('using breakpoint', () => {
     expect(screen.getByText('Render in large')).toBeVisible();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.m.min;
+      global.innerWidth = BreakpointsSizes.m.min;
       global.dispatchEvent(new Event('resize'));
     });
 
@@ -36,7 +38,7 @@ describe('using breakpoint', () => {
     expect(screen.queryByText('Render in medium')).not.toBeInTheDocument();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.m.min;
+      global.innerWidth = BreakpointsSizes.m.min;
       global.dispatchEvent(new Event('resize'));
     });
 
@@ -53,7 +55,7 @@ describe('using breakpoint', () => {
     expect(screen.queryByText('Render in small')).not.toBeInTheDocument();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.s.max;
+      global.innerWidth = BreakpointsSizes.s.max;
       global.dispatchEvent(new Event('resize'));
     });
 
@@ -72,14 +74,14 @@ describe('using breakpoins string', () => {
     expect(screen.getByText('Render in large and medium')).toBeVisible();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.m.min;
+      global.innerWidth = BreakpointsSizes.m.min;
       global.dispatchEvent(new Event('resize'));
     });
 
     expect(screen.getByText('Render in large and medium')).toBeVisible();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.s.max;
+      global.innerWidth = BreakpointsSizes.s.max;
       global.dispatchEvent(new Event('resize'));
     });
 
@@ -96,14 +98,14 @@ describe('using breakpoins string', () => {
     expect(screen.getByText('Render in large and small')).toBeVisible();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.m.min;
+      global.innerWidth = BreakpointsSizes.m.min;
       global.dispatchEvent(new Event('resize'));
     });
 
     expect(screen.queryByText('Render in large and small')).not.toBeInTheDocument();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.s.max;
+      global.innerWidth = BreakpointsSizes.s.max;
       global.dispatchEvent(new Event('resize'));
     });
 
@@ -120,14 +122,14 @@ describe('using breakpoins string', () => {
     expect(screen.queryByText('Render in medium and small')).not.toBeInTheDocument();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.m.min;
+      global.innerWidth = BreakpointsSizes.m.min;
       global.dispatchEvent(new Event('resize'));
     });
 
     expect(screen.getByText('Render in medium and small')).toBeVisible();
 
     act(() => {
-      global.innerWidth = breakpointsSizes.s.max;
+      global.innerWidth = BreakpointsSizes.s.max;
       global.dispatchEvent(new Event('resize'));
     });
 
