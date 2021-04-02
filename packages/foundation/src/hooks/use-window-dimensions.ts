@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { breakpointsSizes } from '../responsive';
+import { BreakpointsSizes } from '../responsive/breakpoints-sizes';
 
 interface WindowDimensions {
   width: number;
@@ -18,8 +18,8 @@ const getWindowDimensions = (): WindowDimensions => {
 
 export const useWindowDimensions = (): WindowDimensions => {
   const [windowDimensions, setWindowDimensions] = useState({
-    width: breakpointsSizes.l.min,
-    height: breakpointsSizes.l.min,
+    width: BreakpointsSizes.l.min,
+    height: BreakpointsSizes.l.min,
   });
 
   useEffect(() => {

@@ -1,0 +1,57 @@
+---
+name: Breakpoints
+menu: Foundation
+---
+
+import { Playground, Props } from 'docz';
+import { UiBox } from '../src/private/'
+
+# Breakpoints
+----------
+
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">v1.0.0</a></sup>
+
+> @ui-react uses these 2 pieces to handle breakpoints in the UiViewport
+>
+> - BreakpointsSizes (Private)
+> - Breakpoints (Enum used as a prop) See: [UiViewport](./packages-foundation-docs-viewport)
+
+## Installation
+
+The Breakpoints enum is exported as part of the package @ui-react/foundation
+
+> npm i @ui-react/foundation
+
+## Definition
+
+### Breakpoints
+
+```
+enum Breakpoints {
+  SMALL,
+  MEDIUM,
+  LARGE,
+}
+```
+
+### BreakpointsSizes
+
+**IMPORTANT:** We use these values to handle each breakpoint, we don't distinguish between mobile device and desktop small viewport.
+
+```
+const BreakpointsSizes = {
+  s: {
+    max: 579,
+  },
+  m: {
+    min: 580,
+    max: 991,
+  },
+  l: {
+    min: 992,
+  },
+};
+
+```
+
+Anything smaller than 580 will be categorized as *SMALL*, then from 580 to 991 will be *MEDIUM* and anything larger than 991 will be *large*
