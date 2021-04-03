@@ -1,12 +1,18 @@
-import { CategoryTheme, DynamicElementsType, ThemeType } from '../types';
-import { DynamicElementActionEnum, DynamicElementStateEnum } from '../types/themes/dynamicElement';
-import { StaticElementEnum, StaticElementType } from '../types/themes/staticElement';
+import {
+  CategoryTheme,
+  DynamicElementsType,
+  ThemeType,
+  DynamicElementActionEnum,
+  DynamicElementStateEnum,
+  StaticElementEnum,
+  StaticElementType,
+} from '../types';
 import { Themes } from './themes';
 
 export const getValueFromStaticThemeElement = (
   category: CategoryTheme,
   value: StaticElementEnum,
-  theme: 'dark' | 'light' | ThemeType
+  theme: string | ThemeType
 ): string => {
   const selectedTheme = typeof theme === 'string' ? Themes[theme] : theme;
 
@@ -37,7 +43,7 @@ export const getValueFromDynamicThemeElement = (
   value: StaticElementEnum,
   state: DynamicElementStateEnum,
   action: DynamicElementActionEnum,
-  theme: 'dark' | 'light' | ThemeType
+  theme: string | ThemeType
 ): string => {
   const selectedTheme = typeof theme === 'string' ? Themes[theme] : theme;
 
