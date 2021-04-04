@@ -20,7 +20,7 @@ jobs:
           git config --global user.name "@$GITHUB_ACTOR"
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/inavac182/uireact
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
       - name: Install Dependencies
         run: npm ci
       - name: Lint
@@ -37,8 +37,7 @@ jobs:
       - name: Publishing packages
         run: npx lerna publish --yes 
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH }}
   build:
     name: Build
