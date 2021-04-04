@@ -28,14 +28,12 @@ jobs:
       - name: Test
         run: npm run test
       - name: Authenticate with Registry
-        run: |
-          npm logout
-          echo "@uireact:registry=http://registry.npmjs.org/" > .npmrc
-          echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-          npm whoami
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publishing packages
         run: npx lerna publish
         env:
@@ -44,6 +42,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   build:
     name: Build
+    needs: publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
