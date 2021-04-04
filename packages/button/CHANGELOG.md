@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1](https://github.com/inavac182/ui-react/compare/@uireact/button@0.2.0...@uireact/button@0.0.1) (2021-04-04)
+
+### Reverts
+
+- **chore:** correct version ([cb12553](https://github.com/inavac182/ui-react/commit/cb12553bab6e28d463fba5b0426658986a0acd52))
+
 # 0.2.0 (2021-04-04)
 
 ### Features
