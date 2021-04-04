@@ -14,10 +14,10 @@ export const colors: ColorsType = {
     paragraph: '#f2f2f2',
   },
   containers: {
-    background: '#006bb3',
+    background: '#333333',
     border: '#0099ff',
     contrast: '#66ff66',
-    font: '#f2f2f2',
+    paragraph: '#f2f2f2',
     shadows: '#0d0d0d',
     softBackground: '#f2f2f2',
   },

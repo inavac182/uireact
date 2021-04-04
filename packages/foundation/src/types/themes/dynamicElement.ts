@@ -1,4 +1,4 @@
-import { StaticElementType } from '../staticElement';
+import { StaticElementType } from '.';
 
 export enum DynamicElementStateEnum {
   SUCCESS = 'success',

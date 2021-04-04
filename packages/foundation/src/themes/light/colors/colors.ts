@@ -17,7 +17,7 @@ export const colors: ColorsType = {
     background: '#f2f2f2',
     border: '#e6e6e6',
     contrast: '#66ff66',
-    font: '#0d0d0d',
+    paragraph: '#0d0d0d',
     shadows: '#cccccc',
     softBackground: '#cccccc',
   },
