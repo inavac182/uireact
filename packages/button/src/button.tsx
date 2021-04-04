@@ -4,12 +4,11 @@ import styled from 'styled-components';
 
 import {
   CategoryTheme,
-  getValueFromStaticThemeElement,
-  UiReactElementProp,
-  StaticElementEnum,
-  getValueFromDynamicThemeElement,
   DynamicElementStateEnum,
   DynamicElementActionEnum,
+  getValueFromDynamicThemeElement,
+  UiReactElementProp,
+  StaticElementEnum,
 } from '@ui-react/foundation';
 
 interface UiButtonProps extends UiReactElementProp {
