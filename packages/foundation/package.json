@@ -1,10 +1,12 @@
 {
-  "name": "@ui-react/foundation",
-  "description": "Foundation package needed for @ui-react packages",
-  "respository": "https://github.com/inavac182/ui-react",
+  "name": "@uireact/foundation",
+  "description": "Foundation package needed for @uireact packages",
+  "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.0.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
@@ -22,9 +24,10 @@
     "watch": "npm run tsc:watch"
   },
   "peerDependencies": {
+    "@types/styled-components": "^5.1.0",
     "react": ">= 16.8.0 < 17",
     "react-dom": ">= 16.8.0 < 17",
-    "@types/styled-components": "^5.1.0",
     "styled-components": "^5.1.1"
-  }
+  },
+  "gitHead": "ecb2ada34a996bfeaa9cde73506c9371b22af87c"
 }

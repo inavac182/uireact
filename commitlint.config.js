@@ -28,6 +28,7 @@ module.exports = {
         'table',
         'text',
         'view',
+        'release',
       ]
     ]
   }

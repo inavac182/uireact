@@ -1,6 +1,5 @@
 {
-  "name": "ui-react",
-  "private": true,
+  "name": "uireact",
   "scripts": {
     "bootstrap": "npx lerna bootstrap --hoist",
     "bootstrap:quick": "npm run bootstrap -- --scope=@ui-react/*",
