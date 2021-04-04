@@ -18,7 +18,7 @@ jobs:
         run: |
           git config --global user.email "16787893+inavac182@users.noreply.github.com"
           git config --global user.name "@$GITHUB_ACTOR"
-          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/inavac182/@uireact
+          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/inavac182/uireact
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Dependencies
