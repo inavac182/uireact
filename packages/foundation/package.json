@@ -1,7 +1,7 @@
 {
   "name": "@uireact/foundation",
   "description": "Foundation package needed for @uireact packages",
-  "respository": "https://github.com/inavac182/ui-react",
+  "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
   "version": "0.0.3",
   "publishConfig": {
