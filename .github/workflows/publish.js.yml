@@ -1,7 +1,4 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Deploy @uireact
+name: Publish @uireact packages
 
 on:
   push:
@@ -10,12 +7,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Publish
+    name: Prepare publish
     steps:
     - uses: actions/checkout@v2
     - run: npm ci
     - run: npm test
     - run: npm run lint
+    - name: Publishing
+    - name: Configure Git User
+    - run: |
+        git config --global user.email "16787893+inavac182@users.noreply.github.com"
+        git config --global user.name "@$GITHUB_ACTOR"
     - uses: plutotcool/release@v1.0.0
       with:
         npm_token: ${{ secrets.NPM_TOKEN }}
