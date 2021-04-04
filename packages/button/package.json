@@ -3,7 +3,7 @@
   "description": "Button component from @uireact library",
   "respository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "files": [
     "dist"
