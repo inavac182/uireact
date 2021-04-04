@@ -10,5 +10,8 @@
     "publish": {
       "conventionalCommits": true
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
