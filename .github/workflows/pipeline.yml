@@ -13,12 +13,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: "0"
+          token: ${{ secrets.GH_PAT }}
           run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Set up github user
         run: |
+          git config --global user.name "@inavac182"
           git config --global user.email "16787893+inavac182@users.noreply.github.com"
-          git config --global user.name "@$GITHUB_ACTOR"
-          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/inavac182/uireact
         env:
           GITHUB_PAT: ${{ secrets.GH_PAT }}
       - name: Install Dependencies
