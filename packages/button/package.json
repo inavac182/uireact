@@ -23,8 +23,5 @@
     "react-dom": ">= 16.8.0 < 17",
     "@types/styled-components": "^5.1.0",
     "styled-components": "^5.1.1"
-  },
-  "dependencies": {
-    "@ui-react/foundation": "0.1.0"
   }
 }
