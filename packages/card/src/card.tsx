@@ -6,7 +6,7 @@ import {
   getValueFromStaticThemeElement,
   UiReactElementProp,
   StaticElementEnum,
-} from '@ui-react/foundation';
+} from '@uireact/foundation';
 
 interface UiCardProps extends UiReactElementProp {
   children?: React.ReactNode;

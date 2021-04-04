@@ -1,5 +1,7 @@
 {
   "name": "uireact",
+  "repository": "https://github.com/inavac182/ui-react/",
+  "license": "SEE LICENSE",
   "scripts": {
     "bootstrap": "npx lerna bootstrap --hoist",
     "bootstrap:quick": "npm run bootstrap -- --scope=@ui-react/*",
@@ -14,7 +16,6 @@
     "watch": "npx lerna run tsc --stream && lerna run --parallel watch",
     "lint": "npx lerna run lint --stream",
     "preinstall": "npm run clean",
-    "postinstall": "npm run bootstrap",
     "typescheck": "lerna run tsc",
     "test": "npx lerna run test --concurrency=1 --stream",
     "test:tsc": "npx lerna run tsc --stream",
@@ -36,6 +37,7 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
+    "@uireact/foundation": "0.0.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "babel-plugin-styled-components": "^1.12.0",
     "commitlint": "^12.0.1",

@@ -9,7 +9,7 @@ import {
   getValueFromDynamicThemeElement,
   UiReactElementProp,
   StaticElementEnum,
-} from '@ui-react/foundation';
+} from '@uireact/foundation';
 
 interface UiButtonProps extends UiReactElementProp {
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
