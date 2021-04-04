@@ -1,50 +1,13 @@
 import * as React from 'react';
 import { MouseEvent } from 'react';
-import styled from 'styled-components';
 
-import {
-  CategoryTheme,
-  DynamicElementStateEnum,
-  DynamicElementActionEnum,
-  getValueFromDynamicThemeElement,
-  UiReactElementProp,
-  StaticElementEnum,
-} from '@ui-react/foundation';
-
-interface UiButtonProps extends UiReactElementProp {
+interface UiButtonProps {
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
 }
 
-const Button = styled.button<UiButtonProps>`
-  ${(props: UiButtonProps) => `
-    ${
-      props.theme?.main &&
-      `color: ${getValueFromDynamicThemeElement(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.paragraph,
-        DynamicElementStateEnum.INFO,
-        DynamicElementActionEnum.NORMAL,
-        props.theme.main
-      )};
-      background-color: ${getValueFromDynamicThemeElement(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.background,
-        DynamicElementStateEnum.INFO,
-        DynamicElementActionEnum.NORMAL,
-        props.theme.main
-      )};`
-    }
-  `}
-
-  border-radius: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-  cursor: pointer;
-`;
-
 export const UiButton: React.FC = (props: UiButtonProps) => {
-  return <Button onClick={props.onClick}>{props?.children}</Button>;
+  return <button onClick={props.onClick}>{props?.children}</button>;
 };
 
-UiButton.displayName = 'UiButton';
+UiButton.displayName = 'UiTulkitButton';
