@@ -20,7 +20,7 @@ jobs:
           git config --global user.name "@$GITHUB_ACTOR"
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_PAT@github.com/inavac182/@uireact
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Dependencies
         run: npm ci
       - name: Lint
@@ -33,13 +33,13 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
       - name: Publishing packages
         run: npx lerna publish
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_PAT }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_PUBLISH }}
   build:
     name: Build
     needs: publish
