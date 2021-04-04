@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2021-04-04)
+
+### Features
+
+- **docs:** added documentation for viewport and breakpoints ([16d6145](https://github.com/inavac182/ui-react/commit/16d6145facd2afd5b5526586adcdad50ba50354e))
+- **foundation:** adding foundation and gatsby configs ([ceece9d](https://github.com/inavac182/ui-react/commit/ceece9d624b092807a18f530337b4b5dca3a276f))
+- **foundation:** adding themes to foundation ([e428208](https://github.com/inavac182/ui-react/commit/e42820840173f10075f39bbb0df2eed897dcc738))
+
 ## [0.0.3](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.0.2...@uireact/foundation@0.0.3) (2021-04-04)
 
 **Note:** Version bump only for package @uireact/foundation
