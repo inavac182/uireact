@@ -8,6 +8,7 @@
       "message": "chore(release): publish"
     },
     "publish": {
+      "allowBranch": "main",
       "conventionalCommits": true
     }
   }
