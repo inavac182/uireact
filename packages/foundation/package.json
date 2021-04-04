@@ -26,5 +26,6 @@
     "react": ">= 16.8.0 < 17",
     "react-dom": ">= 16.8.0 < 17",
     "styled-components": "^5.1.1"
-  }
+  },
+  "gitHead": "9778f515b7a867a2475bd0429124a0ba95bab3d8"
 }
