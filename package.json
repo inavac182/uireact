@@ -1,5 +1,5 @@
 {
-  "name": "ui-react",
+  "name": "uireact",
   "private": true,
   "scripts": {
     "bootstrap": "npx lerna bootstrap --hoist",
