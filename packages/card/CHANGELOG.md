@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.2.4...@uireact/card@0.3.0) (2021-04-05)
+
+### Features
+
+- **themes:** using the themes set up in button and card docs ([#8](https://github.com/inavac182/ui-react/issues/8)) ([3a7b43a](https://github.com/inavac182/ui-react/commit/3a7b43a95e31cedc2a0091bdad61cae750674fc4))
+
 ## [0.2.4](https://github.com/inavac182/ui-react/compare/@uireact/card@0.2.3...@uireact/card@0.2.4) (2021-04-04)
 
 **Note:** Version bump only for package @uireact/card
