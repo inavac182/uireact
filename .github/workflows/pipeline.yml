@@ -40,7 +40,7 @@ jobs:
       - name: Check npm user
         run: npm whoami
       - name: Publishing packages
-        run: npx lerna publish from-package --yes
+        run: npx lerna publish from-package --yes --no-verify-access
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   build:
