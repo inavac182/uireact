@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/inavac182/ui-react/compare/@uireact/button@0.2.3...@uireact/button@0.2.4) (2021-04-04)
+
+**Note:** Version bump only for package @uireact/button
+
+## [0.2.3](https://github.com/inavac182/ui-react/compare/@uireact/button@0.2.2...@uireact/button@0.2.3) (2021-04-04)
+
+**Note:** Version bump only for package @uireact/button
+
+## [0.2.2](https://github.com/inavac182/ui-react/compare/@uireact/button@0.2.1...@uireact/button@0.2.2) (2021-04-04)
+
+**Note:** Version bump only for package @uireact/button
+
+## [0.2.1](https://github.com/inavac182/ui-react/compare/@uireact/button@0.2.0...@uireact/button@0.2.1) (2021-04-04)
+
+**Note:** Version bump only for package @uireact/button
+
+# 0.2.0 (2021-04-04)
+
+### Features
+
+- **chore:** tools set up ([0da4a5c](https://github.com/inavac182/ui-react/commit/0da4a5c2a505a7deda2c73570092442335c51022))
+- **foundation:** adding foundation and gatsby configs ([ceece9d](https://github.com/inavac182/ui-react/commit/ceece9d624b092807a18f530337b4b5dca3a276f))
+- **foundation:** adding themes to foundation ([e428208](https://github.com/inavac182/ui-react/commit/e42820840173f10075f39bbb0df2eed897dcc738))
+
+# 0.1.0 (2021-04-04)
+
+### Features
+
+- **chore:** tools set up ([0da4a5c](https://github.com/inavac182/ui-react/commit/0da4a5c2a505a7deda2c73570092442335c51022))
+- **foundation:** adding foundation and gatsby configs ([ceece9d](https://github.com/inavac182/ui-react/commit/ceece9d624b092807a18f530337b4b5dca3a276f))
+- **foundation:** adding themes to foundation ([e428208](https://github.com/inavac182/ui-react/commit/e42820840173f10075f39bbb0df2eed897dcc738))
+
 ## [0.0.3](https://github.com/inavac182/ui-react/compare/@uireact/button@0.0.2...@uireact/button@0.0.3) (2021-04-04)
 
 **Note:** Version bump only for package @uireact/button
