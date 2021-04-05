@@ -33,12 +33,13 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
+          always-auth: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
       - name: Check npm user
         run: npm whoami
       - name: Publishing packages
-        run: npx lerna publish --yes --force-publish
+        run: npx lerna publish from-package --yes
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_PUBLISH }}
