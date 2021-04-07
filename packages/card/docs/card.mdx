@@ -3,11 +3,26 @@ name: Cards
 menu: Components
 ---
 
+import { Props } from 'docz';
 import Playground from '../../../src/Playground'
 import { UiCard } from '../src/';
+import * as packageJson from '../package.json'
 
 # UiCard
+
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/card/" target="_blank">v{packageJson.version}</a></sup>
+
+> Let's get that text wrapped
+
+## Installation
+
+> npm i @uireact/card
+
+## Usage
 
 <Playground>
     <UiCard>This is a card!</UiCard>
 </Playground>
+
+## Props
+<Props of={UiCard} />
