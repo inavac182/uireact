@@ -3,11 +3,26 @@ name: Button
 menu: Components
 ---
 
+import { Props } from 'docz';
 import Playground from '../../../src/Playground'
 import { UiButton } from '../src/';
+import * as packageJson from '../package.json'
 
 # UiButton
+
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/button/" target="_blank">v{packageJson.version}</a></sup>
+
+> More than a button
+
+## Installation
+
+> npm i @uireact/button
+
+## Usage
 
 <Playground>
     <UiButton>Button! 💅🏾</UiButton>
 </Playground>
+
+## Props
+<Props of={UiButton} />

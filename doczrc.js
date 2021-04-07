@@ -4,6 +4,6 @@ export default {
     initialColorMode: 'dark',
     showDarkModeSwitch: false,
   },
-  title: '@ui-react',
+  title: '@uireact',
   public: '/public',
 };
