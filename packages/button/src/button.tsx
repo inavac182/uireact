@@ -12,6 +12,7 @@ import {
 } from '@uireact/foundation';
 
 interface UiButtonProps extends UiReactElementProp {
+  /** Button state that matches with a coloscheme from themes */
   state: DynamicElementStateEnum;
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
@@ -94,18 +95,17 @@ const Button = styled.button<UiButtonProps>`
   cursor: pointer;
 `;
 
-export const UiButton: React.FC<UiButtonProps> = (props: UiButtonProps) => {
-  return (
-    <Button
-      onClick={props.onClick}
-      state={props.state}
-      data-stid={props.testId}
-      className={props.className}
-      disabled={props.disabled}
-    >
-      {props?.children}
-    </Button>
-  );
-};
+export const UiButton: React.FC<UiButtonProps> = ({
+  onClick,
+  state,
+  testId,
+  className,
+  disabled,
+  children,
+}: UiButtonProps) => (
+  <Button onClick={onClick} state={state} data-stid={testId} className={className} disabled={disabled}>
+    {children}
+  </Button>
+);
 
 UiButton.displayName = 'UiButton';
