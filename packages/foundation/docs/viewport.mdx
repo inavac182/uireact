@@ -27,17 +27,17 @@ This component is exported as part of the package @ui-react/foundation
 ### Using specific breakpoint
 
 <Playground>
-  <UiViewport breakpoint={Breakpoints.LARGE}>
+  <UiViewport criteria={Breakpoints.LARGE}>
     <UiBox>
       Hey, I'm in Large!
     </UiBox>
   </UiViewport>
-  <UiViewport breakpoint={Breakpoints.MEDIUM}>
+  <UiViewport criteria={Breakpoints.MEDIUM}>
     <UiBox>
       I appear in Medium!!
     </UiBox>
   </UiViewport>
-  <UiViewport breakpoint={Breakpoints.SMALL}>
+  <UiViewport criteria={Breakpoints.SMALL}>
     <UiBox>
       And I'm in Small!
     </UiBox>
@@ -47,7 +47,7 @@ This component is exported as part of the package @ui-react/foundation
 ### Using a set of breakpoints
 
 <Playground>
-  <UiViewport breakpoints='l|s'>
+  <UiViewport criteria='l|s'>
     <UiBox>
       Hey, I appear in Large and Small!!
     </UiBox>

@@ -9,10 +9,10 @@ beforeEach(() => {
   global.innerWidth = BreakpointsSizes.l.min;
 });
 
-describe('using breakpoint', () => {
-  test('should render correctly when breakpoint is large', () => {
+describe('using breakpoint enum', () => {
+  test('should render correctly when criteria is large', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.LARGE}>
+      <UiViewport criteria={Breakpoints.LARGE}>
         <p>Render in large</p>
       </UiViewport>
     );
@@ -27,9 +27,9 @@ describe('using breakpoint', () => {
     expect(screen.queryByText('Render in large')).not.toBeInTheDocument();
   });
 
-  test('should render correctly when breakpoint is medium', () => {
+  test('should render correctly when criteria is medium', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.MEDIUM}>
+      <UiViewport criteria={Breakpoints.MEDIUM}>
         <p>Render in medium</p>
       </UiViewport>
     );
@@ -44,9 +44,9 @@ describe('using breakpoint', () => {
     expect(screen.getByText('Render in medium')).toBeVisible();
   });
 
-  test('should render correctly when breakpoint is small', () => {
+  test('should render correctly when criteria is small', () => {
     render(
-      <UiViewport breakpoint={Breakpoints.SMALL}>
+      <UiViewport criteria={Breakpoints.SMALL}>
         <p>Render in small</p>
       </UiViewport>
     );
@@ -62,10 +62,10 @@ describe('using breakpoint', () => {
   });
 });
 
-describe('using breakpoins string', () => {
-  test('should render correctly when breakpoints string is l|m', () => {
+describe('using criteria string', () => {
+  test('should render correctly when criteria is l|m', () => {
     render(
-      <UiViewport breakpoints="l|m">
+      <UiViewport criteria="l|m">
         <p>Render in large and medium</p>
       </UiViewport>
     );
@@ -87,9 +87,9 @@ describe('using breakpoins string', () => {
     expect(screen.queryByText('Render in large and medium')).not.toBeInTheDocument();
   });
 
-  test('should render correctly when breakpoints string is l|s', () => {
+  test('should render correctly when criteria is l|s', () => {
     render(
-      <UiViewport breakpoints="l|s">
+      <UiViewport criteria="l|s">
         <p>Render in large and small</p>
       </UiViewport>
     );
@@ -111,9 +111,9 @@ describe('using breakpoins string', () => {
     expect(screen.getByText('Render in large and small')).toBeVisible();
   });
 
-  test('should render correctly when breakpoints string is m|s', () => {
+  test('should render correctly when criteria is m|s', () => {
     render(
-      <UiViewport breakpoints="m|s">
+      <UiViewport criteria="m|s">
         <p>Render in medium and small</p>
       </UiViewport>
     );
