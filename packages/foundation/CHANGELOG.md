@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-04-12)
+
+- refactor(foundation)!: change UiViewport to a simple criteria prop (#14) ([9507197](https://github.com/inavac182/ui-react/commit/9507197f9f1c4414fd1495fd3dd4cd6c2c121f55)), closes [#14](https://github.com/inavac182/ui-react/issues/14)
+
+### BREAKING CHANGES
+
+- This changes the way how we set the breakpoints criteria in the UiViewport
+
 ## [0.2.6](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.2.5...@uireact/foundation@0.2.6) (2021-04-12)
 
 **Note:** Version bump only for package @uireact/foundation
