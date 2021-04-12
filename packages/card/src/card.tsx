@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 import { CategoryTheme, getColor, UiReactElementProp, StaticElementEnum, ThemeContext } from '@uireact/foundation';
 
-interface UiCardProps extends UiReactElementProp {
+interface UiCardProps {
   children?: React.ReactNode;
 }
 
-const Div = styled.div<UiCardProps>`
-  ${(props: UiCardProps) => `
+type privateCardProps = UiCardProps & UiReactElementProp;
+
+const Div = styled.div<privateCardProps>`
+  ${(props) => `
     color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.paragraph, props.customTheme)};
     background-color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.background, props.customTheme)};
   `}

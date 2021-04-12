@@ -12,15 +12,19 @@ import {
   UiReactElementProp,
 } from '@uireact/foundation';
 
-interface UiButtonProps extends UiReactElementProp {
+interface UiButtonProps {
   /** Button state that matches with a coloscheme from themes */
   state: DynamicElementStateEnum;
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   children?: React.ReactNode;
+  testId?: string;
+  className?: string;
 }
 
-const Button = styled.button<UiButtonProps>`
+type privateButtonProps = UiButtonProps & UiReactElementProp;
+
+const Button = styled.button<privateButtonProps>`
   ${(props) => `
     color: ${getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
