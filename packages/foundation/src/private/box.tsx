@@ -16,7 +16,6 @@ const Div = styled.div<UiReactElementProp>`
   box-shadow: inset 0px 0px 2px 5px #cccccc;
   padding: 5px;
   padding-left: 20px;
-  height: 50px;
   line-height: 50px;
 `;
 

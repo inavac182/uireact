@@ -8,30 +8,38 @@ type BreakpointString = 'l|s' | 'l|m' | 'm|s';
 
 interface ViewportProps {
   children?: React.ReactNode;
-  /** breakpoint where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
-  breakpoint?: Breakpoints;
-  /** combination of breakpoints where UiViewport render its children */
-  breakpoints?: BreakpointString;
+  /** breakpoint(s) criteria where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
+  criteria: Breakpoints | BreakpointString;
 }
 
-export const UiViewport: React.FC<ViewportProps> = ({ children, breakpoint, breakpoints }) => {
+export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   const { width } = useWindowDimensions();
   const childrenMemo = React.useMemo(() => <>{children}</>, []);
+  const isSmall = width <= BreakpointsSizes.s.max;
+  const isMedium = width >= BreakpointsSizes.m.min && width <= BreakpointsSizes.m.max;
+  const isLarge = width >= BreakpointsSizes.l.min;
 
-  if ((breakpoint === Breakpoints.SMALL || breakpoints?.includes('s')) && width <= BreakpointsSizes.s.max) {
-    return childrenMemo;
+  if (isSmall) {
+    const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 'l|s' || criteria === 'm|s';
+    if (matchesCriteria) {
+      return childrenMemo;
+    }
   }
 
-  if (
-    (breakpoint === Breakpoints.MEDIUM || breakpoints?.includes('m')) &&
-    width >= BreakpointsSizes.m.min &&
-    width <= BreakpointsSizes.m.max
-  ) {
-    return childrenMemo;
+  if (isMedium) {
+    const matchesCriteria = criteria === Breakpoints.MEDIUM || criteria === 'l|m' || criteria === 'm|s';
+
+    if (matchesCriteria) {
+      return childrenMemo;
+    }
   }
 
-  if ((breakpoint === Breakpoints.LARGE || breakpoints?.includes('l')) && width >= BreakpointsSizes.l.min) {
-    return childrenMemo;
+  if (isLarge) {
+    const matchesCriteria = criteria === Breakpoints.LARGE || criteria === 'l|m' || criteria === 'l|s';
+
+    if (matchesCriteria) {
+      return childrenMemo;
+    }
   }
 
   return null;
