@@ -1,40 +1,29 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import {
-  CategoryTheme,
-  getValueFromStaticThemeElement,
-  UiReactElementProp,
-  StaticElementEnum,
-} from '@uireact/foundation';
+import { CategoryTheme, getColor, UiReactElementProp, StaticElementEnum, ThemeContext } from '@uireact/foundation';
 
-interface UiCardProps extends UiReactElementProp {
+interface UiCardProps {
   children?: React.ReactNode;
 }
 
-const Div = styled.div<UiCardProps>`
-  ${(props: UiCardProps) => `
-    ${
-      props.theme?.main &&
-      `color: ${getValueFromStaticThemeElement(
-        CategoryTheme.CONTAINERS,
-        StaticElementEnum.paragraph,
-        props.theme.main
-      )};
-      background-color: ${getValueFromStaticThemeElement(
-        CategoryTheme.CONTAINERS,
-        StaticElementEnum.background,
-        props.theme.main
-      )};`
-    }
+type privateCardProps = UiCardProps & UiReactElementProp;
+
+const Div = styled.div<privateCardProps>`
+  ${(props) => `
+    color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.paragraph, props.customTheme)};
+    background-color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.background, props.customTheme)};
   `}
+
   border-radius: 3px;
   border: 1px solid purple;
   padding: 5px;
 `;
 
 export const UiCard: React.FC = (props: UiCardProps) => {
-  return <Div>{props?.children}</Div>;
+  const themeContext = React.useContext(ThemeContext);
+
+  return <Div customTheme={themeContext.theme}>{props?.children}</Div>;
 };
 
 UiCard.displayName = 'UiCard';

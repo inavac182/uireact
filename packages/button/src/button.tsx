@@ -4,36 +4,93 @@ import styled from 'styled-components';
 
 import {
   CategoryTheme,
-  DynamicElementStateEnum,
   DynamicElementActionEnum,
-  getValueFromDynamicThemeElement,
-  UiReactElementProp,
+  DynamicElementStateEnum,
+  getDynamicColor,
   StaticElementEnum,
+  ThemeContext,
+  UiReactElementProp,
 } from '@uireact/foundation';
 
-interface UiButtonProps extends UiReactElementProp {
+interface UiButtonProps {
+  /** Button state that matches with a coloscheme from themes */
+  state: DynamicElementStateEnum;
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
   children?: React.ReactNode;
+  testId?: string;
+  className?: string;
 }
 
-const Button = styled.button<UiButtonProps>`
-  ${(props: UiButtonProps) => `
-    ${
-      props.theme?.main &&
-      `color: ${getValueFromDynamicThemeElement(
+type privateButtonProps = UiButtonProps & UiReactElementProp;
+
+const Button = styled.button<privateButtonProps>`
+  ${(props) => `
+    color: ${getDynamicColor(
+      CategoryTheme.DYNAMIC_ELEMENTS,
+      StaticElementEnum.paragraph,
+      props.state,
+      DynamicElementActionEnum.NORMAL,
+      props.customTheme
+    )};
+    background: ${getDynamicColor(
+      CategoryTheme.DYNAMIC_ELEMENTS,
+      StaticElementEnum.background,
+      props.state,
+      DynamicElementActionEnum.NORMAL,
+      props.customTheme
+    )};
+
+    :hover {
+      color: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.paragraph,
-        DynamicElementStateEnum.INFO,
-        DynamicElementActionEnum.NORMAL,
-        props.theme.main
+        props.state,
+        DynamicElementActionEnum.HOVER,
+        props.customTheme
       )};
-      background-color: ${getValueFromDynamicThemeElement(
+      background: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.background,
-        DynamicElementStateEnum.INFO,
-        DynamicElementActionEnum.NORMAL,
-        props.theme.main
-      )};`
+        props.state,
+        DynamicElementActionEnum.HOVER,
+        props.customTheme
+      )};
+    }
+
+    :active {
+      color: ${getDynamicColor(
+        CategoryTheme.DYNAMIC_ELEMENTS,
+        StaticElementEnum.paragraph,
+        props.state,
+        DynamicElementActionEnum.ACTIVE,
+        props.customTheme
+      )};
+      background: ${getDynamicColor(
+        CategoryTheme.DYNAMIC_ELEMENTS,
+        StaticElementEnum.background,
+        props.state,
+        DynamicElementActionEnum.ACTIVE,
+        props.customTheme
+      )};
+    }
+
+    :disabled {
+      color: ${getDynamicColor(
+        CategoryTheme.DYNAMIC_ELEMENTS,
+        StaticElementEnum.paragraph,
+        props.state,
+        DynamicElementActionEnum.DISABLED,
+        props.customTheme
+      )};
+      background: ${getDynamicColor(
+        CategoryTheme.DYNAMIC_ELEMENTS,
+        StaticElementEnum.background,
+        props.state,
+        DynamicElementActionEnum.DISABLED,
+        props.customTheme
+      )};
+      cursor: not-allowed;
     }
   `}
 
@@ -43,8 +100,28 @@ const Button = styled.button<UiButtonProps>`
   cursor: pointer;
 `;
 
-export const UiButton: React.FC = (props: UiButtonProps) => {
-  return <Button onClick={props.onClick}>{props?.children}</Button>;
+export const UiButton: React.FC<UiButtonProps> = ({
+  onClick,
+  state,
+  testId,
+  className,
+  disabled,
+  children,
+}: UiButtonProps) => {
+  const themeContext = React.useContext(ThemeContext);
+
+  return (
+    <Button
+      customTheme={themeContext.theme}
+      onClick={onClick}
+      state={state}
+      data-stid={testId}
+      className={className}
+      disabled={disabled}
+    >
+      {children}
+    </Button>
+  );
 };
 
 UiButton.displayName = 'UiButton';
