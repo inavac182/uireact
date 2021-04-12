@@ -15,7 +15,6 @@ import {
 interface UiButtonProps {
   /** Button state that matches with a coloscheme from themes */
   state: DynamicElementStateEnum;
-  /** onClick Handler */
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
   children?: React.ReactNode;
