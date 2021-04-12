@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ThemeContext } from '../../src/providers';
 import { Themes } from '../../src/themes';
@@ -8,11 +8,11 @@ import { ThemeType } from '../../src';
 const MockedComponent = () => {
   const themeContext = React.useContext(ThemeContext);
 
-  return <p>{themeContext.theme.name}</p>
-}
+  return <p>{themeContext.theme.name}</p>;
+};
 
 interface MockedParentComponent {
-  defaultTheme?: ThemeType
+  defaultTheme?: ThemeType;
 }
 
 const MockedParentComponent = ({ defaultTheme }: MockedParentComponent) => {
@@ -26,8 +26,8 @@ const MockedParentComponent = ({ defaultTheme }: MockedParentComponent) => {
       <MockedComponent />
       <button onClick={toogleTheme}>Toogle</button>
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
 test('Should set dark theme by default', () => {
   render(<MockedParentComponent />);
