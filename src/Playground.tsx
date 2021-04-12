@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Playground, PlaygroundProps } from 'docz';
-import { ThemeProvider } from 'styled-components';
 
+import { ThemeContext, Themes } from '../packages/foundation/src/';
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 import themeIcon from './icons/sun-icon.png';
 
 const CustomPlayground = (props: PlaygroundProps): React.ReactNode => {
-  const [theme, setTheme] = React.useState('dark');
-
-  const changeTheme = React.useCallback(() => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  }, []);
+  const [theme, setTheme] = useState(Themes.dark);
+  const toogleTheme = () => {
+    setTheme(theme.name === Themes.dark.name ? Themes.light : Themes.dark);
+  };
 
   return (
-    <ThemeProvider theme={{ main: theme }}>
+    <ThemeContext.Provider value={{ theme, toogleTheme }}>
       <div style={{ background: 'rebeccapurple', padding: 12 }}>
-        <button onClick={changeTheme}>
+        <button onClick={toogleTheme}>
           <img src={themeIcon} width="20px" />
         </button>
         <Playground {...props} />
       </div>
-    </ThemeProvider>
+    </ThemeContext.Provider>
   );
 };
 

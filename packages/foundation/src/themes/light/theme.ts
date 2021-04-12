@@ -7,4 +7,5 @@ export const Light: ThemeType = {
   colors,
   fonts,
   shapes,
+  name: 'light',
 };

@@ -6,4 +6,5 @@ export interface ThemeType {
   colors: ColorsType;
   fonts: Fonts;
   shapes: Shapes;
+  name: string;
 }

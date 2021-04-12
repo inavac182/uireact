@@ -7,4 +7,5 @@ export const Dark: ThemeType = {
   colors,
   fonts,
   shapes,
+  name: 'dark',
 };
