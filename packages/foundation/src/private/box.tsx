@@ -1,8 +1,17 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 
-const Div = styled.div`
-  background-color: #d9d9d9;
+import { getColor } from '../themes';
+import { ThemeContext } from '../providers';
+import { CategoryTheme, StaticElementEnum, UiReactElementProp } from '../types';
+
+const Div = styled.div<UiReactElementProp>`
+  ${(props) => `
+    background: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.background, props.customTheme)};
+    color: ${getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, props.customTheme)};
+  `}
+
   border-radius: 5px;
   box-shadow: inset 0px 0px 2px 5px #cccccc;
   padding: 5px;
@@ -16,7 +25,9 @@ interface UiBoxProps {
 }
 
 export const UiBox: React.FC = ({ children }: UiBoxProps) => {
-  return <Div>{children}</Div>;
+  const themeContext = useContext(ThemeContext);
+
+  return <Div customTheme={themeContext.theme}>{children}</Div>;
 };
 
 UiBox.displayName = 'UiBox';

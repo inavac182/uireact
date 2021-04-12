@@ -1,9 +1,7 @@
-interface ThemeType {
-  main: string;
-}
+import { ThemeType } from './themes';
 
 export interface UiReactElementProp {
-  theme?: ThemeType;
+  customTheme: ThemeType;
   children?: React.ReactNode;
   className?: string;
   testId?: string;

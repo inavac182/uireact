@@ -5,54 +5,21 @@ import {
   DynamicElementActionEnum,
   DynamicElementStateEnum,
   StaticElementEnum,
-  StaticElementType,
 } from '../types';
-import { Themes } from './themes';
 
-export const getValueFromStaticThemeElement = (
-  category: CategoryTheme,
-  value: StaticElementEnum,
-  theme: string | ThemeType
-): string => {
-  const selectedTheme = typeof theme === 'string' ? Themes[theme] : theme;
-
-  if (!selectedTheme || !selectedTheme.colors) {
-    console.error('THEME ERROR', 'THEME IS NOT VALID');
-    return '';
-  }
-
-  const themeValues = selectedTheme.colors[category] as StaticElementType;
-
-  if (!themeValues) {
-    console.error('THEME ERROR', 'CATEGORY NOT FOUND IN THEME');
-    return '';
-  }
-
-  const color = themeValues[value];
-
-  if (!color) {
-    console.error('THEME ERROR', 'COLOR NOT FOUND IN CATEGORY');
-    return '';
-  }
-
-  return color;
-};
-
-export const getValueFromDynamicThemeElement = (
+export const getDynamicColor = (
   category: CategoryTheme,
   value: StaticElementEnum,
   state: DynamicElementStateEnum,
   action: DynamicElementActionEnum,
-  theme: string | ThemeType
+  theme: ThemeType
 ): string => {
-  const selectedTheme = typeof theme === 'string' ? Themes[theme] : theme;
-
-  if (!selectedTheme || !selectedTheme.colors) {
+  if (!theme || !theme.colors) {
     console.error('THEME ERROR', 'THEME IS NOT VALID');
     return '';
   }
 
-  const dynamicElements = selectedTheme.colors[category] as DynamicElementsType;
+  const dynamicElements = theme.colors[category] as DynamicElementsType;
 
   if (!dynamicElements) {
     console.error('THEME ERROR', 'DYNAMIC ELEMENT CATEGORY NOT FOUND IN THEME');

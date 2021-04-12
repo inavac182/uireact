@@ -1,2 +1,3 @@
 export * from './themes';
-export * from './get-value-from-theme';
+export * from './get-color';
+export * from './get-dynamic-color';

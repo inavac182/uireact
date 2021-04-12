@@ -1,3 +1,4 @@
+export * from './providers';
 export * from './responsive';
-export * from './types';
 export * from './themes';
+export * from './types';
