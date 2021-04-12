@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Playground, PlaygroundProps } from 'docz';
 
-import { ThemeContext, Themes } from '../packages/foundation/src/';
+import { ThemeContext, Themes } from '@uireact/foundation';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore

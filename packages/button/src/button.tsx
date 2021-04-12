@@ -6,8 +6,9 @@ import {
   CategoryTheme,
   DynamicElementActionEnum,
   DynamicElementStateEnum,
-  getValueFromDynamicThemeElement,
+  getDynamicColor,
   StaticElementEnum,
+  ThemeContext,
   UiReactElementProp,
 } from '@uireact/foundation';
 
@@ -21,69 +22,69 @@ interface UiButtonProps extends UiReactElementProp {
 
 const Button = styled.button<UiButtonProps>`
   ${(props) => `
-    color: ${getValueFromDynamicThemeElement(
+    color: ${getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.paragraph,
       props.state,
       DynamicElementActionEnum.NORMAL,
-      props.theme.main
+      props.customTheme
     )};
-    background: ${getValueFromDynamicThemeElement(
+    background: ${getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.background,
       props.state,
       DynamicElementActionEnum.NORMAL,
-      props.theme.main
+      props.customTheme
     )};
 
     :hover {
-      color: ${getValueFromDynamicThemeElement(
+      color: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.paragraph,
         props.state,
         DynamicElementActionEnum.HOVER,
-        props.theme.main
+        props.customTheme
       )};
-      background: ${getValueFromDynamicThemeElement(
+      background: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.background,
         props.state,
         DynamicElementActionEnum.HOVER,
-        props.theme.main
+        props.customTheme
       )};
     }
 
     :active {
-      color: ${getValueFromDynamicThemeElement(
+      color: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.paragraph,
         props.state,
         DynamicElementActionEnum.ACTIVE,
-        props.theme.main
+        props.customTheme
       )};
-      background: ${getValueFromDynamicThemeElement(
+      background: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.background,
         props.state,
         DynamicElementActionEnum.ACTIVE,
-        props.theme.main
+        props.customTheme
       )};
     }
 
     :disabled {
-      color: ${getValueFromDynamicThemeElement(
+      color: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.paragraph,
         props.state,
         DynamicElementActionEnum.DISABLED,
-        props.theme.main
+        props.customTheme
       )};
-      background: ${getValueFromDynamicThemeElement(
+      background: ${getDynamicColor(
         CategoryTheme.DYNAMIC_ELEMENTS,
         StaticElementEnum.background,
         props.state,
         DynamicElementActionEnum.DISABLED,
-        props.theme.main
+        props.customTheme
       )};
       cursor: not-allowed;
     }
@@ -102,10 +103,21 @@ export const UiButton: React.FC<UiButtonProps> = ({
   className,
   disabled,
   children,
-}: UiButtonProps) => (
-  <Button onClick={onClick} state={state} data-stid={testId} className={className} disabled={disabled}>
-    {children}
-  </Button>
-);
+}: UiButtonProps) => {
+  const themeContext = React.useContext(ThemeContext);
+
+  return (
+    <Button
+      customTheme={themeContext.theme}
+      onClick={onClick}
+      state={state}
+      data-stid={testId}
+      className={className}
+      disabled={disabled}
+    >
+      {children}
+    </Button>
+  );
+};
 
 UiButton.displayName = 'UiButton';
