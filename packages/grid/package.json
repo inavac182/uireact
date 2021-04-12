@@ -1,0 +1,30 @@
+{
+  "name": "@uireact/grid",
+  "description": "Grid component from uireact library",
+  "repository": "https://github.com/inavac182/ui-react",
+  "license": "MIT",
+  "version": "0.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": " rm -rf dist node_modules coverage",
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --fix --max-warnings=0",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "lint": "npm run lint:styles && npm run tsc && npm run eslint",
+    "test": "jest",
+    "tsc": "tsc"
+  },
+  "peerDependencies": {
+    "@types/styled-components": "^5.1.0",
+    "@uireact/foundation": "^0.2.4",
+    "react": ">= 16.8.0 < 17",
+    "react-dom": ">= 16.8.0 < 17",
+    "styled-components": "^5.1.1"
+  }
+}

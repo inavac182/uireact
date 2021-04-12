@@ -14,7 +14,7 @@ module.exports = {
         'card',
         'checkbox',
         'chore',
-        'colsgrid',
+        'grid',
         'config',
         'demo',
         'docs',
