@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/inavac182/ui-react/compare/@uireact/button@0.5.0...@uireact/button@0.5.1) (2021-04-12)
+
+### Reverts
+
+- Revert "refactor(button)!: test breaking change" (#16) ([cc5d6d4](https://github.com/inavac182/ui-react/commit/cc5d6d484492af3e3f293628c979295eec79ef60)), closes [#16](https://github.com/inavac182/ui-react/issues/16)
+
 # 0.5.0 (2021-04-12)
 
 - refactor(button)!: test breaking change ([45ff2be](https://github.com/inavac182/ui-react/commit/45ff2bec5995dce05b8d53666488e6539c50e7ee))
