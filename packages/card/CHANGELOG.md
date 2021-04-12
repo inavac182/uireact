@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-04-12)
+
+### Features
+
+- **button:** adding state and action styles ([#12](https://github.com/inavac182/ui-react/issues/12)) BREAKING CHANGE ([dc4bf57](https://github.com/inavac182/ui-react/commit/dc4bf5784118403434be202ca9d8957c2d864b44))
+
 ## [0.3.1](https://github.com/inavac182/ui-react/compare/@uireact/card@0.3.0...@uireact/card@0.3.1) (2021-04-07)
 
 **Note:** Version bump only for package @uireact/card
