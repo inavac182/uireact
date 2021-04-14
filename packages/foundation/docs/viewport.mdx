@@ -24,7 +24,7 @@ This component is exported as part of the package @ui-react/foundation
 
 ## Usages
 
-### Using specific breakpoint
+### 1. Specifict breakpoint
 
 <Playground>
   <UiViewport criteria={Breakpoints.LARGE}>
@@ -44,7 +44,9 @@ This component is exported as part of the package @ui-react/foundation
   </UiViewport>
 </Playground>
 
-### Using a set of breakpoints
+> The [Breakpoints](./packages-foundation-docs-breakpoints#definition) enum is used to set up one specific breakpoint where we want the UiViewport to render something.
+
+### 2. Multiple breakpoints
 
 <Playground>
   <UiViewport criteria='l|s'>
@@ -54,6 +56,8 @@ This component is exported as part of the package @ui-react/foundation
   </UiViewport>
 </Playground>
 
+> Multiple breakpoints are supported as prop for the UiViewport. For the complete convination list see the Props table
+
 ## Props
 
 <Props of={UiViewport} />
@@ -62,5 +66,3 @@ This component is exported as part of the package @ui-react/foundation
 **NOTES:**
 
 If you ask why there's not `"l|m|s"` combination in breakpoints is because well, if you need something to render in that scenario then you don't need a `UiViewport` 🤘.
-
-If you don't set any breakpoint then the children will never be rendered as there won't be any criteria to match ✍️

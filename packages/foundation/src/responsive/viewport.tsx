@@ -8,7 +8,7 @@ type BreakpointString = 'l|s' | 'l|m' | 'm|s';
 
 interface ViewportProps {
   children?: React.ReactNode;
-  /** breakpoint(s) criteria where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
+  /** Breakpoint(s) criteria where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
   criteria: Breakpoints | BreakpointString;
 }
 
