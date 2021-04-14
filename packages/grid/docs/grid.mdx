@@ -5,10 +5,13 @@ menu: Components
 
 import { Props } from 'docz';
 import Playground from '../../../src/Playground'
-import { UiGrid } from '../src/';
+import { UiGrid, UiGridItem } from '../src/';
 import * as packageJson from '../package.json'
 
-# UiGrid
+import { UiCard } from '@uireact/card';
+import { UiViewport } from '@uireact/foundation';
+
+# UiGrid & UiGridItem
 
 <sup><a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">v{packageJson.version}</a></sup>
 
@@ -20,12 +23,40 @@ import * as packageJson from '../package.json'
 
 ## Usage
 
+### 1. Using just UiGrid
+
 <Playground>
     <UiGrid cols={3} rows={2} colsGap='10%' justifyItems='center'>
-        <p>Item 1!</p>
-        <p>Item 2!</p>
+        <UiCard>Item 1!</UiCard>
+        <UiCard>Item 2!</UiCard>
     </UiGrid>
 </Playground>
 
-## Props
+> This is the suggested approach if all grid items will share the same styles.
+
+
+### 2. Using UiGrid with UiGridItem
+
+<Playground>
+    <UiGrid cols={3} rows={2} colsGap='5px'>
+        <UiViewport criteria='l|s'>
+            <UiGridItem cols={2}>
+                <UiCard>Item 1!</UiCard>
+            </UiGridItem>
+        </UiViewport>
+        <UiGridItem palceSelft='stretch' rows={2}>
+            <UiCard>Item 2!</UiCard>
+            <span>Yeah, 2 rows is nice!</span>
+        </UiGridItem>
+    </UiGrid>
+</Playground>
+
+> In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
+
+> Also notice that in Item 1 we are making use of the [UiViewport](./packages-foundation-docs-viewport) to render/remove it depending on the breakpoint
+
+## UiGrid Props
 <Props of={UiGrid} />
+
+## UiGridItem Props
+<Props of={UiGridItem} />
