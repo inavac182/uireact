@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/grid@0.1.0...@uireact/grid@0.2.0) (2021-04-14)
+
+### Features
+
+- **grid:** adding grid components ([#22](https://github.com/inavac182/ui-react/issues/22)) ([1c9bfc2](https://github.com/inavac182/ui-react/commit/1c9bfc2e89ccb21c662875b89cec70bf9d60214e))
+
 # [0.1.0](https://github.com/inavac182/ui-react/compare/@uireact/grid@0.0.2...@uireact/grid@0.1.0) (2021-04-13)
 
 ### Features
