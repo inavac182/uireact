@@ -4,10 +4,15 @@ import styled from 'styled-components';
 import { getItemSpan } from './private';
 
 interface GridItemProps {
+  /** Aligns the item inside its grid block */
   alignSelf?: 'start' | 'end' | 'center' | 'stretch';
+  /** Number of columns that the item will take */
   cols?: number;
+  /** Justify the item inside its grid block */
   justifySelf?: 'start' | 'end' | 'center' | 'stretch';
+  /** Align and Justify the item inside its grid block */
   placeSelf?: 'start' | 'end' | 'center' | 'stretch';
+  /** Number of rows that the item will take */
   rows?: number;
 }
 

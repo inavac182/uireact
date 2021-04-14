@@ -33,9 +33,9 @@ enum Breakpoints {
 }
 ```
 
-### BreakpointsSizes
+> This enum is exported in the @uireact/foundation package.
 
-**IMPORTANT:** We use these values to handle each breakpoint, we don't distinguish between mobile device and desktop small viewport.
+### Breakpoint sizes
 
 ```
 const BreakpointsSizes = {
@@ -53,4 +53,8 @@ const BreakpointsSizes = {
 
 ```
 
+> This size object is a constant that we have inside our foundation package and is used  to determine the users breakpoint.
+
 Anything smaller than 580 will be categorized as *SMALL*, then from 580 to 991 will be *MEDIUM* and anything larger than 991 will be *large*
+
+**NOTE:** @uireact doesn't distinguish between real mobile device and desktop small breakpoint, they are both categorized as SMALL.
