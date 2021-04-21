@@ -1,0 +1,34 @@
+---
+name: UiNavbar
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiCard } from '@uireact/card';
+import { UiViewport, Breakpoints } from '@uireact/foundation';
+
+import Playground from '../../../src/Playground'
+import { UiNavbar } from '../src/';
+import * as packageJson from '../package.json'
+
+# UiNavbar
+
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">v{packageJson.version}</a></sup>
+
+> Structure and organize the UI
+
+## Installation
+
+> npm i @uireact/foundation @uireact/navbar
+
+## Usage
+
+<Playground>
+    <UiNavbar>
+        <p>NavBar</p>
+    </UiNavbar>
+</Playground>
+
+## UiNavbar Props
+<Props of={UiNavbar} />
