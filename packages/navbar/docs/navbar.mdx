@@ -9,24 +9,34 @@ import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
 
 import Playground from '../../../src/Playground'
-import { UiNavbar } from '../src/';
+import { UiNavbar, UiNavbarItem } from '../src/';
 import * as packageJson from '../package.json'
 
 # UiNavbar
 
-<sup><a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">v{packageJson.version}</a></sup>
+<sup><a href="https://github.com/inavac182/ui-react/blob/main/grid/navbar/" target="_blank">v{packageJson.version}</a></sup>
 
-> Structure and organize the UI
+> Render navbars for menus
 
 ## Installation
 
 > npm i @uireact/foundation @uireact/navbar
 
-## Usage
+## Usage as a stacked navbar
 
 <Playground>
-    <UiNavbar>
-        <p>NavBar</p>
+    <UiNavbar orientation="stacked">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+    </UiNavbar>
+</Playground>
+
+## Usage as an inline navbar
+
+<Playground>
+    <UiNavbar orientation="inline">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
     </UiNavbar>
 </Playground>
 

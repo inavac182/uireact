@@ -7,7 +7,7 @@ module.exports = {
   moduleDirectories: ["node_modules", "src"],
   collectCoverage: true,
   collectCoverageFrom: [
-      ".src/**/*.{ts,tsx}",
+      "./src/**/*.{ts,tsx}",
       "./src/**/index.ts"
   ],
   coverageThreshold: {
