@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2021-05-30)
+
+### Features
+
+- **card:** adding images and link to cards ([#28](https://github.com/inavac182/ui-react/issues/28)) ([f1ec34c](https://github.com/inavac182/ui-react/commit/f1ec34c5130fd599b61ca2d7af92ac0fdc7fe0a6))
+
 ## 0.4.2 (2021-04-20)
 
 **Note:** Version bump only for package @uireact/card
