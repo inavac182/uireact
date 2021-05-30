@@ -6,7 +6,7 @@ import { UiNavbar, UiNavbarItem } from '../src';
 
 test('Should render navbar if orientation is inline', () => {
   render(
-    <UiNavbar orientation='inline'>
+    <UiNavbar orientation="inline">
       <UiNavbarItem>Option 1</UiNavbarItem>
       <UiNavbarItem>Option 2</UiNavbarItem>
     </UiNavbar>
@@ -18,7 +18,7 @@ test('Should render navbar if orientation is inline', () => {
 
 test('Should render navbar if orientation is stacked', () => {
   render(
-    <UiNavbar orientation='stacked'>
+    <UiNavbar orientation="stacked">
       <UiNavbarItem>Option 1</UiNavbarItem>
       <UiNavbarItem>Option 2</UiNavbarItem>
     </UiNavbar>
