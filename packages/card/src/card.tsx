@@ -1,29 +1,65 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
-import { CategoryTheme, getColor, UiReactElementProp, StaticElementEnum, ThemeContext } from '@uireact/foundation';
+import { ThemeContext } from '@uireact/foundation';
+import { CardWrapper, ContentWrapper, ImageWrapper, StyledLink, StyledExternalLink } from './private';
 
-interface UiCardProps {
-  children?: React.ReactNode;
+export interface UiCardProps {
+  button?: boolean;
+  clickHandler?: (idenfifier: string | undefined) => void;
+  content?: React.ReactNode;
+  footer?: React.ReactNode;
+  header?: React.ReactNode;
+  image?: string;
+  imageHeight?: number;
+  imagePosition?: 'top' | 'center' | 'bottom';
+  identifier?: string;
+  link?: string;
+  linkType?: 'internal' | 'external';
+  padded?: boolean;
 }
 
-type privateCardProps = UiCardProps & UiReactElementProp;
-
-const Div = styled.div<privateCardProps>`
-  ${(props) => `
-    color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.paragraph, props.customTheme)};
-    background-color: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.background, props.customTheme)};
-  `}
-
-  border-radius: 3px;
-  border: 1px solid purple;
-  padding: 5px;
-`;
-
-export const UiCard: React.FC = (props: UiCardProps) => {
+export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
   const themeContext = React.useContext(ThemeContext);
+  const onClick = React.useCallback(() => {
+    if (props.clickHandler) {
+      props.clickHandler(props.identifier);
+    }
+  }, [props.identifier, props.clickHandler]);
 
-  return <Div customTheme={themeContext.theme}>{props?.children}</Div>;
+  const CardWrapperMemo = React.useMemo(
+    () => (
+      <CardWrapper
+        customTheme={themeContext.theme}
+        onClick={!props.link ? onClick : undefined}
+        cursorNeeded={props.clickHandler !== undefined}
+      >
+        {props?.image && (
+          <ImageWrapper
+            image={props.image}
+            imageHeight={props.imageHeight}
+            imagePosition={props.imagePosition}
+            data-testid="image-wrapper"
+          />
+        )}
+        <ContentWrapper>
+          {props?.header}
+          {props?.content}
+          {props?.footer}
+        </ContentWrapper>
+      </CardWrapper>
+    ),
+    [props, themeContext.theme]
+  );
+
+  if (props.link) {
+    return props.linkType === 'internal' ? (
+      <StyledLink to={props.link}>{CardWrapperMemo}</StyledLink>
+    ) : (
+      <StyledExternalLink href={props.link}>{CardWrapperMemo}</StyledExternalLink>
+    );
+  }
+
+  return <>{CardWrapperMemo}</>;
 };
 
 UiCard.displayName = 'UiCard';
