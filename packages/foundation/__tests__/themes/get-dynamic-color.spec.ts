@@ -104,13 +104,14 @@ describe('getDynamicColor', () => {
       ...Themes.dark,
       colors: { ...Themes.dark.colors, dynamicElements: { ...Themes.dark.colors.dynamicElements, success: {} } },
     };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+
     const value = getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.paragraph,
       DynamicElementStateEnum.SUCCESS,
       DynamicElementActionEnum.NORMAL,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       customTheme
     );
 
@@ -131,6 +132,8 @@ describe('getDynamicColor', () => {
       StaticElementEnum.paragraph,
       DynamicElementStateEnum.SUCCESS,
       DynamicElementActionEnum.NORMAL,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       customTheme
     );
 
@@ -144,13 +147,14 @@ describe('getDynamicColor', () => {
     console.error = jest.fn();
 
     const customTheme = { ...Themes.dark, colors: {} };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+
     const value = getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.paragraph,
       DynamicElementStateEnum.SUCCESS,
       DynamicElementActionEnum.NORMAL,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       customTheme
     );
 
@@ -164,13 +168,14 @@ describe('getDynamicColor', () => {
     console.error = jest.fn();
 
     const customTheme = {};
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
+
     const value = getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.paragraph,
       DynamicElementStateEnum.SUCCESS,
       DynamicElementActionEnum.NORMAL,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       customTheme
     );
 
@@ -183,8 +188,6 @@ describe('getDynamicColor', () => {
     const consoleError = console.error;
     console.error = jest.fn();
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
     const value = getDynamicColor(
       CategoryTheme.DYNAMIC_ELEMENTS,
       StaticElementEnum.paragraph,
