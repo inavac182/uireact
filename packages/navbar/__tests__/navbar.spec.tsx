@@ -27,3 +27,18 @@ test('Should render navbar if orientation is stacked', () => {
   expect(screen.getByText('Option 1')).toBeVisible();
   expect(screen.getByText('Option 2')).toBeVisible();
 });
+
+test('Should render navbar if navbar item has alignments', () => {
+  render(
+    <UiNavbar orientation="stacked">
+      <UiNavbarItem align='center'>Option 1</UiNavbarItem>
+      <UiNavbarItem align='left'>Option 2</UiNavbarItem>
+      <UiNavbarItem align='right'>Option 3</UiNavbarItem>
+    </UiNavbar>
+  );
+
+  expect(screen.getByText('Option 1')).toBeVisible();
+  expect(screen.getByText('Option 2')).toBeVisible();
+  expect(screen.getByText('Option 3')).toBeVisible();
+});
+

@@ -6,7 +6,7 @@ import { NavbarWrapper } from './private';
 
 export interface UiNavbarProps {
   children?: React.ReactNode;
-  /* Stacked would render all options in 1 column */
+  /**  Stacked will render all options vertically - INLINE Default */
   orientation: 'stacked' | 'inline';
 }
 
