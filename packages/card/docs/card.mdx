@@ -4,13 +4,17 @@ menu: Components
 ---
 
 import { Props } from 'docz';
-import Playground from '../../../src/Playground'
+import Playground from '../../../src/Playground';
 import { UiCard } from '../src/';
-import * as packageJson from '../package.json'
+import * as packageJson from '../package.json';
 
 # UiCard
 
-<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/card/" target="_blank">v{packageJson.version}</a></sup>
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/card/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
 
 > Let's get that text wrapped
 
@@ -23,33 +27,31 @@ import * as packageJson from '../package.json'
 ### Card with Image
 
 <Playground>
-    <UiCard
-        header={<h1>Card header</h1>}
-        content={<p>This is the content</p>}
-        footer={<small>This is the footer</small>}
-        image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg"
-    />
+  <UiCard
+    header={<h1>Card header</h1>}
+    content={<p>This is the content</p>}
+    footer={<small>This is the footer</small>}
+    image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg"
+  />
 </Playground>
 
 ### Card with link
 
 <Playground>
-    <UiCard
-        content={<p>Let's get to ui react docs</p>}
-        link="https://www.uireact.io"
-    />
+  <UiCard content={<p>Let's get to ui react docs</p>} link="https://www.uireact.io" />
 </Playground>
 
 ### Card actionable with click handler
 
 <Playground>
-    <UiCard
-        header={<h1>Card header</h1>}
-        clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)}
-        identifier="My-ID"
-        image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg"
-    />
+  <UiCard
+    header={<h1>Card header</h1>}
+    clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)}
+    identifier="My-ID"
+    image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg"
+  />
 </Playground>
 
 ## Props
+
 <Props of={UiCard} />

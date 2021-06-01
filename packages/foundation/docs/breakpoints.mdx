@@ -3,12 +3,17 @@ name: Breakpoints
 menu: Foundation
 ---
 
-import * as packageJson from '../package.json'
+import * as packageJson from '../package.json';
 
 # Breakpoints
-----------
 
-<sup><a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">v{packageJson.version}</a></sup>
+---
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
 
 > @uireact uses these 2 pieces to handle breakpoints in the UiViewport
 >
@@ -53,8 +58,8 @@ const BreakpointsSizes = {
 
 ```
 
-> This size object is a constant that we have inside our foundation package and is used  to determine the users breakpoint.
+> This size object is a constant that we have inside our foundation package and is used to determine the users breakpoint.
 
-Anything smaller than 580 will be categorized as *SMALL*, then from 580 to 991 will be *MEDIUM* and anything larger than 991 will be *large*
+Anything smaller than 580 will be categorized as _SMALL_, then from 580 to 991 will be _MEDIUM_ and anything larger than 991 will be _large_
 
 **NOTE:** @uireact doesn't distinguish between real mobile device and desktop small breakpoint, they are both categorized as SMALL.
