@@ -31,9 +31,9 @@ test('Should render navbar if orientation is stacked', () => {
 test('Should render navbar if navbar item has alignments', () => {
   render(
     <UiNavbar orientation="stacked">
-      <UiNavbarItem align='center'>Option 1</UiNavbarItem>
-      <UiNavbarItem align='left'>Option 2</UiNavbarItem>
-      <UiNavbarItem align='right'>Option 3</UiNavbarItem>
+      <UiNavbarItem align="center">Option 1</UiNavbarItem>
+      <UiNavbarItem align="left">Option 2</UiNavbarItem>
+      <UiNavbarItem align="right">Option 3</UiNavbarItem>
     </UiNavbar>
   );
 

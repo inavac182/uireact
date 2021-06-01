@@ -21,7 +21,13 @@ describe('getColor', () => {
   });
 
   test('Should get the correct texts colors from a custom theme', () => {
-    const customTheme = { ...Themes.dark, colors: {...Themes.dark.colors, texts: {...Themes.dark.colors.texts, paragraph: 'custom-color-paragraph', heading: 'custom-color-heading'}} };
+    const customTheme = {
+      ...Themes.dark,
+      colors: {
+        ...Themes.dark.colors,
+        texts: { ...Themes.dark.colors.texts, paragraph: 'custom-color-paragraph', heading: 'custom-color-heading' },
+      },
+    };
     let value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
     expect(value).toBe('custom-color-paragraph');
 
@@ -33,7 +39,10 @@ describe('getColor', () => {
     const consoleError = console.error;
     console.error = jest.fn();
 
-    const customTheme = { ...Themes.dark, colors: {...Themes.dark.colors, texts: {...Themes.dark.colors.texts, paragraph: undefined}}};
+    const customTheme = {
+      ...Themes.dark,
+      colors: { ...Themes.dark.colors, texts: { ...Themes.dark.colors.texts, paragraph: undefined } },
+    };
     const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
 
     expect(value).toBeFalsy();
@@ -45,7 +54,7 @@ describe('getColor', () => {
     const consoleError = console.error;
     console.error = jest.fn();
 
-    const customTheme = { ...Themes.dark, colors: {}};
+    const customTheme = { ...Themes.dark, colors: {} };
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);

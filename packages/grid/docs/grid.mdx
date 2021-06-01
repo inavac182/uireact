@@ -8,13 +8,17 @@ import { Props } from 'docz';
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
 
-import Playground from '../../../src/Playground'
+import Playground from '../../../src/Playground';
 import { UiGrid, UiGridItem } from '../src/';
-import * as packageJson from '../package.json'
+import * as packageJson from '../package.json';
 
 # UiGrid & UiGridItem
 
-<sup><a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">v{packageJson.version}</a></sup>
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
 
 > Structure and organize the UI
 
@@ -27,31 +31,30 @@ import * as packageJson from '../package.json'
 ### 1. Using just UiGrid
 
 <Playground>
-    <UiGrid cols={3} rows={2} colsGap='10%' justifyItems='center'>
-        <UiCard>Item 1!</UiCard>
-        <UiCard>Item 2!</UiCard>
-    </UiGrid>
+  <UiGrid cols={3} rows={2} colsGap="10%" justifyItems="center">
+    <UiCard>Item 1!</UiCard>
+    <UiCard>Item 2!</UiCard>
+  </UiGrid>
 </Playground>
 
 > This is the suggested approach if all grid items will share the same styles.
 
-
 ### 2. Using UiGrid with UiGridItem
 
 <Playground>
-    <UiGrid cols={3} rows={2} colsGap='5px'>
-        <UiViewport criteria='l|s'>
-            <UiGridItem cols={2}>
-                <UiCard>Item 1!</UiCard>
-            </UiGridItem>
-        </UiViewport>
-        <UiGridItem placeSelf='stretch' rows={2}>
-            <UiCard>
-                <p>Item 2!</p>
-                <p>Yeah, 2 rows is nice!</p>
-            </UiCard>
-        </UiGridItem>
-    </UiGrid>
+  <UiGrid cols={3} rows={2} colsGap="5px">
+    <UiViewport criteria="l|s">
+      <UiGridItem cols={2}>
+        <UiCard>Item 1!</UiCard>
+      </UiGridItem>
+    </UiViewport>
+    <UiGridItem placeSelf="stretch" rows={2}>
+      <UiCard>
+        <p>Item 2!</p>
+        <p>Yeah, 2 rows is nice!</p>
+      </UiCard>
+    </UiGridItem>
+  </UiGrid>
 </Playground>
 
 > In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
@@ -59,7 +62,9 @@ import * as packageJson from '../package.json'
 > Also notice that in Item 1 we are making use of the [UiViewport](./packages-foundation-docs-viewport) to render/remove it depending on the breakpoint
 
 ## UiGrid Props
+
 <Props of={UiGrid} />
 
 ## UiGridItem Props
+
 <Props of={UiGridItem} />
