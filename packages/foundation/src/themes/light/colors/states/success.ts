@@ -1,7 +1,7 @@
-import { DynamicElementType } from '../../../../types/themes/dynamicElement';
-import { StaticElementType } from '../../../../types/themes/staticElement';
+import { ActionableStyles } from '../../../../types/themes/actionable-styles';
+import { StaticStyles } from '../../../../types/themes/static-styles';
 
-const normal: StaticElementType = {
+const normal: StaticStyles = {
   background: '#009933',
   border: '#006622',
   paragraph: '#ffffff',
@@ -9,7 +9,7 @@ const normal: StaticElementType = {
   shadows: '#000000',
 };
 
-const active: StaticElementType = {
+const active: StaticStyles = {
   background: '#248f24',
   border: '#006622',
   paragraph: '#ffffff',
@@ -17,7 +17,7 @@ const active: StaticElementType = {
   shadows: '#000000',
 };
 
-const disabled: StaticElementType = {
+const disabled: StaticStyles = {
   background: '#d6f5d6',
   border: '#006622',
   paragraph: '#ffffff',
@@ -25,7 +25,7 @@ const disabled: StaticElementType = {
   shadows: '#000000',
 };
 
-const hover: StaticElementType = {
+const hover: StaticStyles = {
   background: '#33cc33',
   border: '#006622',
   paragraph: '#ffffff',
@@ -33,7 +33,7 @@ const hover: StaticElementType = {
   shadows: '#000000',
 };
 
-export const success: DynamicElementType = {
+export const success: ActionableStyles = {
   normal,
   active,
   disabled,

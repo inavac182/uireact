@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 import { getColor } from '../themes';
 import { ThemeContext } from '../providers';
-import { CategoryTheme, StaticElementEnum, UiReactElementProp } from '../types';
+import { CategoryTheme, StyleProps, UiReactElementProp } from '../types';
 
 const Div = styled.div<UiReactElementProp>`
   ${(props) => `
-    background: ${getColor(CategoryTheme.CONTAINERS, StaticElementEnum.background, props.customTheme)};
-    color: ${getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, props.customTheme)};
+    background: ${getColor(CategoryTheme.CONTAINERS, StyleProps.background, props.customTheme)};
+    color: ${getColor(CategoryTheme.TEXTS, StyleProps.paragraph, props.customTheme)};
   `}
 
   border-radius: 5px;
