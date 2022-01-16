@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @uireact/button
 
-
-
-
-
 ## 0.6.2 (2021-04-20)
 
 **Note:** Version bump only for package @uireact/button
