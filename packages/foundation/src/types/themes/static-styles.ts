@@ -1,4 +1,4 @@
-export enum StaticElementEnum {
+export enum StyleProps {
   background = 'background',
   border = 'border',
   contrast = 'contrast',
@@ -10,6 +10,6 @@ export enum StaticElementEnum {
   paragraph = 'paragraph',
 }
 
-export type StaticElementType = {
-  [key in StaticElementEnum]?: string;
+export type StaticStyles = {
+  [key in StyleProps]?: string;
 };

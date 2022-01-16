@@ -1,49 +1,34 @@
-import {
-  CategoryTheme,
-  DynamicElementsType,
-  ThemeType,
-  DynamicElementActionEnum,
-  DynamicElementStateEnum,
-  StaticElementEnum,
-} from '../types';
+import { StyleProps, ThemeType, Action, Status } from '../types';
 
-export const getDynamicColor = (
-  category: CategoryTheme,
-  value: StaticElementEnum,
-  state: DynamicElementStateEnum,
-  action: DynamicElementActionEnum,
-  theme: ThemeType
-): string => {
+export const getDynamicColor = (theme: ThemeType, style: StyleProps, action: Action, status: Status): string => {
   if (!theme || !theme.colors) {
     console.error('THEME ERROR', 'THEME IS NOT VALID');
     return '';
   }
 
-  const dynamicElements = theme.colors[category] as DynamicElementsType;
-
-  if (!dynamicElements) {
-    console.error('THEME ERROR', 'DYNAMIC ELEMENT CATEGORY NOT FOUND IN THEME');
+  if (!theme.colors.statefulElements || !theme.colors.statefulElements[status]) {
+    console.error('THEME ERROR', 'STATE NOT FOUND IN THEME');
     return '';
   }
 
-  const dynamicElementState = dynamicElements[state];
+  const stateFulElement = theme.colors.statefulElements[status];
 
-  if (!dynamicElementState) {
-    console.error('THEME ERROR', 'STATE NOT FOUND IN DYNAMIC THEME CATEGORY');
+  if (!stateFulElement) {
+    console.error('THEME ERROR', 'ACTIONABLE ELEMENT NOT FOUND IN THEME');
     return '';
   }
 
-  const dynamicElementStateAction = dynamicElementState[action];
+  const actionableStyles = stateFulElement[action];
 
-  if (!dynamicElementStateAction) {
-    console.error('THEME ERROR', 'ACTION NOT FOUND IN STATE IN DYNAMIC THEME CATEGORY');
+  if (!actionableStyles) {
+    console.error('THEME ERROR', 'ACTION NOT FOUND IN THIS THEME');
     return '';
   }
 
-  const color = dynamicElementStateAction[value];
+  const color = actionableStyles[style];
 
   if (!color) {
-    console.warn('THEME WARN', 'color was NOT found');
+    console.warn('THEME WARN', 'Color was NOT found');
     return '';
   }
 

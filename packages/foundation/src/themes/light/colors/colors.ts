@@ -1,7 +1,8 @@
 import { success, error, info, warning } from './states';
-import { ColorsType, DynamicElementsType } from '../../../types/themes/colors';
+import { ColorsType } from '../../../types/themes/colors';
+import { StatefulElements } from '../../../types/themes/stateful-styles';
 
-const dynamicElements: DynamicElementsType = {
+const statefulElements: StatefulElements = {
   success,
   error,
   info,
@@ -26,5 +27,5 @@ export const colors: ColorsType = {
     softBackground: '#f2f2f2',
     strongBackground: '#b3b3b3',
   },
-  dynamicElements,
+  statefulElements,
 };

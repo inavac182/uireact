@@ -1,12 +1,12 @@
-import { CategoryTheme, StaticElementEnum, StaticElementType, ThemeType } from '../types';
+import { CategoryTheme, StaticStyles, StyleProps, ThemeType } from '../types';
 
-export const getColor = (category: CategoryTheme, value: StaticElementEnum, theme: ThemeType): string => {
+export const getColor = (category: CategoryTheme, value: StyleProps, theme: ThemeType): string => {
   if (!theme || !theme.colors) {
     console.error('THEME ERROR', 'THEME IS NOT VALID');
     return '';
   }
 
-  const themeValues = theme.colors[category] as StaticElementType;
+  const themeValues = theme.colors[category] as StaticStyles;
 
   if (!themeValues) {
     console.error('THEME ERROR', 'CATEGORY NOT FOUND IN THEME');

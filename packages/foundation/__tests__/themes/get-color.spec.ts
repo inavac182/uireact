@@ -1,22 +1,22 @@
 import { getColor } from '../../src';
 import { Themes } from '../../src/themes/themes';
 import { CategoryTheme } from '../../src/types';
-import { StaticElementEnum } from '../../src/types/themes/staticElement';
+import { StyleProps } from '../../src/types/themes/static-styles';
 
 describe('getColor', () => {
   test('Should get the correct text colors from dark theme', () => {
-    let value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, Themes.dark);
+    let value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, Themes.dark);
     expect(value).toBe(Themes.dark.colors.texts.paragraph);
 
-    value = getColor(CategoryTheme.TEXTS, StaticElementEnum.heading, Themes.dark);
+    value = getColor(CategoryTheme.TEXTS, StyleProps.heading, Themes.dark);
     expect(value).toBe(Themes.dark.colors.texts.heading);
   });
 
   test('Should get the correct texts colors from light theme', () => {
-    let value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, Themes.light);
+    let value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, Themes.light);
     expect(value).toBe(Themes.light.colors.texts.paragraph);
 
-    value = getColor(CategoryTheme.TEXTS, StaticElementEnum.heading, Themes.light);
+    value = getColor(CategoryTheme.TEXTS, StyleProps.heading, Themes.light);
     expect(value).toBe(Themes.light.colors.texts.heading);
   });
 
@@ -28,10 +28,10 @@ describe('getColor', () => {
         texts: { ...Themes.dark.colors.texts, paragraph: 'custom-color-paragraph', heading: 'custom-color-heading' },
       },
     };
-    let value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
+    let value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, customTheme);
     expect(value).toBe('custom-color-paragraph');
 
-    value = getColor(CategoryTheme.TEXTS, StaticElementEnum.heading, customTheme);
+    value = getColor(CategoryTheme.TEXTS, StyleProps.heading, customTheme);
     expect(value).toBe('custom-color-heading');
   });
 
@@ -43,7 +43,7 @@ describe('getColor', () => {
       ...Themes.dark,
       colors: { ...Themes.dark.colors, texts: { ...Themes.dark.colors.texts, paragraph: undefined } },
     };
-    const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
+    const value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, customTheme);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'COLOR NOT FOUND IN CATEGORY');
@@ -57,7 +57,7 @@ describe('getColor', () => {
     const customTheme = { ...Themes.dark, colors: {} };
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
+    const value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, customTheme);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'CATEGORY NOT FOUND IN THEME');
@@ -71,7 +71,7 @@ describe('getColor', () => {
     const customTheme = {};
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, customTheme);
+    const value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, customTheme);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'THEME IS NOT VALID');
@@ -84,7 +84,7 @@ describe('getColor', () => {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    const value = getColor(CategoryTheme.TEXTS, StaticElementEnum.paragraph, undefined);
+    const value = getColor(CategoryTheme.TEXTS, StyleProps.paragraph, undefined);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'THEME IS NOT VALID');

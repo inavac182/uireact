@@ -1,71 +1,36 @@
 import { getDynamicColor } from '../../src';
 import { Themes } from '../../src/themes/themes';
 import { CategoryTheme } from '../../src/types';
-import { DynamicElementActionEnum, DynamicElementStateEnum } from '../../src/types/themes/dynamicElement';
-import { StaticElementEnum } from '../../src/types/themes/staticElement';
+import { Status } from '../../src/types/themes/stateful-styles';
+import { Action } from '../../src/types/themes/actionable-styles';
+import { StyleProps } from '../../src/types/themes/static-styles';
 
 describe('getDynamicColor', () => {
   test('Should get the correct text colors from dark theme when SUCCESS and NORMAL dynamic element is needed', () => {
-    let value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      Themes.dark
-    );
-    expect(value).toBe(Themes.dark.colors.dynamicElements.success.normal.paragraph);
+    let value = getDynamicColor(Themes.dark, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
+    expect(value).toBe(Themes.dark.colors.statefulElements.success.normal.paragraph);
 
-    value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.heading,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      Themes.dark
-    );
-    expect(value).toBe(Themes.dark.colors.dynamicElements.success.normal.heading);
+    value = getDynamicColor(Themes.dark, StyleProps.heading, Action.NORMAL, Status.SUCCESS);
+    expect(value).toBe(Themes.dark.colors.statefulElements.success.normal.heading);
   });
 
   test('Should get the correct text colors from light theme when SUCCESS and NORMAL dynamic element is needed', () => {
-    let value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      Themes.light
-    );
-    expect(value).toBe(Themes.light.colors.dynamicElements.success.normal.paragraph);
+    let value = getDynamicColor(Themes.light, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
+    expect(value).toBe(Themes.light.colors.statefulElements.success.normal.paragraph);
 
-    value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.heading,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      Themes.light
-    );
-    expect(value).toBe(Themes.light.colors.dynamicElements.success.normal.heading);
+    value = getDynamicColor(Themes.light, StyleProps.heading, Action.NORMAL, Status.SUCCESS);
+    expect(value).toBe(Themes.light.colors.statefulElements.success.normal.heading);
   });
 
   test('Should get the correct text colors from a custom theme when SUCCESS and NORMAL dynamic element is needed', () => {
     const customTheme = { ...Themes.dark, colors: { ...Themes.dark.colors } };
 
-    customTheme.colors.dynamicElements.success.normal.paragraph = 'custom-color-paragraph';
-    let value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      customTheme
-    );
+    customTheme.colors.statefulElements.success.normal.paragraph = 'custom-color-paragraph';
+    let value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
     expect(value).toBe('custom-color-paragraph');
 
-    customTheme.colors.dynamicElements.success.normal.paragraph = 'custom-color-heading';
-    value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      customTheme
-    );
+    customTheme.colors.statefulElements.success.normal.heading = 'custom-color-heading';
+    value = getDynamicColor(customTheme, StyleProps.heading, Action.NORMAL, Status.SUCCESS);
     expect(value).toBe('custom-color-heading');
   });
 
@@ -77,22 +42,16 @@ describe('getDynamicColor', () => {
       ...Themes.dark,
       colors: {
         ...Themes.dark.colors,
-        dynamicElements: {
-          ...Themes.dark.colors.dynamicElements,
-          success: { ...Themes.dark.colors.dynamicElements.success, normal: {} },
+        statefulElements: {
+          ...Themes.dark.colors.statefulElements,
+          success: { ...Themes.dark.colors.statefulElements.success, normal: {} },
         },
       },
     };
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      customTheme
-    );
+    const value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
-    expect(console.warn).toHaveBeenCalledWith('THEME WARN', 'color was NOT found');
+    expect(console.warn).toHaveBeenCalledWith('THEME WARN', 'Color was NOT found');
     console.warn = consoleWarn;
   });
 
@@ -102,21 +61,15 @@ describe('getDynamicColor', () => {
 
     const customTheme = {
       ...Themes.dark,
-      colors: { ...Themes.dark.colors, dynamicElements: { ...Themes.dark.colors.dynamicElements, success: {} } },
+      colors: { ...Themes.dark.colors, statefulElements: { ...Themes.dark.colors.statefulElements, success: {} } },
     };
 
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      customTheme
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
-    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'ACTION NOT FOUND IN STATE IN DYNAMIC THEME CATEGORY');
+    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'ACTION NOT FOUND IN THIS THEME');
     console.error = consoleError;
   });
 
@@ -124,42 +77,27 @@ describe('getDynamicColor', () => {
     const consoleError = console.error;
     console.error = jest.fn();
 
-    const customTheme = { ...Themes.dark, colors: { ...Themes.dark.colors, dynamicElements: {} } };
+    const customTheme = { ...Themes.dark, colors: { ...Themes.dark.colors, statefulElements: {} } };
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      customTheme
-    );
+    const value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
-    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'STATE NOT FOUND IN DYNAMIC THEME CATEGORY');
+    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'STATE NOT FOUND IN THEME');
     console.error = consoleError;
   });
 
-  test('Should log error when state is not found dynamic element', () => {
+  test('Should log error when statefulElements is undefined', () => {
     const consoleError = console.error;
     console.error = jest.fn();
 
     const customTheme = { ...Themes.dark, colors: {} };
-
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      customTheme
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
-    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'DYNAMIC ELEMENT CATEGORY NOT FOUND IN THEME');
+    expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'STATE NOT FOUND IN THEME');
     console.error = consoleError;
   });
 
@@ -168,16 +106,9 @@ describe('getDynamicColor', () => {
     console.error = jest.fn();
 
     const customTheme = {};
-
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      customTheme
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const value = getDynamicColor(customTheme, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'THEME IS NOT VALID');
@@ -187,16 +118,9 @@ describe('getDynamicColor', () => {
   test('Should log error when theme is undefined', () => {
     const consoleError = console.error;
     console.error = jest.fn();
-
-    const value = getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      DynamicElementStateEnum.SUCCESS,
-      DynamicElementActionEnum.NORMAL,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      undefined
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const value = getDynamicColor(undefined, StyleProps.paragraph, Action.NORMAL, Status.SUCCESS);
 
     expect(value).toBeFalsy();
     expect(console.error).toHaveBeenCalledWith('THEME ERROR', 'THEME IS NOT VALID');
