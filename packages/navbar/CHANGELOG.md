@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @uireact/navbar
 
-
-
-
-
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/navbar@0.1.0...@uireact/navbar@0.2.0) (2021-06-01)
 
 ### Features
