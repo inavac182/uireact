@@ -21,6 +21,12 @@ test('renders card with header, content and footer', () => {
   expect(screen.getByText('Footer')).toBeVisible();
 });
 
+test('renders card with children', () => {
+  render(<UiCard>Children</UiCard>);
+
+  expect(screen.getByText('Children')).toBeVisible();
+});
+
 test('renders card with link', () => {
   render(<UiCard link="https://uireact.io" content={<ContentMock />} />);
 

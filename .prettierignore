@@ -5,3 +5,4 @@ res
 coverage
 __mocks__
 *.config.js
+packages/**/CHANGELOG.md

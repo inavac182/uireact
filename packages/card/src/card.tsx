@@ -1,25 +1,17 @@
 import * as React from 'react';
 
 import { ThemeContext } from '@uireact/foundation';
-import { CardWrapper, ContentWrapper, ImageWrapper, StyledLink, StyledExternalLink } from './private';
+import { CardWrapper, UiPrivateCard, ContentWrapper, ImageWrapper, StyledLink, StyledExternalLink } from './private';
 
-export interface UiCardProps {
-  button?: boolean;
-  clickHandler?: (idenfifier: string | undefined) => void;
-  content?: React.ReactNode;
-  footer?: React.ReactNode;
-  header?: React.ReactNode;
-  image?: string;
-  imageHeight?: number;
-  imagePosition?: 'top' | 'center' | 'bottom';
-  identifier?: string;
-  link?: string;
-  linkType?: 'internal' | 'external';
-  padded?: boolean;
-}
+export type UiCardProps = UiPrivateCard & {
+  children?: React.ReactNode;
+  className?: string;
+  testId?: string;
+};
 
 export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
   const themeContext = React.useContext(ThemeContext);
+
   const onClick = React.useCallback(() => {
     if (props.clickHandler) {
       props.clickHandler(props.identifier);
@@ -44,6 +36,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         <ContentWrapper>
           {props?.header}
           {props?.content}
+          {props?.children}
           {props?.footer}
         </ContentWrapper>
       </CardWrapper>
