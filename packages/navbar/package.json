@@ -18,11 +18,15 @@
     "lint:styles": "stylelint ./src/**/*.tsx",
     "lint": "npm run lint:styles && npm run tsc && npm run eslint",
     "test": "jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "@uireact/foundation": "^0.3.4"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "@uireact/foundation": "^0.2.4",
+    "@uireact/foundation": "^0.3.4",
     "react": ">= 16.8.0 < 17",
     "react-dom": ">= 16.8.0 < 17",
     "styled-components": "^5.1.1"

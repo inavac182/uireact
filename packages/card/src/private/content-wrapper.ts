@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { UiCardProps } from '../';
+import { UiPrivateCard } from './types';
 
-export const ContentWrapper = styled.div<UiCardProps>`
-  ${(props: UiCardProps) => `
-    ${props?.padded && 'padding: 5px;'}
+export const ContentWrapper = styled.div<UiPrivateCard>`
+  ${(props: UiPrivateCard) => `
+    ${props?.padded ? 'padding: 5px;' : ''}
   `};
 `;

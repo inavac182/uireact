@@ -2,19 +2,11 @@ import * as React from 'react';
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
-import {
-  CategoryTheme,
-  DynamicElementActionEnum,
-  DynamicElementStateEnum,
-  getDynamicColor,
-  StaticElementEnum,
-  ThemeContext,
-  UiReactElementProp,
-} from '@uireact/foundation';
+import { Action, Status, getDynamicColor, StyleProps, ThemeContext, UiReactElementProp } from '@uireact/foundation';
 
 interface UiButtonProps {
   /** Button state that matches with a coloscheme from themes */
-  state: DynamicElementStateEnum;
+  status: Status;
   /** onClick Handler */
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;
@@ -27,70 +19,22 @@ type privateButtonProps = UiButtonProps & UiReactElementProp;
 
 const Button = styled.button<privateButtonProps>`
   ${(props) => `
-    color: ${getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.paragraph,
-      props.state,
-      DynamicElementActionEnum.NORMAL,
-      props.customTheme
-    )};
-    background: ${getDynamicColor(
-      CategoryTheme.DYNAMIC_ELEMENTS,
-      StaticElementEnum.background,
-      props.state,
-      DynamicElementActionEnum.NORMAL,
-      props.customTheme
-    )};
+    color: ${getDynamicColor(props.customTheme, StyleProps.paragraph, Action.NORMAL, props.status)};
+    background: ${getDynamicColor(props.customTheme, StyleProps.background, Action.NORMAL, props.status)};
 
     :hover {
-      color: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.paragraph,
-        props.state,
-        DynamicElementActionEnum.HOVER,
-        props.customTheme
-      )};
-      background: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.background,
-        props.state,
-        DynamicElementActionEnum.HOVER,
-        props.customTheme
-      )};
+      color: ${getDynamicColor(props.customTheme, StyleProps.paragraph, Action.HOVER, props.status)};
+      background: ${getDynamicColor(props.customTheme, StyleProps.background, Action.HOVER, props.status)};
     }
 
     :active {
-      color: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.paragraph,
-        props.state,
-        DynamicElementActionEnum.ACTIVE,
-        props.customTheme
-      )};
-      background: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.background,
-        props.state,
-        DynamicElementActionEnum.ACTIVE,
-        props.customTheme
-      )};
+      color: ${getDynamicColor(props.customTheme, StyleProps.paragraph, Action.ACTIVE, props.status)};
+      background: ${getDynamicColor(props.customTheme, StyleProps.background, Action.ACTIVE, props.status)};
     }
 
     :disabled {
-      color: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.paragraph,
-        props.state,
-        DynamicElementActionEnum.DISABLED,
-        props.customTheme
-      )};
-      background: ${getDynamicColor(
-        CategoryTheme.DYNAMIC_ELEMENTS,
-        StaticElementEnum.background,
-        props.state,
-        DynamicElementActionEnum.DISABLED,
-        props.customTheme
-      )};
+      color: ${getDynamicColor(props.customTheme, StyleProps.paragraph, Action.DISABLED, props.status)};
+      background: ${getDynamicColor(props.customTheme, StyleProps.background, Action.DISABLED, props.status)};
       cursor: not-allowed;
     }
   `}
@@ -103,7 +47,7 @@ const Button = styled.button<privateButtonProps>`
 
 export const UiButton: React.FC<UiButtonProps> = ({
   onClick,
-  state,
+  status,
   testId,
   className,
   disabled,
@@ -115,7 +59,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
     <Button
       customTheme={themeContext.theme}
       onClick={onClick}
-      state={state}
+      status={status}
       data-stid={testId}
       className={className}
       disabled={disabled}

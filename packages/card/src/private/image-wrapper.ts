@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-import { UiCardProps } from '../';
+import { UiPrivateCard } from './types';
 
-export const ImageWrapper = styled.div<UiCardProps>`
+export const ImageWrapper = styled.div<UiPrivateCard>`
   width: 100%;
 
-  ${(props: UiCardProps) => `
+  ${(props: UiPrivateCard) => `
     min-height: ${props?.imageHeight || '100'}px;
     background: url(${props?.image}) no-repeat ${props.imagePosition ?? 'center'};
     background-size: cover;
