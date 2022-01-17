@@ -11,7 +11,7 @@
     "clean:artifacts": "npx lerna run clean --parallel",
     "clean:packages": "npx lerna clean --yes",
     "dev": "npm run clean && npm run tsc && docz dev",
-    "docz:build": "docz build",
+    "docz:build": "npm run clean && npm run tsc && docz build",
     "docz:serve": "docz build && docz serve",
     "watch": "npx lerna run tsc --stream && lerna run --parallel watch",
     "lint": "npx lerna run lint --stream",
