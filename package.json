@@ -18,7 +18,7 @@
     "preinstall": "npm run clean",
     "typescheck": "lerna run tsc",
     "tsc": "npx lerna run tsc --concurrency=1 --stream",
-    "test": "npx lerna run test --concurrency=1 --stream",
+    "test": "npm run tsc && npx lerna run test --concurrency=1 --stream",
     "test:tsc": "npx lerna run tsc --stream",
     "test:quick": "npx lerna run test:quick --concurrency=1 --stream",
     "test:coverage": "npx lerna run test:coverage --parallel",
