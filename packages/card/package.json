@@ -3,7 +3,7 @@
   "description": "Card component from uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "publishConfig": {
     "access": "public"
   },

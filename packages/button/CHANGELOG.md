@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/inavac182/ui-react/compare/@uireact/button@0.6.4...@uireact/button@0.7.0) (2022-01-17)
+
+
+### Features
+
+* **chore:** upgrading packages to new foundation ([#34](https://github.com/inavac182/ui-react/issues/34)) ([1d9616d](https://github.com/inavac182/ui-react/commit/1d9616d7026cc0258472d116c9e0f4571c6dfa08))
+
+
+
+
+
 ## [0.6.4](https://github.com/inavac182/ui-react/compare/@uireact/button@0.6.3...@uireact/button@0.6.4) (2022-01-16)
 
 **Note:** Version bump only for package @uireact/button
