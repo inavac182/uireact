@@ -1,4 +1,3 @@
-import { SpacingDefaults } from '.';
 import { Theme } from '../types/themes/';
 
 export const Light: Theme = {
@@ -40,5 +39,13 @@ export const Light: Theme = {
       token_200: '#47361D',
     },
   },
-  spacing: SpacingDefaults,
+  spacing: {
+    one: '1px',
+    two: '2px',
+    three: '4px',
+    four: '8px',
+    five: '16px',
+    six: '32px',
+    seven: '64px',
+  },
 };

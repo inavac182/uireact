@@ -1,5 +1,4 @@
 import { Theme } from '../types/themes/';
-import { SpacingDefaults } from '.';
 
 export const Dark: Theme = {
   name: 'Dark',
@@ -40,5 +39,13 @@ export const Dark: Theme = {
       token_200: '#0C0802',
     },
   },
-  spacing: SpacingDefaults,
+  spacing: {
+    one: '1px',
+    two: '2px',
+    three: '4px',
+    four: '8px',
+    five: '16px',
+    six: '32px',
+    seven: '64px',
+  },
 };
