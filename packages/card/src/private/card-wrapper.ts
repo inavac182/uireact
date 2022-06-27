@@ -1,16 +1,16 @@
-import { CategoryTheme, getColor, StyleProps, UiReactElementProp } from '@uireact/foundation';
+import { UiReactPrivateElementProps } from '@uireact/foundation';
 import { UiPrivateCard } from './types';
 import styled from 'styled-components';
 
-type privateCardProps = UiPrivateCard &
-  UiReactElementProp & {
+type __CardProps = UiPrivateCard &
+  UiReactPrivateElementProps & {
     cursorNeeded?: boolean;
   };
 
-export const CardWrapper = styled.div<privateCardProps>`
+export const CardWrapper = styled.div<__CardProps>`
   ${(props) => `
-    color: ${getColor(CategoryTheme.CONTAINERS, StyleProps.paragraph, props.customTheme)};
-    background-color: ${getColor(CategoryTheme.CONTAINERS, StyleProps.background, props.customTheme)};
+    color: '#fff';
+    background-color: '#000';
 
     ${props.cursorNeeded ? 'cursor: pointer;' : ''}
   `}

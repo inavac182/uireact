@@ -1,10 +1,10 @@
-import { ThemeType } from '../types';
+import { Theme } from '../types';
 import { Dark } from './dark';
 import { Light } from './light';
 
-export interface DetaultThemesType {
-  dark: ThemeType;
-  light: ThemeType;
+interface DetaultThemesType {
+  dark: Theme;
+  light: Theme;
 }
 
 export const Themes: DetaultThemesType = {

@@ -1,8 +1,11 @@
-import { ThemeType } from './themes';
+import { Theme } from './themes/theme';
 
-export interface UiReactElementProp {
-  customTheme: ThemeType;
+export interface UiReactElementProps {
   children?: React.ReactNode;
   className?: string;
   testId?: string;
 }
+
+export type UiReactPrivateElementProps = UiReactElementProps & {
+  customTheme: Theme;
+};
