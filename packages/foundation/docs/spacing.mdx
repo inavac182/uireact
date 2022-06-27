@@ -1,0 +1,62 @@
+---
+name: UiSpacing
+menu: Foundation
+---
+
+import * as packageJson from '../package.json';
+import { Props } from 'docz';
+import Playground from '../../../src/Playground';
+import { UiSpacing, Sizing } from '../src/';
+
+# UiSpacing
+
+---
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+## Installation
+
+This spacing component is exported as part of the foundation package: @ui-react/foundation
+
+> npm i @uireact/foundation
+
+## Usage
+
+<Playground>
+  <UiSpacing margin={{ all: Sizing.five }}>Nice margin dude!</UiSpacing>
+</Playground>
+
+**UiSpacing** renders a div to which it assigns its styling and wraps the children
+
+## Props
+
+<Props of={UiSpacing} />
+
+### SizingDistribution
+
+The `SizingDistribution` definition is:
+
+```
+type SizingDistribution = {
+  /** Applies size to all sides */
+  all?: Sizing;
+  /** Applies size to top and bottom */
+  block?: Sizing;
+  /** Applies size to left and right */
+  inline?: Sizing;
+  /** Applies size to left */
+  left?: Sizing;
+  /** Applies size to right */
+  right?: Sizing;
+  /** Applies size to top */
+  top?: Sizing;
+  /** Applies size to bottom */
+  bottom?: Sizing;
+};
+```
+
+Options `all`, `block` and `inline` are used independently **can't be combined**.

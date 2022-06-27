@@ -6,18 +6,27 @@ import { UiReactElementProps, UiReactPrivateElementProps, Sizing, Theme } from '
 import { ThemeContext } from '../providers/theme-context';
 
 type SizingDistribution = {
+  /** Applies size to all sides */
   all?: Sizing;
+  /** Applies size to top and bottom */
   block?: Sizing;
+  /** Applies size to left and right */
   inline?: Sizing;
+  /** Applies size to left */
   left?: Sizing;
+  /** Applies size to right */
   right?: Sizing;
+  /** Applies size to top */
   top?: Sizing;
+  /** Applies size to bottom */
   bottom?: Sizing;
 };
 
 export type UiSpacingProps = UiReactElementProps & {
   children: React.ReactNode;
+  /** Margin to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
   margin?: SizingDistribution;
+  /** Padding to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
   padding?: SizingDistribution;
 };
 
