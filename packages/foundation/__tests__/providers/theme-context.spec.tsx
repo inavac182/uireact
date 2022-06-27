@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ThemeContext } from '../../src/providers';
 import { Themes } from '../../src/themes';
-import { ThemeType } from '../../src';
+import { Theme } from '../../src';
 
 const MockedComponent = () => {
   const themeContext = React.useContext(ThemeContext);
@@ -12,7 +12,7 @@ const MockedComponent = () => {
 };
 
 interface MockedParentComponent {
-  defaultTheme?: ThemeType;
+  defaultTheme?: Theme;
 }
 
 const MockedParentComponent = ({ defaultTheme }: MockedParentComponent) => {
