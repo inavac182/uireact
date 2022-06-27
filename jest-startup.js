@@ -4,6 +4,8 @@ import { format } from 'util';
 
 import '@testing-library/jest-dom';
 
+import 'jest-styled-components';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 // eslint-disable-next-line no-undef
