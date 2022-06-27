@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { UiReactElementProp } from '@uireact/foundation';
+import { UiReactPrivateElementProps } from '@uireact/foundation';
 
 import { UiNavbarProps } from '../';
 
-type PrivateNavBar = UiNavbarProps & UiReactElementProp;
+type __NavBarProps = UiNavbarProps & UiReactPrivateElementProps;
 
-export const NavbarWrapper = styled.div<PrivateNavBar>`
+export const NavbarWrapper = styled.div<__NavBarProps>`
   display: flex;
 
-  ${(props: PrivateNavBar) => `flex-direction: ${props.orientation === 'stacked' ? 'column' : 'row'};`}
+  ${(props: __NavBarProps) => `flex-direction: ${props.orientation === 'stacked' ? 'column' : 'row'};`}
 `;

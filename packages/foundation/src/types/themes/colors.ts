@@ -1,16 +1,13 @@
-import { StatefulElements } from './stateful-styles';
-import { StaticStyles } from './static-styles';
+import { Tokens } from '.';
 
-export interface ColorsType {
-  containers: StaticStyles;
-  page: StaticStyles;
-  texts: StaticStyles;
-  statefulElements: StatefulElements;
-}
-
-export enum CategoryTheme {
-  TEXTS = 'texts',
-  CONTAINERS = 'containers',
-  PAGE = 'page',
-  STATEFUL_ELEMENTS = 'statefulElements',
+export interface Colors {
+  base: Tokens;
+  fonts: Tokens;
+  primary: Tokens;
+  secondary: Tokens;
+  tertiary: Tokens;
+  success?: Tokens;
+  warning?: Tokens;
+  errors?: Tokens;
+  disabled?: Tokens;
 }

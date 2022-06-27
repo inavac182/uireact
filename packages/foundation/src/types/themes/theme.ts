@@ -1,10 +1,10 @@
-import { ColorsType } from './colors';
-import { Fonts } from './fonts';
-import { Shapes } from './shapes';
+import { Colors, Spacing } from '.';
 
-export interface ThemeType {
-  colors: ColorsType;
-  fonts: Fonts;
-  shapes: Shapes;
+export interface Theme {
+  /** Identifier of the theme */
   name: string;
+  /** Set of color tokens for the theme */
+  colors: Colors;
+  /** Set of color tokens for the theme */
+  spacing: Spacing;
 }

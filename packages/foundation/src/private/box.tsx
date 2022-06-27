@@ -2,16 +2,12 @@ import * as React from 'react';
 import { useContext } from 'react';
 import styled from 'styled-components';
 
-import { getColor } from '../themes';
 import { ThemeContext } from '../providers';
-import { CategoryTheme, StyleProps, UiReactElementProp } from '../types';
+import { UiReactPrivateElementProps } from '../types';
 
-const Div = styled.div<UiReactElementProp>`
-  ${(props) => `
-    background: ${getColor(CategoryTheme.CONTAINERS, StyleProps.background, props.customTheme)};
-    color: ${getColor(CategoryTheme.TEXTS, StyleProps.paragraph, props.customTheme)};
-  `}
-
+const Div = styled.div<UiReactPrivateElementProps>`
+  background: '#000';
+  color: #fff;
   border-radius: 5px;
   box-shadow: inset 0px 0px 2px 5px #cccccc;
   padding: 5px;
