@@ -16,9 +16,10 @@ const CustomPlayground = (props: PlaygroundProps): React.ReactNode => {
   return (
     <ThemeContext.Provider value={{ theme, toogleTheme }}>
       <div style={{ background: 'rebeccapurple', padding: 12 }}>
-        <button onClick={toogleTheme}>
+        <button onClick={toogleTheme} style={{ marginInlineEnd: '5px' }}>
           <img src={themeIcon} width="20px" />
         </button>
+        <p style={{ margin: 0, display: 'inline-block' }}>Theme: {theme.name}</p>
         <Playground {...props} />
       </div>
     </ThemeContext.Provider>
