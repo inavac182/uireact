@@ -2,7 +2,15 @@ import * as React from 'react';
 import { MouseEvent } from 'react';
 import styled from 'styled-components';
 
-import { ThemeContext, UiReactPrivateElementProps } from '@uireact/foundation';
+import {
+  ThemeContext,
+  UiReactPrivateElementProps,
+  getThemeToken,
+  ThemeMapperLevel,
+  ThemeStyleProperty,
+} from '@uireact/foundation';
+
+import { ButtonThemeMapper } from './theme';
 
 export interface UiButtonProps {
   /** onClick Handler */
@@ -20,23 +28,48 @@ type privateButtonProps = UiButtonProps & UiReactPrivateElementProps;
 
 const Button = styled.button<privateButtonProps>`
   ${(props) => `
-    color: ${props.customTheme.colors.fonts.token_100};
-    background: ${props.customTheme.colors.primary.token_100};
-    border: ${props.customTheme.colors.primary.token_100};
+    color: ${getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+    background: ${getThemeToken(
+      ThemeMapperLevel.base,
+      ThemeStyleProperty.background,
+      props.customTheme,
+      ButtonThemeMapper
+    )};
+    border: ${getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.border, props.customTheme, ButtonThemeMapper)};
 
     :hover {
-      color: ${props.customTheme.colors.fonts.token_150};
-      background: ${props.customTheme.colors.primary.token_150};
+      color: ${getThemeToken(ThemeMapperLevel.hover, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+      background: ${getThemeToken(
+        ThemeMapperLevel.hover,
+        ThemeStyleProperty.background,
+        props.customTheme,
+        ButtonThemeMapper
+      )};
     }
 
     :active {
-      color: ${props.customTheme.colors.fonts.token_50};
-      background: ${props.customTheme.colors.primary.token_200};
+      color: ${getThemeToken(ThemeMapperLevel.active, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+      background: ${getThemeToken(
+        ThemeMapperLevel.active,
+        ThemeStyleProperty.background,
+        props.customTheme,
+        ButtonThemeMapper
+      )};
     }
 
     :disabled {
-      color: ${props.customTheme.colors.fonts.token_200};
-      background: ${props.customTheme.colors.primary.token_50};
+      color: ${getThemeToken(
+        ThemeMapperLevel.disabled,
+        ThemeStyleProperty.color,
+        props.customTheme,
+        ButtonThemeMapper
+      )};
+      background: ${getThemeToken(
+        ThemeMapperLevel.disabled,
+        ThemeStyleProperty.background,
+        props.customTheme,
+        ButtonThemeMapper
+      )};
       cursor: not-allowed;
     }
   `}

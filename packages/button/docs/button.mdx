@@ -6,7 +6,9 @@ menu: Components
 import { Props } from 'docz';
 
 import Playground from '../../../src/Playground';
+import ThemePresentation from '../../../src/ThemePresentation';
 import { UiButton } from '../src/';
+import { ButtonThemeMapper } from '../src/theme/button-theme-mapper';
 import { UiSpacing, Sizing } from '../../foundation/src/';
 import * as packageJson from '../package.json';
 
@@ -35,3 +37,7 @@ import * as packageJson from '../package.json';
 ## Props
 
 <Props of={UiButton} />
+
+## Theme
+
+<ThemePresentation themeMapper={ButtonThemeMapper} />
