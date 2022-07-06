@@ -9,7 +9,7 @@ export enum ThemeStyleProperty {
   border = 'border',
 }
 
-export type ThemeMapperProperty = {
+export type ThemeMapperStyleProperty = {
   [keys in ThemeStyleProperty]?: ThemeKeys;
 };
 
@@ -21,5 +21,5 @@ export enum ThemeMapperLevel {
 }
 
 export type ThemeMapper = {
-  [keys in ThemeMapperLevel]?: ThemeMapperProperty;
+  [keys in ThemeMapperLevel]?: ThemeMapperStyleProperty;
 };

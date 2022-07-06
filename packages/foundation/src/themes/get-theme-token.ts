@@ -6,8 +6,13 @@ export const getThemeToken = (
   theme: Theme,
   mapper: ThemeMapper
 ): string => {
-  if (!mapper[level]?.[property]) {
+  if (!mapper[level]) {
     console.error('LEVEL IN THEME MAPPER NOT FOUND');
+    return '';
+  }
+
+  if (!mapper[level]?.[property]) {
+    console.error('STYLE PROPERTY IN THEME MAPPER NOT FOUND');
     return '';
   }
 
@@ -16,7 +21,7 @@ export const getThemeToken = (
     token: 'token_100',
   };
 
-  if (!theme.colors[themeKeys.state]?.[themeKeys.token]) {
+  if (!theme.colors[themeKeys.state][themeKeys.token]) {
     console.error('COLOR NOT FOUND IN THEME');
     return '';
   }
