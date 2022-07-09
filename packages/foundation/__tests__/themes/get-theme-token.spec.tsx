@@ -1,14 +1,14 @@
 import { getThemeToken } from '../../src/themes';
-import { Theme, ThemeMapper, ThemeMapperLevel, ThemeStyleProperty } from '../../src/types';
+import { Theme, ThemeMapper, MapperLevel, MapperStyleProperty } from '../../src/types';
 
 const mockedMapper: ThemeMapper = {
-  base: {
+  default: {
     color: {
-      state: 'primary',
+      key: 'primary',
       token: 'token_100',
     },
     border: {
-      state: 'primary',
+      key: 'primary',
       token: 'token_200',
     },
   },
@@ -29,13 +29,13 @@ beforeEach(() => {
 });
 
 it('get correct theme token', () => {
-  const token = getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.color, mockedTheme, mockedMapper);
+  const token = getThemeToken(MapperLevel.default, MapperStyleProperty.color, mockedTheme, mockedMapper);
 
   expect(token).toBe(mockedTheme.colors.primary.token_100);
 });
 
 it('Should not break if level is not found in mapper', () => {
-  const token = getThemeToken(ThemeMapperLevel.active, ThemeStyleProperty.color, mockedTheme, mockedMapper);
+  const token = getThemeToken(MapperLevel.active, MapperStyleProperty.color, mockedTheme, mockedMapper);
 
   expect(token).toBe('');
   expect(console.error).toHaveBeenCalledTimes(1);
@@ -43,7 +43,7 @@ it('Should not break if level is not found in mapper', () => {
 });
 
 it('Should not break if style property is not found in mapper', () => {
-  const token = getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.background, mockedTheme, mockedMapper);
+  const token = getThemeToken(MapperLevel.default, MapperStyleProperty.background, mockedTheme, mockedMapper);
 
   expect(token).toBe('');
   expect(console.error).toHaveBeenCalledTimes(1);
@@ -51,7 +51,7 @@ it('Should not break if style property is not found in mapper', () => {
 });
 
 it('Should not break if token is not found in theme', () => {
-  const token = getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.border, mockedTheme, mockedMapper);
+  const token = getThemeToken(MapperLevel.default, MapperStyleProperty.border, mockedTheme, mockedMapper);
 
   expect(token).toBe('');
   expect(console.error).toHaveBeenCalledTimes(1);
