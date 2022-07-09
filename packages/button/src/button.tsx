@@ -6,8 +6,8 @@ import {
   ThemeContext,
   UiReactPrivateElementProps,
   getThemeToken,
-  ThemeMapperLevel,
-  ThemeStyleProperty,
+  MapperLevel,
+  MapperStyleProperty,
 } from '@uireact/foundation';
 
 import { ButtonThemeMapper } from './theme';
@@ -28,45 +28,40 @@ type privateButtonProps = UiButtonProps & UiReactPrivateElementProps;
 
 const Button = styled.button<privateButtonProps>`
   ${(props) => `
-    color: ${getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+    color: ${getThemeToken(MapperLevel.default, MapperStyleProperty.color, props.customTheme, ButtonThemeMapper)};
     background: ${getThemeToken(
-      ThemeMapperLevel.base,
-      ThemeStyleProperty.background,
+      MapperLevel.default,
+      MapperStyleProperty.background,
       props.customTheme,
       ButtonThemeMapper
     )};
-    border: ${getThemeToken(ThemeMapperLevel.base, ThemeStyleProperty.border, props.customTheme, ButtonThemeMapper)};
+    border: ${getThemeToken(MapperLevel.default, MapperStyleProperty.border, props.customTheme, ButtonThemeMapper)};
 
     :hover {
-      color: ${getThemeToken(ThemeMapperLevel.hover, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+      color: ${getThemeToken(MapperLevel.hover, MapperStyleProperty.color, props.customTheme, ButtonThemeMapper)};
       background: ${getThemeToken(
-        ThemeMapperLevel.hover,
-        ThemeStyleProperty.background,
+        MapperLevel.hover,
+        MapperStyleProperty.background,
         props.customTheme,
         ButtonThemeMapper
       )};
     }
 
     :active {
-      color: ${getThemeToken(ThemeMapperLevel.active, ThemeStyleProperty.color, props.customTheme, ButtonThemeMapper)};
+      color: ${getThemeToken(MapperLevel.active, MapperStyleProperty.color, props.customTheme, ButtonThemeMapper)};
       background: ${getThemeToken(
-        ThemeMapperLevel.active,
-        ThemeStyleProperty.background,
+        MapperLevel.active,
+        MapperStyleProperty.background,
         props.customTheme,
         ButtonThemeMapper
       )};
     }
 
     :disabled {
-      color: ${getThemeToken(
-        ThemeMapperLevel.disabled,
-        ThemeStyleProperty.color,
-        props.customTheme,
-        ButtonThemeMapper
-      )};
+      color: ${getThemeToken(MapperLevel.disabled, MapperStyleProperty.color, props.customTheme, ButtonThemeMapper)};
       background: ${getThemeToken(
-        ThemeMapperLevel.disabled,
-        ThemeStyleProperty.background,
+        MapperLevel.disabled,
+        MapperStyleProperty.background,
         props.customTheme,
         ButtonThemeMapper
       )};

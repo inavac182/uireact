@@ -1,25 +1,27 @@
-export type ThemeKeys = {
-  state: string;
-  token: string;
+import { Colors, Tokens } from '.';
+
+export type TokenKey = {
+  key: keyof Colors;
+  token: keyof Tokens;
 };
 
-export enum ThemeStyleProperty {
+export enum MapperStyleProperty {
   color = 'color',
   background = 'background',
   border = 'border',
 }
 
 export type ThemeMapperStyleProperty = {
-  [keys in ThemeStyleProperty]?: ThemeKeys;
+  [keys in MapperStyleProperty]?: TokenKey;
 };
 
-export enum ThemeMapperLevel {
-  base = 'base',
+export enum MapperLevel {
+  default = 'default',
   hover = 'hover',
   active = 'active',
   disabled = 'disabled',
 }
 
 export type ThemeMapper = {
-  [keys in ThemeMapperLevel]?: ThemeMapperStyleProperty;
+  [keys in MapperLevel]?: ThemeMapperStyleProperty;
 };
