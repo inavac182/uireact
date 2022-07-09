@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-import { ThemeContext } from '@uireact/foundation';
-import { CardWrapper, UiPrivateCard, ContentWrapper, ImageWrapper, StyledLink, StyledExternalLink } from './private';
+import { ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { CardWrapper, ContentWrapper, StyledLink, StyledExternalLink } from './private';
 
-export type UiCardProps = UiPrivateCard & {
-  children?: React.ReactNode;
-  className?: string;
-  testId?: string;
+export type UiCardProps = UiReactElementProps & {
+  clickHandler?: (idenfifier: string | undefined) => void;
+  identifier?: string;
+  link?: string;
+  linkType?: 'internal' | 'external';
+  padded?: boolean;
 };
 
 export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
@@ -25,19 +27,8 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         onClick={!props.link ? onClick : undefined}
         cursorNeeded={props.clickHandler !== undefined}
       >
-        {props?.image && (
-          <ImageWrapper
-            image={props.image}
-            imageHeight={props.imageHeight}
-            imagePosition={props.imagePosition}
-            data-testid="image-wrapper"
-          />
-        )}
-        <ContentWrapper>
-          {props?.header}
-          {props?.content}
+        <ContentWrapper customTheme={themeContext.theme} padded={props.padded}>
           {props?.children}
-          {props?.footer}
         </ContentWrapper>
       </CardWrapper>
     ),
