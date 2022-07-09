@@ -1,8 +1,8 @@
-import { Theme, ThemeMapper, ThemeMapperLevel, ThemeStyleProperty } from '../types';
+import { Theme, ThemeMapper, MapperLevel, MapperStyleProperty } from '../types';
 
 export const getThemeToken = (
-  level: ThemeMapperLevel,
-  property: ThemeStyleProperty,
+  level: MapperLevel,
+  styleProperty: MapperStyleProperty,
   theme: Theme,
   mapper: ThemeMapper
 ): string => {
@@ -11,20 +11,20 @@ export const getThemeToken = (
     return '';
   }
 
-  if (!mapper[level]?.[property]) {
+  if (!mapper[level]?.[styleProperty]) {
     console.error('STYLE PROPERTY IN THEME MAPPER NOT FOUND');
     return '';
   }
 
-  const themeKeys = mapper[level]?.[property] ?? {
-    state: 'primary',
+  const themeKeys = mapper[level]?.[styleProperty] ?? {
+    key: 'base',
     token: 'token_100',
   };
 
-  if (!theme.colors[themeKeys.state][themeKeys.token]) {
+  if (!theme.colors[themeKeys.key]?.[themeKeys.token]) {
     console.error('COLOR NOT FOUND IN THEME');
     return '';
   }
 
-  return theme.colors[themeKeys.state][themeKeys.token];
+  return theme.colors[themeKeys.key]?.[themeKeys.token] || '';
 };

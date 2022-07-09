@@ -1,17 +1,17 @@
 import { ThemeMapper } from '@uireact/foundation';
 
 export const CardThemeMapper: ThemeMapper = {
-  base: {
+  default: {
     color: {
-      state: 'fonts',
+      key: 'fonts',
       token: 'token_100',
     },
     background: {
-      state: 'base',
+      key: 'base',
       token: 'token_50',
     },
     border: {
-      state: 'base',
+      key: 'base',
       token: 'token_10',
     },
   },
