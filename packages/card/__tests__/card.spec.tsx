@@ -8,13 +8,23 @@ const ContentMock = () => <p>Content</p>;
 const FooterMock = () => <span>Footer</span>;
 
 test('renders card', () => {
-  render(<UiCard header={<HeadingMock />} />);
+  render(
+    <UiCard>
+      <HeadingMock />
+    </UiCard>
+  );
 
   expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
 });
 
 test('renders card with header, content and footer', () => {
-  render(<UiCard header={<HeadingMock />} content={<ContentMock />} footer={<FooterMock />} />);
+  render(
+    <UiCard>
+      <HeadingMock />
+      <ContentMock />
+      <FooterMock />
+    </UiCard>
+  );
 
   expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
   expect(screen.getByText('Content')).toBeVisible();
@@ -28,14 +38,12 @@ test('renders card with children', () => {
 });
 
 test('renders card with link', () => {
-  render(<UiCard link="https://uireact.io" content={<ContentMock />} />);
+  render(
+    <UiCard link="https://uireact.io">
+      <ContentMock />
+    </UiCard>
+  );
 
   expect(screen.getByRole('link', { name: 'Content' })).toBeVisible();
   expect(screen.getByRole('link', { name: 'Content' })).toHaveAttribute('href', 'https://uireact.io');
-});
-
-test('renders card with image', () => {
-  render(<UiCard image="https://uireact.io/dummy-image.jpg" content={<ContentMock />} />);
-
-  expect(screen.getByTestId('image-wrapper')).toBeVisible();
 });
