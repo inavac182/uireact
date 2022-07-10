@@ -1,0 +1,26 @@
+---
+name: Themes
+menu: Themes
+---
+
+import * as packageJson from '../package.json';
+import ThemeTokens from '../../../src/ThemeTokens';
+import { Themes } from '../src/themes';
+
+# Themes
+
+@uireact provides with 2 default themes:
+
+## Light
+
+<ThemeTokens theme={Themes.light}/>
+
+## Dark
+
+<ThemeTokens theme={Themes.dark}/>
+
+## Structure
+
+Each theme has to meet the structure of the [Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/theme.ts) type.
+
+The color tokens should go from lighter (token_10) to darker (token_200).
