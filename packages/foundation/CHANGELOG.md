@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.3.10...@uireact/foundation@0.4.0) (2022-07-17)
+
+
+### Features
+
+* **foundation:** update colors level key ([#43](https://github.com/inavac182/ui-react/issues/43)) ([0e6d90a](https://github.com/inavac182/ui-react/commit/0e6d90a400275eb6cf7bd8eff1bbc50108474653))
+
+
+
+
+
 ## [0.3.10](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.3.9...@uireact/foundation@0.3.10) (2022-07-10)
 
 **Note:** Version bump only for package @uireact/foundation

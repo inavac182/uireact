@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.6.7...@uireact/card@0.7.0) (2022-07-17)
+
+
+### Features
+
+* **foundation:** update colors level key ([#43](https://github.com/inavac182/ui-react/issues/43)) ([0e6d90a](https://github.com/inavac182/ui-react/commit/0e6d90a400275eb6cf7bd8eff1bbc50108474653))
+
+
+
+
+
 ## [0.6.7](https://github.com/inavac182/ui-react/compare/@uireact/card@0.6.6...@uireact/card@0.6.7) (2022-07-10)
 
 **Note:** Version bump only for package @uireact/card
