@@ -1,7 +1,7 @@
 import { Tokens } from '.';
 
 export interface Colors {
-  base: Tokens;
+  backgrounds: Tokens;
   fonts: Tokens;
   primary: Tokens;
   secondary: Tokens;

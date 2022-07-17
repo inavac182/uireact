@@ -16,10 +16,14 @@ const ThemePresentation: React.FC<ThemePresentationProps> = ({ themeMapper }: Th
               <tr key={key}>
                 <td>{StylePropsKey}</td>
                 <td>{ThemeKey}</td>
+                <td>{themeMapper[StylePropsKey][ThemeKey].key}</td>
                 <td>{themeMapper[StylePropsKey][ThemeKey].token}</td>
               </tr>
             ))}
             <tr>
+              <td>
+                <hr />
+              </td>
               <td>
                 <hr />
               </td>
@@ -43,7 +47,8 @@ const ThemePresentation: React.FC<ThemePresentationProps> = ({ themeMapper }: Th
         <tr>
           <th style={{ borderBlockEnd: '5px solid gray' }}>State</th>
           <th style={{ borderBlockEnd: '5px solid gray' }}>CSS Property</th>
-          <th style={{ borderBlockEnd: '5px solid gray' }}>Theme prop</th>
+          <th style={{ borderBlockEnd: '5px solid gray' }}>Theme level key</th>
+          <th style={{ borderBlockEnd: '5px solid gray' }}>Theme token key</th>
         </tr>
       </thead>
       <tbody>{TableBody}</tbody>

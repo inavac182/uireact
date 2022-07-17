@@ -3,7 +3,7 @@ import { Theme } from '../types/themes/';
 export const Light: Theme = {
   name: 'Light',
   colors: {
-    base: {
+    backgrounds: {
       token_10: '#FFFFFF',
       token_50: '#F8F8F8',
       token_100: '#F5F5F5',
