@@ -3,7 +3,7 @@ import { Theme } from '../types/themes/';
 export const Dark: Theme = {
   name: 'Dark',
   colors: {
-    base: {
+    backgrounds: {
       token_10: '#A9A9A9',
       token_50: '#808080',
       token_100: '#484848',

@@ -7,11 +7,11 @@ export const CardThemeMapper: ThemeMapper = {
       token: 'token_100',
     },
     background: {
-      key: 'base',
+      key: 'backgrounds',
       token: 'token_50',
     },
     border: {
-      key: 'base',
+      key: 'backgrounds',
       token: 'token_10',
     },
   },
