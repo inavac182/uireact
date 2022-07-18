@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.7.0...@uireact/card@0.8.0) (2022-07-18)
+
+
+### Features
+
+* **card:** update card theme mapper ([#44](https://github.com/inavac182/ui-react/issues/44)) ([a25cfc3](https://github.com/inavac182/ui-react/commit/a25cfc3b07baf362eb6972f8f686ee671b76f0b7))
+
+
+
+
+
 # [0.7.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.6.7...@uireact/card@0.7.0) (2022-07-17)
 
 
