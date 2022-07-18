@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 import { UiCard } from '../src';
 
@@ -46,4 +47,32 @@ test('renders card with link', () => {
 
   expect(screen.getByRole('link', { name: 'Content' })).toBeVisible();
   expect(screen.getByRole('link', { name: 'Content' })).toHaveAttribute('href', 'https://uireact.io');
+});
+
+test('execute card click handler', () => {
+  const clickCallback = jest.fn();
+
+  render(
+    <UiCard clickHandler={clickCallback}>
+      <HeadingMock />
+    </UiCard>
+  );
+
+  expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+
+  fireEvent.click(screen.getByRole('heading'));
+
+  expect(clickCallback).toHaveBeenCalledTimes(1);
+});
+
+test('execute internal link', () => {
+  render(
+    <Router>
+      <UiCard link="/link" internalLink>
+        <HeadingMock />
+      </UiCard>
+    </Router>
+  );
+
+  expect(screen.getByRole('link')).toBeVisible();
 });
