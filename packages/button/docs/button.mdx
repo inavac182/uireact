@@ -7,8 +7,12 @@ import { Props } from 'docz';
 
 import Playground from '../../../src/Playground';
 import ThemePresentation from '../../../src/ThemePresentation';
-import { UiButton } from '../src/';
-import { ButtonThemeMapper } from '../src/theme/button-theme-mapper';
+import { UiPrimaryButton, UiSecondaryButton, UiTertiaryButton } from '../src/';
+import {
+  PrimaryButtonThemeMapper,
+  SecondaryButtonThemeMapper,
+  TertiaryButtonThemeMapper
+} from '../src/theme/';
 import { UiSpacing, Sizing } from '../../foundation/src/';
 import * as packageJson from '../package.json';
 
@@ -26,18 +30,50 @@ import * as packageJson from '../package.json';
 
 > npm i @uireact/foundation @uireact/button
 
-## Usage
+## UiPrimaryButton
 
 <Playground>
-  <UiButton>
+  <UiPrimaryButton>
     <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
+  </UiPrimaryButton>
 </Playground>
 
-## Props
+#### Props
 
-<Props of={UiButton} />
+<Props of={UiPrimaryButton} />
 
-## Theme
+#### Theme
 
-<ThemePresentation themeMapper={ButtonThemeMapper} />
+<ThemePresentation themeMapper={PrimaryButtonThemeMapper} />
+
+## UiSecondaryButton
+
+<Playground>
+  <UiSecondaryButton>
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiSecondaryButton>
+</Playground>
+
+#### Props
+
+<Props of={UiSecondaryButton} />
+
+#### Theme
+
+<ThemePresentation themeMapper={SecondaryButtonThemeMapper} />
+
+## UiTertiaryButton
+
+<Playground>
+  <UiTertiaryButton>
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiTertiaryButton>
+</Playground>
+
+#### Props
+
+<Props of={UiTertiaryButton} />
+
+#### Theme
+
+<ThemePresentation themeMapper={TertiaryButtonThemeMapper} />

@@ -1,6 +1,6 @@
 import { ThemeMapper } from '@uireact/foundation';
 
-export const ButtonThemeMapper: ThemeMapper = {
+export const PrimaryButtonThemeMapper: ThemeMapper = {
   default: {
     color: {
       key: 'fonts',
