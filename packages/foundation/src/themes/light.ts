@@ -11,11 +11,11 @@ export const Light: Theme = {
       token_200: '#C0C0C0',
     },
     fonts: {
-      token_10: '#DCDCDC',
-      token_50: '#D3D3D3',
-      token_100: '#C0C0C0',
-      token_150: '#A9A9A9',
-      token_200: '#888888',
+      token_10: '#A9A9A9',
+      token_50: '#808080',
+      token_100: '#484848',
+      token_150: '#202020',
+      token_200: '#000000',
     },
     primary: {
       token_10: '#52F8BD',
