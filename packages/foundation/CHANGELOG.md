@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2022-07-18)
+
+
+### Features
+
+* **foundation:** update theme colors ([#45](https://github.com/inavac182/ui-react/issues/45)) ([fd8484b](https://github.com/inavac182/ui-react/commit/fd8484b0be8e6c8656fa5f77cdabb256d7b33d6c))
+
+
+
+
+
 # [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.3.10...@uireact/foundation@0.4.0) (2022-07-17)
 
 
