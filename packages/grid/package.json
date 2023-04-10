@@ -3,7 +3,7 @@
   "description": "Grid component from uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +22,7 @@
     "tsc:watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.5.0"
+    "@uireact/foundation": "^0.5.1"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
