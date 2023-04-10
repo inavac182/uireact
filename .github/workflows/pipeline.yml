@@ -27,7 +27,7 @@ jobs:
       - name: Install correct node version
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ $NODE_VERSION }}
+          node-version: $NODE_VERSION
           registry-url: 'https://registry.npmjs.org'
           scope: uireact
           always-auth: true
@@ -58,7 +58,7 @@ jobs:
       - name: Install correct node version
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ $NODE_VERSION }}
+          node-version: $NODE_VERSION
       - name: Install Dependencies
         run: npm ci
       - name: Build
