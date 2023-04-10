@@ -13,6 +13,7 @@ jobs:
       - name: Set the correct Node version using nvm
         shell: bash -l {0} 
         run: nvm install
+        run: node -v
       - name: Install Dependencies
         run: npm ci
       - name: Build
