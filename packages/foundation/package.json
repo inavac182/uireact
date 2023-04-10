@@ -3,7 +3,7 @@
   "description": "Foundation package needed for @uireact packages",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "publishConfig": {
     "access": "public"
   },
@@ -25,8 +25,8 @@
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "react": ">= 16",
-    "react-dom": ">= 16",
+    "react": ">= 17 < 19",
+    "react-dom": ">= 17 < 19",
     "styled-components": "^5.1.1"
   },
   "gitHead": "ecb2ada34a996bfeaa9cde73506c9371b22af87c"
