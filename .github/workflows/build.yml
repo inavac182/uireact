@@ -10,11 +10,13 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
-      - name: Install nvm
-        shell: bash -l {0} 
-        run: nvm install
-      - name: Set the correct Node version
-        run: nvm use
+      - name: Get node version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+        id: nvm
+      - name: Install correct node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
       - name: Install Dependencies
         run: npm ci
       - name: Build
