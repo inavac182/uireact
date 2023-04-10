@@ -26,8 +26,8 @@
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "react": ">= 16.8.0 < 17",
-    "react-dom": ">= 16.8.0 < 17",
+    "react": ">= 17 < 19",
+    "react-dom": ">= 17 < 19",
     "styled-components": "^5.1.1"
   },
   "gitHead": "ecb2ada34a996bfeaa9cde73506c9371b22af87c"
