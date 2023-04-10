@@ -33,7 +33,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         cursorNeeded={props.clickHandler !== undefined}
       >
         <ContentWrapper customTheme={themeContext.theme} padded={props.padded}>
-          {props?.children}
+          {props.children}
         </ContentWrapper>
       </CardWrapper>
     ),

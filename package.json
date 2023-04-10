@@ -1,12 +1,12 @@
 {
   "name": "uireact",
-  "repository": "https://github.com/inavac182/ui-react/",
+  "repository": "https://github.com/inavac182/uireact/",
   "license": "SEE LICENSE",
   "scripts": {
     "bootstrap": "npx lerna bootstrap --hoist",
-    "bootstrap:quick": "npm run bootstrap -- --scope=@ui-react/*",
+    "bootstrap:quick": "npm run bootstrap -- --scope=@uireact/*",
     "build": "npx lerna run build --concurrency=1 --stream",
-    "build:quick": "npm run build -- --scope=@ui-react/*",
+    "build:quick": "npm run build -- --scope=@uireact/*",
     "clean": "rm -rf .docz && npm run clean:artifacts && npm run clean:packages",
     "clean:artifacts": "npx lerna run clean --parallel",
     "clean:packages": "npx lerna clean --yes",
