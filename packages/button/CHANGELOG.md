@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/button@0.7.10...@uireact/button@0.8.0) (2023-04-10)
+
+
+### Features
+
+* **button:** split button into levels ([#46](https://github.com/inavac182/ui-react/issues/46)) ([2b52d71](https://github.com/inavac182/ui-react/commit/2b52d717dae62ad6a4cd2d3e4967cf5a6435a781))
+
+
+
+
+
 ## [0.7.10](https://github.com/inavac182/ui-react/compare/@uireact/button@0.7.9...@uireact/button@0.7.10) (2023-04-10)
 
 **Note:** Version bump only for package @uireact/button
