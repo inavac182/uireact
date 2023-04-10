@@ -11,6 +11,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
       - name: Install nvm
+        shell: bash -l {0} 
         run: nvm install
       - name: Set the correct Node version
         run: nvm use
