@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.2 (2023-04-11)
+
+**Note:** Version bump only for package @uireact/foundation
+
+
+
+
+
 ## 0.5.1 (2023-04-10)
 
 **Note:** Version bump only for package @uireact/foundation
