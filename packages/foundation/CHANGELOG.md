@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.5 (2023-04-14)
+
+**Note:** Version bump only for package @uireact/foundation
+
+
+
+
+
 ## [0.5.4](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.5.3...@uireact/foundation@0.5.4) (2023-04-14)
 
 **Note:** Version bump only for package @uireact/foundation
