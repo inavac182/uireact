@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-import { Theme, Colors, Tokens } from '../packages/foundation/src';
+import { ColorCategories, ColorTokens } from '../packages/foundation/src';
 
 interface ThemeTokensProps {
-  theme: Theme;
+  colors: ColorCategories;
 }
 
-const ThemeTokens: React.FC<ThemeTokensProps> = ({ theme }: ThemeTokensProps) => {
-  const { colors } = theme;
-
+const ThemeTokens: React.FC<ThemeTokensProps> = ({ colors }: ThemeTokensProps) => {
   return (
     <div>
       <div>
@@ -21,7 +19,7 @@ const ThemeTokens: React.FC<ThemeTokensProps> = ({ theme }: ThemeTokensProps) =>
 };
 
 interface ThemeKeyTableProps {
-  tokens: Tokens;
+  tokens: ColorTokens;
   keyLevel: string;
 }
 
