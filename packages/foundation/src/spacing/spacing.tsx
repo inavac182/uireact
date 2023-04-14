@@ -64,7 +64,13 @@ export const UiSpacing: React.FC<UiSpacingProps> = ({ children, margin, padding,
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <Div customTheme={themeContext.theme} margin={margin} padding={padding} data-testid={testId}>
+    <Div
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+      margin={margin}
+      padding={padding}
+      data-testid={testId}
+    >
       {children}
     </Div>
   );

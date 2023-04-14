@@ -1,3 +1,2 @@
-export * from './themes';
-export * from './defaults';
-export * from './get-theme-token';
+export * from './default-theme';
+export * from './get-theme-color';

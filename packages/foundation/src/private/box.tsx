@@ -22,7 +22,11 @@ interface UiBoxProps {
 export const UiBox: React.FC = ({ children }: UiBoxProps) => {
   const themeContext = useContext(ThemeContext);
 
-  return <Div customTheme={themeContext.theme}>{children}</Div>;
+  return (
+    <Div customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme}>
+      {children}
+    </Div>
+  );
 };
 
 UiBox.displayName = 'UiBox';

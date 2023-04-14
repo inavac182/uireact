@@ -1,3 +1,4 @@
+import { ThemeColor } from './enums';
 import { Theme } from './themes/theme';
 
 export interface UiReactElementProps {
@@ -12,4 +13,6 @@ export interface UiReactElementProps {
 export type UiReactPrivateElementProps = UiReactElementProps & {
   /** Theme that is being used to retrieve tokens */
   customTheme: Theme;
+  /** selected theme color */
+  selectedTheme: ThemeColor;
 };

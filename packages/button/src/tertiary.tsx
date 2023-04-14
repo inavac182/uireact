@@ -2,74 +2,50 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { getThemeToken, MapperLevel, MapperStyleProperty, ThemeContext } from '@uireact/foundation';
+import { ThemeContext, ColorCategories, ColorTokens, getThemeColor } from '@uireact/foundation';
 
-import { TertiaryButtonThemeMapper } from './theme';
 import { privateButtonProps, UiButtonProps } from './types';
 
 const StyledButton = styled.button<privateButtonProps>`
   ${(props) => `
-    color: ${getThemeToken(
-      MapperLevel.default,
-      MapperStyleProperty.color,
+    color: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.fonts, ColorTokens.token_100)};
+    background: ${getThemeColor(
       props.customTheme,
-      TertiaryButtonThemeMapper
+      props.selectedTheme,
+      ColorCategories.tertiary,
+      ColorTokens.token_100
     )};
-    background: ${getThemeToken(
-      MapperLevel.default,
-      MapperStyleProperty.background,
-      props.customTheme,
-      TertiaryButtonThemeMapper
-    )};
-    border: ${getThemeToken(
-      MapperLevel.default,
-      MapperStyleProperty.border,
-      props.customTheme,
-      TertiaryButtonThemeMapper
-    )};
+    border: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.tertiary, ColorTokens.token_50)};
 
     :hover {
-      color: ${getThemeToken(
-        MapperLevel.hover,
-        MapperStyleProperty.color,
+      color: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.fonts, ColorTokens.token_50)};
+      background: ${getThemeColor(
         props.customTheme,
-        TertiaryButtonThemeMapper
+        props.selectedTheme,
+        ColorCategories.tertiary,
+        ColorTokens.token_150
       )};
-      background: ${getThemeToken(
-        MapperLevel.hover,
-        MapperStyleProperty.background,
-        props.customTheme,
-        TertiaryButtonThemeMapper
-      )};
+      border: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.tertiary, ColorTokens.token_100)};
     }
 
     :active {
-      color: ${getThemeToken(
-        MapperLevel.active,
-        MapperStyleProperty.color,
+      color: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.fonts, ColorTokens.token_10)};
+      background: ${getThemeColor(
         props.customTheme,
-        TertiaryButtonThemeMapper
+        props.selectedTheme,
+        ColorCategories.tertiary,
+        ColorTokens.token_200
       )};
-      background: ${getThemeToken(
-        MapperLevel.active,
-        MapperStyleProperty.background,
-        props.customTheme,
-        TertiaryButtonThemeMapper
-      )};
+      border: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.tertiary, ColorTokens.token_10)};
     }
 
     :disabled {
-      color: ${getThemeToken(
-        MapperLevel.disabled,
-        MapperStyleProperty.color,
+      color: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.fonts, ColorTokens.token_10)};
+      background: ${getThemeColor(
         props.customTheme,
-        TertiaryButtonThemeMapper
-      )};
-      background: ${getThemeToken(
-        MapperLevel.disabled,
-        MapperStyleProperty.background,
-        props.customTheme,
-        TertiaryButtonThemeMapper
+        props.selectedTheme,
+        ColorCategories.tertiary,
+        ColorTokens.token_50
       )};
       cursor: not-allowed;
     }
@@ -93,6 +69,7 @@ export const UiTertiaryButton: React.FC<UiButtonProps> = ({
   return (
     <StyledButton
       customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
       onClick={onClick}
       data-stid={testId}
       className={className}

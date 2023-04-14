@@ -29,10 +29,15 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
     () => (
       <CardWrapper
         customTheme={themeContext.theme}
+        selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
         cursorNeeded={props.clickHandler !== undefined}
       >
-        <ContentWrapper customTheme={themeContext.theme} padded={props.padded}>
+        <ContentWrapper
+          customTheme={themeContext.theme}
+          selectedTheme={themeContext.selectedTheme}
+          padded={props.padded}
+        >
           {props.children}
         </ContentWrapper>
       </CardWrapper>
