@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 
 import { UiReactPrivateElementProps } from '@uireact/foundation';
 
-export interface UiButtonProps {
+export type UiButtonProps = {
   /** onClick Handler */
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void;
   /** Disable button */
@@ -12,6 +12,8 @@ export interface UiButtonProps {
   testId?: string;
   /** className attribute */
   className?: string;
-}
+  /** Button type */
+  buttonType?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error';
+};
 
 export type privateButtonProps = UiButtonProps & UiReactPrivateElementProps;

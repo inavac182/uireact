@@ -1,3 +1,3 @@
-export * from './primary';
-export * from './secondary';
-export * from './tertiary';
+export type { UiButtonProps } from './types';
+
+export * from './ui-button';
