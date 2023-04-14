@@ -1,5 +1,5 @@
 export default {
-  files: 'packages/**/*.{md,markdown,mdx}',
+  ignore: ['utils/**/*'],
   typescript: true,
   themeConfig: {
     initialColorMode: 'dark',
