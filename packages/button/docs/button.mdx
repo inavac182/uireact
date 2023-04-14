@@ -8,6 +8,7 @@ import { Props } from 'docz';
 import Playground from '../../../src/Playground';
 import { UiButton } from '../src/';
 import { UiSpacing, Sizing } from '../../foundation/src/';
+import { UiGrid } from '../../grid/src/';
 import * as packageJson from '../package.json';
 
 # UiButton
@@ -30,32 +31,34 @@ import * as packageJson from '../package.json';
   <UiButton>
     <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
   </UiButton>
-  <br></br>
-  <UiButton buttonType="secondary">
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
-  <br></br>
-  <UiButton buttonType="tertiary">
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
-  <br></br>
-  <UiButton buttonType="positive">
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
-  <br></br>
-  <UiButton buttonType="negative">
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
-  <br></br>
-  <UiButton buttonType="error">
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
-  <br></br>
-  <UiButton buttonType="primary" disabled>
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
 </Playground>
 
-#### Props
+### Props
 
 <Props of={UiButton} />
+
+### More examples
+
+#### With fullWidth
+
+<Playground>
+  <UiGrid cols={2} rows={3} colsGap="10%" justifyItems="center">
+    <UiButton fullWidth>
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+    </UiButton>
+
+    <UiButton fullWidth buttonType="tertiary">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+    </UiButton>
+  </UiGrid>
+</Playground>
+
+#### As submit button
+
+<Playground>
+  <form>
+      <UiButton buttonType="secondary" type="submit">
+        Button! 💅🏾
+      </UiButton>
+  </form>
+</Playground>
