@@ -6,7 +6,7 @@ menu: Components
 import { Props } from 'docz';
 
 import Playground from '../../../src/Playground';
-import { UiPrimaryButton, UiSecondaryButton, UiTertiaryButton } from '../src/';
+import { UiButton } from '../src/';
 import { UiSpacing, Sizing } from '../../foundation/src/';
 import * as packageJson from '../package.json';
 
@@ -24,38 +24,38 @@ import * as packageJson from '../package.json';
 
 > npm i @uireact/foundation @uireact/button
 
-## UiPrimaryButton
+## UiButton
 
 <Playground>
-  <UiPrimaryButton>
+  <UiButton>
     <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiPrimaryButton>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="secondary">
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="tertiary">
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="positive">
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="negative">
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="error">
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
+  <br></br>
+  <UiButton buttonType="primary" disabled>
+    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+  </UiButton>
 </Playground>
 
 #### Props
 
-<Props of={UiPrimaryButton} />
-
-## UiSecondaryButton
-
-<Playground>
-  <UiSecondaryButton>
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiSecondaryButton>
-</Playground>
-
-#### Props
-
-<Props of={UiSecondaryButton} />
-
-## UiTertiaryButton
-
-<Playground>
-  <UiTertiaryButton>
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiTertiaryButton>
-</Playground>
-
-#### Props
-
-<Props of={UiTertiaryButton} />
+<Props of={UiButton} />
