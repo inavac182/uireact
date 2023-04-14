@@ -21,6 +21,8 @@ const StyledButton = styled.button<privateButtonProps>`
       background: ${tokens.token_100};
       border: ${tokens.token_50};
 
+      ${props.fullWidth ? 'width: 100%;' : ''}
+
       :hover {
         color: ${fontTokens.token_50};
         background: ${tokens.token_150};
@@ -54,6 +56,9 @@ export const UiButton: React.FC<UiButtonProps> = ({
   disabled,
   children,
   buttonType,
+  fullWidth,
+  type,
+  ref,
 }: UiButtonProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -66,6 +71,9 @@ export const UiButton: React.FC<UiButtonProps> = ({
       data-testid={testId}
       className={className}
       disabled={disabled}
+      fullWidth={fullWidth}
+      type={type}
+      ref={ref}
     >
       {children}
     </StyledButton>
