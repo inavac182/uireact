@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/inavac182/ui-react/compare/@uireact/button@0.8.3...@uireact/button@0.9.0) (2023-04-14)
+
+
+### Features
+
+* **button:** adding full width prop ([#56](https://github.com/inavac182/ui-react/issues/56)) ([ad964fa](https://github.com/inavac182/ui-react/commit/ad964fa6e0e80ff5c6da65e07d4cb0be35aef86a))
+
+
+
+
+
 ## [0.8.3](https://github.com/inavac182/ui-react/compare/@uireact/button@0.8.2...@uireact/button@0.8.3) (2023-04-14)
 
 **Note:** Version bump only for package @uireact/button
