@@ -7,7 +7,3 @@ export enum Sizing {
   size = 'six',
   seven = 'seven',
 }
-
-export type Spacing = {
-  [key in Sizing]: string;
-};

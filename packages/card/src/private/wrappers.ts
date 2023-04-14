@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { UiReactPrivateElementProps, getThemeToken, MapperLevel, MapperStyleProperty } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, UiReactPrivateElementProps, getThemeColor } from '@uireact/foundation';
 import { UiCardProps } from '..';
-import { CardThemeMapper } from '../theme';
 
 type __CardProps = UiCardProps &
   UiReactPrivateElementProps & {
@@ -11,19 +10,19 @@ type __CardProps = UiCardProps &
 
 export const CardWrapper = styled.div<__CardProps>`
   ${(props) => `
-    color: ${getThemeToken(MapperLevel.default, MapperStyleProperty.color, props.customTheme, CardThemeMapper)};
-    background-color: ${getThemeToken(
-      MapperLevel.default,
-      MapperStyleProperty.background,
+    color: ${getThemeColor(props.customTheme, props.selectedTheme, ColorCategories.fonts, ColorTokens.token_100)};
+    background-color: ${getThemeColor(
       props.customTheme,
-      CardThemeMapper
+      props.selectedTheme,
+      ColorCategories.backgrounds,
+      ColorTokens.token_100
     )};
 
-    border: 1px solid ${getThemeToken(
-      MapperLevel.default,
-      MapperStyleProperty.border,
+    border: 1px solid ${getThemeColor(
       props.customTheme,
-      CardThemeMapper
+      props.selectedTheme,
+      ColorCategories.backgrounds,
+      ColorTokens.token_100
     )};
     ${props.cursorNeeded ? 'cursor: pointer;' : ''}
   `}

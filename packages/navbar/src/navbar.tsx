@@ -14,7 +14,11 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({ children, orientation }: UiN
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <NavbarWrapper customTheme={themeContext.theme} orientation={orientation}>
+    <NavbarWrapper
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+      orientation={orientation}
+    >
       {children}
     </NavbarWrapper>
   );

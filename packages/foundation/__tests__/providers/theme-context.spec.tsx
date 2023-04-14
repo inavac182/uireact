@@ -2,43 +2,38 @@ import * as React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ThemeContext } from '../../src/providers';
-import { Themes } from '../../src/themes';
-import { Theme } from '../../src';
+import { DefaultTheme, ThemeColor } from '../../src';
 
 const MockedComponent = () => {
   const themeContext = React.useContext(ThemeContext);
 
-  return <p>{themeContext.theme.name}</p>;
+  return <p>{themeContext.selectedTheme}</p>;
 };
 
-interface MockedParentComponent {
-  defaultTheme?: Theme;
-}
-
-const MockedParentComponent = ({ defaultTheme }: MockedParentComponent) => {
-  const [theme, setTheme] = React.useState(defaultTheme || Themes.dark);
+const MockedParentComponent = () => {
+  const [selectedTheme, setTheme] = React.useState(ThemeColor.light);
   const toogleTheme = () => {
-    setTheme(theme.name === Themes.dark.name ? Themes.light : Themes.dark);
+    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toogleTheme }}>
+    <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: selectedTheme }}>
       <MockedComponent />
       <button onClick={toogleTheme}>Toogle</button>
     </ThemeContext.Provider>
   );
 };
 
-test('Should set dark theme by default', () => {
+test('Should set a selected theme', () => {
   render(<MockedParentComponent />);
 
-  expect(screen.getByText(Themes.dark.name)).toBeVisible();
+  expect(screen.getByText('light')).toBeVisible();
 });
 
-test('Should toogle theme to light', () => {
+test('Should trigger a theme change using the context provider', () => {
   render(<MockedParentComponent />);
 
   fireEvent.click(screen.getByRole('button'));
 
-  expect(screen.getByText(Themes.light.name)).toBeVisible();
+  expect(screen.getByText('dark')).toBeVisible();
 });

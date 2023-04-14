@@ -1,10 +1,10 @@
 import React from 'react';
-import { Themes } from '../themes';
+import { DefaultTheme } from '../themes';
+import { Theme, ThemeColor } from '../types';
 
-export const ThemeContext = React.createContext({
-  theme: Themes.dark,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  toogleTheme: /* istanbul ignore next */ () => {},
+export const ThemeContext = React.createContext<{ theme: Theme; selectedTheme: ThemeColor }>({
+  theme: DefaultTheme,
+  selectedTheme: ThemeColor.light,
 });
 
 ThemeContext.displayName = 'UiReactThemeContext';
