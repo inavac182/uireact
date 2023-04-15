@@ -42,7 +42,7 @@ import * as packageJson from '../package.json';
 #### With fullWidth
 
 <Playground>
-  <UiGrid cols={2} rows={1} colsGap="10%" justifyItems="center">
+  <UiGrid cols={2} rows={1} colsGap="20px" justifyItems="center">
     <UiButton fullWidth>
       <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
     </UiButton>
@@ -62,4 +62,29 @@ import * as packageJson from '../package.json';
       Button! 💅🏾
     </UiButton>
   </form>
+</Playground>
+
+#### Types of button:
+
+<Playground>
+  <UiGrid cols={6} colsGap="5px" justifyItems="center">
+    <UiButton fullWidth>
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🐬</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth buttonType="secondary">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🐉</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth buttonType="tertiary">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌹</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth buttonType="positive">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌎</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth buttonType="negative">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌈</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth buttonType="error">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! ⚡️</UiSpacing>
+    </UiButton>
+  </UiGrid>
 </Playground>
