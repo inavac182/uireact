@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ThemeContext, UiReactElementProps } from '@uireact/foundation';
-import { CardWrapper, ContentWrapper, StyledLink, StyledExternalLink } from './private';
+import { CardWrapper, StyledLink, StyledExternalLink } from './private';
 
 export type UiCardProps = UiReactElementProps & {
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
@@ -12,8 +12,6 @@ export type UiCardProps = UiReactElementProps & {
   link?: string;
   /** Prop for internal link, when true the redirect uses internal react link */
   internalLink?: boolean;
-  /** The card renders with padding around the content */
-  padded?: boolean;
 };
 
 export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
@@ -33,13 +31,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         onClick={!props.link ? onClick : undefined}
         cursorNeeded={props.clickHandler !== undefined}
       >
-        <ContentWrapper
-          customTheme={themeContext.theme}
-          selectedTheme={themeContext.selectedTheme}
-          padded={props.padded}
-        >
-          {props.children}
-        </ContentWrapper>
+        {props.children}
       </CardWrapper>
     ),
     [props, themeContext.theme]
