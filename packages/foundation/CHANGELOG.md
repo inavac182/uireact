@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.6.0...@uireact/foundation@0.7.0) (2023-04-15)
+
+
+### Features
+
+* **button:** using theme mapper ([#61](https://github.com/inavac182/ui-react/issues/61)) ([f92acb6](https://github.com/inavac182/ui-react/commit/f92acb6b764f0bc82e43c438f8f332c1b848954e))
+
+
+
+
+
 # [0.6.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.5.5...@uireact/foundation@0.6.0) (2023-04-15)
 
 
