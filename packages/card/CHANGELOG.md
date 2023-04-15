@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.9.4...@uireact/card@0.10.0) (2023-04-15)
+
+
+### Features
+
+* **chore:** adding get theme styling fn ([#60](https://github.com/inavac182/ui-react/issues/60)) ([5ed60b8](https://github.com/inavac182/ui-react/commit/5ed60b8ef15e6d9d3b1762e26609b3e89a31b060))
+
+
+
+
+
 ## 0.9.4 (2023-04-14)
 
 **Note:** Version bump only for package @uireact/card
