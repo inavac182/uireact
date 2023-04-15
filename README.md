@@ -67,5 +67,3 @@ functions: 100,
 lines: 100,
 statements: 100
 ```
-
-Currently this configs lives inside each package jest file, but in a short future will migrate to a common file that all the inner packages extend from it.
