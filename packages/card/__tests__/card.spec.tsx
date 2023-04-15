@@ -16,6 +16,7 @@ test('renders card', () => {
   );
 
   expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+  fireEvent.click(screen.getByRole('heading'));
 });
 
 test('renders card with header, content and footer', () => {

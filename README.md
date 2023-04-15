@@ -48,15 +48,24 @@ For running unit tests in only 1 package:
 ```
 npm run test:jest -- --scope=@uireact/THE-COMPONENT-NAME
 ```
-### Coverage
 
-The unit tests have a coverage set for 90% in all props:
+For running unit tests in only 1 file:
 
 ```
-  branches: 90,
-  functions: 90,
-  lines: 90,
-  statements: 90
+npx jest --coverage=false -- RELATIVE-PATH
+```
+👁️ **--coverage=false** this flag will skip coverage, useful when developing but coverage is needed for PR check to pass
+
+
+### Coverage
+
+The unit tests on each package should aim for 100% coverage in all areas.
+
+```
+branches: 100,
+functions: 100,
+lines: 100,
+statements: 100
 ```
 
 Currently this configs lives inside each package jest file, but in a short future will migrate to a common file that all the inner packages extend from it.
