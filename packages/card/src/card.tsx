@@ -34,7 +34,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         {props.children}
       </CardWrapper>
     ),
-    [props, themeContext.theme]
+    [props, themeContext]
   );
 
   if (props.link) {
