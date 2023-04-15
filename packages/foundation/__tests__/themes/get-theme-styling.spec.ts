@@ -72,14 +72,14 @@ describe('getThemeStyling', () => {
   it('Should get correct styling when using a state different than normal', () => {
     const style = getThemeStyling(DefaultTheme, ThemeColor.dark, mockedMapperWithHover);
 
-    expect(style).toContain(`hover: {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
+    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
   });
 
   it('Should get correct styling when using multiple states', () => {
     const style = getThemeStyling(DefaultTheme, ThemeColor.dark, mockedMapperWithMultipleStates);
 
     expect(style).toContain(`background: ${DefaultTheme.dark.backgrounds.token_100}`);
-    expect(style).toContain(`hover: {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
-    expect(style).toContain(`active: {\nbackground: ${DefaultTheme.dark.backgrounds.token_50};\n}\n`);
+    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
+    expect(style).toContain(`:active {\nbackground: ${DefaultTheme.dark.backgrounds.token_50};\n}\n`);
   });
 });
