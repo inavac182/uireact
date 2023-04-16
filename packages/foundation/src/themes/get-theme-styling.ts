@@ -1,4 +1,4 @@
-import { Theme, ThemeColor, ThemeMapper, ThemeMapperStates, ThemeMapperValue } from '../types';
+import { Theme, ThemeColor, ThemeMapper, ThemeMapperStates, ThemeMapperStyles } from '../types';
 
 export const getThemeStyling = (theme: Theme, selectedTheme: ThemeColor, mapper: ThemeMapper): string => {
   let style = '';
@@ -6,8 +6,20 @@ export const getThemeStyling = (theme: Theme, selectedTheme: ThemeColor, mapper:
   Object.keys(mapper).map((state) => {
     let stateStyling = '';
 
-    Object.keys(mapper[state]).map((styleProperty) => {
-      const mapperValue = mapper[state][styleProperty] as ThemeMapperValue;
+    const themeState = mapper[state as ThemeMapperStates];
+
+    if (!themeState) {
+      return;
+    }
+
+    Object.keys(themeState).map((styleProperty) => {
+      const themeStyle = themeState[styleProperty as ThemeMapperStyles];
+
+      if (!themeStyle) {
+        return;
+      }
+
+      const mapperValue = themeStyle;
       const currentTheme = mapperValue.inverse
         ? theme[selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark]
         : theme[selectedTheme];
