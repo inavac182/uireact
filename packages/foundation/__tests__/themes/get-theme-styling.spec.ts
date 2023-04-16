@@ -82,4 +82,119 @@ describe('getThemeStyling', () => {
     expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
     expect(style).toContain(`:active {\nbackground: ${DefaultTheme.dark.backgrounds.token_50};\n}\n`);
   });
+
+  describe('Incorrect mapper', () => {
+    it('Should NOT break if mapper gets incorrect category', () => {
+      const incorrectMapper = {
+        active: {
+          background: {
+            category: 'INCORRECT-CATEGORY',
+            inverse: false,
+            token: ColorTokens.token_100,
+          },
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`:active {\n}`);
+    });
+
+    it('Should NOT break if mapper does NOT include inverse', () => {
+      const incorrectMapper = {
+        active: {
+          background: {
+            category: 'INCORRECT-CATEGORY',
+            token: ColorTokens.token_100,
+          },
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`:active {\n}`);
+    });
+
+    it('Should NOT break if mapper does NOT include token', () => {
+      const incorrectMapper = {
+        active: {
+          background: {
+            category: 'INCORRECT-CATEGORY',
+          },
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`:active {\n}`);
+    });
+
+    it('Should NOT break if mapper does NOT include styling property', () => {
+      const incorrectMapper = {
+        active: {
+          background: {},
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`:active {\n}`);
+    });
+
+    it('Should NOT break if mapper inclues incorrect styling', () => {
+      const incorrectMapper = {
+        normal: {
+          WHATEVERSTYLE: {
+            category: ColorCategories.backgrounds,
+            inverse: false,
+            token: ColorTokens.token_100,
+          },
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`WHATEVERSTYLE: ${DefaultTheme.dark.backgrounds.token_100};`);
+    });
+
+    it('Should NOT break if mapper gets incorrect category', () => {
+      const incorrectMapper = {
+        WHATEVERCATEGORY: {
+          background: {
+            category: ColorCategories.backgrounds,
+            inverse: false,
+            token: ColorTokens.token_100,
+          },
+        },
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(`:WHATEVERCATEGORY {\nbackground: ${DefaultTheme.dark.backgrounds.token_100};\n}\n`);
+    });
+
+    it('Should NOT break if mapper does NOT includes styles', () => {
+      const incorrectMapper = {
+        normal: null,
+      };
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
+
+      expect(style).toContain(``);
+    });
+  });
 });
