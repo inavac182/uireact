@@ -21,11 +21,9 @@
     "tsc": "tsc",
     "tsc:watch": "tsc --watch"
   },
-  "devDependencies": {
-    "@uireact/foundation": "^0.7.1"
-  },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
+    "@uireact/foundation": "^0.7.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": "^5.1.1",
