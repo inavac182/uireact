@@ -1,3 +1,3 @@
-@uireact/COMPONENT-NAME
+@uireact/view
 
-README information about the component
+# UiView
