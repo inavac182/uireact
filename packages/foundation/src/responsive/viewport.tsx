@@ -4,7 +4,7 @@ import { Breakpoints } from '../types';
 import { useWindowDimensions } from '../hooks/use-window-dimensions';
 import { BreakpointsSizes } from './breakpoints-sizes';
 
-type BreakpointString = 'l|s' | 'l|m' | 'm|s';
+type BreakpointString = 's|m' | 'm|l' | 'l|xl';
 
 interface ViewportProps {
   children?: React.ReactNode;
@@ -17,17 +17,18 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   const childrenMemo = React.useMemo(() => <>{children}</>, []);
   const isSmall = width <= BreakpointsSizes.s.max;
   const isMedium = width >= BreakpointsSizes.m.min && width <= BreakpointsSizes.m.max;
-  const isLarge = width >= BreakpointsSizes.l.min;
+  const isLarge = width >= BreakpointsSizes.l.min && width <= BreakpointsSizes.l.max;
+  const isXLarge = width >= BreakpointsSizes.xl.min;
 
   if (isSmall) {
-    const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 'l|s' || criteria === 'm|s';
+    const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 's|m';
     if (matchesCriteria) {
       return childrenMemo;
     }
   }
 
   if (isMedium) {
-    const matchesCriteria = criteria === Breakpoints.MEDIUM || criteria === 'l|m' || criteria === 'm|s';
+    const matchesCriteria = criteria === Breakpoints.MEDIUM || criteria === 's|m' || criteria === 'm|l';
 
     if (matchesCriteria) {
       return childrenMemo;
@@ -35,7 +36,15 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   }
 
   if (isLarge) {
-    const matchesCriteria = criteria === Breakpoints.LARGE || criteria === 'l|m' || criteria === 'l|s';
+    const matchesCriteria = criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl';
+
+    if (matchesCriteria) {
+      return childrenMemo;
+    }
+  }
+
+  if (isXLarge) {
+    const matchesCriteria = criteria === Breakpoints.XLARGE || criteria === 'l|xl';
 
     if (matchesCriteria) {
       return childrenMemo;

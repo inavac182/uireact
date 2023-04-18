@@ -8,5 +8,9 @@ export const BreakpointsSizes = {
   },
   l: {
     min: 992,
+    max: 1440,
+  },
+  xl: {
+    min: 1440,
   },
 };

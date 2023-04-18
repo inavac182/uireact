@@ -5,7 +5,8 @@ menu: Components
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
-import { UiView } from '../src/';
+import { UiView } from '../src';
+import { ViewExample } from './util';
 
 # UiView
 
@@ -15,16 +16,24 @@ import { UiView } from '../src/';
   </a>
 </sup>
 
-> DESCRIPTION
+> UiView component that wraps the content of your react application already creating the theme context
 
 ## Installation
 
 > npm i @uireact/foundation @uireact/view
 
-## A simple view
+## Just a view
 
-<Playground>
-  <UiView />
+The view component already instanciates the ThemeContext so it only needs the theme and the selected color as props
+
+<Playground hideThemeSelector>
+  <ViewExample />
+</Playground>
+
+## View with centered content
+
+<Playground hideThemeSelector>
+  <ViewExample centeredContent />
 </Playground>
 
 ### Props
