@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.7.2...@uireact/foundation@0.8.0) (2023-04-18)
+
+
+### Features
+
+* **view:** adding view row ([#70](https://github.com/inavac182/ui-react/issues/70)) ([5a2c7ea](https://github.com/inavac182/ui-react/commit/5a2c7eac00af54818cd99589f3aacfc4afd00426))
+
+
+
+
+
 ## 0.7.2 (2023-04-18)
 
 **Note:** Version bump only for package @uireact/foundation
