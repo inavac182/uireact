@@ -10,6 +10,23 @@ beforeEach(() => {
 });
 
 describe('using breakpoint enum', () => {
+  test('should render correctly when criteria is Xlarge', () => {
+    render(
+      <UiViewport criteria={Breakpoints.XLARGE}>
+        <p>Render in XLarge</p>
+      </UiViewport>
+    );
+
+    expect(screen.queryByText('Render in XLarge')).not.toBeInTheDocument();
+
+    act(() => {
+      global.innerWidth = BreakpointsSizes.xl.min;
+      global.dispatchEvent(new Event('resize'));
+    });
+
+    expect(screen.getByText('Render in XLarge')).toBeVisible();
+  });
+
   test('should render correctly when criteria is large', () => {
     render(
       <UiViewport criteria={Breakpoints.LARGE}>
@@ -63,9 +80,33 @@ describe('using breakpoint enum', () => {
 });
 
 describe('using criteria string', () => {
-  test('should render correctly when criteria is l|m', () => {
+  test('should render correctly when criteria is l|xl', () => {
     render(
-      <UiViewport criteria="l|m">
+      <UiViewport criteria="l|xl">
+        <p>Render in large and Xlarge</p>
+      </UiViewport>
+    );
+
+    expect(screen.getByText('Render in large and Xlarge')).toBeVisible();
+
+    act(() => {
+      global.innerWidth = BreakpointsSizes.xl.min;
+      global.dispatchEvent(new Event('resize'));
+    });
+
+    expect(screen.getByText('Render in large and Xlarge')).toBeVisible();
+
+    act(() => {
+      global.innerWidth = BreakpointsSizes.s.max;
+      global.dispatchEvent(new Event('resize'));
+    });
+
+    expect(screen.queryByText('Render in large and Xlarge')).not.toBeInTheDocument();
+  });
+
+  test('should render correctly when criteria is m|l', () => {
+    render(
+      <UiViewport criteria="m|l">
         <p>Render in large and medium</p>
       </UiViewport>
     );
@@ -87,33 +128,11 @@ describe('using criteria string', () => {
     expect(screen.queryByText('Render in large and medium')).not.toBeInTheDocument();
   });
 
-  test('should render correctly when criteria is l|s', () => {
-    render(
-      <UiViewport criteria="l|s">
-        <p>Render in large and small</p>
-      </UiViewport>
-    );
-
-    expect(screen.getByText('Render in large and small')).toBeVisible();
-
-    act(() => {
-      global.innerWidth = BreakpointsSizes.m.min;
-      global.dispatchEvent(new Event('resize'));
-    });
-
-    expect(screen.queryByText('Render in large and small')).not.toBeInTheDocument();
-
-    act(() => {
-      global.innerWidth = BreakpointsSizes.s.max;
-      global.dispatchEvent(new Event('resize'));
-    });
-
-    expect(screen.getByText('Render in large and small')).toBeVisible();
-  });
-
   test('should render correctly when criteria is m|s', () => {
+    global.innerWidth = BreakpointsSizes.xl.min;
+
     render(
-      <UiViewport criteria="m|s">
+      <UiViewport criteria="s|m">
         <p>Render in medium and small</p>
       </UiViewport>
     );

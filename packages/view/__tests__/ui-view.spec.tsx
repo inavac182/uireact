@@ -1,14 +1,42 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { DefaultTheme, ThemeColor } from '@uireact/foundation';
 
-import { uiRender } from '../../../__tests__/utils/render';
 import { UiView } from '../src/ui-view';
 
 describe('<UiView />', () => {
   it('renders fine', () => {
-    uiRender(<UiView />);
+    render(
+      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
+        <p>Content</p>
+      </UiView>
+    );
 
-    expect(screen.getByText('UiView')).toBeVisible();
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
+  it('renders fine when is centered', () => {
+    render(
+      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} centeredContent>
+        <p>Content</p>
+      </UiView>
+    );
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
+  it('renders fine when is centered and xlarge', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    window.innerWidth = 1500;
+
+    render(
+      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} centeredContent>
+        <p>Content</p>
+      </UiView>
+    );
+
+    expect(screen.getByText('Content')).toBeVisible();
   });
 });

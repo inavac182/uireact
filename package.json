@@ -39,6 +39,7 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
+    "@uireact/button": "file:packages/button",
     "@uireact/card": "file:packages/card",
     "@uireact/foundation": "file:packages/foundation",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
