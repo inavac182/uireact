@@ -6,7 +6,7 @@ menu: Components
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
 import { UiView } from '../src';
-import { ViewExample } from './util';
+import { ViewExample, ViewRowExample } from './util';
 
 # UiView
 
@@ -34,6 +34,12 @@ The view component already instanciates the ThemeContext so it only needs the th
 
 <Playground hideThemeSelector>
   <ViewExample centeredContent />
+</Playground>
+
+## View with nested view rows
+
+<Playground hideThemeSelector>
+  <ViewRowExample />
 </Playground>
 
 ### Props
