@@ -6,32 +6,22 @@ import { ThemeContext, getThemeStyling, UiViewport, Breakpoints } from '@uireact
 
 import { UiViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
+import { CenteredDiv } from './__private';
 
 const Div = styled.div<UiViewProps>`
   ${(props) => getThemeStyling(props.theme, props.selectedTheme, themeMapper)}
 `;
 
-type CenteredDivProps = {
-  size: 'l' | 'xl';
-};
-
-const CenteredDiv = styled.div<CenteredDivProps>`
-  ${(props) => `
-    width: ${props.size === 'l' ? '992' : '1280'}px;
-  `}
-
-  margin: 0 auto;
-`;
-
 export const UiView: React.FC<UiViewProps> = ({
   centeredContent = false,
+  className,
   theme,
   selectedTheme,
   children,
 }: UiViewProps) => {
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <Div theme={theme} selectedTheme={selectedTheme}>
+      <Div theme={theme} selectedTheme={selectedTheme} className={className}>
         {centeredContent ? (
           <>
             <UiViewport criteria={Breakpoints.XLARGE}>
