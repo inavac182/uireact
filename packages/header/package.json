@@ -1,9 +1,9 @@
 {
-  "name": "@uireact/view",
-  "description": "View component from @uireact",
+  "name": "@uireact/header",
+  "description": "UiHeader from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public"
   },
@@ -24,11 +24,11 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.8.0"
+    "@uireact/foundation": "^0.7.1"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "@uireact/foundation": "^0.7.2",
+    "@uireact/foundation": "^0.7.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": "^5.1.1",
