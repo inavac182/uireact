@@ -14,7 +14,7 @@ interface ViewportProps {
 
 export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   const { width } = useWindowDimensions();
-  const childrenMemo = React.useMemo(() => <>{children}</>, []);
+  const childrenMemo = React.useMemo(() => <>{children}</>, [children]);
   const isSmall = width <= BreakpointsSizes.s.max;
   const isMedium = width >= BreakpointsSizes.m.min && width <= BreakpointsSizes.m.max;
   const isLarge = width >= BreakpointsSizes.l.min && width < BreakpointsSizes.xl.min;
