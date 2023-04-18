@@ -1,6 +1,5 @@
 {
   "name": "@uireact/view",
-  "private": true,
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
