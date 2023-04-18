@@ -14,13 +14,14 @@ const Div = styled.div<UiViewProps>`
 
 export const UiView: React.FC<UiViewProps> = ({
   centeredContent = false,
+  className,
   theme,
   selectedTheme,
   children,
 }: UiViewProps) => {
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <Div theme={theme} selectedTheme={selectedTheme}>
+      <Div theme={theme} selectedTheme={selectedTheme} className={className}>
         {centeredContent ? (
           <>
             <UiViewport criteria={Breakpoints.XLARGE}>

@@ -29,4 +29,10 @@ describe('<UiViewRow />', () => {
     expect(screen.getByText('Content 1')).toBeVisible();
     expect(screen.getByText('Content 2')).toBeVisible();
   });
+
+  it('Should add class name', () => {
+    uiRender(<UiViewRow className="someClass">Content 1</UiViewRow>);
+
+    expect(screen.getByText('Content 1')).toHaveClass('someClass');
+  });
 });

@@ -15,11 +15,21 @@ const Div = styled.div<privateViewRowProps>`
   }}
 `;
 
-export const UiViewRow: React.FC<UiViewRowProps> = ({ centeredContent, children, weight }: UiViewRowProps) => {
+export const UiViewRow: React.FC<UiViewRowProps> = ({
+  centeredContent,
+  children,
+  className,
+  weight,
+}: UiViewRowProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <Div customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme} weight={weight}>
+    <Div
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+      weight={weight}
+      className={className}
+    >
       {centeredContent ? (
         <>
           <UiViewport criteria={Breakpoints.XLARGE}>

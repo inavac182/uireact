@@ -39,4 +39,13 @@ describe('<UiView />', () => {
 
     expect(screen.getByText('Content')).toBeVisible();
   });
+  it('Should add class name', () => {
+    render(
+      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} className="someClass">
+        Content
+      </UiView>
+    );
+
+    expect(screen.getByText('Content')).toHaveClass('someClass');
+  });
 });

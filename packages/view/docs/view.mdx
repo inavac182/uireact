@@ -3,9 +3,11 @@ name: UiView
 menu: Components
 ---
 
+import { Props } from 'docz';
+
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
-import { UiView } from '../src';
+import { UiView, UiViewRow } from '../src';
 import { ViewExample, ViewRowExample } from './util';
 
 # UiView
@@ -44,4 +46,10 @@ The view component already instanciates the ThemeContext so it only needs the th
 
 ### Props
 
+#### UiView
+
 <Props of={UiView} />
+
+#### UiViewRow
+
+<Props of={UiViewRow} />
