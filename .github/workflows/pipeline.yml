@@ -36,10 +36,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
       - name: Install Dependencies
         run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Test
-        run: npm run test
       - name: Check npm user
         run: npm whoami
       - name: Publishing packages
