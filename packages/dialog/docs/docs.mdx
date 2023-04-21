@@ -8,7 +8,7 @@ import { Props } from 'docz';
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
 
-import { UiDialog } from '../src/';
+import { UiDialog, UiDialogType } from '../src/';
 import { DialogsExample } from './utils/';
 
 # UiDialog
@@ -29,10 +29,42 @@ This dialog renders on top of the content
 
 ## Centered dialog (default)
 
-Renders centered on top of the content and with a grayed out background that if clicked will close the dialog
+Renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
 
 <Playground>
   <DialogsExample />
+</Playground>
+
+## Fullscreen dialog
+
+Renders at the right of the screen
+
+<Playground>
+  <DialogsExample type={UiDialogType.FULLSCREEN} />
+</Playground>
+
+## Bottom dialog
+
+Renders at the bottom of the screen
+
+<Playground>
+  <DialogsExample type={UiDialogType.BOTTOM} />
+</Playground>
+
+## Left dialog
+
+Renders at the left of the screen
+
+<Playground>
+  <DialogsExample type={UiDialogType.LEFT} />
+</Playground>
+
+## Right dialog
+
+Renders at the right of the screen
+
+<Playground>
+  <DialogsExample type={UiDialogType.RIGHT} />
 </Playground>
 
 ### Props

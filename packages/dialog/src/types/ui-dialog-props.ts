@@ -1,19 +1,21 @@
 import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export enum UiDialogType {
-  CENTERED,
   BOTTOM,
-  RIGHT,
+  CENTERED,
+  FULLSCREEN,
   LEFT,
+  RIGHT,
 }
 
 export type UiDialogProps = {
   /** Dialog id */
   dialogId: string;
   /** Position where the dialog will be rendered */
-  position?: UiDialogType;
+  type?: UiDialogType;
 } & UiReactElementProps;
 
 export type privateUiDialogProps = {
-  position?: UiDialogType;
+  /** Position where the dialog will be rendered */
+  type?: UiDialogType;
 } & UiReactPrivateElementProps;

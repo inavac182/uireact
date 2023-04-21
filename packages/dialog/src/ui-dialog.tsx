@@ -6,7 +6,7 @@ import { ThemeContext } from '@uireact/foundation';
 
 import { DialogBackground, DialogContent, DialogWrapper } from './__private';
 
-import { UiDialogProps } from './types';
+import { UiDialogProps, UiDialogType } from './types';
 import { useDialog } from '.';
 
 const Button = styled.button`
@@ -20,7 +20,11 @@ const Button = styled.button`
   left: 5px;
 `;
 
-export const UiDialog: React.FC<UiDialogProps> = ({ children, dialogId }: UiDialogProps) => {
+export const UiDialog: React.FC<UiDialogProps> = ({
+  children,
+  dialogId,
+  type = UiDialogType.CENTERED,
+}: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
   const theme = React.useContext(ThemeContext);
 
@@ -49,13 +53,24 @@ export const UiDialog: React.FC<UiDialogProps> = ({ children, dialogId }: UiDial
     return null;
   }
 
-  return (
-    <DialogWrapper>
-      <DialogBackground onClick={closeCB} />
-      <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
+  if (type !== UiDialogType.CENTERED) {
+    return (
+      <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
         <Button onClick={closeCB}>❌</Button>
         {children}
       </DialogContent>
+    );
+  }
+
+  return (
+    <DialogWrapper>
+      <>
+        <DialogBackground onClick={closeCB} />
+        <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
+          <Button onClick={closeCB}>❌</Button>
+          {children}
+        </DialogContent>
+      </>
     </DialogWrapper>
   );
 };
