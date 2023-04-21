@@ -9,8 +9,6 @@ import { getThemeStyling } from '@uireact/foundation';
 const Div = styled.div<privateUiDialogProps>`
   ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
 
-  min-width: 50px;
-  min-height: 50px;
   z-index: 2;
   position: absolute;
   left: 50%;

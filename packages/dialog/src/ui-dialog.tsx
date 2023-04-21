@@ -1,12 +1,24 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import { ThemeContext } from '@uireact/foundation';
-import { UiButton } from '@uireact/button';
 
 import { DialogBackground, DialogContent, DialogWrapper } from './__private';
 
 import { UiDialogProps } from './types';
 import { useDialog } from '.';
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+`;
 
 export const UiDialog: React.FC<UiDialogProps> = ({ children, dialogId }: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
@@ -41,7 +53,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({ children, dialogId }: UiDial
     <DialogWrapper>
       <DialogBackground onClick={closeCB} />
       <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
-        <UiButton onClick={closeCB}>Close</UiButton>
+        <Button onClick={closeCB}>❌</Button>
         {children}
       </DialogContent>
     </DialogWrapper>
