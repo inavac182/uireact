@@ -16,6 +16,7 @@ module.exports = {
         'chore',
         'config',
         'demo',
+        'dialog',
         'docs',
         'flexgrid',
         'foundation',
