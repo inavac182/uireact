@@ -13,6 +13,12 @@ const Div = styled.div`
   z-index: 1;
 `;
 
-export const DialogBackground: React.FC = () => <Div />;
+type DialogBackgroundProps = {
+  onClick: () => void;
+};
+
+export const DialogBackground: React.FC<DialogBackgroundProps> = ({ onClick }: DialogBackgroundProps) => (
+  <Div onClick={onClick} />
+);
 
 DialogBackground.displayName = 'DialogBackground';
