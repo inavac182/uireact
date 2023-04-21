@@ -1,0 +1,3 @@
+@uireact/dialog
+
+Dialog component
