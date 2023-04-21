@@ -13,8 +13,6 @@ export const DialogsExample: React.FC = () => {
     actions.openDialog();
   };
 
-  console.log('isOpen', isOpen);
-
   return (
     <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
       <UiButton onClick={onClickCB}>Open dialog</UiButton>

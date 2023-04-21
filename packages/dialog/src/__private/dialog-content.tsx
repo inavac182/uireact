@@ -22,7 +22,7 @@ export const DialogContent: React.FC<privateUiDialogProps> = ({
   customTheme,
   selectedTheme,
 }: privateUiDialogProps) => (
-  <Div customTheme={customTheme} selectedTheme={selectedTheme}>
+  <Div customTheme={customTheme} selectedTheme={selectedTheme} role="dialog">
     {children}
   </Div>
 );

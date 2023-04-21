@@ -1,5 +1,5 @@
 {
-  "name": "@uireact/dialogs",
+  "name": "@uireact/dialog",
   "private": true,
   "description": "Dialogs package for @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
