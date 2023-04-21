@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type DialogWrapperProps = {
-  children: React.ReactElement[];
+  children: React.ReactElement;
 };
 
 const Div = styled.div`

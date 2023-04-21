@@ -5,9 +5,13 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { DefaultTheme, ThemeColor, ThemeContext } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
-import { UiDialog, useDialog } from '../src';
+import { UiDialog, UiDialogType, useDialog } from '../src';
 
-const MockedComponent = () => {
+type MockedComponentProps = {
+  type?: UiDialogType;
+};
+
+const MockedComponent = ({ type }: MockedComponentProps) => {
   const { actions } = useDialog('mockedDialog');
   const seconDialogData = useDialog('secondDialog');
 
@@ -23,7 +27,7 @@ const MockedComponent = () => {
     <>
       <button onClick={openCB}>Open Dialog</button>
       <button onClick={openSecondCB}>Open Second Dialog</button>
-      <UiDialog dialogId="mockedDialog">
+      <UiDialog dialogId="mockedDialog" type={type}>
         <p>Dialog content</p>
       </UiDialog>
     </>
@@ -70,6 +74,58 @@ describe('<UiDialog />', () => {
 
   it('opens and closes dialog using esc key', () => {
     uiRender(<MockedComponent />);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeVisible();
+    fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+  });
+
+  it('opens and closes dialog when is type bottom', () => {
+    uiRender(<MockedComponent type={UiDialogType.BOTTOM} />);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeVisible();
+    fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+  });
+
+  it('opens and closes dialog when is type fullscreen', () => {
+    uiRender(<MockedComponent type={UiDialogType.FULLSCREEN} />);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeVisible();
+    fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+  });
+
+  it('opens and closes dialog when is type LEFT', () => {
+    uiRender(<MockedComponent type={UiDialogType.LEFT} />);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeVisible();
+    fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+  });
+
+  it('opens and closes dialog when is type RIGHT', () => {
+    uiRender(<MockedComponent type={UiDialogType.RIGHT} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
