@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2023-05-09)
+
+
+### Features
+
+* **dialog:** using uiheading in dialog toolbar ([#82](https://github.com/inavac182/ui-react/issues/82)) ([2ba8c2a](https://github.com/inavac182/ui-react/commit/2ba8c2ae10752f8a9d30fe2636930a26678dea31))
+
+
+
+
+
 # [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/dialog@0.2.0...@uireact/dialog@0.3.0) (2023-05-09)
 
 
