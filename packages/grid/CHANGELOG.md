@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.1 (2023-05-09)
+
+**Note:** Version bump only for package @uireact/grid
+
+
+
+
+
 # [0.5.0](https://github.com/inavac182/ui-react/compare/@uireact/grid@0.4.10...@uireact/grid@0.5.0) (2023-04-18)
 
 
