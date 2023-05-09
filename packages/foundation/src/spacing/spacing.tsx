@@ -23,7 +23,6 @@ type SizingDistribution = {
 };
 
 export type UiSpacingProps = UiReactElementProps & {
-  children: React.ReactNode;
   /** Margin to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
   margin?: SizingDistribution;
   /** Padding to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
