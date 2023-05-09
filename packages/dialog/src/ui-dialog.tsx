@@ -15,9 +15,7 @@ const Button = styled.button`
   margin: 0;
   padding: 0;
   cursor: pointer;
-  position: absolute;
-  top: 5px;
-  left: 5px;
+  padding-left: 10px;
 `;
 
 export const UiDialog: React.FC<UiDialogProps> = ({
