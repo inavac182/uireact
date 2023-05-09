@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.9.0 (2023-05-09)
+
+
+### Features
+
+* **text:**  adding text component ([#80](https://github.com/inavac182/ui-react/issues/80)) ([d04e81f](https://github.com/inavac182/ui-react/commit/d04e81f88306d82a0524655b61cba0590366dcf4))
+
+
+
+
+
 # [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.7.2...@uireact/foundation@0.8.0) (2023-04-18)
 
 
