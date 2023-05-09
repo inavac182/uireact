@@ -1,0 +1,71 @@
+---
+name: UiList
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiList, UiListItem } from '../src/';
+
+# UiList
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/UiList/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> DESCRIPTION
+
+## Installation
+
+> npm i @uireact/foundation @uireact/list
+
+## UiList - default
+
+<Playground>
+  <UiList>
+    <UiListItem>Item 1</UiListItem>
+    <UiListItem>Item 2</UiListItem>
+  </UiList>
+</Playground>
+
+## UiList - ordered
+
+<Playground>
+  <UiList type="ORDERED">
+    <UiListItem>Item 1</UiListItem>
+    <UiListItem>Item 2</UiListItem>
+  </UiList>
+</Playground>
+
+## UiList - bulleted
+
+<Playground>
+  <UiList type="BULLETED">
+    <UiListItem>Item 1</UiListItem>
+    <UiListItem>Item 2</UiListItem>
+  </UiList>
+</Playground>
+
+## UiList - nested
+
+<Playground>
+  <UiList type="BULLETED">
+    <UiListItem>
+      Item 1
+      <UiList type="ORDERED">
+        <UiListItem>Item 1.1</UiListItem>
+        <UiListItem>Item 1.2</UiListItem>
+      </UiList>
+    </UiListItem>
+    <UiListItem>Item 2</UiListItem>
+  </UiList>
+</Playground>
+
+### Props
+
+<Props of={UiList} />
