@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { UiReactPrivateElementProps, getThemeStyling, ThemeContext } from '@uireact/foundation';
 
+import { UiHeading } from '@uireact/text';
+
 import { dialogToolbarMapper } from '../theme/dialog-toolbar-mapper';
 
 type DialogToolbarProps = {
@@ -28,7 +30,6 @@ const Div = styled.div<UiReactPrivateElementProps>`
 
   border-style: solid;
   border-width: 0 0 5px 0;
-  text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
 `;
@@ -39,7 +40,7 @@ export const DialogToolbar: React.FC<DialogToolbarProps> = ({ closeCB, hideClose
   return (
     <Div customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
       {!hideCloseIcon && <Button onClick={closeCB}>❌</Button>}
-      {title}
+      <UiHeading centered>{title}</UiHeading>
     </Div>
   );
 };
