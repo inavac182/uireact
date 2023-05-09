@@ -5,7 +5,7 @@ export const mapper: ThemeMapper = {
     background: {
       category: ColorCategories.backgrounds,
       inverse: false,
-      token: ColorTokens.token_10,
+      token: ColorTokens.token_50,
     },
     color: {
       category: ColorCategories.fonts,

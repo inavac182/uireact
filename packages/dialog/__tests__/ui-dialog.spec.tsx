@@ -9,9 +9,11 @@ import { UiDialog, UiDialogType, useDialog } from '../src';
 
 type MockedComponentProps = {
   type?: UiDialogType;
+  title?: string;
+  hideCloseIcon?: boolean;
 };
 
-const MockedComponent = ({ type }: MockedComponentProps) => {
+const MockedComponent = ({ hideCloseIcon, title, type }: MockedComponentProps) => {
   const { actions } = useDialog('mockedDialog');
   const seconDialogData = useDialog('secondDialog');
 
@@ -27,7 +29,7 @@ const MockedComponent = ({ type }: MockedComponentProps) => {
     <>
       <button onClick={openCB}>Open Dialog</button>
       <button onClick={openSecondCB}>Open Second Dialog</button>
-      <UiDialog dialogId="mockedDialog" type={type}>
+      <UiDialog dialogId="mockedDialog" type={type} title={title} hideCloseIcon={hideCloseIcon}>
         <p>Dialog content</p>
       </UiDialog>
     </>
@@ -186,5 +188,43 @@ describe('<UiDialog />', () => {
     expect(console.error).toHaveBeenCalledWith('No dialog controller implemented');
 
     console.error = consoleError;
+  });
+
+  describe('With dialog toolbar', () => {
+    it('Should render dialog toolbar', () => {
+      uiRender(<MockedComponent title="Dialog toolbar" />);
+
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      fireEvent.click(screen.getByText('Open Dialog'));
+
+      expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.getByText('Dialog toolbar')).toBeVisible();
+    });
+
+    it('Should close dialog using close icon inside dialog toolbar', () => {
+      uiRender(<MockedComponent title="Dialog toolbar" type={UiDialogType.FULLSCREEN} />);
+
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      fireEvent.click(screen.getByText('Open Dialog'));
+
+      expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.getByText('Dialog toolbar')).toBeVisible();
+
+      fireEvent.click(screen.getByRole('button', { name: '❌' }));
+
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Close icon', () => {
+    it('Should hide close icon', () => {
+      uiRender(<MockedComponent hideCloseIcon />);
+
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      fireEvent.click(screen.getByText('Open Dialog'));
+
+      expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.queryByRole('button', { name: '❌' })).not.toBeInTheDocument();
+    });
   });
 });

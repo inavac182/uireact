@@ -8,9 +8,11 @@ import { UiDialog, UiDialogType, useDialog } from '../../src';
 
 type DialogsExampleProps = {
   type?: UiDialogType;
+  title?: string;
+  hideCloseIcon?: boolean;
 };
 
-export const DialogsExample: React.FC<DialogsExampleProps> = ({ type }: DialogsExampleProps) => {
+export const DialogsExample: React.FC<DialogsExampleProps> = ({ type, title, hideCloseIcon }: DialogsExampleProps) => {
   const { actions } = useDialog('example');
 
   const onClickCB = () => {
@@ -20,7 +22,7 @@ export const DialogsExample: React.FC<DialogsExampleProps> = ({ type }: DialogsE
   return (
     <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
       <UiButton onClick={onClickCB}>Open dialog</UiButton>
-      <UiDialog dialogId="example" type={type}>
+      <UiDialog dialogId="example" type={type} title={title} hideCloseIcon={hideCloseIcon}>
         <UiSpacing margin={{ inline: Sizing.four }}>
           <p>Some content</p>
         </UiSpacing>
