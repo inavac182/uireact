@@ -2,12 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize } from '@uireact/foundation';
+import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiTextProps, privateTextProps } from './types';
+import { TextMapper } from './theme';
 
 const Text = styled.p<privateTextProps>`
   ${(props) => `
+    ${getThemeStyling(props.customTheme, props.selectedTheme, TextMapper)}
     ${props.centered ? `text-align: center;` : ``}
     ${props.inline ? `display: inline;` : ``}
     ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
