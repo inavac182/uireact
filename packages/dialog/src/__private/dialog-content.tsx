@@ -11,6 +11,7 @@ const Div = styled.div<privateUiDialogProps>`
   ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
 
   z-index: 10;
+  min-width: 200px;
 
   ${(props) => {
     if (props.type === UiDialogType.CENTERED) {
