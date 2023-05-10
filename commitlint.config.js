@@ -30,6 +30,7 @@ module.exports = {
         'release',
         'table',
         'text',
+        'textarea',
         'themes',
         'view',
       ]
