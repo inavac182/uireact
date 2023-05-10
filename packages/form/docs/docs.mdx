@@ -41,10 +41,16 @@ import { UiInput } from '../src';
   <UiInput label="Fist Name" labelOnTop />
 </Playground>
 
-## UiInput with error
+## UiInput with error state
 
 <Playground>
-  <UiInput label="Fist Name" error="Some error" />
+  <UiInput label="Fist Name" state="ERROR" />
+</Playground>
+
+## UiInput with error state and error message
+
+<Playground>
+  <UiInput label="Fist Name" error="Some error" state="ERROR" />
 </Playground>
 
 ### Props

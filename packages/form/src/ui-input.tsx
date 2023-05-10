@@ -6,11 +6,15 @@ import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/f
 import { UiText } from '@uireact/text';
 
 import { UiInputProps, privateInputProps } from './types';
-import { InputMapper } from './theme';
+import { InputMapper, getColorCategoryFromState, getDynamicInputMapper } from './theme';
 
 const Input = styled.input<privateInputProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, InputMapper)}
+    ${getThemeStyling(
+      props.customTheme,
+      props.selectedTheme,
+      props.state ? getDynamicInputMapper(getColorCategoryFromState(props.state)) : InputMapper
+    )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
 
     border-style: solid;
@@ -50,6 +54,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   name = 'input-name',
   placeholder,
   ref,
+  state,
   onChange,
 }: UiInputProps) => {
   const theme = React.useContext(ThemeContext);
@@ -80,8 +85,9 @@ export const UiInput: React.FC<UiInputProps> = ({
             onChange={onChange}
             id={name}
             name={name}
+            state={state}
           />
-          {error && <UiText>{error}</UiText>}
+          {error && <UiText state={state}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
     </>

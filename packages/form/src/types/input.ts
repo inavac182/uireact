@@ -1,6 +1,8 @@
 import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiInputProps = {
+  /** Input field disabled state */
+  disabled?: boolean;
   /** Error label for input field */
   error?: string;
   /** Input name for form submittion */
@@ -15,6 +17,8 @@ export type UiInputProps = {
   placeholder?: string;
   /* React ref */
   ref?: React.Ref<HTMLInputElement>;
+  /** Input field state */
+  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
 } & UiReactElementProps;
 
 export type privateInputProps = UiInputProps & UiReactPrivateElementProps;

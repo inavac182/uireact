@@ -7,6 +7,8 @@ export type UiTextProps = {
   centered?: boolean;
   /* Render text inlined */
   inline?: boolean;
+  /* State to represent from text */
+  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
 } & UiReactElementProps;
 
 export type privateTextProps = UiTextProps & {

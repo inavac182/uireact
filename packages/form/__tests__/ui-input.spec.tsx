@@ -31,6 +31,38 @@ describe('<Component />', () => {
     expect(screen.getByText('Some error')).toBeVisible();
   });
 
+  describe('With state', () => {
+    it('renders fine with ERROR state', () => {
+      uiRender(<UiInput error="Some error" state="ERROR" />);
+
+      expect(screen.getByRole('textbox')).toBeVisible();
+      expect(screen.getByText('Some error')).toBeVisible();
+    });
+
+    it('renders fine with POSITIVE state', () => {
+      uiRender(<UiInput error="Some error" state="POSITIVE" />);
+
+      expect(screen.getByRole('textbox')).toBeVisible();
+      expect(screen.getByText('Some error')).toBeVisible();
+    });
+
+    it('renders fine with NEGATIVE state', () => {
+      uiRender(<UiInput error="Some error" state="NEGATIVE" />);
+
+      expect(screen.getByRole('textbox')).toBeVisible();
+      expect(screen.getByText('Some error')).toBeVisible();
+    });
+
+    it('renders fine with unrecognized state', () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      uiRender(<UiInput error="Some error" state="XXXXXXX" />);
+
+      expect(screen.getByRole('textbox')).toBeVisible();
+      expect(screen.getByText('Some error')).toBeVisible();
+    });
+  });
+
   it('executes callback when there is change', () => {
     const onChange = jest.fn();
 
