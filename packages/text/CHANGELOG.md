@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2023-05-10)
+
+
+### Features
+
+* **label:** adding UiLabel ([#94](https://github.com/inavac182/ui-react/issues/94)) ([c5173f7](https://github.com/inavac182/ui-react/commit/c5173f7c2b7b8a7fe70c1b0b548c971c07339557))
+
+
+
+
+
 # 0.2.0 (2023-05-10)
 
 
