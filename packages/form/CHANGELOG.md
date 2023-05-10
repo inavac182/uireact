@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2023-05-10)
+
+
+### Features
+
+* **textarea:** adding UiTextArea component ([#92](https://github.com/inavac182/ui-react/issues/92)) ([3f31c91](https://github.com/inavac182/ui-react/commit/3f31c917f101b5451fa9aea9c99a453b1a3265af))
+
+
+
+
+
 ## [0.4.1](https://github.com/inavac182/ui-react/compare/@uireact/form@0.4.0...@uireact/form@0.4.1) (2023-05-10)
 
 
