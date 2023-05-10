@@ -12,6 +12,12 @@ describe('<Component />', () => {
     expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
   });
 
+  it('renders fine when type if provided', () => {
+    uiRender(<UiInput label="Input" name="MyInput" type="number" />);
+
+    expect(screen.getByRole('spinbutton', { name: 'Input' })).toBeVisible();
+  });
+
   it('renders fine when label is on top', () => {
     uiRender(<UiInput label="Input" labelOnTop />);
 
