@@ -1,0 +1,52 @@
+---
+name: UiInput
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiInput } from '../src';
+
+# UiInput
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component used to render input fields
+
+## Installation
+
+> npm i @uireact/foundation @uireact/input
+
+## UiInput with placeholder
+
+<Playground>
+  <UiInput
+    placeholder="First Name"
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+</Playground>
+
+## UiInput with label
+
+<Playground>
+  <UiInput label="Fist Name" labelOnTop />
+</Playground>
+
+## UiInput with error
+
+<Playground>
+  <UiInput label="Fist Name" error="Some error" />
+</Playground>
+
+### Props
+
+<Props of={UiInput} />

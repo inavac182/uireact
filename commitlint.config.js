@@ -20,6 +20,7 @@ module.exports = {
         'docs',
         'flexgrid',
         'foundation',
+        'form',
         'grid',
         'header',
         'icon',
