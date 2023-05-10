@@ -1,6 +1,6 @@
 import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
 
-export const TextMapper: ThemeMapper = {
+export const LabelMapper: ThemeMapper = {
   normal: {
     color: {
       category: ColorCategories.fonts,
@@ -10,7 +10,7 @@ export const TextMapper: ThemeMapper = {
   },
 };
 
-export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
+export const getLabelDynamicMapper = (category: ColorCategories): ThemeMapper => {
   return {
     normal: {
       color: {
