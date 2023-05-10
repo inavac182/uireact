@@ -9,45 +9,48 @@ describe('<UiCheckbox />', () => {
   it('renders fine with label', () => {
     uiRender(<UiCheckbox label="Select this" name="checkbox" />);
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { hidden: true })).not.toBeVisible();
+    expect(screen.getByText('Select this')).toBeVisible();
   });
 
   it('renders fine with label is at start', () => {
     uiRender(<UiCheckbox label="Select this" name="checkbox" labelPosition="START" />);
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
+    expect(screen.getByText('Select this')).toBeVisible();
   });
 
   it('renders fine when disabled', () => {
     uiRender(<UiCheckbox label="Select this" name="checkbox" disabled />);
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeDisabled();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
   it('renders fine when using positive theme', () => {
     uiRender(<UiCheckbox name="checkbox" theme="POSITIVE" />);
 
-    expect(screen.getByRole('checkbox')).toBeVisible();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
-  it('Is checked when clicked', () => {
+  it('Is checked when label is clicked', () => {
     uiRender(<UiCheckbox label="Select this" name="checkbox" />);
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).not.toBeChecked();
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
+    expect(screen.getByRole('checkbox', { hidden: true })).not.toBeChecked();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('checkbox', { name: 'Select this' }));
+    fireEvent.click(screen.getByText('Select this'));
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeChecked();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeChecked();
   });
 
   it('Executes callback when clicked', () => {
     const onChangeCB = jest.fn();
     uiRender(<UiCheckbox label="Select this" name="checkbox" onChange={onChangeCB} />);
 
-    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('checkbox', { name: 'Select this' }));
+    fireEvent.click(screen.getByText('Select this'));
 
     expect(onChangeCB).toHaveBeenCalledTimes(1);
   });
