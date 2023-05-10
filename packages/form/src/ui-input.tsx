@@ -55,6 +55,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   placeholder,
   ref,
   state,
+  type,
   onChange,
 }: UiInputProps) => {
   const theme = React.useContext(ThemeContext);
@@ -86,6 +87,7 @@ export const UiInput: React.FC<UiInputProps> = ({
             id={name}
             name={name}
             state={state}
+            type={type}
           />
           {error && <UiText state={state}>{error}</UiText>}
         </InputDiv>

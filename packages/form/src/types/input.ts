@@ -19,6 +19,8 @@ export type UiInputProps = {
   ref?: React.Ref<HTMLInputElement>;
   /** Input field state */
   state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
+  /** Input field type */
+  type?: HTMLInputElement['type'];
 } & UiReactElementProps;
 
 export type privateInputProps = UiInputProps & UiReactPrivateElementProps;
