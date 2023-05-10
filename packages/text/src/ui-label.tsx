@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiLabelProps, privateLabelProps } from './types';
-import { TextMapper, getCategory, getDynamicMapper } from './theme';
+import { LabelMapper, getCategory, getLabelDynamicMapper } from './theme';
 
 const Label = styled.label<privateLabelProps>`
   ${(props) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.state ? getDynamicMapper(getCategory(props.state)) : TextMapper
+      props.state ? getLabelDynamicMapper(getCategory(props.state)) : LabelMapper
     )}
     ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
   `}
