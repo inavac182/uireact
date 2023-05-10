@@ -26,6 +26,7 @@ const Label = styled.label<privateCheckboxProps>`
 const CheckboxInput = styled.input<privateCheckboxProps>`
   height: 0;
   width: 0;
+  visibility: hidden;
 
   :checked + label .ui-react-checkbox-button {
     left: calc(100% - 2px);
