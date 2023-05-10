@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
-import { UiText } from '@uireact/text';
+import { UiText, UiLabel } from '@uireact/text';
 
 import { UiTextAreaProps, privateTextAreaProps } from './types';
 import { TextareaMapper, getColorCategoryFromState, getDynamicTextareaMapper } from './theme';
@@ -40,16 +40,9 @@ const Textarea = styled.textarea<privateTextAreaProps>`
 const WrapperDiv = styled.div`
   display: flex;
 `;
-const LabelDiv = styled.div``;
 
 const InputDiv = styled.div`
   display: inline-block;
-`;
-
-const Label = styled.label<privateTextAreaProps>`
-  ${(props) => `
-    font-size: ${getTextSize(props.customTheme, TextSize.small)};
-  `}
 `;
 
 export const UiTextArea: React.FC<UiTextAreaProps> = ({
@@ -73,19 +66,15 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   return (
     <>
       {label && labelOnTop && (
-        <LabelDiv>
-          <Label customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme} htmlFor={name}>
-            {label} &nbsp;
-          </Label>
-        </LabelDiv>
+        <div>
+          <UiLabel htmlFor={name}>{label}</UiLabel>
+        </div>
       )}
       <WrapperDiv>
         {label && !labelOnTop && (
-          <LabelDiv>
-            <Label customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme} htmlFor={name}>
-              {label} &nbsp;
-            </Label>
-          </LabelDiv>
+          <div>
+            <UiLabel htmlFor={name}>{label} &nbsp;</UiLabel>
+          </div>
         )}
         <InputDiv>
           <Textarea
