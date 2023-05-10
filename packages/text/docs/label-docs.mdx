@@ -1,0 +1,43 @@
+---
+name: UiLabel
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiLabel } from '../src';
+
+# UiLabel
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component for rendering labels, commonly used in forms
+
+## Installation
+
+> npm i @uireact/foundation @uireact/text
+
+## UiLabel
+
+<Playground>
+  <UiLabel>Some Label</UiLabel>
+</Playground>
+
+## UiLabel with state
+
+<Playground>
+  <UiLabel state="ERROR">Some label</UiLabel> <br />
+  <UiLabel state="POSITIVE">Some label</UiLabel> <br />
+  <UiLabel state="NEGATIVE">Some label</UiLabel> <br />
+</Playground>
+
+### Props
+
+<Props of={UiLabel} />
