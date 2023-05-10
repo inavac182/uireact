@@ -30,4 +30,46 @@ describe('<UiText />', () => {
 
     expect(screen.getByText('Text')).toBeVisible();
   });
+
+  it('renders fine when state is POSITIVE', () => {
+    uiRender(
+      <UiText size={TextSize.large} state="POSITIVE">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when state is ERROR', () => {
+    uiRender(
+      <UiText size={TextSize.large} state="ERROR">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when state is NEGATIVE', () => {
+    uiRender(
+      <UiText size={TextSize.large} state="NEGATIVE">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when state is unrecognized', () => {
+    uiRender(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      <UiText size={TextSize.large} state="XXXXXX">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
 });

@@ -1,5 +1,5 @@
 ---
-name: UiText
+name: UiHeading
 menu: Components
 ---
 
@@ -8,9 +8,9 @@ import { Props } from 'docz';
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
 
-import { UiText } from '../src';
+import { UiHeading } from '../src';
 
-# UiText
+# UiHeading
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
@@ -24,20 +24,12 @@ import { UiText } from '../src';
 
 > npm i @uireact/foundation @uireact/text
 
-## UiText
+## UiHeading
 
 <Playground>
-  <UiText>Some text</UiText>
-</Playground>
-
-## UiText with state
-
-<Playground>
-  <UiText state="ERROR">Some text</UiText>
-  <UiText state="POSITIVE">Some text</UiText>
-  <UiText state="NEGATIVE">Some text</UiText>
+  <UiHeading level={1}>Some heading</UiHeading>
 </Playground>
 
 ### Props
 
-<Props of={UiText} />
+<Props of={UiHeading} />
