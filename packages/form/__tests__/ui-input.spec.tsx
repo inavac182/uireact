@@ -18,6 +18,14 @@ describe('<Component />', () => {
     expect(screen.getByRole('spinbutton', { name: 'Input' })).toBeVisible();
   });
 
+  it('renders fine when is disabled', () => {
+    uiRender(<UiInput label="Input" name="MyInput" value="Some Value" disabled />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Input' })).toHaveValue('Some Value');
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeDisabled();
+  });
+
   it('renders fine when label is on top', () => {
     uiRender(<UiInput label="Input" labelOnTop />);
 
