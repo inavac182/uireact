@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.2.0...@uireact/form@0.3.0) (2023-05-10)
+
+
+### Features
+
+* **input:** adding input props ([#87](https://github.com/inavac182/ui-react/issues/87)) ([b50a5d8](https://github.com/inavac182/ui-react/commit/b50a5d858ac72262ff5732c6c9f261760ae41b77))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.1.0...@uireact/form@0.2.0) (2023-05-10)
 
 
