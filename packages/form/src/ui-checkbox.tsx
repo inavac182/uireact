@@ -2,27 +2,28 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize } from '@uireact/foundation';
+import { ColorCategories, TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiCheckboxProps, privateCheckboxProps } from './types';
+import { DisabledCheckboxMapper, getColorCategoryFromState, getDynamicCheckboxMapper } from './theme';
 
 const Label = styled.label<privateCheckboxProps>`
   ${(props) => `
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
   `}
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  width: 100px;
-  height: 50px;
-  background: grey;
-  border-radius: 100px;
+  width: 50px;
+  height: 20px;
+  border-radius: 50px;
   position: relative;
   transition: background-color 0.2s;
 
-  :active + span {
+  :active + .ui-react-checkbox-button {
     width: 60px;
   }
 `;
@@ -30,43 +31,86 @@ const Label = styled.label<privateCheckboxProps>`
 const CheckboxInput = styled.input<privateCheckboxProps>`
   height: 0;
   width: 0;
-  visibility: hidden;
 
-  :checked + label span {
+  :checked + label .ui-react-checkbox-button {
     left: calc(100% - 2px);
     transform: translateX(-100%);
   }
+
+  :checked + label {
+    ${(props) => `
+      ${getThemeStyling(
+        props.customTheme,
+        props.selectedTheme,
+        getDynamicCheckboxMapper(getColorCategoryFromState(props.theme))
+      )}
+    `}
+  }
+
+  :disabled + label {
+    cursor: not-allowed;
+    ${(props) => `
+      ${getThemeStyling(props.customTheme, props.selectedTheme, DisabledCheckboxMapper)}
+    `}
+  }
 `;
 
-const Span = styled.span<privateCheckboxProps>`
+const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
   content: '';
   position: absolute;
-  top: 2px;
+  top: 1px;
   left: 2px;
-  width: 45px;
-  height: 45px;
-  border-radius: 45px;
+  width: 20px;
+  height: 18px;
+  border-radius: 20px;
   transition: 0.2s;
   background: #fff;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
 
-export const UiCheckbox: React.FC<UiCheckboxProps> = ({ checked, name, onChange }: UiCheckboxProps) => {
-  const theme = React.useContext(ThemeContext);
+const LabelSpan = styled.span<privateCheckboxProps>`
+  position: absolute;
+  left: 55px;
+  width: max-content;
+`;
+
+export const UiCheckbox: React.FC<UiCheckboxProps> = ({
+  checked,
+  disabled,
+  label,
+  name,
+  theme,
+  onChange,
+}: UiCheckboxProps) => {
+  const themeContext = React.useContext(ThemeContext);
 
   return (
     <>
       <CheckboxInput
         checked={checked}
-        customTheme={theme.theme}
+        customTheme={themeContext.theme}
+        disabled={disabled}
         id={name}
         name={name}
-        selectedTheme={theme.selectedTheme}
+        selectedTheme={themeContext.selectedTheme}
+        theme={theme}
         type="checkbox"
         onChange={onChange}
       />{' '}
-      <Label customTheme={theme.theme} htmlFor={name} selectedTheme={theme.selectedTheme}>
-        <Span customTheme={theme.theme} selectedTheme={theme.selectedTheme} />
+      <Label
+        customTheme={themeContext.theme}
+        disabled={disabled}
+        htmlFor={name}
+        selectedTheme={themeContext.selectedTheme}
+      >
+        <CheckboxButtonSpan
+          className="ui-react-checkbox-button"
+          customTheme={themeContext.theme}
+          selectedTheme={themeContext.selectedTheme}
+        />
+        <LabelSpan customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme}>
+          {label}
+        </LabelSpan>
       </Label>
     </>
   );

@@ -9,5 +9,10 @@ export const CheckboxExample: React.FC = () => {
     setChecked(!checked);
   }, [checked, setChecked]);
 
-  return <UiCheckbox checked={checked} onChange={onChangeCB} name="checkbox" />;
+  return (
+    <>
+      <UiCheckbox checked={checked} onChange={onChangeCB} name="checkbox-example" />
+      <p>Checked: {`${checked}`}</p>
+    </>
+  );
 };
