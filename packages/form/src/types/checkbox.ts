@@ -9,6 +9,8 @@ export type UiCheckboxProps = {
   name?: string;
   /** Label to render next to checkbox */
   label?: string;
+  /** Label position */
+  labelPosition?: 'START' | 'END';
   /** On change CB to handle checked state */
   onChange?: () => void;
   /** React ref */

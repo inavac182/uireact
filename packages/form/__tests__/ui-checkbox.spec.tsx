@@ -12,6 +12,12 @@ describe('<UiCheckbox />', () => {
     expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
   });
 
+  it('renders fine with label is at start', () => {
+    uiRender(<UiCheckbox label="Select this" name="checkbox" labelPosition="START" />);
+
+    expect(screen.getByRole('checkbox', { name: 'Select this' })).toBeVisible();
+  });
+
   it('renders fine when disabled', () => {
     uiRender(<UiCheckbox label="Select this" name="checkbox" disabled />);
 
