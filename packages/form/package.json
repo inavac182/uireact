@@ -4,7 +4,7 @@
   "description": "form package needed for @uireact packages",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "publishConfig": {
     "access": "public"
   },
