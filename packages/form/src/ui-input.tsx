@@ -27,6 +27,10 @@ const Input = styled.input<privateInputProps>`
       border-radius: 2px;
     }
 
+    :disabled {
+      cursor: not-allowed;
+    }
+
     padding: 5px;
     outline: none;
   `}
@@ -48,6 +52,7 @@ const Label = styled.label<privateInputProps>`
 `;
 
 export const UiInput: React.FC<UiInputProps> = ({
+  disabled,
   error,
   label,
   labelOnTop,
@@ -55,6 +60,8 @@ export const UiInput: React.FC<UiInputProps> = ({
   placeholder,
   ref,
   state,
+  type,
+  value,
   onChange,
 }: UiInputProps) => {
   const theme = React.useContext(ThemeContext);
@@ -78,14 +85,17 @@ export const UiInput: React.FC<UiInputProps> = ({
         )}
         <InputDiv>
           <Input
-            ref={ref}
             customTheme={theme.theme}
-            selectedTheme={theme.selectedTheme}
-            placeholder={placeholder}
-            onChange={onChange}
+            disabled={disabled}
             id={name}
             name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            ref={ref}
+            selectedTheme={theme.selectedTheme}
             state={state}
+            type={type}
+            value={value}
           />
           {error && <UiText state={state}>{error}</UiText>}
         </InputDiv>

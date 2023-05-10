@@ -22,7 +22,7 @@ import { UiInput } from '../src';
 
 ## Installation
 
-> npm i @uireact/foundation @uireact/input
+> npm i @uireact/foundation @uireact/form
 
 ## UiInput with placeholder
 
@@ -41,16 +41,40 @@ import { UiInput } from '../src';
   <UiInput label="Fist Name" labelOnTop />
 </Playground>
 
-## UiInput with error state
+## UiInput disabled
 
 <Playground>
-  <UiInput label="Fist Name" state="ERROR" />
+  <UiInput label="Fist Name" disabled />
+</Playground>
+
+## UiInput with state
+
+<Playground>
+  <UiInput label="Fist Name" state="POSITIVE" />
 </Playground>
 
 ## UiInput with error state and error message
 
 <Playground>
   <UiInput label="Fist Name" error="Some error" state="ERROR" />
+</Playground>
+
+## UiInput for passwords
+
+<Playground>
+  <UiInput label="Password" labelOnTop type="password" />
+</Playground>
+
+## UiInput for numbers
+
+<Playground>
+  <UiInput label="Number" labelOnTop type="number" value="123" />
+</Playground>
+
+## UiInput for datepicker
+
+<Playground>
+  <UiInput label="Date" labelOnTop type="date" />
 </Playground>
 
 ### Props

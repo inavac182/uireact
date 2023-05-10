@@ -35,6 +35,23 @@ export const InputMapper: ThemeMapper = {
       token: ColorTokens.token_200,
     },
   },
+  disabled: {
+    background: {
+      category: ColorCategories.fonts,
+      inverse: true,
+      token: ColorTokens.token_200,
+    },
+    color: {
+      category: ColorCategories.fonts,
+      inverse: false,
+      token: ColorTokens.token_50,
+    },
+    'border-color': {
+      category: ColorCategories.fonts,
+      inverse: true,
+      token: ColorTokens.token_150,
+    },
+  },
 };
 
 export const getColorCategoryFromState = (state: 'POSITIVE' | 'NEGATIVE' | 'ERROR'): ColorCategories => {
