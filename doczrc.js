@@ -6,4 +6,5 @@ export default {
   },
   title: '@uireact',
   public: '/public',
+  description: 'Library for themed react components',
 };
