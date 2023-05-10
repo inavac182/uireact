@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.3.0...@uireact/form@0.4.0) (2023-05-10)
+
+
+### Features
+
+* **checkbox:** adding checkbox component ([#89](https://github.com/inavac182/ui-react/issues/89)) ([efd1029](https://github.com/inavac182/ui-react/commit/efd102967624ef974dafa534fafdfda9da1dbf57))
+
+
+
+
+
 # [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.2.0...@uireact/form@0.3.0) (2023-05-10)
 
 
