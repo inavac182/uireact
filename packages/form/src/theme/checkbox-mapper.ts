@@ -21,3 +21,13 @@ export const DisabledCheckboxMapper: ThemeMapper = {
     },
   },
 };
+
+export const CheckboxButtonMapper: ThemeMapper = {
+  normal: {
+    background: {
+      category: ColorCategories.fonts,
+      inverse: false,
+      token: ColorTokens.token_10,
+    },
+  },
+};

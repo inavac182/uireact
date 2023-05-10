@@ -5,7 +5,12 @@ import styled from 'styled-components';
 import { ColorCategories, TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiCheckboxProps, privateCheckboxProps } from './types';
-import { DisabledCheckboxMapper, getColorCategoryFromState, getDynamicCheckboxMapper } from './theme';
+import {
+  CheckboxButtonMapper,
+  DisabledCheckboxMapper,
+  getColorCategoryFromState,
+  getDynamicCheckboxMapper,
+} from './theme';
 
 const Label = styled.label<privateCheckboxProps>`
   ${(props) => `
@@ -64,7 +69,9 @@ const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
   height: 18px;
   border-radius: 20px;
   transition: 0.2s;
-  background: #fff;
+  ${(props) => `
+    ${getThemeStyling(props.customTheme, props.selectedTheme, CheckboxButtonMapper)}
+  `}
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
 
