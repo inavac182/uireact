@@ -86,6 +86,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
   disabled,
   label,
   name,
+  ref,
   theme,
   onChange,
 }: UiCheckboxProps) => {
@@ -102,6 +103,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
         selectedTheme={themeContext.selectedTheme}
         theme={theme}
         type="checkbox"
+        ref={ref}
         onChange={onChange}
       />{' '}
       <Label

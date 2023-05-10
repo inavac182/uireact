@@ -11,6 +11,8 @@ export type UiCheckboxProps = {
   label?: string;
   /** On change CB to handle checked state */
   onChange?: () => void;
+  /** React ref */
+  ref?: React.Ref<HTMLInputElement>;
   /** Checkbox theme to render when checked */
   theme?: 'POSITIVE' | 'ERROR' | 'NEGATIVE';
 } & UiReactElementProps;
