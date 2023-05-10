@@ -25,6 +25,7 @@ module.exports = {
         'header',
         'icon',
         'input',
+        'label',
         'list',
         'navbar',
         'release',
