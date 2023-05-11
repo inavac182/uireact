@@ -29,6 +29,7 @@ module.exports = {
         'list',
         'navbar',
         'release',
+        'select',
         'table',
         'text',
         'textarea',
