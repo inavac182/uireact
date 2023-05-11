@@ -11,7 +11,7 @@ export type UiFlexGridProps = {
   className?: string;
   /** Flex grid direction */
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  /** Spacing between flex items */
+  /** Spacing between flex items, value comes from SPACING prop in theme */
   gap?: Sizing;
   /** Flex grid wrap */
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
