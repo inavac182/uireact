@@ -1,0 +1,48 @@
+---
+name: UiFlexGrid
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiCard } from '@uireact/card';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiFlexGrid, UiFlexGridItem } from '../src/';
+
+# UiFlexGrid
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/flex/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component for creation flex grids
+
+## Installation
+
+> npm i @uireact/foundation @uireact/flex-grid
+
+## UiFlexGrid
+
+<Playground>
+  <UiFlexGrid alignItems="center" gap="five">
+    <UiFlexGridItem>
+      <UiCard>Item 1</UiCard>
+    </UiFlexGridItem>
+    <UiFlexGridItem grow={1}>
+      <UiCard>Item 2</UiCard>
+    </UiFlexGridItem>
+  </UiFlexGrid>
+</Playground>
+
+### UiFlexGrid Props
+
+<Props of={UiFlexGrid} />
+
+### UiFlexGridItem Props
+
+<Props of={UiFlexGridItem} />
