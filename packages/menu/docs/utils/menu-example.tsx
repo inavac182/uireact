@@ -29,7 +29,7 @@ export const MenuExample: React.FC = () => {
         <div>
           <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
         </div>
-        <UiMenu visible={isVisible} closeMenuCB={closeMenu}>
+        <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
           <UiSpacing margin={{ all: Sizing.five }}>
             <UiText centered>Menu Content</UiText>
             <div>

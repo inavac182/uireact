@@ -11,9 +11,12 @@ type MockedComponentProps = {
   type?: UiDialogType;
   title?: string;
   hideCloseIcon?: boolean;
+  handleDialogClose?: () => void;
 };
 
-const MockedComponent = ({ hideCloseIcon, title, type }: MockedComponentProps) => {
+const handleDialogClose = jest.fn();
+
+const MockedComponent = ({ hideCloseIcon, title, type, handleDialogClose }: MockedComponentProps) => {
   const { actions } = useDialog('mockedDialog');
   const seconDialogData = useDialog('secondDialog');
 
@@ -29,7 +32,13 @@ const MockedComponent = ({ hideCloseIcon, title, type }: MockedComponentProps) =
     <>
       <button onClick={openCB}>Open Dialog</button>
       <button onClick={openSecondCB}>Open Second Dialog</button>
-      <UiDialog dialogId="mockedDialog" type={type} title={title} hideCloseIcon={hideCloseIcon}>
+      <UiDialog
+        dialogId="mockedDialog"
+        type={type}
+        title={title}
+        handleDialogClose={handleDialogClose}
+        hideCloseIcon={hideCloseIcon}
+      >
         <p>Dialog content</p>
       </UiDialog>
     </>
@@ -62,8 +71,12 @@ const MockedNotCorrectlySetupComponent = () => {
 };
 
 describe('<UiDialog />', () => {
+  afterEach(() => {
+    handleDialogClose.mockClear();
+  });
+
   it('opens and closes dialog using ❌ button', () => {
-    uiRender(<MockedComponent />);
+    uiRender(<MockedComponent handleDialogClose={handleDialogClose} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
@@ -72,10 +85,11 @@ describe('<UiDialog />', () => {
     fireEvent.click(screen.getByRole('button', { name: '❌' }));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    expect(handleDialogClose).toHaveBeenCalledTimes(1);
   });
 
   it('opens and closes dialog using esc key', () => {
-    uiRender(<MockedComponent />);
+    uiRender(<MockedComponent handleDialogClose={handleDialogClose} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
@@ -85,6 +99,7 @@ describe('<UiDialog />', () => {
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    expect(handleDialogClose).toHaveBeenCalledTimes(1);
   });
 
   it('opens and closes dialog when is type bottom', () => {
@@ -202,7 +217,9 @@ describe('<UiDialog />', () => {
     });
 
     it('Should close dialog using close icon inside dialog toolbar', () => {
-      uiRender(<MockedComponent title="Dialog toolbar" type={UiDialogType.FULLSCREEN} />);
+      uiRender(
+        <MockedComponent title="Dialog toolbar" type={UiDialogType.FULLSCREEN} handleDialogClose={handleDialogClose} />
+      );
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
@@ -213,6 +230,7 @@ describe('<UiDialog />', () => {
       fireEvent.click(screen.getByRole('button', { name: '❌' }));
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      expect(handleDialogClose).toHaveBeenCalledTimes(1);
     });
   });
 

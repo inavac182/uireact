@@ -8,6 +8,13 @@ interface WindowDimensions {
 }
 
 const getWindowDimensions = (): WindowDimensions => {
+  if (!window || !window.innerWidth || !window.innerHeight) {
+    return {
+      width: BreakpointsSizes.l.min,
+      height: BreakpointsSizes.l.min,
+    };
+  }
+
   const { innerWidth: width, innerHeight: height } = window;
 
   return {
@@ -17,10 +24,7 @@ const getWindowDimensions = (): WindowDimensions => {
 };
 
 export const useWindowDimensions = (): WindowDimensions => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: BreakpointsSizes.l.min,
-    height: BreakpointsSizes.l.min,
-  });
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -31,10 +35,6 @@ export const useWindowDimensions = (): WindowDimensions => {
 
     return (): void => window.removeEventListener('resize', handleResize);
   });
-
-  useEffect(() => {
-    setWindowDimensions(getWindowDimensions());
-  }, []);
 
   return windowDimensions;
 };
