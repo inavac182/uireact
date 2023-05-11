@@ -21,6 +21,7 @@ const Button = styled.button`
 export const UiDialog: React.FC<UiDialogProps> = ({
   children,
   dialogId,
+  handleDialogClose,
   type = UiDialogType.CENTERED,
   hideCloseIcon,
   title,
@@ -30,6 +31,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   const closeCB = React.useCallback(() => {
     actions.closeDialog();
+    handleDialogClose?.();
   }, [actions]);
 
   const escCB = React.useCallback(

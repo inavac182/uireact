@@ -2,7 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ColorCategories, ColorTokens, ThemeContext, getThemeColor, getThemeStyling } from '@uireact/foundation';
+import {
+  Breakpoints,
+  ColorCategories,
+  ColorTokens,
+  ThemeContext,
+  UiViewport,
+  getThemeColor,
+  getThemeStyling,
+  useViewport,
+} from '@uireact/foundation';
+import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 
 import { UiMenuProps, privateMenuProps } from './types';
 import { MenuMapper } from './theme';
@@ -35,7 +45,16 @@ const WrapperDiv = styled.div`
   z-index: 5;
 `;
 
-export const UiMenu: React.FC<UiMenuProps> = ({ children, closeMenuCB, visible }: UiMenuProps) => {
+export const UiMenu: React.FC<UiMenuProps> = ({
+  children,
+  closeMenuCB,
+  fullscreenOnSmall,
+  menuId,
+  visible,
+}: UiMenuProps) => {
+  const dialogId = menuId || 'menu-component';
+  const { isSmall } = useViewport();
+  const { isOpen, actions } = useDialog(dialogId);
   const theme = React.useContext(ThemeContext);
 
   const escCB = React.useCallback(
@@ -55,8 +74,42 @@ export const UiMenu: React.FC<UiMenuProps> = ({ children, closeMenuCB, visible }
     };
   }, [escCB]);
 
+  React.useEffect(() => {
+    if (visible && isSmall && !isOpen) {
+      actions.openDialog();
+    }
+
+    if (visible && isOpen && !isSmall) {
+      actions.closeDialog();
+    }
+  }, [visible, isOpen, isSmall]);
+
   if (!visible) {
     return null;
+  }
+
+  if (fullscreenOnSmall) {
+    return (
+      <>
+        <UiViewport criteria={Breakpoints.SMALL}>
+          <UiDialog dialogId={dialogId} handleDialogClose={closeMenuCB} type={UiDialogType.FULLSCREEN}>
+            {children}
+          </UiDialog>
+        </UiViewport>
+        <UiViewport criteria={'m|l|xl'}>
+          <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
+          <MenuDiv
+            customTheme={theme.theme}
+            selectedTheme={theme.selectedTheme}
+            visible={visible}
+            role="menu"
+            closeMenuCB={closeMenuCB}
+          >
+            {children}
+          </MenuDiv>
+        </UiViewport>
+      </>
+    );
   }
 
   return (

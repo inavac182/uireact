@@ -1,26 +1,8 @@
 import { useState, useEffect } from 'react';
-
-import { BreakpointsSizes } from '../responsive/breakpoints-sizes';
-
-interface WindowDimensions {
-  width: number;
-  height: number;
-}
-
-const getWindowDimensions = (): WindowDimensions => {
-  const { innerWidth: width, innerHeight: height } = window;
-
-  return {
-    width,
-    height,
-  };
-};
+import { WindowDimensions, getWindowDimensions } from './utils/get-window-deimensions';
 
 export const useWindowDimensions = (): WindowDimensions => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: BreakpointsSizes.l.min,
-    height: BreakpointsSizes.l.min,
-  });
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {
     const handleResize = (): void => {
@@ -31,10 +13,6 @@ export const useWindowDimensions = (): WindowDimensions => {
 
     return (): void => window.removeEventListener('resize', handleResize);
   });
-
-  useEffect(() => {
-    setWindowDimensions(getWindowDimensions());
-  }, []);
 
   return windowDimensions;
 };

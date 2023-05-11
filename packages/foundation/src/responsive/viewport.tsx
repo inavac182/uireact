@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import { Breakpoints } from '../types';
-import { useWindowDimensions } from '../hooks/use-window-dimensions';
-import { BreakpointsSizes } from './breakpoints-sizes';
+import { useViewport } from '../hooks';
 
-type BreakpointString = 's|m' | 'm|l' | 'l|xl';
+type BreakpointString = 's|m' | 'm|l' | 'l|xl' | 'm|l|xl';
 
 interface ViewportProps {
   children?: React.ReactNode;
@@ -13,12 +12,8 @@ interface ViewportProps {
 }
 
 export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
-  const { width } = useWindowDimensions();
+  const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
   const childrenMemo = React.useMemo(() => <>{children}</>, [children]);
-  const isSmall = width <= BreakpointsSizes.s.max;
-  const isMedium = width >= BreakpointsSizes.m.min && width <= BreakpointsSizes.m.max;
-  const isLarge = width >= BreakpointsSizes.l.min && width < BreakpointsSizes.xl.min;
-  const isXLarge = width >= BreakpointsSizes.xl.min;
 
   if (isSmall) {
     const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 's|m';
@@ -28,7 +23,8 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   }
 
   if (isMedium) {
-    const matchesCriteria = criteria === Breakpoints.MEDIUM || criteria === 's|m' || criteria === 'm|l';
+    const matchesCriteria =
+      criteria === Breakpoints.MEDIUM || criteria === 's|m' || criteria === 'm|l' || criteria === 'm|l|xl';
 
     if (matchesCriteria) {
       return childrenMemo;
@@ -36,7 +32,8 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   }
 
   if (isLarge) {
-    const matchesCriteria = criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl';
+    const matchesCriteria =
+      criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl' || criteria === 'm|l|xl';
 
     if (matchesCriteria) {
       return childrenMemo;
@@ -44,7 +41,7 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
   }
 
   if (isXLarge) {
-    const matchesCriteria = criteria === Breakpoints.XLARGE || criteria === 'l|xl';
+    const matchesCriteria = criteria === Breakpoints.XLARGE || criteria === 'l|xl' || criteria === 'm|l|xl';
 
     if (matchesCriteria) {
       return childrenMemo;
