@@ -4,6 +4,11 @@ menu: Components
 ---
 
 import { Props } from 'docz';
+
+import { UiText, UiHeading } from '@uireact/text';
+
+import { UiSpacing, ColorTokens } from '@uireact/foundation';
+
 import Playground from '../../../src/Playground';
 import { UiCard } from '../src/';
 import * as packageJson from '../package.json';
@@ -24,34 +29,86 @@ import * as packageJson from '../package.json';
 
 ## Usage
 
-### Card with Image
+### UiCard
 
 <Playground>
-  <UiCard image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg">
-    <h1>Card header</h1>
-    <p>This is the content</p>
-    <small>This is the footer</small>
+  <UiCard>
+    <UiHeading>Card header</UiHeading>
+    <UiText>This is the content</UiText>
+    <UiText size="xsmall">This is the footer</UiText>
   </UiCard>
 </Playground>
 
-### Card with link
+### Card as a link
 
 <Playground>
   <UiCard link="https://www.uireact.io">
-    <p>Let's get to ui react docs</p>
+    <UiText>Open UiReact docs</UiText>
   </UiCard>
 </Playground>
 
-### Card actionable with click handler
+### UiCard with click handler
 
 <Playground>
-  <UiCard
-    clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)}
-    identifier="My-ID"
-    image="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/d81ac21c-c8bc-9ff2-348a-a7d1672a93af/630x355.jpg"
-  >
-    <h1>Card header</h1>
+  <UiCard clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID" squared>
+    <UiHeading>Click me!</UiHeading>
   </UiCard>
+</Playground>
+
+### UiCard with image content
+
+<Playground>
+  <UiCard noPadding>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Colima_360.jpg"
+      style={{ width: '100%', borderRadius: '3px 3px 0px 0px' }}
+    />
+    <UiSpacing padding={{ all: 'five' }}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiSpacing>
+  </UiCard>
+</Playground>
+
+### UiCard with weight
+
+<Playground>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_10}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_50}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_100}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_150}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_200}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
 </Playground>
 
 ## Props

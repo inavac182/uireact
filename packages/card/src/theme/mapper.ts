@@ -1,4 +1,4 @@
-import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, ThemeMapper, getNextToken } from '@uireact/foundation';
 
 export const themeMapper: ThemeMapper = {
   normal: {
@@ -13,4 +13,21 @@ export const themeMapper: ThemeMapper = {
       token: ColorTokens.token_100,
     },
   },
+};
+
+export const getDynamicCardMapper = (token: ColorTokens): ThemeMapper => {
+  return {
+    normal: {
+      background: {
+        category: ColorCategories.backgrounds,
+        inverse: false,
+        token: token,
+      },
+      color: {
+        category: ColorCategories.fonts,
+        inverse: false,
+        token: getNextToken(token),
+      },
+    },
+  };
 };
