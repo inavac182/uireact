@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.5.0...@uireact/form@0.6.0) (2023-05-11)
+
+
+### Features
+
+* **select:** adding UiSelect input ([#96](https://github.com/inavac182/ui-react/issues/96)) ([afbfc0f](https://github.com/inavac182/ui-react/commit/afbfc0f70d990fc67cecb19402c04a7f98c5acb1))
+
+
+
+
+
 # 0.5.0 (2023-05-10)
 
 
