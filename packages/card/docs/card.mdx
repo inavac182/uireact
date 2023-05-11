@@ -42,7 +42,7 @@ import * as packageJson from '../package.json';
 ### Card as a link
 
 <Playground>
-  <UiCard link="https://www.uireact.io">
+  <UiCard link="https://www.uireact.io" bordered>
     <UiText>Open UiReact docs</UiText>
   </UiCard>
 </Playground>
@@ -104,6 +104,32 @@ import * as packageJson from '../package.json';
   </UiSpacing>
   <UiSpacing margin={{ block: 'three' }}>
     <UiCard weight={ColorTokens.token_200}>
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+</Playground>
+
+### UiCard with state
+
+<Playground>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_10} state="POSITIVE">
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_50} state="NEGATIVE">
+      <UiHeading>Card header</UiHeading>
+      <UiText>This is the content</UiText>
+      <UiText size="xsmall">This is the footer</UiText>
+    </UiCard>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight={ColorTokens.token_100} state="ERROR">
       <UiHeading>Card header</UiHeading>
       <UiText>This is the content</UiText>
       <UiText size="xsmall">This is the footer</UiText>

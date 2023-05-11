@@ -1,6 +1,6 @@
 import { ColorTokens } from '../types';
 
-export const getNextToken = (token: ColorTokens): ColorTokens => {
+export const getNextToken = (token?: ColorTokens): ColorTokens => {
   switch (token) {
     case ColorTokens.token_10:
       return ColorTokens.token_50;

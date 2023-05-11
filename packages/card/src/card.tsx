@@ -45,6 +45,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         squared={props.squared}
         noPadding={props.noPadding}
         weight={props.weight}
+        state={props.state}
       >
         {props.children}
       </CardWrapper>
