@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/inavac182/ui-react/compare/@uireact/card@0.12.5...@uireact/card@0.13.0) (2023-05-11)
+
+
+### Features
+
+* **card:** adding few props for cards ([#103](https://github.com/inavac182/ui-react/issues/103)) ([867079a](https://github.com/inavac182/ui-react/commit/867079abb271eaea92e1c42c3b3a0637999fa1b6))
+
+
+
+
+
 ## [0.12.5](https://github.com/inavac182/ui-react/compare/@uireact/card@0.12.4...@uireact/card@0.12.5) (2023-05-11)
 
 **Note:** Version bump only for package @uireact/card
