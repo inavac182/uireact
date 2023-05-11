@@ -67,13 +67,17 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name}>{label}</UiLabel>
+          <UiLabel htmlFor={name} state={state}>
+            {label}
+          </UiLabel>
         </div>
       )}
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name}>{label} &nbsp;</UiLabel>
+            <UiLabel htmlFor={name} state={state}>
+              {label} &nbsp;
+            </UiLabel>
           </div>
         )}
         <InputDiv>

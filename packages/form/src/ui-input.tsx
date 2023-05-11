@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
-import { UiText } from '@uireact/text';
+import { UiText, UiLabel } from '@uireact/text';
 
 import { UiInputProps, privateInputProps } from './types';
 import { InputMapper, getColorCategoryFromState, getDynamicInputMapper } from './theme';
@@ -39,16 +39,9 @@ const Input = styled.input<privateInputProps>`
 const WrapperDiv = styled.div`
   display: flex;
 `;
-const LabelDiv = styled.div``;
 
 const InputDiv = styled.div`
   display: inline-block;
-`;
-
-const Label = styled.label<privateInputProps>`
-  ${(props) => `
-    font-size: ${getTextSize(props.customTheme, TextSize.small)};
-  `}
 `;
 
 export const UiInput: React.FC<UiInputProps> = ({
@@ -69,19 +62,19 @@ export const UiInput: React.FC<UiInputProps> = ({
   return (
     <>
       {label && labelOnTop && (
-        <LabelDiv>
-          <Label customTheme={theme.theme} selectedTheme={theme.selectedTheme} htmlFor={name}>
+        <div>
+          <UiLabel htmlFor={name} state={state}>
             {label} &nbsp;
-          </Label>
-        </LabelDiv>
+          </UiLabel>
+        </div>
       )}
       <WrapperDiv>
         {label && !labelOnTop && (
-          <LabelDiv>
-            <Label customTheme={theme.theme} selectedTheme={theme.selectedTheme} htmlFor={name}>
+          <div>
+            <UiLabel htmlFor={name} state={state}>
               {label} &nbsp;
-            </Label>
-          </LabelDiv>
+            </UiLabel>
+          </div>
         )}
         <InputDiv>
           <Input
