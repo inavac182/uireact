@@ -4,6 +4,6 @@ export enum Sizing {
   three = 'three',
   four = 'four',
   five = 'five',
-  size = 'six',
+  six = 'six',
   seven = 'seven',
 }

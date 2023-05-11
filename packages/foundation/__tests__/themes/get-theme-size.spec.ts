@@ -1,10 +1,18 @@
-import { DefaultTheme, getTextSize, getHeadingSize, TextSize, HeadingLevel } from '../../src';
+import { DefaultTheme, getTextSize, getHeadingSize, TextSize, getSpacingSize, Sizing } from '../../src';
 
 describe('getTextSize', () => {
   it('Should get correct size', () => {
     const size = getTextSize(DefaultTheme, TextSize.large);
 
     expect(size).toBe(DefaultTheme.sizes.texts.large);
+  });
+});
+
+describe('getSpacingSize', () => {
+  it('Should get correct spacing', () => {
+    const spacing = getSpacingSize(DefaultTheme, Sizing.one);
+
+    expect(spacing).toBe(DefaultTheme.spacing.one);
   });
 });
 
