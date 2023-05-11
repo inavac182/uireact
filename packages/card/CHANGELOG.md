@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.4](https://github.com/inavac182/ui-react/compare/@uireact/card@0.12.3...@uireact/card@0.12.4) (2023-05-11)
+
+**Note:** Version bump only for package @uireact/card
+
+
+
+
+
 ## 0.12.3 (2023-05-11)
 
 **Note:** Version bump only for package @uireact/card
