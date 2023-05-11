@@ -1,0 +1,40 @@
+---
+name: UiMenu
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiText } from '@uireact/text';
+import { UiSpacing } from '@uireact/foundation';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { MenuExample } from './utils';
+
+import { UiMenu } from '../src/';
+
+# UiMenu
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/menu/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component to render menu options
+
+## Installation
+
+> npm i @uireact/foundation @uireact/menu
+
+## UiMenu
+
+<Playground>
+  <MenuExample />
+</Playground>
+
+### Props
+
+<Props of={UiMenu} />

@@ -27,6 +27,7 @@ module.exports = {
         'input',
         'label',
         'list',
+        'menu',
         'navbar',
         'release',
         'select',
