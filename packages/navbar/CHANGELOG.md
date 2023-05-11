@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3 (2023-05-11)
+
+**Note:** Version bump only for package @uireact/navbar
+
+
+
+
+
 ## [0.4.2](https://github.com/inavac182/ui-react/compare/@uireact/navbar@0.4.1...@uireact/navbar@0.4.2) (2023-05-09)
 
 **Note:** Version bump only for package @uireact/navbar
