@@ -1,9 +1,11 @@
 import * as React from 'react';
 
-import { ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { ColorTokens, ThemeContext, UiReactElementProps } from '@uireact/foundation';
 import { CardWrapper, StyledLink, StyledExternalLink } from './private';
 
 export type UiCardProps = UiReactElementProps & {
+  /** If card should show a border */
+  bordered?: boolean;
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
   clickHandler?: (idenfifier: string | undefined) => void;
   /** The identifier that is shared to the click handler when card is clicked */
@@ -12,6 +14,14 @@ export type UiCardProps = UiReactElementProps & {
   link?: string;
   /** Prop for internal link, when true the redirect uses internal react link */
   internalLink?: boolean;
+  /** Useful when we want to render content at the edge of the card, e.g. Images */
+  noPadding?: boolean;
+  /** If the card should render with squared corners, default FALSE */
+  squared?: boolean;
+  /** Card state */
+  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
+  /** Card weigth used for background color */
+  weight?: ColorTokens;
 };
 
 export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
@@ -26,10 +36,16 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
   const CardWrapperMemo = React.useMemo(
     () => (
       <CardWrapper
+        bordered={props.bordered}
+        className={props.className}
         customTheme={themeContext.theme}
         selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
         cursorNeeded={props.clickHandler !== undefined}
+        squared={props.squared}
+        noPadding={props.noPadding}
+        weight={props.weight}
+        state={props.state}
       >
         {props.children}
       </CardWrapper>
