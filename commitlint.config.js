@@ -31,6 +31,7 @@ module.exports = {
         'list',
         'menu',
         'navbar',
+        'progress-indicator',
         'release',
         'select',
         'table',
