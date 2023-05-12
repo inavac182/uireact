@@ -1,0 +1,62 @@
+---
+name: UiBadge
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiSpacing, TextSize } from '@uireact/foundation';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiBadge } from '../src/';
+
+# UiBadge
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/badge/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component mainly used to show badges to categorize information
+
+## Installation
+
+> npm i @uireact/foundation @uireact/badge
+
+## UiBadge
+
+<Playground>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge size={TextSize.xlarge}>✈️ Primary</UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="secondary" size={TextSize.large}>
+      ⚡️ Secondary
+    </UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="tertiary" size={TextSize.regular}>
+      🚨 Tertiary
+    </UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="positive" size={TextSize.small}>
+      ✅ Positive
+    </UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="negative" size={TextSize.xsmall}>
+      ❌ Negative
+    </UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="error">🐛 Error</UiBadge>
+  </UiSpacing>
+</Playground>
+
+### Props
+
+<Props of={UiBadge} />
