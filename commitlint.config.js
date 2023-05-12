@@ -33,6 +33,7 @@ module.exports = {
         'release',
         'select',
         'table',
+        'tabs',
         'text',
         'textarea',
         'themes',
