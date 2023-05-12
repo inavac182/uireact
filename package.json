@@ -43,6 +43,7 @@
     "@uireact/card": "file:packages/card/src/",
     "@uireact/dialog": "file:packages/dialog/src/",
     "@uireact/foundation": "file:packages/foundation/src/",
+    "@uireact/list": "file:packages/list/src/",
     "@uireact/text": "file:packages/text/src/",
     "@uireact/view": "file:packages/view/src/",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
