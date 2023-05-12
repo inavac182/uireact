@@ -1,0 +1,49 @@
+---
+name: UiLink
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiLink } from '../src';
+
+# UiLink
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component to render links
+
+## Installation
+
+> npm i @uireact/foundation @uireact/text
+
+## UiLink
+
+<Playground>
+  <UiLink href="https://uireact.io">Some link</UiLink>
+</Playground>
+
+## UiLink with category
+
+<Playground>
+  <UiLink href="https://uireact.io" target="_blank" category="ERROR">
+    Some text
+  </UiLink>{' '}
+  <UiLink href="https://uireact.io" category="POSITIVE">
+    Some text
+  </UiLink>{' '}
+  <UiLink handleClick={() => console.log('Link Clicked')} category="NEGATIVE">
+    Some text
+  </UiLink>
+</Playground>
+
+### Props
+
+<Props of={UiLink} />
