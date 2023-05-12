@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2023-05-12)
+
+
+### Features
+
+* **link:** adding UiLink component ([#109](https://github.com/inavac182/ui-react/issues/109)) ([6961d64](https://github.com/inavac182/ui-react/commit/6961d64baab221b1d9de393ba197b2be83783175))
+
+
+
+
+
 # 0.3.0 (2023-05-10)
 
 
