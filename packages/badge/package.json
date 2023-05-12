@@ -1,0 +1,38 @@
+{
+  "name": "@uireact/badge",
+  "private": true,
+  "description": "badge component from @uireact library",
+  "repository": "https://github.com/inavac182/ui-react",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": " rm -rf dist node_modules coverage",
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
+    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "test": "jest",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "watch": "npm run tsc:watch"
+  },
+  "devDependencies": {
+    "@uireact/foundation": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@types/styled-components": "^5.1.0",
+    "@uireact/foundation": "^0.7.1",
+    "react": ">= 17 < 19",
+    "react-dom": ">= 17 < 19",
+    "styled-components": "^5.1.1",
+    "tslib": "^2.5.0"
+  }
+}
