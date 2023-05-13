@@ -5,8 +5,6 @@ export type UiProgressIndicatorProps = {
   allowGoBack?: boolean;
   /** If allowGoBack is enabled when click in completed step CB is executed */
   handleCompletedStepClick?: (step: number) => void;
-  /** Show shrim at edges of component */
-  shrim?: boolean;
   /** Current step */
   current?: number;
 } & UiReactElementProps;
