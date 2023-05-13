@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.3...@uireact/icons@0.2.4) (2023-05-13)
+
+
+### Bug Fixes
+
+* **icon:** remove files property ([16535c7](https://github.com/inavac182/ui-react/commit/16535c7ce625ea65253224e0f044e551f89dd861))
+
+
+
+
+
 ## [0.2.3](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.2...@uireact/icons@0.2.3) (2023-05-13)
 
 
