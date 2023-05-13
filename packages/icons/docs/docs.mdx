@@ -1,0 +1,37 @@
+---
+name: UiIcon
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiIcon } from '../src';
+
+# UiIcon
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/icons/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component used to render icons in a web application
+
+## Installation
+
+> npm i @uireact/foundation @uireact/icons
+
+## UiIcon
+
+<Playground>
+  <UiIcon id="picture" size="large" />
+  <UiIcon id="click" size="large" />
+  <UiIcon id="right-arrow" size="xlarge" />
+</Playground>
+
+### Props
+
+<Props of={UiIcon} />
