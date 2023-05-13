@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.0...@uireact/icons@0.2.1) (2023-05-13)
+
+
+### Bug Fixes
+
+* **icon:** publish directory lerna ([7045b18](https://github.com/inavac182/ui-react/commit/7045b183e35c94977dcdacd0b6880ae6509f9aa8))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.1.0...@uireact/icons@0.2.0) (2023-05-13)
 
 
