@@ -7,10 +7,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist",
-    "dist/svgs/"
-  ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "scripts": {
