@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.4...@uireact/icons@0.2.5) (2023-05-13)
+
+
+### Bug Fixes
+
+* **icon:** tsc script ([d879304](https://github.com/inavac182/ui-react/commit/d87930459fd2b14102a34c1d6a3f3d9fe9224951))
+
+
+
+
+
 ## [0.2.4](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.3...@uireact/icons@0.2.4) (2023-05-13)
 
 
