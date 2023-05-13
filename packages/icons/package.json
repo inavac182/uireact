@@ -3,7 +3,7 @@
   "description": "Icons package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "publishConfig": {
     "access": "public"
   },

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.2...@uireact/icons@0.2.3) (2023-05-13)
+
+
+### Bug Fixes
+
+* **icon:** files config ([16f2b23](https://github.com/inavac182/ui-react/commit/16f2b23b9aa8bb23dd02547fc74259c0c6f599cd))
+* **icon:** publish directory lerna ([7045b18](https://github.com/inavac182/ui-react/commit/7045b183e35c94977dcdacd0b6880ae6509f9aa8))
+* **icon:** revert change to publish config ([8c97edc](https://github.com/inavac182/ui-react/commit/8c97edcc5f9ef45390f3a2007c571cffc8ffaa89))
+
+
+
+
+
 ## [0.2.2](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.1...@uireact/icons@0.2.2) (2023-05-13)
 
 
