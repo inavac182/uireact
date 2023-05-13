@@ -24,11 +24,11 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.7.1"
+    "@uireact/foundation": "^0.14.0"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "@uireact/foundation": "^0.7.1",
+    "@uireact/foundation": "^0.14.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": "^5.1.1",
