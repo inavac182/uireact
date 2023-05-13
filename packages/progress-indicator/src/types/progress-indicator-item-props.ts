@@ -10,6 +10,7 @@ export type privateProgressIndicatorItemProps = UiProgressIndicatorItemProps & {
   handleCompletedStepClick: (step: number) => void;
   missing: boolean;
   step: number;
+  ref?: React.Ref<HTMLDivElement>;
 } & UiReactPrivateElementProps;
 
 export type privateDivItemProps = Omit<Omit<privateProgressIndicatorItemProps, 'step'>, 'handleCompletedStepClick'>;

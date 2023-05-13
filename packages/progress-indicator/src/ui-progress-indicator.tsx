@@ -13,6 +13,8 @@ const Div = styled.div<privateProgressIndicatorProps>`
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
+  padding: 10px 0px 10px 0px;
+  overflow-y: auto;
 `;
 
 const getNumberOfSteps = (children: React.ReactNode) => {
@@ -45,31 +47,29 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
     const elements: React.ReactNode[] = [];
 
     React.Children.map(children, (child, index) => {
-      if (React.isValidElement(child)) {
-        elements.push(
-          <PrivateItem
-            allowGoBack={allowGoBack}
-            customTheme={theme.theme}
-            completed={index < current}
-            current={index === current}
-            disabledCursorForMissingStep={allowGoBack}
-            handleCompletedStepClick={handleCompletedStepClickCB}
-            key={`progress-indicator-item-${index}`}
-            missing={index > current}
-            selectedTheme={theme.selectedTheme}
-            step={index + 1}
-          >
-            {child}
-          </PrivateItem>
-        );
+      elements.push(
+        <PrivateItem
+          allowGoBack={allowGoBack}
+          customTheme={theme.theme}
+          completed={index + 1 < current}
+          current={index + 1 === current}
+          disabledCursorForMissingStep={allowGoBack}
+          handleCompletedStepClick={handleCompletedStepClickCB}
+          key={`progress-indicator-item-${index}`}
+          missing={index + 1 > current}
+          selectedTheme={theme.selectedTheme}
+          step={index + 1}
+        >
+          {child}
+        </PrivateItem>
+      );
 
-        if (index < steps - 1) {
-          elements.push(
-            <UiText inline size={TextSize.small} key={`progress-indicator-item-arrow-${index}`}>
-              ➡️
-            </UiText>
-          );
-        }
+      if (index < steps - 1) {
+        elements.push(
+          <UiText inline size={TextSize.small} key={`progress-indicator-item-arrow-${index}`}>
+            ➡️
+          </UiText>
+        );
       }
     });
 
