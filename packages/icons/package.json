@@ -7,16 +7,19 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc && copyfiles -u 1 src/svgs/*.svg dist/",
+    "build": "npm run tsc",
     "clean": " rm -rf dist node_modules coverage",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "tsc": "tsc",
+    "tsc": "tsc && copyfiles -u 1 src/svgs/*.svg dist/",
     "tsc:watch": "tsc --watch",
     "watch": "npm run tsc:watch"
   },
