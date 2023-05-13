@@ -1,5 +1,6 @@
 {
   "extends": ["tslint-config-prettier", "tslint-react"],
+  "exclude": ["src/public/svgs/"],
   "rules": {
     "ban": false,
     "class-name": true,

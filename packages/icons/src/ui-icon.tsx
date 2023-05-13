@@ -7,9 +7,9 @@ import { ColorCategories, TextSize, ThemeContext, getTextSize, getThemeStyling }
 import { UiIconProps, privateIconProps } from './types';
 import { getDynamicMapper } from './theme';
 
-import click from './svgs/click.svg';
-import picture from './svgs/040-picture.svg';
-import rightArrow from './svgs/right-arrow.svg';
+import click from './public/svgs/Click';
+import picture from './public/svgs/040Picture';
+import rightArrow from './public/svgs/RightArrow';
 
 const Span = styled.span<privateIconProps>`
   ${(props) => `
@@ -25,7 +25,7 @@ const Span = styled.span<privateIconProps>`
   `}
 `;
 
-const getIcon = (id: string): string => {
+const getIcon = (id: string) => {
   //istanbul ignore next
   switch (id) {
     case 'click':
@@ -45,7 +45,7 @@ export const UiIcon: React.FC<UiIconProps> = ({ category, id, size }: UiIconProp
 
   return (
     <Span category={category} customTheme={theme.theme} selectedTheme={theme.selectedTheme} size={size}>
-      {IconComponent != '' ? <img alt={id} src={IconComponent} /> : <></>}
+      {IconComponent != '' ? <IconComponent /> : <></>}
     </Span>
   );
 };
