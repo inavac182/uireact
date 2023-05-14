@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { TextSize, ThemeContext } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
+import { UiIcon } from '@uireact/icons';
 
 import { PrivateItem } from './private';
 import { UiProgressIndicatorProps, privateProgressIndicatorProps } from './types';
@@ -67,14 +68,14 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
       if (index < steps - 1) {
         elements.push(
           <UiText inline size={TextSize.small} key={`progress-indicator-item-arrow-${index}`}>
-            ➡️
+            <UiIcon icon="RightArrow" />
           </UiText>
         );
       }
     });
 
     return elements;
-  }, [children]);
+  }, [children, theme]);
 
   return (
     <Div customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
