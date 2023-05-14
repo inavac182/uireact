@@ -1,11 +1,12 @@
 ---
 name: UiFlexGrid
-menu: Components
+menu: Grids
 ---
 
 import { Props } from 'docz';
 
 import { UiCard } from '@uireact/card';
+import { UiText } from '@uireact/text';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
@@ -31,10 +32,14 @@ import { UiFlexGrid, UiFlexGridItem } from '../src/';
 <Playground>
   <UiFlexGrid alignItems="center" gap="five">
     <UiFlexGridItem>
-      <UiCard>Item 1</UiCard>
+      <UiCard>
+        <UiText>Item 1</UiText>
+      </UiCard>
     </UiFlexGridItem>
     <UiFlexGridItem grow={1}>
-      <UiCard>Item 2</UiCard>
+      <UiCard>
+        <UiText>Item 2</UiText>
+      </UiCard>
     </UiFlexGridItem>
   </UiFlexGrid>
 </Playground>

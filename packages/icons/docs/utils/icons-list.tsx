@@ -34,9 +34,13 @@ export const IconsList: React.FC = () => {
             ))}
           </UiGrid>
         </UiSpacing>
-        <UiButton onClick={toogleTheme}>
-          <UiText>Toggle theme</UiText>
-        </UiButton>
+        <UiSpacing padding={{ all: Sizing.four }}>
+          <UiButton onClick={toogleTheme} fullWidth>
+            <UiSpacing padding={{ block: Sizing.five }}>
+              <UiText>Toggle theme</UiText>
+            </UiSpacing>
+          </UiButton>
+        </UiSpacing>
       </UiViewRow>
     </UiView>
   );

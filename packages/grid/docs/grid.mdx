@@ -1,12 +1,13 @@
 ---
 name: UiGrid
-menu: Components
+menu: Grids
 ---
 
 import { Props } from 'docz';
 
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
+import { UiText } from '@uireact/text';
 
 import Playground from '../../../src/Playground';
 import { UiGrid, UiGridItem } from '../src/';
@@ -32,8 +33,12 @@ import * as packageJson from '../package.json';
 
 <Playground>
   <UiGrid cols={3} rows={2} colsGap="10%" justifyItems="center">
-    <UiCard>Item 1!</UiCard>
-    <UiCard>Item 2!</UiCard>
+    <UiCard>
+      <UiText>Item 1!</UiText>
+    </UiCard>
+    <UiCard>
+      <UiText>Item 2!</UiText>
+    </UiCard>
   </UiGrid>
 </Playground>
 
@@ -45,13 +50,15 @@ import * as packageJson from '../package.json';
   <UiGrid cols={3} rows={2} colsGap="5px">
     <UiViewport criteria="l|s">
       <UiGridItem cols={2}>
-        <UiCard>Item 1!</UiCard>
+        <UiCard>
+          <UiText>Item 1!</UiText>
+        </UiCard>
       </UiGridItem>
     </UiViewport>
     <UiGridItem placeSelf="stretch" rows={2}>
       <UiCard>
-        <p>Item 2!</p>
-        <p>Yeah, 2 rows is nice!</p>
+        <UiText>Item 2!</UiText>
+        <UiText>Yeah, 2 rows is nice!</UiText>
       </UiCard>
     </UiGridItem>
   </UiGrid>

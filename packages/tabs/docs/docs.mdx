@@ -5,6 +5,8 @@ menu: Components
 
 import { Props } from 'docz';
 
+import { UiText } from '@uireact/text';
+
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
 
@@ -15,7 +17,7 @@ import { UiTabs, UiTabItem } from '../src/';
 # UiTabs
 
 <sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/tabs/" target="_blank">
     v{packageJson.version}
   </a>
 </sup>
@@ -24,21 +26,27 @@ import { UiTabs, UiTabItem } from '../src/';
 
 ## Installation
 
-> npm i @uireact/foundation @uireact/button
+> npm i @uireact/foundation @uireact/tabs
 
 ## UiTabs
 
 <Playground>
   <UiTabs>
-    <UiTabItem>Item 1</UiTabItem>
-    <UiTabItem selected>Item 2</UiTabItem>
-    <UiTabItem>Item 3</UiTabItem>
+    <UiTabItem>
+      <UiText>Item 1</UiText>
+    </UiTabItem>
+    <UiTabItem selected>
+      <UiText>Item 2</UiText>
+    </UiTabItem>
+    <UiTabItem>
+      <UiText>Item 3</UiText>
+    </UiTabItem>
   </UiTabs>
 </Playground>
 
 ## UiTabs with state management
 
-<Playground>
+<Playground hideThemeSelector>
   <TabsExample />
 </Playground>
 
