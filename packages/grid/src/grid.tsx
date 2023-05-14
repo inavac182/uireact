@@ -38,8 +38,8 @@ const Div = styled.div<GridProps>`
     ${getGridTemplate(props.cols, props.colSize, 'cols')}
     ${getGridTemplate(props.rows, props.rowSize, 'rows')}
     ${props.justifyItems ? `justify-items: ${props.justifyItems};` : ''}
-    ${props.colsGap ? `column-gap: ${props.colsGap};` : ''}
-    ${props.rowsGap ? `row-gap: ${props.rowsGap};` : ''}
+    ${props.colsGap ? `column-gap: ${props.colsGap}px;` : ''}
+    ${props.rowsGap ? `row-gap: ${props.rowsGap}px;` : ''}
     ${props.autoFlow ? `grid-auto-flow: ${props.autoFlow};` : ''}
     ${props.gridWidth ? `width: ${props.gridWidth};` : ''}
     ${props.gridHeight ? `height: ${props.gridHeight};` : ''}
