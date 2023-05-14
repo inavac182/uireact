@@ -14,10 +14,11 @@ const Div = styled.div<privateDivItemProps>`
       props.current
         ? `
           border-color: ${getThemeColor(
-            props.theme,
+            props.customTheme,
             props.selectedTheme,
-            ColorCategories.primary,
-            ColorTokens.token_100
+            ColorCategories.fonts,
+            ColorTokens.token_100,
+            true
           )};
           font-weight: bold;
         `
