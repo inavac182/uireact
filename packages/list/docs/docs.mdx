@@ -4,6 +4,7 @@ menu: Components
 ---
 
 import { Props } from 'docz';
+import { UiText } from '@uireact/text';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
@@ -28,8 +29,12 @@ import { UiList, UiListItem } from '../src/';
 
 <Playground>
   <UiList>
-    <UiListItem>Item 1</UiListItem>
-    <UiListItem>Item 2</UiListItem>
+    <UiListItem>
+      <UiText>Item 1</UiText>
+    </UiListItem>
+    <UiListItem>
+      <UiText>Item 2</UiText>
+    </UiListItem>
   </UiList>
 </Playground>
 
@@ -37,8 +42,12 @@ import { UiList, UiListItem } from '../src/';
 
 <Playground>
   <UiList type="ORDERED">
-    <UiListItem>Item 1</UiListItem>
-    <UiListItem>Item 2</UiListItem>
+    <UiListItem>
+      <UiText>Item 1</UiText>
+    </UiListItem>
+    <UiListItem>
+      <UiText>Item 2</UiText>
+    </UiListItem>
   </UiList>
 </Playground>
 
@@ -46,8 +55,12 @@ import { UiList, UiListItem } from '../src/';
 
 <Playground>
   <UiList type="BULLETED">
-    <UiListItem>Item 1</UiListItem>
-    <UiListItem>Item 2</UiListItem>
+    <UiListItem>
+      <UiText>Item 1</UiText>
+    </UiListItem>
+    <UiListItem>
+      <UiText>Item 2</UiText>
+    </UiListItem>
   </UiList>
 </Playground>
 
@@ -56,13 +69,19 @@ import { UiList, UiListItem } from '../src/';
 <Playground>
   <UiList type="BULLETED">
     <UiListItem>
-      Item 1
+      <UiText>Item 1</UiText>
       <UiList type="ORDERED">
-        <UiListItem>Item 1.1</UiListItem>
-        <UiListItem>Item 1.2</UiListItem>
+        <UiListItem>
+          <UiText>Item 1.1</UiText>
+        </UiListItem>
+        <UiListItem>
+          <UiText>Item 1.2</UiText>
+        </UiListItem>
       </UiList>
     </UiListItem>
-    <UiListItem>Item 2</UiListItem>
+    <UiListItem>
+      <UiText>Item 2</UiText>
+    </UiListItem>
   </UiList>
 </Playground>
 
