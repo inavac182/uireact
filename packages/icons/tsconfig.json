@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["src/**/*", "src/types/custom.d.ts"],
-  "exclude": ["src/public/svgs"],
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": "./src",
