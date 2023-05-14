@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.3.0...@uireact/icons@0.3.1) (2023-05-14)
+
+
+### Bug Fixes
+
+* **icon:** adding fill support for coloration ([#117](https://github.com/inavac182/ui-react/issues/117)) ([c1e83c5](https://github.com/inavac182/ui-react/commit/c1e83c527aa8fa523a38f0079e555267b0dbed29))
+
+
+
+
+
 # [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.6...@uireact/icons@0.3.0) (2023-05-14)
 
 

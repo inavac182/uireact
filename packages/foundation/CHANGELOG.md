@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.14.1 (2023-05-14)
+
+
+### Bug Fixes
+
+* **icon:** adding fill support for coloration ([#117](https://github.com/inavac182/ui-react/issues/117)) ([c1e83c5](https://github.com/inavac182/ui-react/commit/c1e83c527aa8fa523a38f0079e555267b0dbed29))
+
+
+
+
+
 # [0.14.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.13.0...@uireact/foundation@0.14.0) (2023-05-11)
 
 
