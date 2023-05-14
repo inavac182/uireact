@@ -16,6 +16,7 @@ export enum ThemeMapperStyles {
   color = 'color',
   background = 'background',
   borderColor = 'border-color',
+  fill = 'fill',
 }
 
 export type ThemeMapperValue = {

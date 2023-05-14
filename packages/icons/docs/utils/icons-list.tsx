@@ -27,7 +27,8 @@ export const IconsList: React.FC = () => {
               <UiGridItem key={`icon-grid-item-component-${key}`}>
                 <UiText size={TextSize.xlarge} centered>
                   <UiIcon icon={key} />
-                  <UiText>{key}</UiText>
+                  <br />
+                  {key}
                 </UiText>
               </UiGridItem>
             ))}

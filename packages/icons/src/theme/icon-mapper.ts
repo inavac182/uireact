@@ -8,6 +8,11 @@ export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
         inverse: false,
         token: ColorTokens.token_100,
       },
+      fill: {
+        category: category,
+        inverse: true,
+        token: ColorTokens.token_100,
+      },
     },
   };
 };
