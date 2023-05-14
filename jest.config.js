@@ -9,7 +9,8 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/**/*.{ts,tsx}",
     "!src/**/index.ts",
-    "!src/**/*.d.ts"
+    "!src/**/*.d.ts",
+    "!src/**/svgs/*"
   ],
   coverageThreshold: {
     global: {

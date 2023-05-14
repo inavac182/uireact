@@ -14,7 +14,7 @@ export const IconComponent: React.FC<IconComponentProps> = ({ icon }: IconCompon
         //@ts-ignore
         const Component = SvgsComponents[key];
 
-        return <Component key={`icon-component-${key}`} />;
+        return <Component key={`icon-component-${key}`} data-testid="Icon" />;
       }
 
       return null;

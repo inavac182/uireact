@@ -7,14 +7,16 @@ import { UiIcon } from '../src';
 
 describe('<UiIcon />', () => {
   it('renders fine', () => {
-    uiRender(<UiIcon id="picture" />);
+    uiRender(<UiIcon icon="At" />);
 
-    expect(screen.getByRole('img', { name: 'picture' })).toBeVisible();
+    expect(screen.getByTestId('Icon')).toBeVisible();
   });
 
   it('renders nothing if id is unrecognized', () => {
-    uiRender(<UiIcon id="XXXXXX" />);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    uiRender(<UiIcon icon="XXXX" />);
 
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('Icon')).not.toBeInTheDocument();
   });
 });
