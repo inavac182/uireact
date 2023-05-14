@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc",
     "build:svgs": "npx @svgr/cli --typescript --icon --out-dir src/public/svgs/ -- svgs/",
-    "clean": " rm -rf dist node_modules coverage src/public/svgs/",
+    "clean": " rm -rf dist node_modules coverage",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
