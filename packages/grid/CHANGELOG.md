@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2023-05-14)
+
+
+### Features
+
+* **icon:** adding icons and list in docs ([#116](https://github.com/inavac182/ui-react/issues/116)) ([b7c3340](https://github.com/inavac182/ui-react/commit/b7c334071b433b21b4ebdcd3b7b9946ba5c14534))
+
+
+
+
+
 ## [0.5.6](https://github.com/inavac182/ui-react/compare/@uireact/grid@0.5.5...@uireact/grid@0.5.6) (2023-05-11)
 
 **Note:** Version bump only for package @uireact/grid

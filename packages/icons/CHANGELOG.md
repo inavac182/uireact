@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.6...@uireact/icons@0.3.0) (2023-05-14)
+
+
+### Bug Fixes
+
+* **config:** publish job for icons ([3c72563](https://github.com/inavac182/ui-react/commit/3c72563f69ce326ddd679d2c9ccb3629d3929876))
+* **icon:** clean script ([14b1a72](https://github.com/inavac182/ui-react/commit/14b1a72bcf1f6feb394721b547db5b303e6d1185))
+
+
+### Features
+
+* **icon:** adding icons and list in docs ([#116](https://github.com/inavac182/ui-react/issues/116)) ([b7c3340](https://github.com/inavac182/ui-react/commit/b7c334071b433b21b4ebdcd3b7b9946ba5c14534))
+
+
+
+
+
 ## [0.2.6](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.2.5...@uireact/icons@0.2.6) (2023-05-13)
 
 **Note:** Version bump only for package @uireact/icons
