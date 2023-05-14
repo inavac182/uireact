@@ -18,10 +18,12 @@ _10 mins read_
 ## Set up ⚙️
 
 @uireact uses a theme file so components can be customizable for different clients / use cases. We believe that
-our structure provides with a lot of customization and flexibility without getting into too much freedom which causes
-UX design to be poor for the user experience.
+our structure provides with a lot of customization and flexibility keeping a standard and streamline designe system for a good UX.
 
-If you use the component `UiView` then it sets automatically out of the box the theme context, so you SHOULD wrap your entire app
+### Recommended UiView
+
+If you use the component `UiView` then it automatically sets all the contexts needed for our components to work well, e.g. the theme context,
+dialogs context, etc. At the same time it stablish global styles for the entire app, so we recommend that you wrap your app
 in a UiView, you can get more information about this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
 
 TL;DR;
@@ -38,7 +40,9 @@ export const App = () => (
 
 ```
 
-If you don't want to use the view component then you will have to manually set the ThemeContext provided from the foundation package:
+### Manually set up
+
+If you don't want to use the view component then you will have to manually set all the contexts, including the ThemeContext provided, this is exported from the foundation package:
 
 ```
 import { ThemeContext, DefaultTheme, ThemeColor } from '@uireact/foundation';
@@ -76,33 +80,36 @@ export const DefaultTheme: Theme = {
 ## Colorations ✨🌓
 
 Our take on UX design nowadays is that you should be ready to provide with 2 colorations in your UI, dark and light, this to help
-the UX of your applications when used during sunny days 🌞 or during night time 🌙
+the UX of your applications when used during daylight 🌞 or during night time 🌙
 
-Each coloration has to include these categories:
+In our theme structure you will see 2 props `dark` and `light`, so each of them is typed as `Color`. The [Color type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/colors.ts#L4)
+is generated from the enum [ColorCategories](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/color-categories.ts#L1) and this is its structure:
 
 ```
 {
-  backgrounds: { ... },
-    ▶︎ Used for background or components that are meant to wrap content such as the view or cards.
-  fonts: { ... },
-    ▶︎ Used for texts, headings, labels, everything that is text related.
-  primary: { ... },
-    ▶︎ This is the primary color in your application and will used accross the board.
-  secondary: { ... },
-    ▶︎ The secondary color SHOULD contract very well with the primary, as is intended to be used to separate contents.
-  tertiary: { ... },
-    ▶︎ The tertiary color is like a sparkle here and there, not commonly used but meant to be very visible when is used.
-  positive: { ... },
-    ▶︎ Commonly used to show a reaction to an action that was successfully performed, e.g. A form submition.
-  negative: { ... },
-    ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do
-  error: { ... },
-    ▶︎ As its name says, this is used to show bright error messages, e.g. A form submittion that failed to be validated.
+  ...,
+  dark/light: {
+    backgrounds: { ... },
+      ▶︎ Used for background or components that are meant to wrap content such as the view or cards.
+    fonts: { ... },
+      ▶︎ Used for texts, headings, labels, everything that is text related.
+    primary: { ... },
+      ▶︎ This is the primary color in your application and will used accross the board.
+    secondary: { ... },
+      ▶︎ The secondary color SHOULD contract very well with the primary, as is intended to be used to separate contents.
+    tertiary: { ... },
+      ▶︎ The tertiary color is like a sparkle here and there, not commonly used but meant to be very visible when is used.
+    positive: { ... },
+      ▶︎ Commonly used to show a reaction to an action that was successfully performed, e.g. A form submition.
+    negative: { ... },
+      ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do
+    error: { ... },
+      ▶︎ As its name says, this is used to show bright error messages, e.g. A form submittion that failed to be validated.
+  },
+  ...
 }
 
 ```
-
-You can see the categories enum definition here: [ColorCategories](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/color-categories.ts)
 
 ### Tokens
 
@@ -158,8 +165,9 @@ Typing for [Sizes](https://github.com/inavac182/uireact/blob/main/packages/found
 
 ### Headings
 
-The headings follows the ARIA convention and you could set up to 6 different sizes for [Headings](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/heading-levels.ts), we suggest you only differentiate
-from level 1 to 3 and then 4 to 6 to share the same sizing.
+The headings follows the [ARIA convention](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/heading_role#best_practices) and you could set up to 6 different sizes for
+[Headings](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/heading-levels.ts), we suggest you use different sizes for
+levels 1, 2 and 3, then levels 4 to 6 to use the same sizing.
 
 ```
 {
@@ -174,11 +182,13 @@ from level 1 to 3 and then 4 to 6 to share the same sizing.
 }
 ```
 
+The value that you set is the string value that will be set to the `font-size` CSS property.
+
 If you want to learn more about the UiHeading component follow go to this [doc](https://uireact.io/packages-text-docs-heading-docs).
 
 ### Texts
 
-The texts uses a structure of 5 different level of sizes:
+The texts uses a structure of 5 different sizes:
 
 ```
 {
@@ -191,7 +201,8 @@ The texts uses a structure of 5 different level of sizes:
 }
 ```
 
-You can see the texts definiton [here](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/sizes.ts#L7)
+The [TextSizes type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/sizes.ts#L7) its created
+from the [TextSize enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/text-size.ts#L1)
 
 ## Texts 📝
 
@@ -225,8 +236,8 @@ whatever spacing is more conviniant to their use case.
 }
 ```
 
-As of now we believe having seven levels of spacing should work nicely for most use cases, if you want to learn more about the UiSpacing
-component you can see it here: [UiSpacing](https://uireact.io/packages-foundation-docs-spacing).
-The values in this properties are used straight as a string into the CSS for margins / paddings.
+The [Spacing type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/spacing.ts#L3) its created from the
+[Sizing enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts#LL1C1-L1C1).
 
-Spacing type definition [here](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/spacing.ts#L3).
+We support for up to seven levels of spacing, for most use cases this should be enough as it can be combined using our [UiSpacing](https://uireact.io/packages-foundation-docs-spacing) component.
+The values in this properties are used straight as a string into the CSS property for margins / paddings.
