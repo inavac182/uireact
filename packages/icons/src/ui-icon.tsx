@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ColorCategories, TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { ColorCategories, ThemeContext, getThemeStyling } from '@uireact/foundation';
 
 import { UiIconProps, privateIconProps } from './types';
 import { getDynamicMapper } from './theme';
@@ -15,10 +15,6 @@ const Span = styled.span<privateIconProps>`
       props.selectedTheme,
       getDynamicMapper(props.category || ColorCategories.fonts)
     )}
-
-    img {
-      width: ${getTextSize(props.customTheme, props.size || TextSize.small)};
-    }
   `}
 `;
 
