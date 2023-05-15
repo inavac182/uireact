@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.13.2 (2023-05-15)
+
+**Note:** Version bump only for package @uireact/card
+
+
+
+
+
 ## 0.13.1 (2023-05-14)
 
 **Note:** Version bump only for package @uireact/card
