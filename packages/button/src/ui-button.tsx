@@ -9,8 +9,7 @@ import { getDynamicMapper } from './theme';
 
 const StyledButton = styled.button<privateButtonProps>`
   ${(props) => {
-    const category = props.theme ?? 'primary';
-    const mapper = getDynamicMapper(getColorCategory(category));
+    const mapper = getDynamicMapper(getColorCategory(props.theme));
 
     return `
       ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
@@ -33,7 +32,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   className,
   disabled,
   children,
-  theme,
+  theme = 'primary',
   fullWidth,
   type,
   ref,
