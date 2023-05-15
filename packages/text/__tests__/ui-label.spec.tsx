@@ -14,7 +14,7 @@ describe('<UiLabel />', () => {
   });
 
   it('renders fine with state', () => {
-    uiRender(<UiLabel state="POSITIVE">Text</UiLabel>);
+    uiRender(<UiLabel theme="positive">Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
   });
