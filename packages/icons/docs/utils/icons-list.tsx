@@ -30,20 +30,6 @@ export const IconsList: React.FC = () => {
   return (
     <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiViewRow>
-        <UiSpacing padding={{ block: Sizing.five }}>
-          <UiGrid cols={5} colsGap={10} rowsGap={10}>
-            {Object.keys(Icons).map((key) => (
-              <UiGridItem key={`icon-grid-item-component-${key}`}>
-                <UiText size={TextSize.xlarge} theme={category} centered>
-                  <UiIcon icon={key} theme={category} />
-                  <br />
-                  {key}
-                </UiText>
-              </UiGridItem>
-            ))}
-          </UiGrid>
-        </UiSpacing>
-
         <UiSpacing padding={{ all: Sizing.four }}>
           <UiFlexGrid alignItems="center" gap={Sizing.five} justifyContent="center">
             <UiFlexGridItem grow={1}>
@@ -66,6 +52,19 @@ export const IconsList: React.FC = () => {
               </UiSelect>
             </UiFlexGridItem>
           </UiFlexGrid>
+        </UiSpacing>
+        <UiSpacing padding={{ block: Sizing.five }}>
+          <UiGrid cols={5} colsGap={10} rowsGap={10}>
+            {Object.keys(Icons).map((key) => (
+              <UiGridItem key={`icon-grid-item-component-${key}`}>
+                <UiText size={TextSize.xlarge} theme={category} centered>
+                  <UiIcon icon={key} theme={category} />
+                  <br />
+                  {key}
+                </UiText>
+              </UiGridItem>
+            ))}
+          </UiGrid>
         </UiSpacing>
       </UiViewRow>
     </UiView>
