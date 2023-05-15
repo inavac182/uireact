@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.10](https://github.com/inavac182/ui-react/compare/@uireact/button@0.11.9...@uireact/button@0.11.10) (2023-05-15)
+
+**Note:** Version bump only for package @uireact/button
+
+
+
+
+
 ## [0.11.9](https://github.com/inavac182/ui-react/compare/@uireact/button@0.11.8...@uireact/button@0.11.9) (2023-05-15)
 
 **Note:** Version bump only for package @uireact/button
