@@ -84,7 +84,7 @@ export const DefaultTheme: Theme = {
 Our take on UX design nowadays is that you should be ready to provide with 2 colorations in your UI, dark and light, this to help
 the UX of your applications when used during daylight 🌞 or during night time 🌙
 
-In our theme structure you will see 2 props `dark` and `light`, so each of them is typed as `Color`. The [Color type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/colors.ts#L4)
+In our theme structure you will see 2 props `dark` and `light`, so each of them is typed as `Color`. The [Coloration type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/coloration.ts#L4)
 is generated from the enum [ColorCategories](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/color-categories.ts#L1) and this is its structure:
 
 ```
@@ -104,9 +104,11 @@ is generated from the enum [ColorCategories](https://github.com/inavac182/uireac
     positive: { ... },
       ▶︎ Commonly used to show a reaction to an action that was successfully performed, e.g. A form submition.
     negative: { ... },
-      ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do
+      ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do.
     error: { ... },
       ▶︎ As its name says, this is used to show bright error messages, e.g. A form submittion that failed to be validated.
+    warning: { ... },
+      ▶︎ Used to show a warning message, for instance an expiration messaging.
   },
   ...
 }
@@ -115,7 +117,7 @@ is generated from the enum [ColorCategories](https://github.com/inavac182/uireac
 
 ### Tokens
 
-Each coloration should include 5 levels of the main color, these are referrer to as tokens:
+Each coloration should include 5 levels of color, each level is referrer to it as token, the token 100 is the main base color:
 
 ```
 {

@@ -1,6 +1,6 @@
-import { Colors } from '../../types/themes/internal';
+import { Coloration } from '../../types/themes/internal';
 
-export const Light: Colors = {
+export const Light: Coloration = {
   backgrounds: {
     token_10: '#fcfcfc',
     token_50: '#fcf7f7',
@@ -56,5 +56,12 @@ export const Light: Colors = {
     token_100: '#FD6A6A',
     token_150: '#FF5A5A',
     token_200: '#FF3D3D',
+  },
+  warning: {
+    token_10: '#FCEE2F',
+    token_50: '#EEE12D',
+    token_100: '#E8DB27',
+    token_150: '#D8CC20',
+    token_200: '#CBC01B',
   },
 };

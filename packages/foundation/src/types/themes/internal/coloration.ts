@@ -1,6 +1,6 @@
 import { Tokens } from '.';
 import { ColorCategories } from '../../enums';
 
-export type Colors = {
+export type Coloration = {
   [key in ColorCategories]: Tokens;
 };

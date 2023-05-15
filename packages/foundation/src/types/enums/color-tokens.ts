@@ -5,3 +5,5 @@ export enum ColorTokens {
   token_150 = 'token_150',
   token_200 = 'token_200',
 }
+
+export type Token = '10' | '50' | '100' | '150' | '200';
