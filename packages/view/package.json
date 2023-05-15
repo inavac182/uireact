@@ -3,7 +3,7 @@
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,7 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.14.2"
+    "@uireact/foundation": "^0.15.0"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
