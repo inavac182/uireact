@@ -1,4 +1,4 @@
-import { Texts, Sizes, Colors, Spacing } from './internal';
+import { Texts, Sizes, Coloration, Spacing } from './internal';
 
 export type Theme = {
   /** Identifier of the theme */
@@ -8,9 +8,9 @@ export type Theme = {
   /** Set of sizes for theme */
   sizes: Sizes;
   /** Set of color tokens for the light theme */
-  light: Colors;
+  light: Coloration;
   /** Set of color tokens for the dark theme */
-  dark: Colors;
+  dark: Coloration;
   /** Set of tokens spacing */
   spacing: Spacing;
 };
