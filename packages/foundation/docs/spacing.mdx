@@ -18,13 +18,15 @@ import { UiSpacing, Sizing } from '../src/';
   </a>
 </sup>
 
-## Installation
+> This component is used to add spacing around components
 
-This spacing component is exported as part of the foundation package: @ui-react/foundation
+## Installation 🧰
+
+This spacing component is exported as part of the foundation package: @uireact/foundation
 
 > npm i @uireact/foundation
 
-## Usage
+## Usage 🛠️
 
 <Playground>
   <UiSpacing margin={{ all: Sizing.five }}>Nice margin dude!</UiSpacing>
@@ -32,31 +34,76 @@ This spacing component is exported as part of the foundation package: @ui-react/
 
 **UiSpacing** renders a div to which it assigns its styling and wraps the children
 
-## Props
+## Props 🎛️
 
 <Props of={UiSpacing} />
 
-### SizingDistribution
+## Details 🤓
 
-The `SizingDistribution` definition is:
+More information about the `<UiSpacing />` implementation.
+
+### SpacingDistribution
+
+The [SpacingDistribution](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/spacing/spacing.tsx#L8) let you set up spacing
+in multiple ways:
 
 ```
-type SizingDistribution = {
-  /** Applies size to all sides */
+type SpacingDistribution = {
+
   all?: Sizing;
-  /** Applies size to top and bottom */
+  /** Apply spacing to all sides */
+
   block?: Sizing;
-  /** Applies size to left and right */
+  /** Apply spacing to top and bottom */
+
   inline?: Sizing;
-  /** Applies size to left */
+  /** Apply spacing to left and right */
+
   left?: Sizing;
-  /** Applies size to right */
+  /** Apply spacing to left */
+
   right?: Sizing;
-  /** Applies size to top */
+  /** Apply spacing to right */
+
   top?: Sizing;
-  /** Applies size to bottom */
+  /** Apply spacing to top */
+
   bottom?: Sizing;
+  /** Apply spacing to bottom */
 };
 ```
 
-Options `all`, `block` and `inline` are used independently **can't be combined**.
+Options `all`, `block` and `inline` are used independently **can't be combined**. There is already an issue opened for this to change this.
+
+### Theme
+
+The [Sizing enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts#L1) is used to reference a
+value from the [Spacing](https://uireact.io/packages-foundation-docs-themes#spacing-) property provided from the themes
+
+For instance if you set up this in your theme:
+
+```
+{
+  ...,
+  spacing: {
+    one: '1px',
+    two: '2px',
+    three: '4px',
+    four: '8px',
+    five: '16px',
+    six: '32px',
+    seven: '64px',
+  },
+  ...
+}
+```
+
+If you use this:
+
+```
+<UiSpacing padding={{all: Sizing.three}}>
+  Some content
+</UiSpacing>
+```
+
+The content will get wrapped under a `div` element with the CSS value of: `padding: 4px;`

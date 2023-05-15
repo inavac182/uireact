@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { UiReactElementProps, UiReactPrivateElementProps, Sizing, Theme } from '../types';
 import { ThemeContext } from '../providers/theme-context';
 
-type SizingDistribution = {
+export type SpacingDistribution = {
   /** Applies size to all sides */
   all?: Sizing;
   /** Applies size to top and bottom */
@@ -23,15 +23,15 @@ type SizingDistribution = {
 };
 
 export type UiSpacingProps = UiReactElementProps & {
-  /** Margin to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
-  margin?: SizingDistribution;
-  /** Padding to use based on [SizingDistribution](./packages-foundation-docs-spacing#sizingdistribution) */
-  padding?: SizingDistribution;
+  /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  margin?: SpacingDistribution;
+  /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  padding?: SpacingDistribution;
 };
 
 type __UiSpacingProps = UiReactPrivateElementProps & UiSpacingProps;
 
-const getSpaceValue = (sizing: SizingDistribution, theme: Theme): string => {
+const getSpaceValue = (sizing: SpacingDistribution, theme: Theme): string => {
   if (sizing.all) {
     return theme.spacing[sizing.all];
   }

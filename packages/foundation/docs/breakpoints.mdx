@@ -15,37 +15,38 @@ import * as packageJson from '../package.json';
   </a>
 </sup>
 
-> @uireact uses these 2 pieces to handle breakpoints in the UiViewport
->
-> - BreakpointsSizes (Private)
-> - Breakpoints (Enum used as a prop) See: [UiViewport](./packages-foundation-docs-viewport)
-
-## Installation
-
-The Breakpoints enum is exported as part of the package @ui-react/foundation
-
 > npm i @uireact/foundation
 
-## Definition
+## Definition ✍️
 
-### Breakpoints
+We currently support these breakpoints:
 
 ```
 enum Breakpoints {
   SMALL,
+    ▶︎ Used to render on mobile devices
   MEDIUM,
+    ▶︎ Used to render on tablet devices or mobiles with big screens or mobile landscape
   LARGE,
+    ▶︎ Used to render on big tablets, tablets on landscape or desktop
+  XLARGE,
+    ▶︎ Used to render on high resolutions desktop screens
 }
 ```
 
-> This enum is exported in the @uireact/foundation package.
+The [Breakpoints enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/breakpoints-enum.ts) is exported as part of the package @ui-react/foundation
+this enum has the different breakpoints we support.
 
-### Breakpoint sizes
+## Breakpoints sizes
+
+Based on data around internet of the most common resolutions for each device we have decided to set up the supported breakpoints sizes
+in the following distribution:
 
 ```
 const BreakpointsSizes = {
   s: {
     max: 579,
+      ▶︎ No min value as anything from 0 up to 579px considered SMALL
   },
   m: {
     min: 580,
@@ -53,13 +54,13 @@ const BreakpointsSizes = {
   },
   l: {
     min: 992,
+    max: 1440,
+  },
+  xl: {
+    min: 1440,
+      ▶︎ No max value as anything above 1440 is considered XLARGE
   },
 };
-
 ```
-
-> This size object is a constant that we have inside our foundation package and is used to determine the users breakpoint.
-
-Anything smaller than 580 will be categorized as _SMALL_, then from 580 to 991 will be _MEDIUM_ and anything larger than 991 will be _large_
 
 **NOTE:** @uireact doesn't distinguish between real mobile device and desktop small breakpoint, they are both categorized as SMALL.
