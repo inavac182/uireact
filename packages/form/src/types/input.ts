@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiInputProps = {
   /** Input field disabled state */
@@ -17,8 +17,8 @@ export type UiInputProps = {
   placeholder?: string;
   /* React ref */
   ref?: React.Ref<HTMLInputElement>;
-  /** Input field state */
-  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
+  /** Input field theme */
+  theme?: ColorCategory;
   /** Input field type */
   type?: HTMLInputElement['type'];
   /** Input field value */

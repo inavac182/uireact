@@ -38,7 +38,7 @@ describe('<UiTextArea />', () => {
   });
 
   it('renders fine with state', () => {
-    uiRender(<UiTextArea name="text-area" state="POSITIVE" />);
+    uiRender(<UiTextArea name="text-area" theme="positive" />);
 
     expect(screen.getByRole('textbox')).toBeVisible();
   });

@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiCheckboxProps = {
   /** If checkbox is checked */
@@ -16,7 +16,7 @@ export type UiCheckboxProps = {
   /** React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Checkbox theme to render when checked */
-  theme?: 'POSITIVE' | 'ERROR' | 'NEGATIVE';
+  theme?: ColorCategory;
 } & UiReactElementProps;
 
 export type privateCheckboxProps = UiCheckboxProps & UiReactPrivateElementProps;

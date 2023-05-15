@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiSelectProps = {
   /** If checkbox is disabled */
@@ -12,11 +12,11 @@ export type UiSelectProps = {
   /** Label position */
   labelOnTop?: boolean;
   /** On change CB to handle checked state */
-  onChange?: () => void;
+  onChange?: (value?: string) => void;
   /** React ref */
   ref?: React.Ref<HTMLSelectElement>;
   /** Checkbox theme to render when checked */
-  state?: 'POSITIVE' | 'ERROR' | 'NEGATIVE';
+  theme?: ColorCategory;
   /** Selected value */
   value?: HTMLSelectElement['value'];
 } & UiReactElementProps;

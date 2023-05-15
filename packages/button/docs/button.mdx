@@ -67,24 +67,27 @@ import * as packageJson from '../package.json';
 #### Types of button:
 
 <Playground>
-  <UiGrid cols={6} colsGap="5px" justifyItems="center">
+  <UiGrid cols={7} colsGap="5px" justifyItems="center">
     <UiButton fullWidth>
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🐬</UiSpacing>
     </UiButton>
-    <UiButton fullWidth buttonType="secondary">
+    <UiButton fullWidth theme="secondary">
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🐉</UiSpacing>
     </UiButton>
-    <UiButton fullWidth buttonType="tertiary">
+    <UiButton fullWidth theme="tertiary">
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🌹</UiSpacing>
     </UiButton>
-    <UiButton fullWidth buttonType="positive">
+    <UiButton fullWidth theme="positive">
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🌎</UiSpacing>
     </UiButton>
-    <UiButton fullWidth buttonType="negative">
+    <UiButton fullWidth theme="negative">
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🌈</UiSpacing>
     </UiButton>
-    <UiButton fullWidth buttonType="error">
+    <UiButton fullWidth theme="error">
       <UiSpacing margin={{ all: Sizing.three }}>Button! ⚡️</UiSpacing>
+    </UiButton>
+    <UiButton fullWidth theme="warning">
+      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌋</UiSpacing>
     </UiButton>
   </UiGrid>
 </Playground>

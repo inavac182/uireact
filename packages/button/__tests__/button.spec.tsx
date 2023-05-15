@@ -54,31 +54,31 @@ describe('<UiButton />', () => {
   });
 
   test('renders secondary button', () => {
-    uiRender(<UiButton buttonType="secondary">MyButton</UiButton>);
+    uiRender(<UiButton theme="secondary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });
 
   test('renders tertiary button', () => {
-    uiRender(<UiButton buttonType="tertiary">MyButton</UiButton>);
+    uiRender(<UiButton theme="tertiary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });
 
   test('renders positive button', () => {
-    uiRender(<UiButton buttonType="positive">MyButton</UiButton>);
+    uiRender(<UiButton theme="positive">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });
 
   test('renders negative button', () => {
-    uiRender(<UiButton buttonType="negative">MyButton</UiButton>);
+    uiRender(<UiButton theme="negative">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });
 
   test('renders error button', () => {
-    uiRender(<UiButton buttonType="error">MyButton</UiButton>);
+    uiRender(<UiButton theme="error">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });

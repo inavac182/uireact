@@ -2,15 +2,15 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { ThemeContext, ColorCategories, getThemeStyling } from '@uireact/foundation';
+import { ThemeContext, getThemeStyling, getColorCategory } from '@uireact/foundation';
 
 import { privateButtonProps, UiButtonProps } from './types';
 import { getDynamicMapper } from './theme';
 
 const StyledButton = styled.button<privateButtonProps>`
   ${(props) => {
-    const buttonType = props.buttonType ?? 'primary';
-    const mapper = getDynamicMapper(ColorCategories[buttonType]);
+    const category = props.theme ?? 'primary';
+    const mapper = getDynamicMapper(getColorCategory(category));
 
     return `
       ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
@@ -33,7 +33,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   className,
   disabled,
   children,
-  buttonType,
+  theme,
   fullWidth,
   type,
   ref,
@@ -44,7 +44,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
     <StyledButton
       customTheme={themeContext.theme}
       selectedTheme={themeContext.selectedTheme}
-      buttonType={buttonType}
+      theme={theme}
       onClick={onClick}
       data-testid={testId}
       className={className}

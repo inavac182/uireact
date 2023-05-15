@@ -15,7 +15,7 @@ export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
     normal: {
       color: {
         category: category,
-        inverse: false,
+        inverse: true,
         token: ColorTokens.token_100,
       },
     },

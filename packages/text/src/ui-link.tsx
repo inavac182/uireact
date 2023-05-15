@@ -2,14 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiLinkProps, privateLinkProps } from './types';
-import { getCategory, getDynamicLinkMapper } from './theme';
+import { getDynamicLinkMapper } from './theme';
 
 const Anchor = styled.a<privateLinkProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getCategory(props.category)))}
+    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getColorCategory(props.category)))}
     font-size: ${getTextSize(props.customTheme, props.size || TextSize.regular)};
   `}
 
@@ -23,7 +23,7 @@ const Anchor = styled.a<privateLinkProps>`
 `;
 
 export const UiLink: React.FC<UiLinkProps> = ({
-  category = 'PRIMARY',
+  theme = 'primary',
   children,
   handleClick,
   href,
@@ -32,17 +32,17 @@ export const UiLink: React.FC<UiLinkProps> = ({
   size,
   target,
 }: UiLinkProps) => {
-  const theme = React.useContext(ThemeContext);
+  const themeContext = React.useContext(ThemeContext);
 
   return (
     <Anchor
-      category={category}
-      customTheme={theme.theme}
+      category={theme}
+      customTheme={themeContext.theme}
       href={href}
       onClick={handleClick}
       ref={ref}
       referrerpolicy={referrerpolicy}
-      selectedTheme={theme.selectedTheme}
+      selectedTheme={themeContext.selectedTheme}
       size={size}
       target={target}
       role="link"

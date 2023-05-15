@@ -1,8 +1,8 @@
-import { TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiLinkProps = {
-  /* Category to represent from text, default PRIMARY */
-  category?: 'POSITIVE' | 'NEGATIVE' | 'ERROR' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+  /* Represents the theme to use for the link, default PRIMARY */
+  theme?: ColorCategory;
   /** URL to be opened */
   href?: string;
   /** Handle link click */
@@ -17,6 +17,6 @@ export type UiLinkProps = {
   target?: string;
 } & UiReactElementProps;
 
-export type privateLinkProps = UiLinkProps & {
-  category: 'POSITIVE' | 'NEGATIVE' | 'ERROR' | 'PRIMARY' | 'SECONDARY' | 'TERTIARY';
+export type privateLinkProps = Omit<UiLinkProps, 'theme'> & {
+  category: ColorCategory;
 } & UiReactPrivateElementProps;

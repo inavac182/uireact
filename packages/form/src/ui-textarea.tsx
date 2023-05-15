@@ -2,18 +2,18 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiTextAreaProps, privateTextAreaProps } from './types';
-import { TextareaMapper, getColorCategoryFromState, getDynamicTextareaMapper } from './theme';
+import { TextareaMapper, getDynamicTextareaMapper } from './theme';
 
 const Textarea = styled.textarea<privateTextAreaProps>`
   ${(props: privateTextAreaProps) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.state ? getDynamicTextareaMapper(getColorCategoryFromState(props.state)) : TextareaMapper
+      props.theme ? getDynamicTextareaMapper(getColorCategory(props.theme)) : TextareaMapper
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
     ${props.resize === false ? 'resize: none;' : ''}
@@ -57,7 +57,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   resize,
   ref,
   rows,
-  state,
+  theme,
   value,
   onChange,
 }: UiTextAreaProps) => {
@@ -67,7 +67,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} state={state}>
+          <UiLabel htmlFor={name} theme={theme}>
             {label}
           </UiLabel>
         </div>
@@ -75,7 +75,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} state={state}>
+            <UiLabel htmlFor={name} theme={theme}>
               {label} &nbsp;
             </UiLabel>
           </div>
@@ -94,10 +94,10 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
             resize={resize}
             rows={rows}
             selectedTheme={themeContext.selectedTheme}
-            state={state}
+            theme={theme}
             value={value}
           />
-          {error && <UiText state={state}>{error}</UiText>}
+          {error && <UiText theme={theme}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
     </>

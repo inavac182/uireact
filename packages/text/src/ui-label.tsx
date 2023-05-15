@@ -2,17 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 
 import { UiLabelProps, privateLabelProps } from './types';
-import { LabelMapper, getCategory, getLabelDynamicMapper } from './theme';
+import { LabelMapper, getLabelDynamicMapper } from './theme';
 
 const Label = styled.label<privateLabelProps>`
   ${(props) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.state ? getLabelDynamicMapper(getCategory(props.state)) : LabelMapper
+      props.category ? getLabelDynamicMapper(getColorCategory(props.category)) : LabelMapper
     )}
     ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
   `}
@@ -21,11 +21,17 @@ const Label = styled.label<privateLabelProps>`
   margin: 0;
 `;
 
-export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = TextSize.small, state }: UiLabelProps) => {
-  const theme = React.useContext(ThemeContext);
+export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = TextSize.small, theme }: UiLabelProps) => {
+  const themeContext = React.useContext(ThemeContext);
 
   return (
-    <Label customTheme={theme.theme} selectedTheme={theme.selectedTheme} size={size} state={state} htmlFor={htmlFor}>
+    <Label
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+      size={size}
+      category={theme}
+      htmlFor={htmlFor}
+    >
       {children}
     </Label>
   );

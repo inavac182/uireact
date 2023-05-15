@@ -2,15 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ColorCategories, TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import {
+  ColorCategories,
+  TextSize,
+  ThemeContext,
+  getColorCategory,
+  getTextSize,
+  getThemeStyling,
+} from '@uireact/foundation';
 
 import { UiCheckboxProps, privateCheckboxProps } from './types';
-import {
-  CheckboxButtonMapper,
-  DisabledCheckboxMapper,
-  getColorCategoryFromState,
-  getDynamicCheckboxMapper,
-} from './theme';
+import { CheckboxButtonMapper, DisabledCheckboxMapper, getDynamicCheckboxMapper } from './theme';
 
 const Label = styled.label<privateCheckboxProps>`
   ${(props) => `
@@ -38,7 +40,7 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
       ${getThemeStyling(
         props.customTheme,
         props.selectedTheme,
-        getDynamicCheckboxMapper(getColorCategoryFromState(props.theme))
+        getDynamicCheckboxMapper(getColorCategory(props.theme))
       )}
     `}
   }
