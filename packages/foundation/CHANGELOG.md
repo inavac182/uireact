@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.14.2...@uireact/foundation@0.15.0) (2023-05-15)
+
+
+### Features
+
+* **foundation:** adding warning color category ([#126](https://github.com/inavac182/ui-react/issues/126)) ([7a5321b](https://github.com/inavac182/ui-react/commit/7a5321b6f126ec78fec875e6a69522c9bf8ee31b))
+
+
+
+
+
 ## 0.14.2 (2023-05-15)
 
 **Note:** Version bump only for package @uireact/foundation
