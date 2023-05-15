@@ -11,4 +11,6 @@ export type UiIconProps = {
   size?: TextSize;
 } & UiReactElementProps;
 
-export type privateIconProps = Omit<UiIconProps, 'icon'> & UiReactPrivateElementProps;
+export type privateIconProps = Omit<Omit<UiIconProps, 'theme'>, 'icon'> & {
+  category?: ColorCategory;
+} & UiReactPrivateElementProps;

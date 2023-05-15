@@ -9,11 +9,11 @@ import { getDynamicMapper } from './theme';
 import { IconComponent } from './public';
 
 const Span = styled.span<privateIconProps>`
-  ${(props) => `
+  ${(props: privateIconProps) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      getDynamicMapper(getColorCategory(props.theme || ColorCategories.fonts))
+      getDynamicMapper(props.category ? getColorCategory(props.category) : ColorCategories.fonts)
     )}
   `}
 `;
@@ -22,7 +22,7 @@ export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size }: UiIconProps
   const themeProvided = React.useContext(ThemeContext);
 
   return (
-    <Span theme={theme} customTheme={themeProvided.theme} selectedTheme={themeProvided.selectedTheme} size={size}>
+    <Span category={theme} customTheme={themeProvided.theme} selectedTheme={themeProvided.selectedTheme} size={size}>
       <IconComponent icon={icon} />
     </Span>
   );
