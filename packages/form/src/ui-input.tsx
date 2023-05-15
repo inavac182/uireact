@@ -9,11 +9,11 @@ import { UiInputProps, privateInputProps } from './types';
 import { InputMapper, getDynamicInputMapper } from './theme';
 
 const Input = styled.input<privateInputProps>`
-  ${(props) => `
+  ${(props: privateInputProps) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.theme ? getDynamicInputMapper(getColorCategory(props.theme)) : InputMapper
+      props.category ? getDynamicInputMapper(getColorCategory(props.category)) : InputMapper
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
 
@@ -86,7 +86,7 @@ export const UiInput: React.FC<UiInputProps> = ({
             placeholder={placeholder}
             ref={ref}
             selectedTheme={themeContext.selectedTheme}
-            theme={theme}
+            category={theme}
             type={type}
             value={value}
           />

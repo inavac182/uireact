@@ -13,7 +13,7 @@ const Textarea = styled.textarea<privateTextAreaProps>`
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.theme ? getDynamicTextareaMapper(getColorCategory(props.theme)) : TextareaMapper
+      props.category ? getDynamicTextareaMapper(getColorCategory(props.category)) : TextareaMapper
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
     ${props.resize === false ? 'resize: none;' : ''}
@@ -94,7 +94,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
             resize={resize}
             rows={rows}
             selectedTheme={themeContext.selectedTheme}
-            theme={theme}
+            category={theme}
             value={value}
           />
           {error && <UiText theme={theme}>{error}</UiText>}

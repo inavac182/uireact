@@ -70,7 +70,7 @@ describe('<Component />', () => {
     it('renders fine with unrecognized state', () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      uiRender(<UiInput error="Some error" state="XXXXXXX" />);
+      uiRender(<UiInput error="Some error" theme="XXXXXXX" />);
 
       expect(screen.getByRole('textbox')).toBeVisible();
       expect(screen.getByText('Some error')).toBeVisible();

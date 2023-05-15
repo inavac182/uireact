@@ -31,4 +31,6 @@ export type UiTextAreaProps = {
   value?: HTMLInputElement['value'];
 } & UiReactElementProps;
 
-export type privateTextAreaProps = UiTextAreaProps & UiReactPrivateElementProps;
+export type privateTextAreaProps = Omit<UiTextAreaProps, 'theme'> & {
+  category?: ColorCategory;
+} & UiReactPrivateElementProps;

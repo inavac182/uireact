@@ -25,4 +25,6 @@ export type UiInputProps = {
   value?: HTMLInputElement['value'];
 } & UiReactElementProps;
 
-export type privateInputProps = UiInputProps & UiReactPrivateElementProps;
+export type privateInputProps = Omit<UiInputProps, 'theme'> & {
+  category?: ColorCategory;
+} & UiReactPrivateElementProps;

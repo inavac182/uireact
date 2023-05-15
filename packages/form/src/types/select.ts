@@ -21,4 +21,6 @@ export type UiSelectProps = {
   value?: HTMLSelectElement['value'];
 } & UiReactElementProps;
 
-export type privateSelectProps = UiSelectProps & UiReactPrivateElementProps;
+export type privateSelectProps = Omit<UiSelectProps, 'theme'> & {
+  category?: ColorCategory;
+} & UiReactPrivateElementProps;
