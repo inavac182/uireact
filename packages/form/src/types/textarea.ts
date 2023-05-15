@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiTextAreaProps = {
   /** Textarea cols */
@@ -26,9 +26,11 @@ export type UiTextAreaProps = {
   /** Textarea rows*/
   rows?: number;
   /** Textarea state */
-  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
+  theme?: ColorCategory;
   /** Textarea value */
   value?: HTMLInputElement['value'];
 } & UiReactElementProps;
 
-export type privateTextAreaProps = UiTextAreaProps & UiReactPrivateElementProps;
+export type privateTextAreaProps = Omit<UiTextAreaProps, 'theme'> & {
+  category?: ColorCategory;
+} & UiReactPrivateElementProps;

@@ -35,7 +35,7 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedC
         <UiSpacing margin={{ all: Sizing.five }}>
           <UiText centered>Menu Content</UiText>
           <div>
-            <UiButton onClick={closeMenu} buttonType="secondary" fullWidth>
+            <UiButton onClick={closeMenu} theme="secondary" fullWidth>
               Close menu
             </UiButton>
           </div>

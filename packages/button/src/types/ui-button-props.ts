@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-import { UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiButtonProps = {
   /** onClick Handler */
@@ -12,8 +12,8 @@ export type UiButtonProps = {
   testId?: string;
   /** className attribute */
   className?: string;
-  /** Button type */
-  buttonType?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error';
+  /** Button theme */
+  theme?: ColorCategory;
   /** Visual button type */
   fullWidth?: boolean;
   /** Button type */

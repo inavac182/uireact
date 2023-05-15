@@ -30,16 +30,16 @@ import { UiLink } from '../src';
   <UiLink href="https://uireact.io">Some link</UiLink>
 </Playground>
 
-## UiLink with category
+## UiLink with theme
 
 <Playground>
-  <UiLink href="https://uireact.io" target="_blank" category="ERROR">
+  <UiLink href="https://uireact.io" target="_blank" theme="error">
     Some text
   </UiLink>{' '}
-  <UiLink href="https://uireact.io" category="POSITIVE">
+  <UiLink href="https://uireact.io" theme="positive">
     Some text
   </UiLink>{' '}
-  <UiLink handleClick={() => console.log('Link Clicked')} category="NEGATIVE">
+  <UiLink handleClick={() => console.log('Link Clicked')} theme="negative">
     Some text
   </UiLink>
 </Playground>

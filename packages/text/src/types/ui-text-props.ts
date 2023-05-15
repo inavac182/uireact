@@ -1,4 +1,4 @@
-import { TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiTextProps = {
   /* Text size to be used, default is regular */
@@ -7,10 +7,11 @@ export type UiTextProps = {
   centered?: boolean;
   /* Render text inlined */
   inline?: boolean;
-  /* State to represent from text */
-  state?: 'POSITIVE' | 'NEGATIVE' | 'ERROR';
+  /* Represents the theme to use for the text, default PRIMARY */
+  theme?: ColorCategory;
 } & UiReactElementProps;
 
-export type privateTextProps = UiTextProps & {
+export type privateTextProps = Omit<UiTextProps, 'theme'> & {
+  category?: ColorCategory;
   size: TextSize;
 } & UiReactPrivateElementProps;

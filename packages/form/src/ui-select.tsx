@@ -2,18 +2,18 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiSelectProps, privateSelectProps } from './types';
-import { getColorCategoryFromState, getDynamicSelectMapper, SelectMapper } from './theme';
+import { getDynamicSelectMapper, SelectMapper } from './theme';
 
 const Select = styled.select<privateSelectProps>`
   ${(props: privateSelectProps) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.state ? getDynamicSelectMapper(getColorCategoryFromState(props.state)) : SelectMapper
+      props.category ? getDynamicSelectMapper(getColorCategory(props.category)) : SelectMapper
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
   `}
@@ -46,17 +46,24 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   labelOnTop,
   name = 'select-name',
   ref,
-  state,
+  theme,
   value,
   onChange,
 }: UiSelectProps) => {
   const themeContext = React.useContext(ThemeContext);
 
+  const handleChange = React.useCallback(
+    (e) => {
+      onChange?.(e.target.value);
+    },
+    [onChange]
+  );
+
   return (
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} state={state}>
+          <UiLabel htmlFor={name} theme={theme}>
             {label}
           </UiLabel>
         </div>
@@ -64,7 +71,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} state={state}>
+            <UiLabel htmlFor={name} theme={theme}>
               {label} &nbsp;
             </UiLabel>
           </div>
@@ -75,15 +82,15 @@ export const UiSelect: React.FC<UiSelectProps> = ({
             disabled={disabled}
             id={name}
             name={name}
-            onChange={onChange}
+            onChange={handleChange}
             ref={ref}
             selectedTheme={themeContext.selectedTheme}
-            state={state}
+            category={theme}
             value={value}
           >
             {children}
           </Select>
-          {error && <UiText state={state}>{error}</UiText>}
+          {error && <UiText theme={theme}>{error}</UiText>}
         </SelectDiv>
       </WrapperDiv>
     </>

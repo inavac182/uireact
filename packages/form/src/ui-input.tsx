@@ -2,18 +2,18 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiInputProps, privateInputProps } from './types';
-import { InputMapper, getColorCategoryFromState, getDynamicInputMapper } from './theme';
+import { InputMapper, getDynamicInputMapper } from './theme';
 
 const Input = styled.input<privateInputProps>`
-  ${(props) => `
+  ${(props: privateInputProps) => `
     ${getThemeStyling(
       props.customTheme,
       props.selectedTheme,
-      props.state ? getDynamicInputMapper(getColorCategoryFromState(props.state)) : InputMapper
+      props.category ? getDynamicInputMapper(getColorCategory(props.category)) : InputMapper
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
 
@@ -52,18 +52,18 @@ export const UiInput: React.FC<UiInputProps> = ({
   name = 'input-name',
   placeholder,
   ref,
-  state,
+  theme,
   type,
   value,
   onChange,
 }: UiInputProps) => {
-  const theme = React.useContext(ThemeContext);
+  const themeContext = React.useContext(ThemeContext);
 
   return (
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} state={state}>
+          <UiLabel htmlFor={name} theme={theme}>
             {label} &nbsp;
           </UiLabel>
         </div>
@@ -71,26 +71,26 @@ export const UiInput: React.FC<UiInputProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} state={state}>
+            <UiLabel htmlFor={name} theme={theme}>
               {label} &nbsp;
             </UiLabel>
           </div>
         )}
         <InputDiv>
           <Input
-            customTheme={theme.theme}
+            customTheme={themeContext.theme}
             disabled={disabled}
             id={name}
             name={name}
             onChange={onChange}
             placeholder={placeholder}
             ref={ref}
-            selectedTheme={theme.selectedTheme}
-            state={state}
+            selectedTheme={themeContext.selectedTheme}
+            category={theme}
             type={type}
             value={value}
           />
-          {error && <UiText state={state}>{error}</UiText>}
+          {error && <UiText theme={theme}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
     </>

@@ -32,7 +32,7 @@ describe('<UiLink />', () => {
 
   it('renders fine with category', () => {
     uiRender(
-      <UiLink href="#" category="POSITIVE">
+      <UiLink href="#" theme="positive">
         Link
       </UiLink>
     );
@@ -42,7 +42,7 @@ describe('<UiLink />', () => {
 
   it('trigger onClick when clicked', () => {
     uiRender(
-      <UiLink handleClick={onClick} category="POSITIVE">
+      <UiLink handleClick={onClick} theme="positive">
         Link
       </UiLink>
     );

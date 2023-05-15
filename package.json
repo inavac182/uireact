@@ -46,6 +46,7 @@
     "@uireact/icons": "file:packages/icons/src/",
     "@uireact/grid": "file:packages/grid/src/",
     "@uireact/flex": "file:packages/flex/src/",
+    "@uireact/form": "file:packages/form/src/",
     "@uireact/foundation": "file:packages/foundation/src/",
     "@uireact/list": "file:packages/list/src/",
     "@uireact/text": "file:packages/text/src/",

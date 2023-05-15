@@ -22,7 +22,7 @@ describe('<UiSelect />', () => {
   it('renders fine with a state', () => {
     uiRender(
       <>
-        <UiSelect label="Cars" labelOnTop state="POSITIVE">
+        <UiSelect label="Cars" labelOnTop theme="positive">
           <option>Ford</option>
           <option>Chevy</option>
         </UiSelect>
@@ -67,6 +67,25 @@ describe('<UiSelect />', () => {
     expect(select).toHaveValue('Chevy');
 
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange.mock.calls[0][0].target.value).toBe('Chevy');
+    expect(onChange.mock.calls[0][0]).toBe('Chevy');
+  });
+
+  it('does not break if onChange is not provided', () => {
+    uiRender(
+      <>
+        <UiSelect label="Cars" name="MyInput">
+          <option>Ford</option>
+          <option>Chevy</option>
+        </UiSelect>
+      </>
+    );
+
+    const select = screen.getByRole('combobox', { name: 'Cars' });
+
+    expect(select).toHaveValue('Ford');
+
+    fireEvent.change(select, { target: { value: 'Chevy' } });
+
+    expect(select).toHaveValue('Chevy');
   });
 });

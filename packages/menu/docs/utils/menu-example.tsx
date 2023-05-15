@@ -33,11 +33,11 @@ export const MenuExample: React.FC = () => {
           <UiSpacing margin={{ all: Sizing.five }}>
             <UiText centered>Menu Content</UiText>
             <div>
-              <UiButton onClick={closeMenu} buttonType="secondary" fullWidth>
+              <UiButton onClick={closeMenu} theme="secondary" fullWidth>
                 Close menu
               </UiButton>
             </div>
-            <UiButton onClick={toggleTheme} buttonType="tertiary" fullWidth>
+            <UiButton onClick={toggleTheme} theme="tertiary" fullWidth>
               Tootle Theme from inside menu
             </UiButton>
           </UiSpacing>
