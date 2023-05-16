@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { DefaultTheme, Sizing, ThemeColor, UiSpacing } from '@uireact/foundation';
-import { UiView } from '@uireact/view';
+import { Sizing, UiSpacing } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiCard } from '@uireact/card';
 import { UiButton } from '@uireact/button';
@@ -19,7 +18,7 @@ export const ProgressIndicatorExample: React.FC = () => {
   );
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
+    <>
       <UiHeading>Progress Indicator example</UiHeading>
       <UiSpacing padding={{ all: Sizing.five }}>
         <UiProgressIndicator current={step} allowGoBack handleCompletedStepClick={changeStep}>
@@ -56,6 +55,6 @@ export const ProgressIndicatorExample: React.FC = () => {
           </UiCard>
         )}
       </UiSpacing>
-    </UiView>
+    </>
   );
 };

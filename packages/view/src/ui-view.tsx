@@ -7,12 +7,13 @@ import {
   getThemeStyling,
   UiViewport,
   Breakpoints,
-  getTextSize,
-  TextSize,
-  getThemeColor,
   ColorCategories,
   ColorTokens,
+  TextSize,
+  getTextSize,
+  getThemeColor,
 } from '@uireact/foundation';
+import { UiDialogsControllerContext } from '@uireact/dialog';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
@@ -50,6 +51,7 @@ const Div = styled.div<privateViewProps>`
 `;
 
 export const UiView: React.FC<UiViewProps> = ({
+  dialogController,
   centeredContent = false,
   className,
   theme,
@@ -58,22 +60,24 @@ export const UiView: React.FC<UiViewProps> = ({
 }: UiViewProps) => {
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
-      <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
-        {centeredContent ? (
-          <>
-            <UiViewport criteria={Breakpoints.XLARGE}>
-              <CenteredDiv size="xl">{children}</CenteredDiv>
-            </UiViewport>
-            <UiViewport criteria={Breakpoints.LARGE}>
-              <CenteredDiv size="l">{children}</CenteredDiv>
-            </UiViewport>
-            <UiViewport criteria={'s|m'}>{children}</UiViewport>
-          </>
-        ) : (
-          <>{children}</>
-        )}
-      </Div>
+      <UiDialogsControllerContext.Provider value={dialogController}>
+        <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
+        <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
+          {centeredContent ? (
+            <>
+              <UiViewport criteria={Breakpoints.XLARGE}>
+                <CenteredDiv size="xl">{children}</CenteredDiv>
+              </UiViewport>
+              <UiViewport criteria={Breakpoints.LARGE}>
+                <CenteredDiv size="l">{children}</CenteredDiv>
+              </UiViewport>
+              <UiViewport criteria={'s|m'}>{children}</UiViewport>
+            </>
+          ) : (
+            <>{children}</>
+          )}
+        </Div>
+      </UiDialogsControllerContext.Provider>
     </ThemeContext.Provider>
   );
 };
