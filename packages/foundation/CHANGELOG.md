@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.15.1 (2023-05-16)
+
+
+### Bug Fixes
+
+* **list:** list item to use theme values ([#152](https://github.com/inavac182/ui-react/issues/152)) ([e3c2943](https://github.com/inavac182/ui-react/commit/e3c2943e35871cdcda6a715171388b5d96553fac))
+
+
+
+
+
 # [0.15.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.14.2...@uireact/foundation@0.15.0) (2023-05-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.10 (2023-05-16)
+
+
+### Bug Fixes
+
+* **list:** list item to use theme values ([#152](https://github.com/inavac182/ui-react/issues/152)) ([e3c2943](https://github.com/inavac182/ui-react/commit/e3c2943e35871cdcda6a715171388b5d96553fac))
+
+
+
+
+
 ## [0.1.9](https://github.com/inavac182/ui-react/compare/@uireact/view@0.1.8...@uireact/view@0.1.9) (2023-05-15)
 
 **Note:** Version bump only for package @uireact/view
