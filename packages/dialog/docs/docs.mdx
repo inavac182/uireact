@@ -19,13 +19,27 @@ import { DialogsExample } from './utils/';
   </a>
 </sup>
 
-> DESCRIPTION
+> Renders a dialog on top of the content
 
-This dialog renders on top of the content
+In order for this component to work well a dialog provider has to be implemented in your application. This can be set up using the `UiView` component or manually by importing
+the theme context provided from this package.
+
+We highly recommend using a [UiView](https://uireact.io/packages-view-docs-view) given that it also sets global styles plus the themes provider.
 
 ## Installation
 
 > npm i @uireact/foundation @uireact/dialog
+
+## Provider
+
+### Using UiView
+
+When using a UiView we only need to provide a dialog controller which will be used to actually control the state of dialogs, meaning
+opening and closing functionality.
+
+```
+
+```
 
 ## Centered dialog (default)
 
