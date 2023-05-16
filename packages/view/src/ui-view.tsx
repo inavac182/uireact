@@ -34,6 +34,12 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
         ColorCategories.backgrounds,
         ColorTokens.token_100
       )};`}
+      ${`color: ${getThemeColor(
+        props.customTheme,
+        props.selectedTheme,
+        ColorCategories.fonts,
+        ColorTokens.token_100
+      )};`}
     `}
     font-weight: 400;
   }
