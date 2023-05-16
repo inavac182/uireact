@@ -59,7 +59,7 @@ export const UiView: React.FC<UiViewProps> = ({
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
       <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
-      <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testId="UiView">
+      <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
         {centeredContent ? (
           <>
             <UiViewport criteria={Breakpoints.XLARGE}>
