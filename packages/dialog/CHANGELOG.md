@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.1 (2023-05-16)
+
+**Note:** Version bump only for package @uireact/dialog
+
+
+
+
+
 # 0.5.0 (2023-05-11)
 
 

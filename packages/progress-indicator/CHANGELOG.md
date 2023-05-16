@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.8 (2023-05-16)
+
+**Note:** Version bump only for package @uireact/progress-indicator
+
+
+
+
+
 ## [0.0.7](https://github.com/inavac182/ui-react/compare/@uireact/progress-indicator@0.0.6...@uireact/progress-indicator@0.0.7) (2023-05-16)
 
 **Note:** Version bump only for package @uireact/progress-indicator
