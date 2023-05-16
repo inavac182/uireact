@@ -9,6 +9,8 @@ export enum UiDialogType {
 }
 
 export type UiDialogProps = {
+  /** Close icon label */
+  closeLabel?: string;
   /** Dialog id */
   dialogId: string;
   /** Hide X icon */

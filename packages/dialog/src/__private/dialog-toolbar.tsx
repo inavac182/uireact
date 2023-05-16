@@ -3,12 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { UiReactPrivateElementProps, getThemeStyling, ThemeContext } from '@uireact/foundation';
+import { UiIcon } from '@uireact/icons';
 
 import { UiHeading } from '@uireact/text';
 
 import { dialogToolbarMapper } from '../theme/dialog-toolbar-mapper';
 
 type DialogToolbarProps = {
+  closeLabel?: string;
   title: string;
   hideCloseIcon?: boolean;
   closeCB?: () => void;
@@ -29,17 +31,26 @@ const Div = styled.div<UiReactPrivateElementProps>`
   ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, dialogToolbarMapper)}
 
   border-style: solid;
-  border-width: 0 0 5px 0;
+  border-width: 0 0 2px 0;
   padding-top: 5px;
   padding-bottom: 5px;
 `;
 
-export const DialogToolbar: React.FC<DialogToolbarProps> = ({ closeCB, hideCloseIcon, title }: DialogToolbarProps) => {
+export const DialogToolbar: React.FC<DialogToolbarProps> = ({
+  closeLabel,
+  closeCB,
+  hideCloseIcon,
+  title,
+}: DialogToolbarProps) => {
   const theme = React.useContext(ThemeContext);
 
   return (
     <Div customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
-      {!hideCloseIcon && <Button onClick={closeCB}>❌</Button>}
+      {!hideCloseIcon && (
+        <Button onClick={closeCB} aria-label={closeLabel}>
+          <UiIcon icon="Cross" />
+        </Button>
+      )}
       <UiHeading centered>{title}</UiHeading>
     </Div>
   );

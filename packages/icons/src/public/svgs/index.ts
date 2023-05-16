@@ -14,6 +14,8 @@ export { default as Clock } from './Clock';
 export { default as Connection } from './Connection';
 export { default as Contacts2 } from './Contacts2';
 export { default as Contacts } from './Contacts';
+export { default as CrossCircule } from './CrossCircule';
+export { default as Cross } from './Cross';
 export { default as DailyHealth } from './DailyHealth';
 export { default as Desktop } from './Desktop';
 export { default as Discord } from './Discord';
