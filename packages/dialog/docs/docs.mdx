@@ -156,7 +156,7 @@ context provider and setting its value like this:
 ```
 import React from 'react';
 
-import {UiDialogsControllerContext} from '@uireact/dialogs';
+import {UiDialogsControllerContext} from '@uireact/dialog';
 
 export const MyAppWrapper: React.FC = () => {
   // Using the hook that was created in the step before we can get the dialog controller
@@ -173,7 +173,7 @@ export const MyAppWrapper: React.FC = () => {
 
 ## useDialog 📡
 
-Once the controller is craeted and the context is setted up we can go ahead and use the `useDialog` hook to instantiate a dialog.
+Once the controller is created and the context is setted up we can go ahead and use the `useDialog` hook to instantiate a dialog.
 
 `useDialog` response type [UseDialogHook](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/use-dialog-hook.ts#LL10C6-L10C19):
 
@@ -194,8 +194,7 @@ import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
-
-import { UiDialog, UiDialogType, useDialog } from '../../src';
+import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 
 export const DialogsExample: React.FC<DialogsExampleProps> = () => {
   const dialogId = 'someFancyDialogId';
@@ -216,7 +215,7 @@ export const DialogsExample: React.FC<DialogsExampleProps> = () => {
 };
 ```
 
-You can see a live example of this in this [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15)
+You can see a live example of this in this [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15), this component is used to render all the examples in this doc page.
 
 The magic of using the `useDialog` hook is that you can control this dialog from anywhere in the react tree you just need to use the same dialog and
 the `isOpen` or `actions` param will be linked to given dialog.
