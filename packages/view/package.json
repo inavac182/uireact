@@ -24,10 +24,12 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.15.1"
+    "@uireact/foundation": "^0.15.1",
+    "@uireact/dialog": "^0.5.0"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
+    "@uireact/dialog": "^0.5.0",
     "@uireact/foundation": "^0.7.2",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",

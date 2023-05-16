@@ -31,7 +31,12 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedC
       <div>
         <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
-      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall={fullscreenOnSmall}>
+      <UiMenu
+        visible={isVisible}
+        closeLabel="Close menu dialog"
+        closeMenuCB={closeMenu}
+        fullscreenOnSmall={fullscreenOnSmall}
+      >
         <UiSpacing margin={{ all: Sizing.five }}>
           <UiText centered>Menu Content</UiText>
           <div>
@@ -139,7 +144,7 @@ describe('<UiMenu />', () => {
 
       expect(screen.getByRole('dialog')).toBeVisible();
 
-      fireEvent.click(screen.getByRole('button', { name: '❌' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Close menu dialog' }));
 
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
@@ -155,7 +160,7 @@ describe('<UiMenu />', () => {
 
       expect(screen.getByRole('dialog')).toBeVisible();
 
-      fireEvent.click(screen.getByRole('button', { name: '❌' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Close menu dialog' }));
 
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();

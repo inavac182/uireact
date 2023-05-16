@@ -13,29 +13,218 @@ import { DialogsExample } from './utils/';
 
 # UiDialog
 
+---
+
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/dialog/" target="_blank">
     v{packageJson.version}
   </a>
 </sup>
 
-> DESCRIPTION
+> Renders a dialog on top of the content
 
-This dialog renders on top of the content
+**NOTE:** Make sure you read through the set up section to understand how the dialogs has to be configured.
 
-## Installation
+## Installation ⚙️
 
 > npm i @uireact/foundation @uireact/dialog
 
-## Centered dialog (default)
+## Example 📝
 
-Renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
+Default, renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
 
 <Playground hideThemeSelector>
   <DialogsExample title="Dialog title" />
 </Playground>
 
-## Fullscreen dialog
+## Props 🛠️
+
+<Props of={UiDialog} />
+
+<br />
+
+## Set up 🤓
+
+---
+
+_5 mins read_
+
+In order for this component to work propertly, there are a few configs to set up:
+
+1. Create a dialog controller using type [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3)
+2. Set the [UiDialogsControllerContext](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L13) with the dialog controller
+3. Instantiate a dialog using `useDialogHook`
+4. Render your dialog.
+
+<br />
+
+## Dialog Controller 🎮
+
+<br />
+The [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3)
+type is exported from this package and is used to type the controller object that has to be set into the dialogs controller
+context. This controller will keep the state of all opened dialogs and will provide your own logic for handling the state
+of dialogs. E.g. Some apps prefer to keep the dialogs as part of the navigation, other apps just like to keep a react state,
+like so, you might have a different use case, so this is your change to make your configure you own controller.
+
+In the @uireact docs we created a [dialog controller](https://github.com/inavac182/uireact/blob/main/src/providers/dialogs-controller.ts#LL4C14-L4C33) that only uses
+a React state:
+
+```
+import React from 'react';
+import { IDialogController } from '@uireact/dialog';
+
+// In this example we have gone with a custom hook that will provide with the controller object.
+export const useDialogController = (): IDialogController => {
+  /**
+   * This state is what will keep all the opened dialogs, as each dialog is created using a dialog id string all we have to do is
+   * keep track of the list of strings for dialogs that are opened.
+   */
+  const [openedDialogs, setOpenedDialogs] = React.useState<string[]>([]);
+
+  // This function will get executed everytime we open a dialog
+  const openDialog = React.useCallback(
+    (dialogId: string) => {
+      const found = openedDialogs.filter((id) => id === dialogId);
+
+      if (!found || found.length === 0) {
+        const newOpenedDialogs = [...openedDialogs, dialogId];
+        setOpenedDialogs(newOpenedDialogs);
+      }
+    },
+    [openedDialogs, setOpenedDialogs]
+  );
+
+  // This function will get executed everytime we close a dialog
+  const closeDialog = React.useCallback(
+    (dialogId: string) => {
+      const newOpenedDialogs = openedDialogs.filter((id) => id !== dialogId);
+      setOpenedDialogs(newOpenedDialogs);
+    },
+    [openedDialogs, setOpenedDialogs]
+  );
+
+  // The dialogs controller has to export these 3 paroperties to match IDialogController type
+  return {
+    openDialog,
+    closeDialog,
+    openedDialogs,
+  };
+};
+
+```
+
+<br />
+
+## UiDialogsControllerContext 🎛️
+
+Once you have created your dialog controller now we have to set it into the [UiDialogsControllerContext](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#LL13C14-L13C40)
+
+### Using UiView
+
+We highly suggest using the [UiView](https://uireact.io/packages-view-docs-view) component as it sets global providers / styles.
+
+```
+import React from 'react';
+import { Playground, PlaygroundProps } from 'docz';
+
+import { DefaultTheme, ThemeColor } from '@uireact/foundation';
+import { UiDialogsControllerContext } from '@uireact/dialog';
+import { UiView } from '@uireact/view';
+
+import { useDialogController } from './providers';
+
+export const MyAppWrapper: React.FC = () => {
+  // Using the hook that was created in the step before we can get the dialog controller
+  const dialogController = useDialogController();
+
+  // The prop dialogController is the one that gets the controller object
+  return (
+    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light} dialogController={dialogController}>
+      ... Your app tree ...
+    </UiView>
+  );
+};
+
+```
+
+### Manually set up
+
+If for any reason you won't be using the `UiView` then you can always get the dialogs context set up manually by importing the
+context provider and setting its value like this:
+
+```
+import React from 'react';
+
+import {UiDialogsControllerContext} from '@uireact/dialog';
+
+export const MyAppWrapper: React.FC = () => {
+  // Using the hook that was created in the step before we can get the dialog controller
+  const dialogController = useDialogController();
+
+  return (
+    <UiDialogsControllerContext.Provider value={dialogController}>
+        ... Your App tree ...
+    </UiDialogsControllerContext.Provider>
+  )
+}
+
+```
+
+## useDialog 📡
+
+Once the controller is created and the context is setted up we can go ahead and use the `useDialog` hook to instantiate a dialog.
+
+`useDialog` response type [UseDialogHook](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/use-dialog-hook.ts#LL10C6-L10C19):
+
+```
+{
+  isOpen, // boolean, will give us if a dialogs is opened or not.
+  actions: {
+    openDialog, // () => void, function to open a dialog
+    closeDialog // () => void, function to close a dialog
+  }
+};
+```
+
+An example of a component using a dialog:
+
+```
+import React from 'react';
+
+import { UiButton } from '@uireact/button';
+import { UiText } from '@uireact/text';
+import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
+
+export const DialogsExample: React.FC<DialogsExampleProps> = () => {
+  const dialogId = 'someFancyDialogId';
+  const { isOpen, actions } = useDialog(dialogId); //Instantiating the dialog hook with a dialogId : string
+
+  const onClickCB = () => {
+    actions.openDialog(); // This open dialog function internally triggers the open dialog fn in the dialog controller and it passes it the dialog id string.
+  };
+
+  return (
+    <>
+      <UiButton onClick={onClickCB}>Open dialog</UiButton>
+      <UiDialog dialogId={dialogId}> {// The <UiDialog .../> component uses this dialogId for when the close icon is clicked. }
+        <UiText>Dialog content</UiText>
+      </UiDialog>
+    </>
+  );
+};
+```
+
+You can see a live example of this in this [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15), this component is used to render all the examples in this doc page.
+
+The magic of using the `useDialog` hook is that you can control this dialog from anywhere in the react tree you just need to use the same dialog and
+the `isOpen` or `actions` param will be linked to given dialog.
+
+## More dialog examples 📝
+
+<br />
+
+### Fullscreen dialog
 
 Renders at the right of the screen
 
@@ -43,7 +232,7 @@ Renders at the right of the screen
   <DialogsExample type={UiDialogType.FULLSCREEN} />
 </Playground>
 
-## Bottom dialog
+### Bottom dialog
 
 Renders at the bottom of the screen
 
@@ -51,7 +240,7 @@ Renders at the bottom of the screen
   <DialogsExample type={UiDialogType.BOTTOM} />
 </Playground>
 
-## Left dialog
+### Left dialog
 
 Renders at the left of the screen
 
@@ -59,14 +248,10 @@ Renders at the left of the screen
   <DialogsExample type={UiDialogType.LEFT} />
 </Playground>
 
-## Right dialog
+### Right dialog
 
 Renders at the right of the screen
 
 <Playground hideThemeSelector>
   <DialogsExample type={UiDialogType.RIGHT} />
 </Playground>
-
-### Props
-
-<Props of={UiDialog} />

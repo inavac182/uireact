@@ -46,6 +46,7 @@ const WrapperDiv = styled.div`
 `;
 
 export const UiMenu: React.FC<UiMenuProps> = ({
+  closeLabel,
   children,
   closeMenuCB,
   fullscreenOnSmall,
@@ -92,7 +93,12 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     return (
       <>
         <UiViewport criteria={Breakpoints.SMALL}>
-          <UiDialog dialogId={dialogId} handleDialogClose={closeMenuCB} type={UiDialogType.FULLSCREEN}>
+          <UiDialog
+            closeLabel={closeLabel}
+            dialogId={dialogId}
+            handleDialogClose={closeMenuCB}
+            type={UiDialogType.FULLSCREEN}
+          >
             {children}
           </UiDialog>
         </UiViewport>

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { ThemeContext } from '@uireact/foundation';
 
+import { UiIcon } from '@uireact/icons';
+
 import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper } from './__private';
 
 import { UiDialogProps, UiDialogType } from './types';
@@ -19,6 +21,7 @@ const Button = styled.button`
 `;
 
 export const UiDialog: React.FC<UiDialogProps> = ({
+  closeLabel,
   children,
   dialogId,
   handleDialogClose,
@@ -58,8 +61,14 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   if (type !== UiDialogType.CENTERED) {
     return (
       <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
-        {title && <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} />}
-        {!title && !hideCloseIcon && <Button onClick={closeCB}>❌</Button>}
+        {title && (
+          <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
+        )}
+        {!title && !hideCloseIcon && (
+          <Button onClick={closeCB} aria-label={closeLabel}>
+            <UiIcon icon="Cross" />
+          </Button>
+        )}
         {children}
       </DialogContent>
     );
@@ -70,8 +79,14 @@ export const UiDialog: React.FC<UiDialogProps> = ({
       <>
         <DialogBackground onClick={closeCB} />
         <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
-          {title && <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} />}
-          {!title && !hideCloseIcon && <Button onClick={closeCB}>❌</Button>}
+          {title && (
+            <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
+          )}
+          {!title && !hideCloseIcon && (
+            <Button onClick={closeCB} aria-label={closeLabel}>
+              <UiIcon icon="Cross" />
+            </Button>
+          )}
           {children}
         </DialogContent>
       </>
