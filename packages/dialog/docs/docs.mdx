@@ -49,19 +49,23 @@ Default, renders centered on top of the content and with a grayed out background
 
 _5 mins read_
 
-In order for this component to there is this list of configs that you have to do:
+In order for this component to work propertly, there are a few configs to set up:
 
 1. Create a dialog controller using type [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3)
 2. Set the [UiDialogsControllerContext](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L13) with the dialog controller
 3. Instantiate a dialog using `useDialogHook`
 4. Render your dialog.
 
+<br />
+
 ## Dialog Controller 🎮
 
-The [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3) type is exported from this package
-and is used to type the controller object that has to be set into the dialogs controller context. This controller will keep the state of all opened dialogs and will
-provide your own logic for handling the state of dialogs. E.g. Some apps prefer to keep the dialogs as part of the navigation, other apps just
-like to keep a react state, like so, you might have a different use case, so this is your change to make your configure you own controller.
+<br />
+The [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3)
+type is exported from this package and is used to type the controller object that has to be set into the dialogs controller
+context. This controller will keep the state of all opened dialogs and will provide your own logic for handling the state
+of dialogs. E.g. Some apps prefer to keep the dialogs as part of the navigation, other apps just like to keep a react state,
+like so, you might have a different use case, so this is your change to make your configure you own controller.
 
 In the @uireact docs we created a [dialog controller](https://github.com/inavac182/uireact/blob/main/src/providers/dialogs-controller.ts#LL4C14-L4C33) that only uses
 a React state:
@@ -109,6 +113,8 @@ export const useDialogController = (): IDialogController => {
 };
 
 ```
+
+<br />
 
 ## UiDialogsControllerContext 🎛️
 
