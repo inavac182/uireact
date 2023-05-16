@@ -4,24 +4,38 @@ import { render, screen } from '@testing-library/react';
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
 
 import { UiView } from '../src/ui-view';
+import { useDialogController } from '../../../src/providers';
+
+type MockedComponentProps = {
+  centeredContent?: boolean;
+  className?: string;
+};
+
+const MockedComponent = (props: MockedComponentProps) => {
+  const dialogController = useDialogController();
+
+  return (
+    <UiView
+      theme={DefaultTheme}
+      selectedTheme={ThemeColor.dark}
+      dialogController={dialogController}
+      className={props.className}
+      centeredContent={props.centeredContent}
+    >
+      <p>Content</p>
+    </UiView>
+  );
+};
 
 describe('<UiView />', () => {
   it('renders fine', () => {
-    render(
-      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
-        <p>Content</p>
-      </UiView>
-    );
+    render(<MockedComponent />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });
 
   it('renders fine when is centered', () => {
-    render(
-      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} centeredContent>
-        <p>Content</p>
-      </UiView>
-    );
+    render(<MockedComponent centeredContent />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });
@@ -31,20 +45,12 @@ describe('<UiView />', () => {
     //@ts-ignore
     window.innerWidth = 1500;
 
-    render(
-      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} centeredContent>
-        <p>Content</p>
-      </UiView>
-    );
+    render(<MockedComponent centeredContent />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });
   it('Should add class name', () => {
-    render(
-      <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark} className="someClass">
-        Content
-      </UiView>
-    );
+    render(<MockedComponent className="someClass" />);
 
     expect(screen.getByText('Content')).toHaveClass('someClass');
   });
