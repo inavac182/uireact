@@ -12,6 +12,7 @@ import { useDialogController } from './providers';
 
 type CustomPlaygroundProps = {
   hideThemeSelector: boolean;
+  simplePlayground?: boolean;
 } & PlaygroundProps;
 
 const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
@@ -21,22 +22,28 @@ const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
     setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
-  return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
-      <UiDialogsControllerContext.Provider value={dialogController}>
-        <div style={{ background: 'rebeccapurple', padding: 12 }}>
-          {!props.hideThemeSelector && (
-            <>
-              <button onClick={toogleTheme} style={{ marginInlineEnd: '5px' }}>
-                <img src={themeIcon} width="20px" />
-              </button>
-              <p style={{ margin: 0, display: 'inline-block' }}>Theme: {selectedTheme}</p>
-            </>
-          )}
+  if (props.simplePlayground) {
+    return (
+      <>
+        <Playground {...props} />
+      </>
+    );
+  }
 
-          <Playground {...props} />
-        </div>
-      </UiDialogsControllerContext.Provider>
+  return (
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} dialogController={dialogController}>
+      <div style={{ background: 'rebeccapurple', padding: 12 }}>
+        {!props.hideThemeSelector && (
+          <>
+            <button onClick={toogleTheme} style={{ marginInlineEnd: '5px' }}>
+              <img src={themeIcon} width="20px" />
+            </button>
+            <p style={{ margin: 0, display: 'inline-block' }}>Theme: {selectedTheme}</p>
+          </>
+        )}
+
+        <Playground {...props} />
+      </div>
     </UiView>
   );
 };

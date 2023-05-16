@@ -1,6 +1,5 @@
 ---
 name: UiView
-menu: Components
 ---
 
 import { Props } from 'docz';
@@ -18,33 +17,90 @@ import { ViewExample, ViewRowExample } from './util';
   </a>
 </sup>
 
-> UiView component that wraps the content of your react application already creating the theme context
+> This component SHOULD wrap your entire app tree
 
-## Installation
+This component will set up the global styles and providers for @uireact to work properly.
+
+- Theme context provider
+- Dialogs context provider
+- Global styles
+
+## Installation ⚙️
 
 > npm i @uireact/foundation @uireact/view
 
-## Just a view
+## Examples 🤓
 
-The view component already instanciates the ThemeContext so it only needs the theme and the selected color as props
+### UiView
 
 <Playground hideThemeSelector>
   <ViewExample />
 </Playground>
 
-## View with centered content
+<br />
 
-<Playground hideThemeSelector>
-  <ViewExample centeredContent />
-</Playground>
+ViewExample definition:
 
-## View with nested view rows
+```
+export const ViewExample: React.FC = () => {
+  const dialogController = useDialogController();
+  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const toogleTheme = () => {
+    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+  };
+
+  return (
+    <UiView
+      theme={DefaultTheme}
+      selectedTheme={selectedTheme}
+      centeredContent={centeredContent}
+      dialogController={dialogController}
+    >
+      <p>All the react tree should render inside here</p>
+      <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
+    </UiView>
+  );
+};
+```
+
+## UiViewRow
+
+The `UiViewRow` component is used to separate parts of the content of the application.
 
 <Playground hideThemeSelector>
   <ViewRowExample />
 </Playground>
 
-### Props
+<br />
+
+ViewRowExample definition:
+
+```
+export const ViewRowExample: React.FC = () => {
+  const dialogController = useDialogController();
+  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const toogleTheme = () => {
+    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+  };
+
+  return (
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} dialogController={dialogController}>
+      <UiViewRow weight="10">
+        <p>A row with weight 10</p>
+      </UiViewRow>
+      <UiViewRow>
+        <p>A row with default theme</p>
+      </UiViewRow>
+      <UiViewRow weight="200">
+        <p>A row with weight 200</p>
+      </UiViewRow>
+      <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
+    </UiView>
+  );
+};
+```
+
+## Props 🛠️
 
 #### UiView
 
