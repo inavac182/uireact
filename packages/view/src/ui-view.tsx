@@ -1,15 +1,52 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
-import { ThemeContext, getThemeStyling, UiViewport, Breakpoints } from '@uireact/foundation';
+import {
+  ThemeContext,
+  getThemeStyling,
+  UiViewport,
+  Breakpoints,
+  getTextSize,
+  TextSize,
+  getThemeColor,
+  ColorCategories,
+  ColorTokens,
+} from '@uireact/foundation';
 
-import { UiViewProps } from './types/ui-view-props';
+import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
 import { CenteredDiv } from './__private';
 
-const Div = styled.div<UiViewProps>`
-  ${(props) => getThemeStyling(props.theme, props.selectedTheme, themeMapper)}
+const GlobalStyle = createGlobalStyle<privateViewProps>`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    ${(props) => `
+      ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+      ${`font-family: ${props.customTheme.texts.font};`}
+      ${`background-color: ${getThemeColor(
+        props.customTheme,
+        props.selectedTheme,
+        ColorCategories.backgrounds,
+        ColorTokens.token_100
+      )};`}
+      ${`color: ${getThemeColor(
+        props.customTheme,
+        props.selectedTheme,
+        ColorCategories.fonts,
+        ColorTokens.token_100
+      )};`}
+    `}
+    font-weight: 400;
+  }
+`;
+
+const Div = styled.div<privateViewProps>`
+  ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
 `;
 
 export const UiView: React.FC<UiViewProps> = ({
@@ -21,7 +58,8 @@ export const UiView: React.FC<UiViewProps> = ({
 }: UiViewProps) => {
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <Div theme={theme} selectedTheme={selectedTheme} className={className}>
+      <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
+      <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
         {centeredContent ? (
           <>
             <UiViewport criteria={Breakpoints.XLARGE}>

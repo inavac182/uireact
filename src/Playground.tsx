@@ -1,8 +1,9 @@
 import React from 'react';
 import { Playground, PlaygroundProps } from 'docz';
 
-import { ThemeContext, DefaultTheme, ThemeColor } from '@uireact/foundation';
+import { DefaultTheme, ThemeColor } from '@uireact/foundation';
 import { UiDialogsControllerContext } from '@uireact/dialog';
+import { UiView } from '@uireact/view';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
@@ -21,7 +22,7 @@ const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: selectedTheme }}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiDialogsControllerContext.Provider value={dialogController}>
         <div style={{ background: 'rebeccapurple', padding: 12 }}>
           {!props.hideThemeSelector && (
@@ -36,7 +37,7 @@ const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
           <Playground {...props} />
         </div>
       </UiDialogsControllerContext.Provider>
-    </ThemeContext.Provider>
+    </UiView>
   );
 };
 

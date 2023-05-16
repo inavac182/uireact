@@ -7,7 +7,9 @@ import { ThemeContext } from '@uireact/foundation';
 import { UiListProps, privateListProps } from './types';
 
 const UnorderedList = styled.ul<privateListProps>`
-  list-style-type: none;
+  ${(props) => `
+    ${props.type === 'UNORDERED' ? 'list-style-type: none;' : ''}
+  `}
 `;
 
 export const UiList: React.FC<UiListProps> = ({ children, className, type = 'UNORDERED' }: UiListProps) => {
@@ -17,7 +19,16 @@ export const UiList: React.FC<UiListProps> = ({ children, className, type = 'UNO
     case 'ORDERED':
       return <ol className={className}>{children}</ol>;
     case 'BULLETED':
-      return <ul className={className}>{children}</ul>;
+      return (
+        <UnorderedList
+          className={className}
+          customTheme={themeContext.theme}
+          selectedTheme={themeContext.selectedTheme}
+          type={type}
+        >
+          {children}
+        </UnorderedList>
+      );
     default:
       return (
         <UnorderedList

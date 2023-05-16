@@ -16,5 +16,5 @@ export type UiViewRowProps = {
   weight?: '10' | '50' | '100' | '150' | '200';
 } & UiReactElementProps;
 
-export type privateViewProps = UiViewProps & UiReactPrivateElementProps;
+export type privateViewProps = Omit<UiViewProps, 'theme'> & UiReactPrivateElementProps;
 export type privateViewRowProps = UiViewRowProps & UiReactPrivateElementProps;
