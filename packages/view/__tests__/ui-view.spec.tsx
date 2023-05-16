@@ -52,6 +52,6 @@ describe('<UiView />', () => {
   it('Should add class name', () => {
     render(<MockedComponent className="someClass" />);
 
-    expect(screen.getByText('Content')).toHaveClass('someClass');
+    expect(screen.getByTestId('UiView')).toHaveClass('someClass');
   });
 });
