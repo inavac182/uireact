@@ -33,6 +33,7 @@ const MockedComponent = ({ hideCloseIcon, title, type, handleDialogClose }: Mock
       <button onClick={openCB}>Open Dialog</button>
       <button onClick={openSecondCB}>Open Second Dialog</button>
       <UiDialog
+        closeLabel="Close button"
         dialogId="mockedDialog"
         type={type}
         title={title}
@@ -62,7 +63,7 @@ const MockedNotCorrectlySetupComponent = () => {
       <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: ThemeColor.dark }}>
         <button onClick={openCB}>Open Dialog</button>
         <button onClick={openSecondCB}>Open Second Dialog</button>
-        <UiDialog dialogId="mockedDialog">
+        <UiDialog closeLabel="Close button" dialogId="mockedDialog">
           <p>Dialog content</p>
         </UiDialog>
       </ThemeContext.Provider>
@@ -75,14 +76,14 @@ describe('<UiDialog />', () => {
     handleDialogClose.mockClear();
   });
 
-  it('opens and closes dialog using ❌ button', () => {
+  it('opens and closes dialog using Close icon button', () => {
     uiRender(<MockedComponent handleDialogClose={handleDialogClose} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     expect(screen.getByText('Dialog content')).toBeVisible();
-    fireEvent.click(screen.getByRole('button', { name: '❌' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     expect(handleDialogClose).toHaveBeenCalledTimes(1);
@@ -227,7 +228,7 @@ describe('<UiDialog />', () => {
       expect(screen.getByText('Dialog content')).toBeVisible();
       expect(screen.getByText('Dialog toolbar')).toBeVisible();
 
-      fireEvent.click(screen.getByRole('button', { name: '❌' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       expect(handleDialogClose).toHaveBeenCalledTimes(1);
@@ -242,7 +243,7 @@ describe('<UiDialog />', () => {
       fireEvent.click(screen.getByText('Open Dialog'));
 
       expect(screen.getByText('Dialog content')).toBeVisible();
-      expect(screen.queryByRole('button', { name: '❌' })).not.toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: 'Close button' })).not.toBeInTheDocument();
     });
   });
 });
