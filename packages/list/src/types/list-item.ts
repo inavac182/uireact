@@ -1,10 +1,5 @@
 import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
-export type UiListItemProps = {
-  /** Type of list, default UNORDERED */
-  type?: 'BULLETED' | 'ORDERED' | 'UNORDERED';
-} & UiReactElementProps;
+export type UiListItemProps = UiReactElementProps;
 
-export type privateListItemProps = UiListItemProps & {
-  type: 'BULLETED' | 'ORDERED' | 'UNORDERED';
-} & UiReactPrivateElementProps;
+export type privateListItemProps = UiListItemProps & UiReactPrivateElementProps;

@@ -23,7 +23,7 @@ export const DefaultTheme: Theme = {
     },
   },
   texts: {
-    font: 'Fira Sans',
+    font: `'Source Sans Pro', sans- serif`,
   },
   spacing: {
     one: '1px',
