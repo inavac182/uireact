@@ -21,7 +21,7 @@ import * as packageJson from '../package.json';
   </a>
 </sup>
 
-> Structure and organize the UI
+> Structure and organize the UI using columns
 
 ## Installation
 
@@ -67,6 +67,24 @@ import * as packageJson from '../package.json';
 > In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
 
 > Also notice that in Item 1 we are making use of the [UiViewport](./packages-foundation-docs-viewport) to render/remove it depending on the breakpoint
+
+### 3. Using GridBreakpointsDistribution prop
+
+This prop give you the ability to set a number of cols/rows depending on the breakpoint.
+
+<Playground>
+  <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }} rows={2} colsGap={20} rowsGap={10}>
+    <UiCard>
+      <UiText>Item 1!</UiText>
+    </UiCard>
+    <UiCard>
+      <UiText>Item 2!</UiText>
+    </UiCard>
+    <UiCard>
+      <UiText>Item 3!</UiText>
+    </UiCard>
+  </UiGrid>
+</Playground>
 
 ## UiGrid Props
 

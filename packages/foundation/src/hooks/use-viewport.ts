@@ -1,7 +1,7 @@
 import { useWindowDimensions } from './use-window-dimensions';
 import { BreakpointsSizes } from '../responsive/breakpoints-sizes';
 
-type useViewportResponse = {
+export type useViewportResponse = {
   isSmall: boolean;
   isMedium: boolean;
   isLarge: boolean;
