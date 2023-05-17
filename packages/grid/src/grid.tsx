@@ -5,44 +5,9 @@ import styled from 'styled-components';
 import { useViewport, useViewportResponse } from '@uireact/foundation';
 
 import { getGridTemplate } from './private';
+import { GridBreakpointsDistribution, UiGridProps, privateGridProps } from './types';
 
-export type GridBreakpointsDistribution = {
-  small: number;
-  medium: number;
-  large: number;
-  xlarge: number;
-};
-
-interface GridProps {
-  /** Sets the grid-auto-flow property */
-  autoFlow?: 'row' | 'column' | 'row dense' | 'column dense';
-  /** Number of columns that the grid will have, default is 1 */
-  cols?: number | GridBreakpointsDistribution;
-  /** Gap between each colum */
-  colsGap?: number;
-  /** Size of each col: px or % */
-  colSize?: string;
-  /** Total width of the grid */
-  gridWidth?: string;
-  /** Total height of the grid */
-  gridHeight?: string;
-  /** Sets if the grid items will be inline */
-  inlineGrid?: boolean;
-  /** Sets the justify property of all grid items */
-  justifyItems?: 'start' | 'end' | 'center' | 'stretch';
-  /** Number of rows that the grid will have, default is 1 */
-  rows?: number | GridBreakpointsDistribution;
-  /** Gap between each row */
-  rowsGap?: number;
-  /** Size of each row: px or % */
-  rowSize?: string;
-}
-
-export type UiGridProps = GridProps & {
-  children?: React.ReactNode;
-};
-
-const Div = styled.div<GridProps>`
+const Div = styled.div<privateGridProps>`
   ${(props) => `
     display: ${props.inlineGrid ? 'inline-grid' : 'grid'};
     ${getGridTemplate(props.cols, props.colSize, 'cols')}
@@ -97,6 +62,7 @@ export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   return (
     <Div
       autoFlow={props.autoFlow}
+      className={props.className}
       cols={cols}
       colsGap={props.colsGap}
       colSize={props.colSize}
