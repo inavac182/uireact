@@ -61,11 +61,12 @@ In order for this component to work propertly, there are a few configs to set up
 ## Dialog Controller 🎮
 
 <br />
+
 The [IDialogController](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/provider/dialogs-provider.ts#L3)
-type is exported from this package and is used to type the controller object that has to be set into the dialogs controller
-context. This controller will keep the state of all opened dialogs and will provide your own logic for handling the state
-of dialogs. E.g. Some apps prefer to keep the dialogs as part of the navigation, other apps just like to keep a react state,
-like so, you might have a different use case, so this is your change to make your configure you own controller.
+type is exported from this package and should be used to type the controller object so it matches the expectation of the dialogs context.
+This controller will keep the state management of all opened dialogs in the application and you can provide your own logic for this.
+E.g. Some apps prefer to have the dialogs as part of the navigation, so they need to add a parameter to the URL, other apps just use a react state,
+so depending in your use case, this is your chance to make your own implementation for this controller.
 
 In the @uireact docs we created a [dialog controller](https://github.com/inavac182/uireact/blob/main/src/providers/dialogs-controller.ts#LL4C14-L4C33) that only uses
 a React state:
