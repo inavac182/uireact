@@ -42,7 +42,7 @@ import * as packageJson from '../package.json';
 #### With fullWidth
 
 <Playground>
-  <UiGrid cols={2} rows={1} colsGap="20px" justifyItems="center">
+  <UiGrid cols={2} rows={1} colsGap={20} justifyItems="center">
     <UiButton fullWidth>
       <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
     </UiButton>
@@ -67,7 +67,7 @@ import * as packageJson from '../package.json';
 #### Types of button:
 
 <Playground>
-  <UiGrid cols={7} colsGap="5px" justifyItems="center">
+  <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap={5} rowsGap={5} justifyItems="center">
     <UiButton fullWidth>
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🐬</UiSpacing>
     </UiButton>
