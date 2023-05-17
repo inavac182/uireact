@@ -27,6 +27,8 @@ export type UiSpacingProps = UiReactElementProps & {
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
+  /** For rendering the spacing as inline block */
+  inline?: boolean;
 };
 
 type __UiSpacingProps = UiReactPrivateElementProps & UiSpacingProps;
@@ -56,14 +58,16 @@ const Div = styled.div<__UiSpacingProps>`
   ${(props) => `
     ${props.margin ? `margin: ${getSpaceValue(props.margin, props.customTheme)};` : ''}
     ${props.padding ? `padding: ${getSpaceValue(props.padding, props.customTheme)};` : ''}
+    ${props.inline ? 'display: inline-block' : ''}
   `}
 `;
 
-export const UiSpacing: React.FC<UiSpacingProps> = ({ children, margin, padding, testId }: UiSpacingProps) => {
+export const UiSpacing: React.FC<UiSpacingProps> = ({ children, inline, margin, padding, testId }: UiSpacingProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
     <Div
+      inline={inline}
       customTheme={themeContext.theme}
       selectedTheme={themeContext.selectedTheme}
       margin={margin}
