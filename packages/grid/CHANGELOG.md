@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.7.0 (2023-05-17)
+
+
+### Features
+
+* **grid:** adding GridBreakpointsDistribution ([#159](https://github.com/inavac182/ui-react/issues/159)) ([57ee2ae](https://github.com/inavac182/ui-react/commit/57ee2ae839e486c50956a83dee636176e69d0804))
+
+
+
+
+
 ## 0.6.4 (2023-05-16)
 
 **Note:** Version bump only for package @uireact/grid
