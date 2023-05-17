@@ -49,7 +49,7 @@ describe('UiSpacing', () => {
 
   it('Should set margin individually', () => {
     render(
-      <UiSpacing testId="spacing-container" margin={{ top: Sizing.four, left: Sizing.one }}>
+      <UiSpacing testId="spacing-container" margin={{ top: Sizing.four, left: Sizing.one }} inline>
         <p>Test</p>
       </UiSpacing>
     );
