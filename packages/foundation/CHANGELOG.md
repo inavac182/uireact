@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/inavac182/ui-react/compare/@uireact/foundation@0.16.0...@uireact/foundation@0.17.0) (2023-05-17)
+
+
+### Features
+
+* **foundation:** adding inline prop ([#161](https://github.com/inavac182/ui-react/issues/161)) ([8c4cae0](https://github.com/inavac182/ui-react/commit/8c4cae0df04193c0752e2d9f05afc4e0f5311e77))
+
+
+
+
+
 # 0.16.0 (2023-05-17)
 
 
