@@ -24,7 +24,7 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/dialog": "^0.5.3",
+    "@uireact/dialog": "^0.6.0",
     "@uireact/foundation": "^0.17.0"
   },
   "peerDependencies": {

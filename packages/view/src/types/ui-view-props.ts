@@ -2,7 +2,7 @@ import { Theme, ThemeColor, UiReactElementProps, UiReactPrivateElementProps } fr
 import { IDialogController } from '@uireact/dialog';
 
 export type UiViewProps = {
-  dialogController: IDialogController;
+  dialogController?: IDialogController;
   /** If content should render centered and not fullscreen */
   centeredContent?: boolean;
   /** Selected color from theme */
