@@ -21,6 +21,17 @@ describe('UiCard', () => {
     fireEvent.click(screen.getByRole('heading'));
   });
 
+  test('render card with theme', () => {
+    render(
+      <UiCard theme="positive">
+        <HeadingMock />
+      </UiCard>
+    );
+
+    expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+    fireEvent.click(screen.getByRole('heading'));
+  });
+
   test('render card with weigth', () => {
     render(
       <UiCard weight={ColorTokens.token_100}>
