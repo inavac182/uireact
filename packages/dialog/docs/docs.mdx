@@ -23,25 +23,12 @@ import { DialogsExample } from './utils/';
 
 > Renders a dialog on top of the content
 
-**NOTE:** Make sure you read through the set up section to understand how the dialogs has to be configured.
+The dialogs currently uses a default controller that keep track of dialogs using a react state, if you prefer to use your own logic
+you can follow up this [doc](./custom-dialog-controller) to create you own custom dialogs controller.
 
 ## Installation ⚙️
 
 > npm i @uireact/foundation @uireact/dialog
-
-## Example 🤓
-
-Default, renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
-
-<Playground hideThemeSelector>
-  <DialogsExample title="Dialog title" />
-</Playground>
-
-## Props 🛠️
-
-<Props of={UiDialog} />
-
-<br />
 
 ## useDialog 📡
 
@@ -57,7 +44,15 @@ The `useDialog` hook is used to instantiate a dialog and be able to communicate 
 };
 ```
 
-The [<DialogsExample />](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15) that has been used throughout these docs for the dialogs examples looks like this:
+## Example 🤓
+
+By default, the dialog renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
+
+<Playground hideThemeSelector>
+  <DialogsExample title="Dialog title" />
+</Playground>
+
+The [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15) that we use throughout this doc. This is an example of the code of a component using a dialog:
 
 ```
 import React from 'react';
@@ -70,9 +65,15 @@ export const DialogsExample: React.FC<DialogsExampleProps> = () => {
   const dialogId = 'someFancyDialogId';
   const { isOpen, actions } = useDialog(dialogId); //Instantiating the dialog hook with a dialogId : string
 
-  const onClickCB = () => {
+  React.useEffect(() => {
+    if (isOpen) {
+      // Do something fancy if the dialog is opened, maybe tracking analytics?
+    }
+  }, [isOpen]);
+
+  const onClickCB = React.useCallback(() => {
     actions.openDialog(); // This open dialog function internally triggers the open dialog fn in the dialog controller and it passes the dialog id that was used in the useDialog hook.
-  };
+  }, [actions]);
 
   return (
     <>
@@ -88,6 +89,12 @@ export const DialogsExample: React.FC<DialogsExampleProps> = () => {
 Under the hook the `UiDialog` intantiates the `useDialog` hook to know if is opened or closed. You can see this [here](https://github.com/inavac182/uireact/blob/main/packages/dialog/src/ui-dialog.tsx#L32)
 
 The magic of using the `useDialog` hook is that you can control this dialog from anywhere in the react tree you just need to use the same dialog and the `isOpen` or `actions` param will be linked to given dialog.
+
+## Props 🛠️
+
+<Props of={UiDialog} />
+
+<br />
 
 ## More dialog examples 🤓
 
