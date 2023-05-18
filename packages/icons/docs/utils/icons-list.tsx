@@ -13,7 +13,7 @@ import { UiIcon } from '../../src';
 import * as Icons from '../../src/public/svgs';
 
 export const IconsList: React.FC = () => {
-  const [selectedTheme, setSelectedTheme] = React.useState(ThemeColor.light);
+  const [selectedTheme, setSelectedTheme] = React.useState(ThemeColor.dark);
   const [category, setCategory] = React.useState<ColorCategory>();
 
   const toogleTheme = React.useCallback(() => {

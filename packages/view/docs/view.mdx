@@ -43,7 +43,6 @@ ViewExample definition:
 
 ```
 export const ViewExample: React.FC = () => {
-  const dialogController = useDialogController();
   const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
     setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
@@ -54,7 +53,6 @@ export const ViewExample: React.FC = () => {
       theme={DefaultTheme}
       selectedTheme={selectedTheme}
       centeredContent={centeredContent}
-      dialogController={dialogController}
     >
       <p>All the react tree should render inside here</p>
       <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
@@ -77,14 +75,13 @@ ViewRowExample definition:
 
 ```
 export const ViewRowExample: React.FC = () => {
-  const dialogController = useDialogController();
   const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
     setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} dialogController={dialogController}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiViewRow weight="10">
         <p>A row with weight 10</p>
       </UiViewRow>

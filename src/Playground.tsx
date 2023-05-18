@@ -2,13 +2,12 @@ import React from 'react';
 import { Playground, PlaygroundProps } from 'docz';
 
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
-import { UiDialogsControllerContext } from '@uireact/dialog';
+
 import { UiView } from '@uireact/view';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import themeIcon from './icons/sun-icon.png';
-import { useDialogController } from './providers';
 
 type CustomPlaygroundProps = {
   hideThemeSelector: boolean;
@@ -16,7 +15,6 @@ type CustomPlaygroundProps = {
 } & PlaygroundProps;
 
 const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
-  const dialogController = useDialogController();
   const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
     setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
@@ -31,8 +29,8 @@ const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
   }
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} dialogController={dialogController}>
-      <div style={{ background: 'rebeccapurple', padding: 12 }}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+      <div style={{ background: DefaultTheme[selectedTheme].backgrounds.token_100, padding: 12 }}>
         {!props.hideThemeSelector && (
           <>
             <button onClick={toogleTheme} style={{ marginInlineEnd: '5px' }}>
