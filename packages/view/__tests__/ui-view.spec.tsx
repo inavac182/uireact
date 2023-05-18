@@ -1,33 +1,71 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
+import { IDialogController, UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
-import { useDialogController } from '../../../src/providers';
 
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
 };
 
-const MockedComponent = (props: MockedComponentProps) => {
-  const dialogController = useDialogController();
+const closeDialogMockedFn = jest.fn();
+const openDialogMockedFn = jest.fn();
+
+const customDialogController: IDialogController = {
+  closeDialog: closeDialogMockedFn,
+  openDialog: openDialogMockedFn,
+  openedDialogs: [],
+};
+
+const DialogComponent = () => {
+  const dialogId = 'someId';
+  const { actions } = useDialog(dialogId);
 
   return (
-    <UiView
-      theme={DefaultTheme}
-      selectedTheme={ThemeColor.dark}
-      dialogController={dialogController}
-      className={props.className}
-      centeredContent={props.centeredContent}
-    >
-      <p>Content</p>
-    </UiView>
+    <>
+      <button onClick={() => actions.openDialog()}>Open dialog</button>
+      <UiDialog dialogId={dialogId}>
+        <p>Dialog content</p>
+        <button onClick={() => actions.closeDialog()}>Close dialog</button>
+      </UiDialog>
+    </>
   );
 };
 
+const MockedComponent = (props: MockedComponentProps) => (
+  <UiView
+    theme={DefaultTheme}
+    selectedTheme={ThemeColor.dark}
+    dialogController={customDialogController}
+    className={props.className}
+    centeredContent={props.centeredContent}
+  >
+    <p>Content</p>
+    <DialogComponent />
+  </UiView>
+);
+
+const MockedComponentWithDialog = (props: MockedComponentProps) => (
+  <UiView
+    theme={DefaultTheme}
+    selectedTheme={ThemeColor.dark}
+    className={props.className}
+    centeredContent={props.centeredContent}
+  >
+    <p>Content</p>
+    <DialogComponent />
+  </UiView>
+);
+
 describe('<UiView />', () => {
+  beforeEach(() => {
+    closeDialogMockedFn.mockClear();
+    openDialogMockedFn.mockClear();
+  });
+
   it('renders fine', () => {
     render(<MockedComponent />);
 
@@ -53,5 +91,29 @@ describe('<UiView />', () => {
     render(<MockedComponent className="someClass" />);
 
     expect(screen.getByTestId('UiView')).toHaveClass('someClass');
+  });
+
+  describe('default dialog controller', () => {
+    it('Should set up the default dialog controller', () => {
+      render(<MockedComponentWithDialog />);
+
+      fireEvent.click(screen.getByText('Open dialog'));
+
+      expect(screen.getByRole('dialog')).toBeVisible();
+
+      fireEvent.click(screen.getByText('Close dialog'));
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+  });
+
+  describe('custom dialog controller', () => {
+    it('Should set up the default dialog controller', () => {
+      render(<MockedComponent />);
+
+      fireEvent.click(screen.getByText('Open dialog'));
+
+      expect(openDialogMockedFn).toHaveBeenCalledTimes(1);
+      expect(openDialogMockedFn).toHaveBeenCalledWith('someId');
+    });
   });
 });

@@ -13,7 +13,7 @@ import {
   getTextSize,
   getThemeColor,
 } from '@uireact/foundation';
-import { UiDialogsControllerContext } from '@uireact/dialog';
+import { UiDialogsControllerContext, useDialogController } from '@uireact/dialog';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
@@ -58,9 +58,11 @@ export const UiView: React.FC<UiViewProps> = ({
   selectedTheme,
   children,
 }: UiViewProps) => {
+  const defaultDialogController = useDialogController();
+
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <UiDialogsControllerContext.Provider value={dialogController}>
+      <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
         <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
         <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
           {centeredContent ? (
