@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/view@0.1.14...@uireact/view@0.2.0) (2023-05-18)
+
+
+### Features
+
+* **dialog:** adding default dialog controller ([#165](https://github.com/inavac182/ui-react/issues/165)) ([acb885d](https://github.com/inavac182/ui-react/commit/acb885dfdb953b004513a522f212c39f564eb009))
+
+
+
+
+
 ## [0.1.14](https://github.com/inavac182/ui-react/compare/@uireact/view@0.1.13...@uireact/view@0.1.14) (2023-05-17)
 
 **Note:** Version bump only for package @uireact/view
