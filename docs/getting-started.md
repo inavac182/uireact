@@ -75,4 +75,6 @@ PRO tips:
 
 You are ready to start building your amazing projects!
 
+Each available package has its own doc file in the navbar 👈 so you can read about each one there.
+
 If you find any issue, want to collaborate or ask for a specific feature you can fill an [issue](https://github.com/inavac182/uireact/issues) and we'll try to review the topic as soon as possible ✍️ 

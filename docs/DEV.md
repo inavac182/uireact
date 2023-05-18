@@ -1,6 +1,7 @@
 ---
 name: Development
 menu: Documentation
+route: /dev
 ---
 
 # Development
