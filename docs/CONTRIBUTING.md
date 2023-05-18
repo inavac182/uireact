@@ -1,6 +1,7 @@
 ---
 name: Contributing
 menu: Documentation
+route: /contributing
 ---
 
 # Contributing

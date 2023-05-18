@@ -1,0 +1,244 @@
+---
+name: Create theme
+menu: Advanced
+route: /create-theme
+---
+
+import ThemeTokens from '../../src/ThemeTokens';
+import { DefaultTheme } from '../../packages/foundation/src/';
+
+# Theming
+
+---
+
+One of the main advantages of this library is that provides with a way for setting your own theme so you can provide with your own
+configs for text sizes, fonts, colors, etc.
+
+_10 mins read_
+
+## Structure 🧱
+
+Each theme has to meet the structure of the [Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/theme.ts) type.
+
+```
+export const DefaultTheme: Theme = {
+  name: 'UIReactDefaultTheme',
+    ▶︎ A name for the theme
+  dark: { ... },
+    ▶︎ A set of colors for the dark coloration
+  light: { ... },
+    ▶︎ A set of colors for the light coloration
+  sizes: { ...},
+    ▶︎ The set of sizes you want to use for fonts / headings / icons
+  texts: { ... },
+    ▶︎ The configuration for texts such as fonts
+  spacing: { ... },
+    ▶︎ Levels of spacing with its px value
+};
+
+```
+
+## Colorations ✨🌓
+
+Our take on UX design nowadays is that you should be ready to provide with 2 colorations in your UI, dark and light, this to help
+the UX of your applications when used during daylight 🌞 or during night time 🌙
+
+In our theme structure you will see 2 props `dark` and `light`, so each of them is typed as `Color`. The [Coloration type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/coloration.ts#L4)
+is generated from the enum [ColorCategories](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/color-categories.ts#L1) and this is its structure:
+
+```
+{
+  ...,
+  dark/light: {
+    backgrounds: { ... },
+      ▶︎ Used for background or components that are meant to wrap content such as the view or cards.
+    fonts: { ... },
+      ▶︎ Used for texts, headings, labels, everything that is text related.
+    primary: { ... },
+      ▶︎ This is the primary color in your application and will used accross the board.
+    secondary: { ... },
+      ▶︎ The secondary color SHOULD contract very well with the primary, as is intended to be used to separate contents.
+    tertiary: { ... },
+      ▶︎ The tertiary color is like a sparkle here and there, not commonly used but meant to be very visible when is used.
+    positive: { ... },
+      ▶︎ Commonly used to show a reaction to an action that was successfully performed, e.g. A form submition.
+    negative: { ... },
+      ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do.
+    error: { ... },
+      ▶︎ As its name says, this is used to show bright error messages, e.g. A form submittion that failed to be validated.
+    warning: { ... },
+      ▶︎ Used to show a warning message, for instance an expiration messaging.
+  },
+  ...
+}
+
+```
+
+### Tokens
+
+Each coloration should include 5 levels of color, each level is referrer to it as token, the token 100 is the main base color:
+
+```
+{
+  token_10: '',
+    ▶︎ Lighter
+  token_50: '',
+  token_100: '',
+    ▶︎ Main color
+  token_150: '',
+  token_200: '',
+    ▶︎ Darker
+}
+```
+
+From lighter to darker, 10 → 200. The idea is that we keep some flexibility in case we need to add additional levels to our colorations
+but as of now we believe these levels should be enough to provide a good UX.
+
+We suggest you to start with the main color and then work your way outside to both edges of the spectrum.
+A good color spectrum would be one where if you render a text with level 200 on top of a background level 10 of the same category it should read just fine.
+
+Typing for tokens is defined [here](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/tokens.ts#L3)
+
+### Light Coloration 🤍
+
+You can see the light coloration of the provided theme here: [Light Coloration](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/light.ts)
+
+<ThemeTokens colors={DefaultTheme.light} />
+
+### Dark Coloration 🖤
+
+You can see the dark coloration of the provided theme here: [Dark Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/dark.ts)
+
+<ThemeTokens colors={DefaultTheme.dark} />
+
+## Sizes 🎢
+
+There are 2 properties for [sizes](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/sizes.ts#L11) one for headings and another one for texts.
+
+```
+{
+  headings: { ... },
+    ▶︎ Heading sizes
+  texts: { ... }
+    ▶︎ Text sizes
+}
+```
+
+### Headings
+
+The headings follows the [ARIA convention](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/heading_role#best_practices) and you could set up to 6 different sizes for
+[Headings](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/heading-levels.ts), we suggest you use different sizes for
+levels 1, 2 and 3, then levels 4 to 6 to use the same sizing.
+
+```
+{
+  level1: '',
+    ▶︎ Biggest heading
+  level2: '',
+  level3: '',
+    ▶︎ Default heading level
+  level4: '',
+  level5: '',
+  level6: '',
+}
+```
+
+The value that you set is the string value that will be set to the `font-size` CSS property.
+
+If you want to learn more about the UiHeading component follow go to this [doc](https://uireact.io/packages-text-docs-heading-docs).
+
+### Texts
+
+The texts uses a structure of 5 different sizes:
+
+```
+{
+  xsmall: '',
+  small: '',
+  regular: '',
+    ▶︎ Default text sizing
+  large: '',
+  xlarge: ''
+}
+```
+
+The [TextSizes type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/sizes.ts#L7) its created
+from the [TextSize enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/text-size.ts#L1)
+
+## Texts 📝
+
+Currently we only expose a property for the font family.
+
+```
+{
+  fonts: ''
+}
+```
+
+Texts type definition [here](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/texts.ts#LL1C1-L1C1)
+
+The value in the `fonts` property is passed as is to the `font-family` css property so you can set up multiple fonts as needed. Just
+remember that you have to provide them to the browser if you are using any special font.
+
+## Spacing 📐
+
+As the spacing across the application should keep uniformity we decided to add the spacing to the theme so each client could set up
+whatever spacing is more conviniant for their use case. There are 7 levels of spacing:
+
+```
+{
+  one: '',
+  two: '',
+  three: '',
+  four: '',
+  five: '',
+  six: '',
+  seven: '',
+}
+```
+
+The [Spacing type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/spacing.ts#L3) its created from the
+[Sizing enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts#LL1C1-L1C1).
+
+This values are used from the [UiSpacing](https://uireact.io/packages-foundation-docs-spacing) component and they are rendered rendered into the margin/padding CSS property depending on what you tell this component to do with that spacing.
+
+## Usage ⚡️
+
+Once the theme is created we need to set it up into the library context so all components can grab it.
+
+### Recommended UiView
+
+If you use the component `UiView` then it automatically sets all the contexts needed for our components to work well, e.g. the theme context,
+dialogs context, etc. At the same time it stablish global styles for the entire app, so we recommend that you wrap your app
+in a UiView, you can get more information about this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
+
+TL;DR;
+
+```
+import React from 'react';
+import { @UiView } from '@uireact/view';
+import { DefaultTheme, ThemeColor } from '@uireact/foundation';
+
+export const App = () => (
+  <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
+    ... {Your App} ...
+  </Uiview>
+);
+
+```
+
+### Manually set up
+
+If you don't want to use the view component then you will have to manually set all the contexts, including the ThemeContext provided, this is exported from the foundation package:
+
+```
+import React from 'react';
+import { ThemeContext, DefaultTheme, ThemeColor } from '@uireact/foundation';
+
+export const App = () => (
+  <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: ThemeColor.light }}>
+    ... {Your App} ...
+  </ThemeContext.Provider>
+);
+
+```

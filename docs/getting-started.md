@@ -7,12 +7,14 @@ route: /getting-started
 # Getting started 🔥
 --------
 
+_5 mins read_
+
 This doc will help you to get up and running with the library in your project.
 
 The main component of this library is the `@uireact/foundation`, this package has the definition of types, enums, objects and 
-helper functions that other packages across the library need, it also has all the handling that is needed for the themes.
+helper functions that other packages across the library need, it also has all the handling that is needed for the themes, responsive design and dialogs.
 
-These are the steps you have to follow to get the set up done:
+
 
 ## 1. Install peer dependencies 🛠️
 
@@ -41,13 +43,11 @@ Once the peers are installed you can go ahead and install the @uireact packages,
 npm i @uireact/foundation @uireact/view
 ```
 
-
 ## 3. Create your theme ✨
 
-@uireact provides with a [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts) so you can either use that or can create your own. If you like the default theme then you can skip this step.
+@uireact provides with a [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts) so you can either use that or create your own. If you like the default theme then you can skip this step.
 
 If you want to build a custom theme visit [Create your own theme](./create-theme) to learn more about it.
-
 
 ## 4. Set up UiView 🤖
 
@@ -74,5 +74,7 @@ PRO tips:
 ## 🏁 Create magic 🚀
 
 You are ready to start building your amazing projects!
+
+Each available package has its own doc file in the navbar 👈 so you can read about each one there.
 
 If you find any issue, want to collaborate or ask for a specific feature you can fill an [issue](https://github.com/inavac182/uireact/issues) and we'll try to review the topic as soon as possible ✍️ 
