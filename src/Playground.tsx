@@ -30,7 +30,7 @@ const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
 
   return (
     <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
-      <div style={{ background: 'rebeccapurple', padding: 12 }}>
+      <div style={{ background: DefaultTheme[selectedTheme].backgrounds.token_100, padding: 12 }}>
         {!props.hideThemeSelector && (
           <>
             <button onClick={toogleTheme} style={{ marginInlineEnd: '5px' }}>

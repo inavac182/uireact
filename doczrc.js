@@ -4,7 +4,7 @@ export default {
   typescript: true,
   themeConfig: {
     initialColorMode: 'dark',
-    showDarkModeSwitch: false,
+    showDarkModeSwitch: true,
     showMarkdownEditButton: false,
   },
   title: '@uireact',
