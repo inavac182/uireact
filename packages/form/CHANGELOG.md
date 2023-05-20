@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.7.0...@uireact/form@0.8.0) (2023-05-20)
+
+
+### Features
+
+* **chore:** test theme tool ([#170](https://github.com/inavac182/ui-react/issues/170)) ([6e2b297](https://github.com/inavac182/ui-react/commit/6e2b297b71d96cda928c2b38ef91b3ab1debbedc))
+
+
+
+
+
 # 0.7.0 (2023-05-20)
 
 

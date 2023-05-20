@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-05-20)
+
+
+### Features
+
+* **chore:** test theme tool ([#170](https://github.com/inavac182/ui-react/issues/170)) ([6e2b297](https://github.com/inavac182/ui-react/commit/6e2b297b71d96cda928c2b38ef91b3ab1debbedc))
+
+
+
+
+
 ## [0.1.12](https://github.com/inavac182/ui-react/compare/@uireact/header@0.1.11...@uireact/header@0.1.12) (2023-05-17)
 
 **Note:** Version bump only for package @uireact/header
