@@ -94,7 +94,7 @@ export const CreateTheme: React.FC = () => {
               </UiGridItem>
             </UiGrid>
             <UiSpacing padding={{ all: Sizing.four }}>
-              <UiButton type="submit" fullWidth>
+              <UiButton type="submit" fullWidth theme="positive">
                 <UiSpacing margin={{ block: Sizing.four }}>
                   <UiText size={TextSize.xlarge}>Generate theme</UiText>
                 </UiSpacing>
@@ -109,7 +109,7 @@ export const CreateTheme: React.FC = () => {
             <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
           </UiSpacing>
           <UiSpacing padding={{ all: Sizing.four }}>
-            <UiButton fullWidth onClick={copyToClipboard}>
+            <UiButton fullWidth onClick={copyToClipboard} theme="warning">
               <UiSpacing margin={{ all: Sizing.four }}>Copy to clipboard</UiSpacing>
             </UiButton>
           </UiSpacing>

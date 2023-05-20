@@ -16,7 +16,7 @@ export type UiTextAreaProps = {
   /** Textarea max length */
   maxlength?: number;
   /** CB for when value in Textarea changes */
-  onChange?: () => void;
+  onChange?: (e: React.FormEvent<HTMLTextAreaElement>) => void;
   /** Placeholder string to render inside Textarea */
   placeholder?: string;
   /* React ref */

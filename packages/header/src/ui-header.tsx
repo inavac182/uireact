@@ -9,11 +9,6 @@ import { CenteredDiv } from './__private';
 import { themeMapper } from './theme';
 
 const Div = styled.div<privateUiHeaderProps>`
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
   border-top: 0;
   border-left: 0;
   border-right: 0;
