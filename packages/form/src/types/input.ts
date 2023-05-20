@@ -12,7 +12,7 @@ export type UiInputProps = {
   /** Label on top of field */
   labelOnTop?: boolean;
   /** CB for when value in input changes */
-  onChange?: () => void;
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
   /** Placeholder string to render inside input field */
   placeholder?: string;
   /* React ref */

@@ -27,8 +27,8 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
   body {
     ${(props) => `
-      ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
       ${`font-family: ${props.customTheme.texts.font};`}
+      ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
       ${`background-color: ${getThemeColor(
         props.customTheme,
         props.selectedTheme,
@@ -47,7 +47,11 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 `;
 
 const Div = styled.div<privateViewProps>`
-  ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
+  ${(props) => `
+    ${getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
+    ${`font-family: ${props.customTheme.texts.font};`}
+    ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+  `}
 `;
 
 export const UiView: React.FC<UiViewProps> = ({
