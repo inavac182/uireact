@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/inavac182/uireact/compare/@uireact/view@1.0.1...@uireact/view@1.0.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* **view:** peer deeps ([#177](https://github.com/inavac182/uireact/issues/177)) ([b8ff7a3](https://github.com/inavac182/uireact/commit/b8ff7a3fdfed9958e4e6a7f86ed1122409975ce5))
+
+
+
+
+
 ## [1.0.1](https://github.com/inavac182/uireact/compare/@uireact/view@0.3.4...@uireact/view@1.0.1) (2023-05-23)
 
 **Note:** Version bump only for package @uireact/view
