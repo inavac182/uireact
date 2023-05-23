@@ -13,7 +13,7 @@ import {
   getTextSize,
   getThemeColor,
 } from '@uireact/foundation';
-import { UiDialogsControllerContext, useDialogController } from '@uireact/dialog';
+import { UiDialogsControllerContext, useDialogController } from '@uireact/foundation';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';

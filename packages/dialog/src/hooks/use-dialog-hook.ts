@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UiDialogsControllerContext } from '.';
+import { UiDialogsControllerContext } from '@uireact/foundation';
 
 type DialogActions = {
   openDialog: () => void;

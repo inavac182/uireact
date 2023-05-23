@@ -1,5 +1,6 @@
 import React from 'react';
-import { IDialogController } from '@uireact/dialog';
+
+import { IDialogController } from '../types';
 
 export const useDialogController = (): IDialogController => {
   const [openedDialogs, setOpenedDialogs] = React.useState<string[]>([]);
