@@ -8,7 +8,6 @@ import { UiView, UiViewRow } from '@uireact/view';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
 
 import { ColorationForm, FontsForm, HeadingsForm, TextsForm, SpacingForm } from './form-sections';
-import { UiIcon } from '@uireact/icons';
 
 export const CreateTheme: React.FC = () => {
   const [customTheme, setCustomTheme] = React.useState<Theme>(DefaultTheme);

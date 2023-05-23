@@ -39,20 +39,22 @@ export const TestTheme: React.FC = () => {
 
   return (
     <UiView theme={customTheme || DefaultTheme} selectedTheme={coloration}>
-      <UiHeading>Paste the newly created custom theme here:</UiHeading>
-      <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
-      <UiSpacing margin={{ bottom: Sizing.five }}>
-        <UiButton onClick={loadTheme} theme="warning">
-          <UiSpacing padding={{ block: Sizing.four }}>Load theme</UiSpacing>
+      <UiSpacing margin={{ left: Sizing.three }}>
+        <UiHeading>Paste the newly created custom theme here:</UiHeading>
+        <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
+        <UiSpacing margin={{ bottom: Sizing.five }}>
+          <UiButton onClick={loadTheme} theme="warning">
+            <UiSpacing padding={{ block: Sizing.four }}>Load theme</UiSpacing>
+          </UiButton>
+        </UiSpacing>
+        <hr />
+        <br />
+        <UiButton onClick={toogleColoration} theme="positive">
+          <UiSpacing padding={{ block: Sizing.four }}>Toggle coloration</UiSpacing>
         </UiButton>
+        <br />
+        <br />
       </UiSpacing>
-      <hr />
-      <br />
-      <UiButton onClick={toogleColoration} theme="positive">
-        <UiSpacing padding={{ block: Sizing.four }}>Toggle coloration</UiSpacing>
-      </UiButton>
-      <br />
-      <br />
       <UiHeader>
         <UiSpacing margin={{ left: Sizing.four }}>
           <UiHeading level={1}>Header</UiHeading>

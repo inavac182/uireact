@@ -1,16 +1,11 @@
 import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
 
 export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
-  const isFontInverse =
-    category !== ColorCategories.positive &&
-    category !== ColorCategories.negative &&
-    category !== ColorCategories.secondary;
-
   return {
     normal: {
       color: {
         category: ColorCategories.fonts,
-        inverse: isFontInverse,
+        inverse: false,
         token: ColorTokens.token_100,
       },
       background: {
