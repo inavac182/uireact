@@ -17,7 +17,6 @@
     "**/docs/**",
     "**/package-lock.json",
     "**/jest.config.js",
-    "**/tsconfig.json",
     "**/__tests__/**"
   ]
 }
