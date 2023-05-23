@@ -40,7 +40,7 @@ At the time of putting this doc together these are the ones you need:
 Once the peers are installed you can go ahead and install the @uireact packages, let's start with the most important ones:
 
 ```
-npm i @uireact/foundation @uireact/view @uireact/dialog
+npm i @uireact/foundation @uireact/view
 ```
 
 ## 3. Create your theme ✨
