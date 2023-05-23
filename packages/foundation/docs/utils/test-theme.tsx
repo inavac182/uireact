@@ -39,30 +39,30 @@ export const TestTheme: React.FC = () => {
 
   return (
     <UiView theme={customTheme || DefaultTheme} selectedTheme={coloration}>
-      <UiSpacing margin={{ left: Sizing.three }}>
+      <UiSpacing margin={{ left: 'three' }}>
         <UiHeading>Paste the newly created custom theme here:</UiHeading>
         <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
-        <UiSpacing margin={{ bottom: Sizing.five }}>
+        <UiSpacing margin={{ bottom: 'five' }}>
           <UiButton onClick={loadTheme} theme="warning">
-            <UiSpacing padding={{ block: Sizing.four }}>Load theme</UiSpacing>
+            <UiSpacing padding={{ block: 'four' }}>Load theme</UiSpacing>
           </UiButton>
         </UiSpacing>
         <hr />
         <br />
         <UiButton onClick={toogleColoration} theme="positive">
-          <UiSpacing padding={{ block: Sizing.four }}>Toggle coloration</UiSpacing>
+          <UiSpacing padding={{ block: 'four' }}>Toggle coloration</UiSpacing>
         </UiButton>
         <br />
         <br />
       </UiSpacing>
       <UiHeader>
-        <UiSpacing margin={{ left: Sizing.four }}>
+        <UiSpacing margin={{ left: 'four' }}>
           <UiHeading level={1}>Header</UiHeading>
         </UiSpacing>
       </UiHeader>
       <UiViewRow weight="10">
-        <UiSpacing padding={{ inline: Sizing.three }}>
-          <UiSpacing padding={{ block: Sizing.five }}>
+        <UiSpacing padding={{ inline: 'three' }}>
+          <UiSpacing padding={{ block: 'five' }}>
             <UiCard>
               <UiText size={TextSize.large}>Lorem ipsum dolor sit amet</UiText>
               <br />
@@ -79,7 +79,7 @@ export const TestTheme: React.FC = () => {
       <UiViewRow weight="10">
         <UiGrid cols={{ small: 1, medium: 2, large: 6, xlarge: 6 }}>
           <UiGridItem cols={4}>
-            <UiSpacing padding={{ all: Sizing.four }}>
+            <UiSpacing padding={{ all: 'four' }}>
               <UiCard>
                 <UiText>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis accumsan ex, ut condimentum
@@ -103,7 +103,7 @@ export const TestTheme: React.FC = () => {
                 </UiText>
               </UiCard>
             </UiSpacing>
-            <UiSpacing padding={{ all: Sizing.four }}>
+            <UiSpacing padding={{ all: 'four' }}>
               <UiCard>
                 <UiHeading>Lorem ipsum</UiHeading>
                 <hr />
@@ -124,7 +124,7 @@ export const TestTheme: React.FC = () => {
             </UiSpacing>
           </UiGridItem>
           <UiGridItem cols={2}>
-            <UiSpacing padding={{ all: Sizing.four }}>
+            <UiSpacing padding={{ all: 'four' }}>
               <UiCard theme="tertiary">
                 <UiList>
                   <UiListItem>
@@ -146,7 +146,7 @@ export const TestTheme: React.FC = () => {
                 </UiList>
               </UiCard>
             </UiSpacing>
-            <UiSpacing padding={{ all: Sizing.four }}>
+            <UiSpacing padding={{ all: 'four' }}>
               <UiCard theme="secondary">
                 <UiText>
                   Donec quis lectus vitae turpis convallis tempus facilisis id augue. Fusce semper est sem, sed

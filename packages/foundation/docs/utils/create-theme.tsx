@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
-import { ColorTokens, DefaultTheme, Sizing, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
+import { ColorTokens, DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiView, UiViewRow } from '@uireact/view';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
@@ -53,7 +53,7 @@ export const CreateTheme: React.FC = () => {
           <>
             <UiGrid cols={{ small: 1, medium: 4, large: 10, xlarge: 10 }}>
               <UiGridItem cols={10}>
-                <UiSpacing margin={{ all: Sizing.four }}>
+                <UiSpacing margin={{ all: 'four' }}>
                   <UiCard weight={ColorTokens.token_200}>
                     <UiHeading>Colorations</UiHeading>
                     <UiText>
@@ -69,12 +69,12 @@ export const CreateTheme: React.FC = () => {
                 <ColorationForm type="dark" coloration={customTheme.dark} handleChange={handleChange} />
               </UiGridItem>
               <UiGridItem cols={10}>
-                <UiSpacing margin={{ all: Sizing.four }}>
+                <UiSpacing margin={{ all: 'four' }}>
                   <UiCard weight={ColorTokens.token_200}>
                     <UiHeading>Sizes</UiHeading>
                   </UiCard>
                 </UiSpacing>
-                <UiSpacing margin={{ all: Sizing.four }}>
+                <UiSpacing margin={{ all: 'four' }}>
                   <UiGrid cols={2} colsGap={10}>
                     <HeadingsForm
                       headings={customTheme.sizes.headings}
@@ -92,9 +92,9 @@ export const CreateTheme: React.FC = () => {
                 <SpacingForm spacing={customTheme.spacing} handleChange={handleChange} name="spacing" />
               </UiGridItem>
             </UiGrid>
-            <UiSpacing padding={{ all: Sizing.four }}>
+            <UiSpacing padding={{ all: 'four' }}>
               <UiButton type="submit" fullWidth theme="positive">
-                <UiSpacing margin={{ block: Sizing.four }}>
+                <UiSpacing margin={{ block: 'four' }}>
                   <UiText size={TextSize.xlarge}>Generate theme</UiText>
                 </UiSpacing>
               </UiButton>
@@ -104,14 +104,14 @@ export const CreateTheme: React.FC = () => {
       </UiViewRow>
       {themeVisible && (
         <UiViewRow>
-          <UiSpacing padding={{ all: Sizing.four }}>
+          <UiSpacing padding={{ all: 'four' }}>
             <UiText>
               <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
             </UiText>
           </UiSpacing>
-          <UiSpacing padding={{ all: Sizing.four }}>
+          <UiSpacing padding={{ all: 'four' }}>
             <UiButton fullWidth onClick={copyToClipboard} theme="warning">
-              <UiSpacing margin={{ all: Sizing.four }}>Copy to clipboard</UiSpacing>
+              <UiSpacing margin={{ all: 'four' }}>Copy to clipboard</UiSpacing>
             </UiButton>
           </UiSpacing>
         </UiViewRow>

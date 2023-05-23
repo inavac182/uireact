@@ -29,7 +29,7 @@ This spacing component is exported as part of the foundation package: @uireact/f
 ## Usage 🛠️
 
 <Playground>
-  <UiSpacing margin={{ all: Sizing.five }}>Nice margin dude!</UiSpacing>
+  <UiSpacing margin={{ all: 'five' }}>Nice margin dude!</UiSpacing>
 </Playground>
 
 **UiSpacing** renders a div to which it assigns its styling and wraps the children
@@ -50,25 +50,25 @@ in multiple ways:
 ```
 type SpacingDistribution = {
 
-  all?: Sizing;
+  all?: Spacing;
   /** Apply spacing to all sides */
 
-  block?: Sizing;
+  block?: Spacing;
   /** Apply spacing to top and bottom */
 
-  inline?: Sizing;
+  inline?: Spacing;
   /** Apply spacing to left and right */
 
-  left?: Sizing;
+  left?: Spacing;
   /** Apply spacing to left */
 
-  right?: Sizing;
+  right?: Spacing;
   /** Apply spacing to right */
 
-  top?: Sizing;
+  top?: Spacing;
   /** Apply spacing to top */
 
-  bottom?: Sizing;
+  bottom?: Spacing;
   /** Apply spacing to bottom */
 };
 ```
@@ -77,7 +77,7 @@ Options `all`, `block` and `inline` are used independently **can't be combined**
 
 ### Theme
 
-The [Sizing enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts#L1) is used to reference a
+The [Spacing type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts) is used to reference a
 value from the [Spacing](https://uireact.io/packages-foundation-docs-themes#spacing-) property provided from the themes
 
 For instance if you set up this in your theme:
@@ -101,7 +101,7 @@ For instance if you set up this in your theme:
 If you use this:
 
 ```
-<UiSpacing padding={{all: Sizing.three}}>
+<UiSpacing padding={{all: 'three'}}>
   Some content
 </UiSpacing>
 ```

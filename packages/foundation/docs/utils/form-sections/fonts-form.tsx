@@ -15,12 +15,12 @@ type FontsFormProps = {
 export const FontsForm: React.FC<FontsFormProps> = ({ handleChange, texts, name }: FontsFormProps) => {
   return (
     <>
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiCard weight={ColorTokens.token_200}>
           <UiHeading>Fonts</UiHeading>
         </UiCard>
       </UiSpacing>
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiCard>
           <UiFlexGrid columnGap={Sizing.five}>
             <UiFlexGridItem>

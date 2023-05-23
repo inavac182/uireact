@@ -18,12 +18,12 @@ export const MenuExample: React.FC = () => {
   }, [setIsVisible]);
 
   return (
-    <UiSpacing padding={{ all: Sizing.five }}>
+    <UiSpacing padding={{ all: 'five' }}>
       <div>
         <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
       <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
-        <UiSpacing margin={{ all: Sizing.five }}>
+        <UiSpacing margin={{ all: 'five' }}>
           <UiText centered>Menu Content</UiText>
           <div>
             <UiButton onClick={closeMenu} theme="secondary" fullWidth>
@@ -33,7 +33,7 @@ export const MenuExample: React.FC = () => {
         </UiSpacing>
       </UiMenu>
       <UiText>Some content behind the menu</UiText>
-      <UiSpacing margin={{ block: Sizing.five }}>
+      <UiSpacing margin={{ block: 'five' }}>
         <UiText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida commodo massa non porttitor. Fusce sapien
           lacus, malesuada vel bibendum sed, tempus vitae elit. Vestibulum lectus magna, rutrum vitae consectetur eu,

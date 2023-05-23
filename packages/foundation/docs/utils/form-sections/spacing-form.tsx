@@ -15,12 +15,12 @@ type SpacingFormProps = {
 export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleChange }: SpacingFormProps) => {
   return (
     <>
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiCard weight={ColorTokens.token_200}>
           <UiHeading>Spacing</UiHeading>
         </UiCard>
       </UiSpacing>
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiCard>
           <UiFlexGrid columnGap={Sizing.four}>
             <UiFlexGridItem>
@@ -60,7 +60,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
             <UiFlexGridItem grow={1}>
               <UiText>Spacing used as margin between the inner and outer card:</UiText>
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.one }}>
+                <UiSpacing margin={{ all: 'one' }}>
                   <UiCard theme="secondary">
                     <UiText>One</UiText>
                   </UiCard>
@@ -68,7 +68,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.two }}>
+                <UiSpacing margin={{ all: 'two' }}>
                   <UiCard theme="secondary">
                     <UiText theme="negative">Two</UiText>
                   </UiCard>
@@ -76,7 +76,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.three }}>
+                <UiSpacing margin={{ all: 'three' }}>
                   <UiCard theme="secondary">
                     <UiText>Three</UiText>
                   </UiCard>
@@ -84,7 +84,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.four }}>
+                <UiSpacing margin={{ all: 'four' }}>
                   <UiCard theme="secondary">
                     <UiText>Four</UiText>
                   </UiCard>
@@ -92,7 +92,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.five }}>
+                <UiSpacing margin={{ all: 'five' }}>
                   <UiCard theme="secondary">
                     <UiText>Five</UiText>
                   </UiCard>
@@ -100,7 +100,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.six }}>
+                <UiSpacing margin={{ all: 'six' }}>
                   <UiCard theme="secondary">
                     <UiText>Six</UiText>
                   </UiCard>
@@ -108,7 +108,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
               </UiCard>
               <br />
               <UiCard theme="primary">
-                <UiSpacing margin={{ all: Sizing.seven }}>
+                <UiSpacing margin={{ all: 'seven' }}>
                   <UiCard theme="secondary">
                     <UiText>Seven</UiText>
                   </UiCard>

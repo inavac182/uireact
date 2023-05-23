@@ -3,7 +3,7 @@ import React from 'react';
 import { act, fireEvent, screen } from '@testing-library/react';
 
 import { UiButton } from '@uireact/button';
-import { UiSpacing, Sizing } from '@uireact/foundation';
+import { UiSpacing } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
 
 import { uiRender } from '../../../__tests__/utils/render';
@@ -37,7 +37,7 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedC
         closeMenuCB={closeMenu}
         fullscreenOnSmall={fullscreenOnSmall}
       >
-        <UiSpacing margin={{ all: Sizing.five }}>
+        <UiSpacing margin={{ all: 'five' }}>
           <UiText centered>Menu Content</UiText>
           <div>
             <UiButton onClick={closeMenu} theme="secondary" fullWidth>
