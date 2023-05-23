@@ -39,20 +39,22 @@ export const TestTheme: React.FC = () => {
 
   return (
     <UiView theme={customTheme || DefaultTheme} selectedTheme={coloration}>
-      <UiHeading>Paste the newly created custom theme here:</UiHeading>
-      <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
-      <UiSpacing margin={{ bottom: Sizing.five }}>
-        <UiButton onClick={loadTheme} theme="warning">
-          <UiSpacing padding={{ block: Sizing.four }}>Load theme</UiSpacing>
+      <UiSpacing margin={{ left: Sizing.three }}>
+        <UiHeading>Paste the newly created custom theme here:</UiHeading>
+        <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
+        <UiSpacing margin={{ bottom: Sizing.five }}>
+          <UiButton onClick={loadTheme} theme="warning">
+            <UiSpacing padding={{ block: Sizing.four }}>Load theme</UiSpacing>
+          </UiButton>
+        </UiSpacing>
+        <hr />
+        <br />
+        <UiButton onClick={toogleColoration} theme="positive">
+          <UiSpacing padding={{ block: Sizing.four }}>Toggle coloration</UiSpacing>
         </UiButton>
+        <br />
+        <br />
       </UiSpacing>
-      <hr />
-      <br />
-      <UiButton onClick={toogleColoration} theme="positive">
-        <UiSpacing padding={{ block: Sizing.four }}>Toggle coloration</UiSpacing>
-      </UiButton>
-      <br />
-      <br />
       <UiHeader>
         <UiSpacing margin={{ left: Sizing.four }}>
           <UiHeading level={1}>Header</UiHeading>
@@ -96,7 +98,8 @@ export const TestTheme: React.FC = () => {
                   sollicitudin nibh ut mollis faucibus. Quisque ac nibh nec ipsum pellentesque malesuada. Fusce eu
                   accumsan felis, id ullamcorper urna. Phasellus pulvinar, velit nec varius rutrum, enim nibh lobortis
                   ligula, id facilisis lorem elit ac dui. Morbi tellus enim, eleifend id ipsum at, lacinia venenatis
-                  eros. Integer et mauris euismod, ultricies velit vel, sagittis ex.
+                  eros. Integer et mauris euismod, ultricies velit vel, sagittis ex.{' '}
+                  <UiLink href="#">Lorem ipsum dolor sit amet</UiLink> <UiBadge category="tertiary">🐞 dolor</UiBadge>
                 </UiText>
               </UiCard>
             </UiSpacing>

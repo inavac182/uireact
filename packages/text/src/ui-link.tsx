@@ -23,7 +23,7 @@ const Anchor = styled.a<privateLinkProps>`
 `;
 
 export const UiLink: React.FC<UiLinkProps> = ({
-  theme = 'primary',
+  theme = 'secondary',
   children,
   handleClick,
   href,

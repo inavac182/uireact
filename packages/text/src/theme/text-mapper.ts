@@ -4,7 +4,7 @@ export const TextMapper: ThemeMapper = {
   normal: {
     color: {
       category: ColorCategories.fonts,
-      inverse: true,
+      inverse: false,
       token: ColorTokens.token_100,
     },
   },
@@ -15,7 +15,7 @@ export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
     normal: {
       color: {
         category: category,
-        inverse: true,
+        inverse: false,
         token: ColorTokens.token_100,
       },
     },

@@ -4,7 +4,7 @@ export const LabelMapper: ThemeMapper = {
   normal: {
     color: {
       category: ColorCategories.fonts,
-      inverse: true,
+      inverse: false,
       token: ColorTokens.token_100,
     },
   },

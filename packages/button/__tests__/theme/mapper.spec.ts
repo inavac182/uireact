@@ -6,7 +6,7 @@ describe('getDynamicMapper', () => {
     const mapper = getDynamicMapper(ColorCategories.primary);
 
     expect(mapper.normal?.background?.category).toEqual(ColorCategories.primary);
-    expect(mapper.normal?.color?.inverse).toBeTruthy();
+    expect(mapper.normal?.color?.inverse).toBeFalsy();
   });
 
   it('should get correct mapper when is secondary', () => {
@@ -15,18 +15,18 @@ describe('getDynamicMapper', () => {
     expect(mapper.normal?.background?.category).toEqual(ColorCategories.secondary);
   });
 
-  it('should set inverse to fonts when category is tertiary', () => {
+  it('should NOT set inverse to fonts when category is tertiary', () => {
     const mapper = getDynamicMapper(ColorCategories.tertiary);
 
     expect(mapper.normal?.background?.category).toEqual(ColorCategories.tertiary);
-    expect(mapper.normal?.color?.inverse).toBeTruthy();
+    expect(mapper.normal?.color?.inverse).toBeFalsy();
   });
 
-  it('should set inverse to fonts when category is error', () => {
+  it('should NOT  set inverse to fonts when category is error', () => {
     const mapper = getDynamicMapper(ColorCategories.error);
 
     expect(mapper.normal?.background?.category).toEqual(ColorCategories.error);
-    expect(mapper.normal?.color?.inverse).toBeTruthy();
+    expect(mapper.normal?.color?.inverse).toBeFalsy();
   });
 
   it('should NOT set inverse to fonts when category is positive', () => {

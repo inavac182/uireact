@@ -8,7 +8,6 @@ import { UiView, UiViewRow } from '@uireact/view';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
 
 import { ColorationForm, FontsForm, HeadingsForm, TextsForm, SpacingForm } from './form-sections';
-import { UiIcon } from '@uireact/icons';
 
 export const CreateTheme: React.FC = () => {
   const [customTheme, setCustomTheme] = React.useState<Theme>(DefaultTheme);
@@ -106,7 +105,9 @@ export const CreateTheme: React.FC = () => {
       {themeVisible && (
         <UiViewRow>
           <UiSpacing padding={{ all: Sizing.four }}>
-            <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
+            <UiText>
+              <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
+            </UiText>
           </UiSpacing>
           <UiSpacing padding={{ all: Sizing.four }}>
             <UiButton fullWidth onClick={copyToClipboard} theme="warning">
