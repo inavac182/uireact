@@ -96,7 +96,8 @@ export const TestTheme: React.FC = () => {
                   sollicitudin nibh ut mollis faucibus. Quisque ac nibh nec ipsum pellentesque malesuada. Fusce eu
                   accumsan felis, id ullamcorper urna. Phasellus pulvinar, velit nec varius rutrum, enim nibh lobortis
                   ligula, id facilisis lorem elit ac dui. Morbi tellus enim, eleifend id ipsum at, lacinia venenatis
-                  eros. Integer et mauris euismod, ultricies velit vel, sagittis ex.
+                  eros. Integer et mauris euismod, ultricies velit vel, sagittis ex.{' '}
+                  <UiLink href="#">Lorem ipsum dolor sit amet</UiLink> <UiBadge category="tertiary">🐞 dolor</UiBadge>
                 </UiText>
               </UiCard>
             </UiSpacing>

@@ -15,11 +15,6 @@ export const getDynamicCardMapper = (token?: ColorTokens, category?: ColorCatego
         inverse: false,
         token: token || ColorTokens.token_100,
       },
-      color: {
-        category: ColorCategories.fonts,
-        inverse: true,
-        token: ColorTokens.token_100,
-      },
       'border-color': {
         category: category ? getColorCategory(category) : ColorCategories.backgrounds,
         inverse: false,

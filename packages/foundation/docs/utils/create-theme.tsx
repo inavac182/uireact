@@ -106,7 +106,9 @@ export const CreateTheme: React.FC = () => {
       {themeVisible && (
         <UiViewRow>
           <UiSpacing padding={{ all: Sizing.four }}>
-            <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
+            <UiText>
+              <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
+            </UiText>
           </UiSpacing>
           <UiSpacing padding={{ all: Sizing.four }}>
             <UiButton fullWidth onClick={copyToClipboard} theme="warning">
