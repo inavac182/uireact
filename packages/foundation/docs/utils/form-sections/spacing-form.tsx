@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UiCard } from '@uireact/card';
-import { UiSpacing, Sizing, ColorTokens, Spacing } from '@uireact/foundation';
+import { UiSpacing, ColorTokens, Spacing } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
@@ -22,7 +22,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
       </UiSpacing>
       <UiSpacing margin={{ all: 'four' }}>
         <UiCard>
-          <UiFlexGrid columnGap={Sizing.four}>
+          <UiFlexGrid columnGap="three">
             <UiFlexGridItem>
               <UiText>All values are used in pixels</UiText>
               <UiInput placeholder="one" name={`${name}-one`} label="1" value={spacing.one} onChange={handleChange} />

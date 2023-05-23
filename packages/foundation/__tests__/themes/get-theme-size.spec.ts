@@ -1,4 +1,4 @@
-import { DefaultTheme, getTextSize, getHeadingSize, TextSize, getSpacingSize, Sizing } from '../../src';
+import { DefaultTheme, getTextSize, getHeadingSize, TextSize, getSpacingSize } from '../../src';
 
 describe('getTextSize', () => {
   it('Should get correct size', () => {
@@ -10,7 +10,7 @@ describe('getTextSize', () => {
 
 describe('getSpacingSize', () => {
   it('Should get correct spacing', () => {
-    const spacing = getSpacingSize(DefaultTheme, Sizing.one);
+    const spacing = getSpacingSize(DefaultTheme, 'one');
 
     expect(spacing).toBe(DefaultTheme.spacing.one);
   });
