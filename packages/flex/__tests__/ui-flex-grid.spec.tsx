@@ -2,8 +2,6 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 
-import { Sizing } from '@uireact/foundation';
-
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiFlexGrid, UiFlexGridItem } from '../src';
 
@@ -34,7 +32,7 @@ describe('<UiFlexGrid />', () => {
 
   it('renders fine with gaps', () => {
     uiRender(
-      <UiFlexGrid gap={Sizing.three} columnGap={Sizing.five} rowGap={Sizing.three}>
+      <UiFlexGrid gap="three" columnGap="five" rowGap="three">
         <UiFlexGridItem>Item 1</UiFlexGridItem>
         <UiFlexGridItem>Item 2</UiFlexGridItem>
       </UiFlexGrid>

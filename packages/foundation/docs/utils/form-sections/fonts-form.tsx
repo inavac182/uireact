@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UiCard } from '@uireact/card';
 import { UiInput } from '@uireact/form';
-import { UiSpacing, Sizing, ColorTokens, Texts } from '@uireact/foundation';
+import { UiSpacing, ColorTokens, Texts } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
@@ -22,7 +22,7 @@ export const FontsForm: React.FC<FontsFormProps> = ({ handleChange, texts, name 
       </UiSpacing>
       <UiSpacing margin={{ all: 'four' }}>
         <UiCard>
-          <UiFlexGrid columnGap={Sizing.five}>
+          <UiFlexGrid columnGap={'five'}>
             <UiFlexGridItem>
               <UiInput placeholder="font-family" value={texts.font} name={`${name}-font`} onChange={handleChange} />
             </UiFlexGridItem>
