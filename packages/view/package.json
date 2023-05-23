@@ -1,9 +1,9 @@
 {
   "name": "@uireact/view",
   "description": "View component from @uireact",
-  "repository": "https://github.com/inavac182/ui-react",
+  "repository": "https://github.com/inavac182/uireact",
   "license": "MIT",
-  "version": "0.3.4",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
