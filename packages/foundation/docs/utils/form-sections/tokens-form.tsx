@@ -2,8 +2,8 @@ import React from 'react';
 
 import { UiCard } from '@uireact/card';
 import { UiInput } from '@uireact/form';
-import { UiSpacing, Sizing, Tokens } from '@uireact/foundation';
-import { UiHeading, UiLabel } from '@uireact/text';
+import { UiSpacing, Tokens } from '@uireact/foundation';
+import { UiHeading } from '@uireact/text';
 import { UiGrid } from '@uireact/grid';
 
 type TokensFormProps = {

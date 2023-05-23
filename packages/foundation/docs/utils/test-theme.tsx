@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UiView, UiViewRow } from '@uireact/view';
 import { UiHeading, UiText, UiLink } from '@uireact/text';
-import { DefaultTheme, Sizing, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
+import { DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
 import { UiHeader } from '@uireact/header';
 import { UiCard } from '@uireact/card';
 import { UiGrid, UiGridItem } from '@uireact/grid';

@@ -4,7 +4,7 @@ import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
 
 import { UiMenu } from '../../src';
-import { Sizing, UiSpacing } from '@uireact/foundation';
+import { UiSpacing } from '@uireact/foundation';
 
 export const MenuExample: React.FC = () => {
   const [isVisible, setIsVisible] = React.useState(false);

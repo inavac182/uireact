@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Sizing, UiSpacing } from '@uireact/foundation';
+import { UiSpacing } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiCard } from '@uireact/card';
 import { UiButton } from '@uireact/button';

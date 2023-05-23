@@ -1,4 +1,4 @@
-import { Sizing, UiReactPrivateElementProps } from '@uireact/foundation';
+import { SpacingType, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiFlexGridProps = {
   /** Items alignment inside flex grid */
@@ -6,17 +6,17 @@ export type UiFlexGridProps = {
   /** Children component */
   children?: React.ReactNode;
   /** Spacing between flex columns */
-  columnGap?: Sizing;
+  columnGap?: SpacingType;
   /** Class name */
   className?: string;
   /** Flex grid direction */
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   /** Spacing between flex items, value comes from SPACING prop in theme */
-  gap?: Sizing;
+  gap?: SpacingType;
   /** Flex grid wrap */
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
   /** Spacing between flex rows */
-  rowGap?: Sizing;
+  rowGap?: SpacingType;
   /** Flex grid wrap */
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
 };

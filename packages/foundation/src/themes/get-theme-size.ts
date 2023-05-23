@@ -1,4 +1,4 @@
-import { Theme, HeadingLevel, TextSize, Sizing } from '../types';
+import { Theme, HeadingLevel, TextSize, SpacingType } from '../types';
 
 export const getHeadingSize = (theme: Theme, level: 1 | 2 | 3 | 4 | 5 | 6): string => {
   let headingLevel = HeadingLevel.level3;
@@ -34,6 +34,6 @@ export const getTextSize = (theme: Theme, size: TextSize): string => {
   return theme.sizes.texts[size];
 };
 
-export const getSpacingSize = (theme: Theme, size: Sizing): string => {
+export const getSpacingSize = (theme: Theme, size: SpacingType): string => {
   return theme.spacing[size];
 };

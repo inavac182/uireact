@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColorCategory, DefaultTheme, Sizing, TextSize, ThemeColor, UiSpacing } from '@uireact/foundation';
+import { ColorCategory, DefaultTheme, TextSize, ThemeColor, UiSpacing } from '@uireact/foundation';
 import { UiView, UiViewRow } from '@uireact/view';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiButton } from '@uireact/button';
@@ -31,7 +31,7 @@ export const IconsList: React.FC = () => {
     <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiViewRow>
         <UiSpacing padding={{ all: 'four' }}>
-          <UiFlexGrid alignItems="center" gap={Sizing.five} justifyContent="center">
+          <UiFlexGrid alignItems="center" gap={'five'} justifyContent="center">
             <UiFlexGridItem grow={1}>
               <UiButton onClick={toogleTheme} fullWidth>
                 <UiSpacing padding={{ block: 'four' }}>
