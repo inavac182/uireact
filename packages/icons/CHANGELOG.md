@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.12 (2023-05-23)
+
+**Note:** Version bump only for package @uireact/icons
+
+
+
+
+
 ## [0.3.11](https://github.com/inavac182/ui-react/compare/@uireact/icons@0.3.10...@uireact/icons@0.3.11) (2023-05-23)
 
 **Note:** Version bump only for package @uireact/icons
