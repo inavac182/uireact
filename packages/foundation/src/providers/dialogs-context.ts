@@ -1,10 +1,6 @@
 import React from 'react';
 
-export type IDialogController = {
-  openDialog: (dialogId: string) => void;
-  closeDialog: (dialogId: string) => void;
-  openedDialogs: string[];
-};
+import { IDialogController } from '../types';
 
 const noOpDialogControl = () => {
   console.error('No dialog controller implemented');

@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { fireEvent, render, screen } from '@testing-library/react';
-import { DefaultTheme, ThemeColor } from '@uireact/foundation';
-import { IDialogController, UiDialog, useDialog } from '@uireact/dialog';
+
+import { DefaultTheme, ThemeColor, IDialogController } from '@uireact/foundation';
+import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
 

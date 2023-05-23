@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks/server';
 import { act } from '@testing-library/react';
 
-import { useDialogController } from '@uireact/dialog/hooks';
+import { useDialogController } from '../../src/hooks';
 
 describe('useDialogController', () => {
   it('Should retrieve correct controller', () => {

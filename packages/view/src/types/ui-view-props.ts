@@ -1,5 +1,10 @@
-import { Theme, ThemeColor, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
-import { IDialogController } from '@uireact/dialog';
+import {
+  Theme,
+  ThemeColor,
+  UiReactElementProps,
+  UiReactPrivateElementProps,
+  IDialogController,
+} from '@uireact/foundation';
 
 export type UiViewProps = {
   dialogController?: IDialogController;
