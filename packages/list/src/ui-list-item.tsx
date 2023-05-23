@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Sizing, TextSize, ThemeContext, UiSpacing, UiSpacingProps, getTextSize } from '@uireact/foundation';
+import { TextSize, ThemeContext, UiSpacing, UiSpacingProps, getTextSize } from '@uireact/foundation';
 
 import { UiListItemProps, privateListItemProps } from './types';
 
@@ -13,7 +13,7 @@ const ListItem = styled.li<privateListItemProps>`
 `;
 
 const UiListItemSpacing: UiSpacingProps = {
-  margin: { all: Sizing.three },
+  margin: { all: 'three' },
 };
 
 export const UiListItem: React.FC<UiListItemProps> = ({ children, className }: UiListItemProps) => {

@@ -15,7 +15,7 @@ type TokensFormProps = {
 export const TokensForm: React.FC<TokensFormProps> = ({ name, handleChange, tokens }: TokensFormProps) => {
   return (
     <UiCard>
-      <UiSpacing padding={{ all: Sizing.three }}>
+      <UiSpacing padding={{ all: 'three' }}>
         <UiHeading>{name}</UiHeading>
         <UiGrid cols={2} rows={5}>
           <UiInput

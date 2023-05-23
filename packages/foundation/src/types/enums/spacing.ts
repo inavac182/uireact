@@ -7,3 +7,5 @@ export enum Sizing {
   six = 'six',
   seven = 'seven',
 }
+
+export type SpacingType = 'one' | 'two' | 'three' | 'four' | 'five' | 'six' | 'seven';

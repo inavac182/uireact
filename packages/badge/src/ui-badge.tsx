@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling, UiSpacing, Sizing } from '@uireact/foundation';
+import { TextSize, ThemeContext, getTextSize, getThemeStyling, UiSpacing } from '@uireact/foundation';
 
 import { getDynamicBadgeMapper } from './theme';
 import { UiBadgeProps, privateBadgeProps } from './types';
@@ -31,7 +31,7 @@ export const UiBadge: React.FC<UiBadgeProps> = ({ category, className, children,
       className={className}
       size={size}
     >
-      <UiSpacing padding={{ inline: Sizing.three }}>{children}</UiSpacing>
+      <UiSpacing padding={{ inline: 'three' }}>{children}</UiSpacing>
     </BadgeDiv>
   );
 };

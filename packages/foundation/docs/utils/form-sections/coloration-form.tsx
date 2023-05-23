@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UiSpacing, Sizing, Coloration } from '@uireact/foundation';
+import { UiSpacing, Coloration } from '@uireact/foundation';
 import { UiHeading } from '@uireact/text';
 import { UiGrid } from '@uireact/grid';
 import { TokensForm } from '.';
@@ -19,13 +19,13 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
 }: ColorationFormProps) => {
   return (
     <>
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiCard theme="tertiary">
           <UiHeading>{type}</UiHeading>
         </UiCard>
       </UiSpacing>
 
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>General colorations</UiHeading>
         <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
           <TokensForm name={`${type}-backgrounds`} tokens={coloration.backgrounds} handleChange={handleChange} />
@@ -33,7 +33,7 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
         </UiGrid>
       </UiSpacing>
 
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>Level colorations</UiHeading>
         <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
           <TokensForm name={`${type}-primary`} tokens={coloration.primary} handleChange={handleChange} />
@@ -42,7 +42,7 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
         </UiGrid>
       </UiSpacing>
 
-      <UiSpacing margin={{ all: Sizing.four }}>
+      <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>State colorations</UiHeading>
         <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
           <TokensForm name={`${type}-positive`} tokens={coloration.positive} handleChange={handleChange} />

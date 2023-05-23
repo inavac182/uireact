@@ -30,11 +30,11 @@ export const IconsList: React.FC = () => {
   return (
     <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiViewRow>
-        <UiSpacing padding={{ all: Sizing.four }}>
+        <UiSpacing padding={{ all: 'four' }}>
           <UiFlexGrid alignItems="center" gap={Sizing.five} justifyContent="center">
             <UiFlexGridItem grow={1}>
               <UiButton onClick={toogleTheme} fullWidth>
-                <UiSpacing padding={{ block: Sizing.four }}>
+                <UiSpacing padding={{ block: 'four' }}>
                   <UiText>Toggle theme</UiText>
                 </UiSpacing>
               </UiButton>
@@ -53,7 +53,7 @@ export const IconsList: React.FC = () => {
             </UiFlexGridItem>
           </UiFlexGrid>
         </UiSpacing>
-        <UiSpacing padding={{ block: Sizing.five }}>
+        <UiSpacing padding={{ block: 'five' }}>
           <UiGrid cols={5} colsGap={10} rowsGap={10}>
             {Object.keys(Icons).map((key) => (
               <UiGridItem key={`icon-grid-item-component-${key}`}>
