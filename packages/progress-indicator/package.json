@@ -3,7 +3,7 @@
   "description": "Progress indicator component from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "0.0.14",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -24,13 +24,13 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^0.7.1",
+    "@uireact/foundation": "^1.0.1",
     "@uireact/icons": "^0.3.12",
     "@uireact/text": "^0.4.2"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
-    "@uireact/foundation": "^0.7.1",
+    "@uireact/foundation": "^1.0.1",
     "@uireact/icons": "^0.3.1",
     "@uireact/text": "^0.4.0",
     "react": ">= 17 < 19",
