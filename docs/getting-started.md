@@ -9,7 +9,7 @@ route: /getting-started
 
 _5 mins read_
 
-This doc will help you to get up and running with the library in an existing project.
+This doc will help you to get up and running with the library in your project.
 
 The main component of this library is the `@uireact/foundation`, this package has the definition of types, enums, objects and
 helper functions that other packages across the library need, it also has all the handling that is needed for the themes, responsive design and dialogs.
@@ -83,7 +83,7 @@ Follow the steps on the CLI, make sure to select react as the UI framework, and 
 npm run dev
 ```
 
-4. Modify the App.tsx file to the wrap the application with the provider and import a component
+1. Modify the /src/App.tsx file to the wrap the application with the provider and import a component
 
 ```jsx
 import { useState } from 'react'
