@@ -12,7 +12,7 @@ route: /
 
 ## What? 😲
 
-A React library of Themed UI components that are ready to be used to speed up react app development. 
+A React library of Themed UI components that are ready to be used to speed up react app development.
 
 ## Why? 🤓
 
