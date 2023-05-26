@@ -83,7 +83,7 @@ Follow the steps on the CLI, make sure to select react as the UI framework, and 
 npm run dev
 ```
 
-1. Modify the /src/App.tsx file to the wrap the application with the provider and import a component
+1. Modify the /src/App.tsx file to wrap the application with the provider and import a component
 
 ```jsx
 import { useState } from 'react'
@@ -120,7 +120,6 @@ Follow the steps on the CLI, Typescript is highly recommended
 
 ```bash
  npm install --save @uireact/foundation @uireact/view @uireact/button
-
 ```
 
 3. Run the Application
@@ -129,7 +128,7 @@ Follow the steps on the CLI, Typescript is highly recommended
 npm run dev
 ```
 
-4. Modify the src/app/page.tsx file to the wrap the application with the provider and import a component
+1. Modify the src/app/page.tsx file to wrap the application with the provider and import a component
 
 note: Don't forget to add "use client" directive since next by default will make the component a server component, and server components can't use useState nor can leverage the createContext api needed on uireact library.
 
@@ -177,7 +176,7 @@ Follow the steps on the CLI, select just the basics, and Remix server, Typescrip
 npm run dev
 ```
 
-4. Modify the app/routes/_index.tsx file to the wrap the application with the provider and import a component
+1. Modify the app/routes/_index.tsx file to wrap the application with the provider and import a component
 
 
 ```jsx
