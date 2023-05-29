@@ -11,44 +11,46 @@ interface ViewportProps {
   criteria: Breakpoints | BreakpointString;
 }
 
-export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }) => {
+export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }: ViewportProps) => {
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
-  const childrenMemo = React.useMemo(() => <>{children}</>, [children]);
-
-  if (isSmall) {
-    const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 's|m';
-    if (matchesCriteria) {
-      return childrenMemo;
+  const childrenMemo = React.useMemo(() => {
+    if (isSmall) {
+      const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 's|m';
+      if (matchesCriteria) {
+        return children;
+      }
     }
-  }
 
-  if (isMedium) {
-    const matchesCriteria =
-      criteria === Breakpoints.MEDIUM || criteria === 's|m' || criteria === 'm|l' || criteria === 'm|l|xl';
+    if (isMedium) {
+      const matchesCriteria =
+        criteria === Breakpoints.MEDIUM || criteria === 's|m' || criteria === 'm|l' || criteria === 'm|l|xl';
 
-    if (matchesCriteria) {
-      return childrenMemo;
+      if (matchesCriteria) {
+        return children;
+      }
     }
-  }
 
-  if (isLarge) {
-    const matchesCriteria =
-      criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl' || criteria === 'm|l|xl';
+    if (isLarge) {
+      const matchesCriteria =
+        criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl' || criteria === 'm|l|xl';
 
-    if (matchesCriteria) {
-      return childrenMemo;
+      if (matchesCriteria) {
+        return children;
+      }
     }
-  }
 
-  if (isXLarge) {
-    const matchesCriteria = criteria === Breakpoints.XLARGE || criteria === 'l|xl' || criteria === 'm|l|xl';
+    if (isXLarge) {
+      const matchesCriteria = criteria === Breakpoints.XLARGE || criteria === 'l|xl' || criteria === 'm|l|xl';
 
-    if (matchesCriteria) {
-      return childrenMemo;
+      if (matchesCriteria) {
+        return children;
+      }
     }
-  }
 
-  return null;
+    return null;
+  }, [children, isSmall, isMedium, isLarge, isXLarge]);
+
+  return <>{childrenMemo}</>;
 };
 
 UiViewport.displayName = 'UiViewport';
