@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/inavac182/uireact/compare/@uireact/view@1.0.3...@uireact/view@1.0.4) (2023-05-30)
+
+
+### Bug Fixes
+
+* **foundation:** viewport effect ([#182](https://github.com/inavac182/uireact/issues/182)) ([88c75e1](https://github.com/inavac182/uireact/commit/88c75e16a532d613017bafc53d208a9fd3a2c836))
+
+
+
+
+
 ## [1.0.3](https://github.com/inavac182/uireact/compare/@uireact/view@1.0.2...@uireact/view@1.0.3) (2023-05-23)
 
 **Note:** Version bump only for package @uireact/view
