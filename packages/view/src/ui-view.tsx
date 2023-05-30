@@ -42,7 +42,9 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
         ColorTokens.token_100
       )};`}
     `}
+
     font-weight: 400;
+    width: 100%;
   }
 `;
 

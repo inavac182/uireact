@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import ReactDOMServer from 'react-dom/server';
 
 import { Breakpoints, UiViewport } from '../../src';
 import { BreakpointsSizes } from '../../src/responsive/breakpoints-sizes';
@@ -76,6 +77,21 @@ describe('using breakpoint enum', () => {
     });
 
     expect(screen.getByText('Render in small')).toBeVisible();
+  });
+
+  test('should get null if is SSR and skipSSR is enabled', () => {
+    const component = (
+      <UiViewport criteria={Breakpoints.SMALL} skipSSr>
+        <p>Render in small</p>
+      </UiViewport>
+    );
+    const containerComponent = document.createElement('div');
+    document.body.appendChild(containerComponent);
+    containerComponent.innerHTML = ReactDOMServer.renderToString(component);
+
+    const { container } = render(component, { hydrate: true, container: containerComponent });
+
+    expect(container).toBeEmptyDOMElement();
   });
 });
 

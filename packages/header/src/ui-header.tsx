@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Breakpoints, ThemeContext, UiViewport, getThemeStyling } from '@uireact/foundation';
+import { ThemeContext, UiViewport, getThemeStyling, useViewport } from '@uireact/foundation';
 
 import { UiHeaderProps, privateUiHeaderProps } from './types';
 import { CenteredDiv } from './__private';
@@ -29,16 +29,19 @@ const Div = styled.div<privateUiHeaderProps>`
 
 export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }: UiHeaderProps) => {
   const themeContext = React.useContext(ThemeContext);
+  const { isLarge } = useViewport();
 
   return (
-    <Div customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme} fixed={fixed}>
+    <Div
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+      fixed={fixed}
+      data-testid="UiHeader"
+    >
       {centered ? (
         <>
-          <UiViewport criteria={Breakpoints.XLARGE}>
-            <CenteredDiv size="xl">{children}</CenteredDiv>
-          </UiViewport>
-          <UiViewport criteria={Breakpoints.LARGE}>
-            <CenteredDiv size="l">{children}</CenteredDiv>
+          <UiViewport criteria={'l|xl'}>
+            <CenteredDiv size={isLarge ? 'l' : 'xl'}>{children}</CenteredDiv>
           </UiViewport>
           <UiViewport criteria={'s|m'}>{children}</UiViewport>
         </>
