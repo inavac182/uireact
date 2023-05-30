@@ -12,7 +12,16 @@ interface ViewportProps {
 }
 
 export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }: ViewportProps) => {
+  const [hydrated, setHydrated] = React.useState(false);
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
+  React.useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  if (!hydrated) {
+    // Returns null on first render, so the client and server match
+    return null;
+  }
 
   if (isSmall) {
     const matchesCriteria = criteria === Breakpoints.SMALL || criteria === 's|m';
