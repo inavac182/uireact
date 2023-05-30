@@ -9,17 +9,19 @@ interface ViewportProps {
   children?: React.ReactNode;
   /** Breakpoint(s) criteria where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
   criteria: Breakpoints | BreakpointString;
+  /* Render null during SSR, useful when SSR doen't play nicely with styled components */
+  skipSSr?: boolean;
 }
 
-export const UiViewport: React.FC<ViewportProps> = ({ children, criteria }: ViewportProps) => {
+export const UiViewport: React.FC<ViewportProps> = ({ children, criteria, skipSSr }: ViewportProps) => {
   const [hydrated, setHydrated] = React.useState(false);
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
   React.useEffect(() => {
     setHydrated(true);
   }, []);
 
-  if (!hydrated) {
-    // Returns null on first render, so the client and server match
+  if (!hydrated && skipSSr) {
+    // Returns null on first render if SSR and skipSSr is enabled, so the client and server match
     return null;
   }
 
