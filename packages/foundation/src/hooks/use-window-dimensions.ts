@@ -12,11 +12,11 @@ export const useWindowDimensions = (): WindowDimensions => {
     window.addEventListener('resize', handleResize);
 
     return (): void => window.removeEventListener('resize', handleResize);
-  });
+  }, []);
 
   useEffect(() => {
     setWindowDimensions(getWindowDimensions());
-  });
+  }, []);
 
   return windowDimensions;
 };
