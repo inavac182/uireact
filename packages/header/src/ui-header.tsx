@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ThemeContext, UiViewport, getThemeStyling } from '@uireact/foundation';
+import { ThemeContext, UiViewport, getThemeStyling, useViewport } from '@uireact/foundation';
 
 import { UiHeaderProps, privateUiHeaderProps } from './types';
 import { CenteredDiv } from './__private';
@@ -29,6 +29,7 @@ const Div = styled.div<privateUiHeaderProps>`
 
 export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }: UiHeaderProps) => {
   const themeContext = React.useContext(ThemeContext);
+  const { isLarge } = useViewport();
 
   return (
     <Div
@@ -40,7 +41,7 @@ export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }:
       {centered ? (
         <>
           <UiViewport criteria={'l|xl'}>
-            <CenteredDiv size="l">{children}</CenteredDiv>
+            <CenteredDiv size={isLarge ? 'l' : 'xl'}>{children}</CenteredDiv>
           </UiViewport>
           <UiViewport criteria={'s|m'}>{children}</UiViewport>
         </>
