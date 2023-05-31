@@ -43,7 +43,9 @@ We are fully open to contributions, please go through these pages for learning m
 
 - [Felipe Nava](https://www.linkedin.com/in/inavac/)
 - [Felipe's Twitter](https://twitter.com/FelipeNava92)
+- [Felipe's gh](https://github.com/inavac182/)
 - [Sergio Ortiz](https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/)
+- [Sergio's gh](https://github.com/saudelog)
 
 ## Just have fun 🫶
 
