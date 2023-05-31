@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import ReactDOMServer from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 
 import { Breakpoints, UiViewport } from '../../src';
 import { BreakpointsSizes } from '../../src/responsive/breakpoints-sizes';
@@ -78,20 +78,52 @@ describe('using breakpoint enum', () => {
 
     expect(screen.getByText('Render in small')).toBeVisible();
   });
+});
 
-  test('should get null if is SSR and skipSSR is enabled', () => {
-    const component = (
-      <UiViewport criteria={Breakpoints.SMALL} skipSSr>
+describe('SSR', () => {
+  test('should render in SSR when large is in the criteria', () => {
+    global.innerWidth = BreakpointsSizes.m.min;
+    const component = renderToString(
+      <UiViewport criteria={Breakpoints.XLARGE}>
+        <p>Render in large</p>
+      </UiViewport>
+    );
+
+    expect(component).toContain('Render in large');
+  });
+
+  test('should render in SSR when xlarge is in the criteria', () => {
+    global.innerWidth = BreakpointsSizes.m.min;
+    const component = renderToString(
+      <UiViewport criteria={Breakpoints.XLARGE}>
+        <p>Render in xlarge</p>
+      </UiViewport>
+    );
+
+    expect(component).toContain('Render in xlarge');
+  });
+
+  test('should NOT render in SSR when SMALL is in the criteria', () => {
+    global.innerWidth = BreakpointsSizes.s.max;
+
+    const component = renderToString(
+      <UiViewport criteria={Breakpoints.SMALL}>
         <p>Render in small</p>
       </UiViewport>
     );
-    const containerComponent = document.createElement('div');
-    document.body.appendChild(containerComponent);
-    containerComponent.innerHTML = ReactDOMServer.renderToString(component);
 
-    const { container } = render(component, { hydrate: true, container: containerComponent });
+    expect(component).toBe('');
+  });
 
-    expect(container).toBeEmptyDOMElement();
+  test('should NOT render in SSR when skipSsr is provided', () => {
+    global.innerWidth = BreakpointsSizes.m.min;
+    const component = renderToString(
+      <UiViewport criteria={Breakpoints.XLARGE} skipSSr>
+        <p>Render in large</p>
+      </UiViewport>
+    );
+
+    expect(component).toBe('');
   });
 });
 
