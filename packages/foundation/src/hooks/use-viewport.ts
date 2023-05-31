@@ -13,7 +13,7 @@ export const useViewport = (): useViewportResponse => {
 
   const isSmall = width <= BreakpointsSizes.s.max;
   const isMedium = width >= BreakpointsSizes.m.min && width <= BreakpointsSizes.m.max;
-  const isLarge = width >= BreakpointsSizes.l.min && width < BreakpointsSizes.xl.min;
+  const isLarge = width >= BreakpointsSizes.l.min && width <= BreakpointsSizes.l.max;
   const isXLarge = width >= BreakpointsSizes.xl.min;
 
   return {

@@ -9,18 +9,33 @@ interface ViewportProps {
   children?: React.ReactNode;
   /** Breakpoint(s) criteria where UiViewport render it children see [Breakpoints Enum](./packages-foundation-docs-breakpoints) */
   criteria: Breakpoints | BreakpointString;
-  /* Render null during SSR, useful when SSR doen't play nicely with styled components */
+  /* As we are defaulting to large when we are in SSR this prop is useful if you prefer to just render nothing in SSR */
   skipSSr?: boolean;
 }
 
 export const UiViewport: React.FC<ViewportProps> = ({ children, criteria, skipSSr }: ViewportProps) => {
   const [hydrated, setHydrated] = React.useState(false);
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
+
   React.useEffect(() => {
     setHydrated(true);
   }, []);
 
-  if (!hydrated && skipSSr) {
+  if (skipSSr && !hydrated) {
+    return null;
+  }
+
+  // Only during SSR we won't take in consideration the user window
+  if (!hydrated) {
+    const isCriteriaLarge =
+      criteria === Breakpoints.LARGE || criteria === 'm|l' || criteria === 'l|xl' || criteria === 'm|l|xl';
+    const isCriteriaXLarge = criteria === Breakpoints.XLARGE || criteria === 'l|xl' || criteria === 'm|l|xl';
+
+    // Only render if criteria is large or Xlarge
+    if (isCriteriaLarge || isCriteriaXLarge) {
+      return <>{children}</>;
+    }
+
     // Returns null on first render if SSR and skipSSr is enabled, so the client and server match
     return null;
   }
