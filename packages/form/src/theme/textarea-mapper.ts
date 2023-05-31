@@ -60,14 +60,14 @@ export const getDynamicTextareaMapper = (category: ColorCategories): ThemeMapper
       'border-color': {
         category: category,
         inverse: true,
-        token: ColorTokens.token_200,
+        token: ColorTokens.token_100,
       },
     },
     focus: {
       'border-color': {
         category: category,
         inverse: true,
-        token: ColorTokens.token_200,
+        token: ColorTokens.token_150,
       },
     },
   };
