@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/inavac182/uireact/compare/@uireact/foundation@1.0.4...@uireact/foundation@1.1.0) (2023-05-31)
+
+
+### Features
+
+* **foundation:** default to large on SSR UiViewport ([#184](https://github.com/inavac182/uireact/issues/184)) ([d841f6c](https://github.com/inavac182/uireact/commit/d841f6cd41822ef9da92cc31cd866bed1795b405))
+
+
+
+
+
 ## [1.0.4](https://github.com/inavac182/uireact/compare/@uireact/foundation@1.0.3...@uireact/foundation@1.0.4) (2023-05-30)
 
 **Note:** Version bump only for package @uireact/foundation
