@@ -33,6 +33,7 @@ const Input = styled.input<privateInputProps>`
 
     padding: 5px;
     outline: none;
+    width: 100%;
   `}
 `;
 
@@ -42,6 +43,7 @@ const WrapperDiv = styled.div`
 
 const InputDiv = styled.div`
   display: inline-block;
+  flex-grow: 1;
 `;
 
 export const UiInput: React.FC<UiInputProps> = ({
