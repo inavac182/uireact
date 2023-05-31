@@ -11,6 +11,7 @@ export { default as Chat } from './Chat';
 export { default as Click } from './Click';
 export { default as Clock2 } from './Clock2';
 export { default as Clock } from './Clock';
+export { default as ColorDrop } from './ColorDrop';
 export { default as Connection } from './Connection';
 export { default as Contacts2 } from './Contacts2';
 export { default as Contacts } from './Contacts';
