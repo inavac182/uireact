@@ -34,6 +34,7 @@ const MenuDiv = styled.div<privateMenuProps>`
   border-radius: 5px;
   width: max-content;
   z-index: 10;
+  inset-inline-end: 0;
 `;
 
 const WrapperDiv = styled.div`
