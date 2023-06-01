@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.5 (2023-06-01)
+
+
+### Bug Fixes
+
+* **menu:** style for prevent going off screen ([#189](https://github.com/inavac182/ui-react/issues/189)) ([78139c0](https://github.com/inavac182/ui-react/commit/78139c064aa64e07e713c3fb92bb209ee99cc2df))
+
+
+
+
+
 ## [1.0.4](https://github.com/inavac182/ui-react/compare/@uireact/button@1.0.3...@uireact/button@1.0.4) (2023-05-31)
 
 **Note:** Version bump only for package @uireact/button
