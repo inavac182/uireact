@@ -17,6 +17,7 @@ const Textarea = styled.textarea<privateTextAreaProps>`
     )}
     font-size: ${getTextSize(props.customTheme, TextSize.regular)};
     ${props.resize === false ? 'resize: none;' : ''}
+    ${!props.cols ? 'width: 100%;' : ''}
   `}
 
   border-style: solid;
@@ -43,6 +44,7 @@ const WrapperDiv = styled.div`
 
 const InputDiv = styled.div`
   display: inline-block;
+  flex-grow: 1;
 `;
 
 export const UiTextArea: React.FC<UiTextAreaProps> = ({

@@ -12,6 +12,12 @@ describe('<UiTextArea />', () => {
     expect(screen.getByRole('textbox')).toBeVisible();
   });
 
+  it('renders fine with cols', () => {
+    uiRender(<UiTextArea name="text-area" cols={10} />);
+
+    expect(screen.getByRole('textbox')).toBeVisible();
+  });
+
   it('renders fine without name', () => {
     uiRender(<UiTextArea />);
 
