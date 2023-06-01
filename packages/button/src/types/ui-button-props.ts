@@ -14,7 +14,9 @@ export type UiButtonProps = {
   className?: string;
   /** Button theme */
   theme?: ColorCategory;
-  /** Visual button type */
+  /** If button should take full height */
+  fullHeight?: boolean;
+  /** If button should take full width */
   fullWidth?: boolean;
   /** Button type */
   type?: 'button' | 'submit';

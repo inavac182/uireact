@@ -43,6 +43,12 @@ describe('<UiButton />', () => {
     expect(screen.getByRole('button')).toBeVisible();
   });
 
+  test('renders full height', () => {
+    uiRender(<UiButton fullHeight>MyButton</UiButton>);
+
+    expect(screen.getByRole('button')).toBeVisible();
+  });
+
   test('renders class name', () => {
     uiRender(
       <UiButton testId="my-button" className="something">

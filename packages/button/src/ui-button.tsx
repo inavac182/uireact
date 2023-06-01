@@ -14,6 +14,7 @@ const StyledButton = styled.button<privateButtonProps>`
     return `
       ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
       ${props.fullWidth ? 'width: 100%;' : ''}
+      ${props.fullHeight ? 'height: 100%;' : ''}
     `;
   }}
 
@@ -33,6 +34,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   disabled,
   children,
   theme = 'primary',
+  fullHeight,
   fullWidth,
   type,
   ref,
@@ -48,6 +50,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
       data-testid={testId}
       className={className}
       disabled={disabled}
+      fullHeight={fullHeight}
       fullWidth={fullWidth}
       type={type}
       ref={ref}
