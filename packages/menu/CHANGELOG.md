@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/inavac182/ui-react/compare/@uireact/menu@1.0.5...@uireact/menu@1.0.6) (2023-06-02)
+
+
+### Bug Fixes
+
+* **menu:** positioning on small breakpoints ([#190](https://github.com/inavac182/ui-react/issues/190)) ([56466b4](https://github.com/inavac182/ui-react/commit/56466b4bbface5e13065601149610e8cfe056515))
+
+
+
+
+
 ## 1.0.5 (2023-06-01)
 
 
