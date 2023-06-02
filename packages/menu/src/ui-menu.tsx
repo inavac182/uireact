@@ -26,6 +26,11 @@ const MenuDiv = styled.div<privateMenuProps>`
       ColorCategories.backgrounds,
       ColorTokens.token_200
     )};
+    
+    ${
+      // istanbul ignore next
+      props.marginOffset > 0 ? `right: ${props.marginOffset}px;` : ''
+    }
   `}
 
   position: absolute;
@@ -34,7 +39,6 @@ const MenuDiv = styled.div<privateMenuProps>`
   border-radius: 5px;
   width: max-content;
   z-index: 10;
-  inset-inline-end: 0;
 `;
 
 const WrapperDiv = styled.div`
@@ -55,6 +59,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   visible,
 }: UiMenuProps) => {
   const dialogId = menuId || 'menu-component';
+  const menuRef = React.useRef<HTMLDivElement>(null);
+  const [marginOffset, setMarginOffset] = React.useState(0);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
   const theme = React.useContext(ThemeContext);
@@ -86,6 +92,19 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     }
   }, [visible, isOpen, isSmall]);
 
+  React.useEffect(() => {
+    // istanbul ignore this
+    if (menuRef && menuRef.current && visible && typeof window !== undefined) {
+      const position = menuRef.current.getBoundingClientRect();
+      const screenWidth = window.innerWidth;
+
+      // istanbul ignore next
+      if (position.right > screenWidth) {
+        setMarginOffset(position.right - screenWidth);
+      }
+    }
+  }, [menuRef, visible]);
+
   if (!visible) {
     return null;
   }
@@ -111,6 +130,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
             visible={visible}
             role="menu"
             closeMenuCB={closeMenuCB}
+            ref={menuRef}
+            marginOffset={marginOffset}
           >
             {children}
           </MenuDiv>
@@ -128,6 +149,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
         visible={visible}
         role="menu"
         closeMenuCB={closeMenuCB}
+        ref={menuRef}
+        marginOffset={marginOffset}
       >
         {children}
       </MenuDiv>

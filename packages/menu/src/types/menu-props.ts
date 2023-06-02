@@ -13,4 +13,6 @@ export type UiMenuProps = {
   closeMenuCB: () => void;
 } & UiReactElementProps;
 
-export type privateMenuProps = UiMenuProps & UiReactPrivateElementProps;
+export type privateMenuProps = UiMenuProps & {
+  marginOffset: number;
+} & UiReactPrivateElementProps;
