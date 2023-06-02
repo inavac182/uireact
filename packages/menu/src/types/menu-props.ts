@@ -14,5 +14,5 @@ export type UiMenuProps = {
 } & UiReactElementProps;
 
 export type privateMenuProps = UiMenuProps & {
-  marginOffset: number;
+  isOffset: boolean;
 } & UiReactPrivateElementProps;

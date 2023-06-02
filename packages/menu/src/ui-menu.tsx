@@ -29,7 +29,7 @@ const MenuDiv = styled.div<privateMenuProps>`
     
     ${
       // istanbul ignore next
-      props.marginOffset > 0 ? `right: ${props.marginOffset}px;` : ''
+      props.isOffset ? `right: 10px;` : ''
     }
   `}
 
@@ -60,7 +60,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 }: UiMenuProps) => {
   const dialogId = menuId || 'menu-component';
   const menuRef = React.useRef<HTMLDivElement>(null);
-  const [marginOffset, setMarginOffset] = React.useState(0);
+  const [isOffset, setIsOffset] = React.useState(false);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
   const theme = React.useContext(ThemeContext);
@@ -100,7 +100,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 
       // istanbul ignore next
       if (position.right > screenWidth) {
-        setMarginOffset(position.right - screenWidth);
+        setIsOffset(true);
       }
     }
   }, [menuRef, visible]);
@@ -131,7 +131,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
             role="menu"
             closeMenuCB={closeMenuCB}
             ref={menuRef}
-            marginOffset={marginOffset}
+            isOffset={isOffset}
           >
             {children}
           </MenuDiv>
@@ -150,7 +150,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
         role="menu"
         closeMenuCB={closeMenuCB}
         ref={menuRef}
-        marginOffset={marginOffset}
+        isOffset={isOffset}
       >
         {children}
       </MenuDiv>
