@@ -43,6 +43,8 @@ describe('<UiLink />', () => {
 
   it('renders fine when uses internal link', () => {
     uiRender(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       <MemoryRouter initialEntries={['/']}>
         <UiLink href="#" useReactLink theme="positive">
           Link
