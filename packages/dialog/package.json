@@ -3,7 +3,7 @@
   "description": "Dialogs package for @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@uireact/foundation": "^1.1.0",
     "@uireact/icons": "^1.1.0",
-    "@uireact/text": "^1.0.4"
+    "@uireact/text": "^1.1.0"
   },
   "peerDependencies": {
     "@types/styled-components": "^5.1.0",
