@@ -4,6 +4,7 @@ menu: Typography
 ---
 
 import { Props } from 'docz';
+import { MemoryRouter } from 'react-router-dom';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
@@ -42,6 +43,18 @@ import { UiLink } from '../src';
   <UiLink handleClick={() => console.log('Link Clicked')} theme="negative">
     Some text
   </UiLink>
+</Playground>
+
+## UiLink using React router dom Link
+
+The prop `useReactLink` will render the Link from react-router-dom. This is so you can make use of the internal react routing.
+
+<Playground>
+  <MemoryRouter initialEntries={['/']}>
+    <UiLink href="?param=value" target="_blank" theme="error" useReactLink>
+      Some text
+    </UiLink>
+  </MemoryRouter>
 </Playground>
 
 ### Props

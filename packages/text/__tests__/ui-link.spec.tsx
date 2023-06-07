@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 import { fireEvent, screen } from '@testing-library/react';
 
@@ -33,6 +34,28 @@ describe('<UiLink />', () => {
   it('renders fine with category', () => {
     uiRender(
       <UiLink href="#" theme="positive">
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine when uses internal link', () => {
+    uiRender(
+      <MemoryRouter initialEntries={['/']}>
+        <UiLink href="#" useReactLink theme="positive">
+          Link
+        </UiLink>
+      </MemoryRouter>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine when uses internal link but doesnt provide href', () => {
+    uiRender(
+      <UiLink useReactLink theme="positive">
         Link
       </UiLink>
     );
