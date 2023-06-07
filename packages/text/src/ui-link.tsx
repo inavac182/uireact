@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
@@ -22,6 +24,23 @@ const Anchor = styled.a<privateLinkProps>`
   }
 `;
 
+const StyledLinkWrapper = styled.span<privateLinkProps>`
+  a {
+    ${(props) => `
+      ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getColorCategory(props.category)))}
+      font-size: ${getTextSize(props.customTheme, props.size || TextSize.regular)};
+    `}
+
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
 export const UiLink: React.FC<UiLinkProps> = ({
   theme = 'secondary',
   children,
@@ -31,8 +50,33 @@ export const UiLink: React.FC<UiLinkProps> = ({
   referrerpolicy,
   size,
   target,
+  useReactLink,
+  testId,
 }: UiLinkProps) => {
   const themeContext = React.useContext(ThemeContext);
+
+  if (useReactLink && href) {
+    return (
+      <StyledLinkWrapper
+        category={theme}
+        customTheme={themeContext.theme}
+        onClick={handleClick}
+        selectedTheme={themeContext.selectedTheme}
+        size={size}
+      >
+        <Link
+          to={href}
+          data-testid={testId}
+          role="link"
+          target={target}
+          ref={ref}
+          referrerPolicy={referrerpolicy || 'no-referrer'}
+        >
+          {children}
+        </Link>
+      </StyledLinkWrapper>
+    );
+  }
 
   return (
     <Anchor
@@ -46,6 +90,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
       size={size}
       target={target}
       role="link"
+      data-testid={testId}
     >
       {children}
     </Anchor>
