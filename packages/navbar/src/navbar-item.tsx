@@ -24,6 +24,7 @@ const Div = styled.div<privateNavbarItemProps>`
 
 export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({
   active,
+  // istanbul ignore next
   category = 'primary',
   children,
 }: UiNavbarItemProps) => {

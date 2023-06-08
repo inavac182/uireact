@@ -14,7 +14,7 @@ const NavbarWrapper = styled.div<privateNavbarProps>`
   ${(props: privateNavbarProps) => {
     return `
       flex-direction: ${props.orientation === 'stacked' ? 'column' : 'row'};
-      ${props.align && props.orientation ? getFlexAlignment(props.align, props.orientation) : ''}
+      ${getFlexAlignment(props.align, props.orientation)}
     `;
   }}
 `;

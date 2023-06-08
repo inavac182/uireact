@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { ColorCategory, UiReactPrivateElementProps, getThemeStyling } from '@uireact/foundation';
 
-import { UiNavbarProps } from '../types';
+import { UiNavbarItemProps, UiNavbarProps } from '../types';
 import { getNavbarItemMapper } from '../theme';
 
 type NavbarItemWrapperProps = UiNavbarProps & {
@@ -28,19 +28,23 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
   customTheme,
   selectedTheme,
 }: NavbarItemWrapperProps) => {
-  const content = React.cloneElement(children, {
-    category: category,
-  });
+  if (React.isValidElement(children)) {
+    const content = React.cloneElement<UiNavbarItemProps>(children as React.ReactElement<UiNavbarItemProps>, {
+      category: category,
+    });
 
-  return (
-    <Div
-      align={align}
-      category={category}
-      customTheme={customTheme}
-      selectedTheme={selectedTheme}
-      orientation={orientation}
-    >
-      {content}
-    </Div>
-  );
+    return (
+      <Div
+        align={align}
+        category={category}
+        customTheme={customTheme}
+        selectedTheme={selectedTheme}
+        orientation={orientation}
+      >
+        {content}
+      </Div>
+    );
+  }
+
+  return null;
 };

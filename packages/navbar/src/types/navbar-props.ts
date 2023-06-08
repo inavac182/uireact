@@ -5,7 +5,7 @@ export type Alignment = 'start' | 'center' | 'end';
 export type Orientation = 'stacked' | 'inline';
 
 export type UiNavbarProps = {
-  children: React.ReactElement;
+  children: React.ReactNode;
   /**  Stacked will render all options vertically - INLINE Default */
   orientation?: Orientation;
   /** Color category for navbar */
@@ -14,4 +14,7 @@ export type UiNavbarProps = {
   align?: Alignment;
 } & Omit<UiReactElementProps, 'children'>;
 
-export type privateNavbarProps = UiNavbarProps & UiReactPrivateElementProps;
+export type privateNavbarProps = UiNavbarProps & {
+  orientation: Orientation;
+  align: Alignment;
+} & UiReactPrivateElementProps;
