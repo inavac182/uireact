@@ -7,7 +7,7 @@ import { Props } from 'docz';
 
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
-import { UiText } from '@uireact/text';
+import { UiText, UiLink } from '@uireact/text';
 
 import Playground from '../../../src/Playground';
 import { UiNavbar, UiNavbarItem } from '../src/';
@@ -32,16 +32,24 @@ import * as packageJson from '../package.json';
 <Playground>
   <UiNavbar orientation="stacked">
     <UiNavbarItem>
-      <UiText>Option 1</UiText>
+      <UiLink href="uireact.com" fullWidth>
+        Option 1
+      </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 2</UiText>
+      <UiLink href="uireact.com" fullWidth>
+        Option 2
+      </UiLink>
     </UiNavbarItem>
     <UiNavbarItem active>
-      <UiText>Option 3</UiText>
+      <UiLink href="uireact.com" fullWidth>
+        Option 3
+      </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 4</UiText>
+      <UiLink href="uireact.com" fullWidth>
+        Option 4
+      </UiLink>
     </UiNavbarItem>
   </UiNavbar>
 </Playground>

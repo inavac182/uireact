@@ -41,6 +41,18 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine with fullWidth', () => {
+    uiRender(
+      <UiLink href="#" theme="positive" fullWidth>
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('width', '100%');
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('display', 'inline-block');
+  });
+
   it('renders fine when uses internal link', () => {
     uiRender(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -13,6 +13,7 @@ const Anchor = styled.a<privateLinkProps>`
   ${(props) => `
     ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getColorCategory(props.category)))}
     font-size: ${getTextSize(props.customTheme, props.size || TextSize.regular)};
+    ${props.fullWidth ? 'width: 100%; display: inline-block;' : ''}
   `}
 
   cursor: pointer;
@@ -46,6 +47,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   children,
   handleClick,
   href,
+  fullWidth,
   ref,
   referrerpolicy,
   size,
@@ -60,6 +62,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
       <StyledLinkWrapper
         category={theme}
         customTheme={themeContext.theme}
+        fullWidth={fullWidth}
         onClick={handleClick}
         selectedTheme={themeContext.selectedTheme}
         size={size}
@@ -83,6 +86,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
       category={theme}
       customTheme={themeContext.theme}
       href={href}
+      fullWidth={fullWidth}
       onClick={handleClick}
       ref={ref}
       referrerpolicy={referrerpolicy}
