@@ -1,15 +1,45 @@
 import React from 'react';
 
-import { NavbarItemWrapper } from './private';
+import { ColorTokens, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
 
-export interface UiNavbarItemProps {
-  children?: React.ReactNode;
-  /** Alignment where the item content will render - CENTER Default */
-  align?: 'right' | 'center' | 'left';
-}
+import styled from 'styled-components';
 
-export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ children, align }: UiNavbarItemProps) => {
-  return <NavbarItemWrapper align={align}>{children}</NavbarItemWrapper>;
+import { UiNavbarItemProps, privateNavbarItemProps } from './types';
+
+const Div = styled.div<privateNavbarItemProps>`
+  ${(props) => `
+    ${
+      props.active
+        ? `background: ${getThemeColor(
+            props.customTheme,
+            props.selectedTheme,
+            getColorCategory(props.category),
+            ColorTokens.token_150,
+            false
+          )};`
+        : ''
+    }
+  `}
+`;
+
+export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({
+  active,
+  // istanbul ignore next
+  category = 'primary',
+  children,
+}: UiNavbarItemProps) => {
+  const themeContext = React.useContext(ThemeContext);
+
+  return (
+    <Div
+      active={active}
+      category={category}
+      customTheme={themeContext.theme}
+      selectedTheme={themeContext.selectedTheme}
+    >
+      {children}
+    </Div>
+  );
 };
 
 UiNavbarItem.displayName = 'UiNavbarItem';

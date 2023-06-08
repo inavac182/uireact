@@ -19,6 +19,8 @@ export type UiLinkProps = {
   target?: string;
   /** If uses react router dome link, YOU HAVE TO PROVIDE A HREF */
   useReactLink?: boolean;
+  /** If link should take the whole link, useful for rendering links as Navbar items */
+  fullWidth?: boolean;
 } & UiReactElementProps;
 
 export type privateLinkProps = Omit<UiLinkProps, 'theme'> & {
