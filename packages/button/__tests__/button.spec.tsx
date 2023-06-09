@@ -43,6 +43,12 @@ describe('<UiButton />', () => {
     expect(screen.getByRole('button')).toBeVisible();
   });
 
+  test('renders when is cristal', () => {
+    uiRender(<UiButton cristal>MyButton</UiButton>);
+
+    expect(screen.getByRole('button')).toBeVisible();
+  });
+
   test('renders full height', () => {
     uiRender(<UiButton fullHeight>MyButton</UiButton>);
 

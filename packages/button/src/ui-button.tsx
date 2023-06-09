@@ -9,17 +9,18 @@ import { getDynamicMapper } from './theme';
 
 const StyledButton = styled.button<privateButtonProps>`
   ${(props) => {
-    const mapper = getDynamicMapper(getColorCategory(props.theme));
+    const mapper = getDynamicMapper(getColorCategory(props.theme), props.cristal);
 
     return `
       ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
       ${props.fullWidth ? 'width: 100%;' : ''}
       ${props.fullHeight ? 'height: 100%;' : ''}
+      ${props.cristal ? 'border-width: 0;' : 'border-width: 1px;'}
+      ${props.cristal ? 'background: unset;' : ''}
     `;
   }}
 
   font-weight: bold;
-  border-width: 1px;
   border-style: solid;
   border-radius: 3px;
   padding-left: 10px;
@@ -33,6 +34,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   className,
   disabled,
   children,
+  cristal,
   theme = 'primary',
   fullHeight,
   fullWidth,
@@ -48,6 +50,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
       theme={theme}
       onClick={onClick}
       data-testid={testId}
+      cristal={cristal}
       className={className}
       disabled={disabled}
       fullHeight={fullHeight}
