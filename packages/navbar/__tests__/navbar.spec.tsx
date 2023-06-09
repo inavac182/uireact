@@ -69,6 +69,20 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 3')).toBeVisible();
   });
 
+  it('Should render navbar when roundedCorners is used', () => {
+    render(
+      <UiNavbar category="secondary" roundedCorners>
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem active>Option 2</UiNavbarItem>
+        <UiNavbarItem>Option 3</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByText('Option 3')).toBeVisible();
+  });
+
   it('Should render navbar when an option is active', () => {
     render(
       <UiNavbar category="secondary">

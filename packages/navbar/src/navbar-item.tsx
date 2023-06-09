@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ColorTokens, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
+import { ThemeContext } from '@uireact/foundation';
 
 import styled from 'styled-components';
 
@@ -8,35 +8,15 @@ import { UiNavbarItemProps, privateNavbarItemProps } from './types';
 
 const Div = styled.div<privateNavbarItemProps>`
   ${(props) => `
-    ${
-      props.active
-        ? `background: ${getThemeColor(
-            props.customTheme,
-            props.selectedTheme,
-            getColorCategory(props.category),
-            ColorTokens.token_150,
-            false
-          )};`
-        : ''
-    }
+    ${!props.active ? 'background: transparent !important;' : ''}
   `}
 `;
 
-export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({
-  active,
-  // istanbul ignore next
-  category = 'primary',
-  children,
-}: UiNavbarItemProps) => {
+export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ active, children }: UiNavbarItemProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <Div
-      active={active}
-      category={category}
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
-    >
+    <Div active={active} customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme}>
       {children}
     </Div>
   );
