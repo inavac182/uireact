@@ -9,7 +9,7 @@ describe('getDynamicMapper', () => {
     expect(mapper.normal?.color?.inverse).toBeFalsy();
   });
 
-  it('should get correct mapper when is clear', () => {
+  it('should get correct mapper when is cristal', () => {
     const mapper = getDynamicMapper(ColorCategories.primary, true);
 
     expect(mapper.normal?.background).toBeUndefined();
