@@ -28,7 +28,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
     ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
   `}
 
-  div {
+  > div {
     ${(props) => `
       ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
       background: ${getThemeColor(
