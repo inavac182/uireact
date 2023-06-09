@@ -11,6 +11,10 @@ import { getFlexAlignment } from './utils';
 const NavbarWrapper = styled.div<privateNavbarProps>`
   display: flex;
 
+  a: hover {
+    text-decoration: none;
+  }
+
   ${(props: privateNavbarProps) => {
     return `
       flex-direction: ${props.orientation === 'stacked' ? 'column' : 'row'};
@@ -24,10 +28,17 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   category = 'primary',
   children,
   orientation = 'inline',
+  roundedCorners,
 }: UiNavbarProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   const NavbarContent = React.useMemo(() => {
+    let numberOfItems = 0;
+
+    React.Children.map(children, () => {
+      numberOfItems++;
+    });
+
     const elements: React.ReactElement[] = [];
 
     React.Children.map(children, (child, index) => {
@@ -39,6 +50,9 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           customTheme={themeContext.theme}
           selectedTheme={themeContext.selectedTheme}
           key={`navbar-item-${index}`}
+          isFirst={index === 0}
+          isLast={index === numberOfItems - 1}
+          roundedCorners={roundedCorners}
         >
           {child}
         </NavbarItemWrapper>

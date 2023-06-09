@@ -12,6 +12,8 @@ export type UiNavbarProps = {
   category?: ColorCategory;
   /** Navbar alignment */
   align?: Alignment;
+  /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
+  roundedCorners?: boolean;
 } & Omit<UiReactElementProps, 'children'>;
 
 export type privateNavbarProps = UiNavbarProps & {
