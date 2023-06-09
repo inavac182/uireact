@@ -33,12 +33,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   const themeContext = React.useContext(ThemeContext);
 
   const NavbarContent = React.useMemo(() => {
-    let numberOfItems = 0;
-
-    React.Children.map(children, () => {
-      numberOfItems++;
-    });
-
+    const numberOfItems = React.Children.count(children);
     const elements: React.ReactElement[] = [];
 
     React.Children.map(children, (child, index) => {
