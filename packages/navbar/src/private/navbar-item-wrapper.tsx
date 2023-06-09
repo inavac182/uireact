@@ -13,6 +13,7 @@ import {
 
 import { UiNavbarProps } from '../types';
 import { getNavbarItemMapper } from '../theme';
+import { getBorderRadiusStyling } from '../utils';
 
 type NavbarItemWrapperProps = UiNavbarProps & {
   category: ColorCategory;
@@ -24,14 +25,12 @@ const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
     ${props.orientation === 'stacked' ? 'width: 100%;' : ''}
     ${getThemeStyling(props.customTheme, props.selectedTheme, getNavbarItemMapper(props.category))}
-    ${props.roundedCorners && props.isFirst ? 'border-radius: 5px 5px 0 0;' : ''}
-    ${props.roundedCorners && props.isLast ? 'border-radius: 0 0 5px 5px;' : ''}
+    ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
   `}
 
   div {
     ${(props) => `
-      ${props.roundedCorners && props.isFirst ? 'border-radius: 5px 5px 0 0;' : ''}
-      ${props.roundedCorners && props.isLast ? 'border-radius: 0 0 5px 5px;' : ''}
+      ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
       background: ${getThemeColor(
         props.customTheme,
         props.selectedTheme,
