@@ -1,6 +1,6 @@
 import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
 
-export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
+export const getDynamicMapper = (category: ColorCategories, cristal?: boolean): ThemeMapper => {
   return {
     normal: {
       color: {
@@ -8,16 +8,20 @@ export const getDynamicMapper = (category: ColorCategories): ThemeMapper => {
         inverse: false,
         token: ColorTokens.token_100,
       },
-      background: {
-        category: category,
-        inverse: false,
-        token: ColorTokens.token_100,
-      },
-      'border-color': {
-        category: category,
-        inverse: false,
-        token: ColorTokens.token_50,
-      },
+      background: !cristal
+        ? {
+            category: category,
+            inverse: false,
+            token: ColorTokens.token_100,
+          }
+        : undefined,
+      'border-color': !cristal
+        ? {
+            category: category,
+            inverse: false,
+            token: ColorTokens.token_50,
+          }
+        : undefined,
     },
     hover: {
       background: {
