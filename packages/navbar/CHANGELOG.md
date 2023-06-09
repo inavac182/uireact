@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.2 (2023-06-09)
+
+
+### Bug Fixes
+
+* **navbar:** style to child div ([#197](https://github.com/inavac182/ui-react/issues/197)) ([09d3c70](https://github.com/inavac182/ui-react/commit/09d3c705b0e0c29723e43737a3deaa70d542c930))
+
+
+
+
+
 ## [1.1.1](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.1.0...@uireact/navbar@1.1.1) (2023-06-09)
 
 **Note:** Version bump only for package @uireact/navbar
