@@ -1,3 +1,5 @@
+import { HTMLAttributeReferrerPolicy } from 'react';
+
 import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiLinkProps = {
@@ -10,13 +12,18 @@ export type UiLinkProps = {
   /** React ref */
   ref?: React.Ref<HTMLAnchorElement>;
   /** referrer policy */
-  referrerpolicy?: string;
+  referrerpolicy?: HTMLAttributeReferrerPolicy;
   /** Link size, default REGULAR */
   size?: TextSize;
   /** Link target */
   target?: string;
+  /** If uses react router dome link, YOU HAVE TO PROVIDE A HREF */
+  useReactLink?: boolean;
+  /** If link should take the whole link, useful for rendering links as Navbar items */
+  fullWidth?: boolean;
 } & UiReactElementProps;
 
 export type privateLinkProps = Omit<UiLinkProps, 'theme'> & {
   category: ColorCategory;
+  to?: string;
 } & UiReactPrivateElementProps;

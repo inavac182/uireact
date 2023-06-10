@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2023-06-09)
+
+
+### Features
+
+* **button:** adding cristal button ([#196](https://github.com/inavac182/ui-react/issues/196)) ([7256771](https://github.com/inavac182/ui-react/commit/725677134fddcca0ecd12f48ef52592fc28d7377))
+
+
+
+
+
 ## 1.0.5 (2023-06-01)
 
 

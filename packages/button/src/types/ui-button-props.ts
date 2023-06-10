@@ -12,6 +12,8 @@ export type UiButtonProps = {
   testId?: string;
   /** className attribute */
   className?: string;
+  /** render button without normal background */
+  cristal?: boolean;
   /** Button theme */
   theme?: ColorCategory;
   /** If button should take full height */

@@ -5,6 +5,9 @@ menu: Forms
 
 import { Props } from 'docz';
 
+import { UiCard } from '@uireact/card';
+import { UiFlexGrid } from '@uireact/flex';
+
 import Playground from '../../../src/Playground';
 import { UiButton } from '../src/';
 import { UiSpacing, Sizing } from '../../foundation/src/';
@@ -90,4 +93,17 @@ import * as packageJson from '../package.json';
       <UiSpacing margin={{ all: Sizing.three }}>Button! 🌋</UiSpacing>
     </UiButton>
   </UiGrid>
+</Playground>
+
+#### Cristal button
+
+<Playground>
+  <UiCard>
+    <UiFlexGrid gap="three">
+      <UiButton theme="tertiary" cristal>
+        <UiSpacing margin={{ all: Sizing.three }}>Button! ✨</UiSpacing>
+      </UiButton>
+      Some content
+    </UiFlexGrid>
+  </UiCard>
 </Playground>

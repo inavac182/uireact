@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/inavac182/ui-react/compare/@uireact/text@1.1.0...@uireact/text@1.2.0) (2023-06-08)
+
+
+### Features
+
+* **navbar:** adding navbar styling ([#194](https://github.com/inavac182/ui-react/issues/194)) ([e840ce0](https://github.com/inavac182/ui-react/commit/e840ce0cb0764bf69eab5d3757673badc60d4b8e))
+
+
+
+
+
+# 1.1.0 (2023-06-07)
+
+
+### Features
+
+* **link:** prop to use react router link ([#193](https://github.com/inavac182/ui-react/issues/193)) ([13fe710](https://github.com/inavac182/ui-react/commit/13fe71037cbfdc95b589fc54a1071b861c598156))
+
+
+
+
+
 ## [1.0.4](https://github.com/inavac182/ui-react/compare/@uireact/text@1.0.3...@uireact/text@1.0.4) (2023-05-31)
 
 **Note:** Version bump only for package @uireact/text

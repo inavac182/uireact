@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.1.2...@uireact/navbar@1.2.0) (2023-06-10)
+
+
+### Features
+
+* **navbar:** stretchItems prop ([#198](https://github.com/inavac182/ui-react/issues/198)) ([91af78d](https://github.com/inavac182/ui-react/commit/91af78dde44db95627434afaad2028b782c374fe))
+
+
+
+
+
+## 1.1.2 (2023-06-09)
+
+
+### Bug Fixes
+
+* **navbar:** style to child div ([#197](https://github.com/inavac182/ui-react/issues/197)) ([09d3c70](https://github.com/inavac182/ui-react/commit/09d3c705b0e0c29723e43737a3deaa70d542c930))
+
+
+
+
+
+## [1.1.1](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.1.0...@uireact/navbar@1.1.1) (2023-06-09)
+
+**Note:** Version bump only for package @uireact/navbar
+
+
+
+
+
+# 1.1.0 (2023-06-08)
+
+
+### Features
+
+* **navbar:** adding navbar styling ([#194](https://github.com/inavac182/ui-react/issues/194)) ([e840ce0](https://github.com/inavac182/ui-react/commit/e840ce0cb0764bf69eab5d3757673badc60d4b8e))
+
+
+
+
+
 ## [1.0.4](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.0.3...@uireact/navbar@1.0.4) (2023-05-31)
 
 **Note:** Version bump only for package @uireact/navbar
