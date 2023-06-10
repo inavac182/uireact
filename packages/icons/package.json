@@ -20,7 +20,8 @@
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "tsc": "npm run build:svgs && tsc",
+    "tsc": "tsc",
+    "tsc:with-icons": "npm run build:svgs && tsc",
     "tsc:watch": "tsc --watch",
     "watch": "npm run tsc:watch"
   },
