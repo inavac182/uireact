@@ -17,9 +17,44 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 2')).toBeVisible();
   });
 
+  it('Should render navbar with test id', () => {
+    render(
+      <UiNavbar testId="my-navbar">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByTestId('my-navbar')).toBeVisible();
+  });
+
+  it('Should render navbar with class name', () => {
+    render(
+      <UiNavbar testId="my-navbar" className="some-class">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByTestId('my-navbar')).toBeVisible();
+    expect(screen.getByTestId('my-navbar')).toHaveClass('some-class');
+  });
+
   it('Should render navbar when orientation is inline', () => {
     render(
       <UiNavbar orientation="inline">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+  });
+
+  it('Should render navbar when orientation is inline and stretched', () => {
+    render(
+      <UiNavbar orientation="inline" stretchItems>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
       </UiNavbar>

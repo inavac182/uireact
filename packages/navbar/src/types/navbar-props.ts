@@ -14,6 +14,8 @@ export type UiNavbarProps = {
   align?: Alignment;
   /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
   roundedCorners?: boolean;
+  /** If items should be stretched, useful when navbar is rendered to cover whole width */
+  stretchItems?: boolean;
 } & Omit<UiReactElementProps, 'children'>;
 
 export type privateNavbarProps = UiNavbarProps & {
