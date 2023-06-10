@@ -1,24 +1,20 @@
-import { ColorTokens, ThemeMapper } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
 
-import { getCategory } from './utils';
-
-export const getDynamicBadgeMapper = (
-  category?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error'
-): ThemeMapper => {
+export const getDynamicBadgeMapper = (category: ColorCategories): ThemeMapper => {
   return {
     normal: {
       background: {
-        category: getCategory(category),
+        category: category,
         inverse: false,
         token: ColorTokens.token_10,
       },
       'border-color': {
-        category: getCategory(category),
+        category: category,
         inverse: false,
         token: ColorTokens.token_200,
       },
       color: {
-        category: getCategory(category),
+        category: category,
         inverse: false,
         token: ColorTokens.token_200,
       },
