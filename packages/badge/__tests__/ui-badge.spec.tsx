@@ -18,4 +18,14 @@ describe('<UiBadge />', () => {
 
     expect(screen.getByText('Badge')).toBeVisible();
   });
+
+  it('renders fine with category', () => {
+    uiRender(
+      <UiBadge size={TextSize.regular} category="warning">
+        Badge
+      </UiBadge>
+    );
+
+    expect(screen.getByText('Badge')).toBeVisible();
+  });
 });

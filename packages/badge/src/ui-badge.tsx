@@ -2,14 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling, UiSpacing } from '@uireact/foundation';
+import { TextSize, ThemeContext, getTextSize, getThemeStyling, UiSpacing, getColorCategory } from '@uireact/foundation';
 
 import { getDynamicBadgeMapper } from './theme';
 import { UiBadgeProps, privateBadgeProps } from './types';
 
 const BadgeDiv = styled.div<privateBadgeProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicBadgeMapper(props.category))}
+    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicBadgeMapper(getColorCategory(props.category)))}
     font-size: ${getTextSize(props.customTheme, props.size || TextSize.small)};
     border-radius: ${getTextSize(props.customTheme, props.size || TextSize.small)};
     font-weight: bold;
@@ -20,7 +20,7 @@ const BadgeDiv = styled.div<privateBadgeProps>`
   display: inline-block;
 `;
 
-export const UiBadge: React.FC<UiBadgeProps> = ({ category, className, children, size }: UiBadgeProps) => {
+export const UiBadge: React.FC<UiBadgeProps> = ({ category = 'primary', className, children, size }: UiBadgeProps) => {
   const theme = React.useContext(ThemeContext);
 
   return (
