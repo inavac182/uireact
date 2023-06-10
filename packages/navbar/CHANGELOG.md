@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.1.2...@uireact/navbar@1.2.0) (2023-06-10)
+
+
+### Features
+
+* **navbar:** stretchItems prop ([#198](https://github.com/inavac182/ui-react/issues/198)) ([91af78d](https://github.com/inavac182/ui-react/commit/91af78dde44db95627434afaad2028b782c374fe))
+
+
+
+
+
 ## 1.1.2 (2023-06-09)
 
 
