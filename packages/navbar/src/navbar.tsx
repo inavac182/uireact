@@ -68,7 +68,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
       customTheme={themeContext.theme}
       selectedTheme={themeContext.selectedTheme}
       orientation={orientation}
-      data-testId={testId}
+      data-testid={testId}
     >
       <>{NavbarContent}</>
     </NavbarWrapper>
