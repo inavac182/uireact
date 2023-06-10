@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-06-10)
+
+
+### Features
+
+* **icon:** adding more icons ([#199](https://github.com/inavac182/ui-react/issues/199)) ([6e13830](https://github.com/inavac182/ui-react/commit/6e13830f5667a69b1d9411bafec8ace0cb25cc99))
+
+
+
+
+
 # 1.1.0 (2023-06-05)
 
 
