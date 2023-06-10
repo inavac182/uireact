@@ -17,6 +17,7 @@ const StyledButton = styled.button<privateButtonProps>`
       ${props.fullHeight ? 'height: 100%;' : ''}
       ${props.cristal ? 'border-width: 0;' : 'border-width: 1px;'}
       ${props.cristal ? 'background: unset;' : ''}
+      ${props.disabled ? 'cursor: not-allowed;' : 'cursor: pointer;'}
     `;
   }}
 
@@ -25,7 +26,6 @@ const StyledButton = styled.button<privateButtonProps>`
   border-radius: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  cursor: pointer;
 `;
 
 export const UiButton: React.FC<UiButtonProps> = ({
