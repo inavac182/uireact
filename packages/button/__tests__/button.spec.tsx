@@ -15,6 +15,19 @@ describe('<UiButton />', () => {
     expect(mock).toHaveBeenCalledTimes(1);
   });
 
+  test('NOT executes onClick CB if disabled', () => {
+    const mock = jest.fn();
+    uiRender(
+      <UiButton onClick={mock} disabled>
+        MyButton
+      </UiButton>
+    );
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(mock).not.toHaveBeenCalled();
+  });
+
   test('renders primary button', () => {
     uiRender(<UiButton>MyButton</UiButton>);
 
