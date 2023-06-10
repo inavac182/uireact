@@ -26,6 +26,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
     ${props.orientation === 'stacked' ? 'width: 100%;' : ''}
     ${getThemeStyling(props.customTheme, props.selectedTheme, getNavbarItemMapper(props.category))}
     ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
+    ${props.stretchItems ? 'flex-grow: 1; text-align: center;' : ''}
   `}
 
   > div {
@@ -54,6 +55,7 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
   isLast,
   roundedCorners,
   selectedTheme,
+  stretchItems,
 }: NavbarItemWrapperProps) => {
   if (React.isValidElement(children)) {
     return (
@@ -66,6 +68,7 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
         roundedCorners={roundedCorners}
         isFirst={isFirst}
         isLast={isLast}
+        stretchItems={stretchItems}
       >
         {children}
       </Div>

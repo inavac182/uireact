@@ -29,6 +29,18 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 2')).toBeVisible();
   });
 
+  it('Should render navbar when orientation is inline and stretched', () => {
+    render(
+      <UiNavbar orientation="inline" stretchItems>
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+  });
+
   it('Should render navbar when norientation is stacked', () => {
     render(
       <UiNavbar orientation="stacked">

@@ -27,8 +27,11 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   align = 'start',
   category = 'primary',
   children,
+  className,
   orientation = 'inline',
   roundedCorners,
+  stretchItems,
+  testId,
 }: UiNavbarProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -48,6 +51,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           isFirst={index === 0}
           isLast={index === numberOfItems - 1}
           roundedCorners={roundedCorners}
+          stretchItems={stretchItems}
         >
           {child}
         </NavbarItemWrapper>
@@ -60,9 +64,11 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   return (
     <NavbarWrapper
       align={align}
+      className={className}
       customTheme={themeContext.theme}
       selectedTheme={themeContext.selectedTheme}
       orientation={orientation}
+      data-testId={testId}
     >
       <>{NavbarContent}</>
     </NavbarWrapper>
