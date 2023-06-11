@@ -31,6 +31,26 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine when fontStyle is italic', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="italic">
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine when fontStyle is bold', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="bold">
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
   it('renders fine with category', () => {
     uiRender(
       <UiLink href="#" theme="positive">
@@ -53,30 +73,6 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('display', 'inline-block');
   });
 
-  it('renders fine when uses internal link', () => {
-    uiRender(
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      <MemoryRouter initialEntries={['/']}>
-        <UiLink href="#" useReactLink theme="positive">
-          Link
-        </UiLink>
-      </MemoryRouter>
-    );
-
-    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-  });
-
-  it('renders fine when uses internal link but doesnt provide href', () => {
-    uiRender(
-      <UiLink useReactLink theme="positive">
-        Link
-      </UiLink>
-    );
-
-    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-  });
-
   it('trigger onClick when clicked', () => {
     uiRender(
       <UiLink handleClick={onClick} theme="positive">
@@ -87,5 +83,59 @@ describe('<UiLink />', () => {
     fireEvent.click(screen.getByRole('link', { name: 'Link' }));
 
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  describe('useReactLink', () => {
+    it('renders fine when uses internal link', () => {
+      uiRender(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        <MemoryRouter initialEntries={['/']}>
+          <UiLink href="#" useReactLink theme="positive">
+            Link
+          </UiLink>
+        </MemoryRouter>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    });
+
+    it('renders fine when fontStyle is italic', () => {
+      uiRender(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        <MemoryRouter initialEntries={['/']}>
+          <UiLink href="#" size={TextSize.large} fontStyle="italic" useReactLink>
+            Link
+          </UiLink>
+        </MemoryRouter>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    });
+
+    it('renders fine when fontStyle is bold', () => {
+      uiRender(
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        <MemoryRouter initialEntries={['/']}>
+          <UiLink href="#" size={TextSize.large} fontStyle="bold" useReactLink>
+            Link
+          </UiLink>
+        </MemoryRouter>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    });
+
+    it('renders fine when uses internal link but doesnt provide href', () => {
+      uiRender(
+        <UiLink useReactLink theme="positive">
+          Link
+        </UiLink>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    });
   });
 });
