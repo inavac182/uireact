@@ -39,7 +39,7 @@ We are fully open to contributions, please go through these pages for learning m
 - [Contributing](https://uireact.io/contributing)
 - [Development](https://uireact.io/dev)
 
-## Contant ☎️
+## Contact ☎️
 
 - [Felipe Nava](https://www.linkedin.com/in/inavac/)
 - [Felipe's Twitter](https://twitter.com/FelipeNava92)
