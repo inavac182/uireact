@@ -1,6 +1,6 @@
 import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
-export type FontStyle = 'italic' | 'bold';
+export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
 export type UiTextProps = {
   /* Text size to be used, default is regular */

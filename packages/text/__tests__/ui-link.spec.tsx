@@ -51,6 +51,26 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine when fontStyle is regular', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="regular">
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine when fontStyle is light', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="light">
+        Link
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
   it('renders fine with category', () => {
     uiRender(
       <UiLink href="#" theme="positive">

@@ -16,6 +16,8 @@ const Anchor = styled.a<privateLinkProps>`
     ${props.fullWidth ? 'width: 100%; display: inline-block;' : ''}
     ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
     ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
   cursor: pointer;

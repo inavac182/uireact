@@ -19,6 +19,8 @@ const Text = styled.p<privateTextProps>`
     ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
     ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
     ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
   padding: 0;
