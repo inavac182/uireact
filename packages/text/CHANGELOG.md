@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2023-06-19)
+
+
+### Features
+
+* **text:** adding font style ([#204](https://github.com/inavac182/ui-react/issues/204)) ([c44956e](https://github.com/inavac182/ui-react/commit/c44956e3b838668046ee64f39d1581f1bd235d63))
+
+
+
+
+
 # [1.2.0](https://github.com/inavac182/ui-react/compare/@uireact/text@1.1.0...@uireact/text@1.2.0) (2023-06-08)
 
 
