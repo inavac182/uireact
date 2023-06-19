@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { getItemSpan } from './private';
+import { UiReactElementProps } from '@uireact/foundation';
 
-interface GridItemProps {
+type GridItemProps = {
   /** Aligns the item inside its grid block */
   alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of columns that the item will take */
@@ -14,7 +15,7 @@ interface GridItemProps {
   placeSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of rows that the item will take */
   rows?: number;
-}
+} & UiReactElementProps;
 
 type UiGridItemProps = GridItemProps & {
   children?: React.ReactNode;
@@ -30,6 +31,18 @@ const Div = styled.div<GridItemProps>`
   `}
 `;
 
-export const UiGridItem: React.FC<UiGridItemProps> = (props: UiGridItemProps) => <Div {...props}>{props.children}</Div>;
+export const UiGridItem: React.FC<UiGridItemProps> = (props: UiGridItemProps) => (
+  <Div
+    alignSelf={props.alignSelf}
+    cols={props.cols}
+    className={props.className}
+    justifySelf={props.justifySelf}
+    placeSelf={props.placeSelf}
+    rows={props.rows}
+    data-testid={props.testId}
+  >
+    {props.children}
+  </Div>
+);
 
 UiGridItem.displayName = 'UiGridItem';
