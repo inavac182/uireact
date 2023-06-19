@@ -130,3 +130,25 @@ test('renders the grid when width is specified', () => {
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
 });
+
+test('renders grid item with class name', () => {
+  render(
+    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+      <UiGridItem className="someclass">Item 1</UiGridItem>
+      <UiGridItem>Item 2</UiGridItem>
+    </UiGrid>
+  );
+
+  expect(screen.getByText('Item 1')).toHaveClass('someclass');
+});
+
+test('renders grid item with test id', () => {
+  render(
+    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+      <UiGridItem testId="someTestId">Item 1</UiGridItem>
+      <UiGridItem>Item 2</UiGridItem>
+    </UiGrid>
+  );
+
+  expect(screen.getByTestId('someTestId')).toBeVisible();
+});
