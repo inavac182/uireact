@@ -25,6 +25,46 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
+  it('renders fine when style is italic', () => {
+    uiRender(
+      <UiText inline fontStyle="italic">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when style is bold', () => {
+    uiRender(
+      <UiText inline fontStyle="bold">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when style is regular', () => {
+    uiRender(
+      <UiText inline fontStyle="regular">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine when style is light', () => {
+    uiRender(
+      <UiText inline fontStyle="light">
+        Text
+      </UiText>
+    );
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
   it('renders fine when size is provided', () => {
     uiRender(<UiText size={TextSize.large}>Text</UiText>);
 

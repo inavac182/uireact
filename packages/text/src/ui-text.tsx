@@ -17,6 +17,10 @@ const Text = styled.p<privateTextProps>`
     ${props.centered ? `text-align: center;` : ``}
     ${props.inline ? `display: inline;` : ``}
     ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
+    ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
+    ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
   padding: 0;
@@ -27,6 +31,7 @@ export const UiText: React.FC<UiTextProps> = ({
   children,
   centered,
   inline,
+  fontStyle,
   size = TextSize.regular,
   theme,
 }: UiTextProps) => {
@@ -36,6 +41,7 @@ export const UiText: React.FC<UiTextProps> = ({
     <Text
       category={theme}
       customTheme={themeContext.theme}
+      fontStyle={fontStyle}
       selectedTheme={themeContext.selectedTheme}
       size={size}
       centered={centered}

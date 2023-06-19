@@ -2,6 +2,8 @@ import { HTMLAttributeReferrerPolicy } from 'react';
 
 import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
+import { FontStyle } from './ui-text-props';
+
 export type UiLinkProps = {
   /* Represents the theme to use for the link, default PRIMARY */
   theme?: ColorCategory;
@@ -21,6 +23,8 @@ export type UiLinkProps = {
   useReactLink?: boolean;
   /** If link should take the whole link, useful for rendering links as Navbar items */
   fullWidth?: boolean;
+  /** Font style */
+  fontStyle?: FontStyle;
 } & UiReactElementProps;
 
 export type privateLinkProps = Omit<UiLinkProps, 'theme'> & {

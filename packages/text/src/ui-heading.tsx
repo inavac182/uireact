@@ -11,6 +11,7 @@ import { HeadingMapper } from './theme';
 const commonStyles = `
   padding: 0;
   margin: 0;
+  font-weight: bold;
 `;
 
 const H1 = styled.h1<privateHeadingProps>`
