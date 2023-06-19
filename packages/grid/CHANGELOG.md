@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.5 (2023-06-19)
+
+
+### Bug Fixes
+
+* **grid:** render class name prop grid item ([#203](https://github.com/inavac182/ui-react/issues/203)) ([903faa4](https://github.com/inavac182/ui-react/commit/903faa40a891c1e2efe6ef3603d4d01a81728517))
+
+
+
+
+
 ## [1.0.4](https://github.com/inavac182/ui-react/compare/@uireact/grid@1.0.3...@uireact/grid@1.0.4) (2023-05-31)
 
 **Note:** Version bump only for package @uireact/grid
