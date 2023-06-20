@@ -3,7 +3,7 @@
   "description": "Progress indicator component from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publishConfig": {
     "access": "public"
   },

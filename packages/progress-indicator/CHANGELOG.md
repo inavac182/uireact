@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/inavac182/ui-react/compare/@uireact/progress-indicator@1.0.6...@uireact/progress-indicator@1.0.7) (2023-06-20)
+
+
+### Bug Fixes
+
+* **progress-indicator:** render class name ([#207](https://github.com/inavac182/ui-react/issues/207)) ([d702ce6](https://github.com/inavac182/ui-react/commit/d702ce675767da9e6e2ef7c2b47d41ac979aba0d))
+
+
+
+
+
 ## [1.0.6](https://github.com/inavac182/ui-react/compare/@uireact/progress-indicator@1.0.5...@uireact/progress-indicator@1.0.6) (2023-06-19)
 
 **Note:** Version bump only for package @uireact/progress-indicator
