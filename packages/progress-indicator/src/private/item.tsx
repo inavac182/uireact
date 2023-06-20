@@ -20,7 +20,6 @@ const Div = styled.div<privateDivItemProps>`
             ColorTokens.token_100,
             false
           )};
-          font-weight: bold;
         `
         : ''
     }
