@@ -16,11 +16,10 @@ const Div = styled.div<privateDivItemProps>`
           border-color: ${getThemeColor(
             props.customTheme,
             props.selectedTheme,
-            ColorCategories.fonts,
+            ColorCategories.primary,
             ColorTokens.token_100,
-            true
+            false
           )};
-          font-weight: bold;
         `
         : ''
     }
