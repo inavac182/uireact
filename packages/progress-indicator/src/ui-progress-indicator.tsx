@@ -14,7 +14,6 @@ const Div = styled.div<privateProgressIndicatorProps>`
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
-  padding: 10px 0px 10px 0px;
   overflow-y: auto;
 `;
 
@@ -31,6 +30,7 @@ const getNumberOfSteps = (children: React.ReactNode) => {
 export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
   allowGoBack,
   children,
+  className,
   current = 1,
   handleCompletedStepClick,
 }: UiProgressIndicatorProps) => {
@@ -78,7 +78,7 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
   }, [children, theme]);
 
   return (
-    <Div customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
+    <Div customTheme={theme.theme} className={className} selectedTheme={theme.selectedTheme}>
       {ProgressIndicatorContent}
     </Div>
   );
