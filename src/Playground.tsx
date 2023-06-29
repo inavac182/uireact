@@ -15,7 +15,7 @@ type CustomPlaygroundProps = {
 } & PlaygroundProps;
 
 const CustomPlayground = (props: CustomPlaygroundProps): React.ReactNode => {
-  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.dark);
   const toogleTheme = () => {
     setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
