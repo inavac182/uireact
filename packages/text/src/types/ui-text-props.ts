@@ -15,7 +15,14 @@ export type UiTextProps = {
   theme?: ColorCategory;
 } & UiReactElementProps;
 
-export type privateTextProps = Omit<UiTextProps, 'theme'> & {
-  category?: ColorCategory;
-  size: TextSize;
+export type privateTextProps = {
+  /* Text size to be used, default is regular */
+  $size: TextSize;
+  /* Render text centered */
+  $centered?: boolean;
+  /** Font style */
+  $fontStyle?: FontStyle;
+  /* Render text inlined */
+  $inline?: boolean;
+  $category?: ColorCategory;
 } & UiReactPrivateElementProps;

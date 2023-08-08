@@ -29,7 +29,7 @@ const MenuDiv = styled.div<privateMenuProps>`
     
     ${
       // istanbul ignore next
-      props.isOffset ? `right: 10px;` : ''
+      props.$isOffset ? `right: 10px;` : ''
     }
   `}
 
@@ -127,11 +127,10 @@ export const UiMenu: React.FC<UiMenuProps> = ({
           <MenuDiv
             $customTheme={theme.theme}
             $selectedTheme={theme.selectedTheme}
-            visible={visible}
+            $visible={visible}
             role="menu"
-            closeMenuCB={closeMenuCB}
             ref={menuRef}
-            isOffset={isOffset}
+            $isOffset={isOffset}
           >
             {children}
           </MenuDiv>
@@ -146,11 +145,10 @@ export const UiMenu: React.FC<UiMenuProps> = ({
       <MenuDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
-        visible={visible}
+        $visible={visible}
         role="menu"
-        closeMenuCB={closeMenuCB}
         ref={menuRef}
-        isOffset={isOffset}
+        $isOffset={isOffset}
       >
         {children}
       </MenuDiv>

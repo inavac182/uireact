@@ -12,15 +12,15 @@ const Text = styled.p<privateTextProps>`
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      props.category ? getDynamicMapper(getColorCategory(props.category)) : TextMapper
+      props.$category ? getDynamicMapper(getColorCategory(props.$category)) : TextMapper
     )}
-    ${props.centered ? `text-align: center;` : ``}
-    ${props.inline ? `display: inline;` : ``}
-    ${`font-size: ${getTextSize(props.$customTheme, props.size)};`}
-    ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
-    ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
-    ${props.fontStyle === 'light' ? `font-weight: 300;` : ''}
-    ${props.fontStyle === 'regular' ? `font-weight: normal;` : ''}
+    ${props.$centered ? `text-align: center;` : ``}
+    ${props.$inline ? `display: inline;` : ``}
+    ${`font-size: ${getTextSize(props.$customTheme, props.$size)};`}
+    ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
+    ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
   padding: 0;
@@ -39,13 +39,13 @@ export const UiText: React.FC<UiTextProps> = ({
 
   return (
     <Text
-      category={theme}
+      $category={theme}
       $customTheme={themeContext.theme}
-      fontStyle={fontStyle}
+      $fontStyle={fontStyle}
       $selectedTheme={themeContext.selectedTheme}
-      size={size}
-      centered={centered}
-      inline={inline}
+      $size={size}
+      $centered={centered}
+      $inline={inline}
     >
       {children}
     </Text>

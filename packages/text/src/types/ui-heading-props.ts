@@ -7,6 +7,7 @@ export type UiHeadingProps = {
   centered?: boolean;
 } & UiReactElementProps;
 
-export type privateHeadingProps = UiHeadingProps & {
-  level: 1 | 2 | 3 | 4 | 5 | 6;
+export type privateHeadingProps = {
+  $centered?: boolean;
+  $level: 1 | 2 | 3 | 4 | 5 | 6;
 } & UiReactPrivateElementProps;

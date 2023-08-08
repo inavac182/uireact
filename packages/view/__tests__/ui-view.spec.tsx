@@ -39,7 +39,7 @@ const DialogComponent = () => {
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
     theme={DefaultTheme}
-    $selectedTheme={ThemeColor.dark}
+    selectedTheme={ThemeColor.dark}
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
@@ -52,7 +52,7 @@ const MockedComponent = (props: MockedComponentProps) => (
 const MockedComponentWithDialog = (props: MockedComponentProps) => (
   <UiView
     theme={DefaultTheme}
-    $selectedTheme={ThemeColor.dark}
+    selectedTheme={ThemeColor.dark}
     className={props.className}
     centeredContent={props.centeredContent}
   >

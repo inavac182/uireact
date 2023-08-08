@@ -9,15 +9,15 @@ import { GridBreakpointsDistribution, UiGridProps, privateGridProps } from './ty
 
 const Div = styled.div<privateGridProps>`
   ${(props) => `
-    display: ${props.inlineGrid ? 'inline-grid' : 'grid'};
-    ${getGridTemplate(props.cols, props.colSize, 'cols')}
-    ${getGridTemplate(props.rows, props.rowSize, 'rows')}
-    ${props.justifyItems ? `justify-items: ${props.justifyItems};` : ''}
-    ${props.colsGap ? `column-gap: ${props.colsGap}px;` : ''}
-    ${props.rowsGap ? `row-gap: ${props.rowsGap}px;` : ''}
-    ${props.autoFlow ? `grid-auto-flow: ${props.autoFlow};` : ''}
-    ${props.gridWidth ? `width: ${props.gridWidth};` : ''}
-    ${props.gridHeight ? `height: ${props.gridHeight};` : ''}
+    display: ${props.$inlineGrid ? 'inline-grid' : 'grid'};
+    ${getGridTemplate(props.$cols, props.$colSize, 'cols')}
+    ${getGridTemplate(props.$rows, props.$rowSize, 'rows')}
+    ${props.$justifyItems ? `justify-items: ${props.$justifyItems};` : ''}
+    ${props.$colsGap ? `column-gap: ${props.$colsGap}px;` : ''}
+    ${props.$rowsGap ? `row-gap: ${props.$rowsGap}px;` : ''}
+    ${props.$autoFlow ? `grid-auto-flow: ${props.$autoFlow};` : ''}
+    ${props.$gridWidth ? `width: ${props.$gridWidth};` : ''}
+    ${props.$gridHeight ? `height: ${props.$gridHeight};` : ''}
   `}
 `;
 
@@ -61,18 +61,18 @@ export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
 
   return (
     <Div
-      autoFlow={props.autoFlow}
+      $autoFlow={props.autoFlow}
       className={props.className}
-      cols={cols}
-      colsGap={props.colsGap}
-      colSize={props.colSize}
-      gridHeight={props.gridHeight}
-      gridWidth={props.gridWidth}
-      inlineGrid={props.inlineGrid}
-      justifyItems={props.justifyItems}
-      rows={rows}
-      rowsGap={props.rowsGap}
-      rowSize={props.rowSize}
+      $cols={cols}
+      $colsGap={props.colsGap}
+      $colSize={props.colSize}
+      $gridHeight={props.gridHeight}
+      $gridWidth={props.gridWidth}
+      $inlineGrid={props.inlineGrid}
+      $justifyItems={props.justifyItems}
+      $rows={rows}
+      $rowsGap={props.rowsGap}
+      $rowSize={props.rowSize}
     >
       {props.children}
     </Div>

@@ -10,13 +10,13 @@ const Div = styled.div<privateFlexGridProps>`
   display: flex;
 
   ${(props) => `
-    ${props.alignItems ? `align-items: ${props.alignItems};` : ''}
-    ${props.direction ? `flex-direction: ${props.direction};` : ''}
-    ${props.columnGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.columnGap)};` : ''}
-    ${props.gap ? `gap: ${getSpacingSize(props.$customTheme, props.gap)};` : ''}
-    ${props.justifyContent ? `justify-content: ${props.justifyContent};` : ''}
-    ${props.rowGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.rowGap)};` : ''}
-    ${props.wrap ? `flex-wrap: ${props.wrap};` : ''}
+    ${props.$alignItems ? `align-items: ${props.$alignItems};` : ''}
+    ${props.$direction ? `flex-direction: ${props.$direction};` : ''}
+    ${props.$columnGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.$columnGap)};` : ''}
+    ${props.$gap ? `gap: ${getSpacingSize(props.$customTheme, props.$gap)};` : ''}
+    ${props.$justifyContent ? `justify-content: ${props.$justifyContent};` : ''}
+    ${props.$rowGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.$rowGap)};` : ''}
+    ${props.$wrap ? `flex-wrap: ${props.$wrap};` : ''}
   `}
 `;
 
@@ -35,16 +35,16 @@ export const UiFlexGrid: React.FC<UiFlexGridProps> = ({
 
   return (
     <Div
-      alignItems={alignItems}
+      $alignItems={alignItems}
       className={className}
-      columnGap={columnGap}
+      $columnGap={columnGap}
       $customTheme={theme.theme}
       $selectedTheme={theme.selectedTheme}
-      direction={direction}
-      justifyContent={justifyContent}
-      gap={gap}
-      rowGap={rowGap}
-      wrap={wrap}
+      $direction={direction}
+      $justifyContent={justifyContent}
+      $gap={gap}
+      $rowGap={rowGap}
+      $wrap={wrap}
     >
       {children}
     </Div>

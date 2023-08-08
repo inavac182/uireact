@@ -17,8 +17,8 @@ const NavbarWrapper = styled.div<privateNavbarProps>`
 
   ${(props: privateNavbarProps) => {
     return `
-      flex-direction: ${props.orientation === 'stacked' ? 'column' : 'row'};
-      ${getFlexAlignment(props.align, props.orientation)}
+      flex-direction: ${props.$orientation === 'stacked' ? 'column' : 'row'};
+      ${getFlexAlignment(props.$align, props.$orientation)}
     `;
   }}
 `;
@@ -42,16 +42,16 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     React.Children.map(children, (child, index) => {
       elements.push(
         <NavbarItemWrapper
-          align={align}
-          category={category}
-          orientation={orientation}
+          $align={align}
+          $category={category}
+          $orientation={orientation}
           $customTheme={themeContext.theme}
           $selectedTheme={themeContext.selectedTheme}
           key={`navbar-item-${index}`}
-          isFirst={index === 0}
-          isLast={index === numberOfItems - 1}
-          roundedCorners={roundedCorners}
-          stretchItems={stretchItems}
+          $isFirst={index === 0}
+          $isLast={index === numberOfItems - 1}
+          $roundedCorners={roundedCorners}
+          $stretchItems={stretchItems}
         >
           {child}
         </NavbarItemWrapper>
@@ -63,11 +63,11 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
 
   return (
     <NavbarWrapper
-      align={align}
+      $align={align}
       className={className}
       $customTheme={themeContext.theme}
       $selectedTheme={themeContext.selectedTheme}
-      orientation={orientation}
+      $orientation={orientation}
       data-testid={testId}
     >
       <>{NavbarContent}</>
