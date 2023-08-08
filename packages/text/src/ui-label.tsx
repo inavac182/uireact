@@ -10,11 +10,11 @@ import { LabelMapper, getLabelDynamicMapper } from './theme';
 const Label = styled.label<privateLabelProps>`
   ${(props) => `
     ${getThemeStyling(
-      props.customTheme,
-      props.selectedTheme,
+      props.$customTheme,
+      props.$selectedTheme,
       props.category ? getLabelDynamicMapper(getColorCategory(props.category)) : LabelMapper
     )}
-    ${`font-size: ${getTextSize(props.customTheme, props.size)};`}
+    ${`font-size: ${getTextSize(props.$customTheme, props.size)};`}
   `}
 
   padding: 0;
@@ -26,8 +26,8 @@ export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = Text
 
   return (
     <Label
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
       size={size}
       category={theme}
       htmlFor={htmlFor}

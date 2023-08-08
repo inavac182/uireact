@@ -12,10 +12,10 @@ const Div = styled.div<privateFlexGridProps>`
   ${(props) => `
     ${props.alignItems ? `align-items: ${props.alignItems};` : ''}
     ${props.direction ? `flex-direction: ${props.direction};` : ''}
-    ${props.columnGap ? `column-gap: ${getSpacingSize(props.customTheme, props.columnGap)};` : ''}
-    ${props.gap ? `gap: ${getSpacingSize(props.customTheme, props.gap)};` : ''}
+    ${props.columnGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.columnGap)};` : ''}
+    ${props.gap ? `gap: ${getSpacingSize(props.$customTheme, props.gap)};` : ''}
     ${props.justifyContent ? `justify-content: ${props.justifyContent};` : ''}
-    ${props.rowGap ? `row-gap: ${getSpacingSize(props.customTheme, props.rowGap)};` : ''}
+    ${props.rowGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.rowGap)};` : ''}
     ${props.wrap ? `flex-wrap: ${props.wrap};` : ''}
   `}
 `;
@@ -38,8 +38,8 @@ export const UiFlexGrid: React.FC<UiFlexGridProps> = ({
       alignItems={alignItems}
       className={className}
       columnGap={columnGap}
-      customTheme={theme.theme}
-      selectedTheme={theme.selectedTheme}
+      $customTheme={theme.theme}
+      $selectedTheme={theme.selectedTheme}
       direction={direction}
       justifyContent={justifyContent}
       gap={gap}

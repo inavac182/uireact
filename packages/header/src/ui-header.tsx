@@ -17,7 +17,7 @@ const Div = styled.div<privateUiHeaderProps>`
 
   ${(props) => {
     return `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
     ${props.fixed ? 'position: absolute;' : ''}
     `;
   }}
@@ -33,8 +33,8 @@ export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }:
 
   return (
     <Div
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
       fixed={fixed}
       data-testid="UiHeader"
     >

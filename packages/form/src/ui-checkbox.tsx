@@ -16,7 +16,7 @@ import { CheckboxButtonMapper, DisabledCheckboxMapper, getDynamicCheckboxMapper 
 
 const Label = styled.label<privateCheckboxProps>`
   ${(props) => `
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
 
   display: flex;
@@ -38,8 +38,8 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
   :checked + label .ui-react-checkbox-button-wrapper {
     ${(props) => `
       ${getThemeStyling(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         getDynamicCheckboxMapper(getColorCategory(props.theme))
       )}
     `}
@@ -51,7 +51,7 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
 
   :disabled + label > .ui-react-checkbox-button-wrapper {
     ${(props) => `
-      ${getThemeStyling(props.customTheme, props.selectedTheme, DisabledCheckboxMapper)}
+      ${getThemeStyling(props.$customTheme, props.$selectedTheme, DisabledCheckboxMapper)}
     `}
   }
 `;
@@ -64,7 +64,7 @@ const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
   transition: background-color 0.2s;
 
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
     ${props.labelPosition === 'START' ? 'left: 5px;' : ''}
   `}
 `;
@@ -79,7 +79,7 @@ const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
   border-radius: 20px;
   transition: 0.2s;
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, CheckboxButtonMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, CheckboxButtonMapper)}
   `}
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
@@ -108,27 +108,27 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
     <>
       <CheckboxInput
         checked={checked}
-        customTheme={themeContext.theme}
+        $customTheme={themeContext.theme}
         disabled={disabled}
         id={name}
         name={name}
-        selectedTheme={themeContext.selectedTheme}
+        $selectedTheme={themeContext.selectedTheme}
         theme={theme}
         type="checkbox"
         ref={ref}
         onChange={onChange}
       />{' '}
       <Label
-        customTheme={themeContext.theme}
+        $customTheme={themeContext.theme}
         disabled={disabled}
         htmlFor={name}
-        selectedTheme={themeContext.selectedTheme}
+        $selectedTheme={themeContext.selectedTheme}
       >
         <>
           {labelPosition === 'START' && (
             <LabelSpan
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
               labelPosition={labelPosition}
             >
               {label}
@@ -136,20 +136,20 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
           )}
           <CheckboxButtonWrapper
             className="ui-react-checkbox-button-wrapper"
-            customTheme={themeContext.theme}
-            selectedTheme={themeContext.selectedTheme}
+            $customTheme={themeContext.theme}
+            $selectedTheme={themeContext.selectedTheme}
             labelPosition={labelPosition}
           >
             <CheckboxButtonSpan
               className="ui-react-checkbox-button"
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
             />
           </CheckboxButtonWrapper>
           {labelPosition === 'END' && (
             <LabelSpan
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
               labelPosition={labelPosition}
             >
               {label}

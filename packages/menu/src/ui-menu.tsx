@@ -19,10 +19,10 @@ import { MenuMapper } from './theme';
 
 const MenuDiv = styled.div<privateMenuProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, MenuMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, MenuMapper)}
     box-shadow: 0px 0px 5px ${getThemeColor(
-      props.customTheme,
-      props.selectedTheme,
+      props.$customTheme,
+      props.$selectedTheme,
       ColorCategories.backgrounds,
       ColorTokens.token_200
     )};
@@ -125,8 +125,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
         <UiViewport criteria={'m|l|xl'}>
           <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
           <MenuDiv
-            customTheme={theme.theme}
-            selectedTheme={theme.selectedTheme}
+            $customTheme={theme.theme}
+            $selectedTheme={theme.selectedTheme}
             visible={visible}
             role="menu"
             closeMenuCB={closeMenuCB}
@@ -144,8 +144,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     <>
       <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
       <MenuDiv
-        customTheme={theme.theme}
-        selectedTheme={theme.selectedTheme}
+        $customTheme={theme.theme}
+        $selectedTheme={theme.selectedTheme}
         visible={visible}
         role="menu"
         closeMenuCB={closeMenuCB}

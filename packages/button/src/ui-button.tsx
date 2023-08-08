@@ -12,7 +12,7 @@ const StyledButton = styled.button<privateButtonProps>`
     const mapper = getDynamicMapper(getColorCategory(props.theme), props.cristal);
 
     return `
-      ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
+      ${getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
       ${props.fullWidth ? 'width: 100%;' : ''}
       ${props.fullHeight ? 'height: 100%;' : ''}
       ${props.cristal ? 'border-width: 0;' : 'border-width: 1px;'}
@@ -45,8 +45,8 @@ export const UiButton: React.FC<UiButtonProps> = ({
 
   return (
     <StyledButton
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
       theme={theme}
       onClick={onClick}
       data-testid={testId}

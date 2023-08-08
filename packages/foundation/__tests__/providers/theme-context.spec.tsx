@@ -11,13 +11,13 @@ const MockedComponent = () => {
 };
 
 const MockedParentComponent = () => {
-  const [selectedTheme, setTheme] = React.useState(ThemeColor.light);
+  const [$selectedTheme, setTheme] = React.useState(ThemeColor.light);
   const toogleTheme = () => {
-    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+    setTheme($selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: selectedTheme }}>
+    <ThemeContext.Provider value={{ theme: DefaultTheme, $selectedTheme: $selectedTheme }}>
       <MockedComponent />
       <button onClick={toogleTheme}>Toogle</button>
     </ThemeContext.Provider>

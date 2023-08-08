@@ -16,7 +16,7 @@ export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ active, children }: 
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <Div active={active} customTheme={themeContext.theme} selectedTheme={themeContext.selectedTheme}>
+    <Div active={active} $customTheme={themeContext.theme} $selectedTheme={themeContext.selectedTheme}>
       {children}
     </Div>
   );

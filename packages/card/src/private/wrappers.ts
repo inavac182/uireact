@@ -12,7 +12,7 @@ type __CardProps = Omit<UiCardProps, 'theme'> &
 
 export const CardWrapper = styled.div<__CardProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicCardMapper(props.weight, props.category))}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicCardMapper(props.weight, props.category))}
     ${props.cursorNeeded ? 'cursor: pointer;' : ''}
     ${!props.squared ? 'border-radius: 3px;' : ''}
     ${!props.noPadding ? 'padding: 5px;' : ''}

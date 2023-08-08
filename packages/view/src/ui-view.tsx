@@ -27,17 +27,17 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
   body {
     ${(props) => `
-      ${`font-family: ${props.customTheme.texts.font};`}
-      ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+      ${`font-family: ${props.$customTheme.texts.font};`}
+      ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
       ${`background-color: ${getThemeColor(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         ColorCategories.backgrounds,
         ColorTokens.token_100
       )};`}
       ${`color: ${getThemeColor(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         ColorCategories.fonts,
         ColorTokens.token_100
       )};`}
@@ -50,9 +50,9 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
 const Div = styled.div<privateViewProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
-    ${`font-family: ${props.customTheme.texts.font};`}
-    ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
+    ${`font-family: ${props.$customTheme.texts.font};`}
+    ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
   `}
 `;
 
@@ -69,8 +69,8 @@ export const UiView: React.FC<UiViewProps> = ({
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
       <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
-        <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
-        <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
+        <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} />
+        <Div $customTheme={theme} $selectedTheme={selectedTheme} className={className} data-testid="UiView">
           {centeredContent ? (
             <>
               <UiViewport criteria={Breakpoints.XLARGE}>

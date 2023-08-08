@@ -11,11 +11,11 @@ import { TextareaMapper, getDynamicTextareaMapper } from './theme';
 const Textarea = styled.textarea<privateTextAreaProps>`
   ${(props: privateTextAreaProps) => `
     ${getThemeStyling(
-      props.customTheme,
-      props.selectedTheme,
+      props.$customTheme,
+      props.$selectedTheme,
       props.category ? getDynamicTextareaMapper(getColorCategory(props.category)) : TextareaMapper
     )}
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
     ${props.resize === false ? 'resize: none;' : ''}
     ${!props.cols ? 'width: 100%;' : ''}
   `}
@@ -84,7 +84,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
         )}
         <InputDiv>
           <Textarea
-            customTheme={themeContext.theme}
+            $customTheme={themeContext.theme}
             cols={cols}
             disabled={disabled}
             id={name}
@@ -95,7 +95,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
             ref={ref}
             resize={resize}
             rows={rows}
-            selectedTheme={themeContext.selectedTheme}
+            $selectedTheme={themeContext.selectedTheme}
             category={theme}
             value={value}
           />

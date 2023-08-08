@@ -10,7 +10,7 @@ import { UiHeading, UiLink, UiText } from '@uireact/text';
 import { ColorationForm, FontsForm, HeadingsForm, TextsForm, SpacingForm } from './form-sections';
 
 export const CreateTheme: React.FC = () => {
-  const [customTheme, setCustomTheme] = React.useState<Theme>(DefaultTheme);
+  const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
   const [themeVisible, setThemeVisible] = React.useState(false);
 
   const handleSubmit = React.useCallback(
@@ -18,7 +18,7 @@ export const CreateTheme: React.FC = () => {
       setThemeVisible(true);
       e.preventDefault();
     },
-    [customTheme]
+    [$customTheme]
   );
 
   const handleChange = React.useCallback(
@@ -28,26 +28,26 @@ export const CreateTheme: React.FC = () => {
       if (keys[2]) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        customTheme[keys[0]][keys[1]][keys[2]] = e.currentTarget.value;
+        $customTheme[keys[0]][keys[1]][keys[2]] = e.currentTarget.value;
       } else {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        customTheme[keys[0]][keys[1]] = e.currentTarget.value;
+        $customTheme[keys[0]][keys[1]] = e.currentTarget.value;
       }
 
-      setCustomTheme({ ...customTheme });
+      set$customTheme({ ...$customTheme });
     },
-    [customTheme, setCustomTheme]
+    [$customTheme, set$customTheme]
   );
 
   const copyToClipboard = React.useCallback(() => {
-    navigator.clipboard.writeText(JSON.stringify(customTheme, null, 4)).then(() => {
+    navigator.clipboard.writeText(JSON.stringify($customTheme, null, 4)).then(() => {
       alert('Theme copied!');
     });
-  }, [customTheme]);
+  }, [$customTheme]);
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
+    <UiView theme={DefaultTheme} $selectedTheme={ThemeColor.dark}>
       <UiViewRow weight="10">
         <form onSubmit={handleSubmit}>
           <>
@@ -65,8 +65,8 @@ export const CreateTheme: React.FC = () => {
                     </UiText>
                   </UiCard>
                 </UiSpacing>
-                <ColorationForm type="light" coloration={customTheme.light} handleChange={handleChange} />
-                <ColorationForm type="dark" coloration={customTheme.dark} handleChange={handleChange} />
+                <ColorationForm type="light" coloration={$customTheme.light} handleChange={handleChange} />
+                <ColorationForm type="dark" coloration={$customTheme.dark} handleChange={handleChange} />
               </UiGridItem>
               <UiGridItem cols={10}>
                 <UiSpacing margin={{ all: 'four' }}>
@@ -77,19 +77,19 @@ export const CreateTheme: React.FC = () => {
                 <UiSpacing margin={{ all: 'four' }}>
                   <UiGrid cols={2} colsGap={10}>
                     <HeadingsForm
-                      headings={customTheme.sizes.headings}
+                      headings={$customTheme.sizes.headings}
                       handleChange={handleChange}
                       name="sizes-headings"
                     />
-                    <TextsForm texts={customTheme.sizes.texts} handleChange={handleChange} name="sizes-texts" />
+                    <TextsForm texts={$customTheme.sizes.texts} handleChange={handleChange} name="sizes-texts" />
                   </UiGrid>
                 </UiSpacing>
               </UiGridItem>
               <UiGridItem cols={10}>
-                <FontsForm texts={customTheme.texts} handleChange={handleChange} name="texts" />
+                <FontsForm texts={$customTheme.texts} handleChange={handleChange} name="texts" />
               </UiGridItem>
               <UiGridItem cols={10}>
-                <SpacingForm spacing={customTheme.spacing} handleChange={handleChange} name="spacing" />
+                <SpacingForm spacing={$customTheme.spacing} handleChange={handleChange} name="spacing" />
               </UiGridItem>
             </UiGrid>
             <UiSpacing padding={{ all: 'four' }}>
@@ -106,7 +106,7 @@ export const CreateTheme: React.FC = () => {
         <UiViewRow>
           <UiSpacing padding={{ all: 'four' }}>
             <UiText>
-              <pre>{`${JSON.stringify(customTheme, null, 4)}`}</pre>
+              <pre>{`${JSON.stringify($customTheme, null, 4)}`}</pre>
             </UiText>
           </UiSpacing>
           <UiSpacing padding={{ all: 'four' }}>

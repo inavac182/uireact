@@ -8,7 +8,7 @@ import { UiListItemProps, privateListItemProps } from './types';
 
 const ListItem = styled.li<privateListItemProps>`
   ${(props) => `
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
 `;
 
@@ -21,7 +21,7 @@ export const UiListItem: React.FC<UiListItemProps> = ({ children, className }: U
 
   return (
     <UiSpacing margin={UiListItemSpacing.margin}>
-      <ListItem customTheme={theme.theme} selectedTheme={theme.selectedTheme} className={className}>
+      <ListItem $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} className={className}>
         {children}
       </ListItem>
     </UiSpacing>

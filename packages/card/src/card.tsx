@@ -39,8 +39,8 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         bordered={props.bordered}
         category={props.theme}
         className={props.className}
-        customTheme={themeContext.theme}
-        selectedTheme={themeContext.selectedTheme}
+        $customTheme={themeContext.theme}
+        $selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
         cursorNeeded={props.clickHandler !== undefined}
         squared={props.squared}

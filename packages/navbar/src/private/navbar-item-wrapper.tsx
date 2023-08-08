@@ -24,7 +24,7 @@ type NavbarItemWrapperProps = UiNavbarProps & {
 const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
     ${props.orientation === 'stacked' ? 'width: 100%;' : ''}
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getNavbarItemMapper(props.category))}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.category))}
     ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
     ${props.stretchItems ? 'flex-grow: 1; text-align: center;' : ''}
   `}
@@ -33,8 +33,8 @@ const Div = styled.div<NavbarItemWrapperProps>`
     ${(props) => `
       ${props.roundedCorners ? getBorderRadiusStyling(props.orientation, props.isFirst, props.isLast) : ''}
       background: ${getThemeColor(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         getColorCategory(props.category),
         ColorTokens.token_150,
         false
@@ -50,11 +50,11 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
   orientation,
   category,
   children,
-  customTheme,
+  $customTheme,
   isFirst,
   isLast,
   roundedCorners,
-  selectedTheme,
+  $selectedTheme,
   stretchItems,
 }: NavbarItemWrapperProps) => {
   if (React.isValidElement(children)) {
@@ -62,8 +62,8 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
       <Div
         align={align}
         category={category}
-        customTheme={customTheme}
-        selectedTheme={selectedTheme}
+        $customTheme={$customTheme}
+        $selectedTheme={$selectedTheme}
         orientation={orientation}
         roundedCorners={roundedCorners}
         isFirst={isFirst}

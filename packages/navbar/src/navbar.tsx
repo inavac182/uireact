@@ -45,8 +45,8 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           align={align}
           category={category}
           orientation={orientation}
-          customTheme={themeContext.theme}
-          selectedTheme={themeContext.selectedTheme}
+          $customTheme={themeContext.theme}
+          $selectedTheme={themeContext.selectedTheme}
           key={`navbar-item-${index}`}
           isFirst={index === 0}
           isLast={index === numberOfItems - 1}
@@ -65,8 +65,8 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     <NavbarWrapper
       align={align}
       className={className}
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
       orientation={orientation}
       data-testid={testId}
     >

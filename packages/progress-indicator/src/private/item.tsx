@@ -14,8 +14,8 @@ const Div = styled.div<privateDivItemProps>`
       props.current
         ? `
           border-color: ${getThemeColor(
-            props.customTheme,
-            props.selectedTheme,
+            props.$customTheme,
+            props.$selectedTheme,
             ColorCategories.primary,
             ColorTokens.token_100,
             false
@@ -35,14 +35,14 @@ const Div = styled.div<privateDivItemProps>`
 
 export const PrivateItem: React.FC<privateProgressIndicatorItemProps> = ({
   allowGoBack,
-  customTheme,
+  $customTheme,
   children,
   completed,
   current,
   disabledCursorForMissingStep,
   handleCompletedStepClick,
   missing,
-  selectedTheme,
+  $selectedTheme,
   step,
 }: privateProgressIndicatorItemProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
@@ -64,11 +64,11 @@ export const PrivateItem: React.FC<privateProgressIndicatorItemProps> = ({
       disabledCursorForMissingStep={disabledCursorForMissingStep}
       completed={completed}
       current={current}
-      customTheme={customTheme}
+      $customTheme={$customTheme}
       missing={missing}
       onClick={handleOnClick}
       ref={ref}
-      selectedTheme={selectedTheme}
+      $selectedTheme={$selectedTheme}
     >
       {children}
     </Div>

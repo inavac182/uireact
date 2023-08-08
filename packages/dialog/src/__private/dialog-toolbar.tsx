@@ -28,7 +28,7 @@ const Button = styled.button`
 `;
 
 const Div = styled.div<UiReactPrivateElementProps>`
-  ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, dialogToolbarMapper)}
+  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, dialogToolbarMapper)}
 
   border-style: solid;
   border-width: 0 0 2px 0;
@@ -45,7 +45,7 @@ export const DialogToolbar: React.FC<DialogToolbarProps> = ({
   const theme = React.useContext(ThemeContext);
 
   return (
-    <Div customTheme={theme.theme} selectedTheme={theme.selectedTheme}>
+    <Div $customTheme={theme.theme} $selectedTheme={theme.selectedTheme}>
       {!hideCloseIcon && (
         <Button onClick={closeCB} aria-label={closeLabel}>
           <UiIcon icon="Cross" />
