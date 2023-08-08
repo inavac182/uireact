@@ -47,7 +47,7 @@ export const CreateTheme: React.FC = () => {
   }, [$customTheme]);
 
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={ThemeColor.dark}>
+    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
       <UiViewRow weight="10">
         <form onSubmit={handleSubmit}>
           <>

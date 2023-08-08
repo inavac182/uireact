@@ -38,7 +38,7 @@ export const TestTheme: React.FC = () => {
   }, [themeInput, set$customTheme]);
 
   return (
-    <UiView theme={$customTheme || DefaultTheme} $selectedTheme={coloration}>
+    <UiView theme={$customTheme || DefaultTheme} selectedTheme={coloration}>
       <UiSpacing margin={{ left: 'three' }}>
         <UiHeading>Paste the newly created custom theme here:</UiHeading>
         <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />
