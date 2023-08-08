@@ -60,7 +60,7 @@ const MockedNotCorrectlySetupComponent = () => {
 
   return (
     <>
-      <ThemeContext.Provider value={{ theme: DefaultTheme, $selectedTheme: ThemeColor.dark }}>
+      <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: ThemeColor.dark }}>
         <button onClick={openCB}>Open Dialog</button>
         <button onClick={openSecondCB}>Open Second Dialog</button>
         <UiDialog closeLabel="Close button" dialogId="mockedDialog">

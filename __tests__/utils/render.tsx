@@ -7,18 +7,18 @@ import { DefaultTheme, ThemeColor } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
 type WrapperComponentProps = {
-  $selectedTheme?: ThemeColor;
+  selectedTheme?: ThemeColor;
   children: React.ReactElement;
 };
 
-const WrapperComponent: React.FC<WrapperComponentProps> = ({ children, $selectedTheme }: WrapperComponentProps) => {
+const WrapperComponent: React.FC<WrapperComponentProps> = ({ children, selectedTheme }: WrapperComponentProps) => {
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={$selectedTheme ?? ThemeColor.dark}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme ?? ThemeColor.dark}>
       {children}
     </UiView>
   );
 };
 
 export const uiRender = (component: React.ReactElement, $selectedTheme?: ThemeColor): RenderResult => {
-  return render(<WrapperComponent $selectedTheme={$selectedTheme}>{component}</WrapperComponent>);
+  return render(<WrapperComponent selectedTheme={$selectedTheme}>{component}</WrapperComponent>);
 };
