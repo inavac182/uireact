@@ -28,12 +28,11 @@
     "@uireact/foundation": "^1.1.0"
   },
   "peerDependencies": {
-    "@types/styled-components": "^5.1.0",
     "@uireact/dialog": "^1.0.0",
     "@uireact/foundation": "^1.0.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": "^5.1.1",
+    "styled-components": "^6.0.7",
     "tslib": "^2.5.0"
   }
 }
