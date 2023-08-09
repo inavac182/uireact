@@ -13,12 +13,12 @@ import { UiIcon } from '../../src';
 import * as Icons from '../../src/public/svgs';
 
 export const IconsList: React.FC = () => {
-  const [$selectedTheme, set$selectedTheme] = React.useState(ThemeColor.dark);
+  const [selectedTheme, setSelectedTheme] = React.useState(ThemeColor.dark);
   const [category, setCategory] = React.useState<ColorCategory>();
 
   const toogleTheme = React.useCallback(() => {
-    set$selectedTheme($selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark);
-  }, [set$selectedTheme, $selectedTheme]);
+    setSelectedTheme(selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark);
+  }, [setSelectedTheme, selectedTheme]);
 
   const handleCategoryChange = React.useCallback(
     (value?: string) => {
@@ -28,7 +28,7 @@ export const IconsList: React.FC = () => {
   );
 
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={$selectedTheme}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
       <UiViewRow>
         <UiSpacing padding={{ all: 'four' }}>
           <UiFlexGrid alignItems="center" gap={'five'} justifyContent="center">
@@ -58,6 +58,8 @@ export const IconsList: React.FC = () => {
             {Object.keys(Icons).map((key) => (
               <UiGridItem key={`icon-grid-item-component-${key}`}>
                 <UiText size={TextSize.xlarge} theme={category} centered>
+                  {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                  {/* @ts-ignore */}
                   <UiIcon icon={key} theme={category} />
                   <br />
                   {key}
