@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.10...@uireact/form@1.1.0) (2023-08-09)
+
+
+### Features
+
+* adding box-sizing to input ([#211](https://github.com/inavac182/ui-react/issues/211)) ([1a5343a](https://github.com/inavac182/ui-react/commit/1a5343a38d4b2c072f0c37e6693275f4a0a7bd15))
+
+
+
+
+
 ## 1.0.10 (2023-08-09)
 
 **Note:** Version bump only for package @uireact/form
