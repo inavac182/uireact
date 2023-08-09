@@ -33,10 +33,10 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
       {centeredContent ? (
         <>
           <UiViewport criteria={Breakpoints.XLARGE}>
-            <CenteredDiv size="xl">{children}</CenteredDiv>
+            <CenteredDiv $size="xl">{children}</CenteredDiv>
           </UiViewport>
           <UiViewport criteria={Breakpoints.LARGE}>
-            <CenteredDiv size="l">{children}</CenteredDiv>
+            <CenteredDiv $size="l">{children}</CenteredDiv>
           </UiViewport>
           <UiViewport criteria={'s|m'}>{children}</UiViewport>
         </>

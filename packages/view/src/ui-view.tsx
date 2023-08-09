@@ -19,6 +19,7 @@ import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
 import { CenteredDiv } from './__private';
 
+/* istanbul ignore next */
 const GlobalStyle = createGlobalStyle<privateViewProps>`
   * {
     margin: 0;
@@ -74,10 +75,10 @@ export const UiView: React.FC<UiViewProps> = ({
           {centeredContent ? (
             <>
               <UiViewport criteria={Breakpoints.XLARGE}>
-                <CenteredDiv size="xl">{children}</CenteredDiv>
+                <CenteredDiv $size="xl">{children}</CenteredDiv>
               </UiViewport>
               <UiViewport criteria={Breakpoints.LARGE}>
-                <CenteredDiv size="l">{children}</CenteredDiv>
+                <CenteredDiv $size="l">{children}</CenteredDiv>
               </UiViewport>
               <UiViewport criteria={'s|m'}>{children}</UiViewport>
             </>
