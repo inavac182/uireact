@@ -20,6 +20,7 @@ const Input = styled.input<privateInputProps>`
     border-style: solid;
     border-width: 2px;
     border-radius: 2px;
+    box-sizing: border-box;
 
     :focus {
       border-style: solid;
