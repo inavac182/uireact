@@ -39,5 +39,6 @@ export type privateCheckboxProps = {
 } & UiReactPrivateElementProps;
 
 export type privateCheckboxLabelProps = {
+  htmlFor?: string;
   $labelPosition?: 'START' | 'END';
 } & UiReactPrivateElementProps;

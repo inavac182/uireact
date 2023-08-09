@@ -8,10 +8,10 @@ import { privateDivItemProps, privateProgressIndicatorItemProps } from '../types
 
 const Div = styled.div<privateDivItemProps>`
   ${(props) => `
-    ${props.completed && props.allowGoBack ? 'cursor: pointer;' : ''}
-    ${props.missing && props.disabledCursorForMissingStep ? 'cursor: not-allowed;' : ''}
+    ${props.$completed && props.$allowGoBack ? 'cursor: pointer;' : ''}
+    ${props.$missing && props.$disabledCursorForMissingStep ? 'cursor: not-allowed;' : ''}
     ${
-      props.current
+      props.$current
         ? `
           border-color: ${getThemeColor(
             props.$customTheme,
@@ -24,8 +24,8 @@ const Div = styled.div<privateDivItemProps>`
         : ''
     }
 
-    ${props.completed || props.missing ? 'border-color: transparent;' : ''}
-    ${props.missing ? 'opacity: 0.6;' : ''}
+    ${props.$completed || props.$missing ? 'border-color: transparent;' : ''}
+    ${props.$missing ? 'opacity: 0.6;' : ''}
 
     border-width: 0 0 2px 0;
     border-style: solid;
@@ -34,38 +34,38 @@ const Div = styled.div<privateDivItemProps>`
 `;
 
 export const PrivateItem: React.FC<privateProgressIndicatorItemProps> = ({
-  allowGoBack,
+  $allowGoBack,
   $customTheme,
   children,
-  completed,
-  current,
-  disabledCursorForMissingStep,
-  handleCompletedStepClick,
-  missing,
+  $completed,
+  $current,
+  $disabledCursorForMissingStep,
+  $handleCompletedStepClick,
+  $missing,
   $selectedTheme,
-  step,
+  $step,
 }: privateProgressIndicatorItemProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const handleOnClick = React.useCallback(() => {
-    completed && handleCompletedStepClick(step);
-  }, [completed, handleCompletedStepClick, step]);
+    $completed && $handleCompletedStepClick($step);
+  }, [$completed, $handleCompletedStepClick, $step]);
 
   useEffect(() => {
     //istanbul ignore next
-    if (current && ref.current?.scrollIntoView) {
+    if ($current && ref.current?.scrollIntoView) {
       //istanbul ignore next
       ref.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
-  }, [current]);
+  }, [$current]);
 
   return (
     <Div
-      allowGoBack={allowGoBack}
-      disabledCursorForMissingStep={disabledCursorForMissingStep}
-      completed={completed}
-      current={current}
+      $allowGoBack={$allowGoBack}
+      $disabledCursorForMissingStep={$disabledCursorForMissingStep}
+      $completed={$completed}
+      $current={$current}
       $customTheme={$customTheme}
-      missing={missing}
+      $missing={$missing}
       onClick={handleOnClick}
       ref={ref}
       $selectedTheme={$selectedTheme}
