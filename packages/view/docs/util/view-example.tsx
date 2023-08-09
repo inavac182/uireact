@@ -16,7 +16,7 @@ export const ViewExample: React.FC<ViewExampleProps> = ({ centeredContent }: Vie
   };
 
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={$selectedTheme} centeredContent={centeredContent}>
+    <UiView theme={DefaultTheme} selectedTheme={$selectedTheme} centeredContent={centeredContent}>
       <p>All the react tree should render inside here</p>
       <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
     </UiView>

@@ -13,7 +13,7 @@ export const ViewRowExample: React.FC = () => {
   };
 
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={$selectedTheme}>
+    <UiView theme={DefaultTheme} selectedTheme={$selectedTheme}>
       <UiViewRow weight="10">
         <p>A row with weight 10</p>
       </UiViewRow>
