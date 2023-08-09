@@ -32,7 +32,7 @@
     "@uireact/foundation": "^1.0.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": "^6.0.7",
+    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }
