@@ -19,4 +19,25 @@ export type UiCheckboxProps = {
   theme?: ColorCategory;
 } & UiReactElementProps;
 
-export type privateCheckboxProps = UiCheckboxProps & UiReactPrivateElementProps;
+export type privateCheckboxProps = {
+  /** If checkbox is checked */
+  checked?: boolean;
+  /** If checkbox is disabled */
+  disabled?: boolean;
+  /** Checkbox name used to identify it */
+  $name?: string;
+  /** Label to render next to checkbox */
+  $label?: string;
+  /** Label position */
+  $labelPosition?: 'START' | 'END';
+  /** On change CB to handle checked state */
+  onChange?: () => void;
+  /** React ref */
+  ref?: React.Ref<HTMLInputElement>;
+  /** Checkbox theme to render when checked */
+  $theme?: ColorCategory;
+} & UiReactPrivateElementProps;
+
+export type privateCheckboxLabelProps = {
+  $labelPosition?: 'START' | 'END';
+} & UiReactPrivateElementProps;

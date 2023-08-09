@@ -11,10 +11,10 @@ import {
   getThemeStyling,
 } from '@uireact/foundation';
 
-import { UiCheckboxProps, privateCheckboxProps } from './types';
+import { UiCheckboxProps, privateCheckboxLabelProps, privateCheckboxProps } from './types';
 import { CheckboxButtonMapper, DisabledCheckboxMapper, getDynamicCheckboxMapper } from './theme';
 
-const Label = styled.label<privateCheckboxProps>`
+const Label = styled.label<privateCheckboxLabelProps>`
   ${(props) => `
     font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
@@ -40,7 +40,7 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
       ${getThemeStyling(
         props.$customTheme,
         props.$selectedTheme,
-        getDynamicCheckboxMapper(getColorCategory(props.theme))
+        getDynamicCheckboxMapper(getColorCategory(props.$theme))
       )}
     `}
   }
@@ -65,7 +65,7 @@ const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
 
   ${(props) => `
     ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
-    ${props.labelPosition === 'START' ? 'left: 5px;' : ''}
+    ${props.$labelPosition === 'START' ? 'left: 5px;' : ''}
   `}
 `;
 
@@ -84,9 +84,9 @@ const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
 
-const LabelSpan = styled.span<privateCheckboxProps>`
+const LabelSpan = styled.span<privateCheckboxLabelProps>`
   ${(props) => `
-    ${props.labelPosition === 'END' ? 'position: absolute; left: 75px;' : 'position: relative; left: 0px;'}
+    ${props.$labelPosition === 'END' ? 'position: absolute; left: 75px;' : 'position: relative; left: 0px;'}
   `}
 
   width: max-content;
@@ -113,23 +113,18 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
         id={name}
         name={name}
         $selectedTheme={themeContext.selectedTheme}
-        theme={theme}
+        $theme={theme}
         type="checkbox"
         ref={ref}
         onChange={onChange}
       />{' '}
-      <Label
-        $customTheme={themeContext.theme}
-        disabled={disabled}
-        htmlFor={name}
-        $selectedTheme={themeContext.selectedTheme}
-      >
+      <Label $customTheme={themeContext.theme} htmlFor={name} $selectedTheme={themeContext.selectedTheme}>
         <>
           {labelPosition === 'START' && (
             <LabelSpan
               $customTheme={themeContext.theme}
               $selectedTheme={themeContext.selectedTheme}
-              labelPosition={labelPosition}
+              $labelPosition={labelPosition}
             >
               {label}
             </LabelSpan>
@@ -138,7 +133,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
             className="ui-react-checkbox-button-wrapper"
             $customTheme={themeContext.theme}
             $selectedTheme={themeContext.selectedTheme}
-            labelPosition={labelPosition}
+            $labelPosition={labelPosition}
           >
             <CheckboxButtonSpan
               className="ui-react-checkbox-button"
@@ -150,7 +145,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
             <LabelSpan
               $customTheme={themeContext.theme}
               $selectedTheme={themeContext.selectedTheme}
-              labelPosition={labelPosition}
+              $labelPosition={labelPosition}
             >
               {label}
             </LabelSpan>

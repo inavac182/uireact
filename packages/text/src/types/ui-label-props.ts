@@ -11,7 +11,7 @@ export type UiLabelProps = {
 
 export type privateLabelProps = {
   /* For what elements this label is */
-  $htmlFor?: string;
+  htmlFor?: string;
   /* Represents the theme to use for the text, default PRIMARY */
   $theme?: ColorCategory;
   $category?: ColorCategory;

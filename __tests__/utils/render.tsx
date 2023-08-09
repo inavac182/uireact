@@ -19,6 +19,6 @@ const WrapperComponent: React.FC<WrapperComponentProps> = ({ children, selectedT
   );
 };
 
-export const uiRender = (component: React.ReactElement, $selectedTheme?: ThemeColor): RenderResult => {
-  return render(<WrapperComponent selectedTheme={$selectedTheme}>{component}</WrapperComponent>);
+export const uiRender = (component: React.ReactElement, selectedTheme?: ThemeColor): RenderResult => {
+  return render(<WrapperComponent selectedTheme={selectedTheme}>{component}</WrapperComponent>);
 };

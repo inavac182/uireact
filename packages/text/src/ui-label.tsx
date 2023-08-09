@@ -30,7 +30,7 @@ export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = Text
       $selectedTheme={themeContext.selectedTheme}
       $size={size}
       $category={theme}
-      $htmlFor={htmlFor}
+      htmlFor={htmlFor}
     >
       {children}
     </Label>
