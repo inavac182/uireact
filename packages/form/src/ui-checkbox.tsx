@@ -26,16 +26,16 @@ const Label = styled.label<privateCheckboxLabelProps>`
 `;
 
 const CheckboxInput = styled.input<privateCheckboxProps>`
-  height: 0;
   width: 0;
+  height: 0;
   visibility: hidden;
 
-  :checked + label .ui-react-checkbox-button {
+  &:checked + label .ui-react-checkbox-pill-dot {
     left: calc(100% - 2px);
     transform: translateX(-100%);
   }
 
-  :checked + label .ui-react-checkbox-button-wrapper {
+  &:checked + label .ui-react-checkbox-pill {
     ${(props) => `
       ${getThemeStyling(
         props.$customTheme,
@@ -45,18 +45,18 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
     `}
   }
 
-  :disabled + label {
+  &:disabled + label {
     cursor: not-allowed;
   }
 
-  :disabled + label > .ui-react-checkbox-button-wrapper {
+  &:disabled + label .ui-react-checkbox-pill {
     ${(props) => `
       ${getThemeStyling(props.$customTheme, props.$selectedTheme, DisabledCheckboxMapper)}
     `}
   }
 `;
 
-const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
+const CheckboxPillWrapper = styled.span<privateCheckboxProps>`
   width: 50px;
   height: 20px;
   border-radius: 50px;
@@ -69,7 +69,7 @@ const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
   `}
 `;
 
-const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
+const CheckboxPillDot = styled.span<privateCheckboxProps>`
   content: '';
   position: absolute;
   top: 1px;
@@ -129,18 +129,18 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
               {label}
             </LabelSpan>
           )}
-          <CheckboxButtonWrapper
-            className="ui-react-checkbox-button-wrapper"
+          <CheckboxPillWrapper
+            className="ui-react-checkbox-pill"
             $customTheme={themeContext.theme}
             $selectedTheme={themeContext.selectedTheme}
             $labelPosition={labelPosition}
           >
-            <CheckboxButtonSpan
-              className="ui-react-checkbox-button"
+            <CheckboxPillDot
+              className="ui-react-checkbox-pill-dot"
               $customTheme={themeContext.theme}
               $selectedTheme={themeContext.selectedTheme}
             />
-          </CheckboxButtonWrapper>
+          </CheckboxPillWrapper>
           {labelPosition === 'END' && (
             <LabelSpan
               $customTheme={themeContext.theme}
