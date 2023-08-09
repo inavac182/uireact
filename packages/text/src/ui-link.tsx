@@ -11,13 +11,17 @@ import { getDynamicLinkMapper } from './theme';
 
 const Anchor = styled.a<privateLinkProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getColorCategory(props.category)))}
-    font-size: ${getTextSize(props.customTheme, props.size || TextSize.regular)};
-    ${props.fullWidth ? 'width: 100%; display: inline-block;' : ''}
-    ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
-    ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
-    ${props.fontStyle === 'light' ? `font-weight: 300;` : ''}
-    ${props.fontStyle === 'regular' ? `font-weight: normal;` : ''}
+    ${getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicLinkMapper(getColorCategory(props.$category))
+    )}
+    font-size: ${getTextSize(props.$customTheme, props.$size || TextSize.regular)};
+    ${props.$fullWidth ? 'width: 100%; display: inline-block;' : ''}
+    ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
+    ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
   cursor: pointer;
@@ -32,10 +36,14 @@ const Anchor = styled.a<privateLinkProps>`
 const StyledLinkWrapper = styled.span<privateLinkProps>`
   a {
     ${(props) => `
-      ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicLinkMapper(getColorCategory(props.category)))}
-      font-size: ${getTextSize(props.customTheme, props.size || TextSize.regular)};
-      ${props.fontStyle === 'italic' ? `font-style: ${props.fontStyle};` : ''}
-      ${props.fontStyle === 'bold' ? `font-weight: bold;` : ''}
+      ${getThemeStyling(
+        props.$customTheme,
+        props.$selectedTheme,
+        getDynamicLinkMapper(getColorCategory(props.$category))
+      )}
+      font-size: ${getTextSize(props.$customTheme, props.$size || TextSize.regular)};
+      ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
+      ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
     `}
 
     cursor: pointer;
@@ -67,13 +75,13 @@ export const UiLink: React.FC<UiLinkProps> = ({
   if (useReactLink && href) {
     return (
       <StyledLinkWrapper
-        category={theme}
-        customTheme={themeContext.theme}
-        fullWidth={fullWidth}
-        fontStyle={fontStyle}
+        $category={theme}
+        $customTheme={themeContext.theme}
+        $fullWidth={fullWidth}
+        $fontStyle={fontStyle}
         onClick={handleClick}
-        selectedTheme={themeContext.selectedTheme}
-        size={size}
+        $selectedTheme={themeContext.selectedTheme}
+        $size={size}
       >
         <Link
           to={href}
@@ -91,16 +99,16 @@ export const UiLink: React.FC<UiLinkProps> = ({
 
   return (
     <Anchor
-      category={theme}
-      customTheme={themeContext.theme}
+      $category={theme}
+      $customTheme={themeContext.theme}
       href={href}
-      fullWidth={fullWidth}
-      fontStyle={fontStyle}
+      $fullWidth={fullWidth}
+      $fontStyle={fontStyle}
       onClick={handleClick}
       ref={ref}
       referrerpolicy={referrerpolicy}
-      selectedTheme={themeContext.selectedTheme}
-      size={size}
+      $selectedTheme={themeContext.selectedTheme}
+      $size={size}
       target={target}
       role="link"
       data-testid={testId}

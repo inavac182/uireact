@@ -36,16 +36,16 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
   const CardWrapperMemo = React.useMemo(
     () => (
       <CardWrapper
-        bordered={props.bordered}
-        category={props.theme}
+        $bordered={props.bordered}
+        $category={props.theme}
         className={props.className}
-        customTheme={themeContext.theme}
-        selectedTheme={themeContext.selectedTheme}
+        $customTheme={themeContext.theme}
+        $selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
-        cursorNeeded={props.clickHandler !== undefined}
-        squared={props.squared}
-        noPadding={props.noPadding}
-        weight={props.weight}
+        $cursorNeeded={props.clickHandler !== undefined}
+        $squared={props.squared}
+        $noPadding={props.noPadding}
+        $weight={props.weight}
       >
         {props.children}
       </CardWrapper>

@@ -22,8 +22,8 @@ export const UiList: React.FC<UiListProps> = ({ children, className, type = 'UNO
       return (
         <UnorderedList
           className={className}
-          customTheme={themeContext.theme}
-          selectedTheme={themeContext.selectedTheme}
+          $customTheme={themeContext.theme}
+          $selectedTheme={themeContext.selectedTheme}
           type={type}
         >
           {children}
@@ -33,8 +33,8 @@ export const UiList: React.FC<UiListProps> = ({ children, className, type = 'UNO
       return (
         <UnorderedList
           className={className}
-          customTheme={themeContext.theme}
-          selectedTheme={themeContext.selectedTheme}
+          $customTheme={themeContext.theme}
+          $selectedTheme={themeContext.selectedTheme}
           type={type}
         >
           {children}

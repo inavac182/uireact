@@ -19,6 +19,7 @@ import { UiViewProps, privateViewProps } from './types/ui-view-props';
 import { themeMapper } from './theme';
 import { CenteredDiv } from './__private';
 
+/* istanbul ignore next */
 const GlobalStyle = createGlobalStyle<privateViewProps>`
   * {
     margin: 0;
@@ -27,17 +28,17 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
   body {
     ${(props) => `
-      ${`font-family: ${props.customTheme.texts.font};`}
-      ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+      ${`font-family: ${props.$customTheme.texts.font};`}
+      ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
       ${`background-color: ${getThemeColor(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         ColorCategories.backgrounds,
         ColorTokens.token_100
       )};`}
       ${`color: ${getThemeColor(
-        props.customTheme,
-        props.selectedTheme,
+        props.$customTheme,
+        props.$selectedTheme,
         ColorCategories.fonts,
         ColorTokens.token_100
       )};`}
@@ -50,9 +51,9 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
 const Div = styled.div<privateViewProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, themeMapper)}
-    ${`font-family: ${props.customTheme.texts.font};`}
-    ${`font-size: ${getTextSize(props.customTheme, TextSize.regular)};`}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
+    ${`font-family: ${props.$customTheme.texts.font};`}
+    ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
   `}
 `;
 
@@ -69,15 +70,15 @@ export const UiView: React.FC<UiViewProps> = ({
   return (
     <ThemeContext.Provider value={{ theme, selectedTheme }}>
       <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
-        <GlobalStyle customTheme={theme} selectedTheme={selectedTheme} />
-        <Div customTheme={theme} selectedTheme={selectedTheme} className={className} data-testid="UiView">
+        <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} />
+        <Div $customTheme={theme} $selectedTheme={selectedTheme} className={className} data-testid="UiView">
           {centeredContent ? (
             <>
               <UiViewport criteria={Breakpoints.XLARGE}>
-                <CenteredDiv size="xl">{children}</CenteredDiv>
+                <CenteredDiv $size="xl">{children}</CenteredDiv>
               </UiViewport>
               <UiViewport criteria={Breakpoints.LARGE}>
-                <CenteredDiv size="l">{children}</CenteredDiv>
+                <CenteredDiv $size="l">{children}</CenteredDiv>
               </UiViewport>
               <UiViewport criteria={'s|m'}>{children}</UiViewport>
             </>

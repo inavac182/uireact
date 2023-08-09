@@ -9,9 +9,13 @@ import { UiBadgeProps, privateBadgeProps } from './types';
 
 const BadgeDiv = styled.div<privateBadgeProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicBadgeMapper(getColorCategory(props.category)))}
-    font-size: ${getTextSize(props.customTheme, props.size || TextSize.small)};
-    border-radius: ${getTextSize(props.customTheme, props.size || TextSize.small)};
+    ${getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicBadgeMapper(getColorCategory(props.category))
+    )}
+    font-size: ${getTextSize(props.$customTheme, props.size || TextSize.small)};
+    border-radius: ${getTextSize(props.$customTheme, props.size || TextSize.small)};
     font-weight: bold;
   `}
 
@@ -25,8 +29,8 @@ export const UiBadge: React.FC<UiBadgeProps> = ({ category = 'primary', classNam
 
   return (
     <BadgeDiv
-      customTheme={theme.theme}
-      selectedTheme={theme.selectedTheme}
+      $customTheme={theme.theme}
+      $selectedTheme={theme.selectedTheme}
       category={category}
       className={className}
       size={size}

@@ -14,7 +14,7 @@ export const UiTabs: React.FC<UiTabsProps> = ({ children, className }: UiTabsPro
   const theme = React.useContext(ThemeContext);
 
   return (
-    <TabDiv customTheme={theme.theme} selectedTheme={theme.selectedTheme} className={className}>
+    <TabDiv $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} className={className}>
       {children}
     </TabDiv>
   );

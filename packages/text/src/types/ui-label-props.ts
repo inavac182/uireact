@@ -9,7 +9,11 @@ export type UiLabelProps = {
   theme?: ColorCategory;
 } & UiReactElementProps;
 
-export type privateLabelProps = Omit<UiLabelProps, 'theme'> & {
-  category?: ColorCategory;
-  size: TextSize;
+export type privateLabelProps = {
+  /* For what elements this label is */
+  htmlFor?: string;
+  /* Represents the theme to use for the text, default PRIMARY */
+  $theme?: ColorCategory;
+  $category?: ColorCategory;
+  $size: TextSize;
 } & UiReactPrivateElementProps;

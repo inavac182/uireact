@@ -1,21 +1,37 @@
 import styled from 'styled-components';
 
-import { ColorCategory, UiReactPrivateElementProps, getThemeStyling } from '@uireact/foundation';
-import { UiCardProps } from '..';
+import { ColorCategory, ColorTokens, UiReactPrivateElementProps, getThemeStyling } from '@uireact/foundation';
+
 import { getDynamicCardMapper } from '../theme';
 
-type __CardProps = Omit<UiCardProps, 'theme'> &
-  UiReactPrivateElementProps & {
-    category?: ColorCategory;
-    cursorNeeded?: boolean;
+type __CardProps = {
+  /** If card should show a border */
+  $bordered?: boolean;
+  /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
+  $clickHandler?: (idenfifier: string | undefined) => void;
+  /** The identifier that is shared to the click handler when card is clicked */
+  $identifier?: string;
+  /** Link for redirecting when card is clicked */
+  $link?: string;
+  /** Prop for internal link, when true the redirect uses internal react link */
+  $internalLink?: boolean;
+  /** Useful when we want to render content at the edge of the card, e.g. Images */
+  $noPadding?: boolean;
+  /** If the card should render with squared corners, default FALSE */
+  $squared?: boolean;
+  /** Card weigth used for background color */
+  $weight?: ColorTokens;
+} & UiReactPrivateElementProps & {
+    $category?: ColorCategory;
+    $cursorNeeded?: boolean;
   };
 
 export const CardWrapper = styled.div<__CardProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicCardMapper(props.weight, props.category))}
-    ${props.cursorNeeded ? 'cursor: pointer;' : ''}
-    ${!props.squared ? 'border-radius: 3px;' : ''}
-    ${!props.noPadding ? 'padding: 5px;' : ''}
-    ${props.bordered ? 'border-width: 2px; border-style: solid;' : ''}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicCardMapper(props.$weight, props.$category))}
+    ${props.$cursorNeeded ? 'cursor: pointer;' : ''}
+    ${!props.$squared ? 'border-radius: 3px;' : ''}
+    ${!props.$noPadding ? 'padding: 5px;' : ''}
+    ${props.$bordered ? 'border-width: 2px; border-style: solid;' : ''}
   `}
 `;

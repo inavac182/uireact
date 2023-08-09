@@ -6,4 +6,6 @@ export type UiNavbarItemProps = {
   active?: boolean;
 } & UiReactElementProps;
 
-export type privateNavbarItemProps = UiNavbarItemProps & UiReactPrivateElementProps;
+export type privateNavbarItemProps = {
+  $active?: boolean;
+} & UiReactPrivateElementProps;

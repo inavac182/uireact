@@ -7,13 +7,13 @@ import { UiView } from '../../src';
 import { UiViewRow } from '../../src';
 
 export const ViewRowExample: React.FC = () => {
-  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const [$selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
-    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+    setTheme($selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+    <UiView theme={DefaultTheme} selectedTheme={$selectedTheme}>
       <UiViewRow weight="10">
         <p>A row with weight 10</p>
       </UiViewRow>

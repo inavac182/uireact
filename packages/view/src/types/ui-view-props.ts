@@ -23,5 +23,6 @@ export type UiViewRowProps = {
   weight?: '10' | '50' | '100' | '150' | '200';
 } & UiReactElementProps;
 
-export type privateViewProps = Omit<Omit<UiViewProps, 'theme'>, 'dialogController'> & UiReactPrivateElementProps;
+export type privateViewProps = Omit<Omit<Omit<UiViewProps, 'selectedTheme'>, 'theme'>, 'dialogController'> &
+  UiReactPrivateElementProps;
 export type privateViewRowProps = UiViewRowProps & UiReactPrivateElementProps;

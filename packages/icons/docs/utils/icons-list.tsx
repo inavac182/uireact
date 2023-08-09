@@ -13,12 +13,12 @@ import { UiIcon } from '../../src';
 import * as Icons from '../../src/public/svgs';
 
 export const IconsList: React.FC = () => {
-  const [selectedTheme, setSelectedTheme] = React.useState(ThemeColor.dark);
+  const [$selectedTheme, set$selectedTheme] = React.useState(ThemeColor.dark);
   const [category, setCategory] = React.useState<ColorCategory>();
 
   const toogleTheme = React.useCallback(() => {
-    setSelectedTheme(selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark);
-  }, [setSelectedTheme, selectedTheme]);
+    set$selectedTheme($selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark);
+  }, [set$selectedTheme, $selectedTheme]);
 
   const handleCategoryChange = React.useCallback(
     (value?: string) => {
@@ -28,7 +28,7 @@ export const IconsList: React.FC = () => {
   );
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+    <UiView theme={DefaultTheme} $selectedTheme={$selectedTheme}>
       <UiViewRow>
         <UiSpacing padding={{ all: 'four' }}>
           <UiFlexGrid alignItems="center" gap={'five'} justifyContent="center">

@@ -11,12 +11,12 @@ import { TextareaMapper, getDynamicTextareaMapper } from './theme';
 const Textarea = styled.textarea<privateTextAreaProps>`
   ${(props: privateTextAreaProps) => `
     ${getThemeStyling(
-      props.customTheme,
-      props.selectedTheme,
-      props.category ? getDynamicTextareaMapper(getColorCategory(props.category)) : TextareaMapper
+      props.$customTheme,
+      props.$selectedTheme,
+      props.$category ? getDynamicTextareaMapper(getColorCategory(props.$category)) : TextareaMapper
     )}
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
-    ${props.resize === false ? 'resize: none;' : ''}
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
+    ${props.$resize === false ? 'resize: none;' : ''}
     ${!props.cols ? 'width: 100%;' : ''}
   `}
 
@@ -84,19 +84,19 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
         )}
         <InputDiv>
           <Textarea
-            customTheme={themeContext.theme}
+            $customTheme={themeContext.theme}
             cols={cols}
             disabled={disabled}
             id={name}
-            maxlength={maxlength}
+            $maxlength={maxlength}
             name={name}
             onChange={onChange}
             placeholder={placeholder}
             ref={ref}
-            resize={resize}
+            $resize={resize}
             rows={rows}
-            selectedTheme={themeContext.selectedTheme}
-            category={theme}
+            $selectedTheme={themeContext.selectedTheme}
+            $category={theme}
             value={value}
           />
           {error && <UiText theme={theme}>{error}</UiText>}

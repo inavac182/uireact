@@ -11,12 +11,12 @@ import {
   getThemeStyling,
 } from '@uireact/foundation';
 
-import { UiCheckboxProps, privateCheckboxProps } from './types';
+import { UiCheckboxProps, privateCheckboxLabelProps, privateCheckboxProps } from './types';
 import { CheckboxButtonMapper, DisabledCheckboxMapper, getDynamicCheckboxMapper } from './theme';
 
-const Label = styled.label<privateCheckboxProps>`
+const Label = styled.label<privateCheckboxLabelProps>`
   ${(props) => `
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
 
   display: flex;
@@ -26,37 +26,37 @@ const Label = styled.label<privateCheckboxProps>`
 `;
 
 const CheckboxInput = styled.input<privateCheckboxProps>`
-  height: 0;
   width: 0;
+  height: 0;
   visibility: hidden;
 
-  :checked + label .ui-react-checkbox-button {
+  &:checked + label .ui-react-checkbox-pill-dot {
     left: calc(100% - 2px);
     transform: translateX(-100%);
   }
 
-  :checked + label .ui-react-checkbox-button-wrapper {
+  &:checked + label .ui-react-checkbox-pill {
     ${(props) => `
       ${getThemeStyling(
-        props.customTheme,
-        props.selectedTheme,
-        getDynamicCheckboxMapper(getColorCategory(props.theme))
+        props.$customTheme,
+        props.$selectedTheme,
+        getDynamicCheckboxMapper(getColorCategory(props.$theme))
       )}
     `}
   }
 
-  :disabled + label {
+  &:disabled + label {
     cursor: not-allowed;
   }
 
-  :disabled + label > .ui-react-checkbox-button-wrapper {
+  &:disabled + label .ui-react-checkbox-pill {
     ${(props) => `
-      ${getThemeStyling(props.customTheme, props.selectedTheme, DisabledCheckboxMapper)}
+      ${getThemeStyling(props.$customTheme, props.$selectedTheme, DisabledCheckboxMapper)}
     `}
   }
 `;
 
-const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
+const CheckboxPillWrapper = styled.span<privateCheckboxProps>`
   width: 50px;
   height: 20px;
   border-radius: 50px;
@@ -64,12 +64,12 @@ const CheckboxButtonWrapper = styled.span<privateCheckboxProps>`
   transition: background-color 0.2s;
 
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
-    ${props.labelPosition === 'START' ? 'left: 5px;' : ''}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicCheckboxMapper(ColorCategories.fonts))}
+    ${props.$labelPosition === 'START' ? 'left: 5px;' : ''}
   `}
 `;
 
-const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
+const CheckboxPillDot = styled.span<privateCheckboxProps>`
   content: '';
   position: absolute;
   top: 1px;
@@ -79,14 +79,14 @@ const CheckboxButtonSpan = styled.span<privateCheckboxProps>`
   border-radius: 20px;
   transition: 0.2s;
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, CheckboxButtonMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, CheckboxButtonMapper)}
   `}
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 `;
 
-const LabelSpan = styled.span<privateCheckboxProps>`
+const LabelSpan = styled.span<privateCheckboxLabelProps>`
   ${(props) => `
-    ${props.labelPosition === 'END' ? 'position: absolute; left: 75px;' : 'position: relative; left: 0px;'}
+    ${props.$labelPosition === 'END' ? 'position: absolute; left: 75px;' : 'position: relative; left: 0px;'}
   `}
 
   width: max-content;
@@ -108,49 +108,44 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
     <>
       <CheckboxInput
         checked={checked}
-        customTheme={themeContext.theme}
+        $customTheme={themeContext.theme}
         disabled={disabled}
         id={name}
         name={name}
-        selectedTheme={themeContext.selectedTheme}
-        theme={theme}
+        $selectedTheme={themeContext.selectedTheme}
+        $theme={theme}
         type="checkbox"
         ref={ref}
         onChange={onChange}
       />{' '}
-      <Label
-        customTheme={themeContext.theme}
-        disabled={disabled}
-        htmlFor={name}
-        selectedTheme={themeContext.selectedTheme}
-      >
+      <Label $customTheme={themeContext.theme} htmlFor={name} $selectedTheme={themeContext.selectedTheme}>
         <>
           {labelPosition === 'START' && (
             <LabelSpan
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
-              labelPosition={labelPosition}
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
+              $labelPosition={labelPosition}
             >
               {label}
             </LabelSpan>
           )}
-          <CheckboxButtonWrapper
-            className="ui-react-checkbox-button-wrapper"
-            customTheme={themeContext.theme}
-            selectedTheme={themeContext.selectedTheme}
-            labelPosition={labelPosition}
+          <CheckboxPillWrapper
+            className="ui-react-checkbox-pill"
+            $customTheme={themeContext.theme}
+            $selectedTheme={themeContext.selectedTheme}
+            $labelPosition={labelPosition}
           >
-            <CheckboxButtonSpan
-              className="ui-react-checkbox-button"
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
+            <CheckboxPillDot
+              className="ui-react-checkbox-pill-dot"
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
             />
-          </CheckboxButtonWrapper>
+          </CheckboxPillWrapper>
           {labelPosition === 'END' && (
             <LabelSpan
-              customTheme={themeContext.theme}
-              selectedTheme={themeContext.selectedTheme}
-              labelPosition={labelPosition}
+              $customTheme={themeContext.theme}
+              $selectedTheme={themeContext.selectedTheme}
+              $labelPosition={labelPosition}
             >
               {label}
             </LabelSpan>

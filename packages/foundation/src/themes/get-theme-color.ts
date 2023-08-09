@@ -2,13 +2,13 @@ import { ColorCategories, ColorTokens, Theme, ThemeColor } from '../types';
 
 export const getThemeColor = (
   theme: Theme,
-  selectedTheme: ThemeColor,
+  $selectedTheme: ThemeColor,
   category: ColorCategories,
   token: ColorTokens,
   inverse?: boolean
 ): string => {
   if (inverse) {
-    if (selectedTheme === ThemeColor.dark) {
+    if ($selectedTheme === ThemeColor.dark) {
       //istanbul ignore next
       return theme?.[ThemeColor.light]?.[category]?.[token] || '';
     } else {
@@ -18,5 +18,5 @@ export const getThemeColor = (
   }
 
   //istanbul ignore next
-  return theme?.[selectedTheme]?.[category]?.[token] || '';
+  return theme?.[$selectedTheme]?.[category]?.[token] || '';
 };

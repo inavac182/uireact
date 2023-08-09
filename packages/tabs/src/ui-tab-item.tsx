@@ -9,12 +9,12 @@ import { TabsMapper } from './theme';
 
 const TabItem = styled.div<privateTabItemProps>`
   ${(props) => `
-    ${getThemeStyling(props.customTheme, props.selectedTheme, TabsMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, TabsMapper)}
     ${
       props.selected
         ? `border-color: ${getThemeColor(
-            props.customTheme,
-            props.selectedTheme,
+            props.$customTheme,
+            props.$selectedTheme,
             ColorCategories.primary,
             ColorTokens.token_100
           )};
@@ -48,8 +48,8 @@ export const UiTabItem: React.FC<UiTabItemProps> = ({
 
   return (
     <TabItem
-      customTheme={theme.theme}
-      selectedTheme={theme.selectedTheme}
+      $customTheme={theme.theme}
+      $selectedTheme={theme.selectedTheme}
       className={className}
       onClick={handleTabClick}
       identifier={identifier}

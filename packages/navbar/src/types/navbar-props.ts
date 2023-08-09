@@ -18,7 +18,14 @@ export type UiNavbarProps = {
   stretchItems?: boolean;
 } & Omit<UiReactElementProps, 'children'>;
 
-export type privateNavbarProps = UiNavbarProps & {
-  orientation: Orientation;
-  align: Alignment;
+export type privateNavbarProps = {
+  children: React.ReactNode;
+  /** Color category for navbar */
+  $category?: ColorCategory;
+  /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
+  $roundedCorners?: boolean;
+  /** If items should be stretched, useful when navbar is rendered to cover whole width */
+  $stretchItems?: boolean;
+  $orientation: Orientation;
+  $align: Alignment;
 } & UiReactPrivateElementProps;

@@ -13,7 +13,7 @@ import { UiButton } from '@uireact/button';
 import { UiIcon } from '@uireact/icons';
 
 export const TestTheme: React.FC = () => {
-  const [customTheme, setCustomTheme] = React.useState<Theme>(DefaultTheme);
+  const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
   const [themeInput, setThemeInput] = React.useState(JSON.stringify(DefaultTheme));
   const [coloration, setColoration] = React.useState<ThemeColor>(ThemeColor.dark);
 
@@ -21,7 +21,7 @@ export const TestTheme: React.FC = () => {
     (e: React.FormEvent<HTMLTextAreaElement>) => {
       setThemeInput(e.currentTarget.value);
     },
-    [setCustomTheme]
+    [set$customTheme]
   );
 
   const toogleColoration = React.useCallback(() => {
@@ -31,14 +31,14 @@ export const TestTheme: React.FC = () => {
   const loadTheme = React.useCallback(() => {
     try {
       const theme = JSON.parse(themeInput);
-      setCustomTheme(theme);
+      set$customTheme(theme);
     } catch {
       alert('The theme object is malformed');
     }
-  }, [themeInput, setCustomTheme]);
+  }, [themeInput, set$customTheme]);
 
   return (
-    <UiView theme={customTheme || DefaultTheme} selectedTheme={coloration}>
+    <UiView theme={$customTheme || DefaultTheme} selectedTheme={coloration}>
       <UiSpacing margin={{ left: 'three' }}>
         <UiHeading>Paste the newly created custom theme here:</UiHeading>
         <UiTextArea name="custom-theme" value={themeInput} cols={50} rows={20} onChange={handleChange} />

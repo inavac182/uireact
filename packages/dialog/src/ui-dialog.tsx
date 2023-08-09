@@ -60,7 +60,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   if (type !== UiDialogType.CENTERED) {
     return (
-      <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
+      <DialogContent $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} type={type}>
         {title && (
           <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         )}
@@ -78,7 +78,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
     <DialogWrapper>
       <>
         <DialogBackground onClick={closeCB} />
-        <DialogContent customTheme={theme.theme} selectedTheme={theme.selectedTheme} type={type}>
+        <DialogContent $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} type={type}>
           {title && (
             <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
           )}

@@ -23,7 +23,7 @@ export const getThemeStyling = (theme: Theme, selectedTheme: ThemeColor, mapper:
       });
 
     if (state !== ThemeMapperStates.normal) {
-      style = `${style}:${state} {\n${stateStyling}}\n`;
+      style = `${style} &:${state} {\n${stateStyling}}\n`;
     } else {
       style = `${style}${stateStyling}\n`;
     }

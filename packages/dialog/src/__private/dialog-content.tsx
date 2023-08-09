@@ -8,7 +8,7 @@ import { UiDialogType, privateUiDialogProps } from '../types';
 import { mapper } from '../theme';
 
 const Div = styled.div<privateUiDialogProps>`
-  ${(props) => getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
+  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
 
   z-index: 10;
   min-width: 200px;
@@ -69,11 +69,11 @@ const Div = styled.div<privateUiDialogProps>`
 
 export const DialogContent: React.FC<privateUiDialogProps> = ({
   children,
-  customTheme,
-  selectedTheme,
+  $customTheme,
+  $selectedTheme,
   type,
 }: privateUiDialogProps) => (
-  <Div customTheme={customTheme} selectedTheme={selectedTheme} type={type} role="dialog">
+  <Div $customTheme={$customTheme} $selectedTheme={$selectedTheme} type={type} role="dialog">
     {children}
   </Div>
 );

@@ -11,11 +11,11 @@ import { getDynamicSelectMapper, SelectMapper } from './theme';
 const Select = styled.select<privateSelectProps>`
   ${(props: privateSelectProps) => `
     ${getThemeStyling(
-      props.customTheme,
-      props.selectedTheme,
+      props.$customTheme,
+      props.$selectedTheme,
       props.category ? getDynamicSelectMapper(getColorCategory(props.category)) : SelectMapper
     )}
-    font-size: ${getTextSize(props.customTheme, TextSize.regular)};
+    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
 
   border-style: solid;
@@ -78,13 +78,13 @@ export const UiSelect: React.FC<UiSelectProps> = ({
         )}
         <SelectDiv>
           <Select
-            customTheme={themeContext.theme}
+            $customTheme={themeContext.theme}
             disabled={disabled}
             id={name}
             name={name}
             onChange={handleChange}
             ref={ref}
-            selectedTheme={themeContext.selectedTheme}
+            $selectedTheme={themeContext.selectedTheme}
             category={theme}
             value={value}
           >

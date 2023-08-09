@@ -9,14 +9,14 @@ import { getDynamicMapper } from './theme';
 
 const StyledButton = styled.button<privateButtonProps>`
   ${(props) => {
-    const mapper = getDynamicMapper(getColorCategory(props.theme), props.cristal);
+    const mapper = getDynamicMapper(getColorCategory(props.$theme), props.$cristal);
 
     return `
-      ${getThemeStyling(props.customTheme, props.selectedTheme, mapper)}
-      ${props.fullWidth ? 'width: 100%;' : ''}
-      ${props.fullHeight ? 'height: 100%;' : ''}
-      ${props.cristal ? 'border-width: 0;' : 'border-width: 1px;'}
-      ${props.cristal ? 'background: unset;' : ''}
+      ${getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
+      ${props.$fullWidth ? 'width: 100%;' : ''}
+      ${props.$fullHeight ? 'height: 100%;' : ''}
+      ${props.$cristal ? 'border-width: 0;' : 'border-width: 1px;'}
+      ${props.$cristal ? 'background: unset;' : ''}
       ${props.disabled ? 'cursor: not-allowed;' : 'cursor: pointer;'}
     `;
   }}
@@ -45,16 +45,16 @@ export const UiButton: React.FC<UiButtonProps> = ({
 
   return (
     <StyledButton
-      customTheme={themeContext.theme}
-      selectedTheme={themeContext.selectedTheme}
-      theme={theme}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
+      $theme={theme}
       onClick={onClick}
       data-testid={testId}
-      cristal={cristal}
+      $cristal={cristal}
       className={className}
       disabled={disabled}
-      fullHeight={fullHeight}
-      fullWidth={fullWidth}
+      $fullHeight={fullHeight}
+      $fullWidth={fullWidth}
       type={type}
       ref={ref}
     >

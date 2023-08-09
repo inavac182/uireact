@@ -12,7 +12,7 @@ export interface UiReactElementProps {
 
 export type UiReactPrivateElementProps = UiReactElementProps & {
   /** Theme that is being used to retrieve tokens */
-  customTheme: Theme;
+  $customTheme: Theme;
   /** selected theme color */
-  selectedTheme: ThemeColor;
+  $selectedTheme: ThemeColor;
 };

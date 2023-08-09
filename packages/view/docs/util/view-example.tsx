@@ -10,13 +10,13 @@ type ViewExampleProps = {
 };
 
 export const ViewExample: React.FC<ViewExampleProps> = ({ centeredContent }: ViewExampleProps) => {
-  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const [$selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
-    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+    setTheme($selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
   };
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} centeredContent={centeredContent}>
+    <UiView theme={DefaultTheme} selectedTheme={$selectedTheme} centeredContent={centeredContent}>
       <p>All the react tree should render inside here</p>
       <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
     </UiView>
