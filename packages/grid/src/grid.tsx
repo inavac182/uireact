@@ -49,11 +49,19 @@ const getSpanValueFromBreakpoint = (
 export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   const viewport = useViewport();
   const [cols, setCols] = useState<number>(
-    props.cols && typeof props.cols === 'number' ? props.cols : typeof props.cols === 'object' ? props.cols.large : 1
+    props.cols && typeof props.cols === 'number'
+      ? props.cols
+      : typeof props.cols === 'object'
+      ? getSpanValueFromBreakpoint(viewport, props.cols)
+      : 1
   );
 
   const [rows, setRows] = useState<number>(
-    props.rows && typeof props.rows === 'number' ? props.rows : typeof props.rows === 'object' ? props.rows.large : 1
+    props.rows && typeof props.rows === 'number'
+      ? props.rows
+      : typeof props.rows === 'object'
+      ? getSpanValueFromBreakpoint(viewport, props.rows)
+      : 1
   );
 
   useEffect(() => {
