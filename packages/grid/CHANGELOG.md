@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.7 (2023-08-10)
+
+
+### Bug Fixes
+
+* re-render on viewport change grid ([#213](https://github.com/inavac182/ui-react/issues/213)) ([e5104cd](https://github.com/inavac182/ui-react/commit/e5104cd9245035c511ef5cf114d4a6e4d52b9749))
+
+
+
+
+
 ## 1.0.6 (2023-08-09)
 
 **Note:** Version bump only for package @uireact/grid
