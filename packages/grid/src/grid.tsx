@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -48,16 +48,27 @@ const getSpanValueFromBreakpoint = (
 
 export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   const viewport = useViewport();
-  const cols = !props.cols
-    ? 1
-    : typeof props.cols === 'number'
-    ? props.cols
-    : getSpanValueFromBreakpoint(viewport, props.cols);
-  const rows = !props.rows
-    ? 1
-    : typeof props.rows === 'number'
-    ? props.rows
-    : getSpanValueFromBreakpoint(viewport, props.rows);
+  const [cols, setCols] = useState<number>(
+    props.cols && typeof props.cols === 'number' ? props.cols : typeof props.cols === 'object' ? props.cols.small : 1
+  );
+
+  const [rows, setRows] = useState<number>(
+    props.rows && typeof props.rows === 'number' ? props.rows : typeof props.rows === 'object' ? props.rows.small : 1
+  );
+
+  useEffect(() => {
+    if (props.cols && typeof props.cols === 'object') {
+      const value = getSpanValueFromBreakpoint(viewport, props.cols);
+      setCols(value);
+    }
+  }, [viewport, props.cols]);
+
+  useEffect(() => {
+    if (props.rows && typeof props.rows === 'object') {
+      const value = getSpanValueFromBreakpoint(viewport, props.rows);
+      setRows(value);
+    }
+  }, [viewport, props.rows]);
 
   return (
     <Div
