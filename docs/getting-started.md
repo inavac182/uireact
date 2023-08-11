@@ -9,13 +9,24 @@ route: /getting-started
 
 _5 mins read_
 
-This doc will help you to get up and running with the library in your project.
+### Before starting using this library, there are 2 KNOWN constraints: 
 
-The main component of this library is the `@uireact/foundation`, this package has the definition of types, enums, objects and
-helper functions that other packages across the library need, it also has all the handling that is needed for the themes, responsive design and dialogs.
+> - This library uses [styled-components](https://styled-components.com/), so these components doesn't work well with server components from Next.JS, they wil have to be client components. This is in their docs [here](https://nextjs.org/docs/app/building-your-application/styling/css-in-js). React is already working on supporting this as stated in Next docs.
+>
+> -----------------------------------------------------
+>
+> - On Remix.JS you will have to change your server entry file to use `renderToString` instead of `renderToPipeableStream`, look at this in they [example](https://github.com/remix-run/examples/blob/main/styled-components/app/entry.server.tsx) 
+> 
+
+If this doens't work out with the project you are starting up then we suggest looking at other options that uses CSS modules or preprocessors rathen than CSS-in-JS.
+
+<iframe src="https://giphy.com/embed/SvFocn0wNMx0iv2rYz" width="100" height="100" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 
 ## 1. Install @uireact packages 🛠️
+
+The main component of this library is the `@uireact/foundation`, this package has the definition of types, enums, objects and
+helper functions that other packages across the library need, it also has all the handling that is needed for the themes, responsive design and dialogs.
 
 Once the peers are installed you can go ahead and install the @uireact packages, let's start with the most important ones:
 
@@ -28,6 +39,8 @@ npm i @uireact/foundation @uireact/view
 @uireact provides with a [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts) so you can either use that or create your own. If you like the default theme then you can skip this step.
 
 If you want to build a custom theme visit [Create your own theme](./create-theme) to learn more about it.
+
+<iframe src="https://giphy.com/embed/xTg8B548YKZjBdNxHG" width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## 3. Set up UiView 🤖
 
@@ -50,6 +63,10 @@ PRO tips:
 
 - You can have the selected theme in a react state so you can have a config your UI for the user to swap between the colorations.
 
+<span style="font-size:14px">At this point you deserve a cup of coffee ☕️</span>
+<br/>
+<iframe src="https://giphy.com/embed/L8K62iTDkzGX6" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 
 ## 🏁 Create magic 🚀
 
@@ -58,6 +75,9 @@ You are ready to start building your amazing projects!
 Each available package has its own doc file in the navbar 👈 so you can read about each one there.
 
 If you find any issue, want to collaborate or ask for a specific feature you can fill an [issue](https://github.com/inavac182/uireact/issues) and we'll try to review the topic as soon as possible ✍️
+
+<iframe src="https://giphy.com/embed/XWGEbRTdqD7k4J8STq" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<iframe src="https://giphy.com/embed/143vPc6b08locw" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## Usage with frameworks
 
