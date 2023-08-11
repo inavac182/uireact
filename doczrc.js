@@ -3,7 +3,7 @@ export default {
   ignore: ['utils/**/*', 'packages/**/CHANGELOG.md', 'packages/**/README.md', 'examples/**/*'],
   typescript: true,
   themeConfig: {
-    initialColorMode: 'dark',
+    mode: 'dark',
     showDarkModeSwitch: true,
     showMarkdownEditButton: false,
   },
