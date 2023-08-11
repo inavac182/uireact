@@ -6,6 +6,8 @@ route: /dev
 
 # Development
 
+<iframe src="https://giphy.com/embed/scZPhLqaVOM1qG4lT9" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 ## Prerequistes 🧰
 
 - Make sure you have `nvm` installed. Docs: [nvm installion](https://github.com/nvm-sh/nvm#installing-and-updating)
@@ -59,3 +61,4 @@ functions: 100,
 lines: 100,
 statements: 100
 ```
+<iframe src="https://giphy.com/embed/XTQZjxl8BW0QE" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>

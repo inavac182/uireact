@@ -6,6 +6,8 @@ route: /contributing
 
 # Contributing
 
+<iframe src="https://giphy.com/embed/3ohzgD1wRxpvpkDCSI" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
 ## FIRST! 🧐
 
 Before starting to work on a contribution please make sure to create an [issue](https://github.com/inavac182/uireact/issues) so we can discuss about what you are planning to contribute to make sure  we discuss the topic before you invest some time on it.
@@ -18,6 +20,8 @@ All PRs should pass the prechecks which includes:
 - [Tests and Lint](https://github.com/inavac182/uireact/actions/workflows/test.js.yml)
 
 At least one admin contributor should approve and merge.
+
+<iframe src="https://giphy.com/embed/13HgwGsXF0aiGY" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## Publish 🚀
 
