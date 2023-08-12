@@ -6,6 +6,8 @@ route: /contributing
 
 # Contributing
 
+-----
+
 <iframe src="https://giphy.com/embed/3ohzgD1wRxpvpkDCSI" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## FIRST! 🧐
