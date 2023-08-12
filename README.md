@@ -24,19 +24,13 @@ We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have 
 
 @UiReact is a React library of Themed UI components that are ready to be used to speed up react app development.
 
-<br />
-
 ## Why? 🤓
 
 This project started due to the need of rapid development for start ups and having a complete library with a chunk of components ready to be used with an easy configurable theme to adapt the styling for different use cases really helped us to launch multiple projects quicker while maintining a good UX.
 
-<br />
-
 ## Where to start? ✍️
 
 The main package of this library is the foundation package `@uireact/foundation` and the `@uireact/view`. You can learn more about this in the [getting started doc](./getting-started).
-
-<br />
 
 ## Tech Stack ⚙️
 
@@ -50,16 +44,12 @@ If you want to understand how this library works the tech that we use is:
 
 <iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
-<br />
-
 ## Contributions 🤓
 
 We are fully open to contributions, please go through these pages for learning more about it.
 
 - [Contributing](https://uireact.io/contributing)
 - [Development](https://uireact.io/dev)
-
-<br />
 
 ## Contact ☎️
 
@@ -68,8 +58,6 @@ We are fully open to contributions, please go through these pages for learning m
 - [Felipe's gh](https://github.com/inavac182/)
 - [Sergio Ortiz](https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/)
 - [Sergio's gh](https://github.com/saudelog)
-
-<br />
 
 ## Just have fun 🫶
 
