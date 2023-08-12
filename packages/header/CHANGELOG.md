@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.6 (2023-08-12)
+
+
+### Bug Fixes
+
+* heading sticky ([#220](https://github.com/inavac182/ui-react/issues/220)) ([ab988b4](https://github.com/inavac182/ui-react/commit/ab988b487570b630cad031cd81bcbdbaefac8773))
+
+
+
+
+
 ## 1.0.5 (2023-08-09)
 
 **Note:** Version bump only for package @uireact/header
