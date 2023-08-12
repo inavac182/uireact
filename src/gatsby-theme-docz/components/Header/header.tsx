@@ -13,7 +13,7 @@ export const Header = (): React.ReactElement => {
   return (
     <UiHeader>
       <UiSpacing padding={headerContentSpacing}>
-        <UiFlexGrid justifyContent="space-between">
+        <UiFlexGrid justifyContent="space-between" alignItems="center">
           <UiFlexGridItem>
             <Logo />
           </UiFlexGridItem>
