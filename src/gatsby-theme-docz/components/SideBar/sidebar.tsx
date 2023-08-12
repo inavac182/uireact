@@ -4,7 +4,7 @@ import { useMenus } from 'docz';
 import { styled } from 'styled-components';
 
 import { UiFlexGrid } from '@uireact/flex';
-import { UiSpacing, UiSpacingProps, UiViewport } from '@uireact/foundation';
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiViewRow } from '@uireact/view';
 
 import { SidebarGroup } from './sidebar-group';
@@ -19,6 +19,12 @@ const SidebarDiv = styled.div`
   border-right: 2px solid lightgray;
 `;
 
+const SideBarContentDiv = styled.div`
+  @media only screen and (max-width: 920px) {
+    display: none;
+  }
+`;
+
 export const Sidebar = React.forwardRef((): React.ReactElement => {
   const [query, setQuery] = React.useState('');
   const menus = useMenus({ query });
@@ -26,7 +32,7 @@ export const Sidebar = React.forwardRef((): React.ReactElement => {
   return (
     <SidebarDiv>
       <UiViewRow>
-        <UiViewport criteria={'m|l|xl'}>
+        <SideBarContentDiv>
           <UiSpacing margin={SidebarSpacing}>
             <UiFlexGrid direction="column">
               {menus?.map((menuItem, index) => (
@@ -34,7 +40,7 @@ export const Sidebar = React.forwardRef((): React.ReactElement => {
               ))}
             </UiFlexGrid>
           </UiSpacing>
-        </UiViewport>
+        </SideBarContentDiv>
       </UiViewRow>
     </SidebarDiv>
   );

@@ -17,13 +17,9 @@ type NestedMenuProps = {
 
 const NestedMenu = styled.div<NestedMenuProps>`
   margin-top: 10px;
-  margin-left: 30px;
+  margin-left: 10px;
 
-  ${(props) => `
-    ${props.$isVisible ? 'display: block; height: auto;' : 'display: none; height: 0;'}
-  `}
-
-  transition: height 1s, display 1s;
+  font-size: 8px;
 `;
 
 const GroupHeadingDiv = styled.div`
@@ -32,11 +28,13 @@ const GroupHeadingDiv = styled.div`
 
 const nestedItemSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const sidebarGroupSpacing: UiSpacingProps['margin'] = { block: 'three' };
+const nestedHeadingSpacing: UiSpacingProps['padding'] = { left: 'four' };
 
 export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElement => {
   const currentDoc = useCurrentDoc();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  console.log(menuItem);
   useEffect(() => {
     let isSelected = false;
 
@@ -58,22 +56,47 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
       <GroupHeadingDiv onClick={onClick}>
         <UiText theme={isExpanded ? 'tertiary' : undefined}>{menuItem.name}</UiText>
       </GroupHeadingDiv>
-      <NestedMenu $isVisible={isExpanded}>
-        <UiNavbar orientation="stacked">
-          {menuItem.menu?.map((item, key) => (
-            <UiNavbarItem
-              key={`sidebar-submenu-item-${key}`}
-              active={item.route !== undefined && item.route === currentDoc?.route}
-            >
-              <UiSpacing padding={nestedItemSpacing}>
-                <UiLink href={item.route} fullWidth theme="tertiary">
-                  {item.name}
-                </UiLink>
-              </UiSpacing>
-            </UiNavbarItem>
-          ))}
-        </UiNavbar>
-      </NestedMenu>
+      {isExpanded && (
+        <NestedMenu>
+          <UiNavbar orientation="stacked">
+            {menuItem.menu?.map((item, key) => (
+              <UiNavbarItem
+                key={`sidebar-submenu-item-${key}`}
+                active={item.route !== undefined && item.route === currentDoc?.route}
+              >
+                <UiSpacing padding={nestedItemSpacing}>
+                  <>
+                    <UiLink href={item.route} fullWidth theme="tertiary">
+                      {item.name}
+                    </UiLink>
+                    {item.route !== undefined && item.route === currentDoc.route && (
+                      <UiNavbar category="secondary" orientation="stacked">
+                        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                        {/*@ts-ignore-next */}
+                        {item.headings?.map((heading, index) => {
+                          if (heading?.depth > 2 || index === 0) {
+                            return null;
+                          }
+
+                          return (
+                            <UiNavbarItem key={`sidebar-submenu-nested-item-${index}`}>
+                              <UiSpacing padding={nestedHeadingSpacing}>
+                                <UiLink href={`#${heading?.slug}`} fullWidth theme="tertiary">
+                                  {heading?.value}
+                                </UiLink>
+                              </UiSpacing>
+                            </UiNavbarItem>
+                          );
+                        })}
+                      </UiNavbar>
+                    )}
+                  </>
+                </UiSpacing>
+              </UiNavbarItem>
+            ))}
+          </UiNavbar>
+        </NestedMenu>
+      )}
     </UiSpacing>
   );
 };

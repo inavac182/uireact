@@ -7,9 +7,13 @@ type MainContainerProps = {
 };
 
 const Div = styled.div`
-  position: 'relative';
-  maxwidth: 960;
+  max-width: 960px;
   padding: 30px 80px 30px 80px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 920px) {
+    padding: 30px 30px 30px 30px;
+  }
 `;
 
 export const MainContainer = ({ children }: MainContainerProps): React.ReactElement => {
