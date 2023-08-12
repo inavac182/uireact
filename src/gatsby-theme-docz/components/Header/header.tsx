@@ -7,7 +7,7 @@ import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { Logo } from './logo';
 import { Actions } from './actions';
 
-const headerContentSpacing: UiSpacingProps['padding'] = { all: 'four' };
+const headerContentSpacing: UiSpacingProps['padding'] = { left: 'six', right: 'six', top: 'four', bottom: 'four' };
 
 export const Header = (): React.ReactElement => {
   return (

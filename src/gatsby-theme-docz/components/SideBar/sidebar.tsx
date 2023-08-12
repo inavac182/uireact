@@ -16,7 +16,7 @@ const SidebarDiv = styled.div`
   top: 0;
   min-width: 0;
   max-height: 100vh;
-  border-right: 2px solid lightgray;
+  border-right: 2px solid #3e3e3e;
 `;
 
 const SideBarContentDiv = styled.div`
