@@ -13,9 +13,9 @@ const SidebarSpacing: UiSpacingProps['margin'] = { left: 'six', top: 'six' };
 
 const SidebarDiv = styled.div`
   position: sticky;
-  top: 0;
+  top: 85px;
   min-width: 0;
-  max-height: 100vh;
+  max-height: 90vh;
   border-right: 2px solid #3e3e3e;
 `;
 

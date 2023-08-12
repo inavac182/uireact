@@ -11,7 +11,7 @@ const headerContentSpacing: UiSpacingProps['padding'] = { left: 'six', right: 's
 
 export const Header = (): React.ReactElement => {
   return (
-    <UiHeader>
+    <UiHeader fixed>
       <UiSpacing padding={headerContentSpacing}>
         <UiFlexGrid justifyContent="space-between" alignItems="center">
           <UiFlexGridItem>

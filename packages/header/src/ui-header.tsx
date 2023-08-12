@@ -18,13 +18,15 @@ const Div = styled.div<privateUiHeaderProps>`
   ${(props) => {
     return `
     ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
-    ${props.$fixed ? 'position: absolute;' : ''}
+    ${props.$fixed ? 'position: sticky;' : ''}
     `;
   }}
 
+  top: 0;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
+  z-index: 10;
 `;
 
 export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }: UiHeaderProps) => {
