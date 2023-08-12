@@ -1,4 +1,4 @@
-import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 import * as SvgsComponent from '../public/svgs';
 
@@ -8,9 +8,10 @@ export type UiIconProps = {
   /** Icon category */
   theme?: ColorCategory;
   /** Icon Size */
-  size?: TextSize;
+  size?: SizesProp;
 } & UiReactElementProps;
 
-export type privateIconProps = Omit<Omit<UiIconProps, 'theme'>, 'icon'> & {
+export type privateIconProps = {
+  $size?: SizesProp;
   category?: ColorCategory;
 } & UiReactPrivateElementProps;

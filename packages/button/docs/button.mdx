@@ -7,11 +7,14 @@ import { Props } from 'docz';
 
 import { UiCard } from '@uireact/card';
 import { UiFlexGrid } from '@uireact/flex';
+import { UiText } from '@uireact/text';
 
 import Playground from '../../../src/Playground';
 import { UiButton } from '../src/';
 import { UiSpacing, Sizing } from '../../foundation/src/';
+import { UiIcon } from '../../icons/src';
 import { UiGrid } from '../../grid/src/';
+
 import * as packageJson from '../package.json';
 
 # UiButton
@@ -67,7 +70,7 @@ import * as packageJson from '../package.json';
   </form>
 </Playground>
 
-#### Types of button:
+#### Button themes:
 
 <Playground>
   <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap={5} rowsGap={5} justifyItems="center">
@@ -104,6 +107,54 @@ import * as packageJson from '../package.json';
         <UiSpacing margin={{ all: Sizing.three }}>Button! ✨</UiSpacing>
       </UiButton>
       Some content
+    </UiFlexGrid>
+  </UiCard>
+</Playground>
+
+#### Rounded button
+
+<Playground>
+  <UiCard>
+    <UiFlexGrid gap="three">
+      <UiButton rounded>
+        <UiSpacing padding={{ all: 'three' }}>
+          <UiText>Button 🌜</UiText>
+        </UiSpacing>
+      </UiButton>
+      <UiButton rounded theme="secondary">
+        <UiSpacing padding={{ all: 'three' }}>
+          <UiText>Button 🍻</UiText>
+        </UiSpacing>
+      </UiButton>
+      <UiButton rounded cristal theme="tertiary">
+        <UiSpacing padding={{ all: 'three' }}>
+          <UiText>Button 📡</UiText>
+        </UiSpacing>
+      </UiButton>
+    </UiFlexGrid>
+  </UiCard>
+</Playground>
+
+#### Iconized button
+
+<Playground>
+  <UiCard>
+    <UiFlexGrid gap="three" alignItems="center">
+      <UiButton rounded iconized theme="primary">
+        <UiIcon icon="Alarm" size="xlarge" />
+      </UiButton>
+      <UiButton rounded iconized theme="secondary">
+        <UiIcon icon="Alarm" size="large" />
+      </UiButton>
+      <UiButton rounded iconized theme="tertiary">
+        <UiIcon icon="Alarm" size="regular" />
+      </UiButton>
+      <UiButton rounded iconized theme="positive">
+        <UiIcon icon="Alarm" size="small" />
+      </UiButton>
+      <UiButton rounded iconized theme="error">
+        <UiIcon icon="Alarm" size="xsmall" />
+      </UiButton>
     </UiFlexGrid>
   </UiCard>
 </Playground>

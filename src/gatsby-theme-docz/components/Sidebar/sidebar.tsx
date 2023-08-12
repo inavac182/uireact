@@ -17,6 +17,7 @@ const SidebarDiv = styled.div`
   min-width: 0;
   max-height: 90vh;
   border-right: 2px solid #3e3e3e;
+  overflow: auto;
 `;
 
 const SideBarContentDiv = styled.div`

@@ -5,3 +5,5 @@ export enum TextSize {
   large = 'large',
   xlarge = 'xlarge',
 }
+
+export type SizesProp = 'xsmall' | 'small' | 'regular' | 'large' | 'xlarge';
