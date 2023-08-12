@@ -40,7 +40,7 @@ const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
           name="keywords"
           content="ReactJS, React, UiReact, ui react, react library, js library, React theme, themed react library, themes react, react library, react components"
         />
-        <link rel="icon" type="image/png" href="/public/favicon.ico" />
+        <link rel="icon" type="image/png" href="/public/sunglasses_cat.gif" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
