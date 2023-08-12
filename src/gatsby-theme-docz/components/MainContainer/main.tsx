@@ -7,6 +7,7 @@ type MainContainerProps = {
 };
 
 const Div = styled.div`
+  width: -webkit-fill-available;
   max-width: 960px;
   padding: 30px 80px 30px 80px;
   margin: 0 auto;
