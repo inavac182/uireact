@@ -22,6 +22,7 @@ const Anchor = styled.a<privateLinkProps>`
     ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
     ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
     ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
+    ${props.$wrap ? `text-overflow: ellipsis;white-space: nowrap;overflow: hidden !important;` : ''}
   `}
 
   cursor: pointer;
@@ -69,6 +70,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   target,
   useReactLink,
   testId,
+  wrap,
 }: UiLinkProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -82,6 +84,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
         onClick={handleClick}
         $selectedTheme={themeContext.selectedTheme}
         $size={size}
+        $wrap={wrap}
       >
         <Link
           to={href}
@@ -112,6 +115,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
       target={target}
       role="link"
       data-testid={testId}
+      $wrap={wrap}
     >
       {children}
     </Anchor>

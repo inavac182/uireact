@@ -33,6 +33,13 @@ const nestedHeadingSpacing: UiSpacingProps['padding'] = { left: 'four' };
 export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElement => {
   const currentDoc = useCurrentDoc();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [currentHash, setCurrentHash] = useState('');
+
+  useEffect(() => {
+    if (window !== undefined && window.location.hash) {
+      setCurrentHash(window.location.hash);
+    }
+  }, [window?.location?.hash, setCurrentHash]);
 
   useEffect(() => {
     let isSelected = false;
@@ -71,11 +78,15 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
               >
                 <UiSpacing padding={nestedItemSpacing}>
                   <>
-                    <UiLink href={item.route} fullWidth theme="tertiary">
+                    <UiLink
+                      href={item.route}
+                      fullWidth
+                      theme={item.route !== undefined && item.route === currentDoc?.route ? 'tertiary' : undefined}
+                    >
                       {item.name}
                     </UiLink>
                     {item.route !== undefined && item.route === currentDoc.route && (
-                      <UiNavbar category="secondary" orientation="stacked">
+                      <UiNavbar category="secondary" orientation="stacked" styling="bordered">
                         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                         {/*@ts-ignore-next */}
                         {item.headings?.map((heading, index) => {
@@ -84,9 +95,12 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
                           }
 
                           return (
-                            <UiNavbarItem key={`sidebar-submenu-nested-item-${index}`}>
+                            <UiNavbarItem
+                              key={`sidebar-submenu-nested-item-${index}`}
+                              active={currentHash.includes(heading.slug?.slice(0, -1))}
+                            >
                               <UiSpacing padding={nestedHeadingSpacing}>
-                                <UiLink href={`#${heading?.slug}`} fullWidth theme="tertiary">
+                                <UiLink href={`#${heading?.slug}`} fullWidth wrap>
                                   {heading?.value}
                                 </UiLink>
                               </UiSpacing>

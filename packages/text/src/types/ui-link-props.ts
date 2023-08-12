@@ -25,6 +25,8 @@ export type UiLinkProps = {
   fullWidth?: boolean;
   /** Font style */
   fontStyle?: FontStyle;
+  /** If text should wrap */
+  wrap?: boolean;
 } & UiReactElementProps;
 
 export type privateLinkProps = {
@@ -48,4 +50,5 @@ export type privateLinkProps = {
   $fontStyle?: FontStyle;
   $category: ColorCategory;
   to?: string;
+  $wrap?: boolean;
 } & UiReactPrivateElementProps;

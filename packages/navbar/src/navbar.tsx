@@ -31,6 +31,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   orientation = 'inline',
   roundedCorners,
   stretchItems,
+  styling,
   testId,
 }: UiNavbarProps) => {
   const themeContext = React.useContext(ThemeContext);
@@ -52,6 +53,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           $isLast={index === numberOfItems - 1}
           $roundedCorners={roundedCorners}
           $stretchItems={stretchItems}
+          $styling={styling}
         >
           {child}
         </NavbarItemWrapper>
