@@ -6,14 +6,15 @@ route: /
 
 [![Build and Deploy](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml/badge.svg)](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml)
 
-<h1>
+<h1 style="font-family:Sen">
 <span style="color:#F08B31">@</span><span style="color:#7CE91B">U</span><span style="color:#1BE9D9">i</span><span style="color:#E91BE0">R</span><span style="color:#EDF031">e</span><span style="color:#31F051">a</span><span style="color:#F0314E">c</span><span style="color:#31F096">t</span>
 </h1>
+
 
 <hr />
 
 <span style="font-size:14px" data-nosnippet>
-We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have a shiny ✨ page, as we aren't trying to sell this 😂 we hope this help you to start that amazing idea 💡 you've been holding off for a long time. So, bring that unicorn 🦄 or _brick_ 🧱 alive!!! 
+We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have a shiny ✨ page, as we aren't trying to sell this 😂 we hope this help you to start that amazing idea 💡 you've been holding off for a long time. So, bring that unicorn 🦄 or brick 🧱 alive!!! 
 </span>
 
 <br />

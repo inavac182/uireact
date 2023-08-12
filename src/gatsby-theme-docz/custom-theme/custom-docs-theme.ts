@@ -150,7 +150,7 @@ export const DocsTheme: Theme = {
     },
   },
   texts: {
-    font: "'Source Sans Pro', sans- serif",
+    font: "Sen, 'Source Sans Pro', sans- serif",
   },
   spacing: {
     one: '1px',

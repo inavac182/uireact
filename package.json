@@ -51,6 +51,7 @@
     "@uireact/header": "file:packages/header/src/",
     "@uireact/icons": "file:packages/icons/src/",
     "@uireact/list": "file:packages/list/src/",
+    "@uireact/navbar": "file:packages/navbar/src/",
     "@uireact/text": "file:packages/text/src/",
     "@uireact/view": "file:packages/view/src/",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",

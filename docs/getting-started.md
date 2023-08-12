@@ -9,7 +9,7 @@ route: /getting-started
 
 _5 mins read_
 
-### Before starting using this library, there are 2 KNOWN constraints: 
+### Before starting to use this library, there are 2 KNOWN constraints: 
 
 > - This library uses [styled-components](https://styled-components.com/), so these components doesn't work well with server components from Next.JS, they wil have to be client components. This is in their docs [here](https://nextjs.org/docs/app/building-your-application/styling/css-in-js). React is already working on supporting this as stated in Next docs.
 >

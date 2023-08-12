@@ -18,6 +18,10 @@ const GlobalStyles = createGlobalStyle`
     padding-top: 20px;
     padding-bottom: 15px;
   }
+
+  p {
+    font-size: 20px;
+  }
 `;
 
 const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
@@ -37,6 +41,12 @@ const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
           content="ReactJS, React, UiReact, ui react, react library, js library, React theme, themed react library, themes react, react library, react components"
         />
         <link rel="icon" type="image/png" href="/public/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sen:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       <GlobalStyles />
       <UiView theme={DocsTheme} selectedTheme={colorMode === 'light' ? ThemeColor.light : ThemeColor.dark}>
