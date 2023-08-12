@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { UiLink, UiText } from '@uireact/text';
 import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
-import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { TextSize, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 
 type SidebarGroupProps = {
   menuItem: MenuItem;
@@ -30,9 +30,17 @@ const nestedItemSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const sidebarGroupSpacing: UiSpacingProps['margin'] = { block: 'three' };
 const nestedHeadingSpacing: UiSpacingProps['padding'] = { left: 'four' };
 
+const getCurrentHash = () => {
+  if (typeof window === 'undefined') {
+    return '';
+  }
+  return window.location ? decodeURI(window.location.hash) : '';
+};
+
 export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElement => {
   const currentDoc = useCurrentDoc();
   const [isExpanded, setIsExpanded] = useState(false);
+  const currentHash = getCurrentHash();
 
   useEffect(() => {
     let isSelected = false;
@@ -54,9 +62,11 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
     <UiSpacing margin={sidebarGroupSpacing}>
       <GroupHeadingDiv onClick={onClick}>
         {menuItem.menu && menuItem.menu.length > 0 ? (
-          <UiText theme={isExpanded ? 'tertiary' : undefined}>{menuItem.name}</UiText>
+          <UiText theme={isExpanded ? 'tertiary' : undefined} size={TextSize.large}>
+            {menuItem.name}
+          </UiText>
         ) : (
-          <UiLink href={menuItem.route}>
+          <UiLink href={menuItem.route} size={TextSize.large}>
             <UiText>{menuItem.name}</UiText>
           </UiLink>
         )}
@@ -71,11 +81,16 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
               >
                 <UiSpacing padding={nestedItemSpacing}>
                   <>
-                    <UiLink href={item.route} fullWidth theme="tertiary">
+                    <UiLink
+                      href={item.route}
+                      fullWidth
+                      theme={item.route !== undefined && item.route === currentDoc?.route ? 'tertiary' : undefined}
+                      size={TextSize.large}
+                    >
                       {item.name}
                     </UiLink>
                     {item.route !== undefined && item.route === currentDoc.route && (
-                      <UiNavbar category="secondary" orientation="stacked">
+                      <UiNavbar category="secondary" orientation="stacked" styling="bordered">
                         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                         {/*@ts-ignore-next */}
                         {item.headings?.map((heading, index) => {
@@ -84,9 +99,12 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
                           }
 
                           return (
-                            <UiNavbarItem key={`sidebar-submenu-nested-item-${index}`}>
+                            <UiNavbarItem
+                              key={`sidebar-submenu-nested-item-${index}`}
+                              active={currentHash === `#${heading.slug}`}
+                            >
                               <UiSpacing padding={nestedHeadingSpacing}>
-                                <UiLink href={`#${heading?.slug}`} fullWidth theme="tertiary">
+                                <UiLink href={`#${heading?.slug}`} fullWidth wrap>
                                   {heading?.value}
                                 </UiLink>
                               </UiSpacing>

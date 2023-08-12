@@ -157,5 +157,18 @@ describe('<UiLink />', () => {
 
       expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
     });
+
+    it('renders fine with wrap', () => {
+      uiRender(
+        <UiLink theme="positive" wrap>
+          Link
+        </UiLink>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('text-overflow', 'ellipsis');
+      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('white-space', 'nowrap');
+      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('overflow', 'hidden!important');
+    });
   });
 });

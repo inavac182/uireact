@@ -11,7 +11,7 @@ import {
   getThemeStyling,
 } from '@uireact/foundation';
 
-import { Alignment, Orientation } from '../types';
+import { Alignment, NavbarStyling, Orientation } from '../types';
 import { getNavbarItemMapper } from '../theme';
 import { getBorderRadiusStyling } from '../utils';
 
@@ -28,12 +28,13 @@ type NavbarItemWrapperProps = {
   $category: ColorCategory;
   $isFirst?: boolean;
   $isLast?: boolean;
+  $active?: boolean;
+  $styling?: NavbarStyling;
 } & UiReactPrivateElementProps;
 
 const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
     ${props.$orientation === 'stacked' ? 'width: 100%;' : ''}
-    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.$category))}
     ${props.$roundedCorners ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
     ${props.$stretchItems ? 'flex-grow: 1; text-align: center;' : ''}
   `}
@@ -41,17 +42,44 @@ const Div = styled.div<NavbarItemWrapperProps>`
   > div {
     ${(props) => `
       ${props.$roundedCorners ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
-      background: ${getThemeColor(
-        props.$customTheme,
-        props.$selectedTheme,
-        getColorCategory(props.$category),
-        ColorTokens.token_150,
-        false
-      )};
     `}
   }
 
-  transition: background 0.2s;
+  > div > :first-child {
+    transition: background 0.2s, border-left 0.2s;
+    border-left: 2px solid transparent;
+    padding-left: 5px;
+
+    ${(props) => `
+      ${
+        props.$styling === 'bordered'
+          ? `
+            &:hover {
+              border-left: 2px solid ${getThemeColor(
+                props.$customTheme,
+                props.$selectedTheme,
+                getColorCategory(props.$category),
+                ColorTokens.token_150,
+                false
+              )};
+            }`
+          : getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.$category))
+      }
+      ${
+        props.$active
+          ? `
+            border-left: 2px solid ${getThemeColor(
+              props.$customTheme,
+              props.$selectedTheme,
+              getColorCategory(props.$category),
+              ColorTokens.token_150,
+              false
+            )};
+          `
+          : ''
+      }
+    `}
+  }
 `;
 
 export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
@@ -65,8 +93,11 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
   $roundedCorners,
   $selectedTheme,
   $stretchItems,
+  $styling,
 }: NavbarItemWrapperProps) => {
   if (React.isValidElement(children)) {
+    const props = children.props;
+
     return (
       <Div
         $align={$align}
@@ -78,6 +109,8 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
         $isFirst={$isFirst}
         $isLast={$isLast}
         $stretchItems={$stretchItems}
+        $styling={$styling}
+        $active={props.active}
       >
         {children}
       </Div>
