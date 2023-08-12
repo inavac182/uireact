@@ -1,0 +1,11 @@
+import React from 'react';
+
+import { UiHeading, UiLink } from '@uireact/text';
+
+export const Logo = (): React.ReactElement => {
+  return (
+    <UiLink href="/">
+      <UiHeading>@uireact</UiHeading>
+    </UiLink>
+  );
+};

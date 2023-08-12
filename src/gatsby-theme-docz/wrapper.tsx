@@ -24,6 +24,10 @@ const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
           name="description"
           content="@UiReact, is a React JS library of components using CSS-in-JS that can use a custom theme to speed up web development."
         />
+        <meta
+          name="keywords"
+          content="ReactJS, React, UiReact, ui react, react library, js library, React theme, themed react library"
+        />
         <link rel="icon" type="image/png" href="/public/favicon.ico" />
       </Helmet>
       <UiView theme={DocsTheme} selectedTheme={colorMode === 'light' ? ThemeColor.light : ThemeColor.dark}>
