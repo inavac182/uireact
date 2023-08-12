@@ -53,7 +53,13 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
   return (
     <UiSpacing margin={sidebarGroupSpacing}>
       <GroupHeadingDiv onClick={onClick}>
-        <UiText theme={isExpanded ? 'tertiary' : undefined}>{menuItem.name}</UiText>
+        {menuItem.menu && menuItem.menu.length > 0 ? (
+          <UiText theme={isExpanded ? 'tertiary' : undefined}>{menuItem.name}</UiText>
+        ) : (
+          <UiLink href={menuItem.route}>
+            <UiText>{menuItem.name}</UiText>
+          </UiLink>
+        )}
       </GroupHeadingDiv>
       {isExpanded && (
         <NestedMenu>
