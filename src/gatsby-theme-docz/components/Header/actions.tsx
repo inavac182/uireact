@@ -5,7 +5,7 @@ import { useColorMode } from 'theme-ui';
 import { UiButton } from '@uireact/button';
 import { UiIcon } from '@uireact/icons';
 import { UiLink } from '@uireact/text';
-import { TextSize, UiSpacing, UiSpacingProps } from '@Uireact/foundation';
+import { TextSize, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiFlexGrid } from '@uireact/flex';
 
 const themeSpacing: UiSpacingProps['padding'] = { all: 'four' };
