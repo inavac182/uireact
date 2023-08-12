@@ -34,7 +34,6 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
   const currentDoc = useCurrentDoc();
   const [isExpanded, setIsExpanded] = useState(false);
 
-  console.log(menuItem);
   useEffect(() => {
     let isSelected = false;
 

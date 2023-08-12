@@ -17,7 +17,7 @@ route: /
     <span style="color:#F0314E">c</span>
     <span style="color:#31F096">t</span>
   </h1>
-  <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" style="padding-top:30px"/>
+  <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
 </div>
 
 <hr />
