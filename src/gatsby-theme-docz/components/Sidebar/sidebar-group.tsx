@@ -30,16 +30,17 @@ const nestedItemSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const sidebarGroupSpacing: UiSpacingProps['margin'] = { block: 'three' };
 const nestedHeadingSpacing: UiSpacingProps['padding'] = { left: 'four' };
 
+const getCurrentHash = () => {
+  if (typeof window === 'undefined') {
+    return '';
+  }
+  return window.location ? decodeURI(window.location.hash) : '';
+};
+
 export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElement => {
   const currentDoc = useCurrentDoc();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [currentHash, setCurrentHash] = useState('');
-
-  useEffect(() => {
-    if (window !== undefined && window.location.hash) {
-      setCurrentHash(window.location.hash);
-    }
-  }, [window?.location?.hash, setCurrentHash]);
+  const currentHash = getCurrentHash();
 
   useEffect(() => {
     let isSelected = false;
@@ -97,7 +98,7 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
                           return (
                             <UiNavbarItem
                               key={`sidebar-submenu-nested-item-${index}`}
-                              active={currentHash.includes(heading.slug?.slice(0, -1))}
+                              active={currentHash === `#${heading.slug}`}
                             >
                               <UiSpacing padding={nestedHeadingSpacing}>
                                 <UiLink href={`#${heading?.slug}`} fullWidth wrap>
