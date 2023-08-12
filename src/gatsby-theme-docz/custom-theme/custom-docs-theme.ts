@@ -25,11 +25,11 @@ export const DocsTheme: Theme = {
       token_200: '#0B0B0B',
     },
     secondary: {
-      token_10: '#02B2A2',
-      token_50: '#029386',
-      token_100: '#027E73',
-      token_150: '#017A6F',
-      token_200: '#015850',
+      token_10: '#41BFFC',
+      token_50: '#2DB9FD',
+      token_100: '#1FB6FF',
+      token_150: '#11A6EE',
+      token_200: '#0D92D3',
     },
     tertiary: {
       token_10: '#c838c9',
@@ -69,11 +69,11 @@ export const DocsTheme: Theme = {
   },
   light: {
     backgrounds: {
-      token_10: '#fcfcfc',
-      token_50: '#fcf7f7',
-      token_100: '#F1F1F1',
-      token_150: '#dedede',
-      token_200: '#c9c7c7',
+      token_10: '#FFFFFF',
+      token_50: '#F4F4F4',
+      token_100: '#F0F0F0',
+      token_150: '#DEDDDD',
+      token_200: '#D3D2D2',
     },
     fonts: {
       token_10: '#6e6e6e',
@@ -83,25 +83,25 @@ export const DocsTheme: Theme = {
       token_200: '#0a0a0a',
     },
     primary: {
-      token_10: '#e6f2d3',
-      token_50: '#dbebc3',
-      token_100: '#D7E9BB',
-      token_150: '#c1d4a3',
-      token_200: '#aabd8c',
+      token_10: '#ECEBEB',
+      token_50: '#DEDBDB',
+      token_100: '#CDCDCD',
+      token_150: '#C6C5C5',
+      token_200: '#B6B5B5',
     },
     secondary: {
-      token_10: '#8fc449',
-      token_50: '#82b53f',
-      token_100: '#7CB137',
-      token_150: '#6b9c2c',
-      token_200: '#547d20',
+      token_10: '#47F5E8',
+      token_50: '#39F5E7',
+      token_100: '#2AF4E5',
+      token_150: '#1BE7D8',
+      token_200: '#17D4C6',
     },
     tertiary: {
-      token_10: '#58d9f5',
-      token_50: '#4ad8f7',
-      token_100: '#3EDAFC',
-      token_150: '#30bddb',
-      token_200: '#2197b0',
+      token_10: '#995F34',
+      token_50: '#81502C',
+      token_100: '#754726',
+      token_150: '#6D3C17',
+      token_200: '#5E3211',
     },
     positive: {
       token_10: '#62fc84',
@@ -162,3 +162,13 @@ export const DocsTheme: Theme = {
     seven: '64px',
   },
 };
+
+/*
+    tertiary: {
+      token_10: '#c838c9',
+      token_50: '#bb28bd',
+      token_100: '#B01EB2',
+      token_150: '#9a169c',
+      token_200: '#761078',
+    },
+*/
