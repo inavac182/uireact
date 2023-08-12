@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2023-08-12)
+
+
+### Features
+
+* **navbar:** adding styling props ([#221](https://github.com/inavac182/ui-react/issues/221)) ([8cd219c](https://github.com/inavac182/ui-react/commit/8cd219c24a9175e07e093c78910194efaf02fa03))
+
+
+
+
+
 ## 1.3.1 (2023-08-09)
 
 **Note:** Version bump only for package @uireact/text
