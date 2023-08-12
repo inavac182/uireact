@@ -54,7 +54,7 @@ export const IconsList: React.FC = () => {
           </UiFlexGrid>
         </UiSpacing>
         <UiSpacing padding={{ block: 'five' }}>
-          <UiGrid cols={5} colsGap={10} rowsGap={10}>
+          <UiGrid cols={{ small: 2, medium: 2, large: 4, xlarge: 5 }} colsGap={10} rowsGap={10}>
             {Object.keys(Icons).map((key) => (
               <UiGridItem key={`icon-grid-item-component-${key}`}>
                 <UiText size={TextSize.xlarge} theme={category} centered>
