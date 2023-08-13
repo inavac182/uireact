@@ -75,7 +75,8 @@ const Div = styled.div`
 const SidebarGridContainer = styled.div`
   height: 100%;
   position: absolute;
-  min-width: 300px;
+  width: -webkit-fill-available;
+  width: -moz-available;
 
   .menu-flex-grid-container {
     height: 100%;
