@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2023-08-13)
+
+
+### Features
+
+* adding support for rounded buttons ([#222](https://github.com/inavac182/ui-react/issues/222)) ([95584d1](https://github.com/inavac182/ui-react/commit/95584d1ac948db2a29243ea5d122c67a3c82ac2a))
+
+
+
+
+
 ## 1.2.1 (2023-08-09)
 
 **Note:** Version bump only for package @uireact/icons
