@@ -16,6 +16,7 @@ route: /
     <span style="color:#31F051">a</span>
     <span style="color:#F0314E">c</span>
     <span style="color:#31F096">t</span>
+    .io
   </h1>
   <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
 </div>
@@ -23,7 +24,7 @@ route: /
 <hr />
 
 <span style="font-size:14px" data-nosnippet>
-We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have a shiny ✨ page, as we aren't trying to sell this 😂 we hope this help you to start that amazing idea 💡 you've been holding off for a long time. So, bring that unicorn 🦄 or brick 🧱 alive!!! 
+We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have a shiny ✨ page, we hope this help you to start that amazing idea 💡 you've been holding off for a long time. So, bring that unicorn 🦄 or brick 🧱 alive!!! 
 </span>
 
 <br />
@@ -32,36 +33,38 @@ We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have 
 
 ## What? 😲
 
-@UiReact is a React library of Themed UI components that are ready to be used to speed up react app development.
+@UiReact is a React library of Themed UI components that are ready to be used to speed up react web development. The themes allows for a bunch of customization and the components are very flexible as well to cover a bunch of the most common use cases.
 
 ## Why? 🤓
 
-This project started due to the need of rapid development for start ups and having a complete library with a chunk of components ready to be used with an easy configurable theme to adapt the styling for different use cases really helped us to launch multiple projects quicker while maintining a good UX.
+This project started due to personal projects that we were working on and everytime we needed to start up a design system, create some boilerplate code and create the same components over and over. In addition to neededing to develop fast MVPs for start ups.
 
 ## Where to start? ✍️
 
-The main package of this library is the foundation package `@uireact/foundation` and the `@uireact/view`. You can learn more about this in the [getting started doc](./getting-started).
+The main package is `@uireact/foundation`. We have a [getting started doc](./getting-started) that will help you to start step by step through the config process and it also provides a few examples.
 
 ## Tech Stack ⚙️
 
-If you want to understand how this library works the tech that we use is:
+If you want to understand how this library works the tech stack that we use is:
 
 - [Lerna](https://lerna.js.org/) <span style="font-size:14px">For monorepo management 🫶</span>
-- [Styled components](https://styled-components.com/) <span style="font-size:14px">For the components styling 💅🏿</span>
+- [Styled components](https://styled-components.com/) <span style="font-size:14px">For the components styling (css) 💅🏿</span>
 - [Typescript](https://www.typescriptlang.org/) <span style="font-size:14px">To prevent 🐛 (never been more misktaken 🫠) </span>
-- [React](https://react.dev/) <span style="font-size:14px">For the win 🥷 </span>
-- [Node](https://nodejs.org/) <span style="font-size:14px">To rule them all 🦄</span>
+- [React JS](https://react.dev/) <span style="font-size:14px">For the win 🥷 </span>
+- [Node JS](https://nodejs.org/) <span style="font-size:14px">To rule them all 🦄</span>
 
 <iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
 ## Contributions 🤓
 
-We are fully open to contributions, please go through these pages for learning more about it.
+We are fully open to contributions, THere are these 2 pages with some information about our creation process:
 
 - [Contributing](https://uireact.io/contributing)
 - [Development](https://uireact.io/dev)
 
 ## Contact ☎️
+
+If you want to reach out to us these are our public social networks:
 
 - [Felipe Nava](https://www.linkedin.com/in/inavac/)
 - [Felipe's Twitter](https://twitter.com/FelipeNava92)
@@ -73,8 +76,10 @@ We are fully open to contributions, please go through these pages for learning m
 
 Remember that whatever you do, have fun while doing it 🤗
 
+Now, A photo from our hometown 🤩:
+
 ![Volcano](/public/colima.jpg)
-A photo from our homewtown 🤩
+
 
 <iframe src="https://giphy.com/embed/unxCGmTuBvwo2djRLA" width="300" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
