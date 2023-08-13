@@ -1,4 +1,11 @@
-import { DefaultTheme, getTextSize, getHeadingSize, TextSize, getSpacingSize } from '../../src';
+import {
+  DefaultTheme,
+  getTextSize,
+  getHeadingSize,
+  TextSize,
+  getSpacingSize,
+  getTextSizeFromSizeString,
+} from '../../src';
 
 describe('getTextSize', () => {
   it('Should get correct size', () => {
@@ -16,7 +23,7 @@ describe('getSpacingSize', () => {
   });
 });
 
-describe('getTextSize', () => {
+describe('getHeadingSize', () => {
   it('Should default to level 3 when level is unrecognized', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -59,5 +66,13 @@ describe('getTextSize', () => {
     const size = getHeadingSize(DefaultTheme, 6);
 
     expect(size).toBe(DefaultTheme.sizes.headings.level6);
+  });
+});
+
+describe('getTextSizeFromSizeString', () => {
+  it('Should get correct size', () => {
+    const size = getTextSizeFromSizeString(DefaultTheme, 'large');
+
+    expect(size).toBe(DefaultTheme.sizes.texts.large);
   });
 });
