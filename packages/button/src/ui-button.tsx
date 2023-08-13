@@ -18,28 +18,42 @@ const StyledButton = styled.button<privateButtonProps>`
       ${props.$cristal ? 'border-width: 0;' : 'border-width: 1px;'}
       ${props.$cristal ? 'background: unset;' : ''}
       ${props.disabled ? 'cursor: not-allowed;' : 'cursor: pointer;'}
+      ${
+        props.$rounded
+          ? `
+            border-radius: 15px/50%;
+          `
+          : 'border-radius: 3px;'
+      }
+      ${
+        props.$iconized
+          ? `
+            padding: 10px;
+            border-radius: 20px/50%;
+          `
+          : 'padding-left: 10px;padding-right: 10px; '
+      }
     `;
   }}
 
   font-weight: bold;
   border-style: solid;
-  border-radius: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
 `;
 
 export const UiButton: React.FC<UiButtonProps> = ({
   onClick,
   testId,
   className,
-  disabled,
+  disabled = false,
   children,
-  cristal,
+  cristal = false,
+  iconized = false,
   theme = 'primary',
-  fullHeight,
-  fullWidth,
-  type,
+  fullHeight = false,
+  fullWidth = false,
+  type = 'button',
   ref,
+  rounded = false,
 }: UiButtonProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -50,6 +64,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
       $theme={theme}
       onClick={onClick}
       data-testid={testId}
+      $iconized={iconized}
       $cristal={cristal}
       className={className}
       disabled={disabled}
@@ -57,6 +72,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
       $fullWidth={fullWidth}
       type={type}
       ref={ref}
+      $rounded={rounded}
     >
       {children}
     </StyledButton>

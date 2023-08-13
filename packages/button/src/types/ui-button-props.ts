@@ -14,6 +14,8 @@ export type UiButtonProps = {
   className?: string;
   /** render button without normal background */
   cristal?: boolean;
+  /** Button stylized for an icon */
+  iconized?: boolean;
   /** Button theme */
   theme?: ColorCategory;
   /** If button should take full height */
@@ -24,6 +26,8 @@ export type UiButtonProps = {
   type?: 'button' | 'submit';
   /** Button type */
   ref?: ((instance: HTMLButtonElement | null) => void) | React.RefObject<HTMLButtonElement> | null | undefined;
+  /** Button with rounded corners */
+  rounded?: boolean;
 };
 
 export type privateButtonProps = {
@@ -48,4 +52,6 @@ export type privateButtonProps = {
   type?: 'button' | 'submit';
   /** Button type */
   ref?: ((instance: HTMLButtonElement | null) => void) | React.RefObject<HTMLButtonElement> | null | undefined;
+  $rounded?: boolean;
+  $iconized?: boolean;
 } & UiReactPrivateElementProps;

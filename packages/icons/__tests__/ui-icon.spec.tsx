@@ -18,6 +18,12 @@ describe('<UiIcon />', () => {
     expect(screen.getByTestId('Icon')).toBeVisible();
   });
 
+  it('renders fine with size', () => {
+    uiRender(<UiIcon icon="At" size="regular" />);
+
+    expect(screen.getByTestId('Icon')).toBeVisible();
+  });
+
   it('renders nothing if id is unrecognized', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore

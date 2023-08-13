@@ -107,4 +107,30 @@ describe('<UiButton />', () => {
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
   });
+
+  test('renders rounded button', () => {
+    uiRender(
+      <UiButton theme="error" rounded>
+        MyButton
+      </UiButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+  });
+
+  test('renders iconized button', () => {
+    uiRender(
+      <UiButton theme="error" iconized>
+        A
+      </UiButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'A' })).toBeVisible();
+  });
+
+  test('renders button with submit type', () => {
+    uiRender(<UiButton type="submit">Button</UiButton>);
+
+    expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+  });
 });

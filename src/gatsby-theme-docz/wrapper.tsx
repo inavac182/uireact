@@ -14,7 +14,7 @@ type WrapperProps = {
 };
 
 const GlobalStyles = createGlobalStyle`
-  h2 {
+  h2, h3, h4 {
     padding-top: 20px;
     padding-bottom: 15px;
   }
