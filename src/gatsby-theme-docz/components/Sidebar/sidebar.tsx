@@ -3,12 +3,13 @@ import React, { useContext } from 'react';
 import { useMenus } from 'docz';
 import styled, { keyframes } from 'styled-components';
 
-import { UiFlexGrid } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiViewRow } from '@uireact/view';
 
 import { SidebarGroup } from './sidebar-group';
 import { MenuContext } from '../../wrapper';
+import { Logo } from '../Header/logo';
 
 const SidebarSpacing: UiSpacingProps['padding'] = { left: 'six', top: 'six', bottom: 'six' };
 
@@ -33,7 +34,6 @@ const SidebarDiv = styled.div<{ $isTriggered?: boolean }>`
 
     position: fixed;
     z-index: 10;
-    padding-bottom: 50px;
     animation: ${animation} 0.3s linear;
 
     .menu-container {
@@ -72,6 +72,18 @@ const Div = styled.div`
   }
 `;
 
+const SidebarGridContainer = styled.div`
+  height: 100%;
+  position: absolute;
+  min-width: 300px;
+
+  .menu-flex-grid-container {
+    height: 100%;
+  }
+`;
+
+const sideBarLogoSpacing: UiSpacingProps['margin'] = { top: 'seven', bottom: 'six' };
+
 export const Sidebar = React.forwardRef((): React.ReactElement => {
   const [query] = React.useState('');
   const menus = useMenus({ query });
@@ -87,13 +99,24 @@ export const Sidebar = React.forwardRef((): React.ReactElement => {
     <SidebarDiv $isTriggered={menuContext?.isMenuVisible}>
       <Div onClick={closeMenuCB} />
       <UiViewRow className="menu-container">
-        <UiSpacing padding={SidebarSpacing}>
-          <UiFlexGrid direction="column">
-            {menus?.map((menuItem, index) => (
-              <SidebarGroup key={`navbar-group-${index}`} menuItem={menuItem} />
-            ))}
+        <SidebarGridContainer>
+          <UiFlexGrid direction="column" justifyContent="space-between" className="menu-flex-grid-container">
+            <UiFlexGridItem>
+              <UiSpacing padding={SidebarSpacing}>
+                <UiFlexGrid direction="column">
+                  {menus?.map((menuItem, index) => (
+                    <SidebarGroup key={`navbar-group-${index}`} menuItem={menuItem} />
+                  ))}
+                </UiFlexGrid>
+              </UiSpacing>
+            </UiFlexGridItem>
+            <UiFlexGridItem align="center">
+              <UiSpacing margin={sideBarLogoSpacing}>
+                <Logo />
+              </UiSpacing>
+            </UiFlexGridItem>
           </UiFlexGrid>
-        </UiSpacing>
+        </SidebarGridContainer>
       </UiViewRow>
     </SidebarDiv>
   );
