@@ -10,7 +10,9 @@ module.exports = {
         'refactor',
         'fix',
         'chore',
-        'docs'
+        'docs',
+        'test',
+        'tests'
       ]
     ],
     'scope-empty': [1, 'always'],
