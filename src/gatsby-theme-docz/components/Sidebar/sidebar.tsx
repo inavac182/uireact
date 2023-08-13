@@ -1,47 +1,99 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { useMenus } from 'docz';
-import { styled } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { UiFlexGrid } from '@uireact/flex';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiViewRow } from '@uireact/view';
 
 import { SidebarGroup } from './sidebar-group';
+import { MenuContext } from '../../wrapper';
 
-const SidebarSpacing: UiSpacingProps['margin'] = { left: 'six', top: 'six' };
+const SidebarSpacing: UiSpacingProps['padding'] = { left: 'six', top: 'six', bottom: 'six' };
 
-const SidebarDiv = styled.div`
-  position: sticky;
-  top: 85px;
-  min-width: 0;
-  max-height: 90vh;
-  border-right: 2px solid #3e3e3e;
-  overflow: auto;
+const animation = keyframes`
+0% {
+  transform: translate(-300px);
+}
+
+100% {
+  transform: translate(0px);
+}
 `;
 
-const SideBarContentDiv = styled.div`
+const SidebarDiv = styled.div<{ $isTriggered?: boolean }>`
+  position: sticky;
+  top: 0;
+  border-right: 2px solid #3e3e3e;
+
   @media only screen and (max-width: 920px) {
+    ${(props) => `
+      ${props.$isTriggered ? `display: block;` : `display: none;`}`}
+
+    position: fixed;
+    z-index: 10;
+    padding-bottom: 50px;
+    animation: ${animation} 0.3s linear;
+
+    .menu-container {
+      min-width: 300px;
+      min-height: 99vh;
+      max-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 15;
+      position: relative;
+    }
+  }
+`;
+
+const bgAnimation = keyframes`
+0% {
+  opacity: 0;
+}
+
+100% {
+  opacity: 0.5;
+}
+`;
+
+const Div = styled.div`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #3d3d3d;
+  z-index: 9;
+  opacity: 0.5;
+  animation: ${bgAnimation} 0.5s ease-out;
+
+  @media only screen and (min-width: 920px) {
     display: none;
   }
 `;
 
 export const Sidebar = React.forwardRef((): React.ReactElement => {
-  const [query, setQuery] = React.useState('');
+  const [query] = React.useState('');
   const menus = useMenus({ query });
+  const menuContext = useContext(MenuContext);
+
+  const closeMenuCB = React.useCallback(() => {
+    if (menuContext) {
+      menuContext.setMenuVisible(false);
+    }
+  }, [menuContext]);
 
   return (
-    <SidebarDiv>
-      <UiViewRow>
-        <SideBarContentDiv>
-          <UiSpacing margin={SidebarSpacing}>
-            <UiFlexGrid direction="column">
-              {menus?.map((menuItem, index) => (
-                <SidebarGroup key={`navbar-group-${index}`} menuItem={menuItem} />
-              ))}
-            </UiFlexGrid>
-          </UiSpacing>
-        </SideBarContentDiv>
+    <SidebarDiv $isTriggered={menuContext?.isMenuVisible}>
+      <Div onClick={closeMenuCB} />
+      <UiViewRow className="menu-container">
+        <UiSpacing padding={SidebarSpacing}>
+          <UiFlexGrid direction="column">
+            {menus?.map((menuItem, index) => (
+              <SidebarGroup key={`navbar-group-${index}`} menuItem={menuItem} />
+            ))}
+          </UiFlexGrid>
+        </UiSpacing>
       </UiViewRow>
     </SidebarDiv>
   );

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
+
+import { Sidebar } from '../Sidebar';
+import { MenuContext } from '../../wrapper';
 
 type MainContainerProps = {
   children: React.ReactElement;

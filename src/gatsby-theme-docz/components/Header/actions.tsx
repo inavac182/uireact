@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 
+import styled from 'styled-components';
 import { useColorMode } from 'theme-ui';
 
 import { UiButton } from '@uireact/button';
@@ -7,12 +8,29 @@ import { UiIcon } from '@uireact/icons';
 import { UiLink } from '@uireact/text';
 import { UiFlexGrid } from '@uireact/flex';
 
+import { MenuContext } from '../../wrapper';
+
+const MenuIcon = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 920px) {
+    display: inline-block;
+  }
+`;
+
 export const Actions = (): React.ReactElement => {
   const [colorMode, setColorMode] = useColorMode();
+  const menuContext = useContext(MenuContext);
 
   const themeSwitcherCB = React.useCallback(() => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light');
   }, [colorMode, setColorMode]);
+
+  const openMenuCB = useCallback(() => {
+    if (menuContext) {
+      menuContext.setMenuVisible(!menuContext.isMenuVisible);
+    }
+  }, [menuContext]);
 
   return (
     <>
@@ -21,8 +39,13 @@ export const Actions = (): React.ReactElement => {
           <img src="/public/gh-logo.png" width="20px" height="20px" />
         </UiLink>
         <UiButton onClick={themeSwitcherCB} rounded iconized theme="secondary">
-          <UiIcon icon="ColorDrop" size="xlarge" />
+          <UiIcon icon="ColorDrop" size="large" />
         </UiButton>
+        <MenuIcon>
+          <UiButton iconized theme="tertiary" onClick={openMenuCB}>
+            <UiIcon icon="Menu" size="large" />
+          </UiButton>
+        </MenuIcon>
       </UiFlexGrid>
     </>
   );
