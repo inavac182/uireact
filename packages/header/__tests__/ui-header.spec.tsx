@@ -51,4 +51,14 @@ describe('<UiHeader />', () => {
 
     expect(screen.getByText('Header')).toBeVisible();
   });
+
+  it('renders fine with className', () => {
+    uiRender(
+      <UiHeader centered className="something">
+        <p>Header</p>
+      </UiHeader>
+    );
+
+    expect(screen.getByText('Header')).toBeVisible();
+  });
 });

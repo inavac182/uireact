@@ -29,12 +29,13 @@ const Div = styled.div<privateUiHeaderProps>`
   z-index: 10;
 `;
 
-export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, fixed }: UiHeaderProps) => {
+export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, className, fixed }: UiHeaderProps) => {
   const themeContext = React.useContext(ThemeContext);
   const { isLarge } = useViewport();
 
   return (
     <Div
+      className={className}
       $customTheme={themeContext.theme}
       $selectedTheme={themeContext.selectedTheme}
       $fixed={fixed}

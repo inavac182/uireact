@@ -9,19 +9,17 @@ import { Actions } from './actions';
 
 const headerContentSpacing: UiSpacingProps['padding'] = { left: 'six', right: 'six', top: 'four', bottom: 'four' };
 
-export const Header = (): React.ReactElement => {
-  return (
-    <UiHeader fixed>
-      <UiSpacing padding={headerContentSpacing}>
-        <UiFlexGrid justifyContent="space-between" alignItems="center">
-          <UiFlexGridItem>
-            <Logo />
-          </UiFlexGridItem>
-          <UiFlexGridItem>
-            <Actions />
-          </UiFlexGridItem>
-        </UiFlexGrid>
-      </UiSpacing>
-    </UiHeader>
-  );
-};
+export const Header = (): React.ReactElement => (
+  <UiHeader fixed className="main-header">
+    <UiSpacing padding={headerContentSpacing}>
+      <UiFlexGrid justifyContent="space-between" alignItems="center">
+        <UiFlexGridItem>
+          <Logo />
+        </UiFlexGridItem>
+        <UiFlexGridItem>
+          <Actions />
+        </UiFlexGridItem>
+      </UiFlexGrid>
+    </UiSpacing>
+  </UiHeader>
+);
