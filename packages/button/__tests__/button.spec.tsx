@@ -127,4 +127,10 @@ describe('<UiButton />', () => {
 
     expect(screen.getByRole('button', { name: 'A' })).toBeVisible();
   });
+
+  test('renders button with submit type', () => {
+    uiRender(<UiButton type="submit">Button</UiButton>);
+
+    expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+  });
 });
