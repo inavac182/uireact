@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/inavac182/ui-react/compare/@uireact/header@1.0.7...@uireact/header@1.1.0) (2023-08-13)
+
+
+### Features
+
+* adding animated logo ([#223](https://github.com/inavac182/ui-react/issues/223)) ([c0c478c](https://github.com/inavac182/ui-react/commit/c0c478c8bce252084db2f3f3d380fb4aeb3e4caa))
+
+
+
+
+
 ## 1.0.7 (2023-08-13)
 
 **Note:** Version bump only for package @uireact/header
