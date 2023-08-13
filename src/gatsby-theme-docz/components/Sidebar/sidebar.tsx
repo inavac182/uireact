@@ -35,15 +35,15 @@ const SidebarDiv = styled.div<{ $isTriggered?: boolean }>`
     position: fixed;
     z-index: 10;
     animation: ${animation} 0.3s linear;
+    height: 100%;
+    width: 300px;
 
     .menu-container {
-      min-width: 300px;
-      min-height: 99vh;
-      max-height: 100vh;
       overflow-x: hidden;
       overflow-y: auto;
       z-index: 15;
       position: relative;
+      height: 100%;
     }
   }
 `;
