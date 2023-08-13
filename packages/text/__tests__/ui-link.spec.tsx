@@ -170,5 +170,16 @@ describe('<UiLink />', () => {
       expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('white-space', 'nowrap');
       expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('overflow', 'hidden!important');
     });
+
+    it('renders fine with className', () => {
+      uiRender(
+        <UiLink href="#" theme="positive" className="something">
+          Link
+        </UiLink>
+      );
+
+      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+      expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('something');
+    });
   });
 });

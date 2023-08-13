@@ -61,6 +61,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   theme = 'secondary',
   children,
   handleClick,
+  className,
   href,
   fullWidth,
   fontStyle,
@@ -77,6 +78,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   if (useReactLink && href) {
     return (
       <StyledLinkWrapper
+        className={className}
         $category={theme}
         $customTheme={themeContext.theme}
         $fullWidth={fullWidth}
@@ -108,6 +110,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
       $fullWidth={fullWidth}
       $fontStyle={fontStyle}
       onClick={handleClick}
+      className={className}
       ref={ref}
       referrerpolicy={referrerpolicy}
       $selectedTheme={themeContext.selectedTheme}
