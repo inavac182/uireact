@@ -70,8 +70,8 @@ export const DocsTheme: Theme = {
   light: {
     backgrounds: {
       token_10: '#FFFFFF',
-      token_50: '#F4F4F4',
-      token_100: '#F0F0F0',
+      token_50: '#FFFFFF',
+      token_100: '#FFFFFF',
       token_150: '#DEDDDD',
       token_200: '#D3D2D2',
     },
@@ -83,25 +83,25 @@ export const DocsTheme: Theme = {
       token_200: '#0a0a0a',
     },
     primary: {
-      token_10: '#ECEBEB',
-      token_50: '#DEDBDB',
-      token_100: '#CDCDCD',
-      token_150: '#C6C5C5',
-      token_200: '#B6B5B5',
+      token_10: '#EBFFFE',
+      token_50: '#DBFEFD',
+      token_100: '#D4FBFA',
+      token_150: '#BFEEED',
+      token_200: '#A4D5D4',
     },
     secondary: {
-      token_10: '#47F5E8',
-      token_50: '#39F5E7',
-      token_100: '#2AF4E5',
-      token_150: '#1BE7D8',
-      token_200: '#17D4C6',
+      token_10: '#0488F5',
+      token_50: '#027CE0',
+      token_100: '#0170C6',
+      token_150: '#0167BC',
+      token_200: '#0158A1',
     },
     tertiary: {
-      token_10: '#995F34',
-      token_50: '#81502C',
-      token_100: '#754726',
-      token_150: '#6D3C17',
-      token_200: '#5E3211',
+      token_10: '#F99A17',
+      token_50: '#F79208',
+      token_100: '#EF8A00',
+      token_150: '#E08201',
+      token_200: '#CA7601',
     },
     positive: {
       token_10: '#62fc84',
@@ -162,13 +162,3 @@ export const DocsTheme: Theme = {
     seven: '64px',
   },
 };
-
-/*
-    tertiary: {
-      token_10: '#c838c9',
-      token_50: '#bb28bd',
-      token_100: '#B01EB2',
-      token_150: '#9a169c',
-      token_200: '#761078',
-    },
-*/

@@ -62,9 +62,7 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
     <UiSpacing margin={sidebarGroupSpacing}>
       <GroupHeadingDiv onClick={onClick}>
         {menuItem.menu && menuItem.menu.length > 0 ? (
-          <UiText theme={isExpanded ? 'tertiary' : undefined} size={TextSize.large}>
-            {menuItem.name}
-          </UiText>
+          <UiText size={TextSize.large}>{menuItem.name}</UiText>
         ) : (
           <UiLink href={menuItem.route} size={TextSize.large}>
             <UiText>{menuItem.name}</UiText>
@@ -81,12 +79,7 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
               >
                 <UiSpacing padding={nestedItemSpacing}>
                   <>
-                    <UiLink
-                      href={item.route}
-                      fullWidth
-                      theme={item.route !== undefined && item.route === currentDoc?.route ? 'tertiary' : undefined}
-                      size={TextSize.large}
-                    >
+                    <UiLink href={item.route} fullWidth size={TextSize.large}>
                       {item.name}
                     </UiLink>
                     {item.route !== undefined && item.route === currentDoc.route && (
