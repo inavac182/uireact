@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2023-08-14)
+
+
+### Bug Fixes
+
+* dialog bg with sticky header ([#227](https://github.com/inavac182/ui-react/issues/227)) ([fe3c318](https://github.com/inavac182/ui-react/commit/fe3c31837552b13f04c2ec4803ae69ed74725c66))
+
+
+
+
+
 # [1.1.0](https://github.com/inavac182/ui-react/compare/@uireact/header@1.0.7...@uireact/header@1.1.0) (2023-08-13)
 
 

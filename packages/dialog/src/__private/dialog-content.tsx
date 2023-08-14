@@ -10,8 +10,9 @@ import { mapper } from '../theme';
 const Div = styled.div<privateUiDialogProps>`
   ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
 
-  z-index: 10;
+  z-index: 100;
   min-width: 200px;
+  box-shadow: 0px 0 5px #000000;
 
   ${(props) => {
     if (props.type === UiDialogType.CENTERED) {
@@ -41,7 +42,6 @@ const Div = styled.div<privateUiDialogProps>`
         position: fixed;
         height: 100%;
         width: 50%;
-        box-shadow: 2px 0 5px #000000;
       `;
     }
 
@@ -52,7 +52,6 @@ const Div = styled.div<privateUiDialogProps>`
         position: fixed;
         height: 100%;
         width: 50%;
-        box-shadow: 2px 0 5px #000000;
       `;
     }
 
@@ -62,7 +61,6 @@ const Div = styled.div<privateUiDialogProps>`
         position: fixed;
         height: 100%;
         width: 100%;
-        box-shadow: 2px 0 5px #000000;
       `;
   }}
 `;
