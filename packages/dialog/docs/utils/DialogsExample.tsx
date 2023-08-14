@@ -10,10 +10,16 @@ type DialogsExampleProps = {
   type?: UiDialogType;
   title?: string;
   hideCloseIcon?: boolean;
+  dialogId: string;
 };
 
-export const DialogsExample: React.FC<DialogsExampleProps> = ({ type, title, hideCloseIcon }: DialogsExampleProps) => {
-  const { actions } = useDialog('example');
+export const DialogsExample: React.FC<DialogsExampleProps> = ({
+  dialogId,
+  type,
+  title,
+  hideCloseIcon,
+}: DialogsExampleProps) => {
+  const { actions } = useDialog(dialogId);
 
   const onClickCB = () => {
     actions.openDialog();
@@ -22,7 +28,7 @@ export const DialogsExample: React.FC<DialogsExampleProps> = ({ type, title, hid
   return (
     <>
       <UiButton onClick={onClickCB}>Open dialog</UiButton>
-      <UiDialog dialogId="example" type={type} title={title} hideCloseIcon={hideCloseIcon}>
+      <UiDialog dialogId={dialogId} type={type} title={title} hideCloseIcon={hideCloseIcon}>
         <UiSpacing margin={{ all: 'four' }}>
           <UiText size={TextSize.large}>Some content</UiText>
         </UiSpacing>
