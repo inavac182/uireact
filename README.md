@@ -33,7 +33,7 @@ We are too busy <span style="font-size:10px">(or too lazy? 😅)</span> to have 
 
 ## What? 😲
 
-@UiReact is a React library of Themed UI components that are ready to be used to speed up react web development. The themes allows for a bunch of customization and the components are very flexible as well to cover a bunch of the most common use cases.
+@UiReact is a React library of Themed UI components that are ready to be used to speed up react web development. The themes allows for a lot of customization and the components are very flexible as well to cover a wide variety of the use cases.
 
 ## Why? 🤓
 
