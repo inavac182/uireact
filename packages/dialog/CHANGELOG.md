@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.15 (2023-08-14)
+
+
+### Bug Fixes
+
+* dialog bg with sticky header ([#227](https://github.com/inavac182/ui-react/issues/227)) ([fe3c318](https://github.com/inavac182/ui-react/commit/fe3c31837552b13f04c2ec4803ae69ed74725c66))
+
+
+
+
+
 ## [1.0.14](https://github.com/inavac182/ui-react/compare/@uireact/dialog@1.0.13...@uireact/dialog@1.0.14) (2023-08-13)
 
 **Note:** Version bump only for package @uireact/dialog
