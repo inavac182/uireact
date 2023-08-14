@@ -9,7 +9,7 @@ const Div = styled.div`
   top: 0;
   left: 0;
   background: black;
-  opacity: 0.8;
+  opacity: 0.5;
   z-index: 50;
 `;
 
