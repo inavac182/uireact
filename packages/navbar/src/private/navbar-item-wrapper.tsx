@@ -45,7 +45,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
     `}
   }
 
-  > div > :first-child {
+  > div :first-child {
     transition: background 0.2s, border-left 0.2s;
     border-left: 2px solid transparent;
     padding-left: 5px;
@@ -63,11 +63,16 @@ const Div = styled.div<NavbarItemWrapperProps>`
                 false
               )};
             }`
-          : getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.$category))
+          : `&:hover { ${getThemeStyling(
+              props.$customTheme,
+              props.$selectedTheme,
+              getNavbarItemMapper(props.$category)
+            )} }`
       }
       ${
         props.$active
-          ? `
+          ? props.$styling === 'bordered'
+            ? `
             border-left: 2px solid ${getThemeColor(
               props.$customTheme,
               props.$selectedTheme,
@@ -75,7 +80,15 @@ const Div = styled.div<NavbarItemWrapperProps>`
               ColorTokens.token_150,
               false
             )};
-          `
+            `
+            : `
+            background-color: ${getThemeColor(
+              props.$customTheme,
+              props.$selectedTheme,
+              getColorCategory(props.$category),
+              ColorTokens.token_100,
+              false
+            )}`
           : ''
       }
     `}

@@ -8,25 +8,25 @@ export const getBorderRadiusStyling = (orientation?: Orientation, isFirst?: bool
 
   if (orientation === 'inline') {
     if (isFirst) {
-      topLeft = '5px';
-      bottomLeft = '5px';
+      topLeft = '3px';
+      bottomLeft = '3px';
     }
 
     if (isLast) {
-      topRight = '5px';
-      bottomRight = '5px';
+      topRight = '3px';
+      bottomRight = '3px';
     }
   }
 
   if (orientation === 'stacked') {
     if (isFirst) {
-      topLeft = '5px';
-      topRight = '5px';
+      topLeft = '3px';
+      topRight = '3px';
     }
 
     if (isLast) {
-      bottomLeft = '5px';
-      bottomRight = '5px';
+      bottomLeft = '3px';
+      bottomRight = '3px';
     }
   }
 

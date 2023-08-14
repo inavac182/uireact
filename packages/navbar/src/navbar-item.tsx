@@ -3,7 +3,7 @@ import React from 'react';
 import { UiNavbarItemProps } from './types';
 
 export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ children }: UiNavbarItemProps) => {
-  return <>{children}</>;
+  return <div>{children}</div>;
 };
 
 UiNavbarItem.displayName = 'UiNavbarItem';
