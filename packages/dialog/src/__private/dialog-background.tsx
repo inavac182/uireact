@@ -9,8 +9,8 @@ const Div = styled.div`
   top: 0;
   left: 0;
   background: black;
-  opacity: 0.5;
-  z-index: 1;
+  opacity: 0.8;
+  z-index: 50;
 `;
 
 type DialogBackgroundProps = {

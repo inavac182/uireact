@@ -10,7 +10,7 @@ import { mapper } from '../theme';
 const Div = styled.div<privateUiDialogProps>`
   ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
 
-  z-index: 10;
+  z-index: 100;
   min-width: 200px;
 
   ${(props) => {

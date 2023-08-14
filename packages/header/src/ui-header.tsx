@@ -26,7 +26,7 @@ const Div = styled.div<privateUiHeaderProps>`
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
-  z-index: 10;
+  z-index: 1;
 `;
 
 export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, className, fixed }: UiHeaderProps) => {
