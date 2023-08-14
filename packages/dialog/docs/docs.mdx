@@ -49,7 +49,7 @@ The `useDialog` hook is used to instantiate a dialog and be able to communicate 
 By default, the dialog renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
 
 <Playground hideThemeSelector>
-  <DialogsExample title="Dialog title" />
+  <DialogsExample title="Dialog title" dialogId="first-example" />
 </Playground>
 
 The [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15) that we use throughout this doc. This is an example of the code of a component using a dialog:
@@ -105,7 +105,7 @@ The magic of using the `useDialog` hook is that you can control this dialog from
 Renders at the right of the screen
 
 <Playground hideThemeSelector>
-  <DialogsExample type={UiDialogType.FULLSCREEN} />
+  <DialogsExample type={UiDialogType.FULLSCREEN} dialogId="fullscreen-example" />
 </Playground>
 
 ### Bottom dialog
@@ -113,7 +113,7 @@ Renders at the right of the screen
 Renders at the bottom of the screen
 
 <Playground hideThemeSelector>
-  <DialogsExample type={UiDialogType.BOTTOM} />
+  <DialogsExample type={UiDialogType.BOTTOM} dialogId="bottom-example" />
 </Playground>
 
 ### Left dialog
@@ -121,7 +121,7 @@ Renders at the bottom of the screen
 Renders at the left of the screen
 
 <Playground hideThemeSelector>
-  <DialogsExample type={UiDialogType.LEFT} />
+  <DialogsExample type={UiDialogType.LEFT} dialogId="left-example" />
 </Playground>
 
 ### Right dialog
@@ -129,5 +129,5 @@ Renders at the left of the screen
 Renders at the right of the screen
 
 <Playground hideThemeSelector>
-  <DialogsExample type={UiDialogType.RIGHT} />
+  <DialogsExample type={UiDialogType.RIGHT} dialogId="right-example" />
 </Playground>
