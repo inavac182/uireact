@@ -55,31 +55,27 @@ const Div = styled.div<NavbarItemWrapperProps>`
         props.$styling === 'bordered'
           ? `
             &:hover {
-              border-left: 2px solid ${getThemeColor(
-                props.$customTheme,
-                props.$selectedTheme,
-                getColorCategory(props.$category),
-                ColorTokens.token_150,
-                false
-              )};
-            }`
-          : `&:hover { ${getThemeStyling(
-              props.$customTheme,
-              props.$selectedTheme,
-              getNavbarItemMapper(props.$category)
-            )} }`
-      }
-      ${
-        props.$active
-          ? props.$styling === 'bordered'
-            ? `
-            border-left: 2px solid ${getThemeColor(
+              border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid ${getThemeColor(
               props.$customTheme,
               props.$selectedTheme,
               getColorCategory(props.$category),
               ColorTokens.token_150,
               false
             )};
+            }`
+          : getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.$category))
+      }
+      ${
+        props.$active
+          ? props.$styling === 'bordered'
+            ? `
+            border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid ${getThemeColor(
+                props.$customTheme,
+                props.$selectedTheme,
+                getColorCategory(props.$category),
+                ColorTokens.token_150,
+                false
+              )};
             `
             : `
             background-color: ${getThemeColor(

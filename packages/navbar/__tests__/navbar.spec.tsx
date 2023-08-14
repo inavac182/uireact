@@ -160,6 +160,20 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 3')).toBeVisible();
   });
 
+  it('Should render with bordered styling when is stacked', () => {
+    render(
+      <UiNavbar category="secondary" styling="bordered" orientation="stacked">
+        {`Option 1`}
+        <UiNavbarItem active>Option 2</UiNavbarItem>
+        <UiNavbarItem>Option 3</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.queryByText('Option 1')).not.toBeInTheDocument();
+    expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByText('Option 3')).toBeVisible();
+  });
+
   it('Should render with filled styling', () => {
     render(
       <UiNavbar category="secondary" styling="filled">
