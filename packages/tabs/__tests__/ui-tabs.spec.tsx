@@ -7,8 +7,12 @@ import { UiTabs, UiTabItem } from '../src';
 
 const onClick = jest.fn();
 
-const MockedComponent = () => (
-  <UiTabs>
+type MockedComponentProps = {
+  rounded?: boolean;
+};
+
+const MockedComponent = ({ rounded }: MockedComponentProps) => (
+  <UiTabs rounded={rounded}>
     <UiTabItem identifier="1" handleClick={onClick} selected>
       Item 1
     </UiTabItem>
@@ -23,7 +27,7 @@ const MockedComponent = () => (
 
 describe('<UiTabs />', () => {
   it('renders fine', () => {
-    uiRender(<MockedComponent />);
+    uiRender(<MockedComponent rounded />);
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
@@ -31,7 +35,7 @@ describe('<UiTabs />', () => {
   });
 
   it('renders fine when rounded', () => {
-    uiRender(<MockedComponent rounded />);
+    uiRender(<MockedComponent />);
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
