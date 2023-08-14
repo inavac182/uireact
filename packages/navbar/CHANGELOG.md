@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.2 (2023-08-14)
+
+
+### Bug Fixes
+
+* **navbar:** bg color for active elements ([#225](https://github.com/inavac182/ui-react/issues/225)) ([d7e8f3d](https://github.com/inavac182/ui-react/commit/d7e8f3d6dca77cfbb5943c7ca02f2d59b3ef9c7b))
+
+
+
+
+
 ## [1.3.1](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.3.0...@uireact/navbar@1.3.1) (2023-08-13)
 
 **Note:** Version bump only for package @uireact/navbar
