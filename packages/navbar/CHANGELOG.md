@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/inavac182/ui-react/compare/@uireact/navbar@1.3.2...@uireact/navbar@1.4.0) (2023-08-14)
+
+
+### Features
+
+* **navbar:** render border bottom in inline navbar ([#226](https://github.com/inavac182/ui-react/issues/226)) ([f65641a](https://github.com/inavac182/ui-react/commit/f65641ab231047270a6f068471813a3bd9c8cfc5))
+
+
+
+
+
 ## 1.3.2 (2023-08-14)
 
 
