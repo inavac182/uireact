@@ -30,6 +30,14 @@ describe('<UiTabs />', () => {
     expect(screen.getByText('Item 3')).toBeVisible();
   });
 
+  it('renders fine when rounded', () => {
+    uiRender(<MockedComponent rounded />);
+
+    expect(screen.getByText('Item 1')).toBeVisible();
+    expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByText('Item 3')).toBeVisible();
+  });
+
   it('Triggers CB when tab item is clicked', () => {
     uiRender(<MockedComponent />);
 

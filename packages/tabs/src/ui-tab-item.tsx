@@ -11,7 +11,7 @@ const TabItem = styled.div<privateTabItemProps>`
   ${(props) => `
     ${getThemeStyling(props.$customTheme, props.$selectedTheme, TabsMapper)}
     ${
-      props.selected
+      props.$selected
         ? `border-color: ${getThemeColor(
             props.$customTheme,
             props.$selectedTheme,
@@ -52,8 +52,8 @@ export const UiTabItem: React.FC<UiTabItemProps> = ({
       $selectedTheme={theme.selectedTheme}
       className={className}
       onClick={handleTabClick}
-      identifier={identifier}
-      selected={selected}
+      $identifier={identifier}
+      $selected={selected}
     >
       {children}
     </TabItem>

@@ -5,4 +5,7 @@ export type UiTabsProps = {
   rounded?: boolean;
 } & UiReactElementProps;
 
-export type privateTabsProps = UiTabsProps & UiReactPrivateElementProps;
+export type privateTabsProps = {
+  /** For rounded corners */
+  $rounded?: boolean;
+} & UiReactPrivateElementProps;
