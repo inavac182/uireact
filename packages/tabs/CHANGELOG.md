@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.7 (2023-08-14)
+
+
+### Bug Fixes
+
+* **tabs:** rounded corners ([#228](https://github.com/inavac182/ui-react/issues/228)) ([42a14d0](https://github.com/inavac182/ui-react/commit/42a14d03598d77bd08d1d56f6d9678073243f2c5))
+
+
+
+
+
 ## 1.0.6 (2023-08-13)
 
 **Note:** Version bump only for package @uireact/tabs
