@@ -25,4 +25,7 @@ export type UiViewRowProps = {
 
 export type privateViewProps = Omit<Omit<Omit<UiViewProps, 'selectedTheme'>, 'theme'>, 'dialogController'> &
   UiReactPrivateElementProps;
-export type privateViewRowProps = UiViewRowProps & UiReactPrivateElementProps;
+export type privateViewRowProps = {
+  $centeredContent?: boolean;
+  $weight?: '10' | '50' | '100' | '150' | '200';
+} & UiReactPrivateElementProps;

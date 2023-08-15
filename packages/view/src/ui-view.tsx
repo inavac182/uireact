@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
     padding: 0;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   body {
     ${(props) => `
       ${`font-family: ${props.$customTheme.texts.font};`}

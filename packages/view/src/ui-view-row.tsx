@@ -10,7 +10,7 @@ import { CenteredDiv } from './__private';
 
 const Div = styled.div<privateViewRowProps>`
   ${(props) => {
-    const mapper = dynamicViewRowMapper(props.weight);
+    const mapper = dynamicViewRowMapper(props.$weight);
     return getThemeStyling(props.$customTheme, props.$selectedTheme, mapper);
   }}
 `;
@@ -27,7 +27,7 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
     <Div
       $customTheme={themeContext.theme}
       $selectedTheme={themeContext.selectedTheme}
-      weight={weight}
+      $weight={weight}
       className={className}
     >
       {centeredContent ? (
