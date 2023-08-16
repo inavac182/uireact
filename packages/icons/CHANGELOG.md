@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.1 (2023-08-16)
+
+
+### Bug Fixes
+
+* **icon:** inline render ([#230](https://github.com/inavac182/ui-react/issues/230)) ([40e83af](https://github.com/inavac182/ui-react/commit/40e83afe4bf2149bdd0854cb0825ee7260b23cde))
+
+
+
+
+
 # 1.3.0 (2023-08-13)
 
 
