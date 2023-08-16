@@ -22,9 +22,12 @@ const Span = styled.span<privateIconProps>`
       getDynamicMapper(props.category ? getColorCategory(props.category) : ColorCategories.fonts)
     )}
     ${props.$size ? `font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
+    ${props.$size ? `width: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
+    ${props.$size ? `height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
   `}
 
-  display: flex;
+  vertical-align: sub;
+  display: inline-block;
   justify-content: center;
 `;
 

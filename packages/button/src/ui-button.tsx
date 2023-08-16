@@ -30,6 +30,7 @@ const StyledButton = styled.button<privateButtonProps>`
           ? `
             padding: 10px;
             border-radius: 20px/50%;
+            display: inline-flex;
           `
           : 'padding-left: 10px;padding-right: 10px; '
       }
