@@ -26,6 +26,7 @@ const Span = styled.span<privateIconProps>`
     ${props.$size ? `height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
   `}
 
+  vertical-align: sub;
   display: inline-block;
   justify-content: center;
 `;
