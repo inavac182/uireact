@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.8 (2023-08-17)
+
+
+### Bug Fixes
+
+* tab item custom typing for callback ([#231](https://github.com/inavac182/ui-react/issues/231)) ([d379408](https://github.com/inavac182/ui-react/commit/d379408ad0ff600a8177f2447dc01e49d11731d8))
+
+
+
+
+
 ## 1.0.7 (2023-08-14)
 
 
