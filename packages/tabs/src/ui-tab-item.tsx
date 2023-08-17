@@ -33,13 +33,13 @@ const TabItem = styled.div<privateTabItemProps>`
   padding: 5px 0px 5px 0px;
 `;
 
-export const UiTabItem: React.FC<UiTabItemProps> = ({
+export function UiTabItem<T>({
   className,
   children,
   handleClick,
   identifier,
   selected,
-}: UiTabItemProps) => {
+}: UiTabItemProps<T>): JSX.Element {
   const theme = React.useContext(ThemeContext);
 
   const handleTabClick = React.useCallback(() => {
@@ -52,12 +52,11 @@ export const UiTabItem: React.FC<UiTabItemProps> = ({
       $selectedTheme={theme.selectedTheme}
       className={className}
       onClick={handleTabClick}
-      $identifier={identifier}
       $selected={selected}
     >
       {children}
     </TabItem>
   );
-};
+}
 
 UiTabItem.displayName = 'UiTabItem';
