@@ -76,7 +76,7 @@ export const TabsExample: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState(1);
 
   const handleTabClick = React.useCallback(
-    (identifier) => {
+    (identifier: number) => {
       setSelectedTab(identifier);
     },
     [setSelectedTab]
@@ -85,13 +85,13 @@ export const TabsExample: React.FC = () => {
   return (
     <UiCard noPadding>
       <UiTabs rounded>
-        <UiTabItem selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
           <UiText>Fruits</UiText>
         </UiTabItem>
-        <UiTabItem selected={selectedTab === 2} identifier={2} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 2} identifier={2} handleClick={handleTabClick}>
           <UiText>Vegetables</UiText>
         </UiTabItem>
-        <UiTabItem selected={selectedTab === 3} identifier={3} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 3} identifier={3} handleClick={handleTabClick}>
           <UiText>Meats</UiText>
         </UiTabItem>
       </UiTabs>

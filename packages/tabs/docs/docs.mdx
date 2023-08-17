@@ -22,7 +22,8 @@ import { UiTabs, UiTabItem } from '../src/';
   </a>
 </sup>
 
-> Component to render tabs for selection
+> Component that renders a tabs for an options selection experience. When a tab is clicked it executes a callback and it passes an identifier that
+> to identify what tab was clicked. The UiTabItem allows for any custom type to be passed so the callback function is correctly typed.
 
 ## Installation
 
@@ -30,25 +31,11 @@ import { UiTabs, UiTabItem } from '../src/';
 
 ## UiTabs
 
-<Playground>
-  <UiTabs>
-    <UiTabItem>
-      <UiText>Item 1</UiText>
-    </UiTabItem>
-    <UiTabItem selected>
-      <UiText>Item 2</UiText>
-    </UiTabItem>
-    <UiTabItem>
-      <UiText>Item 3</UiText>
-    </UiTabItem>
-  </UiTabs>
-</Playground>
-
-## UiTabs with state management
-
 <Playground hideThemeSelector>
   <TabsExample />
 </Playground>
+
+<br />
 
 TabsExample:
 
@@ -57,7 +44,7 @@ export const TabsExample: React.FC = () => {
   const [selectedTab, setSelectedTab] = React.useState(1);
 
   const handleTabClick = React.useCallback(
-    (identifier) => {
+    (identifier: number) => {
       setSelectedTab(identifier);
     },
     [setSelectedTab]
@@ -66,13 +53,13 @@ export const TabsExample: React.FC = () => {
   return (
     <UiCard noPadding>
       <UiTabs rounded>
-        <UiTabItem selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
           <UiText>Fruits</UiText>
         </UiTabItem>
-        <UiTabItem selected={selectedTab === 2} identifier={2} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 2} identifier={2} handleClick={handleTabClick}>
           <UiText>Vegetables</UiText>
         </UiTabItem>
-        <UiTabItem selected={selectedTab === 3} identifier={3} handleClick={handleTabClick}>
+        <UiTabItem<number> selected={selectedTab === 3} identifier={3} handleClick={handleTabClick}>
           <UiText>Meats</UiText>
         </UiTabItem>
       </UiTabs>
