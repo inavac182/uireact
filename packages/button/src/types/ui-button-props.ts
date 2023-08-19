@@ -16,6 +16,8 @@ export type UiButtonProps = {
   cristal?: boolean;
   /** Button stylized for an icon */
   iconized?: boolean;
+  /** Button id */
+  id?: string;
   /** Button theme */
   theme?: ColorCategory;
   /** If button should take full height */
@@ -41,6 +43,7 @@ export type privateButtonProps = {
   /** className attribute */
   className?: string;
   /** render button without normal background */
+  id?: string;
   $cristal?: boolean;
   /** Button theme */
   $theme?: ColorCategory;

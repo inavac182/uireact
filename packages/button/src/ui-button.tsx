@@ -49,6 +49,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   children,
   cristal = false,
   iconized = false,
+  id,
   theme = 'primary',
   fullHeight = false,
   fullWidth = false,
@@ -66,6 +67,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
       onClick={onClick}
       data-testid={testId}
       $iconized={iconized}
+      id={id}
       $cristal={cristal}
       className={className}
       disabled={disabled}
