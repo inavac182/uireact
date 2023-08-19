@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2023-08-19)
+
+
+### Features
+
+* adding id to button ([#232](https://github.com/inavac182/ui-react/issues/232)) ([aec4e31](https://github.com/inavac182/ui-react/commit/aec4e31bbb5b53b5d6af8c1d82a0ad158233c28f))
+
+
+
+
+
 ## 1.2.1 (2023-08-16)
 
 
