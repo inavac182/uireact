@@ -47,21 +47,21 @@ describe('<Component />', () => {
 
   describe('With state', () => {
     it('renders fine with ERROR state', () => {
-      uiRender(<UiInput error="Some error" theme="error" />);
+      uiRender(<UiInput error="Some error" category="error" />);
 
       expect(screen.getByRole('textbox')).toBeVisible();
       expect(screen.getByText('Some error')).toBeVisible();
     });
 
     it('renders fine with POSITIVE state', () => {
-      uiRender(<UiInput error="Some error" theme="positive" />);
+      uiRender(<UiInput error="Some error" category="positive" />);
 
       expect(screen.getByRole('textbox')).toBeVisible();
       expect(screen.getByText('Some error')).toBeVisible();
     });
 
     it('renders fine with NEGATIVE state', () => {
-      uiRender(<UiInput error="Some error" theme="negative" />);
+      uiRender(<UiInput error="Some error" category="negative" />);
 
       expect(screen.getByRole('textbox')).toBeVisible();
       expect(screen.getByText('Some error')).toBeVisible();

@@ -3,7 +3,7 @@ import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
 export const mapper: ThemeMapper = {
   normal: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_50,
     },

@@ -1,5 +1,4 @@
 export enum ColorCategories {
-  backgrounds = 'backgrounds',
   fonts = 'fonts',
   primary = 'primary',
   secondary = 'secondary',

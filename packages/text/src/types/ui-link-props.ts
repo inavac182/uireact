@@ -6,7 +6,7 @@ import { FontStyle } from './ui-text-props';
 
 export type UiLinkProps = {
   /* Represents the theme to use for the link, default PRIMARY */
-  theme?: ColorCategory;
+  category?: ColorCategory;
   /** URL to be opened */
   href?: string;
   /** Handle link click */
@@ -48,7 +48,7 @@ export type privateLinkProps = {
   $fullWidth?: boolean;
   /** Font style */
   $fontStyle?: FontStyle;
-  $category: ColorCategory;
+  $category?: ColorCategory;
   to?: string;
   $wrap?: boolean;
 } & UiReactPrivateElementProps;

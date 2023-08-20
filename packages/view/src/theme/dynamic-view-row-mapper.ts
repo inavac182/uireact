@@ -33,7 +33,7 @@ export const dynamicViewRowMapper = (weight: '10' | '50' | '100' | '150' | '200'
   return {
     normal: {
       background: {
-        category: ColorCategories.backgrounds,
+        category: ColorCategories.primary,
         inverse: false,
         token: token,
       },

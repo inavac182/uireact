@@ -6,7 +6,7 @@ import { ThemeContext, UiViewport, getThemeStyling, useViewport } from '@uireact
 
 import { UiHeaderProps, privateUiHeaderProps } from './types';
 import { CenteredDiv } from './__private';
-import { themeMapper } from './theme';
+import { getDynamicMapper } from './theme';
 
 const Div = styled.div<privateUiHeaderProps>`
   border-top: 0;
@@ -16,8 +16,10 @@ const Div = styled.div<privateUiHeaderProps>`
   border-style: solid;
 
   ${(props) => {
+    const mapper = getDynamicMapper(props.$weight);
+
     return `
-    ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
     ${props.$fixed ? 'position: sticky;' : ''}
     `;
   }}
@@ -29,7 +31,7 @@ const Div = styled.div<privateUiHeaderProps>`
   z-index: 1;
 `;
 
-export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, className, fixed }: UiHeaderProps) => {
+export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, className, fixed, weight }: UiHeaderProps) => {
   const themeContext = React.useContext(ThemeContext);
   const { isLarge } = useViewport();
 
@@ -40,6 +42,7 @@ export const UiHeader: React.FC<UiHeaderProps> = ({ centered, children, classNam
       $selectedTheme={themeContext.selectedTheme}
       $fixed={fixed}
       data-testid="UiHeader"
+      $weight={weight}
     >
       {centered ? (
         <>

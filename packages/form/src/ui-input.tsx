@@ -55,7 +55,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   name = 'input-name',
   placeholder,
   ref,
-  theme,
+  category,
   type,
   value,
   onChange,
@@ -66,7 +66,7 @@ export const UiInput: React.FC<UiInputProps> = ({
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} theme={theme}>
+          <UiLabel htmlFor={name} category={category}>
             {label} &nbsp;
           </UiLabel>
         </div>
@@ -74,7 +74,7 @@ export const UiInput: React.FC<UiInputProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} theme={theme}>
+            <UiLabel htmlFor={name} category={category}>
               {label} &nbsp;
             </UiLabel>
           </div>
@@ -89,11 +89,11 @@ export const UiInput: React.FC<UiInputProps> = ({
             placeholder={placeholder}
             ref={ref}
             $selectedTheme={themeContext.selectedTheme}
-            category={theme}
+            category={category}
             type={type}
             value={value}
           />
-          {error && <UiText theme={theme}>{error}</UiText>}
+          {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
     </>

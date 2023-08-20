@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorToken, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiHeaderProps = {
   /** Should the header render centered or fullscreen */
@@ -6,6 +6,9 @@ export type UiHeaderProps = {
 
   /** Fixed at the top of the content */
   fixed?: boolean;
+
+  /** Color weight for the header */
+  weight?: ColorToken;
 } & UiReactElementProps;
 
 export type privateUiHeaderProps = {
@@ -14,4 +17,6 @@ export type privateUiHeaderProps = {
 
   /** Fixed at the top of the content */
   $fixed?: boolean;
+  /** Color weight for the header */
+  $weight?: ColorToken;
 } & UiReactPrivateElementProps;

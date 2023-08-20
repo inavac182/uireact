@@ -26,7 +26,7 @@ export type UiTextAreaProps = {
   /** Textarea rows*/
   rows?: number;
   /** Textarea state */
-  theme?: ColorCategory;
+  category?: ColorCategory;
   /** Textarea value */
   value?: HTMLInputElement['value'];
 } & UiReactElementProps;

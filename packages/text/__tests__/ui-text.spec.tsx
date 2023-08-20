@@ -73,7 +73,7 @@ describe('<UiText />', () => {
 
   it('renders fine when state is POSITIVE', () => {
     uiRender(
-      <UiText size={TextSize.large} theme="positive">
+      <UiText size={TextSize.large} category="positive">
         Text
       </UiText>
     );
@@ -83,7 +83,7 @@ describe('<UiText />', () => {
 
   it('renders fine when state is ERROR', () => {
     uiRender(
-      <UiText size={TextSize.large} theme="error">
+      <UiText size={TextSize.large} category="error">
         Text
       </UiText>
     );
@@ -93,7 +93,7 @@ describe('<UiText />', () => {
 
   it('renders fine when state is NEGATIVE', () => {
     uiRender(
-      <UiText size={TextSize.large} theme="negative">
+      <UiText size={TextSize.large} category="negative">
         Text
       </UiText>
     );
@@ -105,7 +105,7 @@ describe('<UiText />', () => {
     uiRender(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      <UiText size={TextSize.large} theme="XXXXXX">
+      <UiText size={TextSize.large} category="XXXXXX">
         Text
       </UiText>
     );

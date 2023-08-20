@@ -23,7 +23,7 @@ const MenuDiv = styled.div<privateMenuProps>`
     box-shadow: 0px 0px 5px ${getThemeColor(
       props.$customTheme,
       props.$selectedTheme,
-      ColorCategories.backgrounds,
+      ColorCategories.primary,
       ColorTokens.token_200
     )};
     

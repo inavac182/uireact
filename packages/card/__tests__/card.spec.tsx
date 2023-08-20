@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { UiCard } from '../src';
-import { ColorTokens } from '@uireact/foundation';
 
 const HeadingMock = () => <h1>Heading</h1>;
 const ContentMock = () => <p>Content</p>;
@@ -21,9 +20,9 @@ describe('UiCard', () => {
     fireEvent.click(screen.getByRole('heading'));
   });
 
-  test('render card with theme', () => {
+  test('render card with category', () => {
     render(
-      <UiCard theme="positive">
+      <UiCard category="positive">
         <HeadingMock />
       </UiCard>
     );
@@ -32,9 +31,9 @@ describe('UiCard', () => {
     fireEvent.click(screen.getByRole('heading'));
   });
 
-  test('render card with weigth', () => {
+  test('render card with weight', () => {
     render(
-      <UiCard weight={ColorTokens.token_100}>
+      <UiCard weight="100">
         <HeadingMock />
       </UiCard>
     );
@@ -44,7 +43,7 @@ describe('UiCard', () => {
 
   test('render squared card', () => {
     render(
-      <UiCard weight={ColorTokens.token_10} squared>
+      <UiCard weight="10" squared>
         <HeadingMock />
       </UiCard>
     );
@@ -54,7 +53,7 @@ describe('UiCard', () => {
 
   test('render no padded card', () => {
     render(
-      <UiCard weight={ColorTokens.token_10} noPadding>
+      <UiCard weight="10" noPadding>
         <HeadingMock />
       </UiCard>
     );
@@ -64,7 +63,7 @@ describe('UiCard', () => {
 
   test('render bordered card', () => {
     render(
-      <UiCard weight={ColorTokens.token_50} bordered>
+      <UiCard weight="50" bordered>
         <HeadingMock />
       </UiCard>
     );

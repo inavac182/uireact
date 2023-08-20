@@ -20,6 +20,16 @@ describe('<UiHeader />', () => {
     expect(screen.getByText('Header')).toBeVisible();
   });
 
+  it('renders fine with weight', () => {
+    uiRender(
+      <UiHeader weight="150">
+        <p>Header</p>
+      </UiHeader>
+    );
+
+    expect(screen.getByText('Header')).toBeVisible();
+  });
+
   it('renders fine if is centered', () => {
     uiRender(
       <UiHeader centered>

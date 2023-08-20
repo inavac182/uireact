@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
       ${`background-color: ${getThemeColor(
         props.$customTheme,
         props.$selectedTheme,
-        ColorCategories.backgrounds,
+        ColorCategories.primary,
         ColorTokens.token_100
       )};`}
       ${`color: ${getThemeColor(

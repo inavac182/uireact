@@ -21,7 +21,12 @@ const Label = styled.label<privateLabelProps>`
   margin: 0;
 `;
 
-export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = TextSize.small, theme }: UiLabelProps) => {
+export const UiLabel: React.FC<UiLabelProps> = ({
+  children,
+  htmlFor,
+  size = TextSize.small,
+  category,
+}: UiLabelProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
@@ -29,7 +34,7 @@ export const UiLabel: React.FC<UiLabelProps> = ({ children, htmlFor, size = Text
       $customTheme={themeContext.theme}
       $selectedTheme={themeContext.selectedTheme}
       $size={size}
-      $category={theme}
+      $category={category}
       htmlFor={htmlFor}
     >
       {children}

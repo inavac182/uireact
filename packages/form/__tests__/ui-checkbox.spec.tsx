@@ -29,8 +29,8 @@ describe('<UiCheckbox />', () => {
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
   });
 
-  it('renders fine when using positive theme', () => {
-    uiRender(<UiCheckbox name="checkbox" theme="positive" />);
+  it('renders fine when using positive category', () => {
+    uiRender(<UiCheckbox name="checkbox" category="positive" />);
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument();
   });

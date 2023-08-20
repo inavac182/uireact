@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ColorCategory, ColorTokens, ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, ColorToken, ThemeContext, UiReactElementProps } from '@uireact/foundation';
 import { CardWrapper, StyledLink, StyledExternalLink } from './private';
 
 export type UiCardProps = UiReactElementProps & {
@@ -19,9 +19,9 @@ export type UiCardProps = UiReactElementProps & {
   /** If the card should render with squared corners, default FALSE */
   squared?: boolean;
   /** Card state */
-  theme?: ColorCategory;
-  /** Card weigth used for background color */
-  weight?: ColorTokens;
+  category?: ColorCategory;
+  /** Card weight used for background color */
+  weight?: ColorToken;
 };
 
 export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
@@ -37,7 +37,7 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
     () => (
       <CardWrapper
         $bordered={props.bordered}
-        $category={props.theme}
+        $category={props.category}
         className={props.className}
         $customTheme={themeContext.theme}
         $selectedTheme={themeContext.selectedTheme}

@@ -55,26 +55,34 @@ the UX of your applications when used during daylight 🌞 or during night time 
 In our theme structure you will see 2 props `dark` and `light`, so each of them is typed as `Color`. The [Coloration type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/coloration.ts#L4)
 is generated from the enum [ColorCategories](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/color-categories.ts#L1) and this is its structure:
 
+We recommend you use the 60 - 30 - 10 rule:
+
+60% - Primary
+
+30% - Secondary
+
+10% - Tertiary
+
+This will allow you to create a pretty UI with very easy to follow color patterns for your users.
+
 ```
 {
   ...,
   dark/light: {
-    backgrounds: { ... },
-      ▶︎ Used for background or components that are meant to wrap content such as the view or cards.
     fonts: { ... },
-      ▶︎ Used for texts, headings, labels, everything that is text related.
+      ▶︎ Used for texts, headings, labels, everything that is text related. We recommend this to be close to whites or blacks depending in the coloration.
     primary: { ... },
-      ▶︎ This is the primary color in your application and will used accross the board.
+      ▶︎ This color should be neutral as the user would see this color in most of the application.
     secondary: { ... },
-      ▶︎ The secondary color SHOULD contract very well with the primary, as is intended to be used to separate contents.
+      ▶︎ This color should be soft in a way that can be used above the primary and don't jump to the user's eyes as this would be used for cards, headers, etc..
     tertiary: { ... },
-      ▶︎ The tertiary color is like a sparkle here and there, not commonly used but meant to be very visible when is used.
+      ▶︎ This color should be used for your actionable elements and should catch the user's eye.
     positive: { ... },
       ▶︎ Commonly used to show a reaction to an action that was successfully performed, e.g. A form submition.
     negative: { ... },
-      ▶︎ Used to show a fallback action, meaning the less ideal action that we intend our users to do.
+      ▶︎ Used to show a fallback action something like a Cancel submit. We recommend you use `cristal` buttons instead of negative.
     error: { ... },
-      ▶︎ As its name says, this is used to show bright error messages, e.g. A form submittion that failed to be validated.
+      ▶︎ As its name says, this is used to show an error messages, e.g. A form submittion that failed to be validated.
     warning: { ... },
       ▶︎ Used to show a warning message, for instance an expiration messaging.
   },

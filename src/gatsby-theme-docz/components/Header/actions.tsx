@@ -38,7 +38,7 @@ export const Actions = (): React.ReactElement => {
         <UiLink href="https://github.com/inavac182/uireact" target="_blank">
           <img src="/public/gh-logo.png" width="20px" height="20px" />
         </UiLink>
-        <UiButton onClick={themeSwitcherCB} rounded iconized theme="secondary">
+        <UiButton onClick={themeSwitcherCB} rounded iconized theme="tertiary">
           <UiIcon icon="ColorDrop" size="large" />
         </UiButton>
         <MenuIcon>

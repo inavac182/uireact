@@ -31,16 +31,16 @@ import { UiLink } from '../src';
   <UiLink href="https://uireact.io">Some link</UiLink>
 </Playground>
 
-## UiLink with theme
+## UiLink with color category
 
 <Playground>
-  <UiLink href="https://uireact.io" target="_blank" theme="error">
+  <UiLink href="https://uireact.io" target="_blank" category="error">
     Some text
   </UiLink>{' '}
-  <UiLink href="https://uireact.io" theme="positive">
+  <UiLink href="https://uireact.io" category="positive">
     Some text
   </UiLink>{' '}
-  <UiLink handleClick={() => console.log('Link Clicked')} theme="negative" fontStyle="italic">
+  <UiLink handleClick={() => console.log('Link Clicked')} category="negative" fontStyle="italic">
     Some text
   </UiLink>
 </Playground>
@@ -51,7 +51,7 @@ The prop `useReactLink` will render the Link from react-router-dom. This is so y
 
 <Playground>
   <MemoryRouter initialEntries={['/']}>
-    <UiLink href="?param=value" target="_blank" theme="error" useReactLink>
+    <UiLink href="?param=value" target="_blank" category="error" useReactLink>
       Some text
     </UiLink>
   </MemoryRouter>

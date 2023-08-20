@@ -1,24 +1,28 @@
 import {
   ColorCategories,
   ColorCategory,
+  ColorToken,
   ColorTokens,
   ThemeMapper,
   getColorCategory,
-  getNextToken,
+  getColorTokenValue,
+  getNextColorToken,
 } from '@uireact/foundation';
 
-export const getDynamicCardMapper = (token?: ColorTokens, category?: ColorCategory): ThemeMapper => {
+export const getDynamicCardMapper = (token?: ColorToken, category?: ColorCategory): ThemeMapper => {
+  const baseToken = token ? getColorTokenValue(token) : ColorTokens.token_100;
+
   return {
     normal: {
       background: {
-        category: category ? getColorCategory(category) : ColorCategories.backgrounds,
+        category: category ? getColorCategory(category) : ColorCategories.secondary,
         inverse: false,
-        token: token || ColorTokens.token_100,
+        token: baseToken,
       },
       'border-color': {
-        category: category ? getColorCategory(category) : ColorCategories.backgrounds,
+        category: category ? getColorCategory(category) : ColorCategories.secondary,
         inverse: false,
-        token: getNextToken(token || ColorTokens.token_150),
+        token: getNextColorToken(baseToken),
       },
     },
   };

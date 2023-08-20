@@ -16,7 +16,7 @@ export type UiSelectProps = {
   /** React ref */
   ref?: React.Ref<HTMLSelectElement>;
   /** Checkbox theme to render when checked */
-  theme?: ColorCategory;
+  category?: ColorCategory;
   /** Selected value */
   value?: HTMLSelectElement['value'];
 } & UiReactElementProps;

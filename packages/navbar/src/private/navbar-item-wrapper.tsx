@@ -59,7 +59,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
               props.$customTheme,
               props.$selectedTheme,
               getColorCategory(props.$category),
-              ColorTokens.token_150,
+              ColorTokens.token_50,
               false
             )};
             }`
@@ -82,7 +82,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
               props.$customTheme,
               props.$selectedTheme,
               getColorCategory(props.$category),
-              ColorTokens.token_100,
+              ColorTokens.token_10,
               false
             )}`
           : ''

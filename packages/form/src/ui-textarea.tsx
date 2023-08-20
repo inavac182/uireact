@@ -23,6 +23,7 @@ const Textarea = styled.textarea<privateTextAreaProps>`
   border-style: solid;
   border-width: 2px;
   border-radius: 2px;
+  box-sizing: border-box;
 
   :focus {
     border-style: solid;
@@ -59,7 +60,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   resize,
   ref,
   rows,
-  theme,
+  category,
   value,
   onChange,
 }: UiTextAreaProps) => {
@@ -69,7 +70,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} theme={theme}>
+          <UiLabel htmlFor={name} category={category}>
             {label}
           </UiLabel>
         </div>
@@ -77,7 +78,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} theme={theme}>
+            <UiLabel htmlFor={name} category={category}>
               {label} &nbsp;
             </UiLabel>
           </div>
@@ -96,10 +97,10 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
             $resize={resize}
             rows={rows}
             $selectedTheme={themeContext.selectedTheme}
-            $category={theme}
+            $category={category}
             value={value}
           />
-          {error && <UiText theme={theme}>{error}</UiText>}
+          {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
     </>

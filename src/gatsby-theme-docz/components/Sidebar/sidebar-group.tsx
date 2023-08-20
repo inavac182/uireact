@@ -83,7 +83,7 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
                       {item.name}
                     </UiLink>
                     {item.route !== undefined && item.route === currentDoc.route && (
-                      <UiNavbar category="secondary" orientation="stacked" styling="bordered">
+                      <UiNavbar category="tertiary" orientation="stacked" styling="bordered">
                         {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                         {/*@ts-ignore-next */}
                         {item.headings?.map((heading, index) => {

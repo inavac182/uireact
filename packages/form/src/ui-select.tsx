@@ -46,7 +46,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   labelOnTop,
   name = 'select-name',
   ref,
-  theme,
+  category,
   value,
   onChange,
 }: UiSelectProps) => {
@@ -63,7 +63,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
     <>
       {label && labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} theme={theme}>
+          <UiLabel htmlFor={name} category={category}>
             {label}
           </UiLabel>
         </div>
@@ -71,7 +71,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
       <WrapperDiv>
         {label && !labelOnTop && (
           <div>
-            <UiLabel htmlFor={name} theme={theme}>
+            <UiLabel htmlFor={name} category={category}>
               {label} &nbsp;
             </UiLabel>
           </div>
@@ -85,12 +85,12 @@ export const UiSelect: React.FC<UiSelectProps> = ({
             onChange={handleChange}
             ref={ref}
             $selectedTheme={themeContext.selectedTheme}
-            category={theme}
+            category={category}
             value={value}
           >
             {children}
           </Select>
-          {error && <UiText theme={theme}>{error}</UiText>}
+          {error && <UiText category={category}>{error}</UiText>}
         </SelectDiv>
       </WrapperDiv>
     </>
