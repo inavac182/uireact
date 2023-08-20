@@ -80,7 +80,7 @@ export const DocsTheme: Theme = {
       token_50: '#59BEEF',
       token_100: '#44B0E4',
       token_150: '#3BADE5',
-      token_200: '#2FABE7',
+      token_200: '#2F9ED5',
     },
     tertiary: {
       token_10: '#1E8CC1',
