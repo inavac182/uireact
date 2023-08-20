@@ -76,11 +76,11 @@ export const DocsTheme: Theme = {
       token_200: '#D3D2D2',
     },
     secondary: {
-      token_10: '#0488F5',
-      token_50: '#027CE0',
-      token_100: '#0170C6',
-      token_150: '#0167BC',
-      token_200: '#0158A1',
+      token_10: '#65C7F6',
+      token_50: '#59BEEF',
+      token_100: '#44B0E4',
+      token_150: '#3BADE5',
+      token_200: '#2FABE7',
     },
     tertiary: {
       token_10: '#1E8CC1',
