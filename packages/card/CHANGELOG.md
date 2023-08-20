@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2023-08-20)
+
+
+### Features
+
+* promoting 60 30 10 rule for UI colorations ([#233](https://github.com/inavac182/ui-react/issues/233)) ([0d56558](https://github.com/inavac182/ui-react/commit/0d5655869d3ace0d1f3ad450108ae76e594f81ca))
+
+
+
+
+
 ## 1.0.6 (2023-08-13)
 
 **Note:** Version bump only for package @uireact/card
