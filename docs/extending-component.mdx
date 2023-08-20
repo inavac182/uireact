@@ -1,0 +1,43 @@
+---
+name: Extend component styling
+menu: Documentation
+route: /extend-component-styling
+---
+
+import { ExtendStyleExpample } from './helpers/extend-styling-example.tsx';
+import { JustACard } from './helpers/just-a-card.tsx';
+
+import { UiCard } from '@uireact/card';
+
+# Extending a component styling 💅🏿
+
+---
+
+We know that there are enless number of use cases and a library for everything is not efficient, so with styled components
+you can extend the styling of a component, this is how you would do it:
+
+First, we render a normal `UiCard` component:
+
+<JustACard />
+
+Now, we will import styled components and apply a custom style to the `UiCard`:
+
+```jsx
+import styled from 'styled-components';
+
+const CustomUiCard = styled(UiCard)`
+  border-radius: 20px 50px 20px 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+`;
+
+export const MyComponent = () => {
+  return <CustomUiCard>Some content<CustomUiCard>;
+}
+```
+
+<ExtendStyleExpample />
+
+<br />
+<br />
+
+You can see the component used in this example [Here](https://github.com/inavac182/uireact/tree/main/docs/helpers/extend-styling-example.tsx)
