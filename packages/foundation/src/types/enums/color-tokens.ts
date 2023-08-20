@@ -13,4 +13,4 @@ export enum ColorTokens {
  * <UiText weight="50" /> where `weight` correspond to a different level of token
  */
 
-export type Token = '10' | '50' | '100' | '150' | '200';
+export type ColorToken = '10' | '50' | '100' | '150' | '200';

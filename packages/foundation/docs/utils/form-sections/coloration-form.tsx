@@ -20,7 +20,7 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
   return (
     <>
       <UiSpacing margin={{ all: 'four' }}>
-        <UiCard theme="tertiary">
+        <UiCard category="tertiary">
           <UiHeading>{type}</UiHeading>
         </UiCard>
       </UiSpacing>
@@ -28,7 +28,6 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
       <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>General colorations</UiHeading>
         <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
-          <TokensForm name={`${type}-backgrounds`} tokens={coloration.backgrounds} handleChange={handleChange} />
           <TokensForm name={`${type}-fonts`} tokens={coloration.fonts} handleChange={handleChange} />
         </UiGrid>
       </UiSpacing>

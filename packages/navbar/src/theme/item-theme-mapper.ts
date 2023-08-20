@@ -6,7 +6,7 @@ export const getNavbarItemMapper = (category: ColorCategory): ThemeMapper => {
       background: {
         category: getColorCategory(category),
         inverse: false,
-        token: ColorTokens.token_150,
+        token: ColorTokens.token_50,
       },
     },
   };

@@ -16,14 +16,14 @@ export const FontsForm: React.FC<FontsFormProps> = ({ handleChange, texts, name 
   return (
     <>
       <UiSpacing margin={{ all: 'four' }}>
-        <UiCard weight={ColorTokens.token_200}>
+        <UiCard weight="200">
           <UiHeading>Fonts</UiHeading>
         </UiCard>
       </UiSpacing>
       <UiSpacing margin={{ all: 'four' }}>
         <UiCard>
           <UiFlexGrid columnGap={'five'}>
-            <UiFlexGridItem>
+            <UiFlexGridItem grow={1}>
               <UiInput placeholder="font-family" value={texts.font} name={`${name}-font`} onChange={handleChange} />
             </UiFlexGridItem>
             <UiFlexGridItem>

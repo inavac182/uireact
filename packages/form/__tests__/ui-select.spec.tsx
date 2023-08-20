@@ -22,7 +22,7 @@ describe('<UiSelect />', () => {
   it('renders fine with a state', () => {
     uiRender(
       <>
-        <UiSelect label="Cars" labelOnTop theme="positive">
+        <UiSelect label="Cars" labelOnTop category="positive">
           <option>Ford</option>
           <option>Chevy</option>
         </UiSelect>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ColorCategory, ColorTokens, UiReactPrivateElementProps, getThemeStyling } from '@uireact/foundation';
+import { ColorCategory, ColorToken, UiReactPrivateElementProps, getThemeStyling } from '@uireact/foundation';
 
 import { getDynamicCardMapper } from '../theme';
 
@@ -20,7 +20,7 @@ type __CardProps = {
   /** If the card should render with squared corners, default FALSE */
   $squared?: boolean;
   /** Card weigth used for background color */
-  $weight?: ColorTokens;
+  $weight?: ColorToken;
 } & UiReactPrivateElementProps & {
     $category?: ColorCategory;
     $cursorNeeded?: boolean;

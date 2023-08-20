@@ -1,13 +1,6 @@
 import { Coloration } from '../../types/themes/internal';
 
 export const Dark: Coloration = {
-  backgrounds: {
-    token_10: '#135a9c',
-    token_50: '#054580',
-    token_100: '#013667',
-    token_150: '#012b52',
-    token_200: '#001d38',
-  },
   fonts: {
     token_10: '#ffffff',
     token_50: '#f0f0f0',
@@ -16,25 +9,25 @@ export const Dark: Coloration = {
     token_200: '#b3b3b3',
   },
   primary: {
+    token_10: '#465B6A',
+    token_50: '#3C5261',
+    token_100: '#334C5C',
+    token_150: '#274050',
+    token_200: '#1D3747',
+  },
+  secondary: {
+    token_10: '#475A67',
+    token_50: '#3C4F5C',
+    token_100: '#303F49',
+    token_150: '#273640',
+    token_200: '#1C2B35',
+  },
+  tertiary: {
     token_10: '#e67e20',
     token_50: '#d46d0f',
     token_100: '#C66002',
     token_150: '#ab5300',
     token_200: '#8f4601',
-  },
-  secondary: {
-    token_10: '#b9ceed',
-    token_50: '#afc9f0',
-    token_100: '#A4C3F1',
-    token_150: '#93b7ed',
-    token_200: '#7aa5e6',
-  },
-  tertiary: {
-    token_10: '#c838c9',
-    token_50: '#bb28bd',
-    token_100: '#B01EB2',
-    token_150: '#9a169c',
-    token_200: '#761078',
   },
   positive: {
     token_10: '#67b879',

@@ -4,7 +4,7 @@ import { ColorCategories, ColorTokens, ThemeColor, ThemeMapper } from '../../src
 const mockedMapper: ThemeMapper = {
   normal: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_100,
     },
@@ -19,7 +19,7 @@ const mockedMapper: ThemeMapper = {
 const mockedMapperWithHover: ThemeMapper = {
   hover: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_150,
     },
@@ -29,21 +29,21 @@ const mockedMapperWithHover: ThemeMapper = {
 const mockedMapperWithMultipleStates: ThemeMapper = {
   normal: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_100,
     },
   },
   active: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_50,
     },
   },
   hover: {
     background: {
-      category: ColorCategories.backgrounds,
+      category: ColorCategories.primary,
       inverse: false,
       token: ColorTokens.token_150,
     },
@@ -54,7 +54,7 @@ describe('getThemeStyling', () => {
   it('Should get correct styling when is not inverse', () => {
     const style = getThemeStyling(DefaultTheme, ThemeColor.dark, mockedMapper);
 
-    expect(style).toContain(`background: ${DefaultTheme.dark.backgrounds.token_100}`);
+    expect(style).toContain(`background: ${DefaultTheme.dark.primary.token_100}`);
   });
 
   it('Should get correct styling when is inverse', () => {
@@ -72,15 +72,15 @@ describe('getThemeStyling', () => {
   it('Should get correct styling when using a state different than normal', () => {
     const style = getThemeStyling(DefaultTheme, ThemeColor.dark, mockedMapperWithHover);
 
-    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
+    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.primary.token_150};\n}\n`);
   });
 
   it('Should get correct styling when using multiple states', () => {
     const style = getThemeStyling(DefaultTheme, ThemeColor.dark, mockedMapperWithMultipleStates);
 
-    expect(style).toContain(`background: ${DefaultTheme.dark.backgrounds.token_100}`);
-    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.backgrounds.token_150};\n}\n`);
-    expect(style).toContain(`:active {\nbackground: ${DefaultTheme.dark.backgrounds.token_50};\n}\n`);
+    expect(style).toContain(`background: ${DefaultTheme.dark.primary.token_100}`);
+    expect(style).toContain(`:hover {\nbackground: ${DefaultTheme.dark.primary.token_150};\n}\n`);
+    expect(style).toContain(`:active {\nbackground: ${DefaultTheme.dark.primary.token_50};\n}\n`);
   });
 
   describe('Incorrect mapper', () => {
@@ -153,7 +153,7 @@ describe('getThemeStyling', () => {
       const incorrectMapper = {
         normal: {
           WHATEVERSTYLE: {
-            category: ColorCategories.backgrounds,
+            category: ColorCategories.primary,
             inverse: false,
             token: ColorTokens.token_100,
           },
@@ -164,14 +164,14 @@ describe('getThemeStyling', () => {
       //@ts-ignore
       const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
 
-      expect(style).toContain(`WHATEVERSTYLE: ${DefaultTheme.dark.backgrounds.token_100};`);
+      expect(style).toContain(`WHATEVERSTYLE: ${DefaultTheme.dark.primary.token_100};`);
     });
 
     it('Should NOT break if mapper gets incorrect category', () => {
       const incorrectMapper = {
         WHATEVERCATEGORY: {
           background: {
-            category: ColorCategories.backgrounds,
+            category: ColorCategories.primary,
             inverse: false,
             token: ColorTokens.token_100,
           },
@@ -182,7 +182,7 @@ describe('getThemeStyling', () => {
       //@ts-ignore
       const style = getThemeStyling(DefaultTheme, ThemeColor.dark, incorrectMapper);
 
-      expect(style).toContain(`:WHATEVERCATEGORY {\nbackground: ${DefaultTheme.dark.backgrounds.token_100};\n}\n`);
+      expect(style).toContain(`:WHATEVERCATEGORY {\nbackground: ${DefaultTheme.dark.primary.token_100};\n}\n`);
     });
 
     it('Should NOT break if mapper does NOT includes styles', () => {

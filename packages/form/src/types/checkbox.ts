@@ -16,7 +16,7 @@ export type UiCheckboxProps = {
   /** React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Checkbox theme to render when checked */
-  theme?: ColorCategory;
+  category?: ColorCategory;
 } & UiReactElementProps;
 
 export type privateCheckboxProps = {
@@ -35,7 +35,7 @@ export type privateCheckboxProps = {
   /** React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Checkbox theme to render when checked */
-  $theme?: ColorCategory;
+  $category?: ColorCategory;
 } & UiReactPrivateElementProps;
 
 export type privateCheckboxLabelProps = {

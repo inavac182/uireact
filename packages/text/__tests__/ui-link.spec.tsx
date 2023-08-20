@@ -71,9 +71,9 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
-  it('renders fine with category', () => {
+  it('renders fine with color category', () => {
     uiRender(
-      <UiLink href="#" theme="positive">
+      <UiLink href="#" category="positive">
         Link
       </UiLink>
     );
@@ -83,7 +83,7 @@ describe('<UiLink />', () => {
 
   it('renders fine with fullWidth', () => {
     uiRender(
-      <UiLink href="#" theme="positive" fullWidth>
+      <UiLink href="#" category="positive" fullWidth>
         Link
       </UiLink>
     );
@@ -95,7 +95,7 @@ describe('<UiLink />', () => {
 
   it('trigger onClick when clicked', () => {
     uiRender(
-      <UiLink handleClick={onClick} theme="positive">
+      <UiLink handleClick={onClick} category="positive">
         Link
       </UiLink>
     );
@@ -111,7 +111,7 @@ describe('<UiLink />', () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         <MemoryRouter initialEntries={['/']}>
-          <UiLink href="#" useReactLink theme="positive">
+          <UiLink href="#" useReactLink category="positive">
             Link
           </UiLink>
         </MemoryRouter>
@@ -150,7 +150,7 @@ describe('<UiLink />', () => {
 
     it('renders fine when uses internal link but doesnt provide href', () => {
       uiRender(
-        <UiLink useReactLink theme="positive">
+        <UiLink useReactLink category="positive">
           Link
         </UiLink>
       );
@@ -160,7 +160,7 @@ describe('<UiLink />', () => {
 
     it('renders fine with wrap', () => {
       uiRender(
-        <UiLink theme="positive" wrap>
+        <UiLink category="positive" wrap>
           Link
         </UiLink>
       );
@@ -173,7 +173,7 @@ describe('<UiLink />', () => {
 
     it('renders fine with className', () => {
       uiRender(
-        <UiLink href="#" theme="positive" className="something">
+        <UiLink href="#" category="positive" className="something">
           Link
         </UiLink>
       );

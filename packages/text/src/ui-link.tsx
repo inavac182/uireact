@@ -58,7 +58,7 @@ const StyledLinkWrapper = styled.span<privateLinkProps>`
 `;
 
 export const UiLink: React.FC<UiLinkProps> = ({
-  theme = 'secondary',
+  category = 'tertiary',
   children,
   handleClick,
   className,
@@ -79,7 +79,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
     return (
       <StyledLinkWrapper
         className={className}
-        $category={theme}
+        $category={category}
         $customTheme={themeContext.theme}
         $fullWidth={fullWidth}
         $fontStyle={fontStyle}
@@ -104,7 +104,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
 
   return (
     <Anchor
-      $category={theme}
+      $category={category}
       $customTheme={themeContext.theme}
       href={href}
       $fullWidth={fullWidth}

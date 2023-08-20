@@ -1,13 +1,6 @@
 import { Coloration } from '../../types/themes/internal';
 
 export const Light: Coloration = {
-  backgrounds: {
-    token_10: '#fcfcfc',
-    token_50: '#fcf7f7',
-    token_100: '#F1F1F1',
-    token_150: '#dedede',
-    token_200: '#c9c7c7',
-  },
   fonts: {
     token_10: '#6e6e6e',
     token_50: '#444544',

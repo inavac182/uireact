@@ -13,8 +13,8 @@ describe('<UiLabel />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
-  it('renders fine with state', () => {
-    uiRender(<UiLabel theme="positive">Text</UiLabel>);
+  it('renders fine with category', () => {
+    uiRender(<UiLabel category="positive">Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
   });

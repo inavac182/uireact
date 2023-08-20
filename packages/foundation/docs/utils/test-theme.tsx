@@ -125,7 +125,7 @@ export const TestTheme: React.FC = () => {
           </UiGridItem>
           <UiGridItem cols={2}>
             <UiSpacing padding={{ all: 'four' }}>
-              <UiCard theme="tertiary">
+              <UiCard>
                 <UiList>
                   <UiListItem>
                     <UiLink href="#">Lorem ipsum dolor sit amet</UiLink> <UiBadge>🦕 Lorem</UiBadge>

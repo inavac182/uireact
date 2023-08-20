@@ -40,7 +40,7 @@ const CheckboxInput = styled.input<privateCheckboxProps>`
       ${getThemeStyling(
         props.$customTheme,
         props.$selectedTheme,
-        getDynamicCheckboxMapper(getColorCategory(props.$theme))
+        getDynamicCheckboxMapper(getColorCategory(props.$category))
       )}
     `}
   }
@@ -99,7 +99,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
   labelPosition = 'END',
   name,
   ref,
-  theme,
+  category,
   onChange,
 }: UiCheckboxProps) => {
   const themeContext = React.useContext(ThemeContext);
@@ -113,7 +113,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
         id={name}
         name={name}
         $selectedTheme={themeContext.selectedTheme}
-        $theme={theme}
+        $category={category}
         type="checkbox"
         ref={ref}
         onChange={onChange}

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
-import { ColorTokens, DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
+import { DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiView, UiViewRow } from '@uireact/view';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
@@ -11,6 +11,7 @@ import { ColorationForm, FontsForm, HeadingsForm, TextsForm, SpacingForm } from 
 
 export const CreateTheme: React.FC = () => {
   const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
+  const [selectedTheme, setSelectedTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const [themeVisible, setThemeVisible] = React.useState(false);
 
   const handleSubmit = React.useCallback(
@@ -46,19 +47,30 @@ export const CreateTheme: React.FC = () => {
     });
   }, [$customTheme]);
 
+  const toogleTheme = useCallback(() => {
+    setSelectedTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+  }, [setSelectedTheme, selectedTheme]);
+
   return (
-    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+      <UiSpacing padding={{ all: 'five' }}>
+        <UiButton onClick={toogleTheme} fullWidth>
+          <UiSpacing padding={{ block: 'five' }}>
+            <UiText>✨ Toogle coloration ✨</UiText>
+          </UiSpacing>
+        </UiButton>
+      </UiSpacing>
       <UiViewRow weight="10">
         <form onSubmit={handleSubmit}>
           <>
             <UiGrid cols={{ small: 1, medium: 4, large: 10, xlarge: 10 }}>
               <UiGridItem cols={10}>
                 <UiSpacing margin={{ all: 'four' }}>
-                  <UiCard weight={ColorTokens.token_200}>
+                  <UiCard weight="200">
                     <UiHeading>Colorations</UiHeading>
                     <UiText>
                       For a detailed explanation on each coloration usage and tips, you should check{' '}
-                      <UiLink href="./create-theme#colorations-" theme="secondary">
+                      <UiLink href="./create-theme#colorations-" category="secondary">
                         this doc
                       </UiLink>
                       .
@@ -70,7 +82,7 @@ export const CreateTheme: React.FC = () => {
               </UiGridItem>
               <UiGridItem cols={10}>
                 <UiSpacing margin={{ all: 'four' }}>
-                  <UiCard weight={ColorTokens.token_200}>
+                  <UiCard weight="200">
                     <UiHeading>Sizes</UiHeading>
                   </UiCard>
                 </UiSpacing>

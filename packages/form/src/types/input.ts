@@ -18,7 +18,7 @@ export type UiInputProps = {
   /* React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Input field theme */
-  theme?: ColorCategory;
+  category?: ColorCategory;
   /** Input field type */
   type?: HTMLInputElement['type'];
   /** Input field value */

@@ -11,8 +11,8 @@ export type UiTextProps = {
   fontStyle?: FontStyle;
   /* Render text inlined */
   inline?: boolean;
-  /* Represents the theme to use for the text, default PRIMARY */
-  theme?: ColorCategory;
+  /* Represents the color category to use for the text, default PRIMARY */
+  category?: ColorCategory;
 } & UiReactElementProps;
 
 export type privateTextProps = {

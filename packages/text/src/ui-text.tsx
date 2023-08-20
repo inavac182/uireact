@@ -33,13 +33,13 @@ export const UiText: React.FC<UiTextProps> = ({
   inline,
   fontStyle,
   size = TextSize.regular,
-  theme,
+  category,
 }: UiTextProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
     <Text
-      $category={theme}
+      $category={category}
       $customTheme={themeContext.theme}
       $fontStyle={fontStyle}
       $selectedTheme={themeContext.selectedTheme}
