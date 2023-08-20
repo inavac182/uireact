@@ -70,8 +70,8 @@ export const DocsTheme: Theme = {
     },
     primary: {
       token_10: '#FFFFFF',
-      token_50: '#FFFFFF',
-      token_100: '#FFFFFF',
+      token_50: '#FAFAFA',
+      token_100: '#F6F5F5',
       token_150: '#DEDDDD',
       token_200: '#D3D2D2',
     },
@@ -83,11 +83,11 @@ export const DocsTheme: Theme = {
       token_200: '#0158A1',
     },
     tertiary: {
-      token_10: '#F99A17',
-      token_50: '#F79208',
-      token_100: '#EF8A00',
-      token_150: '#E08201',
-      token_200: '#CA7601',
+      token_10: '#1E8CC1',
+      token_50: '#1A85B8',
+      token_100: '#187FB0',
+      token_150: '#1379A9',
+      token_200: '#116F9C',
     },
     positive: {
       token_10: '#62fc84',
