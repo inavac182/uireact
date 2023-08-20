@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UiCard } from '@uireact/card';
-import { UiSpacing, ColorTokens, Spacing } from '@uireact/foundation';
+import { UiSpacing, Spacing } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
@@ -16,7 +16,7 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
   return (
     <>
       <UiSpacing margin={{ all: 'four' }}>
-        <UiCard weight={ColorTokens.token_200}>
+        <UiCard weight="200">
           <UiHeading>Spacing</UiHeading>
         </UiCard>
       </UiSpacing>
@@ -59,57 +59,57 @@ export const SpacingForm: React.FC<SpacingFormProps> = ({ spacing, name, handleC
             </UiFlexGridItem>
             <UiFlexGridItem grow={1}>
               <UiText>Spacing used as margin between the inner and outer card:</UiText>
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'one' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>One</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'two' }}>
-                  <UiCard theme="secondary">
-                    <UiText theme="negative">Two</UiText>
+                  <UiCard category="secondary">
+                    <UiText>Two</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'three' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>Three</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'four' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>Four</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'five' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>Five</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'six' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>Six</UiText>
                   </UiCard>
                 </UiSpacing>
               </UiCard>
               <br />
-              <UiCard theme="primary">
+              <UiCard category="primary">
                 <UiSpacing margin={{ all: 'seven' }}>
-                  <UiCard theme="secondary">
+                  <UiCard category="secondary">
                     <UiText>Seven</UiText>
                   </UiCard>
                 </UiSpacing>
