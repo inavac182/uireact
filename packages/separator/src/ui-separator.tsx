@@ -82,30 +82,19 @@ export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, t
   const theme = React.useContext(ThemeContext);
 
   return (
-    <ContainerDiv>
+    <ContainerDiv className={className} data-testid={testId}>
       <InitialBgDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></InitialBgDiv>
-      <BottomDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        className={className}
-        data-testId={testId}
-      ></BottomDiv>
+      <BottomDiv $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} $from={from} $to={to}></BottomDiv>
       <EndTransitionDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></EndTransitionDiv>
     </ContainerDiv>
   );

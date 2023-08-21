@@ -144,54 +144,42 @@ export const UiBubblesSeparator: React.FC<UiBubblesSeparatorProps> = ({
   const theme = React.useContext(ThemeContext);
 
   return (
-    <ContainerDiv>
+    <ContainerDiv data-testid={testId} className={className}>
       <InitialBgDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></InitialBgDiv>
       <FirstTransitionDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></FirstTransitionDiv>
       <SecondTransitionDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></SecondTransitionDiv>
       <EndTransitionDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></EndTransitionDiv>
       <EndTransitionDiv2
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></EndTransitionDiv2>
       <EndTransitionDiv3
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
-        className={className}
-        data-testId={testId}
       ></EndTransitionDiv3>
     </ContainerDiv>
   );
