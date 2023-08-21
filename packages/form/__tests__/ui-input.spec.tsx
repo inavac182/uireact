@@ -12,6 +12,32 @@ describe('<Component />', () => {
     expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
   });
 
+  it('renders fine with size', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="large" />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
+  it('renders fine with small size', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="small" />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
+  it('renders fine with xlarge size', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="xlarge" />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
+  it('renders fine with unknown size', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    uiRender(<UiInput label="Input" name="MyInput" size="" />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
   it('renders fine when type if provided', () => {
     uiRender(<UiInput label="Input" name="MyInput" type="number" />);
 

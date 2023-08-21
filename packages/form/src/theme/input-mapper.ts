@@ -1,4 +1,4 @@
-import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, SizesProp, ThemeMapper } from '@uireact/foundation';
 
 export const InputMapper: ThemeMapper = {
   normal: {
@@ -91,4 +91,19 @@ export const getDynamicInputMapper = (category: ColorCategories): ThemeMapper =>
       },
     },
   };
+};
+
+export const getPadding = (textSize: SizesProp): string => {
+  switch (textSize) {
+    case 'xsmall':
+    case 'small':
+    case 'regular':
+      return '5px';
+    case 'large':
+      return '10px';
+    case 'xlarge':
+      return '15px';
+    default:
+      return '5px';
+  }
 };

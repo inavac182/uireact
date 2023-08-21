@@ -2,20 +2,20 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
+import { ThemeContext, getColorCategory, getTextSizeFromSizeString, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiInputProps, privateInputProps } from './types';
-import { InputMapper, getDynamicInputMapper } from './theme';
+import { InputMapper, getDynamicInputMapper, getPadding } from './theme';
 
 const Input = styled.input<privateInputProps>`
   ${(props: privateInputProps) => `
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      props.category ? getDynamicInputMapper(getColorCategory(props.category)) : InputMapper
+      props.$category ? getDynamicInputMapper(getColorCategory(props.$category)) : InputMapper
     )}
-    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
+    font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};
 
     border-style: solid;
     border-width: 2px;
@@ -32,7 +32,7 @@ const Input = styled.input<privateInputProps>`
       cursor: not-allowed;
     }
 
-    padding: 5px;
+    padding: ${getPadding(props.$size || 'regular')};
     outline: none;
     width: 100%;
   `}
@@ -59,6 +59,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   type,
   value,
   onChange,
+  size,
 }: UiInputProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -89,9 +90,10 @@ export const UiInput: React.FC<UiInputProps> = ({
             placeholder={placeholder}
             ref={ref}
             $selectedTheme={themeContext.selectedTheme}
-            category={category}
+            $category={category}
             type={type}
             value={value}
+            $size={size}
           />
           {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>
