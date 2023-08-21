@@ -11,8 +11,8 @@ export const JustACard = () => (
   <>
     <UiCard>
       <UiSpacing padding={cardContentPadding}>
-        <UiHeading>Custom card</UiHeading>
-        <UiText>The styling of this card has been extended to have different radius in each corner</UiText>
+        <UiHeading>Normal card</UiHeading>
+        <UiText>This is a normal card without any modification</UiText>
         <br />
         <UiButton> Some element 🫶 </UiButton>
       </UiSpacing>
