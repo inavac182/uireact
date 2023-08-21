@@ -2,7 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
+import {
+  TextSize,
+  ThemeColor,
+  ThemeContext,
+  getColorCategory,
+  getTextSize,
+  getThemeStyling,
+} from '@uireact/foundation';
 
 import { UiTextProps, privateTextProps } from './types';
 import { TextMapper, getDynamicMapper } from './theme';
@@ -12,7 +19,13 @@ const Text = styled.p<privateTextProps>`
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      props.$category ? getDynamicMapper(getColorCategory(props.$category)) : TextMapper
+      props.$category || props.$inverseColoration
+        ? getDynamicMapper(
+            getColorCategory(props.$category),
+            props.$selectedTheme === ThemeColor.dark,
+            props.$inverseColoration
+          )
+        : TextMapper
     )}
     ${props.$centered ? `text-align: center;` : ``}
     ${props.$inline ? `display: inline;` : ``}
@@ -34,6 +47,7 @@ export const UiText: React.FC<UiTextProps> = ({
   fontStyle,
   size = TextSize.regular,
   category,
+  inverseColoration,
 }: UiTextProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -46,6 +60,7 @@ export const UiText: React.FC<UiTextProps> = ({
       $size={size}
       $centered={centered}
       $inline={inline}
+      $inverseColoration={inverseColoration}
     >
       {children}
     </Text>

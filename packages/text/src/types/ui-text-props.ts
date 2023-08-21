@@ -2,6 +2,11 @@ import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProp
 
 export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
+export type InverseColorationProp = {
+  light: boolean;
+  dark: boolean;
+};
+
 export type UiTextProps = {
   /* Text size to be used, default is regular */
   size?: TextSize;
@@ -13,6 +18,8 @@ export type UiTextProps = {
   inline?: boolean;
   /* Represents the color category to use for the text, default PRIMARY */
   category?: ColorCategory;
+  /** If the font color should be inversed to use its counter part coloration. */
+  inverseColoration?: boolean | InverseColorationProp;
 } & UiReactElementProps;
 
 export type privateTextProps = {
@@ -25,4 +32,5 @@ export type privateTextProps = {
   /* Render text inlined */
   $inline?: boolean;
   $category?: ColorCategory;
+  $inverseColoration?: boolean | InverseColorationProp;
 } & UiReactPrivateElementProps;

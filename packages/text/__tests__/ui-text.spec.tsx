@@ -13,6 +13,18 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
+  it('renders fine with inverse coloration', () => {
+    uiRender(<UiText inverseColoration>Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
+  it('renders fine with inverse coloration only in dark theme', () => {
+    uiRender(<UiText inverseColoration={{ dark: true, light: false }}>Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
   it('renders fine when is centered', () => {
     uiRender(<UiText centered>Text</UiText>);
 
