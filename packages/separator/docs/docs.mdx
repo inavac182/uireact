@@ -1,0 +1,40 @@
+---
+name: UiSeparator
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+import { UiSeparator, UiBubblesSeparator } from '../src/';
+
+# UiSeparator
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/separator/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> A separator element to ease the change of colorations between blocks of content
+
+## Installation
+
+> npm i @uireact/foundation @uireact/separator
+
+## UiSeparator
+
+<Playground>
+  <UiSeparator from="primary" to="secondary" />
+</Playground>
+
+## UiBubblesSeparator
+
+<Playground>
+  <UiBubblesSeparator from="secondary" to="primary" />
+</Playground>
+
+### Props
+
+<Props of={UiBubblesSeparator} />

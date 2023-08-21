@@ -1,0 +1,37 @@
+{
+  "name": "@uireact/separator",
+  "private": true,
+  "description": "UiSeparator package to separate blocks of content",
+  "repository": "https://github.com/inavac182/ui-react",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": " rm -rf dist node_modules coverage",
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
+    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "test": "jest",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "watch": "npm run tsc:watch"
+  },
+  "devDependencies": {
+    "@uireact/foundation": "^1.3.0"
+  },
+  "peerDependencies": {
+    "@uireact/foundation": "^1.3.0",
+    "react": ">= 17 < 19",
+    "react-dom": ">= 17 < 19",
+    "styled-components": ">= 4 <= 6",
+    "tslib": "^2.5.0"
+  }
+}

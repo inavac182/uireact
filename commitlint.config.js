@@ -44,6 +44,7 @@ module.exports = {
         'progress-indicator',
         'release',
         'select',
+        'separator',
         'table',
         'tabs',
         'text',
