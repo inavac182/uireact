@@ -35,16 +35,17 @@ const InitialBgDiv = styled.div<privateSeparatorProps>`
   `}
 `;
 
-const BottomDiv = styled.div<privateSeparatorProps>`
+const TransitionDiv = styled.div<privateSeparatorProps>`
   width: 150%;
   height: 150px;
   opacity: 0.5;
   position: absolute;
   top: 50px;
   left: -50px;
-  transform: rotate(3deg);
 
   ${(props) => `
+    transform: rotate(${props.$inverse ? '-3deg' : '3deg'});
+    top: ${props.$inverse ? '-110px' : '60px'};
     background-color: ${getThemeColor(
       props.$customTheme,
       props.$selectedTheme,
@@ -61,9 +62,10 @@ const EndTransitionDiv = styled.div<privateSeparatorProps>`
   position: absolute;
   top: 60px;
   left: -50px;
-  transform: rotate(-3deg);
 
   ${(props) => `
+    transform: rotate(${props.$inverse ? '3deg' : '-3deg'});
+    top: ${props.$inverse ? '-110px' : '60px'};
     background-color: ${getThemeColor(
       props.$customTheme,
       props.$selectedTheme,
@@ -76,9 +78,10 @@ const EndTransitionDiv = styled.div<privateSeparatorProps>`
 export type UiSeparatorProps = {
   from: ColorCategory;
   to: ColorCategory;
+  inverse?: boolean;
 } & UiReactElementProps;
 
-export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, testId }: UiSeparatorProps) => {
+export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, testId, inverse }: UiSeparatorProps) => {
   const theme = React.useContext(ThemeContext);
 
   return (
@@ -88,13 +91,21 @@ export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, t
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
+        $inverse={inverse}
       ></InitialBgDiv>
-      <BottomDiv $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} $from={from} $to={to}></BottomDiv>
+      <TransitionDiv
+        $customTheme={theme.theme}
+        $selectedTheme={theme.selectedTheme}
+        $from={from}
+        $to={to}
+        $inverse={inverse}
+      ></TransitionDiv>
       <EndTransitionDiv
         $customTheme={theme.theme}
         $selectedTheme={theme.selectedTheme}
         $from={from}
         $to={to}
+        $inverse={inverse}
       ></EndTransitionDiv>
     </ContainerDiv>
   );
