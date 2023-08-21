@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2023-08-21)
+
+
+### Features
+
+* adding inverse coloration for texts ([#236](https://github.com/inavac182/ui-react/issues/236)) ([d5e25a7](https://github.com/inavac182/ui-react/commit/d5e25a7c1a99a96f293e5a1ed4936ef7bbc43d98))
+
+
+
+
+
 # 1.6.0 (2023-08-20)
 
 
