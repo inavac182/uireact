@@ -20,6 +20,8 @@ export type UiTextProps = {
   category?: ColorCategory;
   /** If the font color should be inversed to use its counter part coloration. */
   inverseColoration?: boolean | InverseColorationProp;
+  /** Align text left or right, default LEFT */
+  align?: 'left' | 'right';
 } & UiReactElementProps;
 
 export type privateTextProps = {
@@ -33,4 +35,5 @@ export type privateTextProps = {
   $inline?: boolean;
   $category?: ColorCategory;
   $inverseColoration?: boolean | InverseColorationProp;
+  $align?: 'left' | 'right';
 } & UiReactPrivateElementProps;

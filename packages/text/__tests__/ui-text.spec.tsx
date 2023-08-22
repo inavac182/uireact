@@ -13,6 +13,12 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
+  it('renders fine aligned right', () => {
+    uiRender(<UiText align="right">Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
   it('renders fine with inverse coloration', () => {
     uiRender(<UiText inverseColoration>Text</UiText>);
 
