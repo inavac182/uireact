@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Helmet } from 'react-helmet-async';
 import { useColorMode } from 'theme-ui';
@@ -32,6 +32,11 @@ export const MenuContext = React.createContext<{
 const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
   const [isMenuVisible, setMenuVisible] = useState(false);
   const [colorMode] = useColorMode();
+  const [selectedTheme, setSelectedTheme] = useState<ThemeColor>(ThemeColor.dark);
+
+  useEffect(() => {
+    setSelectedTheme(colorMode === 'light' ? ThemeColor.light : ThemeColor.dark);
+  }, [colorMode]);
 
   return (
     <React.Fragment>
@@ -55,7 +60,7 @@ const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
         />
       </Helmet>
       <GlobalStyles />
-      <UiView theme={DocsTheme} selectedTheme={colorMode === 'light' ? ThemeColor.light : ThemeColor.dark}>
+      <UiView theme={DocsTheme} selectedTheme={selectedTheme}>
         <MenuContext.Provider value={{ isMenuVisible: isMenuVisible, setMenuVisible }}>
           <div className={isMenuVisible ? 'menu-visible' : ''}>{children}</div>
         </MenuContext.Provider>

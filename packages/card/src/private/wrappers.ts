@@ -34,4 +34,6 @@ export const CardWrapper = styled.div<__CardProps>`
     ${!props.$noPadding ? 'padding: 5px;' : ''}
     ${props.$bordered ? 'border-width: 2px; border-style: solid;' : ''}
   `}
+
+  transition: background .2s, border-color .2s;
 `;
