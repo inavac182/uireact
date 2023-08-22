@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-08-22)
+
+
+### Features
+
+* bg transition on theme change ([#239](https://github.com/inavac182/uireact/issues/239)) ([3449557](https://github.com/inavac182/uireact/commit/3449557104c8f55b539d8b7799242bcc34fbd045))
+
+
+
+
+
 # 1.1.0 (2023-08-20)
 
 
