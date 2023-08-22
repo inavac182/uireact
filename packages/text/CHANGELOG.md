@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.8.0 (2023-08-22)
+
+
+### Features
+
+* **text:** wrap heading and text align ([#238](https://github.com/inavac182/ui-react/issues/238)) ([49a46a2](https://github.com/inavac182/ui-react/commit/49a46a2ce12ccdf3636ca54828b561c51223ece7))
+
+
+
+
+
 # 1.7.0 (2023-08-21)
 
 
