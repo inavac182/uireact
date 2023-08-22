@@ -28,6 +28,7 @@ const Text = styled.p<privateTextProps>`
         : TextMapper
     )}
     ${props.$centered ? `text-align: center;` : ``}
+    ${props.$align ? `text-align: ${props.$align};` : ``}
     ${props.$inline ? `display: inline;` : ``}
     ${`font-size: ${getTextSize(props.$customTheme, props.$size)};`}
     ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
@@ -41,6 +42,7 @@ const Text = styled.p<privateTextProps>`
 `;
 
 export const UiText: React.FC<UiTextProps> = ({
+  align,
   children,
   centered,
   inline,
@@ -58,6 +60,7 @@ export const UiText: React.FC<UiTextProps> = ({
       $fontStyle={fontStyle}
       $selectedTheme={themeContext.selectedTheme}
       $size={size}
+      $align={align}
       $centered={centered}
       $inline={inline}
       $inverseColoration={inverseColoration}
