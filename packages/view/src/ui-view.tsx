@@ -59,6 +59,8 @@ const Div = styled.div<privateViewProps>`
     ${`font-family: ${props.$customTheme.texts.font};`}
     ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
   `}
+
+  transition: background .2s;
 `;
 
 export const UiView: React.FC<UiViewProps> = ({
