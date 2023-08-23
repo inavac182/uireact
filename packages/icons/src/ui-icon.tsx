@@ -19,7 +19,7 @@ const Span = styled.span<privateIconProps>`
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      getDynamicMapper(props.category ? getColorCategory(props.category) : ColorCategories.fonts)
+      getDynamicMapper(props.$category ? getColorCategory(props.$category) : ColorCategories.fonts)
     )}
     ${props.$size ? `font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
     ${props.$size ? `width: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
@@ -35,7 +35,12 @@ export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size }: UiIconProps
   const themeProvided = React.useContext(ThemeContext);
 
   return (
-    <Span category={theme} $customTheme={themeProvided.theme} $selectedTheme={themeProvided.selectedTheme} $size={size}>
+    <Span
+      $category={theme}
+      $customTheme={themeProvided.theme}
+      $selectedTheme={themeProvided.selectedTheme}
+      $size={size}
+    >
       <IconComponent icon={icon} />
     </Span>
   );

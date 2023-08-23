@@ -13,5 +13,5 @@ export type UiIconProps = {
 
 export type privateIconProps = {
   $size?: SizesProp;
-  category?: ColorCategory;
+  $category?: ColorCategory;
 } & UiReactPrivateElementProps;

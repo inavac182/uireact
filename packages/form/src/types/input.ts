@@ -25,6 +25,8 @@ export type UiInputProps = {
   value?: HTMLInputElement['value'];
   /** Input font size */
   size?: SizesProp;
+  /** If input is required */
+  required?: boolean;
 } & UiReactElementProps;
 
 export type privateInputProps = {
@@ -51,4 +53,5 @@ export type privateInputProps = {
   /** Input field value */
   value?: HTMLInputElement['value'];
   $size?: SizesProp;
+  required?: boolean;
 } & UiReactPrivateElementProps;

@@ -13,7 +13,7 @@ const Select = styled.select<privateSelectProps>`
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      props.category ? getDynamicSelectMapper(getColorCategory(props.category)) : SelectMapper
+      props.$category ? getDynamicSelectMapper(getColorCategory(props.$category)) : SelectMapper
     )}
     font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
   `}
@@ -49,6 +49,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   category,
   value,
   onChange,
+  required,
 }: UiSelectProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -85,8 +86,9 @@ export const UiSelect: React.FC<UiSelectProps> = ({
             onChange={handleChange}
             ref={ref}
             $selectedTheme={themeContext.selectedTheme}
-            category={category}
+            $category={category}
             value={value}
+            required={required}
           >
             {children}
           </Select>
