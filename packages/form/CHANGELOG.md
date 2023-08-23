@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.3.2...@uireact/form@1.4.0) (2023-08-23)
+
+
+### Features
+
+* adding required input ([#241](https://github.com/inavac182/ui-react/issues/241)) ([571cbec](https://github.com/inavac182/ui-react/commit/571cbec707ff2442a767915a214b439a5476ce6a))
+
+
+
+
+
 ## 1.3.2 (2023-08-23)
 
 **Note:** Version bump only for package @uireact/form
