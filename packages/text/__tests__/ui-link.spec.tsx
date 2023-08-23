@@ -1,5 +1,4 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 
 import { fireEvent, screen } from '@testing-library/react';
 
@@ -16,15 +15,29 @@ describe('<UiLink />', () => {
   });
 
   it('renders fine', () => {
-    uiRender(<UiLink href="#">Link</UiLink>);
+    uiRender(
+      <UiLink>
+        <a href="#">Link</a>
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine with wrap', () => {
+    uiRender(
+      <UiLink wrap>
+        <a href="#">Link</a>
+      </UiLink>
+    );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
   it('renders fine with size', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large}>
-        Link
+      <UiLink size="large">
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -34,7 +47,7 @@ describe('<UiLink />', () => {
   it('renders fine when fontStyle is italic', () => {
     uiRender(
       <UiLink href="#" size={TextSize.large} fontStyle="italic">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -44,7 +57,7 @@ describe('<UiLink />', () => {
   it('renders fine when fontStyle is bold', () => {
     uiRender(
       <UiLink href="#" size={TextSize.large} fontStyle="bold">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -54,7 +67,7 @@ describe('<UiLink />', () => {
   it('renders fine when fontStyle is regular', () => {
     uiRender(
       <UiLink href="#" size={TextSize.large} fontStyle="regular">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -64,7 +77,7 @@ describe('<UiLink />', () => {
   it('renders fine when fontStyle is light', () => {
     uiRender(
       <UiLink href="#" size={TextSize.large} fontStyle="light">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -74,7 +87,7 @@ describe('<UiLink />', () => {
   it('renders fine with color category', () => {
     uiRender(
       <UiLink href="#" category="positive">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
@@ -84,102 +97,22 @@ describe('<UiLink />', () => {
   it('renders fine with fullWidth', () => {
     uiRender(
       <UiLink href="#" category="positive" fullWidth>
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('width', '100%');
-    expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('display', 'inline-block');
   });
 
   it('trigger onClick when clicked', () => {
     uiRender(
       <UiLink handleClick={onClick} category="positive">
-        Link
+        <a href="#">Link</a>
       </UiLink>
     );
 
     fireEvent.click(screen.getByRole('link', { name: 'Link' }));
 
     expect(onClick).toHaveBeenCalledTimes(1);
-  });
-
-  describe('useReactLink', () => {
-    it('renders fine when uses internal link', () => {
-      uiRender(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        <MemoryRouter initialEntries={['/']}>
-          <UiLink href="#" useReactLink category="positive">
-            Link
-          </UiLink>
-        </MemoryRouter>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    });
-
-    it('renders fine when fontStyle is italic', () => {
-      uiRender(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        <MemoryRouter initialEntries={['/']}>
-          <UiLink href="#" size={TextSize.large} fontStyle="italic" useReactLink>
-            Link
-          </UiLink>
-        </MemoryRouter>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    });
-
-    it('renders fine when fontStyle is bold', () => {
-      uiRender(
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
-        <MemoryRouter initialEntries={['/']}>
-          <UiLink href="#" size={TextSize.large} fontStyle="bold" useReactLink>
-            Link
-          </UiLink>
-        </MemoryRouter>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    });
-
-    it('renders fine when uses internal link but doesnt provide href', () => {
-      uiRender(
-        <UiLink useReactLink category="positive">
-          Link
-        </UiLink>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    });
-
-    it('renders fine with wrap', () => {
-      uiRender(
-        <UiLink category="positive" wrap>
-          Link
-        </UiLink>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('text-overflow', 'ellipsis');
-      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('white-space', 'nowrap');
-      expect(screen.getByRole('link', { name: 'Link' })).toHaveStyleRule('overflow', 'hidden!important');
-    });
-
-    it('renders fine with className', () => {
-      uiRender(
-        <UiLink href="#" category="positive" className="something">
-          Link
-        </UiLink>
-      );
-
-      expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-      expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('something');
-    });
   });
 });
