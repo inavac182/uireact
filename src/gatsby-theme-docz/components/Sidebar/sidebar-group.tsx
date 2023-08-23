@@ -64,8 +64,8 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
         {menuItem.menu && menuItem.menu.length > 0 ? (
           <UiText size={TextSize.large}>{menuItem.name}</UiText>
         ) : (
-          <UiLink href={menuItem.route} size={TextSize.large}>
-            <UiText>{menuItem.name}</UiText>
+          <UiLink size="large">
+            <a href={menuItem.route}>{menuItem.name}</a>
           </UiLink>
         )}
       </GroupHeadingDiv>
@@ -79,8 +79,8 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
               >
                 <UiSpacing padding={nestedItemSpacing}>
                   <>
-                    <UiLink href={item.route} fullWidth size={TextSize.large}>
-                      {item.name}
+                    <UiLink fullWidth size="large">
+                      <a href={item.route}>{item.name}</a>
                     </UiLink>
                     {item.route !== undefined && item.route === currentDoc.route && (
                       <UiNavbar category="tertiary" orientation="stacked" styling="bordered">
@@ -97,8 +97,8 @@ export const SidebarGroup = ({ menuItem }: SidebarGroupProps): React.ReactElemen
                               active={currentHash === `#${heading.slug}`}
                             >
                               <UiSpacing padding={nestedHeadingSpacing}>
-                                <UiLink href={`#${heading?.slug}`} fullWidth wrap>
-                                  {heading?.value}
+                                <UiLink fullWidth wrap>
+                                  <a href={`#${heading?.slug}`}>{heading?.value}</a>
                                 </UiLink>
                               </UiSpacing>
                             </UiNavbarItem>

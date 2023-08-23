@@ -19,5 +19,19 @@ export const getDynamicLinkMapper = (category: ColorCategories): ThemeMapper => 
         token: ColorTokens.token_100,
       },
     },
+    hover: {
+      color: {
+        category: category,
+        inverse: false,
+        token: ColorTokens.token_150,
+      },
+    },
+    active: {
+      color: {
+        category: category,
+        inverse: false,
+        token: ColorTokens.token_200,
+      },
+    },
   };
 };

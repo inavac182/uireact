@@ -55,19 +55,21 @@ const Span = styled.span<{ index: number }>`
 `;
 
 export const Logo = (): React.ReactElement => (
-  <UiLink href="/">
-    <Div>
-      <H1>
-        <Span index={1}>@</Span>
-        <Span index={2}>U</Span>
-        <Span index={3}>i</Span>
-        <Span index={4}>R</Span>
-        <Span index={5}>e</Span>
-        <Span index={6}>a</Span>
-        <Span index={7}>c</Span>
-        <Span index={8}>t</Span>
-      </H1>
-      <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
-    </Div>
+  <UiLink>
+    <a href="/">
+      <Div>
+        <H1>
+          <Span index={1}>@</Span>
+          <Span index={2}>U</Span>
+          <Span index={3}>i</Span>
+          <Span index={4}>R</Span>
+          <Span index={5}>e</Span>
+          <Span index={6}>a</Span>
+          <Span index={7}>c</Span>
+          <Span index={8}>t</Span>
+        </H1>
+        <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
+      </Div>
+    </a>
   </UiLink>
 );

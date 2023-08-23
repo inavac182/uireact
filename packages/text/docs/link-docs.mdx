@@ -19,7 +19,8 @@ import { UiLink } from '../src';
   </a>
 </sup>
 
-> Component to render links
+> Component to render a wrapper around links to provide styling, depending on our use case we would render an anchor,
+> or Link from react or Next or any other framework as at the end they will render an anchor to the DOM to which the style is attached.
 
 ## Installation
 
@@ -28,33 +29,23 @@ import { UiLink } from '../src';
 ## UiLink
 
 <Playground>
-  <UiLink href="https://uireact.io">Some link</UiLink>
+  <UiLink href="https://uireact.io">
+    <a href="https://uireact.io/">Some text</a>
+  </UiLink>
 </Playground>
 
 ## UiLink with color category
 
 <Playground>
   <UiLink href="https://uireact.io" target="_blank" category="error">
-    Some text
+    <a href="https://uireact.io/">Some text</a>
   </UiLink>{' '}
   <UiLink href="https://uireact.io" category="positive">
-    Some text
+    <a href="https://uireact.io/">Some text</a>
   </UiLink>{' '}
   <UiLink handleClick={() => console.log('Link Clicked')} category="negative" fontStyle="italic">
-    Some text
+    <a href="https://uireact.io/">Some text</a>
   </UiLink>
-</Playground>
-
-## UiLink using React router dom Link
-
-The prop `useReactLink` will render the Link from react-router-dom. This is so you can make use of the internal react routing.
-
-<Playground>
-  <MemoryRouter initialEntries={['/']}>
-    <UiLink href="?param=value" target="_blank" category="error" useReactLink>
-      Some text
-    </UiLink>
-  </MemoryRouter>
 </Playground>
 
 ### Props
