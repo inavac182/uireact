@@ -29,6 +29,8 @@ export type UiTextAreaProps = {
   category?: ColorCategory;
   /** Textarea value */
   value?: HTMLInputElement['value'];
+  /** If the input is required */
+  required?: boolean;
 } & UiReactElementProps;
 
 export type privateTextAreaProps = {
@@ -59,4 +61,5 @@ export type privateTextAreaProps = {
   /** Textarea value */
   value?: HTMLInputElement['value'];
   $category?: ColorCategory;
+  required?: boolean;
 } & UiReactPrivateElementProps;

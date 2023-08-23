@@ -63,6 +63,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   category,
   value,
   onChange,
+  required,
 }: UiTextAreaProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -99,6 +100,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
             $selectedTheme={themeContext.selectedTheme}
             $category={category}
             value={value}
+            required={required}
           />
           {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>

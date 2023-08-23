@@ -60,6 +60,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   value,
   onChange,
   size,
+  required,
 }: UiInputProps) => {
   const themeContext = React.useContext(ThemeContext);
 
@@ -94,6 +95,7 @@ export const UiInput: React.FC<UiInputProps> = ({
             type={type}
             value={value}
             $size={size}
+            required={required}
           />
           {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>
