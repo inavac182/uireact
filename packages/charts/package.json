@@ -24,12 +24,12 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/flex": "^1.0.7",
+    "@uireact/flex-grid": "^1.0.7",
     "@uireact/foundation": "^1.3.0",
     "@uireact/text": "^1.8.1"
   },
   "peerDependencies": {
-    "@uireact/flex": "^1.0.7",
+    "@uireact/flex-grid": "^1.0.7",
     "@uireact/foundation": "^1.3.0",
     "@uireact/text": "^1.8.1",
     "react": ">= 17 < 19",
