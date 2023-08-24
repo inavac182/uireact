@@ -1,56 +1,37 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-import { Keyframes } from 'styled-components/dist/types';
+import { ColorCategories } from '@uireact/foundation';
 
 import { privateLinearChartProps } from '../../types';
-import { ColorCategories, ColorTokens, getThemeColor } from '@uireact/foundation';
+import { getAnimation, getColor, getPercentage } from './util';
 
 export const LimitDiv = styled.div<privateLinearChartProps>`
-  ${(props) => {
-    const color =
-      props.$limitColor ??
-      getThemeColor(props.$customTheme, props.$selectedTheme, ColorCategories.secondary, ColorTokens.token_100);
-
-    return `background-color: ${color};`;
-  }}
+  ${(props) =>
+    `background-color: ${getColor(
+      props.$customTheme,
+      props.$selectedTheme,
+      ColorCategories.secondary,
+      props.$limitColor
+    )};`}
 
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
 `;
 
-const getAnimation = (percentage: number): Keyframes => keyframes`
-  0% {
-    width: 0;
-  }
-  100% {
-    width: ${percentage}%;
-  }
-`;
-
-const getPercentage = (limit: number, current: number) => {
-  let percentage = 0;
-
-  if (current > limit) {
-    percentage = 100;
-  } else {
-    percentage = Math.round((current * 100) / limit);
-  }
-
-  return percentage;
-};
-
 export const CurrentDiv = styled.div<privateLinearChartProps>`
-  ${(props) => {
-    const color =
-      props.$currentColor ??
-      getThemeColor(props.$customTheme, props.$selectedTheme, ColorCategories.tertiary, ColorTokens.token_100);
-
-    return `background-color: ${color};`;
-  }}
+  ${(props) =>
+    `background-color: ${getColor(
+      props.$customTheme,
+      props.$selectedTheme,
+      ColorCategories.tertiary,
+      props.$currentColor
+    )};`}
 
   animation: ${(props) => getAnimation(getPercentage(props.$limitValue, props.$currentValue))} 1s ease-out forwards;
   height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
   position: absolute;
   top: 0;
 `;

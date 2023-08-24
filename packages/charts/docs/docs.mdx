@@ -26,24 +26,62 @@ import { UiLinearChart } from '../src';
 
 ## UiLinearChart
 
-This component will take 2 main values: `currentValue` and `limitValue`, the `limitValue` becomes the 100% and the current value will get the bar to its corresponding percentage, if the current value is bigger than the limit then it
+This component takes 2 values: `currentValue` and `limitValue`, the `limitValue` is the 100% of the chart and the current value represents how much of the `limitValue` is covered, if the current value is bigger than the limit then it
 will default to 100%.
 
 <Playground>
-  <UiLinearChart title="Demo" currentValue={10} currentLabel="start value" limitValue={100} limitLabel="End value" />
+  <UiLinearChart title="Demo" currentValue={10} limitValue={100} />
+</Playground>
+
+## UiLinearChart - with labels
+
+The limit label appears at the top and right edge of the chart, the current value renders in the bottom and moves within the current edge line.
+
+<Playground>
+  <UiLinearChart title="Demo" currentValue={40} currentLabel="$40" limitValue={100} limitLabel="$100" />
+</Playground>
+
+## UiLinearChart - with static label position
+
+When static label is used the label for the current value will be static at the bottom of the chart
+
+<Playground>
+  <UiLinearChart
+    currentValue={300}
+    currentLabelPosition="static"
+    currentLabel="300 lb"
+    limitValue={1000}
+    limitLabel="1000 lbs"
+  />
 </Playground>
 
 ## UiLinearChart - with custom colors
+
+The custom colors supports hex and rgb colors
 
 <Playground>
   <UiLinearChart
     title="Demo with color"
     currentValue={60}
-    currentLabel="start value"
     currentColor="rgb( 28, 225, 127)"
     limitValue={80}
-    limitLabel="End value"
-    limitColor="rgb(190, 129, 8)"
+    limitColor="#BE3708"
+  />
+</Playground>
+
+## UiLinearChart - with custom colors per theme
+
+When using the `ThemedColor` for the color you can set up a different color per theme per each value
+
+<Playground>
+  <UiLinearChart
+    title="Demo with color"
+    currentValue={60}
+    currentLabel="60 Mb used"
+    currentColor={{ dark: '#19BE08', light: '#6E45EE' }}
+    limitValue={80}
+    limitLabel="80 mbs available"
+    limitColor={{ dark: '#C53CE3', light: '#45EEDF' }}
   />
 </Playground>
 
