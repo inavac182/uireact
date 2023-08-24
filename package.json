@@ -44,7 +44,7 @@
     "@uireact/button": "file:packages/button/src/",
     "@uireact/card": "file:packages/card/src/",
     "@uireact/dialog": "file:packages/dialog/src/",
-    "@uireact/flex": "file:packages/flex/src/",
+    "@uireact/flex-grid": "file:packages/flex/src/",
     "@uireact/form": "file:packages/form/src/",
     "@uireact/foundation": "file:packages/foundation/src/",
     "@uireact/grid": "file:packages/grid/src/",
