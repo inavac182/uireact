@@ -4,73 +4,47 @@ import { ThemeContext, UiReactElementProps, UiSpacing, UiSpacingProps } from '@u
 import { UiText } from '@uireact/text';
 import { UiFlexGrid } from '@uireact/flex';
 
-import { ThemedColor } from './types';
+import { UiLinearChartData } from './types';
 import { CurrentDiv, LimitDiv, WrapperDiv } from './private';
 
 export type UiLinearChartProps = {
-  /** Represents the limit value for the chart, the 100% value */
-  limitValue: number;
-  /** Represents the label for the limit value */
-  limitLabel?: string;
-  /** Represents the color for the limit value in the chart, if not provide defaults to the SECONDARY color in the theme */
-  limitColor?: string | ThemedColor;
-  /** Represents the current value of the covered possibel area  */
-  currentValue: number;
-  /** Represents the label for the current value */
-  currentLabel?: string;
-  /** Represents the color for the current value, if not provide defaults to the TERTIARY color in the theme */
-  currentColor?: string | ThemedColor;
-  /** Current label position */
-  currentLabelPosition?: 'static';
-  /** Represents the chart's title */
-  title?: string;
+  data: UiLinearChartData;
 } & UiReactElementProps;
 
 const currentLabelSpacing: UiSpacingProps['padding'] = { top: 'three' };
 
-export const UiLinearChart: React.FC<UiLinearChartProps> = ({
-  className,
-  testId,
-  limitValue,
-  limitColor,
-  limitLabel,
-  title,
-  currentValue,
-  currentColor,
-  currentLabel,
-  currentLabelPosition,
-}: UiLinearChartProps) => {
+export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId, data }: UiLinearChartProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
     <div className={className} data-testid={testId}>
       <UiFlexGrid justifyContent="space-between">
-        <UiText>{title}</UiText>
-        {limitLabel && <UiText>{limitLabel}</UiText>}
+        <UiText>{data.title}</UiText>
+        {data.limit.label && <UiText>{data.limit.label}</UiText>}
       </UiFlexGrid>
       <WrapperDiv>
         <LimitDiv
           $selectedTheme={themeContext.selectedTheme}
           $customTheme={themeContext.theme}
-          $limitValue={limitValue}
-          $currentValue={currentValue}
-          $limitColor={limitColor}
+          $limitValue={data.limit.value}
+          $currentValue={data.current.value}
+          $limitColor={data.limit.color}
         />
         <CurrentDiv
           $selectedTheme={themeContext.selectedTheme}
           $customTheme={themeContext.theme}
-          $limitValue={limitValue}
-          $currentValue={currentValue}
-          $currentColor={currentColor}
+          $limitValue={data.limit.value}
+          $currentValue={data.current.value}
+          $currentColor={data.current.color}
         >
-          {currentLabel && !currentLabelPosition && (
+          {data.current.label && !data.current.labelStatic && (
             <UiSpacing padding={currentLabelSpacing}>
-              <UiText align="right">{currentLabel}</UiText>
+              <UiText align="right">{data.current.label}</UiText>
             </UiSpacing>
           )}
         </CurrentDiv>
       </WrapperDiv>
-      {currentLabel && currentLabelPosition === 'static' && <UiText>{currentLabel}</UiText>}
+      {data.current.label && data.current.labelStatic && <UiText>{data.current.label}</UiText>}
     </div>
   );
 };
