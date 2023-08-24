@@ -1,0 +1,157 @@
+---
+name: UiLinearChart
+menu: Charts
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiLinearChart } from '../src';
+
+# UiLinearChart
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/charts/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Linear chart that represents the percentage of a current value inside a limit value.
+
+## Installation ⚙️
+
+> npm i @uireact/foundation @uireact/flex @uireact/charts
+
+## UiLinearChart 📊
+
+This component takes 2 values: `currentValue` and `limitValue`, the `limitValue` is the 100% of the chart and the current value represents how much of the `limitValue` is covered, if the current value is bigger than the limit then it
+will default to 100%.
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        value: 15,
+      },
+      limit: {
+        value: 30,
+      },
+      title: 'Demo',
+    }}
+  />
+</Playground>
+
+## UiLinearChart - with labels
+
+The limit label appears at the chart's top right corner, the current label renders underneath the current edge by default.
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        label: '35,000 pts used',
+        value: 35000,
+      },
+      limit: {
+        label: '50,000 pts',
+        value: 50000,
+      },
+    }}
+  />
+</Playground>
+
+## UiLinearChart - with static label position
+
+When static label is used the label for the current value will be static at the bottom of the chart
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        label: '300 lbs',
+        value: 300,
+        labelStatic: true,
+      },
+      limit: {
+        label: '1000 lbs',
+        value: 1000,
+      },
+    }}
+  />
+</Playground>
+
+## UiLinearChart - with custom colors
+
+The custom colors supports hex and rgb colors
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        color: 'rgb( 28, 225, 127)',
+        label: '60%',
+        value: 60,
+        labelStatic: true,
+      },
+      limit: {
+        color: '#BE3708',
+        label: '80% battery',
+        value: 80,
+      },
+      title: 'Demo with color',
+    }}
+  />
+</Playground>
+
+## UiLinearChart - with custom colors per theme
+
+When using the `ThemedColor` for the color you can set up a different color per theme per each value
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        color: { dark: '#19BE08', light: '#6E45EE' },
+        label: '60 Mb used',
+        value: 60,
+        labelStatic: true,
+      },
+      limit: {
+        color: { dark: '#C53CE3', light: '#45EEDF' },
+        label: '80 Mb total',
+        value: 80,
+      },
+      title: 'Demo with themed color',
+    }}
+  />
+</Playground>
+
+### UiLinearChart - Props
+
+<Props of={UiLinearChart} />
+
+Definiton of `UiLinearChartData`
+
+```ts
+type ThemedColor = {
+  dark: string;
+  light: string;
+};
+
+type UiLinearChartData = {
+  title?: string;
+  limit: {
+    color?: string | ThemedColor;
+    label?: string;
+    value: number;
+    labelStatic?: boolean;
+  };
+  current: {
+    color?: string | ThemedColor;
+    label?: string;
+    value: number;
+  };
+};
+```
