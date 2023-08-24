@@ -18,7 +18,7 @@ import { UiLinearChart } from '../src';
   </a>
 </sup>
 
-> A simple and lightweight linear chart to represent a percentage of a value inside another value. E.g. from X available quantity, reprense the % used with a Y value.
+> This chart receives 2 values, the limit (100% of the chart) and a current which will calculate the percentage and represent it in the linear chart.
 
 ## Installation
 
@@ -30,7 +30,7 @@ This component takes 2 values: `currentValue` and `limitValue`, the `limitValue`
 will default to 100%.
 
 <Playground>
-  <UiLinearChart title="Demo" currentValue={10} limitValue={100} />
+  <UiLinearChart title="Demo" currentValue={15} limitValue={30} />
 </Playground>
 
 ## UiLinearChart - with labels
