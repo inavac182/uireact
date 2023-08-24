@@ -1,0 +1,52 @@
+---
+name: UiCharts
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiLinearChart } from '../src';
+
+# UiCharts
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/charts/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Some simple lightweight charts to represent data in a visual way, for more complex charts we recommend using something like [react-chartjs](https://react-chartjs-2.js.org/) or [Google charts](https://developers.google.com/chart)
+
+## Installation
+
+> npm i @uireact/foundation @uireact/charts
+
+## UiLinearChart
+
+This component will take 2 main values: `currentValue` and `limitValue`, the `limitValue` becomes the 100% and the current value will get the bar to its corresponding percentage, if the current value is bigger than the limit then it
+will default to 100%.
+
+<Playground>
+  <UiLinearChart title="Demo" currentValue={10} currentLabel="start value" limitValue={100} limitLabel="End value" />
+</Playground>
+
+## UiLinearChart - with custom colors
+
+<Playground>
+  <UiLinearChart
+    title="Demo with color"
+    currentValue={60}
+    currentLabel="start value"
+    currentColor="rgb( 28, 225, 127)"
+    limitValue={80}
+    limitLabel="End value"
+    limitColor="rgb(190, 129, 8)"
+  />
+</Playground>
+
+### UiLinearChart - Props
+
+<Props of={UiLinearChart} />
