@@ -6,7 +6,7 @@ import { useColorMode } from 'theme-ui';
 import { UiButton } from '@uireact/button';
 import { UiIcon } from '@uireact/icons';
 import { UiLink } from '@uireact/text';
-import { UiFlexGrid } from '@uireact/flex';
+import { UiFlexGrid } from '@uireact/flex-grid';
 
 import { MenuContext } from '../../wrapper';
 

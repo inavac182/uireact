@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useMenus } from 'docz';
 import styled, { keyframes } from 'styled-components';
 
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex-grid';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiViewRow } from '@uireact/view';
 

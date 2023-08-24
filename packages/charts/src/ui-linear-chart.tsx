@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ThemeContext, UiReactElementProps, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
-import { UiFlexGrid } from '@uireact/flex';
+import { UiFlexGrid } from '@uireact/flex-grid';
 
 import { UiLinearChartData } from './types';
 import { CurrentDiv, LimitDiv, WrapperDiv } from './private';

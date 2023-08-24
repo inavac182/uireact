@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UiHeader } from '@uireact/header';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex-grid';
 
 import { Logo } from './logo';
 import { Actions } from './actions';

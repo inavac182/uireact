@@ -4,7 +4,7 @@ import { UiCard } from '@uireact/card';
 import { UiSpacing, Spacing } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiHeading, UiText } from '@uireact/text';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex-grid';
 
 type SpacingFormProps = {
   handleChange: (e: React.FormEvent<HTMLInputElement>) => void;
