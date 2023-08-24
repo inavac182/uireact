@@ -1,6 +1,5 @@
 {
   "name": "@uireact/separator",
-  "private": true,
   "description": "UiSeparator package to separate blocks of content",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "MIT",
