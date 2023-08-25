@@ -21,6 +21,10 @@ export class UiValidator {
   }
 
   private isNumeric(value: unknown): boolean {
+    if (typeof value === 'number') {
+      return true;
+    }
+
     if (typeof value === 'string') {
       return /^[0-9]+$/.test(value);
     }
@@ -33,7 +37,7 @@ export class UiValidator {
   }
 
   private isValidPhone(value: unknown): boolean {
-    if (typeof value === 'string' && value.length >= 7 && value.length <= 12) {
+    if (typeof value === 'string' && value.length >= 7 && value.length <= 17) {
       const phoneRegex = new RegExp(
         /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/
       );
@@ -68,13 +72,27 @@ export class UiValidator {
   }
 
   private validRangeRule(min: number, max: number, value: unknown): boolean {
-    if (typeof value === 'number') {
-      if (value >= min && value <= max) {
-        return true;
-      }
+    if (typeof value === 'number' && value >= min && value <= max) {
+      return true;
     }
 
     return false;
+  }
+
+  private validLengthRule(min: number, max: number, value: unknown): boolean {
+    if (typeof value === 'string' && value.length >= min && value.length <= max) {
+      return true;
+    }
+
+    return false;
+  }
+
+  private validRequired(isRequired: boolean, value: unknown): boolean {
+    if (typeof value === 'string') {
+      return value !== '';
+    }
+
+    return isRequired && value !== null && value !== undefined;
   }
 
   validate(schema: UiValidatorSchema, data: UiValidatorData): UiValidatorResult {
@@ -94,9 +112,19 @@ export class UiValidator {
       const fieldErrors: UiValidatorError[] = [];
 
       if (!rules) {
+        hasError = true;
+        console.error(`UiValidator - No rule for field ${field}`);
         return;
       }
+
       const value = data[field];
+
+      if (rules.required && !this.validRequired(rules.required.expected, value)) {
+        hasError = true;
+        if (rules.required.error) {
+          fieldErrors.push(rules.required.error);
+        }
+      }
 
       if (rules.type && !this.validExpectationRule(value, rules.type)) {
         hasError = true;
@@ -112,13 +140,20 @@ export class UiValidator {
         }
       }
 
+      if (rules.length && !this.validLengthRule(rules.length.min, rules.length.max, value)) {
+        hasError = true;
+        if (rules.length.error) {
+          fieldErrors.push(rules.length.error);
+        }
+      }
+
       if (fieldErrors.length > 0) {
         errors = { ...errors, [field]: fieldErrors };
       }
     });
 
     return {
-      passed: hasError,
+      passed: !hasError,
       errors,
     };
   }

@@ -10,6 +10,16 @@ export type UiValidatorExpectationRule<T> = {
 };
 
 /** The value for each rule */
+export type UiValidatorLengthRule = {
+  /** The expected min length for this rule */
+  min: number;
+  /** The expected max length for this rule */
+  max: number;
+  /** The error message to provide in the response if this check doesn't pass */
+  error?: UiValidatorError;
+};
+
+/** The value for each rule */
 export type UiValidatorRangeRule = {
   /** The expected min range for this rule */
   min: number;
@@ -27,6 +37,8 @@ export type UiValidatorRules = {
   required?: UiValidatorExpectationRule<boolean>;
   /** Validates the length of characters of the value */
   range?: UiValidatorRangeRule;
+  /** Validates the length of characters of the value */
+  length?: UiValidatorLengthRule;
 };
 
 /** The schema needed for the UiValidator */
