@@ -885,4 +885,35 @@ describe('UiValidator', () => {
       expect(result.passed).toBeFalsy();
     });
   });
+
+  describe('multiple checks', () => {
+    it('Should verify a value is required and valid email', () => {
+      const schema = {
+        test: validator.ruler().isRequired().type('email'),
+      };
+      const data = {
+        test: 'test@mail.com',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should include all errors if multiple checks fail', () => {
+      const schema = {
+        test: validator.ruler().isRequired('Value is required').type('email', 'Value is not valid email'),
+      };
+      const data = {
+        test: null,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+      expect(result.errors?.test).toHaveLength(2);
+      expect(result.errors?.test[0].message).toBe('Value is required');
+      expect(result.errors?.test[1].message).toBe('Value is not valid email');
+    });
+  });
 });
