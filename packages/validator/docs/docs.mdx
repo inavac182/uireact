@@ -1,0 +1,84 @@
+---
+name: UiValidator
+menu: Utils
+---
+
+import { Props, Playground } from 'docz';
+
+import * as packageJson from '../package.json';
+
+import { UiValidator } from '../src/';
+import { ValidatorRunner } from './util/validator';
+
+import { UiText } from '@uireact/text';
+
+# UiValidator
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/validator/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Validator class that run checks based on a given schema into a given object. Used commonly to validate forms in client and data sets on the server side.
+> We make use of chainable functions so the schema creation is simple and easy.
+
+## Installation ⚙️
+
+> npm i -S @uireact/validator
+
+## Usage
+
+First, we need to instantiate the validator:
+
+```tsx
+import { UiValidator } from '@uireact/validator';
+
+const validator = new UiValidator();
+```
+
+Secondly, we will create our schema, for this we will create an object and make use of `validator.rulers()` which returns a `UiRuler` class
+with chainable functions that at the end will set up the needed rules that field:
+
+```tsx
+import { UiValidator } from '@uireact/validator';
+
+const validator = new UiValidator();
+
+const schema = {
+  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+};
+```
+
+All chainable functions have 2 common attributes `errorMessage` and `errorCode`, these are used to provide a message or a code if the validation fails.
+
+Then, we can simple call the function `validator.validate()` passing our schema and our data object to be validated:
+
+```tsx
+import { UiValidator } from '@uireact/validator';
+
+const validator = new UiValidator();
+
+const schema = {
+  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+};
+
+const data = {
+  firstName: 'Felipe',
+  email: 'test@mymail.com',
+};
+
+const result = validator.validate(schema, data);
+```
+
+## Example 💡
+
+Example using a component that receives the schema and the data and then renders a message if it passes:
+
+<Playground>
+  <ValidatorRunner schema={{}} data={{ firstName: 'Felipe', email: 'text@mymail.com' }} />
+</Playground>
+
+**ValidatorRunner** is just for demo purposes this package only exports the UiValidator class.
