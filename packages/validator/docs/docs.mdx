@@ -73,12 +73,20 @@ const data = {
 const result = validator.validate(schema, data);
 ```
 
+export const validator = new UiValidator();
+
 ## Example 💡
 
 Example using a component that receives the schema and the data and then renders a message if it passes:
 
 <Playground>
-  <ValidatorRunner schema={{}} data={{ firstName: 'Felipe', email: 'text@mymail.com' }} />
+  <ValidatorRunner
+    schema={{
+      firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+      email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
+    }}
+    data={{ firstName: 'Felipe', email: 'text@mymail.com' }}
+  />
 </Playground>
 
 **ValidatorRunner** is just for demo purposes this package only exports the UiValidator class.
