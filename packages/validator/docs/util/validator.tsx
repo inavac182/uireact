@@ -3,18 +3,15 @@ import React from 'react';
 import { UiText } from '@uireact/text';
 
 import { UiValidator } from '../../src';
+import { UiValidatorSchema } from 'types';
 
 type ValidatorRunnerProps = {
   data: { [keys in string]: unknown };
+  schema: UiValidatorSchema;
 };
 
-export const ValidatorRunner = ({ data }: ValidatorRunnerProps): React.ReactElement => {
+export const ValidatorRunner = ({ data, schema }: ValidatorRunnerProps): React.ReactElement => {
   const validator = new UiValidator();
-
-  const schema = {
-    firstName: validator.ruler().isRequired('First Name is required').range(0, 10, 'First name is not valid'),
-    email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
-  };
 
   return (
     <UiText>
