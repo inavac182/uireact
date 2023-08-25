@@ -3,6 +3,43 @@ import { UiValidator } from '../src';
 describe('UiValidator', () => {
   const validator = new UiValidator();
 
+  it('Should error out if the schema provided is not valid', () => {
+    const schema = {};
+    const data = {
+      test: 'felipe',
+    };
+
+    const result = validator.validate(schema, data);
+
+    expect(result.passed).toBeFalsy();
+  });
+
+  it('Should error out if the schema is null', () => {
+    const schema = null;
+    const data = {
+      test: 'felipe',
+    };
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const result = validator.validate(schema, data);
+
+    expect(result.passed).toBeFalsy();
+  });
+
+  it('Should error out if no rules are found', () => {
+    const schema = {
+      diffField: validator.ruler().type('string'),
+    };
+    const data = {
+      test: 'felipe',
+    };
+
+    const result = validator.validate(schema, data);
+
+    expect(result.passed).toBeFalsy();
+  });
+
   describe('type validation', () => {
     describe('strings', () => {
       it('Should validate strings when string is provided', () => {
@@ -72,6 +109,21 @@ describe('UiValidator', () => {
         expect(result.passed).toBeFalsy();
         expect(result.errors?.test[0].message).toBe('The value is not a string');
         expect(result.errors?.test[0].code).toBe('E200');
+      });
+
+      it('Should error out if type is unrecognized', () => {
+        const schema = {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          test: validator.ruler().type('WHATEVER-VALUE'),
+        };
+        const data = {
+          test: null,
+        };
+
+        const result = validator.validate(schema, data);
+
+        expect(result.passed).toBeFalsy();
       });
     });
 
@@ -818,6 +870,19 @@ describe('UiValidator', () => {
       expect(result.passed).toBeFalsy();
       expect(result.errors?.test[0].message).toBe('The value is required');
       expect(result.errors?.test[0].code).toBe('E400');
+    });
+
+    it('Should still fail if no custom error messaging is passed', () => {
+      const schema = {
+        test: validator.ruler().isRequired(),
+      };
+      const data = {
+        test: undefined,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
     });
   });
 });

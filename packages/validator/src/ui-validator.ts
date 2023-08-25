@@ -100,8 +100,6 @@ export class UiValidator {
     let hasError = false;
 
     if (!schema || Object.keys(schema).length === 0) {
-      console.error('UiValidator - Schema is not valid');
-
       return {
         passed: false,
       };
@@ -113,7 +111,6 @@ export class UiValidator {
 
       if (!rules) {
         hasError = true;
-        console.error(`UiValidator - No rule for field ${field}`);
         return;
       }
 
