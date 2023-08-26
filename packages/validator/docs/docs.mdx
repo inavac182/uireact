@@ -11,6 +11,9 @@ import { UiValidator } from '../src/';
 import { ValidatorRunner } from './util/validator';
 
 import { UiText } from '@uireact/text';
+import { UiList } from '@uireact/list';
+import { UiFlexGrid } from '@uireact/flex-grid';
+import { UiCard } from '@uireact/card';
 
 # UiValidator
 
@@ -27,9 +30,9 @@ import { UiText } from '@uireact/text';
 
 > npm i -S @uireact/validator
 
-## Usage
+## Usage 🎮
 
-First, we need to instantiate the validator:
+First, we need to create an instance of the `UiValidator`
 
 ```tsx
 import { UiValidator } from '@uireact/validator';
@@ -37,8 +40,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 ```
 
-Secondly, we will create our schema, for this we will create an object and make use of `validator.rulers()` which returns a `UiRuler` class
-with chainable functions that at the end will set up the needed rules that field:
+Then, we will create our schema, For this we need to create an object and use `validator.rulers()` which returns a `UiRuler` class
+with chainable functions that together builds the rule for that field:
 
 ```tsx
 import { UiValidator } from '@uireact/validator';
@@ -73,6 +76,21 @@ const data = {
 const result = validator.validate(schema, data);
 ```
 
+The result will follow [UiValidatorResult](https://github.com/inavac182/uireact/blob/main/packages/validator/src/types/validator-result.ts#L16) structure. Basically 2 top level fields:
+
+```ts
+/** The result of the validation */
+export type UiValidatorResult = {
+  /** If validation was success or not */
+  passed: boolean;
+  /** The list of errors found in the data passed keyed by the field name */
+  errors?: UiValidatorErrors;
+};
+```
+
+So, for a overall validation result `passed` will give you that, for specific errors from the validation `errors` field will have that object with a list of all errors found per each field,
+you can then decide how and which ones to show to your user.
+
 export const validator = new UiValidator();
 
 ## Example 💡
@@ -82,11 +100,230 @@ Example using a component that receives the schema and the data and then renders
 <Playground>
   <ValidatorRunner
     schema={{
+      age: validator
+        .ruler()
+        .isRequired('The age is required')
+        .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
       firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
       email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
     }}
-    data={{ firstName: 'Felipe', email: 'text@mymail.com' }}
+    data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
   />
 </Playground>
 
-**ValidatorRunner** is just for demo purposes this package only exports the UiValidator class.
+<small>ValidatorRunner is just for demo purposes this package only exports the UiValidator class.</small>
+
+## Details 🤓
+
+These are the chainable functions that you can use, to set the rules, their possible values and examples:
+
+<table>
+  <tr>
+    <th>Rule</th>
+    <th>Options</th>
+    <th>Validates</th>
+  </tr>
+  <tr>
+    <td>isRequired()</td>
+    <td>
+      <UiList>
+        <li> ❓ errorMessage</li>
+        <li> ❓ errorCode </li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>❌ null</li>
+        <li>❌ undefined</li>
+        <li>✅ everything else</li>
+      </UiList>
+    </td>
+  </tr>
+  <tr>
+    <td>type()</td>
+    <td>
+      <UiList>
+        <li>
+          ❗️ type
+          <UiList>
+            <li>&nbsp;&nbsp; string</li>
+            <li>&nbsp;&nbsp; numeric</li>
+            <li>&nbsp;&nbsp; phone</li>
+            <li>&nbsp;&nbsp; email</li>
+          </UiList>
+        </li>
+        <li></li>
+        <li> ❓ errorMessage</li>
+        <li> ❓ errorCode </li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>
+          string
+          <UiList>
+            <li>&nbsp;&nbsp; ✅ string type</li>
+            <li>&nbsp;&nbsp; ❌ everything else</li>
+          </UiList>
+        </li>
+        <li>
+          numeric
+          <UiList>
+            <li>&nbsp;&nbsp; ✅ number type</li>
+            <li>&nbsp;&nbsp; ✅ strings that can be parsed as number</li>
+            <li>&nbsp;&nbsp; ❌ everything else</li>
+          </UiList>
+        </li>
+        <li>
+          phone
+          <UiList>
+            <li>&nbsp;&nbsp; ✅ All phones with most common patterns</li>
+            <li>
+              <small>
+                &nbsp;&nbsp; *This is intended to validate most of the American and European areas. More info underneath
+                this table.
+              </small>
+            </li>
+          </UiList>
+        </li>
+        <li>
+          email
+          <UiList>
+            <li>&nbsp;&nbsp; ✅ Using . or _ or - in their name (test.n-a_me@domain.com)</li>
+            <li>&nbsp;&nbsp; ✅ Emails using 2-3 digits for top level domain (.com || .mx)</li>
+            <li>&nbsp;&nbsp; ✅ With top level domain and regional domain (.co.uk)</li>
+            <li>&nbsp;&nbsp; ❌ everything else</li>
+          </UiList>
+        </li>
+      </UiList>
+    </td>
+  </tr>
+  <tr>
+    <td>range()</td>
+    <td>
+      <UiList>
+        <li> ❗️ min</li>
+        <li> ❗️ max</li>
+        <li> ❓ errorMessage</li>
+        <li> ❓ errorCode </li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>✅ If the NUMBER is bigger or equal than min and smaller or equal than max.</li>
+        <li>❌ Everything else</li>
+      </UiList>
+    </td>
+  </tr>
+  <tr>
+    <td>length()</td>
+    <td>
+      <UiList>
+        <li> ❗️ min</li>
+        <li> ❗️ max</li>
+        <li> ❓ errorMessage</li>
+        <li> ❓ errorCode </li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>✅ If the STRING is longer or equal than min and shorter or equal than max.</li>
+        <li>❌ Everything else</li>
+      </UiList>
+    </td>
+  </tr>
+</table>
+
+## Phone validation 📱
+
+The phone validation is pretty extensive so we better have it very clear what values are positive in our validator so you know what to expect:
+
+{' '}
+<table>
+  <tr>
+    <th>Country code</th>
+    <th>Area code</th>
+    <th>The rest</th>
+  </tr>
+  <tr>
+    <td>
+      <UiList>
+        <li>✅ Not present</li>
+        <li>✅ 1 digit</li>
+        <li>✅ 2 digits</li>
+        <li>✅ 3 digits</li>
+        <li>✅ with + sign</li>
+        <li>❌ everything else</li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>✅ 1 digit </li>
+        <li>✅ 2 digits</li>
+        <li>✅ 3 digits</li>
+        <li>✅ with parenthesis</li>
+        <li>✅ with hyphen after it</li>
+        <li>✅ with space after it</li>
+        <li>✅ with dot after it</li>
+        <li>❌ everything else</li>
+      </UiList>
+    </td>
+    <td>
+      <UiList>
+        <li>✅ 7 digits </li>
+        <li>✅ all together</li>
+        <li>✅ with hyphens after the 3 digit</li>
+        <li>✅ with spaces after the 3 digit</li>
+        <li>✅ with dot after the 3 digit</li>
+        <li>❌ everything else</li>
+      </UiList>
+    </td>
+  </tr>
+</table>
+
+A few examples of valid patterns:
+
+<UiCard>
+  <UiFlexGrid justifyContent="space-between">
+    <UiList>
+      <li>17352344980</li>
+      <li>+1 7352344980</li>
+      <li>1 735 2344980</li>
+      <li>1 735 234 4980</li>
+      <li>1 (735) 234 4980</li>
+      <li>1 735-234-4980</li>
+    </UiList>
+    <UiList>
+      <li>+1-735-234-4980</li>
+      <li>1.735.234.4980</li>
+      <li>1 735 234.4980</li>
+      <li>1 (735) 234.4980</li>
+      <li>735 234.4980</li>
+      <li>735 234 4980</li>
+    </UiList>
+    <UiList>
+      <li>735 2344980</li>
+      <li>7352344980</li>
+      <li>735.234.4980</li>
+      <li>735-234-4980</li>
+      <li>735-2344980</li>
+      <li>(735) 2344980</li>
+    </UiList>
+  </UiFlexGrid>
+</UiCard>
+
+<br />
+
+We tried to cover a lot of cases but sometimes the truth is that for phones we could make our applications a bit smarter
+for instance the country code be selected rather than typed, that way you format it the way you need it. Then you only allow for numbers
+that way there are no weird characters in the phone and finally check for the length of the phone.
+
+Said that, the ultimate validation for phons is always SMS verification that way you know for sure the phone is valid.
+
+So, Maybe this rule would make the work for you without worrying about formats:
+
+```ts
+const schema = {
+  phone: validator.ruler().isRequired().type('numeric').length(10, 12),
+};
+```
