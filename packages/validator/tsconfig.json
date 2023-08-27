@@ -1,10 +1,14 @@
 {
   "extends": "../../tsconfig.json",
-
   "compilerOptions": {
     "outDir": "dist",
-    "baseUrl": "./src",
-    "jsx": "react"
+    "baseUrl": "./src"
   },
-  "exclude": ["coverage", "node_modules", "dist", "__tests__"]
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "dist",
+    "__tests__",
+    "docs"
+  ]
 }
