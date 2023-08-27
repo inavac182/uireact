@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/inavac182/ui-react/compare/@uireact/validator@0.1.1...@uireact/validator@0.1.2) (2023-08-27)
+
+
+### Bug Fixes
+
+* validator build tsc ([a631016](https://github.com/inavac182/ui-react/commit/a631016c9290a83eaf8d281b231b30ebc6662026))
+
+
+
+
+
 ## [0.1.1](https://github.com/inavac182/ui-react/compare/@uireact/validator@0.1.0...@uireact/validator@0.1.1) (2023-08-26)
 
 **Note:** Version bump only for package @uireact/validator
