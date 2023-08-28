@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-08-28)
+
+
+### Features
+
+* range validator numeric and category color for linear chart ([#245](https://github.com/inavac182/ui-react/issues/245)) ([021451e](https://github.com/inavac182/ui-react/commit/021451e4e136876fb99a37803355cf965cb8953d))
+
+
+
+
+
 ## [0.1.2](https://github.com/inavac182/ui-react/compare/@uireact/charts@0.1.1...@uireact/charts@0.1.2) (2023-08-24)
 
 
