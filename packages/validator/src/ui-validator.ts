@@ -72,6 +72,14 @@ export class UiValidator {
   }
 
   private validRangeRule(min: number, max: number, value: unknown): boolean {
+    if (typeof value === 'string' && this.isNumeric(value)) {
+      const numericValue = parseInt(value);
+
+      if (numericValue >= min && numericValue <= max) {
+        return true;
+      }
+    }
+
     if (typeof value === 'number' && value >= min && value <= max) {
       return true;
     }

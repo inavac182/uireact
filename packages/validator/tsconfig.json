@@ -4,11 +4,5 @@
     "outDir": "dist",
     "baseUrl": "./src"
   },
-  "exclude": [
-    "coverage",
-    "node_modules",
-    "dist",
-    "__tests__",
-    "docs"
-  ]
+  "exclude": ["coverage", "node_modules", "dist", "__tests__", "docs"]
 }
