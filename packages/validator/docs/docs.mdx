@@ -50,7 +50,7 @@ const validator = new UiValidator();
 
 const schema = {
   firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
 };
 ```
 
@@ -65,7 +65,7 @@ const validator = new UiValidator();
 
 const schema = {
   firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
 };
 
 const data = {
