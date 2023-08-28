@@ -1,4 +1,4 @@
-import { UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type ThemedColor = {
   dark: string;
@@ -17,7 +17,7 @@ export type privateLinearChartProps = {
   /** Represents the label for the current value */
   $currentLabel?: string;
   /** Represents the color for the current value */
-  $currentColor?: string | ThemedColor;
+  $currentColor?: string | ThemedColor | ColorCategory;
   /** Represents the chart's title */
   $title?: string;
 } & UiReactPrivateElementProps;

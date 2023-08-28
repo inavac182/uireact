@@ -50,7 +50,7 @@ const validator = new UiValidator();
 
 const schema = {
   firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
 };
 ```
 
@@ -65,7 +65,7 @@ const validator = new UiValidator();
 
 const schema = {
   firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Phone is required').type('phone', 'Phone is not valid'),
+  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
 };
 
 const data = {
@@ -210,7 +210,7 @@ These are the chainable functions that you can use, to set the rules, their poss
     </td>
     <td>
       <UiList>
-        <li>✅ If the NUMBER is bigger or equal than min and smaller or equal than max.</li>
+        <li>✅ If the value is NUMERIC AND is bigger or equal than min and smaller or equal than max.</li>
         <li>❌ Everything else</li>
       </UiList>
     </td>
@@ -239,6 +239,7 @@ These are the chainable functions that you can use, to set the rules, their poss
 The phone validation is pretty extensive so we better have it very clear what values are positive in our validator so you know what to expect:
 
 {' '}
+
 <table>
   <tr>
     <th>Country code</th>

@@ -758,7 +758,20 @@ describe('UiValidator', () => {
       expect(result.errors?.test[0].code).toBe('E120');
     });
 
-    it('Should error out if value is not a number', () => {
+    it('Should error out if value is not numeric', () => {
+      const schema = {
+        test: validator.ruler().range(10, 100),
+      };
+      const data = {
+        test: '12aa0',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+    });
+
+    it('Should error out if value is numeric and does not pass validation', () => {
       const schema = {
         test: validator.ruler().range(10, 100),
       };
@@ -769,6 +782,19 @@ describe('UiValidator', () => {
       const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
+    });
+
+    it('Should validate correctly if value is numeric and passes validation', () => {
+      const schema = {
+        test: validator.ruler().range(10, 100),
+      };
+      const data = {
+        test: '90',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
     });
   });
 

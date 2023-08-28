@@ -82,6 +82,29 @@ When static label is used the label for the current value will be static at the 
   />
 </Playground>
 
+## UiLinearChart - with theme colors
+
+We can use the color categories for grabbing a specific theme color for the chart
+
+<Playground>
+  <UiLinearChart
+    data={{
+      current: {
+        color: 'tertiary',
+        label: '60%',
+        value: 60,
+        labelStatic: true,
+      },
+      limit: {
+        color: 'secondary',
+        label: '80% battery',
+        value: 80,
+      },
+      title: 'Demo with color',
+    }}
+  />
+</Playground>
+
 ## UiLinearChart - with custom colors
 
 The custom colors supports hex and rgb colors

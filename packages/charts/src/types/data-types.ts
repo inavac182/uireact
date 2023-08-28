@@ -1,13 +1,14 @@
+import { ColorCategory } from '@uireact/foundation';
 import { ThemedColor } from '.';
 
 export type UiLinearChartLimitData = {
-  color?: string | ThemedColor;
+  color?: string | ThemedColor | ColorCategory;
   label?: string;
   value: number;
 };
 
 export type UiLinearChartCurrentData = {
-  color?: string | ThemedColor;
+  color?: string | ThemedColor | ColorCategory;
   label?: string;
   value: number;
   labelStatic?: boolean;

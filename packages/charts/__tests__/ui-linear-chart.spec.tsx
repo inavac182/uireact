@@ -21,6 +21,21 @@ describe('<UiLinearChart />', () => {
     expect(screen.getByTestId('linear-chart')).toBeVisible();
   });
 
+  it('renders fine if current is 0', () => {
+    const data: UiLinearChartData = {
+      current: {
+        value: 0,
+      },
+      limit: {
+        value: 30,
+      },
+    };
+
+    uiRender(<UiLinearChart data={data} testId="linear-chart" />);
+
+    expect(screen.getByTestId('linear-chart')).toBeVisible();
+  });
+
   it('renders limit label', () => {
     const data: UiLinearChartData = {
       current: {
