@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.1 (2023-08-28)
+
+
+### Bug Fixes
+
+* hover styling ([#246](https://github.com/inavac182/ui-react/issues/246)) ([f807491](https://github.com/inavac182/ui-react/commit/f80749165e43bbc2c73d38f329c360ba22423455))
+
+
+
+
+
 # 1.5.0 (2023-08-20)
 
 
