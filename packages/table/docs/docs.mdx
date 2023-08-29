@@ -30,7 +30,28 @@ import { UiBadge } from '@uireact/badge';
 ## UiTable
 
 <Playground>
-  <UiTable />
+  <UiTable
+    data={{
+      headings: ['id', 'Summary', 'Price'],
+      fields: [
+        ['1', 'item 1', '$10'],
+        ['3', 'item 2', '$20'],
+        ['3', 'item 3', '$30'],
+      ],
+    }}
+  />
+</Playground>
+
+## UiTable - with category
+
+<Playground>
+  <UiTable
+    data={{
+      headings: ['id', 'Summary', 'Price'],
+      fields: [['1', 'item 1', '$10']],
+    }}
+    category="tertiary"
+  />
 </Playground>
 
 ### Props
