@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/table@0.2.0...@uireact/table@0.3.0) (2023-08-29)
+
+
+### Features
+
+* **table:** filter box position ([#250](https://github.com/inavac182/ui-react/issues/250)) ([8954d0b](https://github.com/inavac182/ui-react/commit/8954d0bdce3f2dcf41a50ec0c397166868c39c9b))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/table@0.1.0...@uireact/table@0.2.0) (2023-08-29)
 
 
