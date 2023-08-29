@@ -40,7 +40,7 @@ const Input = styled.input<privateInputProps>`
 
     padding-top: ${getPadding(props.$size || 'regular')};
     padding-bottom: ${getPadding(props.$size || 'regular')};
-    padding-left: ${props.$withIcon ? '30px' : ''};
+    padding-left: ${props.$withIcon ? '30px' : '5px'};
     outline: none;
     width: 100%;
   `}
