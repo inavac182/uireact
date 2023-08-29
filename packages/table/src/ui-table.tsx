@@ -14,6 +14,7 @@ import {
 } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
+import { UiGrid, UiGridItem } from '@uireact/grid';
 
 import { UiTableData } from './types';
 import { privateTableProps } from './types/private-table-props';
@@ -22,6 +23,7 @@ export type UiTableProps = {
   data: UiTableData;
   category?: ColorCategory;
   withFilter?: boolean;
+  filterBoxPosition?: 'left' | 'right';
 } & UiReactElementProps;
 
 const Table = styled.table<privateTableProps>`
@@ -56,6 +58,7 @@ export const UiTable: React.FC<UiTableProps> = ({
   category = 'primary',
   testId,
   withFilter = true,
+  filterBoxPosition,
 }: UiTableProps) => {
   const theme = React.useContext(ThemeContext);
   const [_data, setPrivateData] = useState(data);
@@ -78,15 +81,19 @@ export const UiTable: React.FC<UiTableProps> = ({
   return (
     <div>
       {withFilter && (
-        <UiInput
-          value={filterPhrase}
-          onChange={onFilter}
-          icon={
-            <UiSpacing margin={iconSpacing}>
-              <UiIcon icon="MagnifyingGlass" />
-            </UiSpacing>
-          }
-        />
+        <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }}>
+          <UiGridItem cols={!filterBoxPosition ? 3 : 1} startingCol={filterBoxPosition === 'right' ? 3 : 1}>
+            <UiInput
+              value={filterPhrase}
+              onChange={onFilter}
+              icon={
+                <UiSpacing margin={iconSpacing}>
+                  <UiIcon icon="MagnifyingGlass" />
+                </UiSpacing>
+              }
+            />
+          </UiGridItem>
+        </UiGrid>
       )}
       <Table
         className={className}

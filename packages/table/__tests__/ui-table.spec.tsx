@@ -43,6 +43,14 @@ describe('<Component />', () => {
     expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
   });
 
+  it('renders fine with filter position', () => {
+    uiRender(<UiTable data={data} category="secondary" filterBoxPosition="right" />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+  });
+
   it('Filters correctly', () => {
     uiRender(<UiTable data={data} />);
 

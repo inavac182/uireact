@@ -86,6 +86,25 @@ This prop give you the ability to set a number of cols/rows depending on the bre
   </UiGrid>
 </Playground>
 
+> This is the suggested approach if all grid items will share the same styles.
+
+### 2. Using custom UiGridItem col span
+
+<Playground>
+  <UiGrid cols={4} colsGap="5px">
+    <UiGridItem cols={2}>
+      <UiCard>
+        <UiText>Item 1!</UiText>
+      </UiCard>
+    </UiGridItem>
+    <UiGridItem placeSelf="stretch" cols={2} startingCol={2}>
+      <UiCard>
+        <UiText>Item starting on the 2nd col and spaning for 2 cols</UiText>
+      </UiCard>
+    </UiGridItem>
+  </UiGrid>
+</Playground>
+
 ## UiGrid Props
 
 <Props of={UiGrid} />

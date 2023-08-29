@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { getItemSpan } from './private';
+import { getItemEndSpan, getItemSpan } from './private';
 import { UiReactElementProps } from '@uireact/foundation';
 
 type UiGridItemProps = {
@@ -9,6 +9,8 @@ type UiGridItemProps = {
   alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of columns that the item will take */
   cols?: number;
+  /** The starting column for the grid item */
+  startingCol?: number;
   /** Justify the item inside its grid block */
   justifySelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Align and Justify the item inside its grid block */
@@ -22,6 +24,8 @@ type privateGridItemProps = {
   $alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of columns that the item will take */
   $cols?: number;
+  /** The starting column for the grid item */
+  $startingCol?: number;
   /** Justify the item inside its grid block */
   $justifySelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Align and Justify the item inside its grid block */
@@ -33,6 +37,7 @@ type privateGridItemProps = {
 const Div = styled.div<privateGridItemProps>`
   ${(props) => `
     ${getItemSpan(props.$cols, 'cols')}
+    ${props.$startingCol ? getItemEndSpan(props.$cols, 'cols', props.$startingCol) : ''}
     ${getItemSpan(props.$rows, 'rows')}
     ${props.$justifySelf ? `justify-self: ${props.$justifySelf};` : ''}
     ${props.$alignSelf ? `align-self: ${props.$alignSelf};` : ''}
@@ -49,6 +54,7 @@ export const UiGridItem: React.FC<UiGridItemProps> = (props: UiGridItemProps) =>
     $placeSelf={props.placeSelf}
     $rows={props.rows}
     data-testid={props.testId}
+    $startingCol={props.startingCol}
   >
     {props.children}
   </Div>
