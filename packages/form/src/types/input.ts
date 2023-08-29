@@ -5,6 +5,8 @@ export type UiInputProps = {
   disabled?: boolean;
   /** Error label for input field */
   error?: string;
+  /** An icon element to be rendered inside the input */
+  icon?: React.ReactElement;
   /** Input name for form submittion */
   name?: string;
   /** Label for input field */
@@ -54,4 +56,5 @@ export type privateInputProps = {
   value?: HTMLInputElement['value'];
   $size?: SizesProp;
   required?: boolean;
+  $withIcon?: boolean;
 } & UiReactPrivateElementProps;

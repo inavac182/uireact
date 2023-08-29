@@ -2,7 +2,13 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ThemeContext, getColorCategory, getTextSizeFromSizeString, getThemeStyling } from '@uireact/foundation';
+import {
+  SizesProp,
+  ThemeContext,
+  getColorCategory,
+  getTextSizeFromSizeString,
+  getThemeStyling,
+} from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiInputProps, privateInputProps } from './types';
@@ -32,7 +38,9 @@ const Input = styled.input<privateInputProps>`
       cursor: not-allowed;
     }
 
-    padding: ${getPadding(props.$size || 'regular')};
+    padding-top: ${getPadding(props.$size || 'regular')};
+    padding-bottom: ${getPadding(props.$size || 'regular')};
+    padding-left: ${props.$withIcon ? '30px' : '5px'};
     outline: none;
     width: 100%;
   `}
@@ -45,11 +53,19 @@ const WrapperDiv = styled.div`
 const InputDiv = styled.div`
   display: inline-block;
   flex-grow: 1;
+  position: relative;
+`;
+
+const IconContainer = styled.span<{ $size?: SizesProp }>`
+  position: absolute;
 `;
 
 export const UiInput: React.FC<UiInputProps> = ({
+  className,
+  testId,
   disabled,
   error,
+  icon,
   label,
   labelOnTop,
   name = 'input-name',
@@ -65,7 +81,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <>
+    <div className={className} data-testid={testId}>
       {label && labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category}>
@@ -82,6 +98,7 @@ export const UiInput: React.FC<UiInputProps> = ({
           </div>
         )}
         <InputDiv>
+          {icon && <IconContainer>{icon}</IconContainer>}
           <Input
             $customTheme={themeContext.theme}
             disabled={disabled}
@@ -96,11 +113,12 @@ export const UiInput: React.FC<UiInputProps> = ({
             value={value}
             $size={size}
             required={required}
+            $withIcon={icon !== undefined}
           />
           {error && <UiText category={category}>{error}</UiText>}
         </InputDiv>
       </WrapperDiv>
-    </>
+    </div>
   );
 };
 

@@ -10,6 +10,9 @@ import Playground from '../../../src/Playground';
 
 import { UiInput } from '../src';
 
+import { UiIcon } from '@uireact/icons';
+import { UiSpacing } from '@uireact/foundation';
+
 # UiInput
 
 <sup>
@@ -51,6 +54,21 @@ import { UiInput } from '../src';
 
 <Playground>
   <UiInput label="Fist Name" labelOnTop />
+</Playground>
+
+## UiInput with icon
+
+<Playground>
+  <UiInput
+    label="Search"
+    placeholder="Type your search"
+    labelOnTop
+    icon={
+      <UiSpacing margin={{ top: 'two', left: 'four' }}>
+        <UiIcon icon="MagnifyingGlass" />
+      </UiSpacing>
+    }
+  />
 </Playground>
 
 ## UiInput disabled

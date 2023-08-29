@@ -12,6 +12,13 @@ describe('<Component />', () => {
     expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
   });
 
+  it('renders fine with icon', () => {
+    uiRender(<UiInput label="Input" name="MyInput" icon={<span>some icon</span>} />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+    expect(screen.getByText('some icon')).toBeVisible();
+  });
+
   it('renders fine with size', () => {
     uiRender(<UiInput label="Input" name="MyInput" size="large" />);
 

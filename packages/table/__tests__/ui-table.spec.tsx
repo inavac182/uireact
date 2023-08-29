@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiTable } from '../src';
@@ -21,6 +21,18 @@ describe('<Component />', () => {
     expect(screen.getByRole('table')).toBeVisible();
     expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
     expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    expect(screen.getByRole('textbox')).toBeVisible();
+  });
+
+  it('renders fine without filter', () => {
+    uiRender(<UiTable data={data} withFilter={false} />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   });
 
   it('renders fine with category', () => {
@@ -29,5 +41,19 @@ describe('<Component />', () => {
     expect(screen.getByRole('table')).toBeVisible();
     expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
     expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+  });
+
+  it('Filters correctly', () => {
+    uiRender(<UiTable data={data} />);
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'summary 1' } });
+
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+    expect(screen.queryByRole('cell', { name: /summary 2/i })).not.toBeInTheDocument();
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'summary' } });
+
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 2/i })).toBeVisible();
   });
 });
