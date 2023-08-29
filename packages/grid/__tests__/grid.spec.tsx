@@ -19,6 +19,18 @@ test('renders the grid when is rendered with 2 items', () => {
   expect(screen.getByText('Item 2')).toBeVisible();
 });
 
+test('renders the grid when items uses starting point', () => {
+  render(
+    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+      <UiGridItem placeSelf="center">Item 1</UiGridItem>
+      <UiGridItem startingCol={2}>Item 2</UiGridItem>
+    </UiGrid>
+  );
+
+  expect(screen.getByText('Item 1')).toBeVisible();
+  expect(screen.getByText('Item 2')).toBeVisible();
+});
+
 test('renders the grid when using a breakpoints object as cols', () => {
   global.innerWidth = 300;
 

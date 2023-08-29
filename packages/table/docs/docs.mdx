@@ -54,6 +54,19 @@ import { UiBadge } from '@uireact/badge';
   />
 </Playground>
 
+## UiTable - with filter box position
+
+<Playground>
+  <UiTable
+    data={{
+      headings: ['id', 'Summary', 'Price'],
+      fields: [['1', 'item 1', '$10']],
+    }}
+    category="tertiary"
+    filterBoxPosition="right"
+  />
+</Playground>
+
 ### Props
 
 <Props of={UiTable} />
