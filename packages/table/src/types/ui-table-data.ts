@@ -4,5 +4,10 @@ export type UiTableItemData = {
 
 export type UiTableData = {
   headings: string[];
-  fields: string[][];
+  items: UiTableItem[];
+};
+
+export type UiTableItem = {
+  id: string;
+  cols: string[];
 };
