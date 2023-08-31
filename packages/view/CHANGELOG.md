@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2023-08-31)
+
+
+### Features
+
+* adding view row category and inverse font ([#254](https://github.com/inavac182/uireact/issues/254)) ([bd482c5](https://github.com/inavac182/uireact/commit/bd482c581466c79535f9488ec2b6b9c94fdc9d22))
+
+
+
+
+
 # 1.2.0 (2023-08-22)
 
 
