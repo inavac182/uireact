@@ -86,6 +86,7 @@ const TableRow = styled.tr<privateTableRowProps>`
               ColorTokens.token_100
             )};
             font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
+            box-shadow: 0px 0px 0px black;
           `
         : ''
     }
@@ -113,8 +114,8 @@ export const UiTable: React.FC<UiTableProps> = ({
       const newFilterPhrase = e.currentTarget.value;
       setFilterPhrase(newFilterPhrase);
 
-      if (selectedRow) {
-        onSelect?.('');
+      if (onSelect && selectedRow) {
+        onSelect('');
         setSelectedRow('');
       }
 
@@ -129,11 +130,15 @@ export const UiTable: React.FC<UiTableProps> = ({
 
   const handleClick = useCallback(
     (id: string) => {
+      if (!onSelect) {
+        return;
+      }
+
       if (id === selectedRow) {
-        onSelect?.('');
+        onSelect('');
         setSelectedRow('');
       } else {
-        onSelect?.(id);
+        onSelect(id);
         setSelectedRow(id);
       }
     },
