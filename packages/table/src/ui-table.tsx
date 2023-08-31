@@ -21,11 +21,16 @@ import { UiTableData } from './types';
 import { privateTableProps, privateTableRowProps } from './types/private-table-props';
 
 export type UiTableProps = {
+  /** The data object that will be rendered in the table */
   data: UiTableData;
+  /** The theme category that will be applied to the styling */
   category?: ColorCategory;
+  /** Flag to disable the filter bar */
   withFilter?: boolean;
+  /** Flag for positioning the filter bar */
   filterBoxPosition?: 'left' | 'right';
-  onClick?: (id: string) => void;
+  /** onClick CB to be executed when a row is selected */
+  onSelect?: (id: string) => void;
 } & UiReactElementProps;
 
 const Table = styled.table<privateTableProps>`
@@ -71,6 +76,19 @@ const TableRow = styled.tr<privateTableRowProps>`
           `
         : ''
     }
+    ${
+      props.$isSelected
+        ? `
+            background: ${getThemeColor(
+              props.$customTheme,
+              props.$selectedTheme,
+              getColorCategory(props.$category),
+              ColorTokens.token_100
+            )};
+            font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
+          `
+        : ''
+    }
   `}
 `;
 
@@ -83,9 +101,10 @@ export const UiTable: React.FC<UiTableProps> = ({
   testId,
   withFilter = true,
   filterBoxPosition,
-  onClick,
+  onSelect,
 }: UiTableProps) => {
   const theme = React.useContext(ThemeContext);
+  const [selectedRow, setSelectedRow] = useState('');
   const [_data, setPrivateData] = useState(data);
   const [filterPhrase, setFilterPhrase] = useState('');
 
@@ -94,20 +113,31 @@ export const UiTable: React.FC<UiTableProps> = ({
       const newFilterPhrase = e.currentTarget.value;
       setFilterPhrase(newFilterPhrase);
 
+      if (selectedRow) {
+        onSelect?.('');
+        setSelectedRow('');
+      }
+
       const filteredData = data.items.filter(
         (field) => field.cols.filter((text) => text.includes(newFilterPhrase)).length > 0
       );
 
       setPrivateData({ ...data, items: filteredData });
     },
-    [setFilterPhrase]
+    [selectedRow, setFilterPhrase, onSelect]
   );
 
   const handleClick = useCallback(
     (id: string) => {
-      onClick?.(id);
+      if (id === selectedRow) {
+        onSelect?.('');
+        setSelectedRow('');
+      } else {
+        onSelect?.(id);
+        setSelectedRow(id);
+      }
     },
-    [onClick]
+    [selectedRow, onSelect]
   );
 
   return (
@@ -146,7 +176,8 @@ export const UiTable: React.FC<UiTableProps> = ({
           {_data.items.map((field, rowIndex) => (
             <TableRow
               key={`table-item-index-${rowIndex}`}
-              $hasClickHandler={onClick !== undefined}
+              $hasClickHandler={onSelect !== undefined}
+              $isSelected={selectedRow === field.id}
               $customTheme={theme.theme}
               $selectedTheme={theme.selectedTheme}
               $category={category}

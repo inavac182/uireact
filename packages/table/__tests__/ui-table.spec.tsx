@@ -65,9 +65,9 @@ describe('<Component />', () => {
     expect(screen.getByRole('cell', { name: /summary 2/i })).toBeVisible();
   });
 
-  it('Executes callback on click correctly', () => {
+  it('Executes onSelect CB when row is selected and passes correct id, once row is unselected the id is empty', () => {
     const mockedFn = jest.fn();
-    uiRender(<UiTable data={data} onClick={mockedFn} />);
+    uiRender(<UiTable data={data} onSelect={mockedFn} />);
 
     expect(screen.getByRole('table')).toBeVisible();
     expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
@@ -77,6 +77,30 @@ describe('<Component />', () => {
 
     expect(mockedFn).toHaveBeenCalledTimes(1);
     expect(mockedFn).toHaveBeenCalledWith('1');
+
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
+
+    expect(mockedFn).toHaveBeenCalledTimes(2);
+    expect(mockedFn).toHaveBeenCalledWith('');
+  });
+
+  it('Executes onSelect CB with empty id when a row is selected and the filter box is used', () => {
+    const mockedFn = jest.fn();
+    uiRender(<UiTable data={data} onSelect={mockedFn} />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
+
+    expect(mockedFn).toHaveBeenCalledTimes(1);
+    expect(mockedFn).toHaveBeenCalledWith('1');
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'summary' } });
+
+    expect(mockedFn).toHaveBeenCalledTimes(2);
+    expect(mockedFn).toHaveBeenCalledWith('');
   });
 
   it('Does anything if clicked but no CB is provided', () => {
@@ -86,6 +110,15 @@ describe('<Component />', () => {
     expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
     expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
 
+    // Select a Row
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
+
+    // Activate filter box
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'summary' } });
+
+    // Select a row again
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
+    // Unselect by clicking in itself
     fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
   });
 });
