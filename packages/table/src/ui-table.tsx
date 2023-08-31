@@ -10,6 +10,7 @@ import {
   UiSpacing,
   UiSpacingProps,
   getColorCategory,
+  getTextSizeFromSizeString,
   getThemeColor,
 } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
@@ -58,13 +59,15 @@ const TableRow = styled.tr<privateTableRowProps>`
         ? `
             cursor: pointer;
             &:hover {
-            background-color: ${getThemeColor(
-              props.$customTheme,
-              props.$selectedTheme,
-              getColorCategory(props.$category),
-              ColorTokens.token_100
-            )};
+              background: ${getThemeColor(
+                props.$customTheme,
+                props.$selectedTheme,
+                getColorCategory(props.$category),
+                ColorTokens.token_100
+              )};
+              font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
             }
+            transition: font-size .2s, background .2s;
           `
         : ''
     }
