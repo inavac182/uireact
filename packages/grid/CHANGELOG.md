@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-08-31)
+
+
+### Features
+
+* adding starting row for grid item ([#253](https://github.com/inavac182/ui-react/issues/253)) ([23c24f4](https://github.com/inavac182/ui-react/commit/23c24f41d7a3561d18a5f108b82d8880e29e4d6c))
+
+
+
+
+
 # 1.1.0 (2023-08-29)
 
 
