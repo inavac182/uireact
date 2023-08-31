@@ -1,6 +1,10 @@
-import { ThemeMapper, ColorCategories, ColorTokens } from '@uireact/foundation';
+import { ThemeMapper, ColorCategories, ColorTokens, ColorCategory, getColorCategory } from '@uireact/foundation';
 
-export const dynamicViewRowMapper = (weight: '10' | '50' | '100' | '150' | '200' = '100'): ThemeMapper => {
+export const dynamicViewRowMapper = (
+  weight: '10' | '50' | '100' | '150' | '200' = '100',
+  category?: ColorCategory,
+  inverseFont?: boolean
+): ThemeMapper => {
   let token = ColorTokens.token_100;
   let fontToken = ColorTokens.token_100;
 
@@ -33,13 +37,13 @@ export const dynamicViewRowMapper = (weight: '10' | '50' | '100' | '150' | '200'
   return {
     normal: {
       background: {
-        category: ColorCategories.primary,
+        category: getColorCategory(category || 'primary'),
         inverse: false,
         token: token,
       },
       color: {
         category: ColorCategories.fonts,
-        inverse: false,
+        inverse: inverseFont ?? false,
         token: fontToken,
       },
     },

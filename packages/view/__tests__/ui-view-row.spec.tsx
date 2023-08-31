@@ -35,4 +35,24 @@ describe('<UiViewRow />', () => {
 
     expect(screen.getByText('Content 1')).toHaveClass('someClass');
   });
+
+  it('Should render fine with category', () => {
+    uiRender(
+      <UiViewRow category="secondary">
+        <p>Content 1</p>
+      </UiViewRow>
+    );
+
+    expect(screen.getByText('Content 1')).toBeVisible();
+  });
+
+  it('Should render fine with inversed font', () => {
+    uiRender(
+      <UiViewRow category="secondary" inverseFont>
+        <p>Content 1</p>
+      </UiViewRow>
+    );
+
+    expect(screen.getByText('Content 1')).toBeVisible();
+  });
 });
