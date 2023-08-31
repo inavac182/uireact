@@ -86,7 +86,6 @@ const TableRow = styled.tr<privateTableRowProps>`
               ColorTokens.token_100
             )};
             font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
-            box-shadow: 0px 0px 0px black;
           `
         : ''
     }

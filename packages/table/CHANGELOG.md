@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/table@0.3.0...@uireact/table@0.4.0) (2023-08-31)
+
+
+### Features
+
+* onSelect table row ([#251](https://github.com/inavac182/ui-react/issues/251)) ([1a0f1b8](https://github.com/inavac182/ui-react/commit/1a0f1b85767661c8517291c1c7b0954f30875eab))
+
+
+
+
+
 # [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/table@0.2.0...@uireact/table@0.3.0) (2023-08-29)
 
 
