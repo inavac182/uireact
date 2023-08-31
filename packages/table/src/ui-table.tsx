@@ -17,13 +17,14 @@ import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 
 import { UiTableData } from './types';
-import { privateTableProps } from './types/private-table-props';
+import { privateTableProps, privateTableRowProps } from './types/private-table-props';
 
 export type UiTableProps = {
   data: UiTableData;
   category?: ColorCategory;
   withFilter?: boolean;
   filterBoxPosition?: 'left' | 'right';
+  onClick?: (id: string) => void;
 } & UiReactElementProps;
 
 const Table = styled.table<privateTableProps>`
@@ -36,7 +37,7 @@ const Table = styled.table<privateTableProps>`
       props.$customTheme,
       props.$selectedTheme,
       getColorCategory(props.$category),
-      ColorTokens.token_200
+      ColorTokens.token_100
     )};
   `}
   }
@@ -50,6 +51,26 @@ const TableCol = styled.td`
   text-align: center;
 `;
 
+const TableRow = styled.tr<privateTableRowProps>`
+  ${(props) => `
+    ${
+      props.$hasClickHandler
+        ? `
+            cursor: pointer;
+            &:hover {
+            background-color: ${getThemeColor(
+              props.$customTheme,
+              props.$selectedTheme,
+              getColorCategory(props.$category),
+              ColorTokens.token_100
+            )};
+            }
+          `
+        : ''
+    }
+  `}
+`;
+
 const iconSpacing: UiSpacingProps['margin'] = { top: 'two', left: 'four' };
 
 export const UiTable: React.FC<UiTableProps> = ({
@@ -59,6 +80,7 @@ export const UiTable: React.FC<UiTableProps> = ({
   testId,
   withFilter = true,
   filterBoxPosition,
+  onClick,
 }: UiTableProps) => {
   const theme = React.useContext(ThemeContext);
   const [_data, setPrivateData] = useState(data);
@@ -69,13 +91,20 @@ export const UiTable: React.FC<UiTableProps> = ({
       const newFilterPhrase = e.currentTarget.value;
       setFilterPhrase(newFilterPhrase);
 
-      const filteredData = data.fields.filter(
-        (field) => field.filter((text) => text.includes(newFilterPhrase)).length > 0
+      const filteredData = data.items.filter(
+        (field) => field.cols.filter((text) => text.includes(newFilterPhrase)).length > 0
       );
 
-      setPrivateData({ ...data, fields: filteredData });
+      setPrivateData({ ...data, items: filteredData });
     },
     [setFilterPhrase]
+  );
+
+  const handleClick = useCallback(
+    (id: string) => {
+      onClick?.(id);
+    },
+    [onClick]
   );
 
   return (
@@ -111,12 +140,19 @@ export const UiTable: React.FC<UiTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {_data.fields.map((field, rowIndex) => (
-            <tr key={`table-item-index-${rowIndex}`}>
-              {field.map((text, index) => (
+          {_data.items.map((field, rowIndex) => (
+            <TableRow
+              key={`table-item-index-${rowIndex}`}
+              $hasClickHandler={onClick !== undefined}
+              $customTheme={theme.theme}
+              $selectedTheme={theme.selectedTheme}
+              $category={category}
+              onClick={() => handleClick(field.id)}
+            >
+              {field.cols.map((text, index) => (
                 <TableCol key={`table-item-${rowIndex}-colum-index-${index}`}>{text}</TableCol>
               ))}
-            </tr>
+            </TableRow>
           ))}
         </tbody>
       </Table>

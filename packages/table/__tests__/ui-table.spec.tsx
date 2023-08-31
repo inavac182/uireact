@@ -9,9 +9,9 @@ import { UiTableData } from '../src/types';
 describe('<Component />', () => {
   const data: UiTableData = {
     headings: ['id', 'summary'],
-    fields: [
-      ['1', 'summary 1'],
-      ['2', 'summary 2'],
+    items: [
+      { id: '1', cols: ['1', 'summary 1'] },
+      { id: '2', cols: ['2', 'summary 2'] },
     ],
   };
 
@@ -63,5 +63,29 @@ describe('<Component />', () => {
 
     expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
     expect(screen.getByRole('cell', { name: /summary 2/i })).toBeVisible();
+  });
+
+  it('Executes callback on click correctly', () => {
+    const mockedFn = jest.fn();
+    uiRender(<UiTable data={data} onClick={mockedFn} />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
+
+    expect(mockedFn).toHaveBeenCalledTimes(1);
+    expect(mockedFn).toHaveBeenCalledWith('1');
+  });
+
+  it('Does anything if clicked but no CB is provided', () => {
+    uiRender(<UiTable data={data} />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    fireEvent.click(screen.getByRole('cell', { name: /summary 1/i }));
   });
 });
