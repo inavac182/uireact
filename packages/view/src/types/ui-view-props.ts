@@ -4,6 +4,7 @@ import {
   UiReactElementProps,
   UiReactPrivateElementProps,
   IDialogController,
+  ColorCategory,
 } from '@uireact/foundation';
 
 export type UiViewProps = {
@@ -17,8 +18,12 @@ export type UiViewProps = {
 } & UiReactElementProps;
 
 export type UiViewRowProps = {
+  /** Color category for view row */
+  category?: ColorCategory;
   /** If content should render centered and not fullscreen */
   centeredContent?: boolean;
+  /** If the font color is inversed */
+  inverseFont?: boolean;
   /** The weigth of the background color to use */
   weight?: '10' | '50' | '100' | '150' | '200';
 } & UiReactElementProps;
@@ -28,4 +33,6 @@ export type privateViewProps = Omit<Omit<Omit<UiViewProps, 'selectedTheme'>, 'th
 export type privateViewRowProps = {
   $centeredContent?: boolean;
   $weight?: '10' | '50' | '100' | '150' | '200';
+  $category?: ColorCategory;
+  $inverseFont?: boolean;
 } & UiReactPrivateElementProps;

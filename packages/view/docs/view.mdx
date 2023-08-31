@@ -41,7 +41,7 @@ This component will set up the global styles and providers for @uireact to work 
 
 ViewExample definition:
 
-```
+```tsx
 export const ViewExample: React.FC = () => {
   const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
@@ -49,11 +49,7 @@ export const ViewExample: React.FC = () => {
   };
 
   return (
-    <UiView
-      theme={DefaultTheme}
-      selectedTheme={selectedTheme}
-      centeredContent={centeredContent}
-    >
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme} centeredContent={centeredContent}>
       <p>All the react tree should render inside here</p>
       <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
     </UiView>
@@ -73,7 +69,7 @@ The `UiViewRow` component is used to separate parts of the content of the applic
 
 ViewRowExample definition:
 
-```
+```tsx
 export const ViewRowExample: React.FC = () => {
   const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const toogleTheme = () => {
@@ -85,11 +81,20 @@ export const ViewRowExample: React.FC = () => {
       <UiViewRow weight="10">
         <p>A row with weight 10</p>
       </UiViewRow>
+      <UiViewRow weight="50">
+        <p>A row with weight 50</p>
+      </UiViewRow>
       <UiViewRow>
         <p>A row with default theme</p>
       </UiViewRow>
+      <UiViewRow weight="150">
+        <p>A row with weight 150</p>
+      </UiViewRow>
       <UiViewRow weight="200">
         <p>A row with weight 200</p>
+      </UiViewRow>
+      <UiViewRow inverseFont category="negative">
+        <p>Row with inverse font and category</p>
       </UiViewRow>
       <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
     </UiView>
