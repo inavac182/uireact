@@ -27,7 +27,7 @@
     "@uireact/foundation": "^1.3.0"
   },
   "peerDependencies": {
-    "@uireact/flex-grid": "1.1.0",
+    "@uireact/flex-grid": "1.0.7",
     "@uireact/forms": "^1.4.0",
     "@uireact/foundation": "^1.3.0",
     "@uireact/icon": "^1.4.0",
