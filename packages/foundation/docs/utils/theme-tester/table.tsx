@@ -30,7 +30,7 @@ const data: UiTableData = {
   ],
 };
 
-export const TableExample = (): React.ReactElement => {
+export const TableExample = (): JSX.Element => {
   const callback = (id: string) => {
     console.log(id);
   };

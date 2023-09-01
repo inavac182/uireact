@@ -5,7 +5,7 @@ import { UiSpacing } from '@uireact/foundation';
 import { UiGrid } from '@uireact/grid';
 import { UiHeading, UiText } from '@uireact/text';
 
-export const SupportiveColors = (): React.ReactElement => (
+export const SupportiveColors = (): JSX.Element => (
   <UiSpacing padding={{ all: 'five' }}>
     <UiHeading>Supporting colors</UiHeading>
     <UiText>A few supporting colors to be used for informative messages</UiText>

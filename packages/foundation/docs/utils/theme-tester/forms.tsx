@@ -15,7 +15,7 @@ const Div = styled.div`
   height: 100%;
 `;
 
-export const Forms = (): React.ReactElement => {
+export const Forms = (): JSX.Element => {
   const [checked, setChecked] = useState(false);
 
   const onChecked = useCallback(() => {

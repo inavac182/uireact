@@ -5,7 +5,7 @@ import { UiSpacing, TextSize } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiHeading, UiText } from '@uireact/text';
 
-export const MainColors = (): React.ReactElement => (
+export const MainColors = (): JSX.Element => (
   <UiSpacing padding={{ all: 'five' }}>
     <UiGrid cols={3} colsGap={20}>
       <UiGridItem cols={2}>
