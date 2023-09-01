@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/inavac182/ui-react/compare/@uireact/table@0.4.3...@uireact/table@0.4.4) (2023-09-01)
+
+
+### Bug Fixes
+
+* table peer deps ([d72b3f9](https://github.com/inavac182/ui-react/commit/d72b3f96cd1757ed424a43a35e9a1b2c089bb784))
+
+
+
+
+
 ## 0.4.3 (2023-09-01)
 
 
