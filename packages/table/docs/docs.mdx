@@ -33,11 +33,18 @@ import { UiBadge } from '@uireact/badge';
 <Playground>
   <UiTable
     data={{
-      headings: ['Summary', 'Price'],
+      headings: ['No', 'Summary', 'Price'],
       items: [
-        { id: '1', cols: ['item 1', '$10'] },
-        { id: '2', cols: ['item 2', '$20'] },
-        { id: '3', cols: ['item 3', '$30'] },
+        { id: '1', cols: ['1', 'item 1', '$10'] },
+        { id: '2', cols: ['2', 'item 2', '$20'] },
+        { id: '3', cols: ['3', 'item 3', '$30'] },
+        { id: '4', cols: ['4', 'item 4', '$40'] },
+        { id: '5', cols: ['5', 'item 5', '$50'] },
+        { id: '6', cols: ['6', 'item 6', '$60'] },
+        { id: '7', cols: ['7', 'item 7', '$70'] },
+        { id: '8', cols: ['8', 'item 8', '$80'] },
+        { id: '9', cols: ['9', 'item 9', '$90'] },
+        { id: '10', cols: ['10', 'item 10', '$100'] },
       ],
     }}
     onSelect={(id) => {

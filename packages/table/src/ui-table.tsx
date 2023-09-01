@@ -10,7 +10,6 @@ import {
   UiSpacing,
   UiSpacingProps,
   getColorCategory,
-  getTextSizeFromSizeString,
   getThemeColor,
 } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
@@ -35,6 +34,7 @@ export type UiTableProps = {
 
 const Table = styled.table<privateTableProps>`
   width: 100%;
+
   th {
     ${(props) => `
     border: 0;
@@ -51,10 +51,14 @@ const Table = styled.table<privateTableProps>`
 
 const TableHeadingCol = styled.th`
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;
 
 const TableCol = styled.td`
   text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
 `;
 
 const TableRow = styled.tr<privateTableRowProps>`
@@ -70,9 +74,8 @@ const TableRow = styled.tr<privateTableRowProps>`
                 getColorCategory(props.$category),
                 ColorTokens.token_100
               )};
-              font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
             }
-            transition: font-size .2s, background .2s;
+            transition: background .2s;
           `
         : ''
     }
@@ -85,7 +88,6 @@ const TableRow = styled.tr<privateTableRowProps>`
               getColorCategory(props.$category),
               ColorTokens.token_100
             )};
-            font-size: ${getTextSizeFromSizeString(props.$customTheme, 'large')};
           `
         : ''
     }

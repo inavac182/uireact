@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@uireact/flex-grid": "1.0.7",
-    "@uireact/form": "^1.4.0",
+    "@uireact/form": "^1.6.0",
     "@uireact/foundation": "^1.3.0",
     "@uireact/icons": "^1.4.0",
     "react": ">= 17 < 19",
