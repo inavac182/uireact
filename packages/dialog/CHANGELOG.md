@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.5 (2023-09-01)
+
+
+### Bug Fixes
+
+* **dialog:** dialog controller not updating sometimes on dialog closure ([350518a](https://github.com/inavac182/ui-react/commit/350518aac50bd62ad3674664c24f9041c6385d36))
+
+
+
+
+
 ## [1.1.4](https://github.com/inavac182/ui-react/compare/@uireact/dialog@1.1.3...@uireact/dialog@1.1.4) (2023-08-23)
 
 **Note:** Version bump only for package @uireact/dialog
