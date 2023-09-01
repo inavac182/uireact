@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2023-09-01)
+
+
+### Features
+
+* theme tester upgrade ([#255](https://github.com/inavac182/ui-react/issues/255)) ([5870018](https://github.com/inavac182/ui-react/commit/587001805afd53b56fa24f8981550f5e3bd99a92))
+
+
+
+
+
 # 1.5.0 (2023-08-29)
 
 

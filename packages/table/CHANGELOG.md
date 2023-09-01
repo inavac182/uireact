@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3 (2023-09-01)
+
+
+### Bug Fixes
+
+* peer dep in table package ([0e2a0ad](https://github.com/inavac182/ui-react/commit/0e2a0ad04d7e265153cb1e13cdef9cc0ba948c8b))
+
+
+
+
+
 ## [0.4.2](https://github.com/inavac182/ui-react/compare/@uireact/table@0.4.1...@uireact/table@0.4.2) (2023-08-31)
 
 **Note:** Version bump only for package @uireact/table
