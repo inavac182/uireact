@@ -1,4 +1,4 @@
-import React, { FormEvent, useCallback, useState } from 'react';
+import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -145,6 +145,10 @@ export const UiTable: React.FC<UiTableProps> = ({
     },
     [selectedRow, onSelect]
   );
+
+  useEffect(() => {
+    setPrivateData(data);
+  }, [data]);
 
   return (
     <div>
