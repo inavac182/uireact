@@ -18,6 +18,7 @@ import { SupportiveColors } from './theme-tester/supportive-colors';
 import { Texts } from './theme-tester/texts';
 import { Forms } from './theme-tester/forms';
 import { TableExample } from './theme-tester/table';
+import { UiFlexGrid } from '@uireact/flex-grid';
 
 export const TestTheme: React.FC = () => {
   const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
@@ -84,6 +85,20 @@ export const TestTheme: React.FC = () => {
       <UiBubblesSeparator to="tertiary" from="secondary" inverse />
       <UiViewRow category="secondary">
         <TableExample />
+      </UiViewRow>
+      <UiViewRow weight="10">
+        <UiHeading centered>Badges</UiHeading>
+        <UiSpacing padding={{ left: 'three' }}>
+          <UiFlexGrid columnGap="three">
+            <UiBadge category="primary">Lorem 🍎</UiBadge>
+            <UiBadge category="secondary">Lorem 🍊</UiBadge>
+            <UiBadge category="tertiary">Lorem 🍋</UiBadge>
+            <UiBadge category="positive">Lorem 🍉</UiBadge>
+            <UiBadge category="error">Lorem 🍇</UiBadge>
+            <UiBadge category="warning">Lorem 🍆</UiBadge>
+            <UiBadge category="negative">Lorem 🌶️</UiBadge>
+          </UiFlexGrid>
+        </UiSpacing>
       </UiViewRow>
     </UiView>
   );

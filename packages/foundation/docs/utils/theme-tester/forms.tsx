@@ -26,7 +26,7 @@ export const Forms = (): React.ReactElement => {
     <UiSpacing padding={{ all: 'five' }}>
       <UiHeading centered>Forms</UiHeading>
       <UiCard weight="10">
-        <UiGrid colsGap={5} cols={7}>
+        <UiGrid colsGap={5} rowsGap={5} cols={{ small: 3, medium: 3, large: 7, xlarge: 7 }}>
           <UiButton>
             <UiSpacing padding={{ block: 'four' }}>Primary 🐣</UiSpacing>
           </UiButton>
