@@ -21,9 +21,10 @@ const Select = styled.select<privateSelectProps>`
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
-
   padding: 5px 10px 5px 10px;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 
   :disabled {
     cursor: not-allowed;
@@ -36,6 +37,7 @@ const WrapperDiv = styled.div`
 
 const SelectDiv = styled.div`
   display: inline-block;
+  flex-grow: 1;
 `;
 
 export const UiSelect: React.FC<UiSelectProps> = ({
@@ -61,7 +63,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   );
 
   return (
-    <>
+    <div>
       {label && labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category}>
@@ -95,7 +97,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
           {error && <UiText category={category}>{error}</UiText>}
         </SelectDiv>
       </WrapperDiv>
-    </>
+    </div>
   );
 };
 

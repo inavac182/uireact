@@ -86,10 +86,13 @@ const CheckboxPillDot = styled.span<privateCheckboxProps>`
 
 const LabelSpan = styled.span<privateCheckboxLabelProps>`
   ${(props) => `
-    ${props.$labelPosition === 'END' ? 'position: absolute; left: 75px;' : 'position: relative; left: 0px;'}
+    ${props.$labelPosition === 'END' ? 'padding-left: 10px;' : ''}
   `}
+`;
 
-  width: max-content;
+const Div = styled.div`
+  position: relative;
+  display: flex;
 `;
 
 export const UiCheckbox: React.FC<UiCheckboxProps> = ({
@@ -105,7 +108,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
   const themeContext = React.useContext(ThemeContext);
 
   return (
-    <>
+    <Div>
       <CheckboxInput
         checked={checked}
         $customTheme={themeContext.theme}
@@ -152,7 +155,7 @@ export const UiCheckbox: React.FC<UiCheckboxProps> = ({
           )}
         </>
       </Label>
-    </>
+    </Div>
   );
 };
 

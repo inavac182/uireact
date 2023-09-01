@@ -6,7 +6,7 @@ export type UiCheckboxProps = {
   /** If checkbox is disabled */
   disabled?: boolean;
   /** Checkbox name used to identify it */
-  name?: string;
+  name: string;
   /** Label to render next to checkbox */
   label?: string;
   /** Label position */
@@ -25,7 +25,7 @@ export type privateCheckboxProps = {
   /** If checkbox is disabled */
   disabled?: boolean;
   /** Checkbox name used to identify it */
-  $name?: string;
+  name?: string;
   /** Label to render next to checkbox */
   $label?: string;
   /** Label position */
