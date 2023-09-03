@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-09-03)
+
+
+### Features
+
+* **dialog:** adding gradient animated border to dialog ([#256](https://github.com/inavac182/ui-react/issues/256)) ([b735498](https://github.com/inavac182/ui-react/commit/b735498ddeb71ab4d9b10fd5569d50a4b7f3e49b))
+
+
+
+
+
 ## 1.1.5 (2023-09-01)
 
 
