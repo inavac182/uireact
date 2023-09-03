@@ -25,5 +25,5 @@ export type UiDialogProps = {
 
 export type privateUiDialogProps = {
   /** Position where the dialog will be rendered */
-  type?: UiDialogType;
+  $type?: UiDialogType;
 } & UiReactPrivateElementProps;

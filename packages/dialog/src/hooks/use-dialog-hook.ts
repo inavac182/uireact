@@ -20,7 +20,7 @@ export const useDialog = (dialogId: string): UseDialogHook => {
       openDialog: () => dialogController.openDialog(dialogId),
       closeDialog: () => dialogController.closeDialog(dialogId),
     };
-  }, [dialogId, dialogController]);
+  }, [dialogId]);
 
   React.useEffect(() => {
     let opened = false;
@@ -32,7 +32,7 @@ export const useDialog = (dialogId: string): UseDialogHook => {
     });
 
     setIsOpen(opened);
-  });
+  }, [dialogController, setIsOpen]);
 
   return { isOpen, actions };
 };

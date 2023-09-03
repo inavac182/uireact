@@ -246,4 +246,17 @@ describe('<UiDialog />', () => {
       expect(screen.queryByRole('button', { name: 'Close button' })).not.toBeInTheDocument();
     });
   });
+
+  it('opens and closes dialog when using light theme', () => {
+    uiRender(<MockedComponent handleDialogClose={handleDialogClose} />, ThemeColor.light);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    expect(screen.getByText('Dialog content')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    expect(handleDialogClose).toHaveBeenCalledTimes(1);
+  });
 });
