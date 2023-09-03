@@ -15,7 +15,7 @@ export const DocsTheme: Theme = {
       token_50: '#2E2E2E',
       token_100: '#1C1C1C',
       token_150: '#0F0F0F',
-      token_200: '#000000',
+      token_200: '#0F0F0F',
     },
     secondary: {
       token_10: '#3A236A',
