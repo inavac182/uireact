@@ -1,23 +1,12 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import styled from 'styled-components';
-
-import {
-  ColorCategory,
-  ColorTokens,
-  ThemeContext,
-  UiReactElementProps,
-  UiSpacing,
-  UiSpacingProps,
-  getColorCategory,
-  getThemeColor,
-} from '@uireact/foundation';
+import { ColorCategory, ThemeContext, UiReactElementProps, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 
 import { UiTableData } from './types';
-import { privateTableProps, privateTableRowProps } from './types/private-table-props';
+import { Table, TableHeadingCol, TableRow, TableCol } from './private';
 
 export type UiTableProps = {
   /** The data object that will be rendered in the table */
@@ -28,71 +17,11 @@ export type UiTableProps = {
   withFilter?: boolean;
   /** Flag for positioning the filter bar */
   filterBoxPosition?: 'left' | 'right';
+  /** The id of the selected field */
+  selected?: string;
   /** onClick CB to be executed when a row is selected */
-  onSelect?: (id: string) => void;
+  onClick?: (id: string) => void;
 } & UiReactElementProps;
-
-const Table = styled.table<privateTableProps>`
-  width: 100%;
-
-  th {
-    ${(props) => `
-    border: 0;
-    margin: 0;
-    border-bottom: 3px solid ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$category),
-      ColorTokens.token_100
-    )};
-  `}
-  }
-`;
-
-const TableHeadingCol = styled.th`
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-`;
-
-const TableCol = styled.td`
-  text-align: center;
-  padding-top: 3px;
-  padding-bottom: 3px;
-`;
-
-const TableRow = styled.tr<privateTableRowProps>`
-  ${(props) => `
-    ${
-      props.$hasClickHandler
-        ? `
-            cursor: pointer;
-            &:hover {
-              background: ${getThemeColor(
-                props.$customTheme,
-                props.$selectedTheme,
-                getColorCategory(props.$category),
-                ColorTokens.token_100
-              )};
-            }
-            transition: background .2s;
-          `
-        : ''
-    }
-    ${
-      props.$isSelected
-        ? `
-            background: ${getThemeColor(
-              props.$customTheme,
-              props.$selectedTheme,
-              getColorCategory(props.$category),
-              ColorTokens.token_100
-            )};
-          `
-        : ''
-    }
-  `}
-`;
 
 const iconSpacing: UiSpacingProps['margin'] = { top: 'two', left: 'four' };
 
@@ -103,10 +32,10 @@ export const UiTable: React.FC<UiTableProps> = ({
   testId,
   withFilter = true,
   filterBoxPosition,
-  onSelect,
+  selected,
+  onClick,
 }: UiTableProps) => {
   const theme = React.useContext(ThemeContext);
-  const [selectedRow, setSelectedRow] = useState('');
   const [_data, setPrivateData] = useState(data);
   const [filterPhrase, setFilterPhrase] = useState('');
 
@@ -115,35 +44,20 @@ export const UiTable: React.FC<UiTableProps> = ({
       const newFilterPhrase = e.currentTarget.value;
       setFilterPhrase(newFilterPhrase);
 
-      if (onSelect && selectedRow) {
-        onSelect('');
-        setSelectedRow('');
-      }
-
       const filteredData = data.items.filter(
         (field) => field.cols.filter((text) => text.includes(newFilterPhrase)).length > 0
       );
 
       setPrivateData({ ...data, items: filteredData });
     },
-    [selectedRow, setFilterPhrase, onSelect]
+    [setFilterPhrase, onClick]
   );
 
   const handleClick = useCallback(
     (id: string) => {
-      if (!onSelect) {
-        return;
-      }
-
-      if (id === selectedRow) {
-        onSelect('');
-        setSelectedRow('');
-      } else {
-        onSelect(id);
-        setSelectedRow(id);
-      }
+      onClick?.(id);
     },
-    [selectedRow, onSelect]
+    [onClick]
   );
 
   useEffect(() => {
@@ -186,8 +100,8 @@ export const UiTable: React.FC<UiTableProps> = ({
           {_data.items.map((field, rowIndex) => (
             <TableRow
               key={`table-item-index-${rowIndex}`}
-              $hasClickHandler={onSelect !== undefined}
-              $isSelected={selectedRow === field.id}
+              $hasClickHandler={onClick !== undefined}
+              $isSelected={selected === field.id}
               $customTheme={theme.theme}
               $selectedTheme={theme.selectedTheme}
               $category={category}

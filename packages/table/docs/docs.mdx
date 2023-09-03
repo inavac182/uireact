@@ -47,19 +47,16 @@ import { UiBadge } from '@uireact/badge';
         { id: '10', cols: ['10', 'item 10', '$100'] },
       ],
     }}
-    onSelect={(id) => {
-      if (id) {
-        alert(`Row selected ${id}`);
-      } else {
-        alert('Row unselected');
-      }
+    selected="3"
+    onClick={(id) => {
+      selected = id;
+      console.log(`id ${id} selected`);
     }}
   />
 </Playground>
 
-- If a row is selected the `onSelect` CB is executed
-- If the same row is selected again then its unselected and the `onSelect` CB is executed with empty id.
-- If the filter box is used AND there is a row selected, then the state is reset and the `onSelect` CB is executed with empty id.
+- If a row is selected the `onClick` CB is executed
+- If you pass a `selected` id to the table that row will show as selected in the table
 
 ## UiTable - with category
 
