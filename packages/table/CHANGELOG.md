@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.7](https://github.com/inavac182/ui-react/compare/@uireact/table@0.4.6...@uireact/table@0.4.7) (2023-09-03)
+
+
+### Bug Fixes
+
+* restore private data if parent data changes ([6f9e152](https://github.com/inavac182/ui-react/commit/6f9e152c83c708d2ce0f5146216a08349a74dbf7))
+
+
+
+
+
 ## 0.4.6 (2023-09-01)
 
 
