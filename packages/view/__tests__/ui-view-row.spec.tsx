@@ -30,6 +30,19 @@ describe('<UiViewRow />', () => {
     expect(screen.getByText('Content 2')).toBeVisible();
   });
 
+  it('Should render fine when is centered and width xlarge', () => {
+    global.innerWidth = 1450;
+    uiRender(
+      <UiViewRow centeredContent>
+        <p>Content 1</p>
+        <p>Content 2</p>
+      </UiViewRow>
+    );
+
+    expect(screen.getByText('Content 1')).toBeVisible();
+    expect(screen.getByText('Content 2')).toBeVisible();
+  });
+
   it('Should add class name', () => {
     uiRender(<UiViewRow className="someClass">Content 1</UiViewRow>);
 
