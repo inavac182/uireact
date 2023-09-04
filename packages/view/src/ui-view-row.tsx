@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Breakpoints, getThemeStyling, ThemeContext, UiViewport } from '@uireact/foundation';
+import { Breakpoints, getThemeStyling, ThemeContext, UiViewport, useViewport } from '@uireact/foundation';
 
 import { privateViewRowProps, UiViewRowProps } from './types';
 import { dynamicViewRowMapper } from './theme';
@@ -23,6 +23,7 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
   inverseFont,
   weight,
 }: UiViewRowProps) => {
+  const viewport = useViewport();
   const themeContext = React.useContext(ThemeContext);
 
   return (
@@ -36,11 +37,8 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
     >
       {centeredContent ? (
         <>
-          <UiViewport criteria={Breakpoints.XLARGE}>
-            <CenteredDiv $size="xl">{children}</CenteredDiv>
-          </UiViewport>
-          <UiViewport criteria={Breakpoints.LARGE}>
-            <CenteredDiv $size="l">{children}</CenteredDiv>
+          <UiViewport criteria={'l|xl'}>
+            <CenteredDiv $size={viewport.isLarge ? 'l' : 'xl'}>{children}</CenteredDiv>
           </UiViewport>
           <UiViewport criteria={'s|m'}>{children}</UiViewport>
         </>
