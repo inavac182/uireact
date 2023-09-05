@@ -2,7 +2,13 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
+import {
+  TextSize,
+  ThemeContext,
+  getColorCategory,
+  getTextSizeFromSizeString,
+  getThemeStyling,
+} from '@uireact/foundation';
 
 import { UiLabelProps, privateLabelProps } from './types';
 import { LabelMapper, getLabelDynamicMapper } from './theme';
@@ -14,7 +20,7 @@ const Label = styled.label<privateLabelProps>`
       props.$selectedTheme,
       props.$category ? getLabelDynamicMapper(getColorCategory(props.$category)) : LabelMapper
     )}
-    ${`font-size: ${getTextSize(props.$customTheme, props.$size)};`}
+    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
   `}
 
   padding: 0;

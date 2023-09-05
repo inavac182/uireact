@@ -6,7 +6,7 @@ import { ThemeContext, getHeadingSize, getThemeStyling } from '@uireact/foundati
 
 import { UiHeadingProps, privateHeadingProps } from './types';
 
-import { HeadingMapper } from './theme';
+import { getDynamicHeadingMapper } from './theme';
 
 const commonStyles = `
   padding: 0;
@@ -15,7 +15,12 @@ const commonStyles = `
 `;
 
 const H1 = styled.h1<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
@@ -32,7 +37,12 @@ const H1 = styled.h1<privateHeadingProps>`
   ${commonStyles}
 `;
 const H2 = styled.h2<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
@@ -49,7 +59,12 @@ const H2 = styled.h2<privateHeadingProps>`
   ${commonStyles}
 `;
 const H3 = styled.h3<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
@@ -66,7 +81,12 @@ const H3 = styled.h3<privateHeadingProps>`
   ${commonStyles}
 `;
 const H4 = styled.h4<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
@@ -83,7 +103,12 @@ const H4 = styled.h4<privateHeadingProps>`
   ${commonStyles}
 `;
 const H5 = styled.h5<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
@@ -100,7 +125,12 @@ const H5 = styled.h5<privateHeadingProps>`
   ${commonStyles}
 `;
 const H6 = styled.h6<privateHeadingProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, HeadingMapper)}
+  ${(props) =>
+    getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
+    )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}

@@ -1,4 +1,4 @@
-import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
@@ -9,7 +9,7 @@ export type InverseColorationProp = {
 
 export type UiTextProps = {
   /* Text size to be used, default is regular */
-  size?: TextSize;
+  size?: SizesProp;
   /* Render text centered */
   centered?: boolean;
   /** Font style */
@@ -26,7 +26,7 @@ export type UiTextProps = {
 
 export type privateTextProps = {
   /* Text size to be used, default is regular */
-  $size: TextSize;
+  $size: SizesProp;
   /* Render text centered */
   $centered?: boolean;
   /** Font style */

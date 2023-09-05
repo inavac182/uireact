@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import { TextSize, ThemeColor } from '@uireact/foundation';
+import { ThemeColor } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiText } from '../src';
@@ -25,20 +25,12 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
-  it('renders fine with inverse coloration only in dark theme', () => {
-    uiRender(<UiText inverseColoration={{ dark: true, light: false }}>Text</UiText>);
-
-    expect(screen.getByText('Text')).toBeVisible();
-  });
-
-  it('renders fine with inverse coloration only in light theme', () => {
-    uiRender(<UiText inverseColoration={{ dark: false, light: true }}>Text</UiText>, ThemeColor.light);
-
-    expect(screen.getByText('Text')).toBeVisible();
-  });
-
-  it('renders fine with inverse coloration only in light theme', () => {
-    uiRender(<UiText inverseColoration={{ dark: false, light: true }}>Text</UiText>, ThemeColor.dark);
+  it('renders fine with inverse coloration and inline', () => {
+    uiRender(
+      <UiText inline inverseColoration>
+        Text
+      </UiText>
+    );
 
     expect(screen.getByText('Text')).toBeVisible();
   });
@@ -104,14 +96,14 @@ describe('<UiText />', () => {
   });
 
   it('renders fine when size is provided', () => {
-    uiRender(<UiText size={TextSize.large}>Text</UiText>);
+    uiRender(<UiText size="large">Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
   });
 
   it('renders fine when state is POSITIVE', () => {
     uiRender(
-      <UiText size={TextSize.large} category="positive">
+      <UiText size="large" category="positive">
         Text
       </UiText>
     );
@@ -121,7 +113,7 @@ describe('<UiText />', () => {
 
   it('renders fine when state is ERROR', () => {
     uiRender(
-      <UiText size={TextSize.large} category="error">
+      <UiText size="large" category="error">
         Text
       </UiText>
     );
@@ -131,7 +123,7 @@ describe('<UiText />', () => {
 
   it('renders fine when state is NEGATIVE', () => {
     uiRender(
-      <UiText size={TextSize.large} category="negative">
+      <UiText size="large" category="negative">
         Text
       </UiText>
     );
@@ -143,7 +135,7 @@ describe('<UiText />', () => {
     uiRender(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
-      <UiText size={TextSize.large} category="XXXXXX">
+      <UiText size="large" category="XXXXXX">
         Text
       </UiText>
     );
