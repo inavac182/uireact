@@ -68,6 +68,22 @@ describe('<UiLinearChart />', () => {
     expect(screen.getByText('Current label')).toBeVisible();
   });
 
+  it('renders current label when value is 0', () => {
+    const data: UiLinearChartData = {
+      current: {
+        label: 'Current label',
+        value: 0,
+      },
+      limit: {
+        value: 30,
+      },
+    };
+
+    uiRender(<UiLinearChart data={data} />);
+
+    expect(screen.getByText('Current label')).toBeVisible();
+  });
+
   it('renders current static label', () => {
     const data: UiLinearChartData = {
       current: {
