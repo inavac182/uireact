@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1 (2023-09-05)
+
+
+### Bug Fixes
+
+* linear chart current label padding ([#261](https://github.com/inavac182/ui-react/issues/261)) ([ee9292e](https://github.com/inavac182/ui-react/commit/ee9292ef43627d489d3acb14917450a2e2f99988))
+
+
+
+
+
 # 0.2.0 (2023-08-28)
 
 

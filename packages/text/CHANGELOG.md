@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.9.0 (2023-09-05)
+
+
+### Features
+
+* **text:** inline text and inverse heading ([#260](https://github.com/inavac182/ui-react/issues/260)) ([92a5be6](https://github.com/inavac182/ui-react/commit/92a5be66d738407d9ec8a9ff5393d136aff79412))
+
+
+
+
+
 ## 1.8.1 (2023-08-23)
 
 **Note:** Version bump only for package @uireact/text
