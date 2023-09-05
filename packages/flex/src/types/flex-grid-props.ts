@@ -1,4 +1,4 @@
-import { SpacingType, UiReactPrivateElementProps } from '@uireact/foundation';
+import { SpacingType, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiFlexGridProps = {
   /** Items alignment inside flex grid */
@@ -7,19 +7,19 @@ export type UiFlexGridProps = {
   children?: React.ReactNode;
   /** Spacing between flex columns */
   columnGap?: SpacingType;
-  /** Class name */
-  className?: string;
   /** Flex grid direction */
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   /** Spacing between flex items, value comes from SPACING prop in theme */
   gap?: SpacingType;
+  /** If the flex grid renders inline */
+  inline?: boolean;
   /** Flex grid wrap */
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
   /** Spacing between flex rows */
   rowGap?: SpacingType;
   /** Flex grid wrap */
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-};
+} & UiReactElementProps;
 
 export type privateFlexGridProps = {
   /** Items alignment inside flex grid */
@@ -34,6 +34,7 @@ export type privateFlexGridProps = {
   $direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
   /** Spacing between flex items, value comes from SPACING prop in theme */
   $gap?: SpacingType;
+  $inline?: boolean;
   /** Flex grid wrap */
   $justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
   /** Spacing between flex rows */
