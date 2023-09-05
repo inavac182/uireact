@@ -57,8 +57,6 @@ const schema = {
 };
 ```
 
-All chainable functions have 2 common attributes `errorMessage` and `errorCode`, these are used to provide a message or a code if the validation fails.
-
 Then, we can simple call the function `validator.validate()` passing our schema and our data object to be validated:
 
 ```tsx
@@ -91,8 +89,8 @@ export type UiValidatorResult = {
 };
 ```
 
-So, for a overall validation result `passed` will give you that, for specific errors from the validation `errors` field will have that object with a list of all errors found per each field,
-you can then decide how and which ones to show to your user.
+The `errors` property will have an object with a list of all errors found keyed by field, you can then decide how and which ones to show to your user.
+All chainable functions have a common attribute `errorMessage`, this overrides the default error messaging from the utility.
 
 export const validator = new UiValidator();
 
@@ -116,7 +114,49 @@ Example using a component that receives the schema and the data and then renders
 
 <small>ValidatorRunner is just for demo purposes this package only exports the UiValidator class.</small>
 
+<br />
+<br />
+<br />
+<br />
+
 ## Details 🤓
+
+### Strict mode 🐣
+
+The strict is set as the 3rd parameter to the validate function:
+
+```tsx
+const result = validator.validate(schema, data, true);
+```
+
+This will run the validations in a more strict way and the things validated are:
+
+<UiList>
+  <li>❌ - When the schema has more properties than the data passed.</li>
+  <li>❌ - When a data field exists in the schema but doesn't have rules to be applied.</li>
+  <li>❌ - When a data field doesn't exist in the schema.</li>
+</UiList>
+
+<br />
+<br />
+
+## More details 😴
+
+As if it weren't already from here downwards is a wall of text, go under your own risk...
+
+<iframe
+  src="https://giphy.com/embed/XuDlhFtiWXZEk"
+  width="480"
+  height="271"
+  frameBorder="0"
+  class="giphy-embed"
+  allowFullScreen
+></iframe>
+
+<br />
+<br />
+
+## All chainable rules 🤖
 
 These are the chainable functions that you can use, to set the rules, their possible values and examples:
 
@@ -127,11 +167,26 @@ These are the chainable functions that you can use, to set the rules, their poss
     <th>Validates</th>
   </tr>
   <tr>
+    <td>
+      <UiText>isOptional()</UiText>
+    </td>
+    <td></td>
+    <td>
+      <UiList>
+        <li>✅ everything</li>
+      </UiList>
+      <small>
+        As this is always true, this is used as a bypass when you don't want any rules to be applied/validated to a
+        specific field and you are running the validation in strict.
+      </small>
+    </td>
+  </tr>
+  <tr>
     <td>isRequired()</td>
     <td>
       <UiList>
         <li> ❓ errorMessage</li>
-        <li> ❓ errorCode </li>
+        <li>DEFAULT: `This is required`</li>
       </UiList>
     </td>
     <td>
@@ -155,9 +210,8 @@ These are the chainable functions that you can use, to set the rules, their poss
             <li>&nbsp;&nbsp; email</li>
           </UiList>
         </li>
-        <li></li>
         <li> ❓ errorMessage</li>
-        <li> ❓ errorCode </li>
+        <li>DEFAULT: `This is not a valid (type)`</li>
       </UiList>
     </td>
     <td>
@@ -208,7 +262,7 @@ These are the chainable functions that you can use, to set the rules, their poss
         <li> ❗️ min</li>
         <li> ❗️ max</li>
         <li> ❓ errorMessage</li>
-        <li> ❓ errorCode </li>
+        <li>DEFAULT: `This is not in valid range of (min) and (max)`</li>
       </UiList>
     </td>
     <td>
@@ -225,7 +279,7 @@ These are the chainable functions that you can use, to set the rules, their poss
         <li> ❗️ min</li>
         <li> ❗️ max</li>
         <li> ❓ errorMessage</li>
-        <li> ❓ errorCode </li>
+        <li>DEFAULT: "This does not have a valid length of min (min) and max (max)"</li>
       </UiList>
     </td>
     <td>

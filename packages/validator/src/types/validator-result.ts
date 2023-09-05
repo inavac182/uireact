@@ -2,8 +2,6 @@
 export type UiValidatorError = {
   /** A message to be provided in the error */
   message?: string;
-  /** A code to be provided in the error */
-  code?: string | number;
 };
 
 /** Errors per each field */
