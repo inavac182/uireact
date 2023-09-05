@@ -7,9 +7,8 @@ import { getSpacingSize, ThemeContext } from '@uireact/foundation';
 import { privateFlexGridProps, UiFlexGridProps } from './types';
 
 const Div = styled.div<privateFlexGridProps>`
-  display: flex;
-
   ${(props) => `
+    display: ${props.$inline ? 'inline-flex' : 'flex'};
     ${props.$alignItems ? `align-items: ${props.$alignItems};` : ''}
     ${props.$direction ? `flex-direction: ${props.$direction};` : ''}
     ${props.$columnGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.$columnGap)};` : ''}
@@ -27,8 +26,10 @@ export const UiFlexGrid: React.FC<UiFlexGridProps> = ({
   columnGap,
   direction,
   gap,
+  inline,
   justifyContent,
   rowGap,
+  testId,
   wrap,
 }: UiFlexGridProps) => {
   const theme = React.useContext(ThemeContext);
@@ -37,10 +38,12 @@ export const UiFlexGrid: React.FC<UiFlexGridProps> = ({
     <Div
       $alignItems={alignItems}
       className={className}
+      data-testid={testId}
       $columnGap={columnGap}
       $customTheme={theme.theme}
       $selectedTheme={theme.selectedTheme}
       $direction={direction}
+      $inline={inline}
       $justifyContent={justifyContent}
       $gap={gap}
       $rowGap={rowGap}
