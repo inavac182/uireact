@@ -18,6 +18,12 @@ describe('<UiHeading />', () => {
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
   });
 
+  it('renders fine with inverse coloration', () => {
+    uiRender(<UiHeading inverseColoration>Heading</UiHeading>);
+
+    expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
+  });
+
   it('renders fine when level is unrecognized', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
