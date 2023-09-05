@@ -19,7 +19,11 @@ const Span = styled.span<privateIconProps>`
     ${getThemeStyling(
       props.$customTheme,
       props.$selectedTheme,
-      getDynamicMapper(props.$category ? getColorCategory(props.$category) : ColorCategories.fonts)
+      getDynamicMapper(
+        props.$category ? getColorCategory(props.$category) : ColorCategories.fonts,
+        props.$selectedTheme,
+        props.$inverseColoration
+      )
     )}
     ${props.$size ? `font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
     ${props.$size ? `width: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
@@ -31,7 +35,7 @@ const Span = styled.span<privateIconProps>`
   justify-content: center;
 `;
 
-export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size }: UiIconProps) => {
+export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size, inverseColoration }: UiIconProps) => {
   const themeProvided = React.useContext(ThemeContext);
 
   return (
@@ -40,6 +44,7 @@ export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size }: UiIconProps
       $customTheme={themeProvided.theme}
       $selectedTheme={themeProvided.selectedTheme}
       $size={size}
+      $inverseColoration={inverseColoration}
     >
       <IconComponent icon={icon} />
     </Span>
