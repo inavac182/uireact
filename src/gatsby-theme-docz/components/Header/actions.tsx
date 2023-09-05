@@ -35,15 +35,17 @@ export const Actions = (): React.ReactElement => {
   return (
     <>
       <UiFlexGrid alignItems="center" gap="four">
-        <UiLink href="https://github.com/inavac182/uireact" target="_blank">
-          <img src="/public/gh-logo.png" width="20px" height="20px" />
+        <UiLink>
+          <a href="https://github.com/inavac182/uireact" target="_blank" rel="noreferrer">
+            <UiIcon icon="BrandsGithub" size="large" />
+          </a>
         </UiLink>
         <UiButton onClick={themeSwitcherCB} rounded iconized theme="tertiary">
-          <UiIcon icon="ColorDrop" size="large" />
+          <UiIcon icon="CircleHalfStroke" size="large" />
         </UiButton>
         <MenuIcon>
           <UiButton iconized theme="tertiary" onClick={openMenuCB}>
-            <UiIcon icon="Menu" size="large" />
+            <UiIcon icon="MenuBurger" size="large" />
           </UiButton>
         </MenuIcon>
       </UiFlexGrid>

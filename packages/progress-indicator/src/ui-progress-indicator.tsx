@@ -68,7 +68,7 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
       if (index < steps - 1) {
         elements.push(
           <UiText inline size={TextSize.small} key={`progress-indicator-item-arrow-${index}`}>
-            <UiIcon icon="RightArrow" />
+            <UiIcon icon="CaretRight" />
           </UiText>
         );
       }
