@@ -103,59 +103,93 @@ export class UiValidator {
     return isRequired && value !== null && value !== undefined;
   }
 
-  validate(schema: UiValidatorSchema, data: UiValidatorData): UiValidatorResult {
+  validate(schema: UiValidatorSchema, data: UiValidatorData, strict?: boolean): UiValidatorResult {
     let errors: UiValidatorErrors = {};
     let hasError = false;
 
     if (!schema || Object.keys(schema).length === 0) {
+      console.error('UiValidator - Schema is empty');
+
       return {
         passed: false,
       };
     }
 
     Object.keys(data).map((field) => {
-      const rules = schema[field]?.getRules();
+      const rules = schema[field]?.getRules?.();
       const fieldErrors: UiValidatorError[] = [];
+      let ruleMatched = false;
 
-      if (!rules) {
+      if (!rules && strict) {
+        console.error(`UiValidator - Field ${field} is NOT in schema`);
         hasError = true;
         return;
       }
 
       const value = data[field];
 
-      if (rules.required && !this.validRequired(rules.required.expected, value)) {
-        hasError = true;
-        if (rules.required.error) {
+      if (rules?.required) {
+        ruleMatched = true;
+
+        if (!this.validRequired(rules.required.expected, value)) {
+          hasError = true;
           fieldErrors.push(rules.required.error);
         }
       }
 
-      if (rules.type && !this.validExpectationRule(value, rules.type)) {
-        hasError = true;
-        if (rules.type.error) {
+      if (rules?.type) {
+        ruleMatched = true;
+
+        if (!this.validExpectationRule(value, rules.type)) {
+          hasError = true;
           fieldErrors.push(rules.type.error);
         }
       }
 
-      if (rules.range && !this.validRangeRule(rules.range.min, rules.range.max, value)) {
-        hasError = true;
-        if (rules.range.error) {
+      if (rules?.range) {
+        ruleMatched = true;
+
+        if (!this.validRangeRule(rules.range.min, rules.range.max, value)) {
+          hasError = true;
           fieldErrors.push(rules.range.error);
         }
       }
 
-      if (rules.length && !this.validLengthRule(rules.length.min, rules.length.max, value)) {
-        hasError = true;
-        if (rules.length.error) {
+      if (rules?.length) {
+        ruleMatched = true;
+
+        if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
+          hasError = true;
           fieldErrors.push(rules.length.error);
         }
+      }
+
+      if (!ruleMatched && strict) {
+        console.error(`UiValidator - Field ${field} has NOT valid rules`);
+        hasError = true;
+        return;
       }
 
       if (fieldErrors.length > 0) {
         errors = { ...errors, [field]: fieldErrors };
       }
     });
+
+    if (strict) {
+      Object.keys(schema).map((field) => {
+        let fieldFound = false;
+        Object.keys(data).map((dataField) => {
+          if (field === dataField) {
+            fieldFound = true;
+          }
+        });
+
+        if (!fieldFound) {
+          console.error('UiValidator - schema has different fields than the data passed');
+          hasError = true;
+        }
+      });
+    }
 
     return {
       passed: !hasError,
