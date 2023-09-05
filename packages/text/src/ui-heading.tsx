@@ -147,7 +147,13 @@ const H6 = styled.h6<privateHeadingProps>`
   ${commonStyles}
 `;
 
-export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, children, wrap }: UiHeadingProps) => {
+export const UiHeading: React.FC<UiHeadingProps> = ({
+  level = 3,
+  inverseColoration,
+  centered,
+  children,
+  wrap,
+}: UiHeadingProps) => {
   const theme = React.useContext(ThemeContext);
 
   switch (level) {
@@ -159,6 +165,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H1>
@@ -171,6 +178,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H2>
@@ -183,6 +191,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H3>
@@ -195,6 +204,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H4>
@@ -207,6 +217,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H5>
@@ -219,6 +230,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H6>
@@ -231,6 +243,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({ level = 3, centered, child
           $centered={centered}
           $level={level}
           $wrap={wrap}
+          $inverseColoration={inverseColoration}
         >
           {children}
         </H3>
