@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2023-09-05)
+
+
+### Features
+
+* **validator:** strict mode ([#259](https://github.com/inavac182/ui-react/issues/259)) ([1cc568a](https://github.com/inavac182/ui-react/commit/1cc568a8057e6d451b9bb12f81b3bc72a3e368d6))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@0.1.2...@uireact/validator@0.2.0) (2023-08-28)
 
 

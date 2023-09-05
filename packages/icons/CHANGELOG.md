@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2023-09-05)
+
+
+### Features
+
+* adding inverse coloration for icon ([#258](https://github.com/inavac182/ui-react/issues/258)) ([9e6e86b](https://github.com/inavac182/ui-react/commit/9e6e86b9fff60c98cc437aab6ac0d9f7f558e28b))
+
+
+
+
+
 # 1.4.0 (2023-08-23)
 
 

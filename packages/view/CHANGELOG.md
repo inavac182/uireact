@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.1 (2023-09-05)
+
+
+### Bug Fixes
+
+* build ([155d7f7](https://github.com/inavac182/uireact/commit/155d7f759044341e58b977f0a77eea32c75ce9d5))
+* **view:** centered row renders twice on SSR ([#257](https://github.com/inavac182/uireact/issues/257)) ([d82104e](https://github.com/inavac182/uireact/commit/d82104ed256ee9ff539b7e71d9a89b21d6f17eba))
+
+
+
+
+
 # 1.3.0 (2023-08-31)
 
 
