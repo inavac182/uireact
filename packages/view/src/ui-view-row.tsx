@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { Breakpoints, getThemeStyling, ThemeContext, UiViewport, useViewport } from '@uireact/foundation';
+import { getThemeStyling, ThemeContext, UiViewport, useViewport } from '@uireact/foundation';
 
 import { privateViewRowProps, UiViewRowProps } from './types';
 import { dynamicViewRowMapper } from './theme';
