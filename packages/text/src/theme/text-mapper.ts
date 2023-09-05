@@ -1,5 +1,6 @@
-import { ColorCategories, ColorTokens, ThemeMapper } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, ThemeColor, ThemeMapper } from '@uireact/foundation';
 import { InverseColorationProp } from '../types';
+import { getInverseColoration } from './helpers/get-inverse-coloration';
 
 export const TextMapper: ThemeMapper = {
   normal: {
@@ -13,26 +14,14 @@ export const TextMapper: ThemeMapper = {
 
 export const getDynamicMapper = (
   category: ColorCategories,
-  isDark?: boolean,
+  selectedTheme: ThemeColor,
   inverseColoration?: boolean | InverseColorationProp
 ): ThemeMapper => {
-  let isInverse = false;
-
-  if (typeof inverseColoration === 'object') {
-    if (inverseColoration.dark && isDark) {
-      isInverse = true;
-    } else if (inverseColoration.light && !isDark) {
-      isInverse = true;
-    }
-  } else if (inverseColoration) {
-    isInverse = true;
-  }
-
   return {
     normal: {
       color: {
         category: category,
-        inverse: isInverse,
+        inverse: getInverseColoration(selectedTheme, inverseColoration),
         token: ColorTokens.token_100,
       },
     },

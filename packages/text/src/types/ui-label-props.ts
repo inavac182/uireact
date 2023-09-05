@@ -1,10 +1,10 @@
-import { ColorCategory, TextSize, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiLabelProps = {
   /* For what elements this label is */
   htmlFor?: string;
   /* Text size to be used, default is SMALL */
-  size?: TextSize;
+  size?: SizesProp;
   /* Represents the theme to use for the text, default PRIMARY */
   category?: ColorCategory;
 } & UiReactElementProps;
@@ -14,5 +14,5 @@ export type privateLabelProps = {
   htmlFor?: string;
   /* Represents the theme to use for the text, default PRIMARY */
   $category?: ColorCategory;
-  $size: TextSize;
+  $size: SizesProp;
 } & UiReactPrivateElementProps;

@@ -1,18 +1,29 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import {
   TextSize,
-  ThemeColor,
   ThemeContext,
   getColorCategory,
-  getTextSize,
+  getTextSizeFromSizeString,
   getThemeStyling,
 } from '@uireact/foundation';
 
 import { UiTextProps, privateTextProps } from './types';
 import { TextMapper, getDynamicMapper } from './theme';
+
+const SharedStyle = css<privateTextProps>`
+  ${(props) => `
+    ${props.$centered ? `text-align: center;` : ``}
+    ${props.$align ? `text-align: ${props.$align};` : ``}
+    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
+    ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
+    ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
+    ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
+    ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
+  `}
+`;
 
 const Text = styled.p<privateTextProps>`
   ${(props) => `
@@ -20,23 +31,28 @@ const Text = styled.p<privateTextProps>`
       props.$customTheme,
       props.$selectedTheme,
       props.$category || props.$inverseColoration
-        ? getDynamicMapper(
-            getColorCategory(props.$category),
-            props.$selectedTheme === ThemeColor.dark,
-            props.$inverseColoration
-          )
+        ? getDynamicMapper(getColorCategory(props.$category), props.$selectedTheme, props.$inverseColoration)
         : TextMapper
     )}
-    ${props.$centered ? `text-align: center;` : ``}
-    ${props.$align ? `text-align: ${props.$align};` : ``}
-    ${props.$inline ? `display: inline;` : ``}
-    ${`font-size: ${getTextSize(props.$customTheme, props.$size)};`}
-    ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
-    ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
-    ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
-    ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
   `}
 
+  ${SharedStyle}
+  padding: 0;
+  margin: 0;
+`;
+
+const Span = styled.span<privateTextProps>`
+  ${(props) => `
+    ${getThemeStyling(
+      props.$customTheme,
+      props.$selectedTheme,
+      props.$category || props.$inverseColoration
+        ? getDynamicMapper(getColorCategory(props.$category), props.$selectedTheme, props.$inverseColoration)
+        : TextMapper
+    )}
+  `}
+
+  ${SharedStyle}
   padding: 0;
   margin: 0;
 `;
@@ -52,6 +68,24 @@ export const UiText: React.FC<UiTextProps> = ({
   inverseColoration,
 }: UiTextProps) => {
   const themeContext = React.useContext(ThemeContext);
+
+  if (inline) {
+    return (
+      <Span
+        $category={category}
+        $customTheme={themeContext.theme}
+        $fontStyle={fontStyle}
+        $selectedTheme={themeContext.selectedTheme}
+        $size={size}
+        $align={align}
+        $centered={centered}
+        $inline={inline}
+        $inverseColoration={inverseColoration}
+      >
+        {children}
+      </Span>
+    );
+  }
 
   return (
     <Text
