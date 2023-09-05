@@ -1,6 +1,7 @@
 import React from 'react';
+import { styled } from 'styled-components';
 
-import { ThemeContext, UiReactElementProps, UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { ThemeContext, UiReactElementProps } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
 import { UiFlexGrid } from '@uireact/flex-grid';
 
@@ -11,7 +12,9 @@ export type UiLinearChartProps = {
   data: UiLinearChartData;
 } & UiReactElementProps;
 
-const currentLabelSpacing: UiSpacingProps['padding'] = { top: 'three' };
+const CurrentLabelWrapper = styled.div<{ $current: number }>`
+  padding-top: ${(props) => (props.$current > 0 ? '2px' : '8px')};
+`;
 
 export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId, data }: UiLinearChartProps) => {
   const themeContext = React.useContext(ThemeContext);
@@ -38,9 +41,9 @@ export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId,
           $currentColor={data.current.color}
         >
           {data.current.label && !data.current.labelStatic && (
-            <UiSpacing padding={currentLabelSpacing}>
+            <CurrentLabelWrapper $current={data.current.value}>
               <UiText align="right">{data.current.label}</UiText>
-            </UiSpacing>
+            </CurrentLabelWrapper>
           )}
         </CurrentDiv>
       </WrapperDiv>
