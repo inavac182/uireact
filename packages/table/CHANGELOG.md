@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2023-09-06)
+
+
+### Features
+
+* **icons:** clean up icons ([#263](https://github.com/inavac182/ui-react/issues/263)) ([2b158a1](https://github.com/inavac182/ui-react/commit/2b158a13e694260a4e7eca9ec6bc52f82d6ab934))
+
+
+
+
+
 ## [0.4.7](https://github.com/inavac182/ui-react/compare/@uireact/table@0.4.6...@uireact/table@0.4.7) (2023-09-03)
 
 
