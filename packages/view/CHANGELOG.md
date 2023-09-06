@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2023-09-06)
+
+
+### Features
+
+* adding a prop for no bg in uiview ([#264](https://github.com/inavac182/uireact/issues/264)) ([f99ee0a](https://github.com/inavac182/uireact/commit/f99ee0a99892e0a0502f3a557785c114c12a3656))
+
+
+
+
+
 ## 1.3.1 (2023-09-05)
 
 
