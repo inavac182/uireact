@@ -16,7 +16,7 @@ import {
 import { UiDialogsControllerContext, useDialogController } from '@uireact/foundation';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
-import { themeMapper } from './theme';
+import { getDynamicMapper } from './theme';
 import { CenteredDiv } from './__private';
 
 /* istanbul ignore next */
@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
 
 const Div = styled.div<privateViewProps>`
   ${(props) => `
-    ${getThemeStyling(props.$customTheme, props.$selectedTheme, themeMapper)}
+    ${getThemeStyling(props.$customTheme, props.$selectedTheme, getDynamicMapper(props.$noBackground))}
     ${`font-family: ${props.$customTheme.texts.font};`}
     ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
   `}
@@ -70,30 +70,39 @@ export const UiView: React.FC<UiViewProps> = ({
   theme,
   selectedTheme,
   children,
+  noBackground,
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
 
   return (
-    <ThemeContext.Provider value={{ theme, selectedTheme }}>
-      <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
-        <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} />
-        <Div $customTheme={theme} $selectedTheme={selectedTheme} className={className} data-testid="UiView">
-          {centeredContent ? (
-            <>
-              <UiViewport criteria={Breakpoints.XLARGE}>
-                <CenteredDiv $size="xl">{children}</CenteredDiv>
-              </UiViewport>
-              <UiViewport criteria={Breakpoints.LARGE}>
-                <CenteredDiv $size="l">{children}</CenteredDiv>
-              </UiViewport>
-              <UiViewport criteria={'s|m'}>{children}</UiViewport>
-            </>
-          ) : (
-            <>{children}</>
-          )}
-        </Div>
-      </UiDialogsControllerContext.Provider>
-    </ThemeContext.Provider>
+    <Div
+      $customTheme={theme}
+      $selectedTheme={selectedTheme}
+      className={className}
+      data-testid="UiView"
+      $noBackground={noBackground}
+    >
+      <ThemeContext.Provider value={{ theme, selectedTheme }}>
+        <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
+          <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} />
+          <>
+            {centeredContent ? (
+              <>
+                <UiViewport criteria={Breakpoints.XLARGE}>
+                  <CenteredDiv $size="xl">{children}</CenteredDiv>
+                </UiViewport>
+                <UiViewport criteria={Breakpoints.LARGE}>
+                  <CenteredDiv $size="l">{children}</CenteredDiv>
+                </UiViewport>
+                <UiViewport criteria={'s|m'}>{children}</UiViewport>
+              </>
+            ) : (
+              <>{children}</>
+            )}
+          </>
+        </UiDialogsControllerContext.Provider>
+      </ThemeContext.Provider>
+    </Div>
   );
 };
 

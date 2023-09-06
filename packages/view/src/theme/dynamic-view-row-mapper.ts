@@ -3,7 +3,8 @@ import { ThemeMapper, ColorCategories, ColorTokens, ColorCategory, getColorCateg
 export const dynamicViewRowMapper = (
   weight: '10' | '50' | '100' | '150' | '200' = '100',
   category?: ColorCategory,
-  inverseFont?: boolean
+  inverseFont?: boolean,
+  noBackground?: boolean
 ): ThemeMapper => {
   let token = ColorTokens.token_100;
   let fontToken = ColorTokens.token_100;
@@ -32,6 +33,18 @@ export const dynamicViewRowMapper = (
     default:
       token = ColorTokens.token_100;
       fontToken = ColorTokens.token_100;
+  }
+
+  if (noBackground) {
+    return {
+      normal: {
+        color: {
+          category: ColorCategories.fonts,
+          inverse: inverseFont ?? false,
+          token: fontToken,
+        },
+      },
+    };
   }
 
   return {
