@@ -15,6 +15,8 @@ export type UiViewProps = {
   selectedTheme: ThemeColor;
   /** Theme for the view */
   theme: Theme;
+  /** If the view container should not render a bg */
+  noBackground?: boolean;
 } & UiReactElementProps;
 
 export type UiViewRowProps = {
@@ -26,13 +28,21 @@ export type UiViewRowProps = {
   inverseFont?: boolean;
   /** The weigth of the background color to use */
   weight?: '10' | '50' | '100' | '150' | '200';
+  /** If the view container should not render a bg */
+  noBackground?: boolean;
 } & UiReactElementProps;
 
-export type privateViewProps = Omit<Omit<Omit<UiViewProps, 'selectedTheme'>, 'theme'>, 'dialogController'> &
-  UiReactPrivateElementProps;
+export type privateViewProps = {
+  /** If content should render centered and not fullscreen */
+  $centeredContent?: boolean;
+  /** If the view container should not render a bg */
+  $noBackground?: boolean;
+} & UiReactPrivateElementProps;
+
 export type privateViewRowProps = {
   $centeredContent?: boolean;
   $weight?: '10' | '50' | '100' | '150' | '200';
   $category?: ColorCategory;
   $inverseFont?: boolean;
+  $noBackground?: boolean;
 } & UiReactPrivateElementProps;

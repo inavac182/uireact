@@ -68,4 +68,14 @@ describe('<UiViewRow />', () => {
 
     expect(screen.getByText('Content 1')).toBeVisible();
   });
+
+  it('Should render fine with noBackground', () => {
+    uiRender(
+      <UiViewRow inverseFont noBackground>
+        <p>Content 1</p>
+      </UiViewRow>
+    );
+
+    expect(screen.getByText('Content 1')).toBeVisible();
+  });
 });

@@ -10,6 +10,7 @@ import { UiView } from '../src/ui-view';
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
+  noBackground?: boolean;
 };
 
 const closeDialogMockedFn = jest.fn();
@@ -43,6 +44,7 @@ const MockedComponent = (props: MockedComponentProps) => (
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
+    noBackground={props.noBackground}
   >
     <p>Content</p>
     <DialogComponent />
@@ -79,6 +81,12 @@ describe('<UiView />', () => {
     expect(screen.getByText('Content')).toBeVisible();
   });
 
+  it('renders fine with no background', () => {
+    render(<MockedComponent noBackground />);
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
   it('renders fine when is centered and xlarge', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
@@ -88,6 +96,7 @@ describe('<UiView />', () => {
 
     expect(screen.getByText('Content')).toBeVisible();
   });
+
   it('Should add class name', () => {
     render(<MockedComponent className="someClass" />);
 
