@@ -74,7 +74,7 @@ export const UiTable: React.FC<UiTableProps> = ({
               onChange={onFilter}
               icon={
                 <UiSpacing margin={iconSpacing}>
-                  <UiIcon icon="MagnifyingGlass" />
+                  <UiIcon icon="Search" />
                 </UiSpacing>
               }
             />

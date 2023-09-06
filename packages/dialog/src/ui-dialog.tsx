@@ -66,7 +66,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
         )}
         {!title && !hideCloseIcon && (
           <Button onClick={closeCB} aria-label={closeLabel}>
-            <UiIcon icon="Cross" />
+            <UiIcon icon="X" />
           </Button>
         )}
         {children}
@@ -84,7 +84,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
           )}
           {!title && !hideCloseIcon && (
             <Button onClick={closeCB} aria-label={closeLabel}>
-              <UiIcon icon="Cross" />
+              <UiIcon icon="X" />
             </Button>
           )}
           {children}

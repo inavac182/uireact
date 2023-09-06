@@ -43,9 +43,9 @@ export const Texts = () => (
         </UiCard>
         <UiHeading>Icon</UiHeading>
         <UiCard category="primary">
-          <UiIcon icon="Aeroplane" size="xlarge" /> <UiIcon icon="Aeroplane" size="large" />{' '}
-          <UiIcon icon="Aeroplane" size="regular" /> <UiIcon icon="Aeroplane" size="small" />{' '}
-          <UiIcon icon="Aeroplane" size="xsmall" />
+          <UiIcon icon="Airplay" size="xlarge" /> <UiIcon icon="Airplay" size="large" />{' '}
+          <UiIcon icon="Airplay" size="regular" /> <UiIcon icon="Airplay" size="small" />{' '}
+          <UiIcon icon="Airplay" size="xsmall" />
         </UiCard>
       </UiGridItem>
     </UiGrid>

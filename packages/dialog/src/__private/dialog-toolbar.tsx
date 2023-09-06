@@ -48,7 +48,7 @@ export const DialogToolbar: React.FC<DialogToolbarProps> = ({
     <Div $customTheme={theme.theme} $selectedTheme={theme.selectedTheme}>
       {!hideCloseIcon && (
         <Button onClick={closeCB} aria-label={closeLabel}>
-          <UiIcon icon="Cross" />
+          <UiIcon icon="X" />
         </Button>
       )}
       <UiHeading centered>{title}</UiHeading>
