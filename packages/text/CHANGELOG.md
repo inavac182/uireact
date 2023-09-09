@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.10.0 (2023-09-09)
+
+
+### Features
+
+* render class name in uitext ([e6e342f](https://github.com/inavac182/ui-react/commit/e6e342f4ce553f39f1c288b543e36bf0c6aa0394))
+
+
+
+
+
 # 1.9.0 (2023-09-05)
 
 
