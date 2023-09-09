@@ -13,6 +13,13 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toBeVisible();
   });
 
+  it('renders fine with class name', () => {
+    uiRender(<UiText className="text">Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveClass('text');
+  });
+
   it('renders fine aligned right', () => {
     uiRender(<UiText align="right">Text</UiText>);
 

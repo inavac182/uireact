@@ -60,6 +60,7 @@ const Span = styled.span<privateTextProps>`
 export const UiText: React.FC<UiTextProps> = ({
   align,
   children,
+  className,
   centered,
   inline,
   fontStyle,
@@ -73,6 +74,7 @@ export const UiText: React.FC<UiTextProps> = ({
     return (
       <Span
         $category={category}
+        className={className}
         $customTheme={themeContext.theme}
         $fontStyle={fontStyle}
         $selectedTheme={themeContext.selectedTheme}
@@ -90,6 +92,7 @@ export const UiText: React.FC<UiTextProps> = ({
   return (
     <Text
       $category={category}
+      className={className}
       $customTheme={themeContext.theme}
       $fontStyle={fontStyle}
       $selectedTheme={themeContext.selectedTheme}
