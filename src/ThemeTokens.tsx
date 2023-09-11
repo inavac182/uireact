@@ -11,7 +11,11 @@ const ThemeTokens: React.FC<ThemeTokensProps> = ({ colors }: ThemeTokensProps) =
     <div>
       <div>
         {Object.keys(colors).map((colorsKey, key) => {
-          return <ThemeKeyTable key={`color-key-${key}`} keyLevel={colorsKey} tokens={colors[colorsKey]} />;
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          //@ts-ignore
+          const tokensValue = tokens[token] as ColorTokens;
+
+          return <ThemeKeyTable key={`color-key-${key}`} keyLevel={colorsKey} tokens={tokensValue} />;
         })}
       </div>
     </div>
@@ -32,9 +36,20 @@ const ThemeKeyTable = ({ tokens, keyLevel }: ThemeKeyTableProps) => (
     </thead>
     <tbody>
       {Object.keys(tokens).map((token, key) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        const tokenValue = tokens[token] as string;
+
         return (
           <tr key={`color-token-${key}`}>
-            <td style={{ background: `${tokens[token]}`, color: 'black', padding: '10px', textAlign: 'center' }}>
+            <td
+              style={{
+                background: `${tokenValue}`,
+                color: 'black',
+                padding: '10px',
+                textAlign: 'center',
+              }}
+            >
               <p style={{ margin: token === 'token_100' ? '10px' : '0px' }}>{token}</p>
             </td>
           </tr>

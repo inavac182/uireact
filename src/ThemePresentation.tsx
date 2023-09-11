@@ -12,11 +12,17 @@ const ThemePresentation: React.FC<ThemePresentationProps> = ({ themeMapper }: Th
       <>
         {Object.keys(themeMapper).map((StylePropsKey, key) => (
           <React.Fragment key={`theme-mapper-${key}`}>
+            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+            {/*@ts-ignore*/}
             {Object.keys(themeMapper[StylePropsKey]).map((ThemeKey, key) => (
               <tr key={key}>
                 <td>{StylePropsKey}</td>
                 <td>{ThemeKey}</td>
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+                {/*@ts-ignore*/}
                 <td>{themeMapper[StylePropsKey][ThemeKey].key}</td>
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment*/}
+                {/*@ts-ignore*/}
                 <td>{themeMapper[StylePropsKey][ThemeKey].token}</td>
               </tr>
             ))}
