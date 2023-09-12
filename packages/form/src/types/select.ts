@@ -1,4 +1,5 @@
 import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { FormEvent } from 'react';
 
 export type UiSelectProps = {
   /** If checkbox is disabled */
@@ -35,7 +36,7 @@ export type privateSelectProps = {
   /** Label position */
   $labelOnTop?: boolean;
   /** On change CB to handle checked state */
-  onChange?: (value?: string) => void;
+  onChange?: (e?: FormEvent<HTMLSelectElement>) => void;
   /** React ref */
   ref?: React.Ref<HTMLSelectElement>;
   /** Selected value */

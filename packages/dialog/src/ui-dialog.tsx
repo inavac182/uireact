@@ -38,7 +38,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   }, [actions]);
 
   const escCB = React.useCallback(
-    (event) => {
+    (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeCB();
       }
