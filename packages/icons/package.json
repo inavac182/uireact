@@ -2,8 +2,8 @@
   "name": "@uireact/icons",
   "description": "Icons package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
-  "license": "MIT",
-  "version": "1.6.0",
+  "license": "GNU",
+  "version": "1.7.1",
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +26,7 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "*"
+    "@uireact/foundation": "^1.4.1"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

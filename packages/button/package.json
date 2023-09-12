@@ -2,8 +2,8 @@
   "name": "@uireact/button",
   "description": "Button component from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
-  "license": "MIT",
-  "version": "1.3.1",
+  "license": "GNU",
+  "version": "1.4.1",
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +22,7 @@
     "tsc:watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "*"
+    "@uireact/foundation": "^1.4.1"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

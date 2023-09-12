@@ -67,7 +67,7 @@ describe('<UiSelect />', () => {
     expect(select).toHaveValue('Chevy');
 
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange.mock.calls[0][0]).toBe('Chevy');
+    expect(onChange).toHaveBeenCalledWith('Chevy');
   });
 
   it('does not break if onChange is not provided', () => {

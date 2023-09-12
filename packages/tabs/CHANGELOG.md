@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.1 (2023-09-12)
+
+**Note:** Version bump only for package @uireact/tabs
+
+
+
+
+
+# 1.1.0 (2023-09-12)
+
+
+### Features
+
+* using npm workspaces ([#266](https://github.com/inavac182/ui-react/issues/266)) ([9a7e34f](https://github.com/inavac182/ui-react/commit/9a7e34f437947edc55e2429dea7059e2f8b50fb9))
+
+
+
+
+
 ## 1.0.9 (2023-08-20)
 
 **Note:** Version bump only for package @uireact/tabs

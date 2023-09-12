@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "target": "es5",
     "sourceMap": true,
     "jsx": "react",
@@ -18,12 +19,11 @@
   },
   "exclude": [
     "node_modules",
-    "examples",
-    "src/gatsby-theme-docz"
+    "jest.config.ts"
   ],
   "paths": {
     "@uireact/*": [
-      "packages/**/dist"
+      "packages/**/src"
     ],
-  }
+  },
 }

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.1 (2023-09-12)
+
+**Note:** Version bump only for package @uireact/foundation
+
+
+
+
+
+# 1.4.0 (2023-09-12)
+
+
+### Features
+
+* using npm workspaces ([#266](https://github.com/inavac182/uireact/issues/266)) ([9a7e34f](https://github.com/inavac182/uireact/commit/9a7e34f437947edc55e2429dea7059e2f8b50fb9))
+
+
+
+
+
 # 1.3.0 (2023-08-20)
 
 
