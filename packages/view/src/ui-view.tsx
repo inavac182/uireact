@@ -34,12 +34,17 @@ const GlobalStyle = createGlobalStyle<privateViewProps>`
     ${(props) => `
       ${`font-family: ${props.$customTheme.texts.font};`}
       ${`font-size: ${getTextSize(props.$customTheme, TextSize.regular)};`}
-      ${`background-color: ${getThemeColor(
-        props.$customTheme,
-        props.$selectedTheme,
-        ColorCategories.primary,
-        ColorTokens.token_100
-      )};`}
+      ${
+        !props.$noBackground
+          ? `
+        background-color: ${getThemeColor(
+          props.$customTheme,
+          props.$selectedTheme,
+          ColorCategories.primary,
+          ColorTokens.token_100
+        )};`
+          : ''
+      }
       ${`color: ${getThemeColor(
         props.$customTheme,
         props.$selectedTheme,
@@ -84,7 +89,7 @@ export const UiView: React.FC<UiViewProps> = ({
     >
       <ThemeContext.Provider value={{ theme, selectedTheme }}>
         <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
-          <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} />
+          <GlobalStyle $customTheme={theme} $selectedTheme={selectedTheme} $noBackground={noBackground} />
           <>
             {centeredContent ? (
               <>

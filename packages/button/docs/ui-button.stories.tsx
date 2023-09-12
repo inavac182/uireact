@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { UiButton } from '../src';
 import { UiIcon } from '@uireact/icons';
-import { UiText } from '@uireact/text';
 
 type Story = StoryObj<typeof UiButton>;
 
@@ -49,7 +48,7 @@ export const OnlyIcon: Story = {
 };
 
 const meta: Meta<typeof UiButton> = {
-  title: 'UiButton',
+  title: 'Forms/UiButton',
   component: UiButton,
 };
 
