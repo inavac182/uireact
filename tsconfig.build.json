@@ -18,11 +18,12 @@
     "esModuleInterop": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "jest.config.ts"
   ],
   "paths": {
     "@uireact/*": [
       "packages/**/src"
     ],
-  }
+  },
 }
