@@ -5,11 +5,5 @@
     "baseUrl": "./src",
     "jsx": "react"
   },
-  "exclude": [
-    "coverage",
-    "node_modules",
-    "dist",
-    "__tests__",
-    "jest.config.ts"
-  ]
+  "exclude": ["coverage", "node_modules", "dist", "__tests__", "jest.config.ts"]
 }
