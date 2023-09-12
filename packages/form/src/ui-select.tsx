@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 
 import styled from 'styled-components';
 
@@ -56,8 +56,8 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   const themeContext = React.useContext(ThemeContext);
 
   const handleChange = React.useCallback(
-    (value: string) => {
-      onChange?.(value);
+    (e: FormEvent<HTMLSelectElement>) => {
+      onChange?.(e.currentTarget.value);
     },
     [onChange]
   );
