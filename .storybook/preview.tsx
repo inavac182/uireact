@@ -16,16 +16,19 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: 'Global theme for components',
-      defaultValue: 'light',
+      defaultValue: 'dark',
       toolbar: {
-        // The label to show for this toolbar item
         title: 'Theme',
-        icon: 'circlehollow',
-        // Array of plain string values or MenuItem shape (see below)
+        icon: 'chromatic',
         items: ['light', 'dark'],
-        // Change title based on selected value
         dynamicTitle: true,
       },
+    },
+  },
+  parameters: {
+    backgrounds: { disable: true },
+    viewport: {
+      defaultViewport: 'iphone6',
     },
   },
 };
