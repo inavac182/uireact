@@ -17,8 +17,8 @@ const SharedStyle = css<privateTextProps>`
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
     ${props.$align ? `text-align: ${props.$align};` : ``}
-    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
-    ${`line-height: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
+    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
+    ${`line-height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
     ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
     ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
     ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
