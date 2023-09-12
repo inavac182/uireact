@@ -1,8 +1,7 @@
 {
-  "name": "@uireact/COMPONENT-NAME",
-  "private": true,
-  "description": "COMPONENT-NAME package needed for @uireact packages",
-  "repository": "https://github.com/inavac182/ui-react",
+  "name": "@uireact/tooltip",
+  "description": "@uireact/tooltip package from @uireact library",
+  "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
   "version": "0.0.1",
   "publishConfig": {

@@ -1,0 +1,53 @@
+---
+name: UiTooltip
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiTooltip } from '@uireact/tooltip';
+import { UiText } from '@uireact/text';
+import { UiBadge } from '@uireact/badge';
+
+<UiBadge category="warning">❗️ Beta</UiBadge>
+
+# UiTooltip
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/tooltip/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component used to render extra information on top of texts or icons.
+
+## Installation
+
+> npm i @uireact/foundation @uireact/tooltip
+
+## Above a text element
+
+<Playground>
+  <UiTooltip text="Tooltip! 🐣">
+    <UiText>Tooltip on top</UiText>
+  </UiTooltip>
+  <br />
+  <UiTooltip text="Tooltip! 💋" position="bottom">
+    <UiText>Tooltip on bottom</UiText>
+  </UiTooltip>
+  <br />
+  <UiTooltip text="Tooltip! 🫶" position="left">
+    <UiText>Tooltip on left</UiText>
+  </UiTooltip>
+  <br />
+  <UiTooltip text="Tooltip! 🌶️" position="right">
+    <UiText>Tooltip on right</UiText>
+  </UiTooltip>
+</Playground>
+
+### Props
+
+<Props of={UiTooltip} />

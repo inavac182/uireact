@@ -15,10 +15,11 @@
     "lint": "npx lerna run lint",
     "typescheck": "lerna run tsc",
     "tsc": "npx lerna run tsc",
-    "test": "npm run tsc && npx lerna run test",
+    "test": "npm run tsc && npx lerna run test --concurrency=4 --stream",
     "test:jest": "npx lerna run test --stream",
     "test:coverage": "npx lerna run test:coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "watch": "npx lerna run watch --parallel"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^12.0.1",
