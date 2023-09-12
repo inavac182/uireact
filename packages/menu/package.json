@@ -2,7 +2,7 @@
   "name": "@uireact/menu",
   "description": "menu package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
-  "license": "MIT",
+  "license": "GNU",
   "version": "1.1.0",
   "publishConfig": {
     "access": "public"
@@ -24,8 +24,8 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/dialog": "^0.6.4",
-    "@uireact/foundation": "^1.3.0"
+    "@uireact/dialog": "*",
+    "@uireact/foundation": "*"
   },
   "peerDependencies": {
     "@uireact/dialog": "^1.0.0",

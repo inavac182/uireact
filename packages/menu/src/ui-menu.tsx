@@ -66,7 +66,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   const theme = React.useContext(ThemeContext);
 
   const escCB = React.useCallback(
-    (event) => {
+    (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeMenuCB();
       }

@@ -2,7 +2,7 @@
   "name": "@uireact/foundation",
   "description": "Foundation package needed for @uireact packages",
   "repository": "https://github.com/inavac182/uireact",
-  "license": "MIT",
+  "license": "GNU",
   "version": "1.3.0",
   "publishConfig": {
     "access": "public"

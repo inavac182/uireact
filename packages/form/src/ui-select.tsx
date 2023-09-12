@@ -56,8 +56,8 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   const themeContext = React.useContext(ThemeContext);
 
   const handleChange = React.useCallback(
-    (e) => {
-      onChange?.(e.target.value);
+    (value: string) => {
+      onChange?.(value);
     },
     [onChange]
   );
