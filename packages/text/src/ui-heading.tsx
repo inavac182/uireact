@@ -22,6 +22,7 @@ const H1 = styled.h1<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
     ${
@@ -44,6 +45,7 @@ const H2 = styled.h2<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
         ${
@@ -66,6 +68,7 @@ const H3 = styled.h3<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
         ${
@@ -88,6 +91,7 @@ const H4 = styled.h4<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
         ${
@@ -110,6 +114,7 @@ const H5 = styled.h5<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
         ${
@@ -132,6 +137,7 @@ const H6 = styled.h6<privateHeadingProps>`
       getDynamicHeadingMapper(props.$selectedTheme, props.$inverseColoration)
     )}
   ${(props) => `font-size: ${getHeadingSize(props.$customTheme, props.$level)};`}
+  ${(props) => `line-height: ${getHeadingSize(props.$customTheme, props.$level)};`}
   ${(props) => `
     ${props.$centered ? `text-align: center;` : ``}
         ${

@@ -24,7 +24,8 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.4.2"
+    "@uireact/foundation": "^1.4.2",
+    "@uireact/text": "^1.11.2"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

@@ -66,7 +66,14 @@ const Div = styled.div<__UiSpacingProps>`
   `}
 `;
 
-export const UiSpacing: React.FC<UiSpacingProps> = ({ children, inline, margin, padding, testId }: UiSpacingProps) => {
+export const UiSpacing: React.FC<UiSpacingProps> = ({
+  children,
+  className,
+  inline,
+  margin,
+  padding,
+  testId,
+}: UiSpacingProps) => {
   const themeContext = React.useContext(ThemeContext);
 
   return (
@@ -76,6 +83,7 @@ export const UiSpacing: React.FC<UiSpacingProps> = ({ children, inline, margin, 
       $selectedTheme={themeContext.selectedTheme}
       $margin={margin}
       $padding={padding}
+      className={className}
       data-testid={testId}
     >
       {children}

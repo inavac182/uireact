@@ -25,7 +25,9 @@ const Span = styled.span<privateIconProps>`
         props.$inverseColoration
       )
     )}
-    ${props.$size ? `font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
+    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
+    ${`line-height: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
+    ${`height: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
     ${props.$size ? `width: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
     ${props.$size ? `height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
   `}

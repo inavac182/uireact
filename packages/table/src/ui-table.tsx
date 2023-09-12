@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import { ColorCategory, ThemeContext, UiReactElementProps, UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { ColorCategory, ThemeContext, UiReactElementProps } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
@@ -22,8 +22,6 @@ export type UiTableProps = {
   /** onClick CB to be executed when a row is selected */
   onClick?: (id: string) => void;
 } & UiReactElementProps;
-
-const iconSpacing: UiSpacingProps['margin'] = { top: 'two', left: 'four' };
 
 export const UiTable: React.FC<UiTableProps> = ({
   className,
@@ -69,15 +67,7 @@ export const UiTable: React.FC<UiTableProps> = ({
       {withFilter && (
         <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }}>
           <UiGridItem cols={!filterBoxPosition ? 3 : 1} startingCol={filterBoxPosition === 'right' ? 3 : 1}>
-            <UiInput
-              value={filterPhrase}
-              onChange={onFilter}
-              icon={
-                <UiSpacing margin={iconSpacing}>
-                  <UiIcon icon="Search" />
-                </UiSpacing>
-              }
-            />
+            <UiInput value={filterPhrase} onChange={onFilter} icon={<UiIcon icon="Search" />} />
           </UiGridItem>
         </UiGrid>
       )}
