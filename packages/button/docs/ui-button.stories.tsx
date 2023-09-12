@@ -49,6 +49,7 @@ export const OnlyIcon: Story = {
 
 const meta: Meta<typeof UiButton> = {
   title: 'Forms/UiButton',
+  tags: ['autodocs'],
   component: UiButton,
 };
 

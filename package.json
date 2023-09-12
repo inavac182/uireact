@@ -24,6 +24,7 @@
     "test:coverage": "npx lerna run test:coverage",
     "prepare": "husky install",
     "storybook": "npm run tsc && storybook dev -p 3000",
+    "storybook:docs": "storybook dev --docs",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
