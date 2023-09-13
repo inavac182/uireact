@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/inavac182/ui-react/compare/@uireact/menu@1.3.0...@uireact/menu@1.3.1) (2023-09-13)
+
+**Note:** Version bump only for package @uireact/menu
+
+
+
+
+
 # [1.3.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@1.2.4...@uireact/menu@1.3.0) (2023-09-13)
 
 

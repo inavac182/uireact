@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/inavac182/ui-react/compare/@uireact/dialog@1.5.0...@uireact/dialog@1.6.0) (2023-09-13)
+
+
+### Features
+
+* new line separator ([#272](https://github.com/inavac182/ui-react/issues/272)) ([078db2a](https://github.com/inavac182/ui-react/commit/078db2a2659c6ad8e698f1fdc27da2b5c9ef1fd6))
+
+
+
+
+
 # [1.5.0](https://github.com/inavac182/ui-react/compare/@uireact/dialog@1.4.4...@uireact/dialog@1.5.0) (2023-09-13)
 
 
