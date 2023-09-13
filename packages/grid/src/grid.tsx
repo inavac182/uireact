@@ -14,7 +14,7 @@ const Div = styled.div<privateGridProps>`
     ${getGridTemplate(props.$rows, props.$rowSize, 'rows')}
     ${props.$justifyItems ? `justify-items: ${props.$justifyItems};` : ''}
     ${props.$colsGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.$colsGap)};` : ''}
-    ${props.$rowsGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.$rowsGap)}px;` : ''}
+    ${props.$rowsGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.$rowsGap)};` : ''}
     ${props.$autoFlow ? `grid-auto-flow: ${props.$autoFlow};` : ''}
     ${props.$gridWidth ? `width: ${props.$gridWidth};` : ''}
     ${props.$gridHeight ? `height: ${props.$gridHeight};` : ''}

@@ -11,11 +11,11 @@ export const DocsTheme: Theme = {
       token_200: '#b3b3b3',
     },
     primary: {
-      token_10: '#3A3A3A',
-      token_50: '#2E2E2E',
-      token_100: '#1C1C1C',
-      token_150: '#0F0F0F',
-      token_200: '#0F0F0F',
+      token_10: '#3B3B3B',
+      token_50: '#272727',
+      token_100: '#0F0F0F',
+      token_150: '#070707',
+      token_200: '#000000',
     },
     secondary: {
       token_10: '#3A236A',
