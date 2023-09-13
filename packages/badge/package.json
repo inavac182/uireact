@@ -3,7 +3,7 @@
   "description": "Badge component from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,7 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.4.3"
+    "@uireact/foundation": "^1.5.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

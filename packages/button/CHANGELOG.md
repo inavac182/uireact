@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/inavac182/ui-react/compare/@uireact/button@1.4.3...@uireact/button@1.5.0) (2023-09-13)
+
+
+### Features
+
+* **button:** adding outlined button ([#270](https://github.com/inavac182/ui-react/issues/270)) ([6cd6d5a](https://github.com/inavac182/ui-react/commit/6cd6d5a57baa2f40cbe86e6df6e495b94943cb85))
+
+
+
+
+
 ## [1.4.3](https://github.com/inavac182/ui-react/compare/@uireact/button@1.4.2...@uireact/button@1.4.3) (2023-09-13)
 
 
