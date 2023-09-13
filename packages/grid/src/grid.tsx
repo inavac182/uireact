@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
-import { useViewport, useViewportResponse } from '@uireact/foundation';
+import { ThemeContext, getSpacingSize, useViewport, useViewportResponse } from '@uireact/foundation';
 
 import { getGridTemplate } from './private';
 import { GridBreakpointsDistribution, UiGridProps, privateGridProps } from './types';
@@ -13,8 +13,8 @@ const Div = styled.div<privateGridProps>`
     ${getGridTemplate(props.$cols, props.$colSize, 'cols')}
     ${getGridTemplate(props.$rows, props.$rowSize, 'rows')}
     ${props.$justifyItems ? `justify-items: ${props.$justifyItems};` : ''}
-    ${props.$colsGap ? `column-gap: ${props.$colsGap}px;` : ''}
-    ${props.$rowsGap ? `row-gap: ${props.$rowsGap}px;` : ''}
+    ${props.$colsGap ? `column-gap: ${getSpacingSize(props.$customTheme, props.$colsGap)};` : ''}
+    ${props.$rowsGap ? `row-gap: ${getSpacingSize(props.$customTheme, props.$rowsGap)}px;` : ''}
     ${props.$autoFlow ? `grid-auto-flow: ${props.$autoFlow};` : ''}
     ${props.$gridWidth ? `width: ${props.$gridWidth};` : ''}
     ${props.$gridHeight ? `height: ${props.$gridHeight};` : ''}
@@ -59,6 +59,7 @@ const getSsrValue = (value: number | GridBreakpointsDistribution): number => {
 };
 
 export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
+  const themeContext = useContext(ThemeContext);
   const viewport = useViewport();
   const [cols, setCols] = useState<number>(getSsrValue(props.cols || 1));
 
@@ -81,7 +82,10 @@ export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   return (
     <Div
       $autoFlow={props.autoFlow}
+      $customTheme={themeContext.theme}
+      $selectedTheme={themeContext.selectedTheme}
       className={props.className}
+      data-testid={props.testId}
       $cols={cols}
       $colsGap={props.colsGap}
       $colSize={props.colSize}

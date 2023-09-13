@@ -19,8 +19,7 @@
     "lint": "npm run tsc && npm run eslint",
     "test": "jest",
     "tsc": "tsc",
-    "tsc:watch": "tsc --watch",
-    "watch": "npm run tsc:watch"
+    "watch": "tsc --watch"
   },
   "peerDependencies": {
     "tslib": "^2.5.0"

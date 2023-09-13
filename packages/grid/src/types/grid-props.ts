@@ -1,4 +1,4 @@
-import { UiReactElementProps } from '@uireact/foundation';
+import { SpacingType, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type GridBreakpointsDistribution = {
   small: number;
@@ -13,7 +13,7 @@ export type UiGridProps = {
   /** Number of columns that the grid will have, default is 1 */
   cols?: number | GridBreakpointsDistribution;
   /** Gap between each colum */
-  colsGap?: number;
+  colsGap?: SpacingType;
   /** Size of each col: px or % */
   colSize?: string;
   /** Total width of the grid */
@@ -27,7 +27,7 @@ export type UiGridProps = {
   /** Number of rows that the grid will have, default is 1 */
   rows?: number | GridBreakpointsDistribution;
   /** Gap between each row */
-  rowsGap?: number;
+  rowsGap?: SpacingType;
   /** Size of each row: px or % */
   rowSize?: string;
 } & UiReactElementProps;
@@ -36,7 +36,7 @@ export type privateGridProps = {
   /** Sets the grid-auto-flow property */
   $autoFlow?: 'row' | 'column' | 'row dense' | 'column dense';
   /** Gap between each colum */
-  $colsGap?: number;
+  $colsGap?: SpacingType;
   /** Size of each col: px or % */
   $colSize?: string;
   /** Total width of the grid */
@@ -48,9 +48,9 @@ export type privateGridProps = {
   /** Sets the justify property of all grid items */
   $justifyItems?: 'start' | 'end' | 'center' | 'stretch';
   /** Gap between each row */
-  $rowsGap?: number;
+  $rowsGap?: SpacingType;
   /** Size of each row: px or % */
   $rowSize?: string;
   $cols: number;
   $rows: number;
-};
+} & UiReactPrivateElementProps;

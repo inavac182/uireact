@@ -8,6 +8,10 @@ export type UiCardProps = UiReactElementProps & {
   bordered?: boolean;
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
   clickHandler?: (idenfifier: string | undefined) => void;
+  /** If the card should take full height */
+  fullHeight?: boolean;
+  /** If the card should take full width */
+  fullWidth?: boolean;
   /** The identifier that is shared to the click handler when card is clicked */
   identifier?: string;
   /** Link for redirecting when card is clicked */
@@ -40,6 +44,8 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
         $category={props.category}
         className={props.className}
         $customTheme={themeContext.theme}
+        $fullWidth={props.fullWidth}
+        $fullHeight={props.fullHeight}
         $selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
         $cursorNeeded={props.clickHandler !== undefined}
