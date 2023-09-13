@@ -3,7 +3,7 @@
   "description": "form package needed for @uireact packages",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "publishConfig": {
     "access": "public"
   },
@@ -24,8 +24,8 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.4.2",
-    "@uireact/text": "^1.11.2"
+    "@uireact/foundation": "^1.4.3",
+    "@uireact/text": "^1.11.3"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

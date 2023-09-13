@@ -3,7 +3,7 @@
   "description": "@uireact/charts package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "publishConfig": {
     "access": "public"
   },
@@ -24,9 +24,9 @@
     "watch": "npm run tsc:watch"
   },
   "devDependencies": {
-    "@uireact/flex-grid": "^1.2.2",
-    "@uireact/foundation": "^1.4.2",
-    "@uireact/text": "^1.11.2"
+    "@uireact/flex-grid": "^1.2.3",
+    "@uireact/foundation": "^1.4.3",
+    "@uireact/text": "^1.11.3"
   },
   "peerDependencies": {
     "@uireact/flex-grid": "^1.0.7",

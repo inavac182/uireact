@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/inavac182/ui-react/compare/@uireact/button@1.4.2...@uireact/button@1.4.3) (2023-09-13)
+
+
+### Bug Fixes
+
+* line height for typography elements ([#269](https://github.com/inavac182/ui-react/issues/269)) ([377ae3e](https://github.com/inavac182/ui-react/commit/377ae3eecf4fb04188dfd75431013733f40712fa))
+
+
+
+
+
 ## [1.4.2](https://github.com/inavac182/ui-react/compare/@uireact/button@1.4.1...@uireact/button@1.4.2) (2023-09-12)
 
 **Note:** Version bump only for package @uireact/button
