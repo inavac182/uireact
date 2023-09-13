@@ -1,17 +1,13 @@
 import React from 'react';
 
 import { UiView, UiViewRow } from '@uireact/view';
-import { UiHeading, UiText, UiLink, UiLabel } from '@uireact/text';
-import { DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
-import { UiHeader } from '@uireact/header';
-import { UiCard } from '@uireact/card';
+import { UiHeading } from '@uireact/text';
+import { DefaultTheme, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
-import { UiList, UiListItem } from '@uireact/list';
 import { UiBadge } from '@uireact/badge';
-import { UiInput, UiSelect, UiTextArea } from '@uireact/form';
+import { UiTextArea } from '@uireact/form';
 import { UiButton } from '@uireact/button';
-import { UiIcon } from '@uireact/icons';
-import { UiBubblesSeparator, UiSeparator } from '@uireact/separator';
+import { UiBubblesSeparator, UiDiagonalSeparator } from '@uireact/separator';
 
 import { MainColors } from './theme-tester/main-colors';
 import { SupportiveColors } from './theme-tester/supportive-colors';
@@ -49,7 +45,7 @@ export const TestTheme: React.FC = () => {
     <UiView theme={$customTheme || DefaultTheme} selectedTheme={coloration}>
       <UiViewRow>
         <UiSpacing padding={{ all: 'five' }}>
-          <UiGrid cols={3} rows={2} colsGap={10} rowsGap={10}>
+          <UiGrid cols={3} rows={2} colsGap="five" rowsGap="five">
             <UiGridItem cols={2} rows={2}>
               <UiTextArea value={themeInput} onChange={handleChange} rows={5} />
             </UiGridItem>
@@ -66,11 +62,11 @@ export const TestTheme: React.FC = () => {
           </UiGrid>
         </UiSpacing>
       </UiViewRow>
-      <UiSeparator from="primary" to="secondary" />
+      <UiDiagonalSeparator from="primary" to="secondary" />
       <UiViewRow category="secondary">
         <MainColors />
       </UiViewRow>
-      <UiSeparator from="primary" to="secondary" inverse />
+      <UiDiagonalSeparator from="primary" to="secondary" inverse />
       <UiViewRow>
         <SupportiveColors />
       </UiViewRow>

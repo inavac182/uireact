@@ -3,17 +3,17 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 
 import { uiRender } from '../../../__tests__/utils/render';
-import { UiSeparator } from '../src/';
+import { UiDiagonalSeparator } from '../src';
 
-describe('<UiSeparator />', () => {
+describe('<UiDiagonalSeparator />', () => {
   it('renders fine', () => {
-    uiRender(<UiSeparator from="primary" to="secondary" testId="separator" />);
+    uiRender(<UiDiagonalSeparator from="primary" to="secondary" testId="separator" />);
 
     expect(screen.getByTestId('separator')).toBeVisible();
   });
 
   it('renders fine inversed', () => {
-    uiRender(<UiSeparator from="primary" to="secondary" testId="separator" inverse />);
+    uiRender(<UiDiagonalSeparator from="primary" to="secondary" testId="separator" inverse />);
 
     expect(screen.getByTestId('separator')).toBeVisible();
   });

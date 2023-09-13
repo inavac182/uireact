@@ -80,7 +80,7 @@ const ContentDiv = styled.div<privateUiDialogProps>`
       props.$customTheme,
       props.$selectedTheme,
       ColorCategories.primary,
-      ColorTokens.token_200
+      ColorTokens.token_100
     )};
     border-radius: ${getBorderRadius(props.$type)};
     padding: 5px;

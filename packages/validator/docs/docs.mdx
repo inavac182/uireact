@@ -161,134 +161,138 @@ As if it weren't already from here downwards is a wall of text, go under your ow
 These are the chainable functions that you can use, to set the rules, their possible values and examples:
 
 <table>
-  <tr>
-    <th>Rule</th>
-    <th>Options</th>
-    <th>Validates</th>
-  </tr>
-  <tr>
-    <td>
-      <UiText>isOptional()</UiText>
-    </td>
-    <td></td>
-    <td>
-      <UiList>
-        <li>✅ everything</li>
-      </UiList>
-      <small>
-        As this is always true, this is used as a bypass when you don't want any rules to be applied/validated to a
-        specific field and you are running the validation in strict.
-      </small>
-    </td>
-  </tr>
-  <tr>
-    <td>isRequired()</td>
-    <td>
-      <UiList>
-        <li> ❓ errorMessage</li>
-        <li>DEFAULT: `This is required`</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>❌ null</li>
-        <li>❌ undefined</li>
-        <li>✅ everything else</li>
-      </UiList>
-    </td>
-  </tr>
-  <tr>
-    <td>type()</td>
-    <td>
-      <UiList>
-        <li>
-          ❗️ type
-          <UiList>
-            <li>&nbsp;&nbsp; string</li>
-            <li>&nbsp;&nbsp; numeric</li>
-            <li>&nbsp;&nbsp; phone</li>
-            <li>&nbsp;&nbsp; email</li>
-          </UiList>
-        </li>
-        <li> ❓ errorMessage</li>
-        <li>DEFAULT: `This is not a valid (type)`</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>
-          string
-          <UiList>
-            <li>&nbsp;&nbsp; ✅ string type</li>
-            <li>&nbsp;&nbsp; ❌ everything else</li>
-          </UiList>
-        </li>
-        <li>
-          numeric
-          <UiList>
-            <li>&nbsp;&nbsp; ✅ number type</li>
-            <li>&nbsp;&nbsp; ✅ strings that can be parsed as number</li>
-            <li>&nbsp;&nbsp; ❌ everything else</li>
-          </UiList>
-        </li>
-        <li>
-          phone
-          <UiList>
-            <li>&nbsp;&nbsp; ✅ All phones with most common patterns</li>
-            <li>
-              <small>
-                &nbsp;&nbsp; *This is intended to validate most of the American and European areas. More info underneath
-                this table.
-              </small>
-            </li>
-          </UiList>
-        </li>
-        <li>
-          email
-          <UiList>
-            <li>&nbsp;&nbsp; ✅ Using . or _ or - in their name (test.n-a_me@domain.com)</li>
-            <li>&nbsp;&nbsp; ✅ Emails using 2-3 digits for top level domain (.com || .mx)</li>
-            <li>&nbsp;&nbsp; ✅ With top level domain and regional domain (.co.uk)</li>
-            <li>&nbsp;&nbsp; ❌ everything else</li>
-          </UiList>
-        </li>
-      </UiList>
-    </td>
-  </tr>
-  <tr>
-    <td>range()</td>
-    <td>
-      <UiList>
-        <li> ❗️ min</li>
-        <li> ❗️ max</li>
-        <li> ❓ errorMessage</li>
-        <li>DEFAULT: `This is not in valid range of (min) and (max)`</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>✅ If the value is NUMERIC AND is bigger or equal than min and smaller or equal than max.</li>
-        <li>❌ Everything else</li>
-      </UiList>
-    </td>
-  </tr>
-  <tr>
-    <td>length()</td>
-    <td>
-      <UiList>
-        <li> ❗️ min</li>
-        <li> ❗️ max</li>
-        <li> ❓ errorMessage</li>
-        <li>DEFAULT: "This does not have a valid length of min (min) and max (max)"</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>✅ If the STRING is longer or equal than min and shorter or equal than max.</li>
-        <li>❌ Everything else</li>
-      </UiList>
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Rule</th>
+      <th>Options</th>
+      <th>Validates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <UiText>isOptional()</UiText>
+      </td>
+      <td></td>
+      <td>
+        <UiList>
+          <li>✅ everything</li>
+        </UiList>
+        <small>
+          As this is always true, this is used as a bypass when you don't want any rules to be applied/validated to a
+          specific field and you are running the validation in strict.
+        </small>
+      </td>
+    </tr>
+    <tr>
+      <td>isRequired()</td>
+      <td>
+        <UiList>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: `This is required`</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>❌ null</li>
+          <li>❌ undefined</li>
+          <li>✅ everything else</li>
+        </UiList>
+      </td>
+    </tr>
+    <tr>
+      <td>type()</td>
+      <td>
+        <UiList>
+          <li>
+            ❗️ type
+            <UiList>
+              <li>&nbsp;&nbsp; string</li>
+              <li>&nbsp;&nbsp; numeric</li>
+              <li>&nbsp;&nbsp; phone</li>
+              <li>&nbsp;&nbsp; email</li>
+            </UiList>
+          </li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: `This is not a valid (type)`</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>
+            string
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ string type</li>
+              <li>&nbsp;&nbsp; ❌ everything else</li>
+            </UiList>
+          </li>
+          <li>
+            numeric
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ number type</li>
+              <li>&nbsp;&nbsp; ✅ strings that can be parsed as number</li>
+              <li>&nbsp;&nbsp; ❌ everything else</li>
+            </UiList>
+          </li>
+          <li>
+            phone
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ All phones with most common patterns</li>
+              <li>
+                <small>
+                  &nbsp;&nbsp; *This is intended to validate most of the American and European areas. More info
+                  underneath this table.
+                </small>
+              </li>
+            </UiList>
+          </li>
+          <li>
+            email
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ Using . or _ or - in their name (test.n-a_me@domain.com)</li>
+              <li>&nbsp;&nbsp; ✅ Emails using 2-3 digits for top level domain (.com || .mx)</li>
+              <li>&nbsp;&nbsp; ✅ With top level domain and regional domain (.co.uk)</li>
+              <li>&nbsp;&nbsp; ❌ everything else</li>
+            </UiList>
+          </li>
+        </UiList>
+      </td>
+    </tr>
+    <tr>
+      <td>range()</td>
+      <td>
+        <UiList>
+          <li> ❗️ min</li>
+          <li> ❗️ max</li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: `This is not in valid range of (min) and (max)`</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ If the value is NUMERIC AND is bigger or equal than min and smaller or equal than max.</li>
+          <li>❌ Everything else</li>
+        </UiList>
+      </td>
+    </tr>
+    <tr>
+      <td>length()</td>
+      <td>
+        <UiList>
+          <li> ❗️ min</li>
+          <li> ❗️ max</li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: "This does not have a valid length of min (min) and max (max)"</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ If the STRING is longer or equal than min and shorter or equal than max.</li>
+          <li>❌ Everything else</li>
+        </UiList>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ## Phone validation 📱
@@ -298,45 +302,49 @@ The phone validation is pretty extensive so we better have it very clear what va
 {' '}
 
 <table>
-  <tr>
-    <th>Country code</th>
-    <th>Area code</th>
-    <th>The rest</th>
-  </tr>
-  <tr>
-    <td>
-      <UiList>
-        <li>✅ Not present</li>
-        <li>✅ 1 digit</li>
-        <li>✅ 2 digits</li>
-        <li>✅ 3 digits</li>
-        <li>✅ with + sign</li>
-        <li>❌ everything else</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>✅ 1 digit </li>
-        <li>✅ 2 digits</li>
-        <li>✅ 3 digits</li>
-        <li>✅ with parenthesis</li>
-        <li>✅ with hyphen after it</li>
-        <li>✅ with space after it</li>
-        <li>✅ with dot after it</li>
-        <li>❌ everything else</li>
-      </UiList>
-    </td>
-    <td>
-      <UiList>
-        <li>✅ 7 digits </li>
-        <li>✅ all together</li>
-        <li>✅ with hyphens after the 3 digit</li>
-        <li>✅ with spaces after the 3 digit</li>
-        <li>✅ with dot after the 3 digit</li>
-        <li>❌ everything else</li>
-      </UiList>
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Country code</th>
+      <th>Area code</th>
+      <th>The rest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <UiList>
+          <li>✅ Not present</li>
+          <li>✅ 1 digit</li>
+          <li>✅ 2 digits</li>
+          <li>✅ 3 digits</li>
+          <li>✅ with + sign</li>
+          <li>❌ everything else</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ 1 digit </li>
+          <li>✅ 2 digits</li>
+          <li>✅ 3 digits</li>
+          <li>✅ with parenthesis</li>
+          <li>✅ with hyphen after it</li>
+          <li>✅ with space after it</li>
+          <li>✅ with dot after it</li>
+          <li>❌ everything else</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ 7 digits </li>
+          <li>✅ all together</li>
+          <li>✅ with hyphens after the 3 digit</li>
+          <li>✅ with spaces after the 3 digit</li>
+          <li>✅ with dot after the 3 digit</li>
+          <li>❌ everything else</li>
+        </UiList>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 A few examples of valid patterns:

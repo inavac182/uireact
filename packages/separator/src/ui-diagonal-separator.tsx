@@ -81,7 +81,13 @@ export type UiSeparatorProps = {
   inverse?: boolean;
 } & UiReactElementProps;
 
-export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, testId, inverse }: UiSeparatorProps) => {
+export const UiDiagonalSeparator: React.FC<UiSeparatorProps> = ({
+  from,
+  to,
+  className,
+  testId,
+  inverse,
+}: UiSeparatorProps) => {
   const theme = React.useContext(ThemeContext);
 
   return (
@@ -111,4 +117,4 @@ export const UiSeparator: React.FC<UiSeparatorProps> = ({ from, to, className, t
   );
 };
 
-UiSeparator.displayName = 'UiSeparator';
+UiDiagonalSeparator.displayName = 'UiDiagonalSeparator';

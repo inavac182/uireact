@@ -7,13 +7,13 @@ import { Props } from 'docz';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
-import { UiSeparator, UiBubblesSeparator } from '../src/';
+import { UiLineSeparator, UiDiagonalSeparator, UiBubblesSeparator } from '../src/';
 
 import { UiBadge } from '@uireact/badge';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
-# UiSeparator
+# UiSeparators
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/separator/" target="_blank">
@@ -27,16 +27,28 @@ import { UiBadge } from '@uireact/badge';
 
 > npm i @uireact/foundation @uireact/separator
 
-## UiSeparator
+## UiLineSeparator
 
 <Playground>
-  <UiSeparator from="primary" to="secondary" />
+  <>
+    <UiLineSeparator />
+    <br />
+    <UiLineSeparator inverse />
+    <br />
+    <UiLineSeparator delay={2000} />
+  </>
 </Playground>
 
-## UiSeparator inversed
+## UiDiagonalSeparator
 
 <Playground>
-  <UiSeparator from="primary" to="secondary" inverse />
+  <UiDiagonalSeparator from="primary" to="secondary" />
+</Playground>
+
+## UiDiagonalSeparator inversed
+
+<Playground>
+  <UiDiagonalSeparator from="primary" to="secondary" inverse />
 </Playground>
 
 ## UiBubblesSeparator

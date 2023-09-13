@@ -6,8 +6,10 @@ menu: Foundation
 import { Props } from 'docz';
 import Playground from '../../../src/Playground';
 import { UiViewport, Breakpoints, ThemeContext } from '../src/';
-import { UiBox } from '../src/private/';
+
 import * as packageJson from '../package.json';
+
+import { UiCard } from '@uireact/card';
 
 # UiViewport
 
@@ -33,16 +35,16 @@ This component is exported as part of @uireact/foundation
 
 <Playground>
   <UiViewport criteria={Breakpoints.XLARGE}>
-    <UiBox>Hey, I'm in XLarge!</UiBox>
+    <UiCard>Hey, I'm in XLarge!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.LARGE}>
-    <UiBox>Hey, I'm in Large!</UiBox>
+    <UiCard>Hey, I'm in Large!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.MEDIUM}>
-    <UiBox>I appear in Medium!!</UiBox>
+    <UiCard>I appear in Medium!!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.SMALL}>
-    <UiBox>And I'm in Small!</UiBox>
+    <UiCard>And I'm in Small!</UiCard>
   </UiViewport>
 </Playground>
 
@@ -52,7 +54,7 @@ The [Breakpoints](./packages-foundation-docs-breakpoints#definition) enum is use
 
 <Playground>
   <UiViewport criteria="m|l|xl">
-    <UiBox>Hey, I appear in medium, large and xlarge!!</UiBox>
+    <UiCard>Hey, I appear in medium, large and xlarge!!</UiCard>
   </UiViewport>
 </Playground>
 
