@@ -5,3 +5,4 @@ export * from './enums';
 export * from './themes';
 export * from './theme-mapper';
 export * from './ui-react-element';
+export * from './spacing-distribution';

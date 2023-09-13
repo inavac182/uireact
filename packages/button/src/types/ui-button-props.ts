@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-import { ColorCategory, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SpacingDistribution, UiReactPrivateElementProps } from '@uireact/foundation';
 
 export type UiButtonProps = {
   /** onClick Handler */
@@ -12,7 +12,7 @@ export type UiButtonProps = {
   testId?: string;
   /** className attribute */
   className?: string;
-  /** render button without normal background */
+  /** render button without background on normal state */
   cristal?: boolean;
   /** Button stylized for an icon */
   iconized?: boolean;
@@ -24,6 +24,10 @@ export type UiButtonProps = {
   fullHeight?: boolean;
   /** If button should take full width */
   fullWidth?: boolean;
+  /** If button renders with outlined styling */
+  outlined?: boolean;
+  /** Button paggin */
+  padding?: SpacingDistribution;
   /** Button type */
   type?: 'button' | 'submit';
   /** Button type */
@@ -51,6 +55,8 @@ export type privateButtonProps = {
   $fullHeight?: boolean;
   /** If button should take full width */
   $fullWidth?: boolean;
+  $outlined?: boolean;
+  $padding?: SpacingDistribution;
   /** Button type */
   type?: 'button' | 'submit';
   /** Button type */
