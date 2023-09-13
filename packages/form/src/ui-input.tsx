@@ -58,6 +58,10 @@ const InputDiv = styled.div`
 
 const IconContainer = styled.span<{ $size?: SizesProp }>`
   position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
 `;
 
 export const UiInput: React.FC<UiInputProps> = ({

@@ -23,7 +23,7 @@ export type privateLinkProps = {
   /* Represents the theme to use for the link, default PRIMARY */
   $theme?: ColorCategory;
   /** Link size, default REGULAR */
-  $size?: SizesProp;
+  $size: SizesProp;
   /** If link should take the whole link, useful for rendering links as Navbar items */
   $fullWidth?: boolean;
   /** Font style */

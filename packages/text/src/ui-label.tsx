@@ -21,6 +21,7 @@ const Label = styled.label<privateLabelProps>`
       props.$category ? getLabelDynamicMapper(getColorCategory(props.$category)) : LabelMapper
     )}
     ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
+    ${`line-height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};`}
   `}
 
   padding: 0;

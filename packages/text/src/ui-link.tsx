@@ -15,7 +15,7 @@ const AnchorWrapper = styled.span<privateLinkProps>`
         props.$selectedTheme,
         getDynamicLinkMapper(getColorCategory(props.$category))
       )}
-      font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};
+      font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};
       ${props.$fullWidth ? 'width: 100%; display: inline-block;' : ''}
       ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
       ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
@@ -37,7 +37,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   className,
   fullWidth,
   fontStyle,
-  size,
+  size = 'regular',
   testId,
   wrap,
 }: UiLinkProps) => {
