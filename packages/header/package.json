@@ -3,7 +3,7 @@
   "description": "UiHeader from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,7 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.5.0"
+    "@uireact/foundation": "^1.6.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^1.0.1",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.4...@uireact/separator@0.4.0) (2023-09-13)
+
+
+### Features
+
+* **grid:** using spacing prop from theme ([#271](https://github.com/inavac182/ui-react/issues/271)) ([32cd198](https://github.com/inavac182/ui-react/commit/32cd19806d5748c19d98010b9111fa4bf3782b9f))
+
+
+
+
+
 ## [0.3.4](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.3...@uireact/separator@0.3.4) (2023-09-13)
 
 **Note:** Version bump only for package @uireact/separator

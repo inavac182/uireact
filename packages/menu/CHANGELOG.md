@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@1.2.4...@uireact/menu@1.3.0) (2023-09-13)
+
+
+### Features
+
+* **grid:** using spacing prop from theme ([#271](https://github.com/inavac182/ui-react/issues/271)) ([32cd198](https://github.com/inavac182/ui-react/commit/32cd19806d5748c19d98010b9111fa4bf3782b9f))
+
+
+
+
+
 ## [1.2.4](https://github.com/inavac182/ui-react/compare/@uireact/menu@1.2.3...@uireact/menu@1.2.4) (2023-09-13)
 
 **Note:** Version bump only for package @uireact/menu
