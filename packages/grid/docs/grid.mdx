@@ -21,7 +21,7 @@ import * as packageJson from '../package.json';
   </a>
 </sup>
 
-> Structure and organize the UI using columns
+> Structure and organize the UI using a grid column
 
 ## Installation
 
@@ -32,23 +32,21 @@ import * as packageJson from '../package.json';
 ### 1. Using just UiGrid
 
 <Playground>
-  <UiGrid cols={3} rows={2} colsGap="10%" justifyItems="center">
-    <UiCard>
+  <UiGrid cols={3} rows={2} colsGap="four" justifyItems="center">
+    <UiCard fullWidth fullHeight>
       <UiText>Item 1!</UiText>
     </UiCard>
-    <UiCard>
+    <UiCard fullWidth fullHeight>
       <UiText>Item 2!</UiText>
     </UiCard>
   </UiGrid>
 </Playground>
 
-> This is the suggested approach if all grid items will share the same styles.
-
 ### 2. Using UiGrid with UiGridItem
 
 <Playground>
-  <UiGrid cols={3} rows={2} colsGap="5px">
-    <UiViewport criteria="l|s">
+  <UiGrid cols={3} rows={2} colsGap="four">
+    <UiViewport criteria="l|xl">
       <UiGridItem cols={2}>
         <UiCard>
           <UiText>Item 1!</UiText>
@@ -64,9 +62,9 @@ import * as packageJson from '../package.json';
   </UiGrid>
 </Playground>
 
-> In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
+In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
 
-> Also notice that in Item 1 we are making use of the [UiViewport](./packages-foundation-docs-viewport) to render/remove it depending on the breakpoint
+Also notice that in Item 1 we are making use of the [UiViewport](./packages-foundation-docs-viewport) to render/remove it depending on the breakpoint
 
 ### 3. Using GridBreakpointsDistribution prop
 
@@ -85,8 +83,6 @@ This prop give you the ability to set a number of cols/rows depending on the bre
     </UiCard>
   </UiGrid>
 </Playground>
-
-> This is the suggested approach if all grid items will share the same styles.
 
 ### 2. Using custom UiGridItem col span
 

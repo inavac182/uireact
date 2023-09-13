@@ -20,6 +20,17 @@ describe('UiCard', () => {
     fireEvent.click(screen.getByRole('heading'));
   });
 
+  test('render card with full width and full height', () => {
+    render(
+      <UiCard fullHeight fullWidth>
+        <HeadingMock />
+      </UiCard>
+    );
+
+    expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+    fireEvent.click(screen.getByRole('heading'));
+  });
+
   test('render card with category', () => {
     render(
       <UiCard category="positive">

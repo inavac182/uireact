@@ -9,7 +9,7 @@ beforeEach(() => {
 
 test('renders the grid when is rendered with 2 items', () => {
   render(
-    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={2} justifyItems="center" colsGap="three" rowsGap="one">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -21,7 +21,7 @@ test('renders the grid when is rendered with 2 items', () => {
 
 test('renders the grid when items uses starting point', () => {
   render(
-    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={2} justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem startingCol={2}>Item 2</UiGridItem>
     </UiGrid>
@@ -33,7 +33,7 @@ test('renders the grid when items uses starting point', () => {
 
 test('renders the grid when items uses starting point', () => {
   render(
-    <UiGrid cols={2} rows={2} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={2} rows={2} justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem startingCol={2} startingRow={2}>
         Item 2
@@ -49,7 +49,7 @@ test('renders the grid when using a breakpoints object as cols', () => {
   global.innerWidth = 300;
 
   const MockedComponent = () => (
-    <UiGrid cols={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -97,7 +97,7 @@ test('renders the grid when using a breakpoints object is unrecognized', () => {
   const MockedComponent = () => (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    <UiGrid cols="XXXX" justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols="XXXX" justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -111,7 +111,7 @@ test('renders the grid when using a breakpoints object is unrecognized', () => {
 
 test('renders the grid when using a breakpoints object as rows', () => {
   render(
-    <UiGrid rows={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid rows={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -159,7 +159,7 @@ test('renders the grid when width is specified', () => {
 
 test('renders grid item with class name', () => {
   render(
-    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={2} justifyItems="center">
       <UiGridItem className="someclass">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -170,7 +170,7 @@ test('renders grid item with class name', () => {
 
 test('renders grid item with test id', () => {
   render(
-    <UiGrid cols={2} justifyItems="center" colsGap={3} rowsGap={10}>
+    <UiGrid cols={2} justifyItems="center">
       <UiGridItem testId="someTestId">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
