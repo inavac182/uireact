@@ -131,8 +131,8 @@ export const DocsTheme: Theme = {
       xsmall: '12px',
       small: '14px',
       regular: '16px',
-      large: '18px',
-      xlarge: '20px',
+      large: '20px',
+      xlarge: '22px',
     },
   },
   texts: {

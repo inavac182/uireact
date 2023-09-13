@@ -133,4 +133,24 @@ describe('<UiButton />', () => {
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
   });
+
+  test('renders button with padding', () => {
+    uiRender(
+      <UiButton type="submit" padding={{ all: 'two' }}>
+        Button
+      </UiButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+  });
+
+  test('renders button when outlined', () => {
+    uiRender(
+      <UiButton type="submit" outlined>
+        Button
+      </UiButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+  });
 });

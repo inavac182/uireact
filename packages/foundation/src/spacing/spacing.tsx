@@ -2,25 +2,8 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { UiReactElementProps, UiReactPrivateElementProps, Theme, SpacingType } from '../types';
+import { UiReactElementProps, UiReactPrivateElementProps, Theme, SpacingDistribution } from '../types';
 import { ThemeContext } from '../providers/theme-context';
-
-export type SpacingDistribution = {
-  /** Applies size to all sides */
-  all?: SpacingType;
-  /** Applies size to top and bottom */
-  block?: SpacingType;
-  /** Applies size to left and right */
-  inline?: SpacingType;
-  /** Applies size to left */
-  left?: SpacingType;
-  /** Applies size to right */
-  right?: SpacingType;
-  /** Applies size to top */
-  top?: SpacingType;
-  /** Applies size to bottom */
-  bottom?: SpacingType;
-};
 
 export type UiSpacingProps = UiReactElementProps & {
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */

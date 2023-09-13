@@ -49,12 +49,12 @@ import * as packageJson from '../package.json';
 
 <Playground>
   <UiGrid cols={2} rows={1} colsGap={20} justifyItems="center">
-    <UiButton fullWidth>
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+    <UiButton fullWidth padding={{ all: 'three' }}>
+      Button! 💅🏾
     </UiButton>
 
-    <UiButton fullWidth theme="tertiary">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
+    <UiButton fullWidth theme="tertiary" padding={{ all: 'three' }}>
+      Button! 💅🏾
     </UiButton>
 
   </UiGrid>
@@ -74,26 +74,26 @@ import * as packageJson from '../package.json';
 
 <Playground>
   <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap={5} rowsGap={5} justifyItems="center">
-    <UiButton fullWidth>
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🐬</UiSpacing>
+    <UiButton fullWidth padding={{ all: 'three' }}>
+      Button! 🐬
     </UiButton>
-    <UiButton fullWidth theme="secondary">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🐉</UiSpacing>
+    <UiButton fullWidth theme="secondary" padding={{ all: 'three' }}>
+      Button! 🐉
     </UiButton>
-    <UiButton fullWidth theme="tertiary">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌹</UiSpacing>
+    <UiButton fullWidth theme="tertiary" padding={{ all: 'three' }}>
+      Button! 🌹
     </UiButton>
-    <UiButton fullWidth theme="positive">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌎</UiSpacing>
+    <UiButton fullWidth theme="positive" padding={{ all: 'three' }}>
+      Button! 🌎
     </UiButton>
-    <UiButton fullWidth theme="negative" disabled>
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌈</UiSpacing>
+    <UiButton fullWidth theme="negative" disabled padding={{ all: 'three' }}>
+      Button! 🌈
     </UiButton>
-    <UiButton fullWidth theme="error">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! ⚡️</UiSpacing>
+    <UiButton fullWidth theme="error" padding={{ all: 'three' }}>
+      Button! ⚡️
     </UiButton>
-    <UiButton fullWidth theme="warning">
-      <UiSpacing margin={{ all: Sizing.three }}>Button! 🌋</UiSpacing>
+    <UiButton fullWidth theme="warning" padding={{ all: 'three' }}>
+      Button! 🌋
     </UiButton>
   </UiGrid>
 </Playground>
@@ -103,8 +103,8 @@ import * as packageJson from '../package.json';
 <Playground>
   <UiCard>
     <UiFlexGrid gap="three">
-      <UiButton theme="tertiary" cristal>
-        <UiSpacing margin={{ all: Sizing.three }}>Button! ✨</UiSpacing>
+      <UiButton theme="tertiary" cristal padding={{ all: 'three' }}>
+        Button! ✨
       </UiButton>
       Some content
     </UiFlexGrid>
@@ -114,22 +114,16 @@ import * as packageJson from '../package.json';
 #### Rounded button
 
 <Playground>
-  <UiCard weight="10">
+  <UiCard weight="200" category="positive">
     <UiFlexGrid gap="three">
       <UiButton rounded>
-        <UiSpacing padding={{ all: 'three' }}>
-          <UiText>Button 🌜</UiText>
-        </UiSpacing>
+        <UiText>Button 🌜</UiText>
       </UiButton>
-      <UiButton rounded theme="secondary">
-        <UiSpacing padding={{ all: 'three' }}>
-          <UiText>Button 🍻</UiText>
-        </UiSpacing>
+      <UiButton rounded outlined theme="secondary">
+        <UiText>Button 🍻</UiText>
       </UiButton>
       <UiButton rounded cristal theme="tertiary">
-        <UiSpacing padding={{ all: 'three' }}>
-          <UiText>Button 📡</UiText>
-        </UiSpacing>
+        <UiText>Button 📡</UiText>
       </UiButton>
     </UiFlexGrid>
   </UiCard>
@@ -140,20 +134,42 @@ import * as packageJson from '../package.json';
 <Playground>
   <UiCard weight="10">
     <UiFlexGrid gap="three" alignItems="center">
-      <UiButton rounded iconized theme="primary">
+      <UiButton iconized theme="primary">
         <UiIcon icon="EarthAmericas" size="xlarge" />
       </UiButton>
-      <UiButton rounded iconized theme="secondary">
+      <UiButton iconized theme="secondary">
         <UiIcon icon="EarthEuropa" size="large" />
       </UiButton>
-      <UiButton rounded iconized theme="tertiary">
+      <UiButton iconized theme="tertiary">
         <UiIcon icon="EarthAsia" size="regular" />
       </UiButton>
-      <UiButton rounded iconized theme="positive">
+      <UiButton iconized theme="positive">
         <UiIcon icon="EarthAfrica" size="small" />
       </UiButton>
-      <UiButton rounded iconized theme="error">
+      <UiButton iconized theme="error">
         <UiIcon icon="BadgeCheck" size="xsmall" />
+      </UiButton>
+    </UiFlexGrid>
+  </UiCard>
+</Playground>
+
+#### Outlined button
+
+<Playground>
+  <UiCard category="primary" weight="10">
+    <UiFlexGrid gap="three">
+      <UiButton outlined theme="tertiary">
+        <UiText>Button 🐼</UiText>
+      </UiButton>
+      <UiButton outlined theme="secondary">
+        <UiText>
+          Button <UiIcon icon="Refresh" />
+        </UiText>
+      </UiButton>
+      <UiButton outlined rounded theme="positive">
+        <UiText>
+          Button <UiIcon icon="VideoCameraVintage" />
+        </UiText>
       </UiButton>
     </UiFlexGrid>
   </UiCard>
