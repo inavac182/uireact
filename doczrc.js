@@ -1,6 +1,6 @@
 export default {
   editBranch: 'main',
-  ignore: ['utils/**/*', 'packages/**/CHANGELOG.md', 'packages/**/README.md', 'examples/**/*'],
+  ignore: ['utils/**/*', 'packages/**/CHANGELOG.md', 'packages/**/README.md', 'examples/**/*', 'README.md'],
   typescript: true,
   themeConfig: {
     mode: 'dark',
