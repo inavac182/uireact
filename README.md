@@ -6,7 +6,7 @@
 ![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 
-# @UiReact.io
+# @UiReact.io <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
 
 You should see our docs: [uireact.io](https://uireact.io).
 
