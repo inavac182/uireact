@@ -24,6 +24,12 @@ export const Actions = (): React.ReactElement => {
 
   const themeSwitcherCB = React.useCallback(() => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light');
+
+    if (colorMode === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
   }, [colorMode, setColorMode]);
 
   const openMenuCB = useCallback(() => {

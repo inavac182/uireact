@@ -7,6 +7,8 @@ import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
 
+import 'jest-styled-components';
+
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
@@ -85,6 +87,7 @@ describe('<UiView />', () => {
     render(<MockedComponent noBackground />);
 
     expect(screen.getByText('Content')).toBeVisible();
+    expect(screen.getByTestId('UiView')).toHaveStyleRule('background-color', 'transparent');
   });
 
   it('renders fine when is centered and xlarge', () => {

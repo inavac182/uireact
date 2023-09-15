@@ -1,5 +1,6 @@
 import { SpacingDistribution, Theme } from '../types';
 
+/** @deprecated Deprecated use getSpacingStyle */
 export const getSpacingDistributionStyle = (sizing: SpacingDistribution, theme: Theme): string => {
   if (sizing.all) {
     return theme.spacing[sizing.all];
