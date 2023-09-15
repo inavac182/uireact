@@ -36,11 +36,6 @@ const Wrapper = ({ children }: WrapperProps): React.ReactElement => {
 
   useEffect(() => {
     setSelectedTheme(colorMode === 'light' ? ThemeColor.light : ThemeColor.dark);
-    if (colorMode === 'light') {
-      document.documentElement.classList.add('light');
-    } else {
-      document.documentElement.classList.remove('light');
-    }
   }, [colorMode]);
 
   return (

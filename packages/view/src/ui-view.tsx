@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { ThemeContext, UiViewport, Breakpoints, Theme } from '@uireact/foundation';
+import { ThemeContext, UiViewport, Breakpoints, Theme, ThemeColor } from '@uireact/foundation';
 import { UiDialogsControllerContext, useDialogController } from '@uireact/foundation';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
@@ -64,6 +64,14 @@ export const UiView: React.FC<UiViewProps> = ({
   noBackground = false,
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
+
+  useEffect(() => {
+    if (selectedTheme === ThemeColor.light) {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }, [selectedTheme]);
 
   return (
     <>

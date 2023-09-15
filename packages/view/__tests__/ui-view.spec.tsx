@@ -13,6 +13,7 @@ type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
   noBackground?: boolean;
+  selectedTheme?: ThemeColor;
 };
 
 const closeDialogMockedFn = jest.fn();
@@ -42,7 +43,7 @@ const DialogComponent = () => {
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
     theme={DefaultTheme}
-    selectedTheme={ThemeColor.dark}
+    selectedTheme={props.selectedTheme || ThemeColor.dark}
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
@@ -73,6 +74,12 @@ describe('<UiView />', () => {
 
   it('renders fine', () => {
     render(<MockedComponent />);
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
+  it('renders fine with selected light color', () => {
+    render(<MockedComponent selectedTheme={ThemeColor.light} />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });
