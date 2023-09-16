@@ -2,17 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  ColorCategory,
-  ColorTokens,
-  UiReactPrivateElementProps,
-  getColorCategory,
-  getThemeColor,
-  getThemeStyling,
-} from '@uireact/foundation';
+import { ColorCategory, getColorCategory } from '@uireact/foundation';
 
 import { Alignment, NavbarStyling, Orientation } from '../types';
-import { getNavbarItemMapper } from '../theme';
 import { getBorderRadiusStyling } from '../utils';
 
 type NavbarItemWrapperProps = {
@@ -30,7 +22,7 @@ type NavbarItemWrapperProps = {
   $isLast?: boolean;
   $active?: boolean;
   $styling?: NavbarStyling;
-} & UiReactPrivateElementProps;
+};
 
 const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
@@ -47,42 +39,34 @@ const Div = styled.div<NavbarItemWrapperProps>`
     transition: background 0.2s, border-left 0.2s;
     border-left: 2px solid transparent;
     padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 
     ${(props) => `
       ${
         props.$styling === 'bordered'
           ? `
             &:hover {
-              border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid ${getThemeColor(
-              props.$customTheme,
-              props.$selectedTheme,
-              getColorCategory(props.$category),
-              ColorTokens.token_50,
-              false
-            )};
+              border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid var(--${getColorCategory(
+              props.$category
+            )}-token_100);
             }`
-          : getThemeStyling(props.$customTheme, props.$selectedTheme, getNavbarItemMapper(props.$category))
+          : `
+            &:hover {
+              background-color: var(--${getColorCategory(props.$category)}-token_50);
+            }
+          `
       }
       ${
         props.$active
           ? props.$styling === 'bordered'
             ? `
-            border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid ${getThemeColor(
-                props.$customTheme,
-                props.$selectedTheme,
-                getColorCategory(props.$category),
-                ColorTokens.token_150,
-                false
-              )};
+            border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid var(--${getColorCategory(
+                props.$category
+              )}-token_150);
             `
             : `
-            background-color: ${getThemeColor(
-              props.$customTheme,
-              props.$selectedTheme,
-              getColorCategory(props.$category),
-              ColorTokens.token_10,
-              false
-            )}`
+            background-color: var(--${getColorCategory}-token_10);`
           : ''
       }
     `}
@@ -94,11 +78,9 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
   $orientation,
   $category,
   children,
-  $customTheme,
   $isFirst,
   $isLast,
   $roundedCorners,
-  $selectedTheme,
   $stretchItems,
   $styling,
 }: NavbarItemWrapperProps) => {
@@ -109,14 +91,13 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
       <Div
         $align={$align}
         $category={$category}
-        $customTheme={$customTheme}
-        $selectedTheme={$selectedTheme}
         $orientation={$orientation}
         $roundedCorners={$roundedCorners}
         $isFirst={$isFirst}
         $isLast={$isLast}
         $stretchItems={$stretchItems}
         $styling={$styling}
+        // eslint-disable-next-line react/prop-types
         $active={props.active}
       >
         {children}

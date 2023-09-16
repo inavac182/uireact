@@ -1,4 +1,4 @@
-import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 
 export type Alignment = 'start' | 'center' | 'end';
 
@@ -33,4 +33,4 @@ export type privateNavbarProps = {
   $orientation: Orientation;
   $align: Alignment;
   $styling?: NavbarStyling;
-} & UiReactPrivateElementProps;
+};
