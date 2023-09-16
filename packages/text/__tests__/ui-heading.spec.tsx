@@ -5,11 +5,14 @@ import { screen } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiHeading } from '../src';
 
+import 'jest-styled-components';
+
 describe('<UiHeading />', () => {
   it('renders fine with default level', () => {
     uiRender(<UiHeading>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
+    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
   it('renders fine when is wrapped', () => {

@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 import { InverseColorationProp } from './ui-text-props';
 
 export type UiHeadingProps = {
@@ -17,4 +17,4 @@ export type privateHeadingProps = {
   $level: 1 | 2 | 3 | 4 | 5 | 6;
   $wrap?: boolean;
   $inverseColoration?: boolean | InverseColorationProp;
-} & UiReactPrivateElementProps;
+};

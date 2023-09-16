@@ -1,5 +1,6 @@
 import { Theme, HeadingLevel, TextSize, SpacingType, SizesProp } from '../types';
 
+/** @deprecated use the css variables --headsings-${HeadingsLevel} */
 export const getHeadingSize = (theme: Theme, level: 1 | 2 | 3 | 4 | 5 | 6): string => {
   let headingLevel = HeadingLevel.level3;
 
@@ -30,14 +31,17 @@ export const getHeadingSize = (theme: Theme, level: 1 | 2 | 3 | 4 | 5 | 6): stri
   return theme.sizes.headings[headingLevel];
 };
 
+/** @deprecated use the css variables --texts-${TextSizes} */
 export const getTextSize = (theme: Theme, size: TextSize): string => {
   return theme.sizes.texts[size];
 };
 
+/** @deprecated use the css variables --texts-${TextSizes} */
 export const getTextSizeFromSizeString = (theme: Theme, size: SizesProp): string => {
   return theme.sizes.texts[size];
 };
 
+/** @deprecated use the css variables --spacing-${SpacingType} */
 export const getSpacingSize = (theme: Theme, size: SpacingType): string => {
   return theme.spacing[size];
 };

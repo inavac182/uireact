@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 
 export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
@@ -36,4 +36,4 @@ export type privateTextProps = {
   $category?: ColorCategory;
   $inverseColoration?: boolean | InverseColorationProp;
   $align?: 'left' | 'right';
-} & UiReactPrivateElementProps;
+};

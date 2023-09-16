@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 
 import { FontStyle } from './ui-text-props';
 
@@ -30,4 +30,4 @@ export type privateLinkProps = {
   $fontStyle?: FontStyle;
   $category?: ColorCategory;
   $wrap?: boolean;
-} & UiReactPrivateElementProps;
+};
