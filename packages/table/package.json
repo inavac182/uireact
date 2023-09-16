@@ -23,9 +23,9 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.7.0",
+    "@uireact/foundation": "^2.0.1",
     "@uireact/grid": "^1.5.0",
-    "@uireact/icons": "^1.9.0"
+    "@uireact/icons": "^2.0.0"
   },
   "peerDependencies": {
     "@uireact/flex-grid": "^1.1.0",

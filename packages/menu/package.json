@@ -23,7 +23,7 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/dialog": "^1.6.1",
+    "@uireact/dialog": "^2.0.0",
     "@uireact/foundation": "^2.0.1"
   },
   "peerDependencies": {
