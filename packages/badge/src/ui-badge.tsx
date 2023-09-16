@@ -2,42 +2,51 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getTextSize, getThemeStyling, UiSpacing, getColorCategory } from '@uireact/foundation';
+import { getColorCategory } from '@uireact/foundation';
 
-import { getDynamicBadgeMapper } from './theme';
 import { UiBadgeProps, privateBadgeProps } from './types';
 
 const BadgeDiv = styled.div<privateBadgeProps>`
   ${(props) => `
-    ${getThemeStyling(
-      props.$customTheme,
-      props.$selectedTheme,
-      getDynamicBadgeMapper(getColorCategory(props.category))
-    )}
-    font-size: ${getTextSize(props.$customTheme, props.size || TextSize.small)};
-    border-radius: ${getTextSize(props.$customTheme, props.size || TextSize.small)};
-    font-weight: bold;
+    background-color: var(--${getColorCategory(props.$category)}-token_10);
+    color: var(--${getColorCategory(props.$category)}-token_200)!important;
+    svg {
+      fill: var(--${getColorCategory(props.$category)}-token_200)!important;
+    }
+    border-color: var(--${getColorCategory(props.$category)}-token_200);
+    font-size: var(--texts-${props.size});
+
+    span,p {
+      font-size: var(--texts-${props.size});
+      line-height: var(--texts-${props.size});
+      height: var(--texts-${props.size});
+    }
+
+    border-radius: var(--texts-${props.size});
+    padding: 0px 10px;
   `}
 
+  font-weight: bold;
   border-width: 2px;
   border-style: solid;
   display: inline-block;
 `;
 
-export const UiBadge: React.FC<UiBadgeProps> = ({ category = 'primary', className, children, size }: UiBadgeProps) => {
-  const theme = React.useContext(ThemeContext);
+const ContentWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+`;
 
-  return (
-    <BadgeDiv
-      $customTheme={theme.theme}
-      $selectedTheme={theme.selectedTheme}
-      category={category}
-      className={className}
-      size={size}
-    >
-      <UiSpacing padding={{ inline: 'three' }}>{children}</UiSpacing>
-    </BadgeDiv>
-  );
-};
+export const UiBadge: React.FC<UiBadgeProps> = ({
+  category = 'primary',
+  className,
+  children,
+  size = 'small',
+}: UiBadgeProps) => (
+  <BadgeDiv $category={category} className={className} size={size}>
+    <ContentWrapper>{children}</ContentWrapper>
+  </BadgeDiv>
+);
 
 UiBadge.displayName = 'UiBadge';
