@@ -28,48 +28,46 @@ export const IconsList: React.FC = () => {
   );
 
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
-      <UiViewRow>
-        <UiSpacing padding={{ all: 'four' }}>
-          <UiFlexGrid alignItems="center" gap={'five'} justifyContent="center">
-            <UiFlexGridItem grow={1}>
-              <UiButton onClick={toogleTheme} fullWidth>
-                <UiSpacing padding={{ block: 'four' }}>
-                  <UiText>Toggle theme</UiText>
-                </UiSpacing>
-              </UiButton>
-            </UiFlexGridItem>
-            <UiFlexGridItem>
-              <UiSelect onChange={handleCategoryChange} label="Theme category">
-                <option value="">Normal</option>
-                <option value="primary">Primary</option>
-                <option value="secondary">Secondary</option>
-                <option value="tertiary">Tertiary</option>
-                <option value="positive">Positive</option>
-                <option value="negative">Negative</option>
-                <option value="error">Error</option>
-                <option value="warning">Warning</option>
-              </UiSelect>
-            </UiFlexGridItem>
-          </UiFlexGrid>
-        </UiSpacing>
-        <UiSpacing padding={{ block: 'five' }}>
-          <UiGrid cols={{ small: 2, medium: 3, large: 4, xlarge: 5 }} colsGap="three" rowsGap="five">
-            {Object.keys(Icons).map((key) => (
-              <UiGridItem key={`icon-grid-item-component-${key}`}>
-                <UiText size={TextSize.xsmall} category={category} centered>
-                  {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-                  {/* @ts-ignore */}
-                  <UiIcon icon={key} size="xlarge" theme={category} />
-                  <br />
-                  <br />
-                  {key}
-                </UiText>
-              </UiGridItem>
-            ))}
-          </UiGrid>
-        </UiSpacing>
-      </UiViewRow>
-    </UiView>
+    <UiViewRow>
+      <UiSpacing padding={{ all: 'four' }}>
+        <UiFlexGrid alignItems="center" gap={'five'} justifyContent="center">
+          <UiFlexGridItem grow={1}>
+            <UiButton onClick={toogleTheme} fullWidth>
+              <UiSpacing padding={{ block: 'four' }}>
+                <UiText>Toggle theme</UiText>
+              </UiSpacing>
+            </UiButton>
+          </UiFlexGridItem>
+          <UiFlexGridItem>
+            <UiSelect onChange={handleCategoryChange} label="Theme category">
+              <option value="">Normal</option>
+              <option value="primary">Primary</option>
+              <option value="secondary">Secondary</option>
+              <option value="tertiary">Tertiary</option>
+              <option value="positive">Positive</option>
+              <option value="negative">Negative</option>
+              <option value="error">Error</option>
+              <option value="warning">Warning</option>
+            </UiSelect>
+          </UiFlexGridItem>
+        </UiFlexGrid>
+      </UiSpacing>
+      <UiSpacing padding={{ block: 'five' }}>
+        <UiGrid cols={{ small: 2, medium: 3, large: 4, xlarge: 5 }} colsGap="three" rowsGap="five">
+          {Object.keys(Icons).map((key) => (
+            <UiGridItem key={`icon-grid-item-component-${key}`}>
+              <UiText size={TextSize.xsmall} category={category} centered>
+                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                {/* @ts-ignore */}
+                <UiIcon icon={key} size="xlarge" theme={category} />
+                <br />
+                <br />
+                {key}
+              </UiText>
+            </UiGridItem>
+          ))}
+        </UiGrid>
+      </UiSpacing>
+    </UiViewRow>
   );
 };
