@@ -5,6 +5,8 @@ import { UiButton } from '../src';
 
 import { uiRender } from '../../../__tests__/utils';
 
+import 'jest-styled-components';
+
 describe('<UiButton />', () => {
   test('executes onClick CB', () => {
     const mock = jest.fn();
@@ -32,6 +34,10 @@ describe('<UiButton />', () => {
     uiRender(<UiButton>MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--primary-token_50)');
+    expect(screen.getByRole('button')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '3px');
   });
 
   test('renders data test id', () => {
@@ -56,8 +62,8 @@ describe('<UiButton />', () => {
     expect(screen.getByRole('button')).toBeVisible();
   });
 
-  test('renders when is cristal', () => {
-    uiRender(<UiButton cristal>MyButton</UiButton>);
+  test('renders when is clear', () => {
+    uiRender(<UiButton styling="clear">MyButton</UiButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
   });
@@ -79,53 +85,66 @@ describe('<UiButton />', () => {
   });
 
   test('renders secondary button', () => {
-    uiRender(<UiButton theme="secondary">MyButton</UiButton>);
+    uiRender(<UiButton category="secondary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--secondary-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--secondary-token_50)');
   });
 
   test('renders tertiary button', () => {
-    uiRender(<UiButton theme="tertiary">MyButton</UiButton>);
+    uiRender(<UiButton category="tertiary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--tertiary-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--tertiary-token_50)');
   });
 
   test('renders positive button', () => {
-    uiRender(<UiButton theme="positive">MyButton</UiButton>);
+    uiRender(<UiButton category="positive">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--positive-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--positive-token_50)');
   });
 
   test('renders negative button', () => {
-    uiRender(<UiButton theme="negative">MyButton</UiButton>);
+    uiRender(<UiButton category="negative">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--negative-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--negative-token_50)');
   });
 
   test('renders error button', () => {
-    uiRender(<UiButton theme="error">MyButton</UiButton>);
+    uiRender(<UiButton category="error">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--error-token_100)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--error-token_50)');
   });
 
   test('renders rounded button', () => {
     uiRender(
-      <UiButton theme="error" rounded>
+      <UiButton category="error" rounded>
         MyButton
       </UiButton>
     );
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '15px/50%');
   });
 
-  test('renders iconized button', () => {
+  test('renders icon button', () => {
     uiRender(
-      <UiButton theme="error" iconized>
+      <UiButton category="error" styling="icon">
         A
       </UiButton>
     );
 
     expect(screen.getByRole('button', { name: 'A' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '50%');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '0px');
   });
 
   test('renders button with submit type', () => {
@@ -142,15 +161,21 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('padding', 'var(--spacing-two)');
   });
 
   test('renders button when outlined', () => {
     uiRender(
-      <UiButton type="submit" outlined>
+      <UiButton type="submit" styling="outlined">
         Button
       </UiButton>
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'transparent');
+    expect(screen.getByRole('button')).toHaveStyleRule('color', 'var(--primary-token_100)!important');
+    expect(screen.getByRole('button')).toHaveStyleRule('fill', 'var(--primary-token_100)!important');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--primary-token_50)');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '1px');
   });
 });

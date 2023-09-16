@@ -2,153 +2,125 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  ThemeContext,
-  getThemeStyling,
-  getColorCategory,
-  getSpacingStyle,
-  getThemeColor,
-  ColorTokens,
-  ColorCategories,
-} from '@uireact/foundation';
+import { getColorCategory, getSpacingStyle } from '@uireact/foundation';
 
 import { privateButtonProps, UiButtonProps } from './types';
-import { getDynamicMapper } from './theme';
 
 const StyledButton = styled.button<privateButtonProps>`
+  ${(props) => (props.$fullWidth ? 'width: 100%;' : '')}
+  ${(props) => (props.$fullHeight ? 'height: 100%;' : '')}
+  ${(props) => (props.disabled ? 'cursor: not-allowed;' : 'cursor: pointer;')}
+  ${(props) => (props.$rounded ? 'border-radius: 15px/50%;' : 'border-radius: 3px;')}
+  ${(props) => (props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : '')}
+  
   ${(props) => {
-    const mapper = getDynamicMapper(getColorCategory(props.$theme), props.$cristal);
-    let styles = `
-      ${getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
-      ${props.$fullWidth ? 'width: 100%;' : ''}
-      ${props.$fullHeight ? 'height: 100%;' : ''}
-      ${props.disabled ? 'cursor: not-allowed;' : 'cursor: pointer;'}
-      ${props.$rounded ? 'border-radius: 15px/50%;' : 'border-radius: 3px;'}
-    `;
-
-    if (props.$cristal) {
-      styles = `
-        ${styles}
+    if (props.$styling === 'clear') {
+      return `
+        color: var(--fonts-token_100);
         padding: 0px 10px 0px 10px;
         border-width: 0;
-        background: unset;
+        background: transparent;
       `;
-    } else if (props.$outlined) {
-      styles = `
-        ${styles}
+    } else if (props.$styling === 'outlined') {
+      return `
         padding: 5px 10px 5px 10px;
-        background: unset;
-        color: ${getThemeColor(
-          props.$customTheme,
-          props.$selectedTheme,
-          getColorCategory(props.$theme),
-          ColorTokens.token_100
-        )} !important;
+        background-color: transparent;
+        color: var(--${getColorCategory(props.$category)}-token_100) !important;
+        fill: var(--${getColorCategory(props.$category)}-token_100) !important;
+        border-color: var(--${getColorCategory(props.$category)}-token_50);
+        border-width: 1px;
 
         p, span {
-          color: ${getThemeColor(
-            props.$customTheme,
-            props.$selectedTheme,
-            getColorCategory(props.$theme),
-            ColorTokens.token_100
-          )} !important;
-          fill: ${getThemeColor(
-            props.$customTheme,
-            props.$selectedTheme,
-            getColorCategory(props.$theme),
-            ColorTokens.token_100
-          )} !important;
+          color: var(--${getColorCategory(props.$category)}-token_100) !important;
+          fill: var(--${getColorCategory(props.$category)}-token_100) !important;
         }
 
-        &: hover {
+        &:hover {
           p, span {
-          color: ${getThemeColor(
-            props.$customTheme,
-            props.$selectedTheme,
-            ColorCategories.fonts,
-            ColorTokens.token_100
-          )} !important;
-          fill: ${getThemeColor(
-            props.$customTheme,
-            props.$selectedTheme,
-            ColorCategories.fonts,
-            ColorTokens.token_100
-          )} !important;
-        }
+            color: var(--${getColorCategory(props.$category)}-token_100) !important;
+            fill: var(--${getColorCategory(props.$category)}-token_100) !important;
+          }
         }
       `;
-    } else if (props.$iconized) {
-      styles = `
-        ${styles}
+    } else if (props.$styling === 'icon') {
+      return `
+        background-color: var(--${getColorCategory(props.$category)}-token_100);
+        color: var(--fonts-token_100);
         padding: 10px;
-        border-radius: 20px/50%;
+        border-radius: 50%;
         display: inline-flex;
         border-width: 0px;
       `;
-    } else {
-      styles = `
-        ${styles}
-        padding-left: 10px;
-        padding-right: 10px;
-        border-width: 1px;
-      `;
     }
 
-    styles = `
-      ${styles}
-      ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
+    return `
+      background-color: var(--${getColorCategory(props.$category)}-token_100);
+      border-color: var(--${getColorCategory(props.$category)}-token_50);
+      color: var(--fonts-token_100);
+      padding-left: 10px;
+      padding-right: 10px;
+      border-width: 1px;
     `;
-
-    return styles;
   }}
 
   font-weight: bold;
   border-style: solid;
+
+  &:hover {
+    ${(props) => `
+      background-color: var(--${getColorCategory(props.$category)}-token_150);
+      border-color: var(--${getColorCategory(props.$category)}-token_100);
+    `}
+  }
+
+  &:active {
+    ${(props) => `
+      background-color: var(--${getColorCategory(props.$category)}-token_200);
+      border-color: var(--${getColorCategory(props.$category)}-token_150);
+    `}
+  }
+
+  &:disabled {
+    ${(props) => `
+      background-color: var(--${getColorCategory(props.$category)}-token_50);
+      border-color: var(--${getColorCategory(props.$category)}-token_10);
+    `}
+  }
 `;
 
 export const UiButton: React.FC<UiButtonProps> = ({
   onClick,
-  testId,
   className,
   disabled = false,
   children,
-  cristal = false,
-  iconized = false,
   id,
-  theme = 'primary',
+  category = 'primary',
   fullHeight = false,
   fullWidth = false,
-  outlined = false,
+  styling,
   padding,
-  type = 'button',
   ref,
   rounded = false,
-}: UiButtonProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
-  return (
-    <StyledButton
-      $customTheme={themeContext.theme}
-      $selectedTheme={themeContext.selectedTheme}
-      $theme={theme}
-      onClick={onClick}
-      data-testid={testId}
-      $iconized={iconized}
-      id={id}
-      $cristal={cristal}
-      className={className}
-      disabled={disabled}
-      $fullHeight={fullHeight}
-      $fullWidth={fullWidth}
-      $outlined={outlined}
-      $padding={padding}
-      type={type}
-      ref={ref}
-      $rounded={rounded}
-    >
-      {children}
-    </StyledButton>
-  );
-};
+  type = 'button',
+  testId,
+}: UiButtonProps) => (
+  <StyledButton
+    $category={category}
+    onClick={onClick}
+    data-testid={testId}
+    $styling={styling}
+    id={id}
+    className={className}
+    disabled={disabled}
+    $fullHeight={fullHeight}
+    $fullWidth={fullWidth}
+    $padding={padding}
+    type={type}
+    ref={ref}
+    $rounded={rounded}
+  >
+    {children}
+  </StyledButton>
+);
 
 UiButton.displayName = 'UiPrimaryButton';
