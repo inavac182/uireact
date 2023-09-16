@@ -1,27 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 
-import { ColorCategories, ColorTokens, getThemeColor, getThemeStyling } from '@uireact/foundation';
-
 import { UiDialogType, privateUiDialogProps } from '../types';
-import { mapper } from '../theme';
+
 import { BorderedWrappedDiv } from './border-helpers/bordered-wrapper-div';
 import { getBorderRadius } from './border-helpers/border-radius';
+import { ThemeContext } from '@uireact/foundation';
 
 const Div = styled.div<privateUiDialogProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, mapper)}
+  background-color: var(--primary-token_100);
+  color: var(--fonts-token_100);
   z-index: 100;
   min-width: 200px;
-
-  ${(props) =>
-    `box-shadow: 0px 0 5px ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      ColorCategories.primary,
-      ColorTokens.token_200
-    )};
-    `}
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   ${(props) => {
     if (props.$type === UiDialogType.CENTERED) {
@@ -75,30 +67,23 @@ const Div = styled.div<privateUiDialogProps>`
 `;
 
 const ContentDiv = styled.div<privateUiDialogProps>`
-  ${(props) => `
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      ColorCategories.primary,
-      ColorTokens.token_100
-    )};
-    border-radius: ${getBorderRadius(props.$type)};
-    padding: 5px;
-    height: 100%;
-  `}
+  background-color: var(--primary-token_100);
+  color: var(--fonts-token_100);
+  padding: 5px;
+  height: 100%;
+  border-radius: ${(props) => getBorderRadius(props.$type)};
 `;
 
-export const DialogContent: React.FC<privateUiDialogProps> = ({
-  children,
-  $customTheme,
-  $selectedTheme,
-  $type,
-}: privateUiDialogProps) => (
-  <Div $customTheme={$customTheme} $selectedTheme={$selectedTheme} $type={$type} role="dialog">
-    <BorderedWrappedDiv $customTheme={$customTheme} $selectedTheme={$selectedTheme} $type={$type}>
-      <ContentDiv $customTheme={$customTheme} $selectedTheme={$selectedTheme} $type={$type}>
-        {children}
-      </ContentDiv>
-    </BorderedWrappedDiv>
-  </Div>
-);
+export const DialogContent: React.FC<privateUiDialogProps> = ({ children, $type }: privateUiDialogProps) => {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <Div $type={$type} role="dialog">
+      <BorderedWrappedDiv $selectedTheme={theme.selectedTheme} $type={$type}>
+        <ContentDiv $type={$type} data-testid="UiDialogContent">
+          {children}
+        </ContentDiv>
+      </BorderedWrappedDiv>
+    </Div>
+  );
+};

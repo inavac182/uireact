@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export enum UiDialogType {
   BOTTOM,
@@ -26,4 +26,4 @@ export type UiDialogProps = {
 export type privateUiDialogProps = {
   /** Position where the dialog will be rendered */
   $type?: UiDialogType;
-} & UiReactPrivateElementProps;
+} & UiReactElementProps;

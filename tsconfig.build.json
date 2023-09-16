@@ -19,7 +19,9 @@
   },
   "exclude": [
     "node_modules",
-    "jest.config.ts"
+    "jest.config.ts",
+    "coverage",
+    "packages/**/coverage"
   ],
   "paths": {
     "@uireact/*": [

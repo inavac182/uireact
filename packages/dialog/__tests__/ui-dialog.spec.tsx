@@ -7,6 +7,8 @@ import { DefaultTheme, ThemeColor, ThemeContext } from '@uireact/foundation';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiDialog, UiDialogType, useDialog } from '../src';
 
+import 'jest-styled-components';
+
 type MockedComponentProps = {
   type?: UiDialogType;
   title?: string;
@@ -175,7 +177,7 @@ describe('<UiDialog />', () => {
     fireEvent.click(screen.getByText('Open Dialog'));
 
     expect(screen.getByRole('dialog')).toBeVisible();
-    fireEvent.click(screen.getByTestId('dialog-background'));
+    fireEvent.click(screen.getByTestId('UiDialogBackground'));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
   });
@@ -204,6 +206,19 @@ describe('<UiDialog />', () => {
     expect(console.error).toHaveBeenCalledWith('No dialog controller implemented');
 
     console.error = consoleError;
+  });
+
+  it('opens and closes dialog when using light theme', () => {
+    uiRender(<MockedComponent handleDialogClose={handleDialogClose} />, ThemeColor.light);
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Open Dialog'));
+
+    expect(screen.getByText('Dialog content')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
+
+    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+    expect(handleDialogClose).toHaveBeenCalledTimes(1);
   });
 
   describe('With dialog toolbar', () => {
@@ -247,16 +262,18 @@ describe('<UiDialog />', () => {
     });
   });
 
-  it('opens and closes dialog when using light theme', () => {
-    uiRender(<MockedComponent handleDialogClose={handleDialogClose} />, ThemeColor.light);
+  describe('Styling', () => {
+    it('Should render with correct colorations', () => {
+      uiRender(<MockedComponent handleDialogClose={handleDialogClose} title="Dialog title" />);
 
-    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
-    fireEvent.click(screen.getByText('Open Dialog'));
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      fireEvent.click(screen.getByText('Open Dialog'));
 
-    expect(screen.getByText('Dialog content')).toBeVisible();
-    fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
-
-    expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
-    expect(handleDialogClose).toHaveBeenCalledTimes(1);
+      expect(screen.getByText('Dialog content')).toBeVisible();
+      expect(screen.getByTestId('UiDialogBackground')).toHaveStyleRule('background', 'black');
+      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
+      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+      expect(screen.getByTestId('UiDialogToolbar')).toHaveStyleRule('border-color', 'var(--primary-token_100)');
+    });
   });
 });

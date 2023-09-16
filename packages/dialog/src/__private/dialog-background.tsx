@@ -18,7 +18,7 @@ type DialogBackgroundProps = {
 };
 
 export const DialogBackground: React.FC<DialogBackgroundProps> = ({ onClick }: DialogBackgroundProps) => (
-  <Div onClick={onClick} data-testid="dialog-background" />
+  <Div onClick={onClick} data-testid="UiDialogBackground" />
 );
 
 DialogBackground.displayName = 'DialogBackground';

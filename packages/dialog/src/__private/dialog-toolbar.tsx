@@ -2,12 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { UiReactPrivateElementProps, getThemeStyling, ThemeContext } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 
 import { UiHeading } from '@uireact/text';
-
-import { dialogToolbarMapper } from '../theme/dialog-toolbar-mapper';
 
 type DialogToolbarProps = {
   closeLabel?: string;
@@ -27,9 +24,8 @@ const Button = styled.button`
   left: 5px;
 `;
 
-const Div = styled.div<UiReactPrivateElementProps>`
-  ${(props) => getThemeStyling(props.$customTheme, props.$selectedTheme, dialogToolbarMapper)}
-
+const Div = styled.div`
+  border-color: var(--primary-token_100);
   border-style: solid;
   border-width: 0 0 2px 0;
   padding-top: 5px;
@@ -41,19 +37,15 @@ export const DialogToolbar: React.FC<DialogToolbarProps> = ({
   closeCB,
   hideCloseIcon,
   title,
-}: DialogToolbarProps) => {
-  const theme = React.useContext(ThemeContext);
-
-  return (
-    <Div $customTheme={theme.theme} $selectedTheme={theme.selectedTheme}>
-      {!hideCloseIcon && (
-        <Button onClick={closeCB} aria-label={closeLabel}>
-          <UiIcon icon="X" />
-        </Button>
-      )}
-      <UiHeading centered>{title}</UiHeading>
-    </Div>
-  );
-};
+}: DialogToolbarProps) => (
+  <Div data-testid="UiDialogToolbar">
+    {!hideCloseIcon && (
+      <Button onClick={closeCB} aria-label={closeLabel}>
+        <UiIcon icon="X" />
+      </Button>
+    )}
+    <UiHeading centered>{title}</UiHeading>
+  </Div>
+);
 
 DialogToolbar.displayName = 'DialogToolbar';
