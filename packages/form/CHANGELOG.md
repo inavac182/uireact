@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.8.2 (2023-09-16)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
 ## [1.8.1](https://github.com/inavac182/ui-react/compare/@uireact/form@1.8.0...@uireact/form@1.8.1) (2023-09-13)
 
 **Note:** Version bump only for package @uireact/form

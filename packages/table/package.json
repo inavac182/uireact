@@ -3,7 +3,7 @@
   "description": "table package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,9 +23,9 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.0.1",
-    "@uireact/grid": "^1.5.0",
-    "@uireact/icons": "^2.0.0"
+    "@uireact/foundation": "^2.0.2",
+    "@uireact/grid": "^1.5.1",
+    "@uireact/icons": "^2.0.1"
   },
   "peerDependencies": {
     "@uireact/flex-grid": "^1.1.0",
