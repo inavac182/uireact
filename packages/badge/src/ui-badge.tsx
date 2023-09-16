@@ -42,9 +42,10 @@ export const UiBadge: React.FC<UiBadgeProps> = ({
   category = 'primary',
   className,
   children,
+  testId,
   size = 'small',
 }: UiBadgeProps) => (
-  <BadgeDiv $category={category} className={className} size={size}>
+  <BadgeDiv $category={category} className={className} size={size} data-testid={testId}>
     <ContentWrapper>{children}</ContentWrapper>
   </BadgeDiv>
 );
