@@ -24,7 +24,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', '1px');
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', 'var(--spacing-one)');
   });
 
   it('Should render correct padding when using inline', () => {
@@ -34,7 +34,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('padding', '0px 2px');
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('padding', '0px var(--spacing-two)');
   });
 
   it('Should render correct margin when using block', () => {
@@ -44,7 +44,20 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', '8px 0px');
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', 'var(--spacing-four) 0px');
+  });
+
+  it('Should render correct margin when using block and inline', () => {
+    render(
+      <UiSpacing testId="spacing-container" margin={{ inline: 'three', block: 'four' }}>
+        <p>Test</p>
+      </UiSpacing>
+    );
+
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
+      'margin',
+      'var(--spacing-four) var(--spacing-three)'
+    );
   });
 
   it('Should set margin individually', () => {
@@ -54,7 +67,10 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', '8px 0px 0px 1px');
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
+      'margin',
+      'var(--spacing-four) 0px 0px var(--spacing-one)'
+    );
   });
 
   it('Should set padding individually', () => {
@@ -64,6 +80,9 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', '0px 8px 1px 0px');
+    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
+      'margin',
+      '0px var(--spacing-four) var(--spacing-one) 0px'
+    );
   });
 });

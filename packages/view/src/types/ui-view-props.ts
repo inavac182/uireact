@@ -1,11 +1,4 @@
-import {
-  Theme,
-  ThemeColor,
-  UiReactElementProps,
-  UiReactPrivateElementProps,
-  IDialogController,
-  ColorCategory,
-} from '@uireact/foundation';
+import { Theme, ThemeColor, UiReactElementProps, IDialogController, ColorCategory } from '@uireact/foundation';
 
 export type UiViewProps = {
   dialogController?: IDialogController;
@@ -33,11 +26,9 @@ export type UiViewRowProps = {
 } & UiReactElementProps;
 
 export type privateViewProps = {
-  /** If content should render centered and not fullscreen */
-  $centeredContent?: boolean;
   /** If the view container should not render a bg */
   $noBackground?: boolean;
-} & UiReactPrivateElementProps;
+} & UiReactElementProps;
 
 export type privateViewRowProps = {
   $centeredContent?: boolean;
@@ -45,4 +36,4 @@ export type privateViewRowProps = {
   $category?: ColorCategory;
   $inverseFont?: boolean;
   $noBackground?: boolean;
-} & UiReactPrivateElementProps;
+} & UiReactElementProps;

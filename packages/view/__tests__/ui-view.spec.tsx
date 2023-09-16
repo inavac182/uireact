@@ -7,10 +7,13 @@ import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
 
+import 'jest-styled-components';
+
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
   noBackground?: boolean;
+  selectedTheme?: ThemeColor;
 };
 
 const closeDialogMockedFn = jest.fn();
@@ -40,7 +43,7 @@ const DialogComponent = () => {
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
     theme={DefaultTheme}
-    selectedTheme={ThemeColor.dark}
+    selectedTheme={props.selectedTheme || ThemeColor.dark}
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
@@ -75,6 +78,12 @@ describe('<UiView />', () => {
     expect(screen.getByText('Content')).toBeVisible();
   });
 
+  it('renders fine with selected light color', () => {
+    render(<MockedComponent selectedTheme={ThemeColor.light} />);
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
   it('renders fine when is centered', () => {
     render(<MockedComponent centeredContent />);
 
@@ -85,6 +94,7 @@ describe('<UiView />', () => {
     render(<MockedComponent noBackground />);
 
     expect(screen.getByText('Content')).toBeVisible();
+    expect(screen.getByTestId('UiView')).toHaveStyleRule('background-color', 'transparent');
   });
 
   it('renders fine when is centered and xlarge', () => {

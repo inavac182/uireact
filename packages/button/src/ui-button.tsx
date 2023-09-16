@@ -6,7 +6,7 @@ import {
   ThemeContext,
   getThemeStyling,
   getColorCategory,
-  getSpacingDistributionStyle,
+  getSpacingStyle,
   getThemeColor,
   ColorTokens,
   ColorCategories,
@@ -96,7 +96,7 @@ const StyledButton = styled.button<privateButtonProps>`
 
     styles = `
       ${styles}
-      ${props.$padding ? `padding: ${getSpacingDistributionStyle(props.$padding, props.$customTheme)};` : ''}
+      ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
     `;
 
     return styles;

@@ -6,6 +6,7 @@ menu: Components
 import { Props } from 'docz';
 
 import { UiSpacing, TextSize } from '@uireact/foundation';
+import { UiIcon } from '@uireact/icons';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
@@ -30,33 +31,25 @@ import { UiBadge } from '../src/';
 
 <Playground>
   <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge size={TextSize.xlarge}>✈️ Primary</UiBadge>
+    <UiBadge size="xlarge">✈️ Primary</UiBadge>
   </UiSpacing>
   <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="secondary" size={TextSize.large}>
-      ⚡️ Secondary
+    <UiBadge category="secondary" size="large">
+      <UiIcon icon="BadgeCheck" /> Secondary with icon
     </UiBadge>
   </UiSpacing>
   <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="tertiary" size={TextSize.regular}>
-      🚨 Tertiary
+    <UiBadge category="tertiary" size="regular">
+      🚀 Tertiary
     </UiBadge>
   </UiSpacing>
   <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="positive" size={TextSize.small}>
-      ✅ Positive
+    <UiBadge category="positive">✅ Positive</UiBadge>
+  </UiSpacing>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiBadge category="warning" size="xsmall">
+      🚨 Warning
     </UiBadge>
-  </UiSpacing>
-  <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="warning">🖐🏻 Warning</UiBadge>
-  </UiSpacing>
-  <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="negative" size={TextSize.xsmall}>
-      ❌ Negative
-    </UiBadge>
-  </UiSpacing>
-  <UiSpacing margin={{ block: 'three' }}>
-    <UiBadge category="error">🐛 Error</UiBadge>
   </UiSpacing>
 </Playground>
 
