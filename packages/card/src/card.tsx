@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { ColorCategory, ColorToken, ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, ColorToken, UiReactElementProps } from '@uireact/foundation';
 import { CardWrapper, StyledLink, StyledExternalLink } from './private';
 
 export type UiCardProps = UiReactElementProps & {
-  /** If card should show a border */
-  bordered?: boolean;
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
   clickHandler?: (idenfifier: string | undefined) => void;
   /** If the card should take full height */
@@ -26,11 +24,11 @@ export type UiCardProps = UiReactElementProps & {
   category?: ColorCategory;
   /** Card weight used for background color */
   weight?: ColorToken;
+  /** Card styling */
+  styling?: 'outlined';
 };
 
-export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
+export const UiCard: React.FC<UiCardProps> = ({ weight = '100', category = 'secondary', ...props }: UiCardProps) => {
   const onClick = React.useCallback(() => {
     if (props.clickHandler) {
       props.clickHandler(props.identifier);
@@ -40,23 +38,22 @@ export const UiCard: React.FC<UiCardProps> = (props: UiCardProps) => {
   const CardWrapperMemo = React.useMemo(
     () => (
       <CardWrapper
-        $bordered={props.bordered}
-        $category={props.category}
+        $category={category}
         className={props.className}
-        $customTheme={themeContext.theme}
+        data-testid={props.testId}
         $fullWidth={props.fullWidth}
         $fullHeight={props.fullHeight}
-        $selectedTheme={themeContext.selectedTheme}
         onClick={!props.link ? onClick : undefined}
         $cursorNeeded={props.clickHandler !== undefined}
         $squared={props.squared}
         $noPadding={props.noPadding}
-        $weight={props.weight}
+        $weight={weight}
+        $styling={props.styling}
       >
         {props.children}
       </CardWrapper>
     ),
-    [props, themeContext]
+    [props]
   );
 
   if (props.link) {

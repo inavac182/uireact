@@ -137,6 +137,21 @@ import * as packageJson from '../package.json';
   </UiSpacing>
 </Playground>
 
+### UiCard outlined
+
+<Playground>
+  <UiSpacing margin={{ block: 'three' }}>
+    <UiCard weight="10" category="positive" styling="outlined">
+      <h3>Card header</h3>
+      <p>This is the content</p>
+      <UiText size="small">This is the footer, using UiText styling is different.</UiText>
+    </UiCard>
+  </UiSpacing>
+</Playground>
+
+The outlined card will give some basic coloration to texts, although if you use any text component
+the styling will be overwritten and has to be manually set up on each text component.
+
 ## Props
 
 <Props of={UiCard} />
