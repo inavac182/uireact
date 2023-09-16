@@ -40,11 +40,11 @@ export const Actions = (): React.ReactElement => {
             <UiIcon icon="BrandsGithub" size="large" />
           </a>
         </UiLink>
-        <UiButton onClick={themeSwitcherCB} rounded iconized theme="tertiary">
+        <UiButton onClick={themeSwitcherCB} rounded styling="icon" category="tertiary">
           <UiIcon icon="CircleHalfStroke" size="large" />
         </UiButton>
         <MenuIcon>
-          <UiButton iconized theme="tertiary" onClick={openMenuCB}>
+          <UiButton styling="icon" category="tertiary" onClick={openMenuCB}>
             <UiIcon icon="MenuBurger" size="large" />
           </UiButton>
         </MenuIcon>

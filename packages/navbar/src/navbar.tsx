@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ThemeContext } from '@uireact/foundation';
-
 import { UiNavbarProps, privateNavbarProps } from './types';
 import { NavbarItemWrapper } from './private';
 import { getFlexAlignment } from './utils';
@@ -34,8 +32,6 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   styling,
   testId,
 }: UiNavbarProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
   const NavbarContent = React.useMemo(() => {
     const numberOfItems = React.Children.count(children);
     const elements: React.ReactElement[] = [];
@@ -46,8 +42,6 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           $align={align}
           $category={category}
           $orientation={orientation}
-          $customTheme={themeContext.theme}
-          $selectedTheme={themeContext.selectedTheme}
           key={`navbar-item-${index}`}
           $isFirst={index === 0}
           $isLast={index === numberOfItems - 1}
@@ -61,17 +55,10 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     });
 
     return elements;
-  }, [children, themeContext]);
+  }, [children]);
 
   return (
-    <NavbarWrapper
-      $align={align}
-      className={className}
-      $customTheme={themeContext.theme}
-      $selectedTheme={themeContext.selectedTheme}
-      $orientation={orientation}
-      data-testid={testId}
-    >
+    <NavbarWrapper $align={align} className={className} $orientation={orientation} data-testid={testId}>
       <>{NavbarContent}</>
     </NavbarWrapper>
   );

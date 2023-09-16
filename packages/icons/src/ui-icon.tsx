@@ -2,34 +2,19 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  ColorCategories,
-  ThemeContext,
-  getColorCategory,
-  getTextSizeFromSizeString,
-  getThemeStyling,
-} from '@uireact/foundation';
+import { getColorCategory } from '@uireact/foundation';
 
 import { UiIconProps, privateIconProps } from './types';
-import { getDynamicMapper } from './theme';
 import { IconComponent } from './public';
 
 const Span = styled.span<privateIconProps>`
   ${(props: privateIconProps) => `
-    ${getThemeStyling(
-      props.$customTheme,
-      props.$selectedTheme,
-      getDynamicMapper(
-        props.$category ? getColorCategory(props.$category) : ColorCategories.fonts,
-        props.$selectedTheme,
-        props.$inverseColoration
-      )
-    )}
-    ${`font-size: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
-    ${`line-height: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
-    ${`height: ${getTextSizeFromSizeString(props.$customTheme, props.$size || 'regular')};`}
-    ${props.$size ? `width: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
-    ${props.$size ? `height: ${getTextSizeFromSizeString(props.$customTheme, props.$size)};` : ''}
+    fill: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);
+
+    ${`font-size: var(--texts-${props.$size});`}
+    ${`line-height: var(--texts-${props.$size});`}
+    ${`height: var(--texts-${props.$size});`}
+    ${`width: var(--texts-${props.$size});`}
   `}
 
   vertical-align: sub;
@@ -37,20 +22,16 @@ const Span = styled.span<privateIconProps>`
   justify-content: center;
 `;
 
-export const UiIcon: React.FC<UiIconProps> = ({ theme, icon, size, inverseColoration }: UiIconProps) => {
-  const themeProvided = React.useContext(ThemeContext);
-
-  return (
-    <Span
-      $category={theme}
-      $customTheme={themeProvided.theme}
-      $selectedTheme={themeProvided.selectedTheme}
-      $size={size}
-      $inverseColoration={inverseColoration}
-    >
-      <IconComponent icon={icon} />
-    </Span>
-  );
-};
+export const UiIcon: React.FC<UiIconProps> = ({
+  category,
+  icon,
+  size = 'regular',
+  testId,
+  inverseColoration,
+}: UiIconProps) => (
+  <Span $category={category} $size={size} $inverseColoration={inverseColoration} data-testid={testId}>
+    <IconComponent icon={icon} />
+  </Span>
+);
 
 UiIcon.displayName = 'UiIcon';

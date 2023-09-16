@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-import { ColorCategory, SpacingDistribution, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SpacingDistribution } from '@uireact/foundation';
 
 export type UiButtonProps = {
   /** onClick Handler */
@@ -12,20 +12,14 @@ export type UiButtonProps = {
   testId?: string;
   /** className attribute */
   className?: string;
-  /** render button without background on normal state */
-  cristal?: boolean;
-  /** Button stylized for an icon */
-  iconized?: boolean;
   /** Button id */
   id?: string;
   /** Button theme */
-  theme?: ColorCategory;
+  category?: ColorCategory;
   /** If button should take full height */
   fullHeight?: boolean;
   /** If button should take full width */
   fullWidth?: boolean;
-  /** If button renders with outlined styling */
-  outlined?: boolean;
   /** Button paggin */
   padding?: SpacingDistribution;
   /** Button type */
@@ -34,6 +28,8 @@ export type UiButtonProps = {
   ref?: ((instance: HTMLButtonElement | null) => void) | React.RefObject<HTMLButtonElement> | null | undefined;
   /** Button with rounded corners */
   rounded?: boolean;
+  /** The styling of the button to render */
+  styling?: 'clear' | 'icon' | 'outlined';
 };
 
 export type privateButtonProps = {
@@ -42,25 +38,24 @@ export type privateButtonProps = {
   /** Disable button */
   disabled?: boolean;
   children?: React.ReactNode;
+  styling?: 'clear' | 'icon' | 'outlined';
   /** testId attribute */
   testId?: string;
   /** className attribute */
   className?: string;
   /** render button without normal background */
   id?: string;
-  $cristal?: boolean;
   /** Button theme */
-  $theme?: ColorCategory;
+  $category?: ColorCategory;
   /** If button should take full height */
   $fullHeight?: boolean;
   /** If button should take full width */
   $fullWidth?: boolean;
-  $outlined?: boolean;
   $padding?: SpacingDistribution;
   /** Button type */
   type?: 'button' | 'submit';
   /** Button type */
   ref?: ((instance: HTMLButtonElement | null) => void) | React.RefObject<HTMLButtonElement> | null | undefined;
   $rounded?: boolean;
-  $iconized?: boolean;
-} & UiReactPrivateElementProps;
+  $styling?: 'clear' | 'icon' | 'outlined';
+};

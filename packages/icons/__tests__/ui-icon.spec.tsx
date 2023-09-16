@@ -6,17 +6,21 @@ import { uiRender } from '../../../__tests__/utils/render';
 import { UiIcon } from '../src';
 import { ThemeColor } from '@uireact/foundation';
 
+import 'jest-styled-components';
+
 describe('<UiIcon />', () => {
   it('renders fine', () => {
-    uiRender(<UiIcon icon="Search" />);
+    uiRender(<UiIcon icon="Search" testId="UiIcon" />);
 
     expect(screen.getByTestId('Icon')).toBeVisible();
+    expect(screen.getByTestId('UiIcon')).toHaveStyleRule('fill', 'var(--fonts-token_100)');
   });
 
   it('renders fine with theme', () => {
-    uiRender(<UiIcon icon="Search" theme="error" />);
+    uiRender(<UiIcon icon="Search" category="error" testId="UiIcon" />);
 
     expect(screen.getByTestId('Icon')).toBeVisible();
+    expect(screen.getByTestId('UiIcon')).toHaveStyleRule('fill', 'var(--error-token_100)');
   });
 
   it('renders fine with size', () => {
@@ -26,19 +30,23 @@ describe('<UiIcon />', () => {
   });
 
   it('renders fine with inverse coloration', () => {
-    uiRender(<UiIcon icon="Search" theme="error" inverseColoration />);
+    uiRender(<UiIcon icon="Search" category="secondary" inverseColoration testId="UiIcon" />);
 
     expect(screen.getByTestId('Icon')).toBeVisible();
+    expect(screen.getByTestId('UiIcon')).toHaveStyleRule('fill', 'var(--inverse-secondary-token_100)');
   });
 
   it('renders fine with inverse coloration props on light', () => {
-    uiRender(<UiIcon icon="Search" theme="error" inverseColoration={{ light: true, dark: false }} />, ThemeColor.light);
+    uiRender(
+      <UiIcon icon="Search" category="error" inverseColoration={{ light: true, dark: false }} />,
+      ThemeColor.light
+    );
 
     expect(screen.getByTestId('Icon')).toBeVisible();
   });
 
   it('renders fine with inverse coloration props on dark', () => {
-    uiRender(<UiIcon icon="Search" theme="error" inverseColoration={{ light: true, dark: false }} />);
+    uiRender(<UiIcon icon="Search" category="error" inverseColoration={{ light: true, dark: false }} />);
 
     expect(screen.getByTestId('Icon')).toBeVisible();
   });

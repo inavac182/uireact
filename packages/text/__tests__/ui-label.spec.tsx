@@ -4,13 +4,15 @@ import { screen } from '@testing-library/react';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiLabel } from '../src';
-import { TextSize } from '@uireact/foundation';
+
+import 'jest-styled-components';
 
 describe('<UiLabel />', () => {
   it('renders fine', () => {
     uiRender(<UiLabel>Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
   it('renders fine with category', () => {
@@ -20,8 +22,9 @@ describe('<UiLabel />', () => {
   });
 
   it('renders fine with size', () => {
-    uiRender(<UiLabel size={TextSize.large}>Text</UiLabel>);
+    uiRender(<UiLabel size="large">Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('font-size', 'var(--texts-large)');
   });
 });

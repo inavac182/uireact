@@ -6,11 +6,14 @@ import { ThemeColor } from '@uireact/foundation';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiText } from '../src';
 
+import 'jest-styled-components';
+
 describe('<UiText />', () => {
   it('renders fine', () => {
     uiRender(<UiText>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
   it('renders fine with class name', () => {
@@ -30,6 +33,7 @@ describe('<UiText />', () => {
     uiRender(<UiText inverseColoration>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
   });
 
   it('renders fine with inverse coloration and inline', () => {

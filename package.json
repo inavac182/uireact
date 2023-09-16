@@ -12,7 +12,7 @@
     "dev:quick": "docz dev",
     "docz:build": "npm run clean && npm run tsc && docz build",
     "docz:serve": "docz build && docz serve",
-    "lint": "npx lerna run lint",
+    "lint": "npx lerna run lint --stream",
     "typescheck": "lerna run tsc",
     "tsc": "npx lerna run tsc",
     "test": "npm run tsc && npx lerna run test --concurrency=4 --stream",

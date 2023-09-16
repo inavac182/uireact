@@ -1,9 +1,9 @@
 {
   "name": "@uireact/navbar",
   "description": "Navbar component from uireact library",
-  "repository": "https://github.com/inavac182/ui-react",
+  "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.7.1",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -22,10 +22,10 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^1.7.0"
+    "@uireact/foundation": "^2.0.1"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^1.0.1",
+    "@uireact/foundation": "^2.0.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",

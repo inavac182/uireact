@@ -48,12 +48,12 @@ import * as packageJson from '../package.json';
 #### With fullWidth
 
 <Playground>
-  <UiGrid cols={2} rows={1} colsGap={20} justifyItems="center">
+  <UiGrid cols={2} rows={1} colsGap='four' justifyItems="center">
     <UiButton fullWidth padding={{ all: 'three' }}>
       Button! 💅🏾
     </UiButton>
 
-    <UiButton fullWidth theme="tertiary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
       Button! 💅🏾
     </UiButton>
 
@@ -73,42 +73,29 @@ import * as packageJson from '../package.json';
 #### Button themes:
 
 <Playground>
-  <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap={5} rowsGap={5} justifyItems="center">
+  <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap="three" rowsGap="three" justifyItems="center">
     <UiButton fullWidth padding={{ all: 'three' }}>
       Button! 🐬
     </UiButton>
-    <UiButton fullWidth theme="secondary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="secondary" padding={{ all: 'three' }}>
       Button! 🐉
     </UiButton>
-    <UiButton fullWidth theme="tertiary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
       Button! 🌹
     </UiButton>
-    <UiButton fullWidth theme="positive" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="positive" padding={{ all: 'three' }}>
       Button! 🌎
     </UiButton>
-    <UiButton fullWidth theme="negative" disabled padding={{ all: 'three' }}>
+    <UiButton fullWidth category="negative" disabled padding={{ all: 'three' }}>
       Button! 🌈
     </UiButton>
-    <UiButton fullWidth theme="error" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="error" padding={{ all: 'three' }}>
       Button! ⚡️
     </UiButton>
-    <UiButton fullWidth theme="warning" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="warning" padding={{ all: 'three' }}>
       Button! 🌋
     </UiButton>
   </UiGrid>
-</Playground>
-
-#### Cristal button
-
-<Playground>
-  <UiCard>
-    <UiFlexGrid gap="three">
-      <UiButton theme="tertiary" cristal padding={{ all: 'three' }}>
-        Button! ✨
-      </UiButton>
-      Some content
-    </UiFlexGrid>
-  </UiCard>
 </Playground>
 
 #### Rounded button
@@ -119,34 +106,47 @@ import * as packageJson from '../package.json';
       <UiButton rounded>
         <UiText>Button 🌜</UiText>
       </UiButton>
-      <UiButton rounded outlined theme="secondary">
+      <UiButton rounded styling="outlined" category="secondary">
         <UiText>Button 🍻</UiText>
       </UiButton>
-      <UiButton rounded cristal theme="tertiary">
+      <UiButton rounded styling="clear" category="tertiary">
         <UiText>Button 📡</UiText>
       </UiButton>
     </UiFlexGrid>
   </UiCard>
 </Playground>
 
-#### Iconized button
+#### Clear button
+
+<Playground>
+  <UiCard>
+    <UiFlexGrid gap="three">
+      <UiButton category="tertiary" styling="clear" padding={{ all: 'three' }}>
+        Button! ✨
+      </UiButton>
+      Some content
+    </UiFlexGrid>
+  </UiCard>
+</Playground>
+
+#### Icon button
 
 <Playground>
   <UiCard weight="10">
     <UiFlexGrid gap="three" alignItems="center">
-      <UiButton iconized theme="primary">
+      <UiButton styling="icon" category="primary">
         <UiIcon icon="EarthAmericas" size="xlarge" />
       </UiButton>
-      <UiButton iconized theme="secondary">
+      <UiButton styling="icon" category="secondary">
         <UiIcon icon="EarthEuropa" size="large" />
       </UiButton>
-      <UiButton iconized theme="tertiary">
+      <UiButton styling="icon" category="tertiary">
         <UiIcon icon="EarthAsia" size="regular" />
       </UiButton>
-      <UiButton iconized theme="positive">
+      <UiButton styling="icon" category="positive">
         <UiIcon icon="EarthAfrica" size="small" />
       </UiButton>
-      <UiButton iconized theme="error">
+      <UiButton styling="icon" category="error">
         <UiIcon icon="BadgeCheck" size="xsmall" />
       </UiButton>
     </UiFlexGrid>
@@ -158,15 +158,15 @@ import * as packageJson from '../package.json';
 <Playground>
   <UiCard category="primary" weight="10">
     <UiFlexGrid gap="three">
-      <UiButton outlined theme="tertiary">
+      <UiButton styling="outlined" category="tertiary">
         <UiText>Button 🐼</UiText>
       </UiButton>
-      <UiButton outlined theme="secondary">
+      <UiButton styling="outlined" category="secondary">
         <UiText>
           Button <UiIcon icon="Refresh" />
         </UiText>
       </UiButton>
-      <UiButton outlined rounded theme="positive">
+      <UiButton styling="outlined" rounded category="positive">
         <UiText>
           Button <UiIcon icon="VideoCameraVintage" />
         </UiText>

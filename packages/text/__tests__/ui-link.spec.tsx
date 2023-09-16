@@ -7,6 +7,8 @@ import { UiLink } from '../src';
 
 import { TextSize } from '@uireact/foundation';
 
+import 'jest-styled-components';
+
 const onClick = jest.fn();
 
 describe('<UiLink />', () => {
