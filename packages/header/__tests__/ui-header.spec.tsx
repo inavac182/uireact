@@ -5,6 +5,8 @@ import { screen } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiHeader } from '../src/ui-header';
 
+import 'jest-styled-components';
+
 describe('<UiHeader />', () => {
   beforeEach(() => {
     global.innerWidth = 1080;
@@ -12,22 +14,26 @@ describe('<UiHeader />', () => {
 
   it('renders fine', () => {
     uiRender(
-      <UiHeader>
+      <UiHeader testId="UiHeader">
         <p>Header</p>
       </UiHeader>
     );
 
     expect(screen.getByText('Header')).toBeVisible();
+    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
+    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('border-color', 'var(--primary-token_150)');
   });
 
   it('renders fine with weight', () => {
     uiRender(
-      <UiHeader weight="150">
+      <UiHeader weight="150" testId="UiHeader">
         <p>Header</p>
       </UiHeader>
     );
 
     expect(screen.getByText('Header')).toBeVisible();
+    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('background-color', 'var(--primary-token_150)');
   });
 
   it('renders fine if is centered', () => {
@@ -42,12 +48,13 @@ describe('<UiHeader />', () => {
 
   it('renders fine if is fixed', () => {
     uiRender(
-      <UiHeader fixed>
+      <UiHeader fixed testId="UiHeader">
         <p>Header</p>
       </UiHeader>
     );
 
     expect(screen.getByText('Header')).toBeVisible();
+    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('position', 'sticky');
   });
 
   it('renders fine if is centered and xl', () => {

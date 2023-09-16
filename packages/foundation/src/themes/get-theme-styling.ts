@@ -1,5 +1,6 @@
 import { Theme, ThemeColor, ThemeMapper, ThemeMapperStates, ThemeMapperStyles } from '../types';
 
+/** @Deprecated Use CSS variables instead of theme mappers */
 export const getThemeStyling = (theme: Theme, selectedTheme: ThemeColor, mapper: ThemeMapper): string => {
   let style = '';
 
