@@ -27,14 +27,14 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
 
       <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>General colorations</UiHeading>
-        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
+        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap="four" rowsGap="four">
           <TokensForm name={`${type}-fonts`} tokens={coloration.fonts} handleChange={handleChange} />
         </UiGrid>
       </UiSpacing>
 
       <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>Level colorations</UiHeading>
-        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
+        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap="four" rowsGap="four">
           <TokensForm name={`${type}-primary`} tokens={coloration.primary} handleChange={handleChange} />
           <TokensForm name={`${type}-secondary`} tokens={coloration.secondary} handleChange={handleChange} />
           <TokensForm name={`${type}-tertiary`} tokens={coloration.tertiary} handleChange={handleChange} />
@@ -43,7 +43,7 @@ export const ColorationForm: React.FC<ColorationFormProps> = ({
 
       <UiSpacing margin={{ all: 'four' }}>
         <UiHeading>State colorations</UiHeading>
-        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap={10} rowsGap={10}>
+        <UiGrid cols={{ small: 1, medium: 2, large: 2, xlarge: 2 }} colsGap="four" rowsGap="four">
           <TokensForm name={`${type}-positive`} tokens={coloration.positive} handleChange={handleChange} />
           <TokensForm name={`${type}-negative`} tokens={coloration.negative} handleChange={handleChange} />
           <TokensForm name={`${type}-error`} tokens={coloration.error} handleChange={handleChange} />

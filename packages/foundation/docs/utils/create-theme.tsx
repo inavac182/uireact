@@ -87,7 +87,7 @@ export const CreateTheme: React.FC = () => {
                   </UiCard>
                 </UiSpacing>
                 <UiSpacing margin={{ all: 'four' }}>
-                  <UiGrid cols={2} colsGap={10}>
+                  <UiGrid cols={2} colsGap="four">
                     <HeadingsForm
                       headings={$customTheme.sizes.headings}
                       handleChange={handleChange}
@@ -105,7 +105,7 @@ export const CreateTheme: React.FC = () => {
               </UiGridItem>
             </UiGrid>
             <UiSpacing padding={{ all: 'four' }}>
-              <UiButton type="submit" fullWidth theme="positive">
+              <UiButton type="submit" fullWidth category="positive">
                 <UiSpacing margin={{ block: 'four' }}>
                   <UiText size={TextSize.xlarge}>Generate theme</UiText>
                 </UiSpacing>
@@ -122,7 +122,7 @@ export const CreateTheme: React.FC = () => {
             </UiText>
           </UiSpacing>
           <UiSpacing padding={{ all: 'four' }}>
-            <UiButton fullWidth onClick={copyToClipboard} theme="warning">
+            <UiButton fullWidth onClick={copyToClipboard} category="warning">
               <UiSpacing margin={{ all: 'four' }}>Copy to clipboard</UiSpacing>
             </UiButton>
           </UiSpacing>

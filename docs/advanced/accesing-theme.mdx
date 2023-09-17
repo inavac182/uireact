@@ -1,0 +1,51 @@
+---
+name: Get theme values
+menu: Advanced
+route: /get-theme-values
+---
+
+import { UiLineSeparator } from '@uireact/separator';
+
+# Accessing theme values
+
+<UiLineSeparator />
+
+### First, How are the values store?
+
+When you use the UiView component this creates the CSS Variables required for the all packages. If you inspect your App
+in the `html` element you'll see a lot of variables defined into `:root`. If you decide to enable the light theme, then
+you will see the class: `light` added to the `html` element, this is how the theme changes the values of the CSS variables
+based on what theme is enabled.
+
+## Use them from the client app
+
+So, now that you know where the values are actually stored in the CSS, using any value is as simple as just using that
+CSS variable from any place in your app. For example:
+
+```tsx
+import styled from 'styled-components';
+
+const SomeWrapper = styled.div`
+  background: var(--primary-token_100);
+`;
+
+export const myComponent = () => {
+  return (
+    <SomeWrapper>
+      <p>The content</p>
+    </SomeWrapper>
+  );
+};
+```
+
+The variables have the following format:
+
+```ts
+--{'inverse-' || ''}-{category}-{token}
+```
+
+The `inverse` name specifies that this is the value of the other theme, e.g. if dark is enabled then this variable will have the light value.
+
+The `category` means the ColorCategory of the theme property.
+
+The `token` is the token level used in each color category in the theme.

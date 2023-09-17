@@ -225,13 +225,15 @@ This values are used from the [UiSpacing](https://uireact.io/packages-foundation
 
 Once the theme is created we need to set it up into the library context so all components can grab it.
 
-### Recommended UiView
+### Set it up into UiView
 
-If you use the component `UiView` then it automatically sets all the contexts needed for our components to work well, e.g. the theme context,
-dialogs context, etc. At the same time it stablish global styles for the entire app, so we recommend that you wrap your app
-in a UiView, you can get more information about this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
+The component `UiView` sets all the providers and global styles for the components to work properly, e.g. the theme context, dialogs context,
+etc... So, you have to wrap your app in a UiView, you can get more information about
+this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
 
-TL;DR;
+TL;DR; Do this:
+
+`myAppWrapper.tsx`:
 
 ```tsx
 import React from 'react';
@@ -242,22 +244,6 @@ export const App = () => (
   <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
     ... {Your App} ...
   </Uiview>
-);
-
-```
-
-### Manually set up
-
-If you don't want to use the view component then you will have to manually set all the contexts, including the ThemeContext provided, this is exported from the foundation package:
-
-```tsx
-import React from 'react';
-import { ThemeContext, DefaultTheme, ThemeColor } from '@uireact/foundation';
-
-export const App = () => (
-  <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: ThemeColor.light }}>
-    ... {Your App} ...
-  </ThemeContext.Provider>
 );
 
 ```
