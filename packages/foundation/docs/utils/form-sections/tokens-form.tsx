@@ -16,7 +16,9 @@ export const TokensForm: React.FC<TokensFormProps> = ({ name, handleChange, toke
   return (
     <UiCard>
       <UiSpacing padding={{ all: 'three' }}>
-        <UiHeading>{name}</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>{name}</UiHeading>
+        </UiSpacing>
         <UiGrid cols={2} rows={5}>
           <UiInput
             name={`${name}-token_10`}
