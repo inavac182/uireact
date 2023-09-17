@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 import { UiReactElementProps } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
-import { UiFlexGrid } from '@uireact/flex-grid';
+import { UiFlexGrid } from '@uireact/flex';
 
 import { UiLinearChartData } from './types';
 import { CurrentDiv, LimitDiv, WrapperDiv } from './private';
