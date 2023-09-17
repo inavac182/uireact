@@ -4,8 +4,7 @@ import { privateLinearChartProps } from '../../types';
 import { getAnimation, getColor, getPercentage } from './util';
 
 export const LimitDiv = styled.div<privateLinearChartProps>`
-  ${(props) =>
-    `background-color: ${getColor(props.$customTheme, props.$selectedTheme, props.$limitColor || 'primary')};`}
+  ${(props) => `background-color: ${getColor(props.$limitColor || 'primary')};`}
 
   width: 100%;
   padding: 5px;
@@ -13,8 +12,7 @@ export const LimitDiv = styled.div<privateLinearChartProps>`
 `;
 
 export const CurrentDiv = styled.div<privateLinearChartProps>`
-  ${(props) =>
-    `background-color: ${getColor(props.$customTheme, props.$selectedTheme, props.$currentColor || 'tertiary')};`}
+  ${(props) => `background-color: ${getColor(props.$currentColor || 'tertiary')};`}
 
   animation: ${(props) => getAnimation(getPercentage(props.$limitValue, props.$currentValue))} 1s ease-out forwards;
   height: 100%;
