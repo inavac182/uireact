@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/inavac182/uireact/compare/@uireact/list@1.2.2...@uireact/list@1.2.3) (2023-09-17)
+
+**Note:** Version bump only for package @uireact/list
+
+
+
+
+
 ## 1.2.2 (2023-09-16)
 
 **Note:** Version bump only for package @uireact/list
