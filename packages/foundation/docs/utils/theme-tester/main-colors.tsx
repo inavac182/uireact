@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UiCard } from '@uireact/card';
-import { UiSpacing, TextSize } from '@uireact/foundation';
+import { UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiHeading, UiText } from '@uireact/text';
 

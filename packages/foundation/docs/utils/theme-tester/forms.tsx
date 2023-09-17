@@ -24,7 +24,9 @@ export const Forms = (): JSX.Element => {
 
   return (
     <UiSpacing padding={{ all: 'five' }}>
-      <UiHeading centered>Forms</UiHeading>
+      <UiSpacing padding={{ block: 'four' }}>
+        <UiHeading centered>Forms</UiHeading>
+      </UiSpacing>
       <UiCard weight="10">
         <UiGrid colsGap="three" rowsGap="three" cols={{ small: 3, medium: 3, large: 7, xlarge: 7 }}>
           <UiButton>

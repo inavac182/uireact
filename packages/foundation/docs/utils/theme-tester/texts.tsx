@@ -8,9 +8,11 @@ import { UiIcon } from '@uireact/icons';
 
 export const Texts = () => (
   <UiSpacing padding={{ all: 'five' }}>
-    <UiGrid cols={3} colsGap={10}>
+    <UiGrid cols={3} colsGap="four">
       <UiGridItem>
-        <UiHeading>Texts</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>Texts</UiHeading>
+        </UiSpacing>
         <UiCard category="primary">
           <UiText size={TextSize.xlarge}>Lorem ipsum</UiText>
           <UiText size={TextSize.large}>Lorem ipsum</UiText>
@@ -20,7 +22,9 @@ export const Texts = () => (
         </UiCard>
       </UiGridItem>
       <UiGridItem>
-        <UiHeading>Headings</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>Headings</UiHeading>
+        </UiSpacing>
         <UiCard category="primary">
           <UiHeading level={1}>Lorem ipsum</UiHeading>
           <UiHeading level={2}>Lorem ipsum</UiHeading>
@@ -31,17 +35,23 @@ export const Texts = () => (
         </UiCard>
       </UiGridItem>
       <UiGridItem>
-        <UiHeading>Link</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>Link</UiHeading>
+        </UiSpacing>
         <UiCard category="primary">
           <UiLink>
             <a href="#">Lorem ipsum</a>
           </UiLink>
         </UiCard>
-        <UiHeading>Label</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>Label</UiHeading>
+        </UiSpacing>
         <UiCard category="primary">
           <UiLabel>Lorem ipsum</UiLabel>
         </UiCard>
-        <UiHeading>Icon</UiHeading>
+        <UiSpacing padding={{ block: 'four' }}>
+          <UiHeading>Icon</UiHeading>
+        </UiSpacing>
         <UiCard category="primary">
           <UiIcon icon="Airplay" size="xlarge" /> <UiIcon icon="Airplay" size="large" />{' '}
           <UiIcon icon="Airplay" size="regular" /> <UiIcon icon="Airplay" size="small" />{' '}

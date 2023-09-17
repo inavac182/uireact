@@ -47,7 +47,7 @@ export const TestTheme: React.FC = () => {
         <UiSpacing padding={{ all: 'five' }}>
           <UiGrid cols={3} rows={2} colsGap="five" rowsGap="five">
             <UiGridItem cols={2} rows={2}>
-              <UiTextArea value={themeInput} onChange={handleChange} rows={5} />
+              <UiTextArea value={themeInput} onChange={handleChange} rows={5} category="tertiary" />
             </UiGridItem>
             <UiGridItem rows={1}>
               <UiButton onClick={loadTheme} category="secondary" fullWidth>
