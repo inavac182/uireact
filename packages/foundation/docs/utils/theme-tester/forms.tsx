@@ -4,7 +4,7 @@ import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
 import { UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
-import { UiFlexGrid } from '@uireact/flex-grid';
+import { UiFlexGrid } from '@uireact/flex';
 import { UiHeading } from '@uireact/text';
 import { UiCheckbox, UiInput, UiSelect } from '@uireact/form';
 import { styled } from 'styled-components';

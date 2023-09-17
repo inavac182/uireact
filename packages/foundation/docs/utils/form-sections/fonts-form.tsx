@@ -4,7 +4,7 @@ import { UiCard } from '@uireact/card';
 import { UiInput } from '@uireact/form';
 import { UiSpacing, Texts } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex-grid';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
 type FontsFormProps = {
   handleChange: (e: React.FormEvent<HTMLInputElement>) => void;

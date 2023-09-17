@@ -5,7 +5,7 @@ import { UiViewRow } from '@uireact/view';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiText } from '@uireact/text';
 import { UiSelect } from '@uireact/form';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex-grid';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
 import { UiIcon } from '../../src';
 
