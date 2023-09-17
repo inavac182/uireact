@@ -1,4 +1,4 @@
-import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 import { FormEvent } from 'react';
 
 export type UiSelectProps = {
@@ -43,4 +43,4 @@ export type privateSelectProps = {
   value?: HTMLSelectElement['value'];
   $category?: ColorCategory;
   required?: boolean;
-} & UiReactPrivateElementProps;
+};

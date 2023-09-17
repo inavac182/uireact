@@ -1,4 +1,4 @@
-import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 
 export type UiTextAreaProps = {
   /** Textarea cols */
@@ -62,4 +62,4 @@ export type privateTextAreaProps = {
   value?: HTMLInputElement['value'];
   $category?: ColorCategory;
   required?: boolean;
-} & UiReactPrivateElementProps;
+};

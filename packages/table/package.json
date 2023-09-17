@@ -25,10 +25,11 @@
   "devDependencies": {
     "@uireact/foundation": "^2.0.2",
     "@uireact/grid": "^1.5.1",
-    "@uireact/icons": "^2.0.1"
+    "@uireact/icons": "^2.0.1",
+    "@uireact/flex": "^2.0.0"
   },
   "peerDependencies": {
-    "@uireact/flex-grid": "^1.1.0",
+    "@uireact/flex": "^2.0.0",
     "@uireact/form": "^1.6.0",
     "@uireact/foundation": "^1.3.0",
     "@uireact/grid": "^1.3.0",

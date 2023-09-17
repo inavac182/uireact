@@ -1,6 +1,6 @@
-export type { UiCheckboxProps, UiTextAreaProps, UiInputProps } from './types';
+export type { UiSwitchProps, UiTextAreaProps, UiInputProps } from './types';
 
 export * from './ui-input';
-export * from './ui-checkbox';
+export * from './ui-switch';
 export * from './ui-select';
 export * from './ui-textarea';

@@ -2,36 +2,31 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiTextAreaProps, privateTextAreaProps } from './types';
-import { TextareaMapper, getDynamicTextareaMapper } from './theme';
 
 const Textarea = styled.textarea<privateTextAreaProps>`
   ${(props: privateTextAreaProps) => `
-    ${getThemeStyling(
-      props.$customTheme,
-      props.$selectedTheme,
-      props.$category ? getDynamicTextareaMapper(getColorCategory(props.$category)) : TextareaMapper
-    )}
-    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
+    font-family: var(--font-family);
+    font-size: var(--texts-regular);
+    background-color: var(--primary-token_100);
+    border: 2px solid var(--${props.$category ?? 'primary'}-token_200);
+    color: var(--fonts-token_100);
+
+    &:focus {
+      background-color: var(--primary-token_200);
+      border-color: var(--${props.$category ?? 'tertiary'}-token_100);
+    }
+
     ${props.$resize === false ? 'resize: none;' : ''}
     ${!props.cols ? 'width: 100%;' : ''}
   `}
 
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 2px;
+  border-radius: 3px;
   box-sizing: border-box;
 
-  :focus {
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 2px;
-  }
-
-  :disabled {
+  &:disabled {
     cursor: not-allowed;
   }
 
@@ -64,49 +59,43 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   value,
   onChange,
   required,
-}: UiTextAreaProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
-  return (
-    <>
-      {label && labelOnTop && (
+}: UiTextAreaProps) => (
+  <>
+    {label && labelOnTop && (
+      <div>
+        <UiLabel htmlFor={name} category={category}>
+          {label}
+        </UiLabel>
+      </div>
+    )}
+    <WrapperDiv>
+      {label && !labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category}>
-            {label}
+            {label} &nbsp;
           </UiLabel>
         </div>
       )}
-      <WrapperDiv>
-        {label && !labelOnTop && (
-          <div>
-            <UiLabel htmlFor={name} category={category}>
-              {label} &nbsp;
-            </UiLabel>
-          </div>
-        )}
-        <InputDiv>
-          <Textarea
-            $customTheme={themeContext.theme}
-            cols={cols}
-            disabled={disabled}
-            id={name}
-            $maxlength={maxlength}
-            name={name}
-            onChange={onChange}
-            placeholder={placeholder}
-            ref={ref}
-            $resize={resize}
-            rows={rows}
-            $selectedTheme={themeContext.selectedTheme}
-            $category={category}
-            value={value}
-            required={required}
-          />
-          {error && <UiText category={category}>{error}</UiText>}
-        </InputDiv>
-      </WrapperDiv>
-    </>
-  );
-};
+      <InputDiv>
+        <Textarea
+          cols={cols}
+          disabled={disabled}
+          id={name}
+          $maxlength={maxlength}
+          name={name}
+          onChange={onChange}
+          placeholder={placeholder}
+          ref={ref}
+          $resize={resize}
+          rows={rows}
+          $category={category}
+          value={value}
+          required={required}
+        />
+        {error && <UiText category={category}>{error}</UiText>}
+      </InputDiv>
+    </WrapperDiv>
+  </>
+);
 
 UiTextArea.displayName = 'UiTextArea';

@@ -1,0 +1,73 @@
+---
+name: UiCheckbox
+menu: Forms
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { CheckboxExample } from './utils';
+
+import { UiSwitch } from '../src';
+
+# UiSwitch
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/form/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component used to render switch inputs
+
+## Installation
+
+> npm i @uireact/foundation @uireact/form
+
+## UiSwitch
+
+<Playground>
+  <UiSwitch name="checkbox" label="Select option" />
+</Playground>
+
+## UiSwitch with POSITIVE category
+
+<Playground>
+  <UiSwitch name="positive-checkbox" category="positive" />
+</Playground>
+
+## UiSwitch with ERROR category
+
+<Playground>
+  <UiSwitch name="error-checkbox" category="error" />
+</Playground>
+
+## UiSwitch with NEGATIVE category
+
+<Playground>
+  <UiSwitch name="negative-checkbox" category="negative" />
+</Playground>
+
+## UiSwitch with state management
+
+<Playground>
+  <CheckboxExample />
+</Playground>
+
+## UiSwitch disabled
+
+<Playground>
+  <UiSwitch name="disabled-checkbox" label="Select option" disabled />
+</Playground>
+
+## UiSwitch with label on the start
+
+<Playground>
+  <UiSwitch name="start-label-checkbox" label="Select option" disabled labelPosition="START" />
+</Playground>
+
+### Props
+
+<Props of={UiSwitch} />
