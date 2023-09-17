@@ -14,7 +14,7 @@ import { SupportiveColors } from './theme-tester/supportive-colors';
 import { Texts } from './theme-tester/texts';
 import { Forms } from './theme-tester/forms';
 import { TableExample } from './theme-tester/table';
-import { UiFlexGrid } from '@uireact/flex-grid';
+import { UiFlexGrid } from '@uireact/flex';
 
 export const TestTheme: React.FC = () => {
   const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
@@ -47,15 +47,15 @@ export const TestTheme: React.FC = () => {
         <UiSpacing padding={{ all: 'five' }}>
           <UiGrid cols={3} rows={2} colsGap="five" rowsGap="five">
             <UiGridItem cols={2} rows={2}>
-              <UiTextArea value={themeInput} onChange={handleChange} rows={5} />
+              <UiTextArea value={themeInput} onChange={handleChange} rows={5} category="tertiary" />
             </UiGridItem>
             <UiGridItem rows={1}>
-              <UiButton onClick={loadTheme} theme="secondary" fullWidth>
+              <UiButton onClick={loadTheme} category="secondary" fullWidth>
                 <UiSpacing padding={{ block: 'five' }}>✨ Load theme ✨</UiSpacing>
               </UiButton>
             </UiGridItem>
             <UiGridItem rows={1}>
-              <UiButton onClick={toogleColoration} theme="tertiary" fullWidth>
+              <UiButton onClick={toogleColoration} category="tertiary" fullWidth>
                 <UiSpacing padding={{ block: 'five' }}>✨ Toogle theme ✨</UiSpacing>
               </UiButton>
             </UiGridItem>

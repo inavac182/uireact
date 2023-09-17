@@ -43,7 +43,7 @@ type is exported from the `@uireact/dialog` package and should be used to correc
 
 This controller has to provide with this actions:
 
-```
+```shell
 {
   openDialog: (dialogId: string) => void;
     ▶︎ This function will get executed every time a dialog is OPENED and will pass the dialogId of the dialog.
@@ -56,7 +56,7 @@ This controller has to provide with this actions:
 
 The default [dialog controller](https://github.com/inavac182/uireact/blob/main/src/providers/dialogs-controller.ts#LL4C14-L4C33) only uses a React state to keep track of the opened dialogs:
 
-```
+```tsx
 import React from 'react';
 import { IDialogController } from '@uireact/dialog';
 
@@ -94,7 +94,6 @@ export const useDialogController = (): IDialogController => {
     openedDialogs,
   };
 };
-
 ```
 
 <br />
@@ -107,7 +106,7 @@ Once you have created your custom dialog controller now we have to set it into t
 
 We highly suggest using the [UiView](https://uireact.io/packages-view-docs-view) component as it sets global providers / styles.
 
-```
+```tsx
 import React from 'react';
 
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
@@ -127,7 +126,6 @@ export const MyAppWrapper: React.FC = () => {
     </UiView>
   );
 };
-
 ```
 
 ### Manually set up
@@ -135,10 +133,10 @@ export const MyAppWrapper: React.FC = () => {
 If for any reason you won't be using the `UiView` then you can always get the dialogs context set up manually by importing the
 context provider and setting its value like this:
 
-```
+```tsx
 import React from 'react';
 
-import {UiDialogsControllerContext} from '@uireact/dialog';
+import { UiDialogsControllerContext } from '@uireact/dialog';
 
 export const MyAppWrapper: React.FC = () => {
   // Using the hook that was created in the step before we can get the dialog controller
@@ -146,11 +144,10 @@ export const MyAppWrapper: React.FC = () => {
 
   return (
     <UiDialogsControllerContext.Provider value={dialogController}>
-        ... Your App tree ...
+      ... Your App tree ...
     </UiDialogsControllerContext.Provider>
-  )
-}
-
+  );
+};
 ```
 
 ## 🏁 Use a dialog 🚀

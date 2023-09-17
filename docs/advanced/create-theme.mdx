@@ -31,7 +31,7 @@ _10 mins read_
 
 Each theme has to meet the structure of the [Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/theme.ts) type.
 
-```
+```tsx
 export const DefaultTheme: Theme = {
   name: 'UIReactDefaultTheme',
     ▶︎ A name for the theme
@@ -67,7 +67,7 @@ We recommend you use the 60 - 30 - 10 rule:
 
 This will allow you to create a pretty UI with very easy to follow color patterns for your users.
 
-```
+```tsx
 {
   ...,
   dark/light: {
@@ -97,7 +97,7 @@ This will allow you to create a pretty UI with very easy to follow color pattern
 
 Each coloration should include 5 levels of color, each level is referrer to it as token, the token 100 is the main base color:
 
-```
+```tsx
 {
   token_10: '',
     ▶︎ Lighter
@@ -134,7 +134,7 @@ You can see the dark coloration of the provided theme here: [Dark Theme](https:/
 
 There are 2 properties for [sizes](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/themes/internal/sizes.ts#L11) one for headings and another one for texts.
 
-```
+```tsx
 {
   headings: { ... },
     ▶︎ Heading sizes
@@ -149,7 +149,7 @@ The headings follows the [ARIA convention](https://developer.mozilla.org/en-US/d
 [Headings](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/heading-levels.ts), we suggest you use different sizes for
 levels 1, 2 and 3, then levels 4 to 6 to use the same sizing.
 
-```
+```tsx
 {
   level1: '',
     ▶︎ Biggest heading
@@ -170,7 +170,7 @@ If you want to learn more about the UiHeading component follow go to this [doc](
 
 The texts uses a structure of 5 different sizes:
 
-```
+```tsx
 {
   xsmall: '',
   small: '',
@@ -188,9 +188,9 @@ from the [TextSize enum](https://github.com/inavac182/uireact/blob/main/packages
 
 Currently we only expose a property for the font family.
 
-```
+```tsx
 {
-  fonts: ''
+  fonts: '';
 }
 ```
 
@@ -204,7 +204,7 @@ remember that you have to provide them to the browser if you are using any speci
 As the spacing across the application should keep uniformity we decided to add the spacing to the theme so each client could set up
 whatever spacing is more conviniant for their use case. There are 7 levels of spacing:
 
-```
+```tsx
 {
   one: '',
   two: '',
@@ -225,15 +225,17 @@ This values are used from the [UiSpacing](https://uireact.io/packages-foundation
 
 Once the theme is created we need to set it up into the library context so all components can grab it.
 
-### Recommended UiView
+### Set it up into UiView
 
-If you use the component `UiView` then it automatically sets all the contexts needed for our components to work well, e.g. the theme context,
-dialogs context, etc. At the same time it stablish global styles for the entire app, so we recommend that you wrap your app
-in a UiView, you can get more information about this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
+The component `UiView` sets all the providers and global styles for the components to work properly, e.g. the theme context, dialogs context,
+etc... So, you have to wrap your app in a UiView, you can get more information about
+this component in the [UiView docs](https://uireact.io/packages-view-docs-view).
 
-TL;DR;
+TL;DR; Do this:
 
-```
+`myAppWrapper.tsx`:
+
+```tsx
 import React from 'react';
 import { @UiView } from '@uireact/view';
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
@@ -242,22 +244,6 @@ export const App = () => (
   <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
     ... {Your App} ...
   </Uiview>
-);
-
-```
-
-### Manually set up
-
-If you don't want to use the view component then you will have to manually set all the contexts, including the ThemeContext provided, this is exported from the foundation package:
-
-```
-import React from 'react';
-import { ThemeContext, DefaultTheme, ThemeColor } from '@uireact/foundation';
-
-export const App = () => (
-  <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: ThemeColor.light }}>
-    ... {Your App} ...
-  </ThemeContext.Provider>
 );
 
 ```

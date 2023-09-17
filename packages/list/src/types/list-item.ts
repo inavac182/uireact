@@ -1,5 +1,5 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiListItemProps = UiReactElementProps;
 
-export type privateListItemProps = UiListItemProps & UiReactPrivateElementProps;
+export type privateListItemProps = UiListItemProps;

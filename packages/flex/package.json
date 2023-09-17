@@ -1,9 +1,9 @@
 {
-  "name": "@uireact/flex-grid",
-  "description": "flex-grid package from @uireact library",
-  "repository": "https://github.com/inavac182/ui-react",
+  "name": "@uireact/flex",
+  "description": "flex grid package from @uireact library",
+  "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +26,7 @@
     "@uireact/foundation": "^2.0.2"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^1.0.1",
+    "@uireact/foundation": "^2.0.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",

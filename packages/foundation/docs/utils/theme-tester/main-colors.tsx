@@ -1,23 +1,23 @@
 import React from 'react';
 
 import { UiCard } from '@uireact/card';
-import { UiSpacing, TextSize } from '@uireact/foundation';
+import { UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiHeading, UiText } from '@uireact/text';
 
 export const MainColors = (): JSX.Element => (
   <UiSpacing padding={{ all: 'five' }}>
-    <UiGrid cols={3} colsGap={20}>
+    <UiGrid cols={3} colsGap="six">
       <UiGridItem cols={2}>
-        <UiHeading>Neutral Colors</UiHeading>
-        <UiSpacing margin={{ bottom: 'three' }}>
-          <UiText size={TextSize.small}>
-            This colors should be very neutral as they are used mainly for backgrounds
-          </UiText>
+        <UiSpacing padding={{ block: 'three' }}>
+          <UiHeading>Neutral Colors</UiHeading>
         </UiSpacing>
-        <UiGrid cols={2} colsGap={20}>
+        <UiSpacing margin={{ block: 'three' }}>
+          <UiText size="small">This colors should be very neutral as they are used mainly for backgrounds</UiText>
+        </UiSpacing>
+        <UiGrid cols={2} colsGap="six">
           <UiCard>
-            <UiSpacing margin={{ bottom: 'three' }}>
+            <UiSpacing margin={{ block: 'three' }}>
               <UiText>Primary</UiText>
             </UiSpacing>
             <UiCard weight="10" category="primary" squared>
@@ -37,7 +37,7 @@ export const MainColors = (): JSX.Element => (
             </UiCard>
           </UiCard>
           <UiCard>
-            <UiSpacing margin={{ bottom: 'three' }}>
+            <UiSpacing margin={{ block: 'three' }}>
               <UiText>Secondary</UiText>
             </UiSpacing>
             <UiCard weight="10" category="secondary" squared>
@@ -59,12 +59,14 @@ export const MainColors = (): JSX.Element => (
         </UiGrid>
       </UiGridItem>
       <UiGridItem>
-        <UiHeading>Brand Color</UiHeading>
-        <UiSpacing margin={{ bottom: 'three' }}>
-          <UiText size={TextSize.small}>Also known as the tertiary color</UiText>
+        <UiSpacing padding={{ block: 'three' }}>
+          <UiHeading>Brand Color</UiHeading>
+        </UiSpacing>
+        <UiSpacing margin={{ block: 'three' }}>
+          <UiText size="small">Also known as the tertiary color</UiText>
         </UiSpacing>
         <UiCard>
-          <UiSpacing margin={{ bottom: 'three' }}>
+          <UiSpacing margin={{ block: 'three' }}>
             <UiText>Tertiary</UiText>
           </UiSpacing>
           <UiCard weight="10" category="tertiary" squared>

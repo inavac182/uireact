@@ -1,17 +1,16 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
-import { DefaultTheme, TextSize, Theme, ThemeColor, UiSpacing } from '@uireact/foundation';
+import { DefaultTheme, TextSize, Theme, UiSpacing } from '@uireact/foundation';
 import { UiGrid, UiGridItem } from '@uireact/grid';
-import { UiView, UiViewRow } from '@uireact/view';
+import { UiViewRow } from '@uireact/view';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
 
 import { ColorationForm, FontsForm, HeadingsForm, TextsForm, SpacingForm } from './form-sections';
 
 export const CreateTheme: React.FC = () => {
   const [$customTheme, set$customTheme] = React.useState<Theme>(DefaultTheme);
-  const [selectedTheme, setSelectedTheme] = React.useState<ThemeColor>(ThemeColor.light);
   const [themeVisible, setThemeVisible] = React.useState(false);
 
   const handleSubmit = React.useCallback(
@@ -47,19 +46,8 @@ export const CreateTheme: React.FC = () => {
     });
   }, [$customTheme]);
 
-  const toogleTheme = useCallback(() => {
-    setSelectedTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
-  }, [setSelectedTheme, selectedTheme]);
-
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
-      <UiSpacing padding={{ all: 'five' }}>
-        <UiButton onClick={toogleTheme} fullWidth>
-          <UiSpacing padding={{ block: 'five' }}>
-            <UiText>✨ Toogle coloration ✨</UiText>
-          </UiSpacing>
-        </UiButton>
-      </UiSpacing>
+    <>
       <UiViewRow weight="10">
         <form onSubmit={handleSubmit}>
           <>
@@ -87,7 +75,7 @@ export const CreateTheme: React.FC = () => {
                   </UiCard>
                 </UiSpacing>
                 <UiSpacing margin={{ all: 'four' }}>
-                  <UiGrid cols={2} colsGap={10}>
+                  <UiGrid cols={2} colsGap="four">
                     <HeadingsForm
                       headings={$customTheme.sizes.headings}
                       handleChange={handleChange}
@@ -105,7 +93,7 @@ export const CreateTheme: React.FC = () => {
               </UiGridItem>
             </UiGrid>
             <UiSpacing padding={{ all: 'four' }}>
-              <UiButton type="submit" fullWidth theme="positive">
+              <UiButton type="submit" fullWidth category="positive">
                 <UiSpacing margin={{ block: 'four' }}>
                   <UiText size={TextSize.xlarge}>Generate theme</UiText>
                 </UiSpacing>
@@ -122,12 +110,12 @@ export const CreateTheme: React.FC = () => {
             </UiText>
           </UiSpacing>
           <UiSpacing padding={{ all: 'four' }}>
-            <UiButton fullWidth onClick={copyToClipboard} theme="warning">
+            <UiButton fullWidth onClick={copyToClipboard} category="warning">
               <UiSpacing margin={{ all: 'four' }}>Copy to clipboard</UiSpacing>
             </UiButton>
           </UiSpacing>
         </UiViewRow>
       )}
-    </UiView>
+    </>
   );
 };

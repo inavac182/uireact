@@ -1,4 +1,4 @@
-import { SpacingType, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { SpacingType, UiReactElementProps } from '@uireact/foundation';
 
 export type GridBreakpointsDistribution = {
   small: number;
@@ -53,4 +53,4 @@ export type privateGridProps = {
   $rowSize?: string;
   $cols: number;
   $rows: number;
-} & UiReactPrivateElementProps;
+};

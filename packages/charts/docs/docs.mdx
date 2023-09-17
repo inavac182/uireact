@@ -25,7 +25,7 @@ import { UiBadge } from '@uireact/badge';
 
 ## Installation ⚙️
 
-> npm i @uireact/foundation @uireact/flex-grid @uireact/charts
+> npm i @uireact/foundation @uireact/flex @uireact/charts
 
 ## UiLinearChart 📊
 
@@ -93,13 +93,13 @@ We can use the color categories for grabbing a specific theme color for the char
   <UiLinearChart
     data={{
       current: {
-        color: 'tertiary',
+        color: 'error',
         label: '60%',
         value: 60,
         labelStatic: true,
       },
       limit: {
-        color: 'secondary',
+        color: 'positive',
         label: '80% battery',
         value: 80,
       },
@@ -131,29 +131,6 @@ The custom colors supports hex and rgb colors
   />
 </Playground>
 
-## UiLinearChart - with custom colors per theme
-
-When using the `ThemedColor` for the color you can set up a different color per theme per each value
-
-<Playground>
-  <UiLinearChart
-    data={{
-      current: {
-        color: { dark: '#19BE08', light: '#6E45EE' },
-        label: '60 Mb used',
-        value: 60,
-        labelStatic: true,
-      },
-      limit: {
-        color: { dark: '#C53CE3', light: '#45EEDF' },
-        label: '80 Mb total',
-        value: 80,
-      },
-      title: 'Demo with themed color',
-    }}
-  />
-</Playground>
-
 ### UiLinearChart - Props
 
 <Props of={UiLinearChart} />
@@ -161,21 +138,16 @@ When using the `ThemedColor` for the color you can set up a different color per 
 Definiton of `UiLinearChartData`
 
 ```ts
-type ThemedColor = {
-  dark: string;
-  light: string;
-};
-
 type UiLinearChartData = {
   title?: string;
   limit: {
-    color?: string | ThemedColor;
+    color?: string | ColorCategory;
     label?: string;
     value: number;
     labelStatic?: boolean;
   };
   current: {
-    color?: string | ThemedColor;
+    color?: string | ColorCategory;
     label?: string;
     value: number;
   };

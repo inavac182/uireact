@@ -1,32 +1,32 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useCallback } from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext, getColorCategory, getTextSize, getThemeStyling } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiSelectProps, privateSelectProps } from './types';
-import { getDynamicSelectMapper, SelectMapper } from './theme';
 
 const Select = styled.select<privateSelectProps>`
   ${(props: privateSelectProps) => `
-    ${getThemeStyling(
-      props.$customTheme,
-      props.$selectedTheme,
-      props.$category ? getDynamicSelectMapper(getColorCategory(props.$category)) : SelectMapper
-    )}
-    font-size: ${getTextSize(props.$customTheme, TextSize.regular)};
+    font-family: var(--font-family);
+    font-size: var(--texts-regular);
+    background-color: var(--primary-token_100);
+    border: 2px solid var(--${props.$category ?? 'primary'}-token_200);
+    color: var(--fonts-token_100);
+
+    &:focus {
+      background-color: var(--primary-token_200);
+      border-color: var(--${props.$category ?? 'tertiary'}-token_100);
+    }
   `}
 
-  border-style: solid;
-  border-width: 2px;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
   outline: none;
   width: 100%;
   box-sizing: border-box;
 
-  :disabled {
+  &:disabled {
     cursor: not-allowed;
   }
 `;
@@ -53,9 +53,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   onChange,
   required,
 }: UiSelectProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
-  const handleChange = React.useCallback(
+  const handleChange = useCallback(
     (e: FormEvent<HTMLSelectElement>) => {
       onChange?.(e.currentTarget.value);
     },
@@ -81,13 +79,11 @@ export const UiSelect: React.FC<UiSelectProps> = ({
         )}
         <SelectDiv>
           <Select
-            $customTheme={themeContext.theme}
             disabled={disabled}
             id={name}
             name={name}
             onChange={handleChange}
             ref={ref}
-            $selectedTheme={themeContext.selectedTheme}
             $category={category}
             value={value}
             required={required}

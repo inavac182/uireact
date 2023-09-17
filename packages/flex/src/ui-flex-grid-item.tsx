@@ -19,12 +19,10 @@ export const UiFlexGridItem: React.FC<UiFlexGridItemProps> = ({
   grow,
   order,
   shrink,
-}: UiFlexGridItemProps) => {
-  return (
-    <Div $align={align} $grow={grow} $order={order} $shrink={shrink}>
-      {children}
-    </Div>
-  );
-};
+}: UiFlexGridItemProps) => (
+  <Div $align={align} $grow={grow} $order={order} $shrink={shrink}>
+    {children}
+  </Div>
+);
 
 UiFlexGridItem.displayName = 'UiFlexGridItem';

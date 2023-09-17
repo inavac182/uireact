@@ -7,11 +7,15 @@ import { UiHeading, UiText } from '@uireact/text';
 
 export const SupportiveColors = (): JSX.Element => (
   <UiSpacing padding={{ all: 'five' }}>
-    <UiHeading>Supporting colors</UiHeading>
-    <UiText>A few supporting colors to be used for informative messages</UiText>
-    <UiGrid cols={4} colsGap={10}>
+    <UiSpacing padding={{ block: 'four' }}>
+      <UiHeading>Supporting colors</UiHeading>
+    </UiSpacing>
+    <UiSpacing padding={{ block: 'four' }}>
+      <UiText>A few supporting colors to be used for informative messages</UiText>
+    </UiSpacing>
+    <UiGrid cols={4} colsGap="four">
       <UiCard>
-        <UiSpacing margin={{ bottom: 'three' }}>
+        <UiSpacing margin={{ block: 'three' }}>
           <UiText>Positive</UiText>
         </UiSpacing>
         <UiCard weight="10" category="positive" squared>
@@ -31,7 +35,7 @@ export const SupportiveColors = (): JSX.Element => (
         </UiCard>
       </UiCard>
       <UiCard>
-        <UiSpacing margin={{ bottom: 'three' }}>
+        <UiSpacing margin={{ block: 'three' }}>
           <UiText>Error</UiText>
         </UiSpacing>
         <UiCard weight="10" category="error" squared>
@@ -51,7 +55,7 @@ export const SupportiveColors = (): JSX.Element => (
         </UiCard>
       </UiCard>
       <UiCard>
-        <UiSpacing margin={{ bottom: 'three' }}>
+        <UiSpacing margin={{ block: 'three' }}>
           <UiText>Warning</UiText>
         </UiSpacing>
         <UiCard weight="10" category="warning" squared>
@@ -71,7 +75,7 @@ export const SupportiveColors = (): JSX.Element => (
         </UiCard>
       </UiCard>
       <UiCard>
-        <UiSpacing margin={{ bottom: 'three' }}>
+        <UiSpacing margin={{ block: 'three' }}>
           <UiText>Negative</UiText>
         </UiSpacing>
         <UiCard weight="10" category="negative" squared>

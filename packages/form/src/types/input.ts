@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 
 export type UiInputProps = {
   /** Input field disabled state */
@@ -57,4 +57,4 @@ export type privateInputProps = {
   $size?: SizesProp;
   required?: boolean;
   $withIcon?: boolean;
-} & UiReactPrivateElementProps;
+};

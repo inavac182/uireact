@@ -1,6 +1,6 @@
-import { ColorCategory, UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 
-export type UiCheckboxProps = {
+export type UiSwitchProps = {
   /** If checkbox is checked */
   checked?: boolean;
   /** If checkbox is disabled */
@@ -19,7 +19,7 @@ export type UiCheckboxProps = {
   category?: ColorCategory;
 } & UiReactElementProps;
 
-export type privateCheckboxProps = {
+export type privateSwitchProps = {
   /** If checkbox is checked */
   checked?: boolean;
   /** If checkbox is disabled */
@@ -36,9 +36,9 @@ export type privateCheckboxProps = {
   ref?: React.Ref<HTMLInputElement>;
   /** Checkbox theme to render when checked */
   $category?: ColorCategory;
-} & UiReactPrivateElementProps;
+};
 
-export type privateCheckboxLabelProps = {
+export type privateSwitchLabelProps = {
   htmlFor?: string;
   $labelPosition?: 'START' | 'END';
-} & UiReactPrivateElementProps;
+};

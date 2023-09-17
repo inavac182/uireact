@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { UiCheckbox } from '../../src';
+import { UiSwitch } from '../../src';
 
-export const CheckboxExample: React.FC = () => {
+export const SwitchExample: React.FC = () => {
   const [checked, setChecked] = React.useState(false);
 
   const onChangeCB = React.useCallback(() => {
@@ -11,7 +11,7 @@ export const CheckboxExample: React.FC = () => {
 
   return (
     <>
-      <UiCheckbox checked={checked} onChange={onChangeCB} name="checkbox-example" />
+      <UiSwitch checked={checked} onChange={onChangeCB} name="switch-example" />
       <p>Checked: {`${checked}`}</p>
     </>
   );

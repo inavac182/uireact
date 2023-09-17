@@ -1,1 +1,1 @@
-export * from './checkbox-example';
+export * from './switch-example';

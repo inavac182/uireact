@@ -27,7 +27,7 @@ import { UiLineSeparator } from '@uireact/separator';
 
 To start up this project:
 
-```
+```shell
 1. Clone repo
 2. run `nvm use` - Make sure you have the correct node version installed, if not install it.
 3. run `npm ci`
@@ -39,25 +39,25 @@ To start up this project:
 
 For running all tests:
 
-```
+```shell
 npm run test
 ```
 
 For running only unit tests:
 
-```
+```shell
 npm run test:jest
 ```
 
 For running unit tests in only 1 package:
 
-```
+```shell
 npm run test:jest -- --scope=@uireact/THE-PACKAGE-NAME
 ```
 
 For running unit tests in only 1 file:
 
-```
+```shell
 npx jest --coverage=false -- RELATIVE-PATH-TO-TEST-FILE
 ```
 
@@ -67,7 +67,7 @@ npx jest --coverage=false -- RELATIVE-PATH-TO-TEST-FILE
 
 We currently have set up coverage to 100%.
 
-```
+```shell
 branches: 100,
 functions: 100,
 lines: 100,
