@@ -8,7 +8,7 @@
     "build": "npx lerna run build",
     "clean": "rm -rf .docz && npm run clean:artifacts",
     "clean:artifacts": "npx lerna run clean",
-    "dev": "npm run tsc && docz dev",
+    "dev": "rm -rf .docz && npm run tsc && docz dev",
     "dev:quick": "docz dev",
     "docz:build": "npm run clean && npm run tsc && docz build",
     "docz:serve": "docz build && docz serve",
