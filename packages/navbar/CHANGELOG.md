@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2023-09-18)
+
+
+### Features
+
+* **navbar:** adding gap prop ([#278](https://github.com/inavac182/uireact/issues/278)) ([990b2da](https://github.com/inavac182/uireact/commit/990b2da8bc9b143929e380e5db1ed8e8482a6cdd))
+
+
+
+
+
 ## 2.0.2 (2023-09-18)
 
 **Note:** Version bump only for package @uireact/navbar
