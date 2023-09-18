@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import { ColorCategory, ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
