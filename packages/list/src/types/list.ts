@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiListProps = {
   /** Type of list, default UNORDERED */
@@ -7,4 +7,4 @@ export type UiListProps = {
 
 export type privateListProps = UiListProps & {
   type: 'BULLETED' | 'ORDERED' | 'UNORDERED';
-} & UiReactPrivateElementProps;
+};
