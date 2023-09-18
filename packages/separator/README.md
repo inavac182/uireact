@@ -1,3 +1,3 @@
-@uireact/COMPONENT-NAME
+@uireact/separator
 
 README information about the component

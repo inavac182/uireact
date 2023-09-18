@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiTabsProps = {
   /** For rounded corners */
@@ -8,4 +8,4 @@ export type UiTabsProps = {
 export type privateTabsProps = {
   /** For rounded corners */
   $rounded?: boolean;
-} & UiReactPrivateElementProps;
+};

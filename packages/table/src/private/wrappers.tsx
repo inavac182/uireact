@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { getThemeColor, getColorCategory, ColorTokens } from '@uireact/foundation';
+import { getColorCategory } from '@uireact/foundation';
 
 import { privateTableProps, privateTableRowProps } from '../types/private-table-props';
 
@@ -11,12 +11,7 @@ export const Table = styled.table<privateTableProps>`
     ${(props) => `
     border: 0;
     margin: 0;
-    border-bottom: 3px solid ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$category),
-      ColorTokens.token_100
-    )};
+    border-bottom: 3px solid var(--${getColorCategory(props.$category)}-token_100);
   `}
   }
 `;
@@ -40,12 +35,7 @@ export const TableRow = styled.tr<privateTableRowProps>`
         ? `
             cursor: pointer;
             &:hover {
-              background: ${getThemeColor(
-                props.$customTheme,
-                props.$selectedTheme,
-                getColorCategory(props.$category),
-                ColorTokens.token_100
-              )};
+              background-color: var(--${getColorCategory(props.$category)}-token_100);
             }
             transition: background .2s;
           `
@@ -54,12 +44,7 @@ export const TableRow = styled.tr<privateTableRowProps>`
     ${
       props.$isSelected
         ? `
-            background: ${getThemeColor(
-              props.$customTheme,
-              props.$selectedTheme,
-              getColorCategory(props.$category),
-              ColorTokens.token_100
-            )};
+            background-color: var(--${getColorCategory(props.$category)}-token_100);
           `
         : ''
     }

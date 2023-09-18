@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiTabItemProps<T> = {
   /** Tab identifier to be shared when clicked */
@@ -12,4 +12,4 @@ export type UiTabItemProps<T> = {
 export type privateTabItemProps = {
   /** Selected state for tab item */
   $selected?: boolean;
-} & UiReactPrivateElementProps;
+};
