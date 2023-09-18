@@ -13,7 +13,7 @@ export type UiLinearChartProps = {
 } & UiReactElementProps;
 
 const CurrentLabelWrapper = styled.div<{ $current: number }>`
-  padding-top: ${(props) => (props.$current > 0 ? '2px' : '8px')};
+  padding-top: ${(props) => (props.$current > 0 ? '5px' : '8px')};
 `;
 
 export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId, data }: UiLinearChartProps) => (

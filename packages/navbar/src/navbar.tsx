@@ -17,6 +17,7 @@ const NavbarWrapper = styled.div<privateNavbarProps>`
     return `
       flex-direction: ${props.$orientation === 'stacked' ? 'column' : 'row'};
       ${getFlexAlignment(props.$align, props.$orientation)}
+      ${props.$gap ? `gap: var(--spacing-${props.$gap});` : ''}
     `;
   }}
 `;
@@ -27,6 +28,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   children,
   className,
   orientation = 'inline',
+  gap,
   roundedCorners,
   stretchItems,
   styling,
@@ -58,7 +60,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   }, [children]);
 
   return (
-    <NavbarWrapper $align={align} className={className} $orientation={orientation} data-testid={testId}>
+    <NavbarWrapper $align={align} className={className} $orientation={orientation} data-testid={testId} $gap={gap}>
       <>{NavbarContent}</>
     </NavbarWrapper>
   );

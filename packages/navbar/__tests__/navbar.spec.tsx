@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/react';
 
 import { UiNavbar, UiNavbarItem } from '../src';
 
+import 'jest-styled-components';
+
 describe('<UiNavbar />', () => {
   it('Should render navbar', () => {
     render(
@@ -186,5 +188,18 @@ describe('<UiNavbar />', () => {
     expect(screen.queryByText('Option 1')).not.toBeInTheDocument();
     expect(screen.getByText('Option 2')).toBeVisible();
     expect(screen.getByText('Option 3')).toBeVisible();
+  });
+
+  it('Should render navbar with gap', () => {
+    render(
+      <UiNavbar gap="five" testId="UiNavbar">
+        <UiNavbarItem>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveStyleRule('gap', 'var(--spacing-five)');
   });
 });
