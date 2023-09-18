@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.0.1...@uireact/form@2.0.2) (2023-09-18)
+
+
+### Bug Fixes
+
+* peer for form package ([dcab565](https://github.com/inavac182/ui-react/commit/dcab56537c5958ad46992ca8e6d18c8c7001892e))
+
+
+
+
+
 ## [2.0.1](https://github.com/inavac182/ui-react/compare/@uireact/form@1.8.3...@uireact/form@2.0.1) (2023-09-18)
 
 **Note:** Version bump only for package @uireact/form
