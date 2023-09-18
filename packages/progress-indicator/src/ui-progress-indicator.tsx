@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { TextSize, ThemeContext } from '@uireact/foundation';
+import { TextSize } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
 import { UiIcon } from '@uireact/icons';
 
