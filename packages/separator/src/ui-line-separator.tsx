@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ThemeContext, UiReactElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 import { AnimatedContainer } from './helpers';
 
@@ -14,19 +14,8 @@ export const UiLineSeparator: React.FC<UiLineSeparatorProps> = ({
   delay,
   inverse,
   testId,
-}: UiLineSeparatorProps) => {
-  const themeContext = React.useContext(ThemeContext);
-
-  return (
-    <AnimatedContainer
-      $customTheme={themeContext.theme}
-      $selectedTheme={themeContext.selectedTheme}
-      $delay={delay}
-      $inverse={inverse}
-      className={className}
-      data-testid={testId}
-    />
-  );
-};
+}: UiLineSeparatorProps) => (
+  <AnimatedContainer $delay={delay} $inverse={inverse} className={className} data-testid={testId} />
+);
 
 UiLineSeparator.displayName = 'UiLineSeparator';

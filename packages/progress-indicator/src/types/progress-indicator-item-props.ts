@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiProgressIndicatorItemProps = UiReactElementProps;
 
@@ -11,7 +11,7 @@ export type privateProgressIndicatorItemProps = UiProgressIndicatorItemProps & {
   $missing: boolean;
   $step: number;
   ref?: React.Ref<HTMLDivElement>;
-} & UiReactPrivateElementProps;
+};
 
 export type privateDivItemProps = {
   $allowGoBack?: boolean;
@@ -20,4 +20,4 @@ export type privateDivItemProps = {
   $disabledCursorForMissingStep?: boolean;
   $missing: boolean;
   ref?: React.Ref<HTMLDivElement>;
-} & UiReactPrivateElementProps;
+};

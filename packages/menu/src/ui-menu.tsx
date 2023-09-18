@@ -2,31 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  Breakpoints,
-  ColorCategories,
-  ColorTokens,
-  ThemeContext,
-  UiViewport,
-  getThemeColor,
-  getThemeStyling,
-  useViewport,
-} from '@uireact/foundation';
+import { Breakpoints, UiViewport, useViewport } from '@uireact/foundation';
 import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 
 import { UiMenuProps, privateMenuProps } from './types';
-import { MenuMapper } from './theme';
 
 const MenuDiv = styled.div<privateMenuProps>`
-  ${(props) => `
-    ${getThemeStyling(props.$customTheme, props.$selectedTheme, MenuMapper)}
-    box-shadow: 0px 0px 5px ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      ColorCategories.primary,
-      ColorTokens.token_200
-    )};
-    
+  background-color: var(--primary-token_100);
+  border-color: var(--primary-token_150);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+  ${(props) => `  
     ${
       // istanbul ignore next
       props.$isOffset ? `right: 10px;` : ''
@@ -57,13 +43,13 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   fullscreenOnSmall,
   menuId,
   visible,
+  testId,
 }: UiMenuProps) => {
   const dialogId = menuId || 'menu-component';
   const menuRef = React.useRef<HTMLDivElement>(null);
   const [isOffset, setIsOffset] = React.useState(false);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
-  const theme = React.useContext(ThemeContext);
 
   const escCB = React.useCallback(
     (event: KeyboardEvent) => {
@@ -124,14 +110,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
         </UiViewport>
         <UiViewport criteria={'m|l|xl'}>
           <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-          <MenuDiv
-            $customTheme={theme.theme}
-            $selectedTheme={theme.selectedTheme}
-            $visible={visible}
-            role="menu"
-            ref={menuRef}
-            $isOffset={isOffset}
-          >
+          <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId}>
             {children}
           </MenuDiv>
         </UiViewport>
@@ -142,14 +121,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   return (
     <>
       <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-      <MenuDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $visible={visible}
-        role="menu"
-        ref={menuRef}
-        $isOffset={isOffset}
-      >
+      <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId}>
         {children}
       </MenuDiv>
     </>

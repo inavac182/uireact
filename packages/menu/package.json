@@ -3,7 +3,7 @@
   "description": "menu package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.3.4",
+  "version": "2.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@uireact/dialog": "^2.0.1",
-    "@uireact/foundation": "^2.0.0",
+    "@uireact/foundation": "^2.0.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",

@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ThemeContext } from '@uireact/foundation';
-
 import { UiTabsProps, privateTabsProps } from './types';
 
 const TabDiv = styled.div<privateTabsProps>`
@@ -20,14 +18,10 @@ const TabDiv = styled.div<privateTabsProps>`
   `}
 `;
 
-export const UiTabs: React.FC<UiTabsProps> = ({ children, className, rounded }: UiTabsProps) => {
-  const theme = React.useContext(ThemeContext);
-
-  return (
-    <TabDiv $customTheme={theme.theme} $selectedTheme={theme.selectedTheme} className={className} $rounded={rounded}>
-      {children}
-    </TabDiv>
-  );
-};
+export const UiTabs: React.FC<UiTabsProps> = ({ children, className, rounded }: UiTabsProps) => (
+  <TabDiv className={className} $rounded={rounded}>
+    {children}
+  </TabDiv>
+);
 
 UiTabs.displayName = 'UiTabs';

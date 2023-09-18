@@ -2,14 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  ColorCategory,
-  ColorTokens,
-  ThemeContext,
-  UiReactElementProps,
-  getColorCategory,
-  getThemeColor,
-} from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, getColorCategory } from '@uireact/foundation';
 
 import { privateSeparatorProps } from './types';
 
@@ -26,12 +19,7 @@ const InitialBgDiv = styled.div<privateSeparatorProps>`
   position: absolute;
 
   ${(props) => `
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$from),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$from)}-token_100);
   `}
 `;
 
@@ -46,12 +34,7 @@ const TransitionDiv = styled.div<privateSeparatorProps>`
   ${(props) => `
     transform: rotate(${props.$inverse ? '-3deg' : '3deg'});
     top: ${props.$inverse ? '-110px' : '60px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -66,12 +49,7 @@ const EndTransitionDiv = styled.div<privateSeparatorProps>`
   ${(props) => `
     transform: rotate(${props.$inverse ? '3deg' : '-3deg'});
     top: ${props.$inverse ? '-110px' : '60px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -87,34 +65,12 @@ export const UiDiagonalSeparator: React.FC<UiSeparatorProps> = ({
   className,
   testId,
   inverse,
-}: UiSeparatorProps) => {
-  const theme = React.useContext(ThemeContext);
-
-  return (
-    <ContainerDiv className={className} data-testid={testId}>
-      <InitialBgDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></InitialBgDiv>
-      <TransitionDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></TransitionDiv>
-      <EndTransitionDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></EndTransitionDiv>
-    </ContainerDiv>
-  );
-};
+}: UiSeparatorProps) => (
+  <ContainerDiv className={className} data-testid={testId}>
+    <InitialBgDiv $from={from} $to={to} $inverse={inverse}></InitialBgDiv>
+    <TransitionDiv $from={from} $to={to} $inverse={inverse}></TransitionDiv>
+    <EndTransitionDiv $from={from} $to={to} $inverse={inverse}></EndTransitionDiv>
+  </ContainerDiv>
+);
 
 UiDiagonalSeparator.displayName = 'UiDiagonalSeparator';

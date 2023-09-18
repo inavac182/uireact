@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiTooltipProps = {
   text: string;
@@ -7,4 +7,4 @@ export type UiTooltipProps = {
 
 export type privateTooltipProps = {
   $position?: 'top' | 'bottom' | 'left' | 'right';
-} & UiReactPrivateElementProps;
+};

@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@uireact/button": "^1.0.1",
-    "@uireact/foundation": "^1.0.2",
-    "@uireact/view": "^1.0.3",
+    "@uireact/button": "^2.0.1",
+    "@uireact/foundation": "^2.0.1",
+    "@uireact/view": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

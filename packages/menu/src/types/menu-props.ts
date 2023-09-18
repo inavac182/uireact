@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiMenuProps = {
   /** Close label for dialog on small devices */
@@ -23,4 +23,4 @@ export type privateMenuProps = {
   /** Menu visibility, default FALSE */
   $visible: boolean;
   $isOffset: boolean;
-} & UiReactPrivateElementProps;
+};

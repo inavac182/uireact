@@ -10,6 +10,8 @@ import { uiRender } from '../../../__tests__/utils/render';
 
 import { UiMenu } from '../src';
 
+import 'jest-styled-components';
+
 type MockedComponentProps = {
   fullscreenOnSmall?: boolean;
   visible?: boolean;
@@ -36,6 +38,7 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedC
         closeLabel="Close menu dialog"
         closeMenuCB={closeMenu}
         fullscreenOnSmall={fullscreenOnSmall}
+        testId="UiMenu"
       >
         <UiSpacing margin={{ all: 'five' }}>
           <UiText centered>Menu Content</UiText>
@@ -63,6 +66,7 @@ describe('<UiMenu />', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
     expect(screen.getByRole('menu')).toBeVisible();
+    expect(screen.getByTestId('UiMenu')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
   });
 
   it('menu component closes ONLY when esc key is pressed', () => {

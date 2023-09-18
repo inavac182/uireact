@@ -33,7 +33,6 @@ export const UiTable: React.FC<UiTableProps> = ({
   selected,
   onClick,
 }: UiTableProps) => {
-  const theme = React.useContext(ThemeContext);
   const [_data, setPrivateData] = useState(data);
   const [filterPhrase, setFilterPhrase] = useState('');
 
@@ -67,18 +66,11 @@ export const UiTable: React.FC<UiTableProps> = ({
       {withFilter && (
         <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }}>
           <UiGridItem cols={!filterBoxPosition ? 3 : 1} startingCol={filterBoxPosition === 'right' ? 3 : 1}>
-            <UiInput value={filterPhrase} onChange={onFilter} icon={<UiIcon icon="Search" />} />
+            <UiInput value={filterPhrase} onChange={onFilter} icon={<UiIcon icon="Search" />} category={category} />
           </UiGridItem>
         </UiGrid>
       )}
-      <Table
-        className={className}
-        data-testid={testId}
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $category={category}
-        cellSpacing="0"
-      >
+      <Table className={className} data-testid={testId} $category={category} cellSpacing="0">
         <thead>
           <tr>
             {_data.headings.map((heading, index) => (
@@ -92,8 +84,6 @@ export const UiTable: React.FC<UiTableProps> = ({
               key={`table-item-index-${rowIndex}`}
               $hasClickHandler={onClick !== undefined}
               $isSelected={selected === field.id}
-              $customTheme={theme.theme}
-              $selectedTheme={theme.selectedTheme}
               $category={category}
               onClick={() => handleClick(field.id)}
             >

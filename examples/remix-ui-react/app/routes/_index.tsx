@@ -1,3 +1,4 @@
+import React from 'react';
 import type { V2_MetaFunction } from '@remix-run/node';
 import { useState } from 'react';
 import { DefaultTheme, ThemeColor } from '@uireact/foundation';
@@ -12,7 +13,7 @@ export default function Index() {
   const [count, setCount] = useState(0);
 
   return (
-    <UiView theme={DefaultTheme} $selectedTheme={ThemeColor.light}>
+    <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
       <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
         <h1>Welcome to Remix</h1>
         <ul>

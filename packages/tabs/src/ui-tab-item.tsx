@@ -2,25 +2,16 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { ColorCategories, ColorTokens, ThemeContext, getThemeColor, getThemeStyling } from '@uireact/foundation';
-
 import { UiTabItemProps, privateTabItemProps } from './types';
-import { TabsMapper } from './theme';
 
 const TabItem = styled.div<privateTabItemProps>`
+  &:hover {
+    background-color: var(--primary-token_100);
+    color: var(--fonts-token_100);
+  }
+
   ${(props) => `
-    ${getThemeStyling(props.$customTheme, props.$selectedTheme, TabsMapper)}
-    ${
-      props.$selected
-        ? `border-color: ${getThemeColor(
-            props.$customTheme,
-            props.$selectedTheme,
-            ColorCategories.primary,
-            ColorTokens.token_100
-          )};
-        `
-        : 'border-color: transparent;'
-    }
+    ${props.$selected ? 'border-color: var(--primary-token_100);' : 'border-color: transparent;'}
   `}
 
   transition: background 0.2s, border-color 0.2s;
@@ -40,20 +31,12 @@ export function UiTabItem<T>({
   identifier,
   selected,
 }: UiTabItemProps<T>): JSX.Element {
-  const theme = React.useContext(ThemeContext);
-
   const handleTabClick = React.useCallback(() => {
     handleClick(identifier);
   }, [identifier]);
 
   return (
-    <TabItem
-      $customTheme={theme.theme}
-      $selectedTheme={theme.selectedTheme}
-      className={className}
-      onClick={handleTabClick}
-      $selected={selected}
-    >
+    <TabItem className={className} onClick={handleTabClick} $selected={selected}>
       {children}
     </TabItem>
   );
