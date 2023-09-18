@@ -27,7 +27,7 @@
     "@uireact/text": "^2.0.2"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^1.0.1",
+    "@uireact/foundation": "^2.0.2",
     "@uireact/text": "^1.0.4",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
