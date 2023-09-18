@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/inavac182/ui-react/compare/@uireact/table@0.7.3...@uireact/table@1.0.1) (2023-09-18)
+
+
+### Bug Fixes
+
+* not needed imports ([#277](https://github.com/inavac182/ui-react/issues/277)) ([77e2cc1](https://github.com/inavac182/ui-react/commit/77e2cc18d1549fc1658458d758c267239f13520b))
+
+
+
+
+
 ## [0.7.3](https://github.com/inavac182/ui-react/compare/@uireact/table@0.7.2...@uireact/table@0.7.3) (2023-09-17)
 
 **Note:** Version bump only for package @uireact/table

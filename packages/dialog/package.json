@@ -3,7 +3,7 @@
   "description": "Dialogs package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "publishConfig": {
     "access": "public"
   },
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@uireact/foundation": "^2.0.2",
-    "@uireact/icons": "^2.0.1",
-    "@uireact/text": "^2.0.1"
+    "@uireact/icons": "^2.0.2",
+    "@uireact/text": "^2.0.2"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",

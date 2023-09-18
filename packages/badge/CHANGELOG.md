@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.4 (2023-09-18)
+
+**Note:** Version bump only for package @uireact/badge
+
+
+
+
+
 ## [1.3.3](https://github.com/inavac182/uireact/compare/@uireact/badge@1.3.2...@uireact/badge@1.3.3) (2023-09-16)
 
 **Note:** Version bump only for package @uireact/badge

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2023-09-18)
+
+
+### Bug Fixes
+
+* lint ([878537f](https://github.com/inavac182/uireact/commit/878537f3d0f8d4fa45e2c1d2cd3c963c26ba0bc6))
+
+
+
+
+
 ## 1.3.2 (2023-09-16)
 
 **Note:** Version bump only for package @uireact/progress-indicator
