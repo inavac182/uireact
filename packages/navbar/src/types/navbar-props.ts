@@ -1,4 +1,4 @@
-import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SpacingType, UiReactElementProps } from '@uireact/foundation';
 
 export type Alignment = 'start' | 'center' | 'end';
 
@@ -14,6 +14,8 @@ export type UiNavbarProps = {
   category?: ColorCategory;
   /** Navbar alignment */
   align?: Alignment;
+  /** Gap between navbar items */
+  gap?: SpacingType;
   /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
   roundedCorners?: boolean;
   /** If items should be stretched, useful when navbar is rendered to cover whole width */
@@ -29,6 +31,7 @@ export type privateNavbarProps = {
   /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
   $roundedCorners?: boolean;
   /** If items should be stretched, useful when navbar is rendered to cover whole width */
+  $gap?: SpacingType;
   $stretchItems?: boolean;
   $orientation: Orientation;
   $align: Alignment;
