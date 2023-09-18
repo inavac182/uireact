@@ -1,4 +1,4 @@
-import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
+import { UiReactElementProps } from '@uireact/foundation';
 
 export type UiProgressIndicatorProps = {
   /** Click in completed steps triggers CB, when used a disabled cursor will show in missing steps */
@@ -9,4 +9,4 @@ export type UiProgressIndicatorProps = {
   current?: number;
 } & UiReactElementProps;
 
-export type privateProgressIndicatorProps = UiProgressIndicatorProps & UiReactPrivateElementProps;
+export type privateProgressIndicatorProps = UiProgressIndicatorProps;

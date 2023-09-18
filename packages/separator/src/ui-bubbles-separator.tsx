@@ -2,14 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import {
-  ColorCategory,
-  ColorTokens,
-  ThemeContext,
-  UiReactElementProps,
-  getColorCategory,
-  getThemeColor,
-} from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, getColorCategory } from '@uireact/foundation';
 
 import { privateSeparatorProps } from './types';
 
@@ -26,12 +19,7 @@ const InitialBgDiv = styled.div<privateSeparatorProps>`
   position: absolute;
 
   ${(props) => `
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$from),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$from)}-token_100);
   `}
 `;
 
@@ -45,12 +33,7 @@ const FirstTransitionDiv = styled.div<privateSeparatorProps>`
 
   ${(props) => `
     top: ${props.$inverse ? '-80px' : '20px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -64,12 +47,7 @@ const SecondTransitionDiv = styled.div<privateSeparatorProps>`
 
   ${(props) => `
     top: ${props.$inverse ? '-120px' : '25px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -82,12 +60,7 @@ const EndTransitionDiv = styled.div<privateSeparatorProps>`
 
   ${(props) => `
     top: ${props.$inverse ? '-40px' : '60px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -101,12 +74,7 @@ const EndTransitionDiv2 = styled.div<privateSeparatorProps>`
 
   ${(props) => `
     top: ${props.$inverse ? '-40px' : '60px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -122,12 +90,7 @@ const EndTransitionDiv3 = styled.div<privateSeparatorProps>`
 
   ${(props) => `
     top: ${props.$inverse ? '-30px' : '30px'};
-    background-color: ${getThemeColor(
-      props.$customTheme,
-      props.$selectedTheme,
-      getColorCategory(props.$to),
-      ColorTokens.token_100
-    )};
+    background-color: var(--${getColorCategory(props.$to)}-token_100);
   `}
 `;
 
@@ -143,55 +106,15 @@ export const UiBubblesSeparator: React.FC<UiBubblesSeparatorProps> = ({
   className,
   testId,
   inverse,
-}: UiBubblesSeparatorProps) => {
-  const theme = React.useContext(ThemeContext);
-
-  return (
-    <ContainerDiv data-testid={testId} className={className}>
-      <InitialBgDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></InitialBgDiv>
-      <FirstTransitionDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></FirstTransitionDiv>
-      <SecondTransitionDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></SecondTransitionDiv>
-      <EndTransitionDiv
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></EndTransitionDiv>
-      <EndTransitionDiv2
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></EndTransitionDiv2>
-      <EndTransitionDiv3
-        $customTheme={theme.theme}
-        $selectedTheme={theme.selectedTheme}
-        $from={from}
-        $to={to}
-        $inverse={inverse}
-      ></EndTransitionDiv3>
-    </ContainerDiv>
-  );
-};
+}: UiBubblesSeparatorProps) => (
+  <ContainerDiv data-testid={testId} className={className}>
+    <InitialBgDiv $from={from} $to={to} $inverse={inverse}></InitialBgDiv>
+    <FirstTransitionDiv $from={from} $to={to} $inverse={inverse}></FirstTransitionDiv>
+    <SecondTransitionDiv $from={from} $to={to} $inverse={inverse}></SecondTransitionDiv>
+    <EndTransitionDiv $from={from} $to={to} $inverse={inverse}></EndTransitionDiv>
+    <EndTransitionDiv2 $from={from} $to={to} $inverse={inverse}></EndTransitionDiv2>
+    <EndTransitionDiv3 $from={from} $to={to} $inverse={inverse}></EndTransitionDiv3>
+  </ContainerDiv>
+);
 
 UiBubblesSeparator.displayName = 'UiBubblesSeparator';

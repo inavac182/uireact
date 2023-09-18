@@ -34,7 +34,6 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
   current = 1,
   handleCompletedStepClick,
 }: UiProgressIndicatorProps) => {
-  const theme = React.useContext(ThemeContext);
   const steps = getNumberOfSteps(children);
 
   const handleCompletedStepClickCB = React.useCallback(
@@ -51,14 +50,12 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
       elements.push(
         <PrivateItem
           $allowGoBack={allowGoBack}
-          $customTheme={theme.theme}
           $completed={index + 1 < current}
           $current={index + 1 === current}
           $disabledCursorForMissingStep={allowGoBack}
           $handleCompletedStepClick={handleCompletedStepClickCB}
           key={`progress-indicator-item-${index}`}
           $missing={index + 1 > current}
-          $selectedTheme={theme.selectedTheme}
           $step={index + 1}
         >
           {child}
@@ -75,13 +72,9 @@ export const UiProgressIndicator: React.FC<UiProgressIndicatorProps> = ({
     });
 
     return elements;
-  }, [children, theme]);
+  }, [children]);
 
-  return (
-    <Div $customTheme={theme.theme} className={className} $selectedTheme={theme.selectedTheme}>
-      {ProgressIndicatorContent}
-    </Div>
-  );
+  return <Div className={className}>{ProgressIndicatorContent}</Div>;
 };
 
 UiProgressIndicator.displayName = 'UiProgressIndicator';
