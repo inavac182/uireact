@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.3 (2023-09-19)
+
+
+### Bug Fixes
+
+* **heading:** inverse coloration ([#279](https://github.com/inavac182/ui-react/issues/279)) ([1a6150a](https://github.com/inavac182/ui-react/commit/1a6150a1d22217ccdcc6400befe9fd801382b01e))
+
+
+
+
+
 ## 2.0.2 (2023-09-18)
 
 **Note:** Version bump only for package @uireact/text
