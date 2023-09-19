@@ -25,6 +25,7 @@ describe('<UiHeading />', () => {
     uiRender(<UiHeading inverseColoration>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
+    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
   });
 
   it('renders fine when level is unrecognized', () => {

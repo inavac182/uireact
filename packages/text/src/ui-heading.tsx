@@ -9,7 +9,7 @@ const commonStyles = css<privateHeadingProps>`
     font-size: var(--headings-level${props.$level});
     line-height: var(--headings-level${props.$level});
 
-    color: var(--fonts-token_100);
+    color: var(--${props.$inverseColoration ? 'inverse-' : ''}fonts-token_100);
 
     ${props.$centered ? `text-align: center;` : ``}
     ${
