@@ -1,3 +1,4 @@
+'use client';
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { ColorCategory, UiReactElementProps } from '@uireact/foundation';

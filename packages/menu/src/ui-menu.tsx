@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import styled from 'styled-components';
@@ -97,7 +98,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 
   if (fullscreenOnSmall) {
     return (
-      <>
+      <div>
         <UiViewport criteria={Breakpoints.SMALL}>
           <UiDialog
             closeLabel={closeLabel}
@@ -114,17 +115,17 @@ export const UiMenu: React.FC<UiMenuProps> = ({
             {children}
           </MenuDiv>
         </UiViewport>
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div>
       <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
       <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId}>
         {children}
       </MenuDiv>
-    </>
+    </div>
   );
 };
 
