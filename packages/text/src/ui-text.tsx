@@ -21,6 +21,15 @@ const SharedStyle = css<privateTextProps>`
     color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);
     padding: 0;
     margin: 0;
+
+    ${
+      props.$wrap
+        ? `
+          overflow:hidden; 
+          white-space:nowrap; 
+          text-overflow: ellipsis;`
+        : ``
+    }
   `}
 `;
 
@@ -42,6 +51,7 @@ export const UiText: React.FC<UiTextProps> = ({
   size = 'regular',
   category,
   inverseColoration,
+  wrap,
 }: UiTextProps) => {
   if (inline) {
     return (
@@ -54,6 +64,7 @@ export const UiText: React.FC<UiTextProps> = ({
         $centered={centered}
         $inline={inline}
         $inverseColoration={inverseColoration}
+        $wrap={wrap}
       >
         {children}
       </Span>
@@ -70,6 +81,7 @@ export const UiText: React.FC<UiTextProps> = ({
       $centered={centered}
       $inline={inline}
       $inverseColoration={inverseColoration}
+      $wrap={wrap}
     >
       {children}
     </Text>
