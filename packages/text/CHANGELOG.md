@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2023-11-07)
+
+
+### Features
+
+* adding wrap prop for text ([#284](https://github.com/inavac182/ui-react/issues/284)) ([2967383](https://github.com/inavac182/ui-react/commit/29673831b044a931bc4c5f4f376d2bcf20839bcd))
+
+
+
+
+
 # 2.1.0 (2023-11-07)
 
 

@@ -3,7 +3,7 @@
   "description": "@uireact/tooltip package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@uireact/foundation": "^2.1.0",
-    "@uireact/text": "^2.1.0"
+    "@uireact/text": "^2.2.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",
