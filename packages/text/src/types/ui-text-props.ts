@@ -22,6 +22,7 @@ export type UiTextProps = {
   inverseColoration?: boolean | InverseColorationProp;
   /** Align text left or right, default LEFT */
   align?: 'left' | 'right';
+  wrap?: boolean;
 } & UiReactElementProps;
 
 export type privateTextProps = {
@@ -36,4 +37,5 @@ export type privateTextProps = {
   $category?: ColorCategory;
   $inverseColoration?: boolean | InverseColorationProp;
   $align?: 'left' | 'right';
+  $wrap?: boolean;
 };

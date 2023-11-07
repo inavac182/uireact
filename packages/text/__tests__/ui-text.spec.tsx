@@ -36,6 +36,12 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
   });
 
+  it('renders fine with wrap', () => {
+    uiRender(<UiText wrap>Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+  });
+
   it('renders fine with inverse coloration and inline', () => {
     uiRender(
       <UiText inline inverseColoration>
