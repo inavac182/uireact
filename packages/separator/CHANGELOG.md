@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2023-11-07)
+
+
+### Features
+
+* use client notation ([#281](https://github.com/inavac182/uireact/issues/281)) ([e4099b2](https://github.com/inavac182/uireact/commit/e4099b21110b550cb313781aaeeac3cb141a6dd8))
+
+
+
+
+
 ## 1.0.1 (2023-09-18)
 
 **Note:** Version bump only for package @uireact/separator
