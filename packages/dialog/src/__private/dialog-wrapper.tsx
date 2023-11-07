@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type DialogWrapperProps = {
+  className?: string;
   children?: React.ReactElement;
 };
 

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import styled from 'styled-components';
@@ -50,6 +51,8 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   label,
   labelOnTop,
   maxlength,
+  className,
+  testId,
   name = 'textarea-name',
   placeholder,
   resize,
@@ -60,7 +63,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   onChange,
   required,
 }: UiTextAreaProps) => (
-  <>
+  <div className={className} data-testid={testId}>
     {label && labelOnTop && (
       <div>
         <UiLabel htmlFor={name} category={category}>
@@ -95,7 +98,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
         {error && <UiText category={category}>{error}</UiText>}
       </InputDiv>
     </WrapperDiv>
-  </>
+  </div>
 );
 
 UiTextArea.displayName = 'UiTextArea';

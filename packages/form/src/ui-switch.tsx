@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import styled from 'styled-components';
@@ -83,13 +84,15 @@ export const UiSwitch: React.FC<UiSwitchProps> = ({
   checked,
   disabled,
   label,
+  className,
+  testId,
   labelPosition = 'END',
   name,
   ref,
   category,
   onChange,
 }: UiSwitchProps) => (
-  <Div>
+  <Div className={className} data-testid={testId}>
     <CheckboxInput
       checked={checked}
       disabled={disabled}
