@@ -35,6 +35,8 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
     if (props.$position === 'bottom') {
       return `
         bottom: calc(40px * -1);
+        left: 50%;
+        transform: translateX(-50%);
 
         &::before {
           bottom: 100%;
@@ -77,6 +79,8 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
 
     return `
         top: calc(40px * -1);
+        left: 50%;
+        transform: translateX(-50%);
 
         &::before {
           top: 100%;
