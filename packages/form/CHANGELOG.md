@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/inavac182/ui-react/compare/@uireact/form@2.1.0...@uireact/form@2.1.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* icon alignment when error is present in input ([#282](https://github.com/inavac182/ui-react/issues/282)) ([fbd74af](https://github.com/inavac182/ui-react/commit/fbd74af6e4b52e100780cfe6b4cf642dd4f4d031))
+
+
+
+
+
 # 2.1.0 (2023-11-07)
 
 
