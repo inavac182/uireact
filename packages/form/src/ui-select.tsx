@@ -1,3 +1,4 @@
+'use client';
 import React, { FormEvent, useCallback } from 'react';
 
 import styled from 'styled-components';
@@ -42,6 +43,8 @@ const SelectDiv = styled.div`
 
 export const UiSelect: React.FC<UiSelectProps> = ({
   children,
+  className,
+  testId,
   disabled,
   error,
   label,
@@ -61,7 +64,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   );
 
   return (
-    <div>
+    <div className={className} data-testid={testId}>
       {label && labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category}>

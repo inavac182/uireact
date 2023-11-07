@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import styled from 'styled-components';
@@ -20,6 +21,8 @@ const Button = styled.button`
 
 export const UiDialog: React.FC<UiDialogProps> = ({
   closeLabel,
+  className,
+  testId,
   children,
   dialogId,
   handleDialogClose,
@@ -57,7 +60,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   if (type !== UiDialogType.CENTERED) {
     return (
-      <DialogContent $type={type}>
+      <DialogContent $type={type} className={className} data-testId={testId}>
         {title && (
           <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         )}
@@ -72,7 +75,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   }
 
   return (
-    <DialogWrapper>
+    <DialogWrapper className={className} data-testId={testId}>
       <>
         <DialogBackground onClick={closeCB} />
         <DialogContent $type={type}>
