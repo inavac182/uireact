@@ -29,7 +29,7 @@ const StyledButton = styled.button<privateButtonProps>`
         color: var(--${getColorCategory(props.$category)}-token_100) !important;
         fill: var(--${getColorCategory(props.$category)}-token_100) !important;
         border-color: var(--${getColorCategory(props.$category)}-token_50);
-        border-width: 1px;
+        border-width: 2px;
 
         p, span {
           color: var(--${getColorCategory(props.$category)}-token_100) !important;
@@ -38,8 +38,8 @@ const StyledButton = styled.button<privateButtonProps>`
 
         &:hover {
           p, span {
-            color: var(--${getColorCategory(props.$category)}-token_100) !important;
-            fill: var(--${getColorCategory(props.$category)}-token_100) !important;
+            color: var(--fonts-token_100) !important;
+            fill: var(--fonts-token_100) !important;
           }
         }
       `;
