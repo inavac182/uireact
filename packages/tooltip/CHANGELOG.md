@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/inavac182/uireact/compare/@uireact/tooltip@1.0.2...@uireact/tooltip@1.0.3) (2023-11-07)
+
+
+### Bug Fixes
+
+* centering top and bottom tooltip ([#280](https://github.com/inavac182/uireact/issues/280)) ([bc8dc93](https://github.com/inavac182/uireact/commit/bc8dc93a320b295f252d25c86558ce5d46c96b5b))
+
+
+
+
+
 ## 1.0.2 (2023-09-19)
 
 **Note:** Version bump only for package @uireact/tooltip
