@@ -41,6 +41,10 @@ const WrapperDiv = styled.div`
   display: flex;
 `;
 
+const InputContentDiv = styled.div`
+  position: relative;
+`;
+
 const InputDiv = styled.div`
   display: inline-block;
   flex-grow: 1;
@@ -90,21 +94,23 @@ export const UiInput: React.FC<UiInputProps> = ({
         </div>
       )}
       <InputDiv>
-        {icon && <IconContainer>{icon}</IconContainer>}
-        <Input
-          disabled={disabled}
-          id={name}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          ref={ref}
-          $category={category}
-          type={type}
-          value={value}
-          $size={size}
-          required={required}
-          $withIcon={icon !== undefined}
-        />
+        <InputContentDiv>
+          {icon && <IconContainer>{icon}</IconContainer>}
+          <Input
+            disabled={disabled}
+            id={name}
+            name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            ref={ref}
+            $category={category}
+            type={type}
+            value={value}
+            $size={size}
+            required={required}
+            $withIcon={icon !== undefined}
+          />
+        </InputContentDiv>
         {error && <UiText category={category}>{error}</UiText>}
       </InputDiv>
     </WrapperDiv>
