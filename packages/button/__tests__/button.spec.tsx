@@ -176,6 +176,6 @@ describe('<UiButton />', () => {
     expect(screen.getByRole('button')).toHaveStyleRule('color', 'var(--primary-token_100)!important');
     expect(screen.getByRole('button')).toHaveStyleRule('fill', 'var(--primary-token_100)!important');
     expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--primary-token_50)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '1px');
+    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '2px');
   });
 });
