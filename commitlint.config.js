@@ -29,6 +29,7 @@ module.exports = {
         'demo',
         'dialog',
         'docs',
+        'expando',
         'flexgrid',
         'foundation',
         'form',
