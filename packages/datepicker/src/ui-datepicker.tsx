@@ -25,6 +25,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   testId,
 }: UiDatepickerProps) => {
   const [focusDate, setFocusDate] = useState<Date>(date);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
 
   const onCloseMenu = useCallback(() => {
     onClose?.();
@@ -47,6 +48,14 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
 
     setFocusDate(new Date(nextYear, nextMonth, 1));
   }, [setFocusDate, focusDate]);
+
+  const onSelectInternalDate = useCallback(
+    (date: Date) => {
+      setSelectedDate(date);
+      onSelectDate(date);
+    },
+    [setSelectedDate]
+  );
 
   return (
     <UiMenu visible closeMenuCB={onCloseMenu} testId={testId}>
@@ -73,7 +82,8 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
         date={focusDate}
         dayTitlesFormat={dayTitlesFormat}
         highlightToday={highlightToday}
-        onSelectDate={onSelectDate}
+        onSelectDate={onSelectInternalDate}
+        selectedDate={selectedDate}
       />
     </UiMenu>
   );

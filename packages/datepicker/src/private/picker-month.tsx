@@ -10,6 +10,7 @@ type PickerMonthProps = {
   dayTitlesFormat: DateTitleFormats;
   highlightToday?: boolean;
   onSelectDate: (selectedDate: Date) => void;
+  selectedDate?: Date;
 };
 
 export const PickerMonth: React.FC<PickerMonthProps> = ({
@@ -17,6 +18,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
   highlightToday,
   dayTitlesFormat,
   onSelectDate,
+  selectedDate,
 }: PickerMonthProps) => {
   // Using plus one in month, so we can get the last day of the previous month by using 0 as day
   const daysInMonth = getDaysInMonth(date.getMonth() + 1, date.getFullYear());
@@ -38,6 +40,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
           year={date.getFullYear()}
           month={date.getMonth()}
           onSelectDate={onSelectDate}
+          selectedDate={selectedDate}
         />
       ))}
     </div>

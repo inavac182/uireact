@@ -9,7 +9,7 @@ const EmptySlot = styled.div`
 `;
 
 //istanbul ignore next
-const DayWrapperButton = styled.button<{ $highlight?: boolean }>`
+const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolean }>`
   width: 50px;
   height: 50px;
   display: flex;
@@ -25,7 +25,8 @@ const DayWrapperButton = styled.button<{ $highlight?: boolean }>`
   transition: background-color 0.5s;
 
   ${(props) => `
-    ${props.$highlight ? 'background-color: var(--primary-token_50);' : ''}
+    ${props.$highlight && !props.$selected ? 'background-color: var(--primary-token_50);' : ''}
+    ${props.$selected ? 'background-color: var(--tertiary-token_100);' : ''}
   `}
 
   &:hover {
@@ -40,6 +41,7 @@ type PickerWeekProps = {
   month: number;
   year: number;
   onSelectDate: (selectedDate: Date) => void;
+  selectedDate?: Date;
 };
 
 export const PickerWeek: React.FC<PickerWeekProps> = ({
@@ -49,6 +51,7 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
   month,
   year,
   onSelectDate,
+  selectedDate,
 }: PickerWeekProps) => {
   const today = new Date();
 
@@ -71,6 +74,9 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
       {weekDays.map((value) => {
         const date = `${year}/${month}/${value}`;
         const todayDate = `${today.getFullYear()}/${today.getMonth()}/${today.getDate()}`;
+        const selectedDateString = selectedDate
+          ? `${selectedDate.getFullYear()}/${selectedDate.getMonth()}/${selectedDate.getDate()}`
+          : '';
 
         return (
           <DayWrapperButton
@@ -78,6 +84,7 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
             $highlight={highlightToday && date === todayDate}
             onClick={onDateSelected}
             value={value}
+            $selected={date === selectedDateString}
           >
             {value}
           </DayWrapperButton>
