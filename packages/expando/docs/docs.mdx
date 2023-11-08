@@ -17,7 +17,7 @@ import { UiExpandoText } from '../src/';
   </a>
 </sup>
 
-> This component renders a link with an icon that when used reveals some content underneath it.
+> This component renders a text and an icon that when expanded reveals some content underneath it.
 
 ## Installation
 
@@ -35,6 +35,14 @@ import { UiExpandoText } from '../src/';
 
 <Playground>
   <UiExpandoText label="Expand me large" category="positive" size="xlarge">
+    <span>This is some content</span>
+  </UiExpandoText>
+</Playground>
+
+## Expando initiated expanded
+
+<Playground>
+  <UiExpandoText label="Expand me" expanded>
     <span>This is some content</span>
   </UiExpandoText>
 </Playground>
