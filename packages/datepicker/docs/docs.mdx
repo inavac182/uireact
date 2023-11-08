@@ -1,0 +1,43 @@
+---
+name: UiDatepicker
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiDatepicker } from '../src';
+
+# UiDatepicker
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> A datepicker that lets select a date
+
+## Installation
+
+> npm i @uireact/foundation @uireact/button
+
+## Just the datepicker
+
+<Playground>
+  <div style={{ height: '350px' }}>
+    <UiDatepicker
+      date={new Date()}
+      highlightToday
+      onSelectDate={(date) => {
+        console.log(date);
+      }}
+    />
+  </div>
+</Playground>
+
+### Props
+
+<Props of={UiDatepicker} />
