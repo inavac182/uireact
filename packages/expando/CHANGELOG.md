@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/expando@0.1.0...@uireact/expando@0.2.0) (2023-11-08)
+
+
+### Features
+
+* adding expando card ([#286](https://github.com/inavac182/ui-react/issues/286)) ([2f477ca](https://github.com/inavac182/ui-react/commit/2f477ca5e492c8d4891e4728b5c5d633d83d0b78))
+
+
+
+
+
 # 0.1.0 (2023-11-08)
 
 
