@@ -1,5 +1,5 @@
 ---
-name: UiExpandoText
+name: UiExpandoCard
 menu: Components
 ---
 
@@ -7,9 +7,9 @@ import { Props } from 'docz';
 
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
-import { UiExpandoText } from '../src/';
+import { UiExpandoCard } from '../src/';
 
-# UiExpandoText
+# UiExpandoCard
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/expando/" target="_blank">
@@ -17,7 +17,7 @@ import { UiExpandoText } from '../src/';
   </a>
 </sup>
 
-> This component renders a text and an icon that when expanded reveals some content underneath it.
+> This component renders a card with a heading that when expanded reveals some content inside the card.
 
 ## Installation
 
@@ -26,27 +26,27 @@ import { UiExpandoText } from '../src/';
 ## Just a expando
 
 <Playground>
-  <UiExpandoText expandLabel="Expand me" collapseLabel="Collapse me">
+  <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me">
     <span>This is some content</span>
-  </UiExpandoText>
+  </UiExpandoCard>
 </Playground>
 
-## Expando with custom category and size
+## Expando with custom category and inverse heading coloration
 
 <Playground>
-  <UiExpandoText expandLabel="Expand me large" collapseLabel="Collapse me large" category="positive" size="xlarge">
+  <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" category="tertiary" headingInverseColoration>
     <span>This is some content</span>
-  </UiExpandoText>
+  </UiExpandoCard>
 </Playground>
 
 ## Expando initiated expanded
 
 <Playground>
-  <UiExpandoText expandLabel="Expand me" collapseLabel="Collapse me" expanded>
+  <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" expanded>
     <span>This is some content</span>
-  </UiExpandoText>
+  </UiExpandoCard>
 </Playground>
 
 ### Props
 
-<Props of={UiExpandoText} />
+<Props of={UiExpandoCard} />

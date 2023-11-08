@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { getColorCategory } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 
-import { UiExpandoLinkInternalProps, UiExpandoLinkProps } from 'types';
+import { UiExpandoLinkInternalProps, UiExpandoLinkProps } from './types';
 
 const WrapperExpandoLink = styled.div<UiExpandoLinkInternalProps>`
   display: flex;
@@ -35,7 +35,8 @@ export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
   children,
   expanded,
   inverseColoration = false,
-  label,
+  expandLabel,
+  collapseLabel,
   onChange,
   size = 'regular',
   testId,
@@ -63,7 +64,7 @@ export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
           $size={size}
           data-testid="expando-text-trigger"
         >
-          <span>{label}</span>
+          <span>{expandedInternal ? collapseLabel : expandLabel}</span>
         </EpandoLink>
         <UiIcon
           icon={expandedInternal ? 'CaretUp' : 'CaretDown'}
