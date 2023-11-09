@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.2.0...@uireact/datepicker@0.3.0) (2023-11-09)
+
+
+### Features
+
+* adding dialog on small prop and isOpen prop ([#290](https://github.com/inavac182/ui-react/issues/290)) ([137a3fb](https://github.com/inavac182/ui-react/commit/137a3fb60aeece176d7654801bc5d94757388b5f))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.1.0...@uireact/datepicker@0.2.0) (2023-11-09)
 
 
