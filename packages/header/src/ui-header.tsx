@@ -18,7 +18,7 @@ const Div = styled.div<privateUiHeaderProps>`
   padding-top: 10px;
   padding-bottom: 10px;
   width: 100%;
-  z-index: 1;
+  z-index: 100;
   transition: background 0.2s, border-color 0.2s;
   color: var(--fonts-token_100);
   border-color: var(--primary-token_150);

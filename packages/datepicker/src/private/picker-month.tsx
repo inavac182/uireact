@@ -4,6 +4,11 @@ import { getDaysInMonth, getStartingDayOfTheWeek, getDaysByWeek } from '../utils
 import { DateTitleFormats } from '../types';
 import { WeekTitle } from './week-title';
 import { PickerWeek } from './picker-week';
+import styled from 'styled-components';
+
+const Div = styled.div`
+  padding: 5px;
+`;
 
 type PickerMonthProps = {
   date: Date;
@@ -29,7 +34,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
   const daysByWeek = getDaysByWeek(daysInMonth, startingDayOfTheWeek);
 
   return (
-    <div>
+    <Div>
       <WeekTitle titlesFormat={dayTitlesFormat} />
       {daysByWeek.map((value, index) => (
         <PickerWeek
@@ -43,6 +48,6 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
           selectedDate={selectedDate}
         />
       ))}
-    </div>
+    </Div>
   );
 };
