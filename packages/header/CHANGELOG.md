@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2023-11-09)
+
+
+### Features
+
+* adding 2 months date picker ([#289](https://github.com/inavac182/uireact/issues/289)) ([a02ef8b](https://github.com/inavac182/uireact/commit/a02ef8bc9ef7b900fb5edfb651983cafc727225c))
+
+
+
+
+
 # 1.6.0 (2023-11-07)
 
 
