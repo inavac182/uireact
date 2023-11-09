@@ -8,17 +8,28 @@ import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
-import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 
 import { UiDatepickerProps } from './types';
 import { PickerMonth } from './private/picker-month';
 import { getMonthTitle } from './utils';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
+const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'four' };
+const buttonPadding: UiSpacingProps['padding'] = { inline: 'five' };
+const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
-const MonthWrapper = styled.div`
-  border-left: 1px solid var(--primary-token_50);
+const MonthWrapper = styled.div<{ $borderDirection: 'left' | 'top' }>`
+  ${(props) => `
+    border-${props.$borderDirection}: 1px solid var(--primary-token_50);
+  `}
   flex-grow: 1;
+`;
+
+const CloseButtonWrapper = styled.div`
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
 `;
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
@@ -28,9 +39,13 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   highlightToday,
   onSelectDate,
   onClose,
+  closeLabel,
   testId,
   showNextMonth,
+  useDialogOnSmall = false,
+  isOpen = false,
 }: UiDatepickerProps) => {
+  const { isSmall } = useViewport();
   const [focusDate, setFocusDate] = useState<Date>(date);
   const [nextFocusDate, setNextFocusDate] = useState<Date>(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
@@ -68,7 +83,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   );
 
   return (
-    <UiMenu visible closeMenuCB={onCloseMenu} testId={testId}>
+    <UiMenu visible={isOpen} closeMenuCB={onCloseMenu} testId={testId} fullscreenOnSmall={useDialogOnSmall}>
       <UiSpacing padding={titleSpacing}>
         <UiFlexGrid alignItems="center" justifyContent="center">
           <UiFlexGridItem>
@@ -77,13 +92,13 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
             </UiButton>
           </UiFlexGridItem>
           <UiFlexGridItem grow={1}>
-            <UiText centered>
+            <UiText centered fontStyle="bold">
               {getMonthTitle(focusDate.getMonth(), monthTitlesFormat)} {focusDate.getFullYear()}
             </UiText>
           </UiFlexGridItem>
-          {showNextMonth && (
+          {showNextMonth && !isSmall && (
             <UiFlexGridItem grow={1}>
-              <UiText centered>
+              <UiText centered fontStyle="bold">
                 {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
               </UiText>
             </UiFlexGridItem>
@@ -95,16 +110,25 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           </UiFlexGridItem>
         </UiFlexGrid>
       </UiSpacing>
-      <UiFlexGrid>
-        <PickerMonth
-          date={focusDate}
-          dayTitlesFormat={dayTitlesFormat}
-          highlightToday={highlightToday}
-          onSelectDate={onSelectInternalDate}
-          selectedDate={selectedDate}
-        />
+      <UiFlexGrid direction={isSmall ? 'column' : 'row'}>
+        <UiFlexGridItem grow={1}>
+          <PickerMonth
+            date={focusDate}
+            dayTitlesFormat={dayTitlesFormat}
+            highlightToday={highlightToday}
+            onSelectDate={onSelectInternalDate}
+            selectedDate={selectedDate}
+          />
+        </UiFlexGridItem>
         {showNextMonth && (
-          <MonthWrapper>
+          <MonthWrapper $borderDirection={isSmall ? 'top' : 'left'}>
+            {isSmall && (
+              <UiSpacing padding={nextMonthSpacing}>
+                <UiText centered fontStyle="bold">
+                  {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
+                </UiText>
+              </UiSpacing>
+            )}
             <PickerMonth
               date={nextFocusDate}
               dayTitlesFormat={dayTitlesFormat}
@@ -115,6 +139,19 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           </MonthWrapper>
         )}
       </UiFlexGrid>
+      {isSmall && useDialogOnSmall && (
+        <CloseButtonWrapper>
+          <UiSpacing padding={buttonPadding}>
+            <UiButton category="tertiary" fullWidth onClick={onCloseMenu}>
+              <UiSpacing padding={buttonContentSpacing}>
+                <UiText centered size="large">
+                  {closeLabel}
+                </UiText>
+              </UiSpacing>
+            </UiButton>
+          </UiSpacing>
+        </CloseButtonWrapper>
+      )}
     </UiMenu>
   );
 };

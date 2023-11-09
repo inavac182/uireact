@@ -22,7 +22,7 @@ const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolea
   border: 0;
   background-color: transparent;
   color: var(--texts-token_100);
-  transition: background-color 0.5s;
+  transition: background-color 0.3s;
 
   ${(props) => `
     ${props.$highlight && !props.$selected ? 'background-color: var(--primary-token_50);' : ''}
@@ -30,7 +30,9 @@ const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolea
   `}
 
   &:hover {
-    background-color: var(--primary-token_10);
+    ${(props) => `
+      ${props.$selected ? 'background-color: var(--tertiary-token_200);' : 'background-color: var(--primary-token_10);'}
+    `}
   }
 `;
 

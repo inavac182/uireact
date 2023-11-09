@@ -1,10 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { getDaysInMonth, getStartingDayOfTheWeek, getDaysByWeek } from '../utils';
 import { DateTitleFormats } from '../types';
 import { WeekTitle } from './week-title';
 import { PickerWeek } from './picker-week';
-import styled from 'styled-components';
 
 const Div = styled.div`
   padding: 5px;
