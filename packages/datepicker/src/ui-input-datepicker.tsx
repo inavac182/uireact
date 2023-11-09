@@ -49,7 +49,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
       setInputValue(getFormattedDate(dateFormat, newDate));
       onChange(getFormattedDate(dateFormat, newDate));
     },
-    [setDatepickerDate, setInputValue]
+    [setDatepickerDate, setInputValue, onChange]
   );
 
   const openDatepicker = useCallback(() => {
