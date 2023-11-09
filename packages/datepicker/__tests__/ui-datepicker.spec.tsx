@@ -10,9 +10,11 @@ describe('<UiDatepicker />', () => {
   const date = new Date(2028, 1, 0);
 
   it('renders fine', () => {
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
     expect(screen.getByText('January 2028')).toBeVisible();
+    expect(screen.getByRole('menu')).toBeVisible();
+
     expect(screen.getByText('Sun')).toBeVisible();
     expect(screen.getByText('Mon')).toBeVisible();
     expect(screen.getByText('Tue')).toBeVisible();
@@ -22,7 +24,7 @@ describe('<UiDatepicker />', () => {
   });
 
   it('renders fine with highlight', () => {
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} highlightToday />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} highlightToday isOpen />);
 
     expect(screen.getByText('January 2028')).toBeVisible();
     expect(screen.getByText('Sun')).toBeVisible();
@@ -32,13 +34,15 @@ describe('<UiDatepicker />', () => {
   });
 
   it('renders fine with simple month', () => {
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} monthTitlesFormat="simple" />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} monthTitlesFormat="simple" isOpen />);
 
     expect(screen.getByText('Jan 2028')).toBeVisible();
   });
 
   it('renders fine with complete dates', () => {
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} dayTitlesFormat="complete" testId="date-picker-id" />);
+    uiRender(
+      <UiDatepicker date={date} onSelectDate={jest.fn()} dayTitlesFormat="complete" testId="date-picker-id" isOpen />
+    );
 
     expect(screen.getByText('Sunday')).toBeVisible();
     expect(screen.getByText('Monday')).toBeVisible();
@@ -53,7 +57,7 @@ describe('<UiDatepicker />', () => {
   });
 
   it('renders previous month when previous month is in previous year', () => {
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
     expect(screen.getByText('January 2028')).toBeVisible();
 
@@ -65,7 +69,7 @@ describe('<UiDatepicker />', () => {
     // December 2028
     const date = new Date(2028, 12, 0);
 
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
     expect(screen.getByText('December 2028')).toBeVisible();
 
@@ -77,7 +81,7 @@ describe('<UiDatepicker />', () => {
     // December 2028
     const date = new Date(2028, 12, 0);
 
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
     expect(screen.getByText('December 2028')).toBeVisible();
 
@@ -89,7 +93,7 @@ describe('<UiDatepicker />', () => {
     // September 2028
     const date = new Date(2028, 8, 1);
 
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
     expect(screen.getByText('September 2028')).toBeVisible();
 
@@ -100,7 +104,7 @@ describe('<UiDatepicker />', () => {
 
   it('gets selected date', () => {
     const onSelectedDate = jest.fn();
-    uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} />);
+    uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} isOpen />);
 
     expect(screen.getByText('January 2028')).toBeVisible();
 
@@ -114,7 +118,9 @@ describe('<UiDatepicker />', () => {
     const onSelectedDate = jest.fn();
     const onCloseCb = jest.fn();
 
-    uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} onClose={onCloseCb} testId="date-picker-id" />);
+    uiRender(
+      <UiDatepicker date={date} onSelectDate={onSelectedDate} onClose={onCloseCb} testId="date-picker-id" isOpen />
+    );
 
     expect(screen.getByText('January 2028')).toBeVisible();
 
@@ -127,7 +133,7 @@ describe('<UiDatepicker />', () => {
   it('renders fine with 2 months', () => {
     // January 2028
     const date = new Date(2028, 1, 0);
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth isOpen />);
 
     expect(screen.getByText('January 2028')).toBeVisible();
 
@@ -156,7 +162,7 @@ describe('<UiDatepicker />', () => {
   it('renders fine with 2 months when initial month is eoy', () => {
     // January 2028
     const date = new Date(2028, 11, 31);
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth isOpen />);
 
     expect(screen.getByText('December 2028')).toBeVisible();
 
@@ -176,7 +182,7 @@ describe('<UiDatepicker />', () => {
   it('Navigates correctly to next month when showing 2 months', () => {
     // November 2028
     const date = new Date(2028, 10, 30);
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth isOpen />);
 
     expect(screen.getByText('November 2028')).toBeVisible();
     expect(screen.getByText('December 2028')).toBeVisible();
@@ -190,7 +196,7 @@ describe('<UiDatepicker />', () => {
   it('Navigates correctly to previous month when showing 2 months', () => {
     // December 2028
     const date = new Date(2028, 11, 31);
-    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth isOpen />);
 
     expect(screen.getByText('December 2028')).toBeVisible();
     expect(screen.getByText('January 2029')).toBeVisible();
@@ -199,5 +205,27 @@ describe('<UiDatepicker />', () => {
 
     expect(screen.getByText('November 2028')).toBeVisible();
     expect(screen.getByText('December 2028')).toBeVisible();
+  });
+
+  it('Renders on dialog when useDialogOnSmall is passed and breakpoint is small', () => {
+    global.innerWidth = 400;
+
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen useDialogOnSmall showNextMonth />);
+
+    expect(screen.getByRole('dialog')).toBeVisible();
+  });
+
+  it('Renders on menu when useDialogOnSmall is passed but breakpoint is not small', () => {
+    global.innerWidth = 800;
+
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen useDialogOnSmall showNextMonth />);
+
+    expect(screen.getByRole('menu')).toBeVisible();
+  });
+
+  it('Datepicker is closed in isOpen is not present', () => {
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} />);
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
   });
 });
