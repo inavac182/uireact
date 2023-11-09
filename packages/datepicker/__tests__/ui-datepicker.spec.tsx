@@ -123,4 +123,81 @@ describe('<UiDatepicker />', () => {
 
     expect(onCloseCb).toHaveBeenCalledTimes(1);
   });
+
+  it('renders fine with 2 months', () => {
+    // January 2028
+    const date = new Date(2028, 1, 0);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+
+    expect(screen.getByText('January 2028')).toBeVisible();
+
+    expect(screen.getByText('February 2028')).toBeVisible();
+
+    expect(screen.getAllByRole('button', { name: '1' })[0]).toBeVisible();
+    expect(screen.getAllByRole('button', { name: '1' })[1]).toBeVisible();
+
+    expect(screen.getAllByRole('button', { name: '1' })).toHaveLength(2);
+
+    expect(screen.getByRole('button', { name: '31' })).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('datepicker-next-month-button'));
+
+    expect(screen.getByText('February 2028')).toBeVisible();
+
+    expect(screen.getByText('March 2028')).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('datepicker-previous-month-button'));
+
+    expect(screen.getByText('January 2028')).toBeVisible();
+
+    expect(screen.getByText('February 2028')).toBeVisible();
+  });
+
+  it('renders fine with 2 months when initial month is eoy', () => {
+    // January 2028
+    const date = new Date(2028, 11, 31);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+
+    expect(screen.getByText('December 2028')).toBeVisible();
+
+    expect(screen.getByText('January 2029')).toBeVisible();
+
+    expect(screen.getAllByRole('button', { name: '1' })[0]).toBeVisible();
+    expect(screen.getAllByRole('button', { name: '1' })[1]).toBeVisible();
+
+    expect(screen.getAllByRole('button', { name: '1' })).toHaveLength(2);
+
+    expect(screen.getAllByRole('button', { name: '31' })[0]).toBeVisible();
+    expect(screen.getAllByRole('button', { name: '31' })[1]).toBeVisible();
+
+    expect(screen.getAllByRole('button', { name: '31' })).toHaveLength(2);
+  });
+
+  it('Navigates correctly to next month when showing 2 months', () => {
+    // November 2028
+    const date = new Date(2028, 10, 30);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+
+    expect(screen.getByText('November 2028')).toBeVisible();
+    expect(screen.getByText('December 2028')).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('datepicker-next-month-button'));
+
+    expect(screen.getByText('December 2028')).toBeVisible();
+    expect(screen.getByText('January 2029')).toBeVisible();
+  });
+
+  it('Navigates correctly to previous month when showing 2 months', () => {
+    // December 2028
+    const date = new Date(2028, 11, 31);
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} showNextMonth />);
+
+    expect(screen.getByText('December 2028')).toBeVisible();
+    expect(screen.getByText('January 2029')).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('datepicker-previous-month-button'));
+
+    expect(screen.getByText('November 2028')).toBeVisible();
+    expect(screen.getByText('December 2028')).toBeVisible();
+  });
 });

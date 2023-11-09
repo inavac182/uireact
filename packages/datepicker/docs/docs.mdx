@@ -38,6 +38,21 @@ import { UiDatepicker } from '../src';
   </div>
 </Playground>
 
+## 2 months datepicker
+
+<Playground>
+  <div style={{ height: '350px' }}>
+    <UiDatepicker
+      date={new Date()}
+      highlightToday
+      showNextMonth
+      onSelectDate={(date) => {
+        console.log(date);
+      }}
+    />
+  </div>
+</Playground>
+
 ### Props
 
 <Props of={UiDatepicker} />

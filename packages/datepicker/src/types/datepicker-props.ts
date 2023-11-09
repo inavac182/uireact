@@ -8,4 +8,5 @@ export type UiDatepickerProps = {
   highlightToday?: boolean;
   onSelectDate: (selectedDate: Date) => void;
   onClose?: () => void;
+  showNextMonth?: boolean;
 } & UiReactElementProps;
