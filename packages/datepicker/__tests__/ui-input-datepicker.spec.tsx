@@ -34,6 +34,19 @@ describe('<UiDatepicker />', () => {
     expect(screen.getByRole('menu')).toBeVisible();
   });
 
+  it('renders fine when using disablePastDates', () => {
+    const someDate = new Date('2029-01-25 ');
+
+    uiRender(<UiInputDatepicker onChange={jest.fn()} date={someDate} name="someDate" disablePastDates />);
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+
+    fireEvent.focus(screen.getByRole('textbox'));
+
+    expect(screen.getByRole('menu')).toBeVisible();
+    expect(screen.getByRole('button', { name: '24' })).toBeDisabled();
+  });
+
   it('renders error correctly', () => {
     uiRender(<UiInputDatepicker onChange={jest.fn()} name="someDate" error="Select another date" />);
 

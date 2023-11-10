@@ -22,4 +22,6 @@ export type UiDatepickerProps = {
   isOpen?: boolean;
   /** The close label used in the close button when `useDialogOnSmall` is passed and datepicker is opened on small breakpoint */
   closeLabel?: string;
+  /** Disable all past dates from the given date */
+  disablePastDates?: boolean;
 } & UiReactElementProps;

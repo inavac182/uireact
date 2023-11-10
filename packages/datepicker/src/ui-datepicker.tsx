@@ -42,6 +42,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   date,
   dayTitlesFormat = 'simple',
   monthTitlesFormat = 'complete',
+  disablePastDates,
   highlightToday,
   onSelectDate,
   onClose,
@@ -52,6 +53,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   isOpen = false,
 }: UiDatepickerProps) => {
   const { isSmall } = useViewport();
+  const today = new Date();
   const [focusDate, setFocusDate] = useState<Date>(date);
   const [nextFocusDate, setNextFocusDate] = useState<Date>(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
@@ -120,11 +122,13 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
       <UiFlexGrid direction={isSmall ? 'column' : 'row'}>
         <UiFlexGridItem grow={1}>
           <PickerMonth
-            date={focusDate}
+            today={today}
+            focusDate={focusDate}
             dayTitlesFormat={dayTitlesFormat}
             highlightToday={highlightToday}
             onSelectDate={onSelectInternalDate}
             selectedDate={selectedDate}
+            disablePastDates={disablePastDates}
           />
         </UiFlexGridItem>
         {showNextMonth && (
@@ -137,11 +141,13 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
               </UiSpacing>
             )}
             <PickerMonth
-              date={nextFocusDate}
+              today={today}
+              focusDate={nextFocusDate}
               dayTitlesFormat={dayTitlesFormat}
               highlightToday={highlightToday}
               onSelectDate={onSelectInternalDate}
               selectedDate={selectedDate}
+              disablePastDates={disablePastDates}
             />
           </MonthWrapper>
         )}

@@ -77,4 +77,6 @@ export type UiInputDatepickerProps = {
   showNextMonth?: boolean;
   /** Makes the datepicker render as fullscreen dialog on small devices */
   useDialogOnSmall?: boolean;
+  /** Disables the dates in the past from the given date, if no date is passed today's date is used */
+  disablePastDates?: boolean;
 } & UiReactElementProps;
