@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.5.0...@uireact/datepicker@0.6.0) (2023-11-10)
+
+
+### Features
+
+* disable past dates in datepicker ([#293](https://github.com/inavac182/ui-react/issues/293)) ([4af29a6](https://github.com/inavac182/ui-react/commit/4af29a6fd3e02079eac044825dfadc71db65bc53))
+
+
+
+
+
 # [0.5.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.4.0...@uireact/datepicker@0.5.0) (2023-11-10)
 
 
