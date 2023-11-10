@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.4.0...@uireact/datepicker@0.5.0) (2023-11-10)
+
+
+### Features
+
+* adding close button to datepicker on menu ([#292](https://github.com/inavac182/ui-react/issues/292)) ([726defd](https://github.com/inavac182/ui-react/commit/726defd95a4499309ae093b548e8e5c64e356563))
+
+
+
+
+
 # [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.3.0...@uireact/datepicker@0.4.0) (2023-11-10)
 
 
