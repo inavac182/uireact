@@ -16,7 +16,7 @@ import { getMonthTitle } from './utils';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'four' };
-const buttonPadding: UiSpacingProps['padding'] = { inline: 'five' };
+const buttonPadding: UiSpacingProps['padding'] = { top: 'four', bottom: 'four', right: 'five' };
 const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 const MonthWrapper = styled.div<{ $borderDirection: 'left' | 'top' }>`
@@ -26,10 +26,15 @@ const MonthWrapper = styled.div<{ $borderDirection: 'left' | 'top' }>`
   flex-grow: 1;
 `;
 
-const CloseButtonWrapper = styled.div`
+const CloseButtonWrapperDialog = styled.div`
   position: absolute;
   bottom: 30px;
   width: 100%;
+`;
+
+const CloseButtonWrapperMenu = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
@@ -49,6 +54,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   const [focusDate, setFocusDate] = useState<Date>(date);
   const [nextFocusDate, setNextFocusDate] = useState<Date>(new Date(date.getFullYear(), date.getMonth() + 1, 1));
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const isDialogShown = isSmall && useDialogOnSmall;
 
   const onCloseMenu = useCallback(() => {
     onClose?.();
@@ -139,8 +145,19 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           </MonthWrapper>
         )}
       </UiFlexGrid>
-      {isSmall && useDialogOnSmall && (
-        <CloseButtonWrapper>
+      {closeLabel && !isDialogShown && (
+        <CloseButtonWrapperMenu>
+          <UiSpacing padding={buttonPadding}>
+            <UiButton type="button" category="tertiary" onClick={onCloseMenu}>
+              <UiSpacing padding={buttonContentSpacing}>
+                <UiText>{closeLabel}</UiText>
+              </UiSpacing>
+            </UiButton>
+          </UiSpacing>
+        </CloseButtonWrapperMenu>
+      )}
+      {isDialogShown && (
+        <CloseButtonWrapperDialog>
           <UiSpacing padding={buttonPadding}>
             <UiButton category="tertiary" fullWidth onClick={onCloseMenu}>
               <UiSpacing padding={buttonContentSpacing}>
@@ -150,7 +167,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
               </UiSpacing>
             </UiButton>
           </UiSpacing>
-        </CloseButtonWrapper>
+        </CloseButtonWrapperDialog>
       )}
     </UiMenu>
   );
