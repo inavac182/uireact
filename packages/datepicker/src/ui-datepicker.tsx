@@ -35,6 +35,7 @@ const CloseButtonWrapperDialog = styled.div`
 const CloseButtonWrapperMenu = styled.div`
   display: flex;
   justify-content: flex-end;
+  border-top: 1px solid var(--primary-token_50);
 `;
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
