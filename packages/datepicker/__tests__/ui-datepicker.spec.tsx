@@ -33,6 +33,22 @@ describe('<UiDatepicker />', () => {
     expect(screen.getByRole('button', { name: '31' })).toBeVisible();
   });
 
+  it('renders fine with past dates disabled', () => {
+    // January 25, 2028
+    const date = new Date('2028-01-25 ');
+
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} highlightToday isOpen disablePastDates />);
+
+    expect(screen.getByText('January 2028')).toBeVisible();
+    expect(screen.getByText('Sun')).toBeVisible();
+
+    expect(screen.getByRole('button', { name: '25' })).toBeVisible();
+    expect(screen.getByRole('button', { name: '25' })).not.toBeDisabled();
+    expect(screen.getByRole('button', { name: '23' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: '24' })).toBeVisible();
+    expect(screen.getByRole('button', { name: '24' })).toBeDisabled();
+  });
+
   it('renders fine with simple month', () => {
     uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} monthTitlesFormat="simple" isOpen />);
 

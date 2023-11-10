@@ -21,7 +21,7 @@ const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolea
   padding: 0;
   border: 0;
   background-color: transparent;
-  color: var(--texts-token_100);
+  color: var(--fonts-token_100);
   transition: background-color 0.3s;
 
   ${(props) => `
@@ -34,38 +34,51 @@ const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolea
       ${props.$selected ? 'background-color: var(--tertiary-token_200);' : 'background-color: var(--primary-token_10);'}
     `}
   }
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    &:hover {
+      background-color: transparent;
+    }
+  }
 `;
 
 type PickerWeekProps = {
+  focusDate: Date;
+  today: Date;
   startingWeekDay: number;
   weekDays: number[];
   highlightToday?: boolean;
-  month: number;
-  year: number;
   onSelectDate: (selectedDate: Date) => void;
   selectedDate?: Date;
+  disablePastDates?: boolean;
 };
 
 export const PickerWeek: React.FC<PickerWeekProps> = ({
   startingWeekDay,
   highlightToday,
   weekDays,
-  month,
-  year,
+  focusDate,
+  today,
   onSelectDate,
   selectedDate,
+  disablePastDates,
 }: PickerWeekProps) => {
-  const today = new Date();
-
+  const yesterday = new Date(focusDate.getFullYear(), focusDate.getMonth(), focusDate.getDate() - 1);
+  const selectedDateString = selectedDate
+    ? `${selectedDate.getFullYear()}/${selectedDate.getMonth()}/${selectedDate.getDate()}`
+    : '';
+  const month = focusDate.getMonth();
   const onDateSelected = useCallback(
     (e: FormEvent<HTMLButtonElement>) => {
       const day = e.currentTarget.value;
       if (day) {
-        const date = new Date(year, month, parseInt(day));
+        const date = new Date(focusDate.getFullYear(), focusDate.getMonth(), parseInt(day));
         onSelectDate(date);
       }
     },
-    [onSelectDate, year, month]
+    [onSelectDate, focusDate]
   );
 
   return (
@@ -74,20 +87,21 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
         <EmptySlot key={`empty-picker-day-${index}`} />
       ))}
       {weekDays.map((value) => {
-        const date = `${year}/${month}/${value}`;
-        const todayDate = `${today.getFullYear()}/${today.getMonth()}/${today.getDate()}`;
-        const selectedDateString = selectedDate
-          ? `${selectedDate.getFullYear()}/${selectedDate.getMonth()}/${selectedDate.getDate()}`
-          : '';
+        const currentDateString = `${focusDate.getFullYear()}/${focusDate.getMonth()}/${value}`;
+        const todayDateString = `${today.getFullYear()}/${today.getMonth()}/${today.getDate()}`;
+
+        const buttonDate = new Date(focusDate.getFullYear(), focusDate.getMonth(), value);
+        const isDisabled = disablePastDates && buttonDate <= yesterday;
 
         return (
           <DayWrapperButton
             type="button"
-            key={`picker-day-${value}`}
-            $highlight={highlightToday && date === todayDate}
+            key={`picker-day-${month}-${value}`}
+            $highlight={highlightToday && currentDateString === todayDateString}
             onClick={onDateSelected}
             value={value}
-            $selected={date === selectedDateString}
+            $selected={currentDateString === selectedDateString}
+            disabled={isDisabled}
           >
             {value}
           </DayWrapperButton>
