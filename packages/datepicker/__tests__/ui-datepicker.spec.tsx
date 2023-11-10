@@ -56,6 +56,15 @@ describe('<UiDatepicker />', () => {
     fireEvent.keyDown(datepicker, { key: 'Escape', code: 'Escape' });
   });
 
+  it('renders fine with close button on menu datepicker', () => {
+    uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} closeLabel="Done" isOpen />);
+
+    expect(screen.getByText('January 2028')).toBeVisible();
+    expect(screen.getByRole('menu')).toBeVisible();
+
+    expect(screen.getByRole('button', { name: 'Done' })).toBeVisible();
+  });
+
   it('renders previous month when previous month is in previous year', () => {
     uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen />);
 
