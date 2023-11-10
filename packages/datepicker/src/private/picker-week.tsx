@@ -82,6 +82,7 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
 
         return (
           <DayWrapperButton
+            type="button"
             key={`picker-day-${value}`}
             $highlight={highlightToday && date === todayDate}
             onClick={onDateSelected}
