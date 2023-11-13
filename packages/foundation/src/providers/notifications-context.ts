@@ -2,6 +2,7 @@ import React from 'react';
 
 import { INotificationsController } from '../types';
 
+// istanbul ignore next
 const noOpNotification = () => {
   console.error('No show notification fn implemented');
 };
