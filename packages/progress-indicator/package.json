@@ -3,7 +3,7 @@
   "description": "Progress indicator component from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,9 +23,9 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.1.0",
-    "@uireact/icons": "^2.1.0",
-    "@uireact/text": "^2.2.0"
+    "@uireact/foundation": "^2.2.0",
+    "@uireact/icons": "^2.1.1",
+    "@uireact/text": "^2.2.1"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",
