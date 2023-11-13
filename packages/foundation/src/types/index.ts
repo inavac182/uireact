@@ -6,3 +6,5 @@ export * from './themes';
 export * from './theme-mapper';
 export * from './ui-react-element';
 export * from './spacing-distribution';
+export * from './notifications';
+export * from './notifications-controller';
