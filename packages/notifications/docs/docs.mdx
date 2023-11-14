@@ -11,6 +11,10 @@ import Playground from '../../../src/Playground';
 import { UiNotifications } from '../src';
 import { NotificationsExample } from './example';
 
+import { UiBadge } from '@uireact/badge';
+
+<UiBadge category="warning">❗️ Beta</UiBadge>
+
 # UiNotifications
 
 <sup>
@@ -27,7 +31,7 @@ import { NotificationsExample } from './example';
 
 ## How to use?
 
-1. Render the component `<UiNotifications />` in next to the `<UiView />`.
+1. Render the component `<UiNotifications />` inside the `<UiView />`.
 2. Use the hook `useNotifications()` to retrieve the function `showNotification()` which allows you to add the notification content.
 3. Once the notification is shown, the timeout will start running and will automatically close the notification after 5 secs.
 
@@ -40,25 +44,37 @@ The `useNotifications` hook gives 2 values:
 
 ## UiNotification datatype
 
-The passed notification needs to follow this type:
+The [UiNotification](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/notifications.ts) type has this structure:
 
 ```tsx
-export type UiNotificationLink = {
+type UiNotificationLink = {
   label: string;
   url: string;
   target?: string;
 };
 
-export type UiNotification = {
+type UiNotification = {
   icon?: string;
   title?: string;
   message?: string;
   link?: UiNotificationLink;
+  options?: UiNotificationOptions;
+};
+
+type UiNotificationOptions = {
   category?: ColorCategory;
+  timer?: number;
+  closeButton?: boolean;
 };
 ```
 
-Make sure you make sure the [UiIcons](./packages-icons-docs-docs) docs to check the available icons.
+Make sure you look at the [UiIcons](./packages-icons-docs-docs) doc to check the available icons.
+
+## UiNotificationOptions
+
+- `category` The notification's theme color. Default is `primary`.
+- `timer` The time that it will take for the notification to be automatically removed. If is 0 then it won't be removed automatically. Default is `5000` ms.
+- `closeButton` If the close button should render. Default is `true`.
 
 ## Example
 
