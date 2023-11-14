@@ -25,6 +25,25 @@ describe('<UiNotifications />', () => {
     expect(screen.queryByRole('heading')).not.toBeInTheDocument();
   });
 
+  it('renders fine on small breakpoint', () => {
+    global.innerWidth = 400;
+    jest.useFakeTimers();
+
+    uiRender(<NotificationsExample />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Add notification' }));
+
+    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+    expect(screen.getByText('This is a new notification')).toBeVisible();
+    expect(screen.getByTestId('notification-close-button')).toBeVisible();
+
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
+
+    expect(screen.queryByRole('heading')).not.toBeInTheDocument();
+  });
+
   it('renders fine with link', () => {
     uiRender(<NotificationsExample />);
 
