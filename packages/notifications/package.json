@@ -1,6 +1,5 @@
 {
   "name": "@uireact/notifications",
-  "private": true,
   "description": "notifications package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
