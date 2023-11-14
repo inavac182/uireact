@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { NotificationsContainer, UiNotificationWrapper } from './private';
