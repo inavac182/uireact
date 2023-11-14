@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.2.0...@uireact/notifications@0.3.0) (2023-11-14)
+
+
+### Features
+
+* adding bottom notification ([#296](https://github.com/inavac182/ui-react/issues/296)) ([1720adb](https://github.com/inavac182/ui-react/commit/1720adb71a876c18a6ed5994de2b422c08139295))
+
+
+
+
+
 # [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.1.0...@uireact/notifications@0.2.0) (2023-11-14)
 
 
