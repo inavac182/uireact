@@ -1,12 +1,12 @@
 import React from 'react';
 import { UiNotification, UiNotificationsContext } from '@uireact/foundation';
 
-type UseNotificationHook = {
+type UseUiNotificationsHook = {
   notifications: UiNotification[];
   showNotification: (notification: UiNotification) => void;
 };
 
-export const useNotifications = (): UseNotificationHook => {
+export const useNotifications = (): UseUiNotificationsHook => {
   const notificationsController = React.useContext(UiNotificationsContext);
 
   return {
