@@ -3,7 +3,7 @@
   "description": "@uireact/charts package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "publishConfig": {
     "access": "public"
   },
@@ -23,9 +23,9 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/flex": "^2.1.1",
-    "@uireact/foundation": "^2.2.0",
-    "@uireact/text": "^2.2.1"
+    "@uireact/flex": "^2.1.2",
+    "@uireact/foundation": "^2.3.0",
+    "@uireact/text": "^2.2.2"
   },
   "peerDependencies": {
     "@uireact/flex": "^2.0.0",

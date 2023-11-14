@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/inavac182/uireact/compare/@uireact/separator@1.1.1...@uireact/separator@1.1.2) (2023-11-14)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
 ## 1.1.1 (2023-11-13)
 
 **Note:** Version bump only for package @uireact/separator
