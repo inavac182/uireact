@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.3.0...@uireact/notifications@0.3.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* hidden notifications to not re render ([#297](https://github.com/inavac182/ui-react/issues/297)) ([4af477a](https://github.com/inavac182/ui-react/commit/4af477a9ca035d4a0361635e91de2c1567d44d32))
+
+
+
+
+
 # [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.2.0...@uireact/notifications@0.3.0) (2023-11-14)
 
 
