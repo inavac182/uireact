@@ -128,4 +128,38 @@ describe('<UiNotifications />', () => {
 
     expect(screen.getByRole('heading', { name: 'Notification with options' })).toBeVisible();
   });
+
+  it('Timer should not reset when another notification is closed', () => {
+    jest.useFakeTimers();
+
+    uiRender(<NotificationsExample />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
+
+    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Add notification' }));
+
+    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+
+    act(() => {
+      jest.advanceTimersByTime(3000);
+    });
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'New notification' })).not.toBeInTheDocument();
+  });
 });

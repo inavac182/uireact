@@ -12,12 +12,9 @@ export const UiNotifications: React.FC = () => {
 
   const [hiddenNotifications, setHiddenNotifications] = useState<number[]>([]);
 
-  const onClose = useCallback(
-    (index: number) => {
-      setHiddenNotifications([...hiddenNotifications, index]);
-    },
-    [hiddenNotifications, setHiddenNotifications]
-  );
+  const onClose = useCallback((index: number) => {
+    setHiddenNotifications((hiddenNotifications) => [...hiddenNotifications, index]);
+  }, []);
 
   const NotificationsComponent = useMemo(() => {
     return (
