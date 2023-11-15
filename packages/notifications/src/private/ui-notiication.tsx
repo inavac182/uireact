@@ -57,7 +57,7 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
     }, options.timer);
 
     return () => clearTimeout(timer);
-  }, [options, onClose]);
+  }, [onClose]);
 
   const closeNotification = useCallback(() => {
     onClose(id);
