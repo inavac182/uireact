@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { useViewport } from '@uireact/foundation';
 
@@ -10,23 +10,39 @@ export const UiNotifications: React.FC = () => {
   const { isSmall } = useViewport();
   const { notifications } = useNotifications();
 
-  if (isSmall) {
+  const [hiddenNotifications, setHiddenNotifications] = useState<number[]>([]);
+
+  const onClose = useCallback(
+    (index: number) => {
+      setHiddenNotifications([...hiddenNotifications, index]);
+    },
+    [hiddenNotifications, setHiddenNotifications]
+  );
+
+  const NotificationsComponent = useMemo(() => {
     return (
-      <BottomNotificationsContainer>
-        {notifications.map((notification, index) => (
-          <UiNotificationWrapper notification={notification} key={`notitication-in-${index}`} />
-        ))}
-      </BottomNotificationsContainer>
+      <>
+        {notifications.map((notification, index) => {
+          const isHidden = hiddenNotifications.filter((hiddenId) => hiddenId === index).length > 0;
+
+          return isHidden ? null : (
+            <UiNotificationWrapper
+              notification={notification}
+              key={`notitication-in-${index}`}
+              id={index}
+              onClose={onClose}
+            />
+          );
+        })}
+      </>
     );
+  }, [notifications, hiddenNotifications]);
+
+  if (isSmall) {
+    return <BottomNotificationsContainer>{NotificationsComponent}</BottomNotificationsContainer>;
   }
 
-  return (
-    <NotificationsContainer>
-      {notifications.map((notification, index) => (
-        <UiNotificationWrapper notification={notification} key={`notitication-in-${index}`} />
-      ))}
-    </NotificationsContainer>
-  );
+  return <NotificationsContainer>{NotificationsComponent}</NotificationsContainer>;
 };
 
 UiNotifications.displayName = 'UiNotifications';

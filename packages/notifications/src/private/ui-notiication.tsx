@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { ColorCategory, UiNotification } from '@uireact/foundation';
@@ -30,10 +30,15 @@ const IconWrapper = styled.div`
 
 type UiNotificationProps = {
   notification: UiNotification;
+  id: number;
+  onClose: (index: number) => void;
 };
 
-export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({ notification }: UiNotificationProps) => {
-  const [visible, setVisible] = useState(true);
+export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
+  id,
+  notification,
+  onClose,
+}: UiNotificationProps) => {
   const options = useMemo(() => {
     return {
       category: notification.options?.category || 'primary',
@@ -47,18 +52,16 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({ notificat
       return;
     }
 
-    setTimeout(() => {
-      setVisible(false);
+    const timer = setTimeout(() => {
+      onClose(id);
     }, options.timer);
-  }, [setVisible, options]);
+
+    return () => clearTimeout(timer);
+  }, [options, onClose]);
 
   const closeNotification = useCallback(() => {
-    setVisible(false);
-  }, [setVisible]);
-
-  if (!visible) {
-    return null;
-  }
+    onClose(id);
+  }, [onClose]);
 
   return (
     <>

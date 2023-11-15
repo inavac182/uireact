@@ -77,4 +77,55 @@ describe('<UiNotifications />', () => {
     expect(screen.getByRole('heading', { name: 'Notification with no timer' })).toBeVisible();
     expect(screen.queryByTestId('notification-close-button')).toBeVisible();
   });
+
+  it('delete notification when close button is used', () => {
+    uiRender(<NotificationsExample />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
+
+    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('notification-close-button'));
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+  });
+
+  it('notiticaion does not appear again when resizing', () => {
+    global.innerWidth = 400;
+
+    uiRender(<NotificationsExample />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
+
+    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('notification-close-button'));
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+
+    act(() => {
+      global.innerWidth = 1000;
+      global.dispatchEvent(new Event('resize'));
+    });
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+  });
+
+  it('Only new notifications are rendered, closed notifications doe not appear', () => {
+    global.innerWidth = 400;
+
+    uiRender(<NotificationsExample />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
+
+    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+
+    fireEvent.click(screen.getByTestId('notification-close-button'));
+
+    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Notification with options' }));
+
+    expect(screen.getByRole('heading', { name: 'Notification with options' })).toBeVisible();
+  });
 });
