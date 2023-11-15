@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2023-11-15)
+
+
+### Features
+
+* adding digits input ([#299](https://github.com/inavac182/ui-react/issues/299)) ([6d718b6](https://github.com/inavac182/ui-react/commit/6d718b63ed700213a3adf1980e5e68a1892fdbd7))
+
+
+
+
+
 ## [2.1.4](https://github.com/inavac182/ui-react/compare/@uireact/form@2.1.3...@uireact/form@2.1.4) (2023-11-14)
 
 **Note:** Version bump only for package @uireact/form
