@@ -70,20 +70,31 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
   const onDigitChange = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
       const name = e.currentTarget.name;
-      const digitValue = e.currentTarget.value;
+      const value = e.currentTarget.value;
 
       const nameBreakdown = name.split('-');
       const digitNumber = parseInt(nameBreakdown[2]);
 
-      if (digitValue.length > 1) {
+      if (value.length === digits) {
+        const valueInputArray = value.split('');
+
+        valueInputArray.map((valueInput, index) => {
+          digitsValues[index] = valueInput;
+        });
+
+        setDigitsString(value);
+        onChange?.(value);
+        onComplete?.(value);
+        return;
+      } else if (value.length > 1) {
         return;
       }
 
-      digitsValues[digitNumber] = digitValue;
+      digitsValues[digitNumber] = value;
 
       setDigitsValues(digitsValues);
 
-      if (digitNumber < digitsValues.length && digitValue !== '') {
+      if (digitNumber < digitsValues.length && value !== '') {
         inputsRef.current[digitNumber + 1]?.focus();
       }
 
@@ -123,7 +134,6 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
               key={`internal-digit-${id}-input`}
               onChange={onDigitChange}
               required={required}
-              maxLength={1}
               ref={(el) => (inputsRef.current[id] = el)}
               disabled={disabled}
             />
