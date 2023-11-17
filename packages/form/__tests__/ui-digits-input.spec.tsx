@@ -112,12 +112,38 @@ describe('<Component />', () => {
     const onChange = jest.fn();
     const onComplete = jest.fn();
 
-    uiRender(<UiDigitsInput digits={2} label="Input" name="MyInput" onChange={onChange} onComplete={onComplete} />);
+    uiRender(<UiDigitsInput digits={3} label="Input" name="MyInput" onChange={onChange} onComplete={onComplete} />);
 
     const input = screen.getAllByRole('textbox')[1];
 
     fireEvent.change(input, { target: { value: '32' } });
 
     expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it('Executes onComplete when value pasted matches digits length', () => {
+    const onComplete = jest.fn();
+
+    uiRender(<UiDigitsInput digits={3} label="Input" name="MyInput" onComplete={onComplete} />);
+
+    const input1 = screen.getAllByRole('textbox')[0];
+
+    fireEvent.change(input1, { target: { value: '123' } });
+
+    expect(onComplete).toHaveBeenCalledTimes(1);
+    expect(onComplete).toHaveBeenCalledWith('123');
+  });
+
+  it('Executes onChange when value pasted matches digits length', () => {
+    const onChange = jest.fn();
+
+    uiRender(<UiDigitsInput digits={3} label="Input" name="MyInput" onChange={onChange} />);
+
+    const input1 = screen.getAllByRole('textbox')[0];
+
+    fireEvent.change(input1, { target: { value: '123' } });
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('123');
   });
 });
