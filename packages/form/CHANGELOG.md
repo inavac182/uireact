@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@2.2.0...@uireact/form@2.3.0) (2023-11-17)
+
+
+### Features
+
+* paste digits into inputs ([#300](https://github.com/inavac182/ui-react/issues/300)) ([b5221d7](https://github.com/inavac182/ui-react/commit/b5221d737563ec2b57fa2c827934472033adfadf))
+
+
+
+
+
 # 2.2.0 (2023-11-15)
 
 
