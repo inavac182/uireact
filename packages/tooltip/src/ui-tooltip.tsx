@@ -16,9 +16,12 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
   border-radius: 4px;
   padding: 6px;
   white-space: nowrap;
-  background-color: var(--primary-token_100);
-  color: var(--fonts-token_100);
   z-index: 100;
+
+  ${(props) => `
+    background-color: var(--${props.$inverse ? 'inverse-' : ''}${props.$category}-token_100);
+    color: var(--${props.$inverse ? 'inverse-' : ''}fonts-token_100);
+  `}
 
   &::before {
     content: ' ';
@@ -41,7 +44,7 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
 
         &::before {
           bottom: 100%;
-          border-bottom-color: var(--primary-token_100);
+          border-bottom-color: var(--${props.$inverse ? 'inverse-' : ''}${props.$category}-token_100);
         }
       `;
     }
@@ -58,7 +61,7 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
           right: calc(6px * -2);
           top: 50%;
           transform: translateX(0) translateY(-50%);
-          border-left-color: var(--primary-token_100);
+          border-left-color: var(--${props.$inverse ? 'inverse-' : ''}${props.$category}-token_100);
         }
       `;
     }
@@ -73,7 +76,7 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
           left: calc(6px * -1);
           top: 50%;
           transform: translateX(0) translateY(-50%);
-          border-right-color: var(--primary-token_100);
+          border-right-color: var(--${props.$inverse ? 'inverse-' : ''}${props.$category}-token_100);
         }
       `;
     }
@@ -85,15 +88,17 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
 
         &::before {
           top: 100%;
-          border-top-color: var(--primary-token_100);
+          border-top-color: var(--${props.$inverse ? 'inverse-' : ''}${props.$category}-token_100);
         }
       `;
   }}
 `;
 
 export const UiTooltip: React.FC<UiTooltipProps> = ({
+  category = 'primary',
   children,
   className,
+  inverse = true,
   position,
   text,
   testId,
@@ -112,8 +117,15 @@ export const UiTooltip: React.FC<UiTooltipProps> = ({
     <Div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {children}
       {toolbarVisible && (
-        <ToolbarDiv $position={position} className={className} data-testid={testId} role="tooltip">
-          <UiText>{text}</UiText>
+        <ToolbarDiv
+          $position={position}
+          className={className}
+          data-testid={testId}
+          role="tooltip"
+          $category={category}
+          $inverse={inverse}
+        >
+          <UiText inverseColoration={inverse}>{text}</UiText>
         </ToolbarDiv>
       )}
     </Div>
