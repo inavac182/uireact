@@ -33,7 +33,7 @@ const SidebarDiv = styled.div<{ $isTriggered?: boolean }>`
       ${props.$isTriggered ? `display: block;` : `display: none;`}`}
 
     position: fixed;
-    z-index: 10;
+    z-index: 200;
     animation: ${animation} 0.3s linear;
     height: 100%;
     width: 300px;
@@ -122,3 +122,5 @@ export const Sidebar = React.forwardRef((): React.ReactElement => {
     </SidebarDiv>
   );
 });
+
+Sidebar.displayName = 'Sidebar';

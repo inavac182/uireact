@@ -10,5 +10,5 @@ export default {
   title: '@uireact',
   public: '/public',
   description: 'Themed library of components for react development',
-  menu: ['Documentation'],
+  menu: ['Documentation', 'Contributions', ''],
 };
