@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2023-11-18)
+
+
+### Features
+
+* adding tooltip category and inverse ([#301](https://github.com/inavac182/uireact/issues/301)) ([0d479c6](https://github.com/inavac182/uireact/commit/0d479c6876aee73fd1a32adb1df5366a087442b5))
+
+
+
+
+
 ## [1.1.3](https://github.com/inavac182/uireact/compare/@uireact/tooltip@1.1.2...@uireact/tooltip@1.1.3) (2023-11-14)
 
 **Note:** Version bump only for package @uireact/tooltip
