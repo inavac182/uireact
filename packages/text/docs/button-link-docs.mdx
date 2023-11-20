@@ -1,5 +1,5 @@
 ---
-name: UiLink
+name: UiButtonLink
 menu: Typography
 ---
 
@@ -9,9 +9,11 @@ import { MemoryRouter } from 'react-router-dom';
 import * as packageJson from '../package.json';
 import Playground from '../../../src/Playground';
 
-import { UiLink } from '../src';
+import { UiButtonLink } from '../src';
+import { UiIcon } from '@uireact/icons';
+import { UiSpacing } from '@uireact/foundation';
 
-# UiLink
+# UiButtonLink
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
@@ -26,28 +28,22 @@ import { UiLink } from '../src';
 
 > npm i @uireact/foundation @uireact/text
 
-## UiLink
+## UiButtonLink
 
 <Playground>
-  <UiLink>
+  <UiButtonLink>
     <a href="https://uireact.io/">Some text</a>
-  </UiLink>
+  </UiButtonLink>
 </Playground>
 
-## UiLink with color category
+## UiButtonLink - with options
 
 <Playground>
-  <UiLink category="error">
-    <a href="https://uireact.io/">Some text</a>
-  </UiLink>{' '}
-  <UiLink category="positive">
-    <a href="https://uireact.io/">Some text</a>
-  </UiLink>{' '}
-  <UiLink handleClick={() => console.log('Link Clicked')} category="negative" fontStyle="italic">
-    <a href="https://uireact.io/">Some text</a>
-  </UiLink>
+  <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic">
+    <UiSpacing padding={{ block: 'four' }}>
+      <a href="https://uireact.io/">
+        Some text <UiIcon icon="Link" inverseColoration />{' '}
+      </a>
+    </UiSpacing>
+  </UiButtonLink>
 </Playground>
-
-### Props
-
-<Props of={UiLink} />
