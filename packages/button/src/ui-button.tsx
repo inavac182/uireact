@@ -45,7 +45,7 @@ const StyledButton = styled.button<privateButtonProps>`
       `;
     } else if (props.$styling === 'icon') {
       return `
-        background-color: var(--${getColorCategory(props.$category)}-token_100);
+        background-color: transparent;
         color: var(--fonts-token_100);
         padding: 10px;
         border-radius: 50%;
