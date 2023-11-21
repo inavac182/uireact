@@ -25,6 +25,7 @@ export const Dialog = styled.div`
   color: var(--fonts-token_100);
   z-index: 100;
   min-width: 200px;
+  max-width: 350px;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
   top: 50%;
