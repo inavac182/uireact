@@ -1,3 +1,3 @@
-@uireact/COMPONENT-NAME
+@uireact/confirm-dialog
 
 README information about the component
