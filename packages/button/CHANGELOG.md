@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2023-11-20)
+
+
+### Features
+
+* adding button link component ([#302](https://github.com/inavac182/uireact/issues/302)) ([b89e49f](https://github.com/inavac182/uireact/commit/b89e49f05f08bfd8bc49386d4bf3fcc888e47485))
+
+
+
+
+
 ## [2.1.3](https://github.com/inavac182/uireact/compare/@uireact/button@2.1.2...@uireact/button@2.1.3) (2023-11-14)
 
 **Note:** Version bump only for package @uireact/button

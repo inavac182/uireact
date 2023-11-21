@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.3.0 (2023-11-20)
+
+
+### Features
+
+* adding button link component ([#302](https://github.com/inavac182/ui-react/issues/302)) ([b89e49f](https://github.com/inavac182/ui-react/commit/b89e49f05f08bfd8bc49386d4bf3fcc888e47485))
+
+
+
+
+
 ## [2.2.2](https://github.com/inavac182/ui-react/compare/@uireact/text@2.2.1...@uireact/text@2.2.2) (2023-11-14)
 
 **Note:** Version bump only for package @uireact/text
