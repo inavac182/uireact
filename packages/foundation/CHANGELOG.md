@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2023-11-21)
+
+
+### Features
+
+* adding confirm dialog component ([#303](https://github.com/inavac182/uireact/issues/303)) ([99d8645](https://github.com/inavac182/uireact/commit/99d86453bb574d79a26b5aac991ed571e5736fff))
+
+
+
+
+
 # [2.3.0](https://github.com/inavac182/uireact/compare/@uireact/foundation@2.2.0...@uireact/foundation@2.3.0) (2023-11-14)
 
 

@@ -3,7 +3,7 @@
   "description": "Icons package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +25,7 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.3.0"
+    "@uireact/foundation": "^2.4.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",

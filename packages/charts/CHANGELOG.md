@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.5](https://github.com/inavac182/uireact/compare/@uireact/charts@0.6.4...@uireact/charts@0.6.5) (2023-11-21)
+
+**Note:** Version bump only for package @uireact/charts
+
+
+
+
+
 ## 0.6.4 (2023-11-20)
 
 **Note:** Version bump only for package @uireact/charts
