@@ -23,7 +23,7 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.3.0"
+    "@uireact/foundation": "^2.4.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.2.0",

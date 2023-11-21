@@ -29,7 +29,7 @@
     "@uireact/flex": "^2.1.2"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^2.0.1",
+    "@uireact/foundation": "^2.4.0",
     "@uireact/text": "^2.0.1",
     "@uireact/button": "^2.1.1",
     "@uireact/flex": "^2.0.1",
