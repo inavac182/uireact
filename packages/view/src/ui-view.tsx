@@ -3,12 +3,20 @@ import React, { useEffect } from 'react';
 
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { ThemeContext, UiViewport, Breakpoints, Theme, ThemeColor } from '@uireact/foundation';
+import {
+  ThemeContext,
+  UiViewport,
+  Breakpoints,
+  Theme,
+  ThemeColor,
+  useConfirmDialogController,
+} from '@uireact/foundation';
 import {
   UiDialogsControllerContext,
   useDialogController,
   UiNotificationsContext,
   useNotificationsController,
+  UiConfirmDialogContext,
 } from '@uireact/foundation';
 
 import { UiViewProps, privateViewProps } from './types/ui-view-props';
@@ -71,6 +79,7 @@ export const UiView: React.FC<UiViewProps> = ({
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
   const notificationsController = useNotificationsController();
+  const confirmDialogController = useConfirmDialogController();
 
   useEffect(() => {
     if (selectedTheme === ThemeColor.light) {
@@ -87,21 +96,23 @@ export const UiView: React.FC<UiViewProps> = ({
         <ThemeContext.Provider value={{ theme, selectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
-              <>
-                {centeredContent ? (
-                  <>
-                    <UiViewport criteria={Breakpoints.XLARGE}>
-                      <CenteredDiv $size="xl">{children}</CenteredDiv>
-                    </UiViewport>
-                    <UiViewport criteria={Breakpoints.LARGE}>
-                      <CenteredDiv $size="l">{children}</CenteredDiv>
-                    </UiViewport>
-                    <UiViewport criteria={'s|m'}>{children}</UiViewport>
-                  </>
-                ) : (
-                  <>{children}</>
-                )}
-              </>
+              <UiConfirmDialogContext.Provider value={confirmDialogController}>
+                <>
+                  {centeredContent ? (
+                    <>
+                      <UiViewport criteria={Breakpoints.XLARGE}>
+                        <CenteredDiv $size="xl">{children}</CenteredDiv>
+                      </UiViewport>
+                      <UiViewport criteria={Breakpoints.LARGE}>
+                        <CenteredDiv $size="l">{children}</CenteredDiv>
+                      </UiViewport>
+                      <UiViewport criteria={'s|m'}>{children}</UiViewport>
+                    </>
+                  ) : (
+                    <>{children}</>
+                  )}
+                </>
+              </UiConfirmDialogContext.Provider>
             </UiNotificationsContext.Provider>
           </UiDialogsControllerContext.Provider>
         </ThemeContext.Provider>
