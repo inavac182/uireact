@@ -8,3 +8,5 @@ export * from './ui-react-element';
 export * from './spacing-distribution';
 export * from './notifications';
 export * from './notifications-controller';
+export * from './confirm-dialog';
+export * from './confirm-dialog-controller';
