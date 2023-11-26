@@ -211,6 +211,7 @@ These are the chainable functions that you can use, to set the rules, their poss
               <li>&nbsp;&nbsp; numeric</li>
               <li>&nbsp;&nbsp; phone</li>
               <li>&nbsp;&nbsp; email</li>
+              <li>&nbsp;&nbsp; date</li>
             </UiList>
           </li>
           <li> ❓ errorMessage</li>
@@ -255,6 +256,14 @@ These are the chainable functions that you can use, to set the rules, their poss
               <li>&nbsp;&nbsp; ❌ everything else</li>
             </UiList>
           </li>
+          <li>
+            date
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ Date object passed</li>
+              <li>&nbsp;&nbsp; ✅ When a string passed and it can be parsed to a valid date</li>
+              <li>&nbsp;&nbsp; ❌ everything else</li>
+            </UiList>
+          </li>
         </UiList>
       </td>
     </tr>
@@ -276,6 +285,24 @@ These are the chainable functions that you can use, to set the rules, their poss
       </td>
     </tr>
     <tr>
+      <td>dateRange()</td>
+      <td>
+        <UiList>
+          <li> ❗️ min</li>
+          <li> ❗️ max</li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: `This date is not in valid range`</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ When date object is passed and is within range.</li>
+          <li>✅ When string is passed and can be parsed to a date and is within range.</li>
+          <li>❌ Everything else</li>
+        </UiList>
+      </td>
+    </tr>
+    <tr>
       <td>length()</td>
       <td>
         <UiList>
@@ -292,8 +319,79 @@ These are the chainable functions that you can use, to set the rules, their poss
         </UiList>
       </td>
     </tr>
+    <tr>
+      <td>greaterThan()</td>
+      <td>
+        <UiList>
+          <li> ❗️ baseline: number | Date</li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: "The value is greater than (baseline)"</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li> • When baseline is a number: </li>
+          <li>✅ If the value is numeric and is greater than the baseline</li>
+          <li>❌ Everything else</li>
+          <li> • When baseline is a Date object </li>
+          <li>✅ If the value is a date object and is greater than the baseline</li>
+          <li>✅ If the value is a string and parse correctly to a date object and is greater than the baseline</li>
+          <li>❌ Everything else</li>
+        </UiList>
+      </td>
+    </tr>
+    <tr>
+      <td>lessThan()</td>
+      <td>
+        <UiList>
+          <li> ❗️ baseline: number | Date</li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: "The value is greater than (baseline)"</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li> • When baseline is a number: </li>
+          <li>✅ If the value is numeric and is less than the baseline</li>
+          <li>❌ Everything else</li>
+          <li> • When baseline is a Date object </li>
+          <li>✅ If the value is a date object and is less than the baseline</li>
+          <li>✅ If the value is a string and parse correctly to a date object and is less than the baseline</li>
+          <li>❌ Everything else</li>
+        </UiList>
+      </td>
+    </tr>
   </tbody>
 </table>
+
+## Greater than and Less than
+
+This 2 rules can be user to compare numeric or date values, is based on the `baseline` field set to the rule in the schema.
+
+### Numbers
+
+This is very straightforward, the validation is ran as a > or < comparisson.
+
+### Dates
+
+If you set a date object in the schema then we will validate the values passed as if they were dates. If the value passed in the data object is a `string` we try to parse that string into a valid date object and then we run the validation, if the parsing is incorrect then the validation will fail.
+
+For instance:
+
+```tsx
+const date = new Date('2023/12/01');
+const schema = {
+  test: validator.ruler().lessThan(date),
+};
+const data = {
+  test: '2023/11/30',
+};
+
+const result = validator.validate(schema, data, false);
+
+// result.passed will be true as the data value is a string
+// that can be parse to a date object that is less than `date`
+```
 
 ## Phone validation 📱
 
