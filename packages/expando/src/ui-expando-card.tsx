@@ -2,27 +2,17 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
-import { UiSpacing, UiSpacingProps, getColorCategory } from '@uireact/foundation';
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 import { UiCard } from '@uireact/card';
 
 import { UiExpandoCardInternalProps, UiExpandoCardProps } from './types';
 
-const WrapperExpandoTrigger = styled.div<UiExpandoCardInternalProps>`
+const WrapperExpandoTrigger = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
   justify-content: space-between;
-
-  ${(props) => `
-    border-bottom: 1px solid var(--${getColorCategory(props.$category)}-${
-    props.$isExpanded ? 'token_50' : 'token_100'
-  });
-
-    &:hover {
-      border-bottom: 1px solid var(--${props.$headingInverseColoration ? 'inverse-' : ''}fonts-token_100);
-    }
-  `}
 `;
 
 const ExpandoHeading = styled.h3<UiExpandoCardInternalProps>`
@@ -58,13 +48,7 @@ export const UiExpandoCard: React.FC<UiExpandoCardProps> = ({
   return (
     <UiCard className={className} testId={testId} noPadding category={category}>
       <UiSpacing padding={cardPadding}>
-        <WrapperExpandoTrigger
-          onClick={onClick}
-          data-testid="expando-trigger"
-          $category={category}
-          $isExpanded={expandedInternal}
-          $headingInverseColoration={headingInverseColoration}
-        >
+        <WrapperExpandoTrigger onClick={onClick} data-testid="expando-trigger">
           <ExpandoHeading data-testid="expando-heading-trigger" $headingInverseColoration={headingInverseColoration}>
             {expandedInternal ? collapseLabel : expandLabel}
           </ExpandoHeading>

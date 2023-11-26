@@ -1,9 +1,9 @@
 {
   "name": "@uireact/expando",
-  "description": "expando package needed from @uireact library",
-  "repository": "https://github.com/inavac182/ui-react",
+  "description": "Expando component from @uireact library",
+  "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.2.3",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
