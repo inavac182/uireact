@@ -13,7 +13,7 @@ const Div = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 150;
 `;
 
 export const DialogWrapper: React.FC<DialogWrapperProps> = ({ children }: DialogWrapperProps) => <Div>{children}</Div>;
