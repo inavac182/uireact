@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2023-11-26)
+
+
+### Features
+
+* adding default value to select ([#305](https://github.com/inavac182/ui-react/issues/305)) ([6b11d43](https://github.com/inavac182/ui-react/commit/6b11d438b378b8f98ae11dac6d7c9426834f9a7b))
+
+
+
+
+
 ## [2.3.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.3.1...@uireact/form@2.3.2) (2023-11-21)
 
 **Note:** Version bump only for package @uireact/form
