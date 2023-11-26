@@ -49,7 +49,7 @@ describe('dateRange validation', () => {
 
     const result = validator.validate(schema, data, false);
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test?.[0].message).toBe('This is not in valid range');
+    expect(result.errors?.test?.[0].message).toBe('This date is not in valid range');
   });
 
   it('Should fail when value passed is not in correct range and render custom message passed', () => {
@@ -81,7 +81,7 @@ describe('dateRange validation', () => {
 
     const result = validator.validate(schema, data, false);
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test?.[0].message).toBe('This is not in valid range');
+    expect(result.errors?.test?.[0].message).toBe('This date is not in valid range');
   });
 
   it('Should fail when schema gets wrong date type', () => {
@@ -96,6 +96,6 @@ describe('dateRange validation', () => {
 
     const result = validator.validate(schema, data, false);
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test?.[0].message).toBe('This is not in valid range');
+    expect(result.errors?.test?.[0].message).toBe('This date is not in valid range');
   });
 });
