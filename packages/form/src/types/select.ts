@@ -22,6 +22,8 @@ export type UiSelectProps = {
   value?: HTMLSelectElement['value'];
   /** If the select is required */
   required?: boolean;
+  /** The select default value */
+  defaultValue?: string;
 } & UiReactElementProps;
 
 export type privateSelectProps = {
@@ -43,4 +45,5 @@ export type privateSelectProps = {
   value?: HTMLSelectElement['value'];
   $category?: ColorCategory;
   required?: boolean;
+  defaultValue?: string;
 };

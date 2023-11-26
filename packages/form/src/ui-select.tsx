@@ -46,6 +46,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   className,
   testId,
   disabled,
+  defaultValue,
   error,
   label,
   labelOnTop,
@@ -90,6 +91,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
             $category={category}
             value={value}
             required={required}
+            defaultValue={defaultValue}
           >
             {children}
           </Select>
