@@ -48,9 +48,22 @@ export class UiValidator {
     return false;
   }
 
+  private isValidDate(value: unknown): boolean {
+    if (value instanceof Date) {
+      return true;
+    }
+
+    if (typeof value === 'string') {
+      const date = new Date(value);
+      return date.toString() !== 'Invalid Date';
+    }
+
+    return false;
+  }
+
   private validExpectationRule(
     value: unknown,
-    rule: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone'>
+    rule: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone' | 'date'>
   ): boolean {
     if (rule.expected === 'email') {
       return this.isEmailValid(value);
@@ -66,6 +79,10 @@ export class UiValidator {
 
     if (rule.expected === 'phone') {
       return this.isValidPhone(value);
+    }
+
+    if (rule.expected === 'date') {
+      return this.isValidDate(value);
     }
 
     return false;
@@ -87,6 +104,19 @@ export class UiValidator {
     return false;
   }
 
+  private validDateRange(min: Date, max: Date, value: unknown): boolean {
+    if (min instanceof Date && max instanceof Date) {
+      if (value instanceof Date) {
+        return value > min && value < max;
+      } else if (typeof value === 'string') {
+        const date = new Date(value);
+        return date > min && date < max;
+      }
+    }
+
+    return false;
+  }
+
   private validLengthRule(min: number, max: number, value: unknown): boolean {
     if (typeof value === 'string' && value.length >= min && value.length <= max) {
       return true;
@@ -101,6 +131,49 @@ export class UiValidator {
     }
 
     return isRequired && value !== null && value !== undefined;
+  }
+
+  /**
+   * @param baseline The value used as baseline for the comparisson
+   * @param action The action taken for comparisson
+   * @param value The value that will be compared
+   * */
+  private validComparable(baseline: number | Date, value: unknown, action: 'greaterThan' | 'lessThan'): boolean {
+    if (typeof baseline === 'number' && typeof value === 'number') {
+      /** Numeric comparisson */
+
+      if (action === 'greaterThan') {
+        return value > baseline;
+      } else {
+        return value < baseline;
+      }
+    } else if (baseline instanceof Date) {
+      /** Date comparisson */
+
+      if (typeof value === 'string') {
+        const date = new Date(value);
+
+        if (date.toString() === 'Invalid Date') {
+          return false;
+        }
+
+        if (action === 'greaterThan') {
+          return date > baseline;
+        } else {
+          return date < baseline;
+        }
+      }
+
+      if (value instanceof Date) {
+        if (action === 'greaterThan') {
+          return value > baseline;
+        } else {
+          return value < baseline;
+        }
+      }
+    }
+
+    return false;
   }
 
   validate(schema: UiValidatorSchema, data: UiValidatorData, strict?: boolean): UiValidatorResult {
@@ -155,12 +228,39 @@ export class UiValidator {
         }
       }
 
+      if (rules?.dateRange) {
+        ruleMatched = true;
+
+        if (!this.validDateRange(rules.dateRange.min, rules.dateRange.max, value)) {
+          hasError = true;
+          fieldErrors.push(rules.dateRange.error);
+        }
+      }
+
       if (rules?.length) {
         ruleMatched = true;
 
         if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
           hasError = true;
           fieldErrors.push(rules.length.error);
+        }
+      }
+
+      if (rules?.greaterThan) {
+        ruleMatched = true;
+
+        if (!this.validComparable(rules.greaterThan.baseline, value, 'greaterThan')) {
+          hasError = true;
+          fieldErrors.push(rules.greaterThan.error);
+        }
+      }
+
+      if (rules?.lessThan) {
+        ruleMatched = true;
+
+        if (!this.validComparable(rules.lessThan.baseline, value, 'lessThan')) {
+          hasError = true;
+          fieldErrors.push(rules.lessThan.error);
         }
       }
 

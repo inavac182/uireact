@@ -17,6 +17,76 @@ describe('type validation', () => {
     expect(result.errors?.test[0].message).toBe('This is not a valid string');
   });
 
+  describe('date', () => {
+    it('Should pass if provided value is a date', () => {
+      const schema = {
+        test: validator.ruler().type('date'),
+      };
+      const data = {
+        test: new Date('2023/12/01'),
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should pass if provided value is a string that can be parse to a date', () => {
+      const schema = {
+        test: validator.ruler().type('date'),
+      };
+      const data = {
+        test: '2023/12/01',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should fail if provided value is a string but can NOT be parse to a date', () => {
+      const schema = {
+        test: validator.ruler().type('date'),
+      };
+      const data = {
+        test: 'some string',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+      expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
+    });
+
+    it('Should fail if provided value is invalid', () => {
+      const schema = {
+        test: validator.ruler().type('date'),
+      };
+      const data = {
+        test: 20,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+      expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
+    });
+
+    it('Should fail if provided value is invalid', () => {
+      const schema = {
+        test: validator.ruler().type('date', 'The value passed is not correct'),
+      };
+      const data = {
+        test: {},
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+      expect(result.errors?.test?.[0].message).toBe('The value passed is not correct');
+    });
+  });
+
   describe('strings', () => {
     it('Should validate strings when string is provided', () => {
       const schema = {
