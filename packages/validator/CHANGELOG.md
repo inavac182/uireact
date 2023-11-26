@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2023-11-26)
+
+
+### Features
+
+* adding validator date use cases ([#307](https://github.com/inavac182/ui-react/issues/307)) ([afb6ff5](https://github.com/inavac182/ui-react/commit/afb6ff5e62d84cd2c4206cf0c04bf6bcb803ac57))
+
+
+
+
+
 # 0.5.0 (2023-09-13)
 
 
