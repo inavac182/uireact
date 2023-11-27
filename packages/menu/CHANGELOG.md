@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.7 (2023-11-27)
+
+
+### Bug Fixes
+
+* menu wrapper div ([#308](https://github.com/inavac182/ui-react/issues/308)) ([9457fb8](https://github.com/inavac182/ui-react/commit/9457fb8da06aac0e78f7017ee4035e9f5e80107b))
+
+
+
+
+
 ## 2.1.6 (2023-11-26)
 
 **Note:** Version bump only for package @uireact/menu
