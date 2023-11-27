@@ -29,7 +29,7 @@ const MenuDiv = styled.div<privateMenuProps>`
 `;
 
 const WrapperDiv = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
