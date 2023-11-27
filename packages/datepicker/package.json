@@ -1,6 +1,5 @@
 {
   "name": "@uireact/datepicker",
-  "private": true,
   "description": "datepicker package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
