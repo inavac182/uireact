@@ -88,7 +88,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
       setSelectedDate(date);
       onSelectDate(date);
     },
-    [setSelectedDate]
+    [setSelectedDate, onSelectDate]
   );
 
   return (
