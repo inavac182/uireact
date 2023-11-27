@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.8](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.6.7...@uireact/datepicker@0.6.8) (2023-11-27)
+
+
+### Bug Fixes
+
+* datepicker onSelectDate CB rerender ([dc3b3c4](https://github.com/inavac182/ui-react/commit/dc3b3c4f127fb3d31cd5b901f50fd96d87bc3d9f))
+
+
+
+
+
 ## [0.6.7](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.6.6...@uireact/datepicker@0.6.7) (2023-11-27)
 
 **Note:** Version bump only for package @uireact/datepicker
