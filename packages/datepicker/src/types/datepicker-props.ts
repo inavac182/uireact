@@ -2,7 +2,7 @@ import { UiReactElementProps } from '@uireact/foundation';
 import { DateTitleFormats } from './date-titles';
 
 export type UiDatepickerProps = {
-  /** The date used to focus the datepicker */
+  /** The date to initialize the datepicker, if empty today date is used */
   date?: Date;
   /** The format of the day title, e.g. Sunday vs Sun vs S */
   dayTitlesFormat?: DateTitleFormats;
