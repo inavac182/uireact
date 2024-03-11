@@ -38,6 +38,30 @@ import { UiIcon } from '@uireact/icons';
       label="Date"
       labelOnTop
       placeholder="Select the date"
+      highlightToday
+      onChange={(value) => {
+        console.log(value);
+      }}
+      icon={<UiIcon icon="CalendarLines" />}
+      size="large"
+      useDialogOnSmall
+      closeLabel="Done"
+    />
+  </div>
+</Playground>
+
+## Date picker with initial value
+
+If a prop `date` is passed then it will be used as the default value for the input and the date selected in the datepicker
+
+<Playground>
+  <div style={{ height: '350px' }}>
+    <UiInputDatepicker
+      label="Date"
+      date={new Date('2024-01-01 00:00:00')}
+      labelOnTop
+      placeholder="Select the date"
+      highlightToday
       onChange={(value) => {
         console.log(value);
       }}

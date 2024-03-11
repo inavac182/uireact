@@ -51,12 +51,15 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   showNextMonth,
   useDialogOnSmall = false,
   isOpen = false,
+  selectInitDate = false,
 }: UiDatepickerProps) => {
   const { isSmall } = useViewport();
   const today = new Date();
-  const [focusDate, setFocusDate] = useState<Date>(date);
-  const [nextFocusDate, setNextFocusDate] = useState<Date>(new Date(date.getFullYear(), date.getMonth() + 1, 1));
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const [focusDate, setFocusDate] = useState<Date>(date || today);
+  const [nextFocusDate, setNextFocusDate] = useState<Date>(
+    new Date(focusDate.getFullYear(), focusDate.getMonth() + 1, 1)
+  );
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(selectInitDate ? date : undefined);
   const isDialogShown = isSmall && useDialogOnSmall;
 
   const onCloseMenu = useCallback(() => {

@@ -30,13 +30,12 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
   closeLabel,
   showNextMonth,
   useDialogOnSmall,
-  useDateAsDefaultInputValue = false,
   disablePastDates = false,
 }: UiInputDatepickerProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [datepickerDate, setDatepickerDate] = useState<Date>(date || new Date());
+  const [datepickerDate, setDatepickerDate] = useState<Date | undefined>(date);
   const [inputValue, setInputValue] = useState<string>(
-    useDateAsDefaultInputValue ? getFormattedDate(dateFormat, datepickerDate) : ''
+    datepickerDate ? getFormattedDate(dateFormat, datepickerDate) : ''
   );
   const [datepickerVisible, setDatepickerVisible] = useState(false);
 
@@ -88,9 +87,9 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
               name={name}
               placeholder={placeholder}
               ref={inputRef}
+              value={inputValue}
               onChange={onChangeInternal}
               $category={category}
-              value={inputValue}
               $size={size}
               required={required}
               $withIcon={icon !== undefined}
@@ -112,6 +111,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
         showNextMonth={showNextMonth}
         useDialogOnSmall={useDialogOnSmall}
         disablePastDates={disablePastDates}
+        selectInitDate
       />
     </div>
   );

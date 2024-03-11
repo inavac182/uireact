@@ -16,7 +16,7 @@ describe('<UiDatepicker />', () => {
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(screen.getByRole('textbox')).toBeVisible();
-    expect(screen.getByRole('textbox')).toHaveValue('');
+    expect(screen.getByRole('textbox')).toHaveValue('2028-01-31');
 
     fireEvent.focus(screen.getByRole('textbox'));
 
@@ -32,6 +32,7 @@ describe('<UiDatepicker />', () => {
     fireEvent.focus(screen.getByRole('textbox'));
 
     expect(screen.getByRole('menu')).toBeVisible();
+    expect(screen.getByRole('textbox')).toHaveValue('');
   });
 
   it('renders fine when using disablePastDates', () => {
@@ -59,7 +60,7 @@ describe('<UiDatepicker />', () => {
     // January 2028
     const date = new Date(2028, 1, 0);
 
-    uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} name="someDate" useDateAsDefaultInputValue />);
+    uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} name="someDate" />);
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
@@ -198,7 +199,7 @@ describe('<UiDatepicker />', () => {
   });
 
   it('input value does not change on input typing', () => {
-    uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} />);
+    uiRender(<UiInputDatepicker onChange={jest.fn()} />);
 
     const input = screen.getByRole('textbox');
 

@@ -45,8 +45,6 @@ export type UiInputDatepickerProps = {
   name?: string;
   /** Date format for the input value */
   dateFormat?: UiDatePickerDateFormats;
-  /** Takes the date in the datepicker as the default value for the input */
-  useDateAsDefaultInputValue?: boolean;
   /** Label for input field */
   label?: string;
   /** Label on top of field */

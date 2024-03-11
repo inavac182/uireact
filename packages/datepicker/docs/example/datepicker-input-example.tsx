@@ -58,6 +58,7 @@ export const DatePickerInputExample: React.FC = () => {
             label="Date"
             labelOnTop
             placeholder="Select a future date"
+            highlightToday
             onChange={onChange}
             icon={<UiIcon icon="CalendarLines" />}
             size="large"
@@ -65,6 +66,7 @@ export const DatePickerInputExample: React.FC = () => {
             error={errorMessage}
             category={errorMessage ? 'error' : undefined}
             showNextMonth
+            useDialogOnSmall
           />
           <UiSpacing padding={buttonMargin}>
             <UiButton type="submit" category="tertiary">
