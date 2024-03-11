@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.7.0 (2024-03-11)
+
+
+### Features
+
+* datepicker update ([#310](https://github.com/inavac182/ui-react/issues/310)) ([00b2ba0](https://github.com/inavac182/ui-react/commit/00b2ba0ca105a536dae6252efec0d883724af9ee))
+
+
+
+
+
 ## [0.6.8](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.6.7...@uireact/datepicker@0.6.8) (2023-11-27)
 
 
