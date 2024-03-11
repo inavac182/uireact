@@ -29,39 +29,7 @@ import { UiBadge } from '@uireact/badge';
 
 > npm i @uireact/foundation @uireact/flex @uireact/button @uireact/grid @uireact/menu @uireact/text @uireact/datepicker
 
-## Just the datepicker
-
-<Playground>
-  <div style={{ height: '400px' }}>
-    <UiDatepicker
-      date={new Date()}
-      highlightToday
-      onSelectDate={(date) => {
-        console.log(date);
-      }}
-      isOpen
-      closeLabel="Done"
-    />
-  </div>
-</Playground>
-
-## 2 months datepicker
-
-<Playground>
-  <div style={{ height: '400px' }}>
-    <UiDatepicker
-      date={new Date()}
-      highlightToday
-      showNextMonth
-      onSelectDate={(date) => {
-        console.log(date);
-      }}
-      isOpen
-    />
-  </div>
-</Playground>
-
-## Datepicker real example
+## Datepicker
 
 <Playground>
   <DatePickerExample />
@@ -144,25 +112,6 @@ export const DatePickerExample: React.FC = () => {
   );
 };
 ```
-
-## Datepicker with disabled dates in the past
-
-<Playground>
-  <div style={{ height: '400px' }}>
-    <UiDatepicker
-      date={new Date('2028-01-25')}
-      highlightToday
-      onSelectDate={(date) => {
-        console.log(date);
-      }}
-      isOpen
-      closeLabel="Done"
-      disablePastDates
-    />
-  </div>
-</Playground>
-
-When using `disablePastDates` prop it will disable all dates in the past from the given date.
 
 ### Props
 

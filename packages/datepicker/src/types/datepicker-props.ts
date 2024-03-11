@@ -2,8 +2,8 @@ import { UiReactElementProps } from '@uireact/foundation';
 import { DateTitleFormats } from './date-titles';
 
 export type UiDatepickerProps = {
-  /** The main date used to start the datepicker */
-  date: Date;
+  /** The date used to focus the datepicker */
+  date?: Date;
   /** The format of the day title, e.g. Sunday vs Sun vs S */
   dayTitlesFormat?: DateTitleFormats;
   /** The format of the month title, e.g. December vs Dec vs D */
@@ -24,4 +24,6 @@ export type UiDatepickerProps = {
   closeLabel?: string;
   /** Disable all past dates from the given date */
   disablePastDates?: boolean;
+  /** Select init date */
+  selectInitDate?: boolean;
 } & UiReactElementProps;
