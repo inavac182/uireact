@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.4 (2024-03-11)
+
+
+### Bug Fixes
+
+* inline navbar border flicker on hover ([#309](https://github.com/inavac182/uireact/issues/309)) ([d9c3ceb](https://github.com/inavac182/uireact/commit/d9c3ceb3e7d49c72baaf124e08e28707aeae4034))
+
+
+
+
+
 ## 2.2.3 (2023-11-21)
 
 **Note:** Version bump only for package @uireact/navbar
