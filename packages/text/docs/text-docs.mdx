@@ -74,7 +74,13 @@ When using inline the text will be rendered in a `Span` tag
 
 <Playground>
   <UiText inverseColoration>Some text </UiText>
-  <UiText inverseColoration={{ dark: true, light: false }}>Only in dark theme</UiText>
+</Playground>
+
+## UiText with default coloration
+
+<Playground>
+  <UiText coloration="dark">Will always show DARK coloration</UiText>
+  <UiText coloration="light">Will always show LIGHT coloration</UiText>
 </Playground>
 
 ### Props

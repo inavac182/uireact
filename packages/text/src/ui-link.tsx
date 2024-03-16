@@ -1,16 +1,37 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 
-import { getColorCategory } from '@uireact/foundation';
+import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
 
 import { UiLinkProps, privateLinkProps } from './types';
 
 const AnchorWrapper = styled.span<privateLinkProps>`
   > a {
     ${(props) => `
-      color: var(--${getColorCategory(props.$category)}-token_100);
+      ${
+        props.$coloration === 'dark'
+          ? `color: ${getThemeColor(
+              props.$theme,
+              ThemeColor.dark,
+              getColorCategory(props.$category),
+              ColorTokens.token_100
+            )};`
+          : ''
+      }
+      ${
+        props.$coloration === 'light'
+          ? `color: ${getThemeColor(
+              props.$theme,
+              ThemeColor.light,
+              getColorCategory(props.$category),
+              ColorTokens.token_100
+            )};`
+          : ''
+      }
+      ${!props.$coloration ? `color: var(--${getColorCategory(props.$category)}-token_100);` : ''}
+      
       font-size: var(--texts-${props.$size});
       line-height: var(--texts-${props.$size});
 
@@ -39,6 +60,7 @@ const AnchorWrapper = styled.span<privateLinkProps>`
 export const UiLink: React.FC<UiLinkProps> = ({
   category = 'tertiary',
   children,
+  coloration,
   handleClick,
   className,
   fullWidth,
@@ -46,19 +68,25 @@ export const UiLink: React.FC<UiLinkProps> = ({
   size = 'regular',
   testId,
   wrap,
-}: UiLinkProps) => (
-  <AnchorWrapper
-    $category={category}
-    $fullWidth={fullWidth}
-    $fontStyle={fontStyle}
-    onClick={handleClick}
-    className={className}
-    $size={size}
-    data-testid={testId}
-    $wrap={wrap}
-  >
-    {children}
-  </AnchorWrapper>
-);
+}: UiLinkProps) => {
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <AnchorWrapper
+      $category={category}
+      $coloration={coloration}
+      $fullWidth={fullWidth}
+      $fontStyle={fontStyle}
+      onClick={handleClick}
+      className={className}
+      $size={size}
+      data-testid={testId}
+      $wrap={wrap}
+      $theme={theme}
+    >
+      {children}
+    </AnchorWrapper>
+  );
+};
 
 UiLink.displayName = 'UiLink';

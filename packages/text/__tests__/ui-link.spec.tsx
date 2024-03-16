@@ -66,6 +66,26 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine with light coloration', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="bold" coloration="light">
+        <a href="#">Link</a>
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine with dark coloration', () => {
+    uiRender(
+      <UiLink href="#" size={TextSize.large} fontStyle="bold" coloration="dark">
+        <a href="#">Link</a>
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
   it('renders fine when fontStyle is regular', () => {
     uiRender(
       <UiLink href="#" size={TextSize.large} fontStyle="regular">

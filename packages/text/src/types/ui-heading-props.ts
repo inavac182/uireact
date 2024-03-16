@@ -1,4 +1,4 @@
-import { UiReactElementProps } from '@uireact/foundation';
+import { Theme, UiReactElementProps } from '@uireact/foundation';
 import { InverseColorationProp } from './ui-text-props';
 
 export type UiHeadingProps = {
@@ -10,6 +10,8 @@ export type UiHeadingProps = {
   wrap?: boolean;
   /* If heading should use inverse theme coloration */
   inverseColoration?: boolean | InverseColorationProp;
+  /* Defaults the element to a specific theme coloration */
+  coloration?: 'dark' | 'light';
 } & UiReactElementProps;
 
 export type privateHeadingProps = {
@@ -17,4 +19,6 @@ export type privateHeadingProps = {
   $level: 1 | 2 | 3 | 4 | 5 | 6;
   $wrap?: boolean;
   $inverseColoration?: boolean | InverseColorationProp;
+  $coloration?: 'dark' | 'light';
+  $theme: Theme;
 };

@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
 
 import { FontStyle } from './ui-text-props';
 
@@ -19,11 +19,11 @@ export type UiButtonLinkProps = {
   wrap?: boolean;
   /** If link text should render inverse text coloration */
   inverseTextColoration?: boolean;
+  /* Defaults the element to a specific theme coloration */
+  coloration?: 'dark' | 'light';
 } & UiReactElementProps;
 
 export type privateButtonLinkProps = {
-  /* Represents the theme to use for the link, default PRIMARY */
-  $theme?: ColorCategory;
   /** Link size, default REGULAR */
   $size: SizesProp;
   /** If link should take the whole link, useful for rendering links as Navbar items */
@@ -31,7 +31,9 @@ export type privateButtonLinkProps = {
   /** Font style */
   $fontStyle?: FontStyle;
   $category?: ColorCategory;
+  $coloration?: 'dark' | 'light';
   $wrap?: boolean;
   /** If link text should render inverse text coloration */
   $inverseTextColoration?: boolean;
+  $theme: Theme;
 };
