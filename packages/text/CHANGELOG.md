@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2024-03-16)
+
+
+### Features
+
+* adding default coloration to typography elements ([#311](https://github.com/inavac182/ui-react/issues/311)) ([e294e14](https://github.com/inavac182/ui-react/commit/e294e1447c46f9bb2de6dddf6077154bc8ebe098))
+
+
+
+
+
 ## [2.3.1](https://github.com/inavac182/ui-react/compare/@uireact/text@2.3.0...@uireact/text@2.3.1) (2023-11-21)
 
 **Note:** Version bump only for package @uireact/text

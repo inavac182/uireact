@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2024-03-16)
+
+
+### Features
+
+* adding default coloration to typography elements ([#311](https://github.com/inavac182/ui-react/issues/311)) ([e294e14](https://github.com/inavac182/ui-react/commit/e294e1447c46f9bb2de6dddf6077154bc8ebe098))
+
+
+
+
+
 ## 2.1.3 (2023-11-21)
 
 **Note:** Version bump only for package @uireact/icons
