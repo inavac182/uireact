@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import { ThemeColor } from '@uireact/foundation';
+import { DefaultTheme, ThemeColor } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiText } from '../src';
@@ -34,6 +34,20 @@ describe('<UiText />', () => {
 
     expect(screen.getByText('Text')).toBeVisible();
     expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
+  });
+
+  it('renders fine with dark coloration', () => {
+    uiRender(<UiText coloration="dark">Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', DefaultTheme.dark.fonts.token_100);
+  });
+
+  it('renders fine with light coloration', () => {
+    uiRender(<UiText coloration="light">Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', DefaultTheme.light.fonts.token_100);
   });
 
   it('renders fine with wrap', () => {

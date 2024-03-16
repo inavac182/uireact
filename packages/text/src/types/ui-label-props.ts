@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
 
 export type UiLabelProps = {
   /* For what elements this label is */
@@ -7,6 +7,8 @@ export type UiLabelProps = {
   size?: SizesProp;
   /* Represents the theme to use for the text, default PRIMARY */
   category?: ColorCategory;
+  /* Defaults the element to a specific theme coloration */
+  coloration?: 'dark' | 'light';
 } & UiReactElementProps;
 
 export type privateLabelProps = {
@@ -15,4 +17,6 @@ export type privateLabelProps = {
   /* Represents the theme to use for the text, default PRIMARY */
   $category?: ColorCategory;
   $size: SizesProp;
+  $coloration?: 'dark' | 'light';
+  $theme: Theme;
 };

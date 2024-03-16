@@ -63,4 +63,24 @@ describe('<UiLink />', () => {
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
+
+  it('renders fine with dark coloration', () => {
+    uiRender(
+      <UiButtonLink fontStyle="regular" coloration="dark">
+        <a href="#">Link</a>
+      </UiButtonLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
+  it('renders fine with light coloration', () => {
+    uiRender(
+      <UiButtonLink fontStyle="regular" coloration="light">
+        <a href="#">Link</a>
+      </UiButtonLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
 });

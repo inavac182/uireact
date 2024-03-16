@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
 
 export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
@@ -8,6 +8,8 @@ export type InverseColorationProp = {
 };
 
 export type UiTextProps = {
+  /* Defaults the element to a specific theme coloration */
+  coloration?: 'dark' | 'light';
   /* Text size to be used, default is regular */
   size?: SizesProp;
   /* Render text centered */
@@ -19,7 +21,7 @@ export type UiTextProps = {
   /* Represents the color category to use for the text, default PRIMARY */
   category?: ColorCategory;
   /** If the font color should be inversed to use its counter part coloration. */
-  inverseColoration?: boolean | InverseColorationProp;
+  inverseColoration?: boolean;
   /** Align text left or right, default LEFT */
   align?: 'left' | 'right';
   wrap?: boolean;
@@ -35,7 +37,9 @@ export type privateTextProps = {
   /* Render text inlined */
   $inline?: boolean;
   $category?: ColorCategory;
-  $inverseColoration?: boolean | InverseColorationProp;
+  $inverseColoration?: boolean;
+  $coloration?: 'dark' | 'light';
   $align?: 'left' | 'right';
   $wrap?: boolean;
+  $theme: Theme;
 };

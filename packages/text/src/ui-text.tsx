@@ -1,9 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled, { css } from 'styled-components';
 
-import { getColorCategory } from '@uireact/foundation';
+import {
+  ColorCategories,
+  ColorTokens,
+  ThemeColor,
+  ThemeContext,
+  getColorCategory,
+  getThemeColor,
+} from '@uireact/foundation';
 
 import { UiTextProps, privateTextProps } from './types';
 
@@ -18,7 +25,22 @@ const SharedStyle = css<privateTextProps>`
     ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
     ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
 
-    color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);
+    ${
+      props.$coloration === 'dark'
+        ? `color: ${getThemeColor(props.$theme, ThemeColor.dark, ColorCategories.fonts, ColorTokens.token_100)};`
+        : ''
+    }
+    ${
+      props.$coloration === 'light'
+        ? `color: ${getThemeColor(props.$theme, ThemeColor.light, ColorCategories.fonts, ColorTokens.token_100)};`
+        : ''
+    }
+    ${
+      !props.$coloration
+        ? `color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);`
+        : ''
+    }
+    
     padding: 0;
     margin: 0;
 
@@ -46,6 +68,7 @@ export const UiText: React.FC<UiTextProps> = ({
   children,
   className,
   centered,
+  coloration,
   inline,
   fontStyle,
   size = 'regular',
@@ -53,6 +76,8 @@ export const UiText: React.FC<UiTextProps> = ({
   inverseColoration,
   wrap,
 }: UiTextProps) => {
+  const { theme } = useContext(ThemeContext);
+
   if (inline) {
     return (
       <Span
@@ -64,7 +89,9 @@ export const UiText: React.FC<UiTextProps> = ({
         $centered={centered}
         $inline={inline}
         $inverseColoration={inverseColoration}
+        $coloration={coloration}
         $wrap={wrap}
+        $theme={theme}
       >
         {children}
       </Span>
@@ -81,7 +108,9 @@ export const UiText: React.FC<UiTextProps> = ({
       $centered={centered}
       $inline={inline}
       $inverseColoration={inverseColoration}
+      $coloration={coloration}
       $wrap={wrap}
+      $theme={theme}
     >
       {children}
     </Text>

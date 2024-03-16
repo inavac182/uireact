@@ -2,6 +2,8 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 
+import { DefaultTheme } from '@uireact/foundation';
+
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiHeading } from '../src';
 
@@ -196,5 +198,25 @@ describe('<UiHeading />', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 6 })).toBeVisible();
+  });
+
+  it('renders fine with coloration dark', () => {
+    uiRender(<UiHeading coloration="dark">Heading</UiHeading>);
+
+    expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Heading' })).toHaveStyleRule(
+      'color',
+      DefaultTheme.dark.fonts.token_100
+    );
+  });
+
+  it('renders fine with coloration light', () => {
+    uiRender(<UiHeading coloration="light">Heading</UiHeading>);
+
+    expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: 'Heading' })).toHaveStyleRule(
+      'color',
+      DefaultTheme.light.fonts.token_100
+    );
   });
 });

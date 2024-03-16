@@ -1,9 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styled from 'styled-components';
 
-import { getColorCategory } from '@uireact/foundation';
+import {
+  ColorCategories,
+  ColorTokens,
+  getColorCategory,
+  getThemeColor,
+  ThemeColor,
+  ThemeContext,
+} from '@uireact/foundation';
 
 import { privateButtonLinkProps, UiButtonLinkProps } from './types';
 
@@ -44,7 +51,19 @@ const ButtonWrapper = styled.button<privateButtonLinkProps>`
     ${(props) => `
       font-size: var(--texts-${props.$size});
       line-height: var(--texts-${props.$size});
-      color: var(--${props.$inverseTextColoration ? 'inverse-' : ''}fonts-token_100);
+
+      ${
+        props.$coloration === 'dark'
+          ? `color: ${getThemeColor(props.$theme, ThemeColor.dark, ColorCategories.fonts, ColorTokens.token_100)};`
+          : ''
+      }
+      ${
+        props.$coloration === 'light'
+          ? `color: ${getThemeColor(props.$theme, ThemeColor.light, ColorCategories.fonts, ColorTokens.token_100)};`
+          : ''
+      }
+      ${!props.$coloration ? `color: var(--${props.$inverseTextColoration ? 'inverse-' : ''}fonts-token_100);` : ''}
+      
       display: flex;
       align-items: center;
       justify-content: center;
@@ -68,6 +87,7 @@ const ButtonWrapper = styled.button<privateButtonLinkProps>`
 export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   category = 'tertiary',
   children,
+  coloration,
   handleClick,
   className,
   fullWidth,
@@ -76,20 +96,26 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   testId,
   wrap,
   inverseTextColoration,
-}: UiButtonLinkProps) => (
-  <ButtonWrapper
-    $category={category}
-    $fullWidth={fullWidth}
-    $fontStyle={fontStyle}
-    onClick={handleClick}
-    className={className}
-    $size={size}
-    data-testid={testId}
-    $wrap={wrap}
-    $inverseTextColoration={inverseTextColoration}
-  >
-    {children}
-  </ButtonWrapper>
-);
+}: UiButtonLinkProps) => {
+  const { theme } = useContext(ThemeContext);
+
+  return (
+    <ButtonWrapper
+      $category={category}
+      $coloration={coloration}
+      $fullWidth={fullWidth}
+      $fontStyle={fontStyle}
+      onClick={handleClick}
+      className={className}
+      $size={size}
+      data-testid={testId}
+      $wrap={wrap}
+      $inverseTextColoration={inverseTextColoration}
+      $theme={theme}
+    >
+      {children}
+    </ButtonWrapper>
+  );
+};
 
 UiButtonLink.displayName = 'UiButtonLink';
