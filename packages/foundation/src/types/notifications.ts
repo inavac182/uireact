@@ -29,4 +29,10 @@ export type UiNotificationOptions = {
   timer?: number;
   /** If the close button should render */
   closeButton?: boolean;
+  /** Triggers callback when link is clicked */
+  onLinkClicked?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  /** Triggers callback when notification is shown */
+  onNotificationShown?: () => void;
+  /** Triggers callback when notification is dismissed */
+  onNotificationDismissed?: () => void;
 };

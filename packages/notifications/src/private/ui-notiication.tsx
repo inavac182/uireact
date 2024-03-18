@@ -44,6 +44,9 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
       category: notification.options?.category || 'primary',
       closeButton: notification.options?.closeButton !== undefined ? notification.options.closeButton : true,
       timer: notification.options?.timer !== undefined ? notification.options.timer : 5000,
+      onLinkClicked: notification.options?.onLinkClicked,
+      onNotificationDismissed: notification.options?.onNotificationDismissed,
+      onNotificationShown: notification.options?.onNotificationShown,
     };
   }, [notification]);
 
@@ -59,9 +62,14 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
     return () => clearTimeout(timer);
   }, [onClose]);
 
+  useEffect(() => {
+    options.onNotificationShown?.();
+  }, [options]);
+
   const closeNotification = useCallback(() => {
+    options.onNotificationDismissed?.();
     onClose(id);
-  }, [onClose]);
+  }, [onClose, options]);
 
   return (
     <>
@@ -82,7 +90,7 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
                 {notification.message && <UiText>{notification.message}</UiText>}
                 {notification.link && (
                   <UiLink>
-                    <a href={notification.link.url} target={notification.link.target}>
+                    <a href={notification.link.url} target={notification.link.target} onClick={options.onLinkClicked}>
                       {notification.link.label}
                     </a>
                   </UiLink>

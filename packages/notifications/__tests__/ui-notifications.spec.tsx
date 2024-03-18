@@ -79,13 +79,24 @@ describe('<UiNotifications />', () => {
   });
 
   it('delete notification when close button is used', () => {
-    uiRender(<NotificationsExample />);
+    const onNotificationDismissed = jest.fn();
+    const onNotificationShown = jest.fn();
+
+    uiRender(
+      <NotificationsExample
+        onNotificationDismissed={onNotificationDismissed}
+        onNotificationShown={onNotificationShown}
+      />
+    );
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
     expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
 
     fireEvent.click(screen.getByTestId('notification-close-button'));
+
+    expect(onNotificationDismissed).toHaveBeenCalledTimes(1);
+    expect(onNotificationShown).toHaveBeenCalledTimes(1);
 
     expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
   });
