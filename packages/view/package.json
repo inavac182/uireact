@@ -3,7 +3,7 @@
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,7 @@
     "watch": "tsc --watch"
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.4.0"
+    "@uireact/foundation": "^2.5.0"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.4.0",

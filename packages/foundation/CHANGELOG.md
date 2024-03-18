@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.5.0 (2024-03-18)
+
+
+### Features
+
+* adding notifications callbacks ([#312](https://github.com/inavac182/uireact/issues/312)) ([3e868e6](https://github.com/inavac182/uireact/commit/3e868e6c671d65518e1892de7050858b6fea9636))
+
+
+
+
+
 # 2.4.0 (2023-11-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.3.5...@uireact/notifications@0.4.0) (2024-03-18)
+
+
+### Features
+
+* adding notifications callbacks ([#312](https://github.com/inavac182/ui-react/issues/312)) ([3e868e6](https://github.com/inavac182/ui-react/commit/3e868e6c671d65518e1892de7050858b6fea9636))
+
+
+
+
+
 ## 0.3.5 (2024-03-16)
 
 **Note:** Version bump only for package @uireact/notifications
