@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
@@ -10,7 +10,17 @@ import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 
 const buttonContentPadding: UiSpacingProps['padding'] = { block: 'four' };
 
-export const NotificationsExample: React.FC = () => {
+type NotificationsExampleProps = {
+  onNotificationShown?: () => void;
+  onNotificationDismissed?: () => void;
+  onLinkClicked?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+};
+
+export const NotificationsExample: React.FC<NotificationsExampleProps> = ({
+  onNotificationShown,
+  onNotificationDismissed,
+  onLinkClicked,
+}: NotificationsExampleProps) => {
   const { showNotification } = useNotifications();
 
   const addNotification = useCallback(() => {
@@ -29,6 +39,11 @@ export const NotificationsExample: React.FC = () => {
       link: {
         label: 'Ui React docs',
         url: 'https://uireact.io',
+      },
+      options: {
+        onNotificationShown,
+        onNotificationDismissed,
+        onLinkClicked,
       },
     });
   }, [showNotification]);
