@@ -126,9 +126,6 @@ importers:
 
   packages/badge:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -166,15 +163,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/button:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -218,15 +215,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/card:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -273,15 +270,15 @@ importers:
       react-router-dom:
         specifier: ^6.22.3
         version: 6.22.3(react-dom@18.2.0)(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/charts:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -328,15 +325,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/confirm-dialog:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -383,15 +380,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/datepicker:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -447,15 +444,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/dialog:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -499,15 +496,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/expando:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -551,15 +548,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/flex:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -597,15 +594,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/form:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -646,15 +643,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/foundation:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -689,15 +686,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/grid:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -735,15 +732,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/header:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -781,15 +778,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.0.7
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/icons:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -827,15 +824,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/list:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -873,15 +870,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/menu:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -925,15 +922,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/navbar:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -971,15 +968,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/notifications:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1029,15 +1026,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/progress-indicator:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1081,15 +1078,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/separator:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1127,15 +1124,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/table:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1185,15 +1182,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/tabs:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1231,15 +1228,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/text:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1277,15 +1274,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
 
   packages/tooltip:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1326,6 +1323,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
@@ -1372,9 +1372,6 @@ importers:
 
   packages/view:
     dependencies:
-      styled-components:
-        specifier: '>= 4 <= 6'
-        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1415,6 +1412,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
