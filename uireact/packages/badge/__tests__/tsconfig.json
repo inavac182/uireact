@@ -1,0 +1,6 @@
+{
+  "extends": "../../../jest.tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "../../../"
+  }
+}
