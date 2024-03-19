@@ -1,14 +1,12 @@
 {
-  "name": "@uireact/badge",
-  "description": "Badge component from @uireact library",
+  "name": "@uireact/expando",
+  "description": "Expando component from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "1.0.3",
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "src"
   ],
@@ -47,7 +45,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@uireact/card": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/icons": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "react": "^18",
@@ -56,6 +56,7 @@
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",
+    "@uireact/icons": "^2.1.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",

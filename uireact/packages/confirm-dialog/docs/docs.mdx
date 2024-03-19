@@ -1,0 +1,90 @@
+---
+name: UiConfirmDialog
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiConfirmDialog } from '../src';
+import { ConfirmDialogExample } from './example';
+
+# UiConfirmDialog
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> DESCRIPTION
+
+## Installation
+
+> npm i @uireact/foundation @uireact/confirm-dialog
+
+## UiConfirmDialog
+
+In order to use this component you should render the component `<UiConfirmDialog />` inside your `UiView` wrapper component. Only 1
+component should be rendered in the react tree.
+
+### useConfirmDialog hook
+
+The confirm dialog content is passed through the function `showConfirmDialog` that you can retrieve using the `useConfirmDialog` hook. Look
+at the example below to understand how this works:
+
+### showConfirmDialog() fn
+
+This function receives 4 parameters:
+
+1. data, The confirm dialog data that renders inside the dialog.
+2. onConfirm, Callback executed if user click on the confirm action.
+3. onDeny, Callback executed if user click on the denial action.
+4. options (optional), The options for the confirm dialog.
+
+## Example
+
+<Playground>
+  <ConfirmDialogExample />
+</Playground>
+
+```tsx
+export const ConfirmDialogExample: React.FC = () => {
+  const { showConfirmDialog } = useConfirmDialog();
+
+  const onConfirm = useCallback(() => {
+    console.log('Action Confirmed');
+  }, []);
+  const onDeny = useCallback(() => {
+    console.log('Action denied');
+  }, []);
+  const onClick = useCallback(() => {
+    showConfirmDialog(
+      {
+        title: 'Are you sure?',
+        message: 'Only accept this if you are completely sure',
+        confirmLabel: 'Accept',
+        denyLabel: 'Cancel',
+      },
+      onConfirm,
+      onDeny,
+      {
+        direction: 'stacked',
+      }
+    );
+  }, [showConfirmDialog]);
+
+  return (
+    <div>
+      <UiButton onClick={onClick}>Open confirm dialog</UiButton>
+      <UiConfirmDialog />
+    </div>
+  );
+};
+```
+
+### Props
+
+<Props of={UiConfirmDialog} />

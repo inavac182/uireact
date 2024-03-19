@@ -1,6 +1,8 @@
 import { format } from 'util';
 
+import 'jest-environment-jsdom';
 import '@testing-library/jest-dom';
+import '@testing-library/react';
 
 import 'jest-styled-components';
 

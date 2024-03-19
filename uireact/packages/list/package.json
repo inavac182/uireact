@@ -1,14 +1,12 @@
 {
-  "name": "@uireact/badge",
-  "description": "Badge component from @uireact library",
+  "name": "@uireact/list",
+  "description": "list package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "1.3.4",
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "src"
   ],

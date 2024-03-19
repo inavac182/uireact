@@ -1,25 +1,22 @@
 {
-  "name": "@uireact/badge",
-  "description": "Badge component from @uireact library",
+  "name": "@uireact/button",
+  "description": "Button component from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "2.2.2",
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "src"
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
     "clean": " rm -rf dist node_modules coverage",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
-    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
+    "lint": "npm run lint:styles && npm run tsc && npm run eslint",
     "test": "jest",
     "tsc": "tsc",
     "watch": "tsc --watch"
@@ -48,6 +45,8 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@uireact/foundation": "workspace:*",
+    "@uireact/icons": "workspace:*",
+    "@uireact/text": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "react": "^18",

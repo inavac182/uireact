@@ -1,0 +1,86 @@
+---
+name: UiHeader
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiHeader } from '../src/';
+import { UiSpacing, Sizing } from '../../foundation/src';
+
+# UiHeader
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Header component, usually use to render logo and a few menu user actions
+
+## Installation
+
+> npm i @uireact/foundation @uireact/button
+
+## Header
+
+The header component will render at the top but on scrolling the header will move with the scrolling
+
+<Playground>
+  <div style={{ position: 'relative' }}>
+    <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
+      <UiHeader>
+        <UiSpacing margin={{ left: Sizing.five }}>
+          <p>Header</p>
+        </UiSpacing>
+      </UiHeader>
+      <div style={{ color: 'black' }}>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+      </div>
+    </div>
+  </div>
+</Playground>
+
+## Header fixed
+
+The header component will kept positioned at the top of the content
+
+<Playground>
+  <div style={{ position: 'relative' }}>
+    <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
+      <UiHeader fixed>
+        <UiSpacing margin={{ left: Sizing.five }}>
+          <p>Header</p>
+        </UiSpacing>
+      </UiHeader>
+      <div style={{ color: 'black' }}>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+      </div>
+    </div>
+  </div>
+</Playground>
+
+### Props
+
+<Props of={UiHeader} />

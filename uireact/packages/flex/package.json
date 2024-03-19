@@ -1,14 +1,12 @@
 {
-  "name": "@uireact/badge",
-  "description": "Badge component from @uireact library",
+  "name": "@uireact/flex",
+  "description": "flex grid package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "2.1.4",
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "src"
   ],

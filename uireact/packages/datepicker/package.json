@@ -1,16 +1,14 @@
 {
-  "name": "@uireact/badge",
-  "description": "Badge component from @uireact library",
-  "repository": "https://github.com/inavac182/uireact",
+  "name": "@uireact/datepicker",
+  "description": "datepicker package from @uireact library",
+  "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.4.4",
+  "version": "0.7.2",
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
-    "src"
+    "dist"
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -47,7 +45,13 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@uireact/button": "workspace:*",
+    "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/grid": "workspace:*",
+    "@uireact/icons": "workspace:*",
+    "@uireact/menu": "workspace:*",
+    "@uireact/text": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "react": "^18",
@@ -55,7 +59,13 @@
     "typescript": "^5.4.2"
   },
   "peerDependencies": {
+    "@uireact/button": "^2.1.1",
+    "@uireact/flex": "^2.0.1",
     "@uireact/foundation": "^2.0.1",
+    "@uireact/grid": "^1.5.2",
+    "@uireact/icons": "^2.2.1",
+    "@uireact/menu": "^2.1.1",
+    "@uireact/text": "^2.0.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",
