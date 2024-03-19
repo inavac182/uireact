@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+[![Build and Deploy](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml/badge.svg)](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Lerna](https://img.shields.io/badge/Lerna-3E3E3E?style=for-the-badge&logo=lerna&logoColor=white)
+![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# @UiReact.io <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
+
+You should see our docs: [uireact.io](https://uireact.io).
+
+## Quick set up ⚙️
+
+1. Install the peer dependencies: 
+```
+npm i -S styled-components react react-dom tslib
+```
+<small>You can define which versions of each one to use...</small>
+
+2. Install these packages:
+```
+npm i -S @uireact/foundation @uireact/view
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Wrap your app inside the UiView component: 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```tsx
+import { ThemeColor } from '@uireact/foundation';
+import { UiView } from '@uireact/view';
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+const App = ({ children }) => (
+  <UiView theme={YourAmazingTheme} selectedTheme={ThemeColor.dark}>
+    {children}
+  </UiView>
+)
+```
+That's it... You are ready to start installing and using any component in this library 🫶
 
-## Learn More
+## Contact ☎️
 
-To learn more about Next.js, take a look at the following resources:
+If you want to reach out to us these are our public social networks:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Felipe Nava](https://www.linkedin.com/in/inavac/)
+- [Felipe's Twitter](https://twitter.com/FelipeNava92)
+- [Felipe's gh](https://github.com/inavac182/)
+- [Sergio Ortiz](https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/)
+- [Sergio's gh](https://github.com/saudelog)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
