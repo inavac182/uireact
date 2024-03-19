@@ -21,7 +21,8 @@
     "node_modules",
     "jest.config.ts",
     "coverage",
-    "packages/**/coverage"
+    "packages/**/coverage",
+    "uireact"
   ],
   "paths": {
     "@uireact/*": [
