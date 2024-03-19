@@ -7,8 +7,6 @@ import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
 
-import 'jest-styled-components';
-
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;

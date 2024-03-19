@@ -5,8 +5,6 @@ import { screen } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils';
 import { UiViewRow } from '../src';
 
-import 'jest-styled-components';
-
 describe('<UiViewRow />', () => {
   it('Should render fine', () => {
     uiRender(

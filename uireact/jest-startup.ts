@@ -4,6 +4,10 @@ import '@testing-library/jest-dom';
 
 import 'jest-styled-components';
 
+import { TextEncoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+
 // eslint-disable-next-line no-undef
 console.error = function (...args) {
   throw new Error(format(...args));

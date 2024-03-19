@@ -5,7 +5,14 @@
     "module": "esnext",
     "types": [
       "@testing-library/jest-dom",
+      "@testing-library/react",
       "jest-styled-components"
     ]
-  }
+  },
+  "include": [
+    "*.tsx",
+    "*.ts",
+    "**/*.tsx",
+    "**/*.ts"
+  ]
 }
