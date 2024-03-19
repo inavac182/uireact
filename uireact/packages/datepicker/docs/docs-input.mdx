@@ -1,0 +1,160 @@
+---
+name: UiInputDatepicker
+menu: Forms
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiInputDatepicker } from '../src';
+import { DatePickerInputExample } from './example';
+
+import { UiBadge } from '@uireact/badge';
+import { UiIcon } from '@uireact/icons';
+
+<UiBadge category="warning">❗️ Beta</UiBadge>
+
+# UiInputDatepicker
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> An input that lets the user select dates using a datepicker
+
+## Installation
+
+> npm i @uireact/foundation @uireact/flex @uireact/button @uireact/grid @uireact/menu @uireact/text @uireact/datepicker
+
+## Date picker input
+
+<Playground>
+  <div style={{ height: '350px' }}>
+    <UiInputDatepicker
+      label="Date"
+      labelOnTop
+      placeholder="Select the date"
+      highlightToday
+      onChange={(value) => {
+        console.log(value);
+      }}
+      icon={<UiIcon icon="CalendarLines" />}
+      size="large"
+      useDialogOnSmall
+      closeLabel="Done"
+    />
+  </div>
+</Playground>
+
+## Date picker with initial value
+
+If a prop `date` is passed then it will be used as the default value for the input and the date selected in the datepicker
+
+<Playground>
+  <div style={{ height: '350px' }}>
+    <UiInputDatepicker
+      label="Date"
+      date={new Date('2024-01-01 00:00:00')}
+      labelOnTop
+      placeholder="Select the date"
+      highlightToday
+      onChange={(value) => {
+        console.log(value);
+      }}
+      icon={<UiIcon icon="CalendarLines" />}
+      size="large"
+      useDialogOnSmall
+      closeLabel="Done"
+    />
+  </div>
+</Playground>
+
+## Date picker input example with validation
+
+<Playground>
+  <DatePickerInputExample />
+</Playground>
+
+```tsx
+export const DatePickerInputExample: React.FC = () => {
+  const [dateSelected, setDateSelected] = useState<Date | undefined>();
+  const [successMessageVisible, setSuccessMessageVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string>();
+
+  const onChange = useCallback(
+    (date) => {
+      setDateSelected(date);
+      setSuccessMessageVisible(false);
+      setErrorMessage('');
+    },
+    [setDateSelected]
+  );
+
+  const onSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      if (!dateSelected) {
+        setSuccessMessageVisible(false);
+        setErrorMessage('Please select a date');
+      } else {
+        const today = new Date();
+        const selectedDate = new Date(dateSelected);
+
+        if (today < selectedDate) {
+          setSuccessMessageVisible(true);
+          setErrorMessage('');
+        } else {
+          setSuccessMessageVisible(false);
+          setErrorMessage('Please select a date in the future');
+        }
+      }
+    },
+    [dateSelected]
+  );
+
+  return (
+    <div style={{ height: '350px' }}>
+      <UiText>Select a date in the future, if not an error will be shown:</UiText>
+      <UiSpacing padding={formSpacing}>
+        <form onSubmit={onSubmit}>
+          <UiInputDatepicker
+            label="Date"
+            labelOnTop
+            placeholder="Select a future date"
+            onChange={onChange}
+            icon={<UiIcon icon="CalendarLines" />}
+            size="large"
+            closeLabel="Done"
+            error={errorMessage}
+            category={errorMessage ? 'error' : undefined}
+            showNextMonth
+          />
+          <UiSpacing padding={buttonMargin}>
+            <UiButton type="submit" category="tertiary">
+              <UiSpacing padding={buttonPadding}>
+                <UiText>Submit</UiText>
+              </UiSpacing>
+            </UiButton>
+          </UiSpacing>
+        </form>
+      </UiSpacing>
+      {successMessageVisible && (
+        <UiCard category="positive">
+          <UiText>
+            <UiIcon icon="CheckCircle" /> The date is valid
+          </UiText>
+        </UiCard>
+      )}
+    </div>
+  );
+};
+```
+
+### Props
+
+<Props of={UiInputDatepicker} />

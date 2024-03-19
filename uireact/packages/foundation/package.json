@@ -1,0 +1,47 @@
+{
+  "name": "@uireact/foundation",
+  "description": "Foundation package needed for @uireact packages",
+  "repository": "https://github.com/inavac182/uireact",
+  "license": "GNU",
+  "version": "2.5.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src"
+  ],
+  "main": "dist/index",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": " rm -rf dist node_modules coverage",
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
+    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "test": "jest",
+    "tsc": "tsc",
+    "watch": "tsc --watch"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": ">= 17 < 19",
+    "react-dom": ">= 17 < 19",
+    "styled-components": ">= 4 <= 6",
+    "tslib": "^2.5.0"
+  }
+}

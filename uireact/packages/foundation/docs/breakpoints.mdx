@@ -1,0 +1,66 @@
+---
+name: Breakpoints
+menu: Foundation
+---
+
+import * as packageJson from '../package.json';
+
+# Breakpoints
+
+---
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> npm i @uireact/foundation
+
+## Definition ✍️
+
+We currently support these breakpoints:
+
+```
+enum Breakpoints {
+  SMALL,
+    ▶︎ Used to render on mobile devices
+  MEDIUM,
+    ▶︎ Used to render on tablet devices or mobiles with big screens or mobile landscape
+  LARGE,
+    ▶︎ Used to render on big tablets, tablets on landscape or desktop
+  XLARGE,
+    ▶︎ Used to render on high resolutions desktop screens
+}
+```
+
+The [Breakpoints enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/breakpoints-enum.ts) is exported as part of the package @ui-react/foundation
+this enum has the different breakpoints we support.
+
+## Breakpoints sizes
+
+Based on data around internet of the most common resolutions for each device we have decided to set up the supported breakpoints sizes
+in the following distribution:
+
+```
+const BreakpointsSizes = {
+  s: {
+    max: 579,
+      ▶︎ No min value as anything from 0 up to 579px considered SMALL
+  },
+  m: {
+    min: 580,
+    max: 991,
+  },
+  l: {
+    min: 992,
+    max: 1440,
+  },
+  xl: {
+    min: 1440,
+      ▶︎ No max value as anything above 1440 is considered XLARGE
+  },
+};
+```
+
+**NOTE:** @uireact doesn't distinguish between real mobile device and desktop small breakpoint, they are both categorized as SMALL.

@@ -1,0 +1,69 @@
+---
+name: UiViewport
+menu: Foundation
+---
+
+import { Props } from 'docz';
+import Playground from '../../../src/Playground';
+import { UiViewport, Breakpoints, ThemeContext } from '../src/';
+
+import * as packageJson from '../package.json';
+
+import { UiCard } from '@uireact/card';
+
+# UiViewport
+
+---
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> This component make it easy to render/remove components from the DOM based on the breakpoint.
+
+## Installation 🧰
+
+This component is exported as part of @uireact/foundation
+
+> npm i @uireact/foundation
+
+## Usages 🛠️
+
+### Specific breakpoint
+
+<Playground>
+  <UiViewport criteria={Breakpoints.XLARGE}>
+    <UiCard>Hey, I'm in XLarge!</UiCard>
+  </UiViewport>
+  <UiViewport criteria={Breakpoints.LARGE}>
+    <UiCard>Hey, I'm in Large!</UiCard>
+  </UiViewport>
+  <UiViewport criteria={Breakpoints.MEDIUM}>
+    <UiCard>I appear in Medium!!</UiCard>
+  </UiViewport>
+  <UiViewport criteria={Breakpoints.SMALL}>
+    <UiCard>And I'm in Small!</UiCard>
+  </UiViewport>
+</Playground>
+
+The [Breakpoints](./packages-foundation-docs-breakpoints#definition) enum is used to set up one specific breakpoint where we want the UiViewport to render something.
+
+### Multiple breakpoints
+
+<Playground>
+  <UiViewport criteria="m|l|xl">
+    <UiCard>Hey, I appear in medium, large and xlarge!!</UiCard>
+  </UiViewport>
+</Playground>
+
+Multiple breakpoints are supported as prop for the UiViewport when used the string criteria. The whole set of combinations is defined in the [BreakpointsString](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/responsive/viewport.tsx#L6) type.
+
+## Props 🎛️
+
+<Props of={UiViewport} />
+
+## Details 🤓
+
+For specific information about the breakpoints definitions you can look at this [doc page](./packages-foundation-docs-breakpoints)

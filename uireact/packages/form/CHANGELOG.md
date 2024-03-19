@@ -1,0 +1,565 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.4.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.4.1...@uireact/form@2.4.2) (2024-03-18)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 2.4.1 (2024-03-16)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# 2.4.0 (2023-11-26)
+
+
+### Features
+
+* adding default value to select ([#305](https://github.com/inavac182/ui-react/issues/305)) ([6b11d43](https://github.com/inavac182/ui-react/commit/6b11d438b378b8f98ae11dac6d7c9426834f9a7b))
+
+
+
+
+
+## [2.3.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.3.1...@uireact/form@2.3.2) (2023-11-21)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 2.3.1 (2023-11-20)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [2.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@2.2.0...@uireact/form@2.3.0) (2023-11-17)
+
+
+### Features
+
+* paste digits into inputs ([#300](https://github.com/inavac182/ui-react/issues/300)) ([b5221d7](https://github.com/inavac182/ui-react/commit/b5221d737563ec2b57fa2c827934472033adfadf))
+
+
+
+
+
+# 2.2.0 (2023-11-15)
+
+
+### Features
+
+* adding digits input ([#299](https://github.com/inavac182/ui-react/issues/299)) ([6d718b6](https://github.com/inavac182/ui-react/commit/6d718b63ed700213a3adf1980e5e68a1892fdbd7))
+
+
+
+
+
+## [2.1.4](https://github.com/inavac182/ui-react/compare/@uireact/form@2.1.3...@uireact/form@2.1.4) (2023-11-14)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 2.1.3 (2023-11-13)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 2.1.2 (2023-11-07)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [2.1.1](https://github.com/inavac182/ui-react/compare/@uireact/form@2.1.0...@uireact/form@2.1.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* icon alignment when error is present in input ([#282](https://github.com/inavac182/ui-react/issues/282)) ([fbd74af](https://github.com/inavac182/ui-react/commit/fbd74af6e4b52e100780cfe6b4cf642dd4f4d031))
+
+
+
+
+
+# 2.1.0 (2023-11-07)
+
+
+### Features
+
+* use client notation ([#281](https://github.com/inavac182/ui-react/issues/281)) ([e4099b2](https://github.com/inavac182/ui-react/commit/e4099b21110b550cb313781aaeeac3cb141a6dd8))
+
+
+
+
+
+## 2.0.4 (2023-09-19)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [2.0.3](https://github.com/inavac182/ui-react/compare/@uireact/form@2.0.2...@uireact/form@2.0.3) (2023-09-18)
+
+
+### Bug Fixes
+
+* peer for form package ([dcab565](https://github.com/inavac182/ui-react/commit/dcab56537c5958ad46992ca8e6d18c8c7001892e))
+* peers ([2690b48](https://github.com/inavac182/ui-react/commit/2690b48f30739bb7d9bb8c017556324254641e0a))
+
+
+
+
+
+## [2.0.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.0.1...@uireact/form@2.0.2) (2023-09-18)
+
+
+### Bug Fixes
+
+* peer for form package ([dcab565](https://github.com/inavac182/ui-react/commit/dcab56537c5958ad46992ca8e6d18c8c7001892e))
+
+
+
+
+
+## [2.0.1](https://github.com/inavac182/ui-react/compare/@uireact/form@1.8.3...@uireact/form@2.0.1) (2023-09-18)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.8.3](https://github.com/inavac182/ui-react/compare/@uireact/form@1.8.2...@uireact/form@1.8.3) (2023-09-17)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.8.2 (2023-09-16)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.8.1](https://github.com/inavac182/ui-react/compare/@uireact/form@1.8.0...@uireact/form@1.8.1) (2023-09-13)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [1.8.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.7.4...@uireact/form@1.8.0) (2023-09-13)
+
+
+### Features
+
+* **grid:** using spacing prop from theme ([#271](https://github.com/inavac182/ui-react/issues/271)) ([32cd198](https://github.com/inavac182/ui-react/commit/32cd19806d5748c19d98010b9111fa4bf3782b9f))
+
+
+
+
+
+## [1.7.4](https://github.com/inavac182/ui-react/compare/@uireact/form@1.7.3...@uireact/form@1.7.4) (2023-09-13)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.7.3](https://github.com/inavac182/ui-react/compare/@uireact/form@1.7.2...@uireact/form@1.7.3) (2023-09-13)
+
+
+### Bug Fixes
+
+* line height for typography elements ([#269](https://github.com/inavac182/ui-react/issues/269)) ([377ae3e](https://github.com/inavac182/ui-react/commit/377ae3eecf4fb04188dfd75431013733f40712fa))
+
+
+
+
+
+## [1.7.2](https://github.com/inavac182/ui-react/compare/@uireact/form@1.7.1...@uireact/form@1.7.2) (2023-09-12)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.7.1 (2023-09-12)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [1.7.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.6.2...@uireact/form@1.7.0) (2023-09-12)
+
+
+### Features
+
+* using npm workspaces ([#266](https://github.com/inavac182/ui-react/issues/266)) ([9a7e34f](https://github.com/inavac182/ui-react/commit/9a7e34f437947edc55e2429dea7059e2f8b50fb9))
+
+
+
+
+
+## 1.6.2 (2023-09-09)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.6.1 (2023-09-05)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# 1.6.0 (2023-09-01)
+
+
+### Features
+
+* theme tester upgrade ([#255](https://github.com/inavac182/ui-react/issues/255)) ([5870018](https://github.com/inavac182/ui-react/commit/587001805afd53b56fa24f8981550f5e3bd99a92))
+
+
+
+
+
+# 1.5.0 (2023-08-29)
+
+
+### Features
+
+* **table:** adding filter text box ([#249](https://github.com/inavac182/ui-react/issues/249)) ([9801dfd](https://github.com/inavac182/ui-react/commit/9801dfdd4aff767b2ed0bad00518f3778f761032))
+
+
+
+
+
+# [1.4.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.3.2...@uireact/form@1.4.0) (2023-08-23)
+
+
+### Features
+
+* adding required input ([#241](https://github.com/inavac182/ui-react/issues/241)) ([571cbec](https://github.com/inavac182/ui-react/commit/571cbec707ff2442a767915a214b439a5476ce6a))
+
+
+
+
+
+## 1.3.2 (2023-08-23)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.3.1](https://github.com/inavac182/ui-react/compare/@uireact/form@1.3.0...@uireact/form@1.3.1) (2023-08-22)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [1.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.2.1...@uireact/form@1.3.0) (2023-08-22)
+
+
+### Features
+
+* adding size prop for inputs ([#237](https://github.com/inavac182/ui-react/issues/237)) ([fe36068](https://github.com/inavac182/ui-react/commit/fe36068296195946f89a622155d122e5e3d484c4))
+
+
+
+
+
+## 1.2.1 (2023-08-21)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# 1.2.0 (2023-08-20)
+
+
+### Features
+
+* promoting 60 30 10 rule for UI colorations ([#233](https://github.com/inavac182/ui-react/issues/233)) ([0d56558](https://github.com/inavac182/ui-react/commit/0d5655869d3ace0d1f3ad450108ae76e594f81ca))
+
+
+
+
+
+## [1.1.3](https://github.com/inavac182/ui-react/compare/@uireact/form@1.1.2...@uireact/form@1.1.3) (2023-08-13)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.1.2](https://github.com/inavac182/ui-react/compare/@uireact/form@1.1.1...@uireact/form@1.1.2) (2023-08-13)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.1.1 (2023-08-12)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [1.1.0](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.10...@uireact/form@1.1.0) (2023-08-09)
+
+
+### Features
+
+* adding box-sizing to input ([#211](https://github.com/inavac182/ui-react/issues/211)) ([1a5343a](https://github.com/inavac182/ui-react/commit/1a5343a38d4b2c072f0c37e6693275f4a0a7bd15))
+
+
+
+
+
+## 1.0.10 (2023-08-09)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.0.9 (2023-06-19)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.0.8](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.7...@uireact/form@1.0.8) (2023-06-08)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.0.7 (2023-06-07)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.0.6](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.5...@uireact/form@1.0.6) (2023-05-31)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## 1.0.5 (2023-05-31)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.0.4](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.3...@uireact/form@1.0.4) (2023-05-31)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.0.3](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.2...@uireact/form@1.0.3) (2023-05-30)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [1.0.2](https://github.com/inavac182/ui-react/compare/@uireact/form@1.0.1...@uireact/form@1.0.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* **foundation:** viewport effect ([#182](https://github.com/inavac182/ui-react/issues/182)) ([88c75e1](https://github.com/inavac182/ui-react/commit/88c75e16a532d613017bafc53d208a9fd3a2c836))
+
+
+
+
+
+## 1.0.1 (2023-05-23)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.7.0...@uireact/form@0.8.0) (2023-05-20)
+
+
+### Features
+
+* **chore:** test theme tool ([#170](https://github.com/inavac182/ui-react/issues/170)) ([6e2b297](https://github.com/inavac182/ui-react/commit/6e2b297b71d96cda928c2b38ef91b3ab1debbedc))
+
+
+
+
+
+# 0.7.0 (2023-05-20)
+
+
+### Features
+
+* **chore:** create theme tool ([#169](https://github.com/inavac182/ui-react/issues/169)) ([e151614](https://github.com/inavac182/ui-react/commit/e15161418c5210188e655f304a014327ad187b46))
+
+
+
+
+
+## 0.6.2 (2023-05-15)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+## [0.6.1](https://github.com/inavac182/ui-react/compare/@uireact/form@0.6.0...@uireact/form@0.6.1) (2023-05-11)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
+# [0.6.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.5.0...@uireact/form@0.6.0) (2023-05-11)
+
+
+### Features
+
+* **select:** adding UiSelect input ([#96](https://github.com/inavac182/ui-react/issues/96)) ([afbfc0f](https://github.com/inavac182/ui-react/commit/afbfc0f70d990fc67cecb19402c04a7f98c5acb1))
+
+
+
+
+
+# 0.5.0 (2023-05-10)
+
+
+### Features
+
+* **textarea:** adding UiTextArea component ([#92](https://github.com/inavac182/ui-react/issues/92)) ([3f31c91](https://github.com/inavac182/ui-react/commit/3f31c917f101b5451fa9aea9c99a453b1a3265af))
+
+
+
+
+
+## [0.4.1](https://github.com/inavac182/ui-react/compare/@uireact/form@0.4.0...@uireact/form@0.4.1) (2023-05-10)
+
+
+### Bug Fixes
+
+* **checkbox:** hide checkbox ([#90](https://github.com/inavac182/ui-react/issues/90)) ([a38ca94](https://github.com/inavac182/ui-react/commit/a38ca947ad3d072fff26efead42faac582a8ba6c))
+
+
+
+
+
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.3.0...@uireact/form@0.4.0) (2023-05-10)
+
+
+### Features
+
+* **checkbox:** adding checkbox component ([#89](https://github.com/inavac182/ui-react/issues/89)) ([efd1029](https://github.com/inavac182/ui-react/commit/efd102967624ef974dafa534fafdfda9da1dbf57))
+
+
+
+
+
+# [0.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.2.0...@uireact/form@0.3.0) (2023-05-10)
+
+
+### Features
+
+* **input:** adding input props ([#87](https://github.com/inavac182/ui-react/issues/87)) ([b50a5d8](https://github.com/inavac182/ui-react/commit/b50a5d858ac72262ff5732c6c9f261760ae41b77))
+
+
+
+
+
+# [0.2.0](https://github.com/inavac182/ui-react/compare/@uireact/form@0.1.0...@uireact/form@0.2.0) (2023-05-10)
+
+
+### Features
+
+* **text:** using themed text ([#86](https://github.com/inavac182/ui-react/issues/86)) ([ffc0270](https://github.com/inavac182/ui-react/commit/ffc0270906cbb2c86723098913bd40aba724fe69))
+
+
+
+
+
+# 0.1.0 (2023-05-10)
+
+
+### Features
+
+* **form:** adding uiInput component ([#85](https://github.com/inavac182/ui-react/issues/85)) ([8e0b8f2](https://github.com/inavac182/ui-react/commit/8e0b8f2847d2169a939926220e6fbce137b4e4c7))
+
+
+
+
+
+# Change Log

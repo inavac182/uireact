@@ -1,0 +1,113 @@
+---
+name: UiNavbar
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiCard } from '@uireact/card';
+import { UiViewport, Breakpoints } from '@uireact/foundation';
+import { UiText, UiLink } from '@uireact/text';
+
+import Playground from '../../../src/Playground';
+import { UiNavbar, UiNavbarItem } from '../src/';
+import * as packageJson from '../package.json';
+
+# UiNavbar & UiNavbarItem
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/grid/navbar/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Render navbars for menus
+
+## Installation
+
+> npm i @uireact/foundation @uireact/navbar
+
+## Usage as a stacked navbar
+
+<Playground>
+  <UiNavbar orientation="stacked">
+    <UiNavbarItem>
+      <UiLink href="https://uireact.io" fullWidth>
+        Option 1
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiLink href="https://uireact.io" fullWidth>
+        Option 2
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem active>
+      <UiLink href="https://uireact.io" fullWidth>
+        Option 3
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiLink href="https://uireact.io" fullWidth>
+        Option 4
+      </UiLink>
+    </UiNavbarItem>
+  </UiNavbar>
+</Playground>
+
+## Usage inside a card
+
+<Playground>
+  <UiCard noPadding>
+    <UiNavbar orientation="stacked" roundedCorners>
+      <UiNavbarItem>
+        <UiLink href="https://uireact.io" fullWidth>
+          Option 1
+        </UiLink>
+      </UiNavbarItem>
+      <UiNavbarItem>
+        <UiLink href="https://uireact.io" fullWidth>
+          Option 2
+        </UiLink>
+      </UiNavbarItem>
+      <UiNavbarItem active>
+        <UiLink href="https://uireact.io" fullWidth>
+          Option 3
+        </UiLink>
+      </UiNavbarItem>
+    </UiNavbar>
+  </UiCard>
+</Playground>
+
+## Usage as an inline navbar
+
+<Playground>
+  <UiNavbar orientation="inline" align="start" stretchItems>
+    <UiNavbarItem>
+      <UiText>Option 1</UiText>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiText>Option 2</UiText>
+    </UiNavbarItem>
+  </UiNavbar>
+</Playground>
+
+## With bordered styling and gap
+
+<Playground>
+  <UiNavbar orientation="stacked" align="start" styling="bordered" gap="five" category="tertiary">
+    <UiNavbarItem active>
+      <UiText>Option 1</UiText>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiText>Option 2</UiText>
+    </UiNavbarItem>
+  </UiNavbar>
+</Playground>
+
+## UiNavbar Props
+
+<Props of={UiNavbar} />
+
+## UiNavbarItem Props
+
+<Props of={UiNavbarItem} />

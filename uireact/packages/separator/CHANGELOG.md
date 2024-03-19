@@ -1,0 +1,152 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.1.4 (2024-03-18)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## 1.1.3 (2023-11-21)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## [1.1.2](https://github.com/inavac182/uireact/compare/@uireact/separator@1.1.1...@uireact/separator@1.1.2) (2023-11-14)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## 1.1.1 (2023-11-13)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+# 1.1.0 (2023-11-07)
+
+
+### Features
+
+* use client notation ([#281](https://github.com/inavac182/uireact/issues/281)) ([e4099b2](https://github.com/inavac182/uireact/commit/e4099b21110b550cb313781aaeeac3cb141a6dd8))
+
+
+
+
+
+## 1.0.1 (2023-09-18)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## 0.5.1 (2023-09-16)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+# [0.5.0](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.4.0...@uireact/separator@0.5.0) (2023-09-13)
+
+
+### Features
+
+* new line separator ([#272](https://github.com/inavac182/ui-react/issues/272)) ([078db2a](https://github.com/inavac182/ui-react/commit/078db2a2659c6ad8e698f1fdc27da2b5c9ef1fd6))
+
+
+
+
+
+# [0.4.0](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.4...@uireact/separator@0.4.0) (2023-09-13)
+
+
+### Features
+
+* **grid:** using spacing prop from theme ([#271](https://github.com/inavac182/ui-react/issues/271)) ([32cd198](https://github.com/inavac182/ui-react/commit/32cd19806d5748c19d98010b9111fa4bf3782b9f))
+
+
+
+
+
+## [0.3.4](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.3...@uireact/separator@0.3.4) (2023-09-13)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## [0.3.3](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.2...@uireact/separator@0.3.3) (2023-09-13)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## [0.3.2](https://github.com/inavac182/ui-react/compare/@uireact/separator@0.3.1...@uireact/separator@0.3.2) (2023-09-12)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+## 0.3.1 (2023-09-12)
+
+**Note:** Version bump only for package @uireact/separator
+
+
+
+
+
+# 0.3.0 (2023-09-12)
+
+
+### Features
+
+* using npm workspaces ([#266](https://github.com/inavac182/ui-react/issues/266)) ([9a7e34f](https://github.com/inavac182/ui-react/commit/9a7e34f437947edc55e2429dea7059e2f8b50fb9))
+
+
+
+
+
+# 0.2.0 (2023-08-24)
+
+
+### Features
+
+* adding charts package ([#242](https://github.com/inavac182/ui-react/issues/242)) ([df0cc8d](https://github.com/inavac182/ui-react/commit/df0cc8d838e8a810ca7947f476cab4efc8f888cd))
+
+
+
+
+
+# 0.1.0 (2023-08-21)
+
+
+### Features
+
+* adding separator package ([#235](https://github.com/inavac182/ui-react/issues/235)) ([78f02b5](https://github.com/inavac182/ui-react/commit/78f02b55ff2e1673f478317cdf29d71a41ff3c21))
+
+
+
+
+
+# Change Log

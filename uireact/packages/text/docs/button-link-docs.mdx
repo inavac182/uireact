@@ -1,0 +1,60 @@
+---
+name: UiButtonLink
+menu: Typography
+---
+
+import { Props } from 'docz';
+import { MemoryRouter } from 'react-router-dom';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiButtonLink } from '../src';
+import { UiIcon } from '@uireact/icons';
+import { UiSpacing } from '@uireact/foundation';
+
+# UiButtonLink
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component to render a wrapper around links to provide styling, you have to provide the link element, this was done so we could support
+> multiple use cases Link from react router, or Link from next JS or any other router you are using.
+
+## Installation
+
+> npm i @uireact/foundation @uireact/text
+
+## UiButtonLink
+
+<Playground>
+  <UiButtonLink>
+    <a href="https://uireact.io/">Some text</a>
+  </UiButtonLink>
+</Playground>
+
+## UiButtonLink - with options
+
+<Playground>
+  <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic">
+    <UiSpacing padding={{ block: 'four' }}>
+      <a href="https://uireact.io/">
+        Some text <UiIcon icon="Link" inverseColoration />{' '}
+      </a>
+    </UiSpacing>
+  </UiButtonLink>
+</Playground>
+
+## UiButtonLink with default coloration
+
+<Playground>
+  <UiButtonLink coloration="dark">
+    <a href="https://uireact.io/">Will always render text as DARK coloration</a>
+  </UiButtonLink>
+  <UiButtonLink coloration="light">
+    <a href="https://uireact.io/">Will always render text as LIGHT coloration</a>
+  </UiButtonLink>
+</Playground>

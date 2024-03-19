@@ -1,0 +1,22 @@
+---
+name: Theme creation tool
+menu: Advanced
+route: /theme-creation-tool
+---
+
+import { CreateTheme } from './utils';
+import { UiLineSeparator } from '@uireact/separator';
+
+# Theme creation tool
+
+<UiLineSeparator />
+<br />
+
+This tool is a friendly way for generating the theme file helping you to add the information you need and automatically generating
+the theme file, however once you get it you still need to put it in the app and type it correctly. The [Create theme](./create-theme) doc has good information about the structure of a theme.
+
+While you do changes the tool will start reacting to them and changing the colors, fonts, sizes, etc... So you can start getting a pick to the theme you are selecting, once you are done we suggest you to test it in our [test custom theme](./test-custom-theme) page.
+
+> We recommend you open in 1 tab this page and in a separate tab the testing page so you can test the generated theme
+
+<CreateTheme />

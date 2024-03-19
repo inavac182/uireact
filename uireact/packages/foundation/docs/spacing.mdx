@@ -1,0 +1,107 @@
+---
+name: UiSpacing
+menu: Foundation
+---
+
+import * as packageJson from '../package.json';
+import { Props } from 'docz';
+import Playground from '../../../src/Playground';
+import { UiSpacing, Sizing } from '../src/';
+
+# UiSpacing
+
+---
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> This component is used to add spacing around components
+
+## Installation 🧰
+
+This spacing component is exported as part of the foundation package: @uireact/foundation
+
+> npm i @uireact/foundation
+
+## Usage 🛠️
+
+<Playground>
+  <UiSpacing margin={{ all: 'five' }}>Nice margin dude!</UiSpacing>
+</Playground>
+
+**UiSpacing** renders a div to which it assigns its styling and wraps the children
+
+## Props 🎛️
+
+<Props of={UiSpacing} />
+
+## Details 🤓
+
+More information about the `<UiSpacing />` implementation.
+
+### SpacingDistribution
+
+The [SpacingDistribution](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/spacing/spacing.tsx#L8) let you set up spacing
+in multiple ways:
+
+```
+type SpacingDistribution = {
+
+  all?: Spacing;
+  /** Apply spacing to all sides */
+
+  block?: Spacing;
+  /** Apply spacing to top and bottom */
+
+  inline?: Spacing;
+  /** Apply spacing to left and right */
+
+  left?: Spacing;
+  /** Apply spacing to left */
+
+  right?: Spacing;
+  /** Apply spacing to right */
+
+  top?: Spacing;
+  /** Apply spacing to top */
+
+  bottom?: Spacing;
+  /** Apply spacing to bottom */
+};
+```
+
+### Theme
+
+The [Spacing type](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/enums/spacing.ts) is used to reference a
+value from the [Spacing](https://uireact.io/packages-foundation-docs-themes#spacing-) property provided from the themes
+
+For instance if you set up this in your theme:
+
+```
+{
+  ...,
+  spacing: {
+    one: '1px',
+    two: '2px',
+    three: '4px',
+    four: '8px',
+    five: '16px',
+    six: '32px',
+    seven: '64px',
+  },
+  ...
+}
+```
+
+If you use this:
+
+```
+<UiSpacing padding={{all: 'three'}}>
+  Some content
+</UiSpacing>
+```
+
+The content will get wrapped under a `div` element with the CSS value of: `padding: 4px;`

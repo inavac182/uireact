@@ -1,0 +1,38 @@
+---
+name: Default theme
+menu: Foundation
+---
+
+import * as packageJson from '../package.json';
+import ThemeTokens from '../../../src/ThemeTokens';
+import { DefaultTheme } from '../src/themes';
+
+import { UiLineSeparator } from '@uireact/separator';
+
+# Default theme
+
+<UiLineSeparator />
+<br />
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/foundation/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> npm i @uireact/foundation
+
+@uireact provides with a [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts) in the foundation package,
+the specifics of the default theme are:
+
+### Light Coloration 🤍
+
+You can see the light coloration of the provided theme here: [Light Coloration](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/light.ts)
+
+<ThemeTokens colors={DefaultTheme.light} />
+
+### Dark Coloration 🖤
+
+You can see the dark coloration of the provided theme here: [Dark Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/dark.ts)
+
+<ThemeTokens colors={DefaultTheme.dark} />

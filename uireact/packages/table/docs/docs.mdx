@@ -1,0 +1,88 @@
+---
+name: UiTable
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiTable } from '../src';
+import { UiBadge } from '@uireact/badge';
+
+<UiBadge category="warning">❗️ Beta</UiBadge>
+
+# UiTable
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Used to render information in a table that is filterable and sortable.
+> The rows can be selectable if the `onSelect` CB is provided.
+
+## Installation
+
+> npm i @uireact/foundation @uireact/table
+
+## UiTable
+
+<Playground>
+  <UiTable
+    data={{
+      headings: ['No', 'Summary', 'Price'],
+      items: [
+        { id: '1', cols: ['1', 'item 1', '$10'] },
+        { id: '2', cols: ['2', 'item 2', '$20'] },
+        { id: '3', cols: ['3', 'item 3', '$30'] },
+        { id: '4', cols: ['4', 'item 4', '$40'] },
+        { id: '5', cols: ['5', 'item 5', '$50'] },
+        { id: '6', cols: ['6', 'item 6', '$60'] },
+        { id: '7', cols: ['7', 'item 7', '$70'] },
+        { id: '8', cols: ['8', 'item 8', '$80'] },
+        { id: '9', cols: ['9', 'item 9', '$90'] },
+        { id: '10', cols: ['10', 'item 10', '$100'] },
+      ],
+    }}
+    selected="3"
+    onClick={(id) => {
+      selected = id;
+      console.log(`id ${id} selected`);
+    }}
+  />
+</Playground>
+
+- If a row is selected the `onClick` CB is executed
+- If you pass a `selected` id to the table that row will show as selected in the table
+
+## UiTable - with category
+
+<Playground>
+  <UiTable
+    data={{
+      headings: ['Summary', 'Price'],
+      items: [{ id: '1', cols: ['item 1', '$10'] }],
+    }}
+    category="tertiary"
+  />
+</Playground>
+
+## UiTable - with filter box position
+
+<Playground>
+  <UiTable
+    data={{
+      headings: ['Summary', 'Price'],
+      items: [{ id: '1', cols: ['item 1', '$10'] }],
+    }}
+    category="tertiary"
+    filterBoxPosition="right"
+  />
+</Playground>
+
+### Props
+
+<Props of={UiTable} />

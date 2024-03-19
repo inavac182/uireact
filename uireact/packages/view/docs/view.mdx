@@ -1,0 +1,113 @@
+---
+name: UiView
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+import { UiView, UiViewRow } from '../src';
+import { ViewRowExample } from './util';
+
+# UiView
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/view/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> This component SHOULD wrap your entire app tree
+
+This component will set up the global styles and providers for @uireact to work properly.
+
+- Theme context provider
+- Dialogs context provider
+- Global styles
+- Notifications context provider
+
+## Installation ⚙️
+
+> npm i @uireact/foundation @uireact/view
+
+## Examples 🤓
+
+### UiView
+
+This doc page is wrapped in a `< UiView />` component
+
+This is an example of our wrapper:
+
+```tsx
+export const ViewExample: React.FC = () => {
+  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const toogleTheme = () => {
+    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+  };
+
+  return (
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+      <p>All the react tree should render inside here</p>
+      <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
+    </UiView>
+  );
+};
+```
+
+## UiViewRow
+
+The `UiViewRow` component is used to separate parts of the content of the application.
+
+<Playground hideThemeSelector>
+  <ViewRowExample />
+</Playground>
+
+<br />
+
+ViewRowExample definition:
+
+```tsx
+export const ViewRowExample: React.FC = () => {
+  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
+  const toogleTheme = () => {
+    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
+  };
+
+  return (
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
+      <UiViewRow weight="10">
+        <p>A row with weight 10</p>
+      </UiViewRow>
+      <UiViewRow weight="50" centeredContent>
+        <p>A row with weight 50</p>
+      </UiViewRow>
+      <UiViewRow>
+        <p>A row with default theme</p>
+      </UiViewRow>
+      <UiViewRow weight="150">
+        <p>A row with weight 150</p>
+      </UiViewRow>
+      <UiViewRow weight="200">
+        <p>A row with weight 200</p>
+      </UiViewRow>
+      <UiViewRow weight="200" noBackground>
+        <p>A row without background color</p>
+      </UiViewRow>
+      <UiViewRow inverseFont category="negative">
+        <p>Row with inverse font and category</p>
+      </UiViewRow>
+      <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
+    </UiView>
+  );
+};
+```
+
+## Props 🛠️
+
+#### UiView
+
+<Props of={UiView} />
+
+#### UiViewRow
+
+<Props of={UiViewRow} />
