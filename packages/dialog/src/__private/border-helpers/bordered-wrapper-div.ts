@@ -5,7 +5,7 @@ import { ThemeColor } from '@uireact/foundation';
 import { animateGradient } from './animation';
 import { getBorderRadius } from './border-radius';
 import { getPadding } from './padding';
-import { UiDialogType } from 'types';
+import { UiDialogType } from '../../types';
 
 export const BorderedWrappedDiv = styled.div<{ $selectedTheme: ThemeColor; $type?: UiDialogType }>`
   border-radius: ${(props) => getBorderRadius(props.$type)};

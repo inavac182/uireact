@@ -7,8 +7,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
+  "type": "module",
   "files": [
-    "dist"
+    "src"
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
@@ -22,8 +24,35 @@
     "tsc": "tsc",
     "watch": "tsc --watch"
   },
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
+  },
   "devDependencies": {
-    "@uireact/foundation": "^2.5.0"
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@uireact/foundation": "workspace:*",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-styled-components": "^7.2.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",

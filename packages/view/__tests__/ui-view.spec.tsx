@@ -7,8 +7,6 @@ import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
 
-import 'jest-styled-components';
-
 type MockedComponentProps = {
   centeredContent?: boolean;
   className?: string;
@@ -98,7 +96,6 @@ describe('<UiView />', () => {
   });
 
   it('renders fine when is centered and xlarge', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     window.innerWidth = 1500;
 

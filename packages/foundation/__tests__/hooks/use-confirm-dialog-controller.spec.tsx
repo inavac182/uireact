@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks/server';
-import { act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 import { useConfirmDialogController } from '../../src/hooks';
 
 describe('useDialogController', () => {
@@ -13,10 +12,9 @@ describe('useDialogController', () => {
   });
 
   it('Should add notifications', () => {
-    const { result, hydrate } = renderHook(() => useConfirmDialogController());
+    const { result } = renderHook(() => useConfirmDialogController());
     const onConfirmCB = jest.fn();
     const onDenyCB = jest.fn();
-    hydrate();
 
     act(() => {
       result.current.showConfirmDialog(

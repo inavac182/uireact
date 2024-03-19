@@ -10,8 +10,6 @@ import { uiRender } from '../../../__tests__/utils/render';
 
 import { UiMenu } from '../src';
 
-import 'jest-styled-components';
-
 type MockedComponentProps = {
   fullscreenOnSmall?: boolean;
   visible?: boolean;

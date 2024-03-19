@@ -7,8 +7,6 @@ import { DefaultTheme, ThemeColor, ThemeContext } from '@uireact/foundation';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiDialog, UiDialogType, useDialog } from '../src';
 
-import 'jest-styled-components';
-
 type MockedComponentProps = {
   type?: UiDialogType;
   title?: string;

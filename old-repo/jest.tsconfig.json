@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs",
+    "paths": {
+      "@uireact/*": [
+        "packages/**/src"
+      ]
+    }
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { fireEvent, screen } from '@testing-library/react';
+import { UiIcon } from '@uireact/icons';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiInputDatepicker } from '../src';
-import { UiIcon } from '@uireact/icons';
 
 describe('<UiDatepicker />', () => {
   // January 2028
@@ -76,7 +76,6 @@ describe('<UiDatepicker />', () => {
   });
 
   it('renders fine when size is unrecognized', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} size="whatever" />);
 

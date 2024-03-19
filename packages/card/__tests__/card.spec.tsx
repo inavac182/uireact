@@ -4,8 +4,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 
 import { UiCard } from '../src';
 
-import 'jest-styled-components';
-
 const HeadingMock = () => <h1>Heading</h1>;
 const ContentMock = () => <p>Content</p>;
 const FooterMock = () => <span>Footer</span>;

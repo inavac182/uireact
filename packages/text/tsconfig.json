@@ -1,9 +1,19 @@
 {
   "extends": "../../tsconfig.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx"
+  ],
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "dist",
+    "__tests__",
+    "docs",
+    "jest.config.ts"
+  ],
   "compilerOptions": {
-    "outDir": "dist",
-    "baseUrl": "./src",
-    "jsx": "react"
-  },
-  "exclude": ["coverage", "node_modules", "dist", "__tests__", "jest.config.ts"]
+    "baseUrl": "./src"
+  }
 }

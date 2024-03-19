@@ -1,12 +1,10 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
+import { TextSize } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiBadge } from '../src/ui-badge';
-import { TextSize } from '@uireact/foundation';
-
-import 'jest-styled-components';
 
 describe('<UiBadge />', () => {
   it('renders fine', () => {

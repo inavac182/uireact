@@ -9,8 +9,6 @@ import {
 } from './types';
 
 export class UiValidator {
-  private schema: UiValidatorSchema;
-
   private isEmailValid(value: unknown): boolean {
     if (typeof value === 'string') {
       const mailRegex = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);

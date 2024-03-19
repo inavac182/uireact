@@ -58,8 +58,9 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   required,
 }: UiSelectProps) => {
   const handleChange = useCallback(
-    (e: FormEvent<HTMLSelectElement>) => {
-      onChange?.(e.currentTarget.value);
+    (e: FormEvent<HTMLSelectElement> | undefined) => {
+      // istanbul ignore next
+      onChange?.(e?.currentTarget.value);
     },
     [onChange]
   );

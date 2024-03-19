@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks/server';
-import { act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 import { useNotificationsController } from '../../src/hooks';
 
 describe('useDialogController', () => {
@@ -11,9 +10,7 @@ describe('useDialogController', () => {
   });
 
   it('Should add notifications', () => {
-    const { result, hydrate } = renderHook(() => useNotificationsController());
-
-    hydrate();
+    const { result } = renderHook(() => useNotificationsController());
 
     act(() => {
       result.current.showNotification({

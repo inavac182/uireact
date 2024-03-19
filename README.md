@@ -1,4 +1,8 @@
 
+
+# We are going through a migration currently from docz / lerna to pnpm / turbo / next JS so things might be a bit flaky in the repo currently, but packages are usable and docs page is up to date to the latest stable version.
+
+
 [![Build and Deploy](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml/badge.svg)](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
