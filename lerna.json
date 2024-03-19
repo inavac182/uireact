@@ -17,6 +17,7 @@
     "**/docs/**",
     "**/package-lock.json",
     "**/jest.config.js",
-    "**/__tests__/**"
+    "**/__tests__/**",
+    "uireact"
   ]
 }

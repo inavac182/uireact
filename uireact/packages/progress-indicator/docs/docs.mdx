@@ -1,0 +1,55 @@
+---
+name: UiProgressIndicator
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { UiText } from '@uireact/text';
+
+import { UiProgressIndicator, UiProgressIndicatorItem } from '../src/';
+
+import { ProgressIndicatorExample } from './utils';
+
+# UiProgressIndicator
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/progress-indicator/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Used to represent the progress in a multi step process
+
+## Installation
+
+> npm i @uireact/foundation @uireact/progress-indicator
+
+## UiProgressIndicator
+
+<Playground>
+  <UiProgressIndicator>
+    <UiProgressIndicatorItem>
+      <UiText>Step 1</UiText>
+    </UiProgressIndicatorItem>
+    <UiProgressIndicatorItem>
+      <UiText>Step 2</UiText>
+    </UiProgressIndicatorItem>
+    <UiProgressIndicatorItem>
+      <UiText>Step 3</UiText>
+    </UiProgressIndicatorItem>
+  </UiProgressIndicator>
+</Playground>
+
+## UiProgressIndicator example using allowGoBack
+
+<Playground hideThemeSelector>
+  <ProgressIndicatorExample />
+</Playground>
+
+### Props
+
+<Props of={UiProgressIndicator} />

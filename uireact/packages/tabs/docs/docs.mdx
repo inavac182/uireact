@@ -1,0 +1,80 @@
+---
+name: UiTabs
+menu: Components
+---
+
+import { Props } from 'docz';
+
+import { UiText } from '@uireact/text';
+
+import * as packageJson from '../package.json';
+import Playground from '../../../src/Playground';
+
+import { TabsExample } from './utils/';
+
+import { UiTabs, UiTabItem } from '../src/';
+
+# UiTabs
+
+<sup>
+  <a href="https://github.com/inavac182/ui-react/blob/main/packages/tabs/" target="_blank">
+    v{packageJson.version}
+  </a>
+</sup>
+
+> Component that renders a tabs for an options selection experience. When a tab is clicked it executes a callback and it passes an identifier that
+> to identify what tab was clicked. The UiTabItem allows for any custom type to be passed so the callback function is correctly typed.
+
+## Installation
+
+> npm i @uireact/foundation @uireact/tabs
+
+## UiTabs
+
+<Playground hideThemeSelector>
+  <TabsExample />
+</Playground>
+
+<br />
+
+TabsExample:
+
+```tsx
+export const TabsExample: React.FC = () => {
+  const [selectedTab, setSelectedTab] = React.useState(1);
+
+  const handleTabClick = React.useCallback(
+    (identifier: number) => {
+      setSelectedTab(identifier);
+    },
+    [setSelectedTab]
+  );
+
+  return (
+    <UiCard noPadding>
+      <UiTabs rounded>
+        <UiTabItem<number> selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
+          <UiText>Fruits</UiText>
+        </UiTabItem>
+        <UiTabItem<number> selected={selectedTab === 2} identifier={2} handleClick={handleTabClick}>
+          <UiText>Vegetables</UiText>
+        </UiTabItem>
+        <UiTabItem<number> selected={selectedTab === 3} identifier={3} handleClick={handleTabClick}>
+          <UiText>Meats</UiText>
+        </UiTabItem>
+      </UiTabs>
+      {selectedTab === 1 && <Fruits />}
+      {selectedTab === 2 && <Veggies />}
+      {selectedTab === 3 && <Meats />}
+    </UiCard>
+  );
+};
+```
+
+### UiTabs Props
+
+<Props of={UiTabs} />
+
+### UiTabItem Props
+
+<Props of={UiTabItem} />
