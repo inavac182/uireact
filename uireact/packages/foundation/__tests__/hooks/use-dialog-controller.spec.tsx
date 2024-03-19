@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks/server';
-import { act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 
 import { useDialogController } from '../../src/hooks';
 
@@ -13,9 +12,8 @@ describe('useDialogController', () => {
   });
 
   it('Should add dialogs', () => {
-    const { result, hydrate } = renderHook(() => useDialogController());
+    const { result } = renderHook(() => useDialogController());
 
-    hydrate();
     act(() => {
       result.current.openDialog('newDialog');
     });
@@ -25,9 +23,8 @@ describe('useDialogController', () => {
   });
 
   it('Should NOT add the same dialog twice', () => {
-    const { result, hydrate } = renderHook(() => useDialogController());
+    const { result } = renderHook(() => useDialogController());
 
-    hydrate();
     act(() => {
       result.current.openDialog('newDialog');
     });
@@ -44,9 +41,7 @@ describe('useDialogController', () => {
   });
 
   it('Should remove dialogs', () => {
-    const { result, hydrate } = renderHook(() => useDialogController());
-
-    hydrate();
+    const { result } = renderHook(() => useDialogController());
 
     act(() => {
       result.current.openDialog('newDialog');

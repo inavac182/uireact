@@ -1,3 +1,0 @@
-@uireact/header
-
-# UiHeader

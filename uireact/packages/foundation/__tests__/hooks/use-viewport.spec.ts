@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks/server';
+import { renderHook } from '@testing-library/react';
 
 import { useViewport } from '../../src';
 
@@ -6,9 +6,7 @@ describe('useViewport', () => {
   it('returns isSmall truthy when is small breakpoint', () => {
     global.innerWidth = 350;
 
-    const { result, hydrate } = renderHook(() => useViewport());
-
-    hydrate();
+    const { result } = renderHook(() => useViewport());
 
     expect(result.current.isSmall).toBeTruthy();
     expect(result.current.isMedium).toBeFalsy();
@@ -19,9 +17,7 @@ describe('useViewport', () => {
   it('returns isMedium truthy when is medium breakpoint', () => {
     global.innerWidth = 500;
 
-    const { result, hydrate } = renderHook(() => useViewport());
-
-    hydrate();
+    const { result } = renderHook(() => useViewport());
 
     expect(result.current.isSmall).toBeTruthy();
     expect(result.current.isMedium).toBeFalsy();
@@ -32,9 +28,7 @@ describe('useViewport', () => {
   it('returns isLarge truthy when is large breakpoint', () => {
     global.innerWidth = 1000;
 
-    const { result, hydrate } = renderHook(() => useViewport());
-
-    hydrate();
+    const { result } = renderHook(() => useViewport());
 
     expect(result.current.isSmall).toBeFalsy();
     expect(result.current.isMedium).toBeFalsy();
@@ -45,9 +39,7 @@ describe('useViewport', () => {
   it('returns isXLarge truthy when is xlarge breakpoint', () => {
     global.innerWidth = 1450;
 
-    const { result, hydrate } = renderHook(() => useViewport());
-
-    hydrate();
+    const { result } = renderHook(() => useViewport());
 
     expect(result.current.isSmall).toBeFalsy();
     expect(result.current.isMedium).toBeFalsy();

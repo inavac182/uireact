@@ -39,7 +39,14 @@
     }
   },
   "devDependencies": {
-    "@uireact/foundation": "^2.5.0"
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@uireact/foundation": "workspace:*",
+    "react": "^18",
+    "react-dom": "^18",
+    "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.4.0",

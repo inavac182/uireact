@@ -14,30 +14,31 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "paths": {
       "@/*": [
         "./src/*"
       ],
       "@uireact/*": [
-        "../packages/*"
+        "./packages/*"
       ]
-    }
+    },
+    "outDir": "dist",
+    "baseUrl": "./src",
+    "jsx": "react"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mdx",
-    ".next/types/**/*.ts"
-  ],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "jest.config.ts",
+    "coverage",
+    "packages/**/coverage"
+  ],
+  "paths": {
+    "@/*": [
+      "./src/*"
+    ],
+    "@uireact/*": [
+      "./packages/*"
+    ]
+  },
 }

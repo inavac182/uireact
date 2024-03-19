@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs"
+  },
+  "types": [
+    "node",
+    "jest",
+    "@testing-library/jest-dom",
+    "jest-styled-components"
+  ]
+}
