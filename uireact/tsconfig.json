@@ -31,7 +31,8 @@
     "node_modules",
     "jest.config.ts",
     "coverage",
-    "packages/**/coverage"
+    "packages/**/coverage",
+    "__tests__"
   ],
   "paths": {
     "@/*": [

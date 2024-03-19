@@ -12,5 +12,8 @@
     "__tests__",
     "docs",
     "jest.config.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src"
+  }
 }

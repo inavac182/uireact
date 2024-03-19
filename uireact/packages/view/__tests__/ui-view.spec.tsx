@@ -96,7 +96,6 @@ describe('<UiView />', () => {
   });
 
   it('renders fine when is centered and xlarge', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     window.innerWidth = 1500;
 
