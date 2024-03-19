@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { DefaultTheme } from '../themes';
 import { Theme, ThemeColor } from '../types';

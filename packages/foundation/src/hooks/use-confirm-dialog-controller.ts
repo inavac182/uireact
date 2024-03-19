@@ -1,3 +1,4 @@
+'use client';
 import { useCallback, useState } from 'react';
 import { IConfirmDialogController, UiConfirmDialogData, UiConfirmDialogHolder, UiConfirmDialogOptions } from '../types';
 

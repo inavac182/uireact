@@ -1,3 +1,4 @@
+'use client';
 import { useWindowDimensions } from './use-window-dimensions';
 import { BreakpointsSizes } from '../responsive/breakpoints-sizes';
 import { useEffect, useMemo, useState } from 'react';
