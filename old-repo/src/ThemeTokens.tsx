@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { ColorCategories, ColorTokens } from '../packages/foundation/src';
 
@@ -11,6 +11,7 @@ const ThemeTokens: React.FC<ThemeTokensProps> = ({ colors }: ThemeTokensProps) =
     <div>
       <div>
         {Object.keys(colors).map((colorsKey, key) => {
+          {/* @ts-ignore */ }
           return <ThemeKeyTable key={`color-key-${key}`} keyLevel={colorsKey} tokens={colors[colorsKey]} />;
         })}
       </div>
@@ -34,6 +35,7 @@ const ThemeKeyTable = ({ tokens, keyLevel }: ThemeKeyTableProps) => (
       {Object.keys(tokens).map((token, key) => {
         return (
           <tr key={`color-token-${key}`}>
+            {/* @ts-ignore */}
             <td style={{ background: `${tokens[token]}`, color: 'black', padding: '10px', textAlign: 'center' }}>
               <p style={{ margin: token === 'token_100' ? '10px' : '0px' }}>{token}</p>
             </td>
