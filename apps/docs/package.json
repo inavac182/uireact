@@ -27,6 +27,7 @@
     "@uireact/badge": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/icons": "workspace:*",
+    "@uireact/separator": "workspace:*",
     "@uireact/view": "workspace:*",
     "eslint": "^8",
     "eslint-config-next": "14.1.3",
