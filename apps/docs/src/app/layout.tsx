@@ -6,7 +6,7 @@ import "./globals.css";
 
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
-
+import { DocsLayout } from './internal';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -32,7 +32,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <ViewWrapper>
-            {children}
+            <DocsLayout>
+              {children}
+            </DocsLayout>
           </ViewWrapper>
         </StyledComponentsRegistry>
       </body>
