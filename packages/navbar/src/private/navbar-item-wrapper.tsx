@@ -38,9 +38,6 @@ const Div = styled.div<NavbarItemWrapperProps>`
 
     transition: background 0.2s, border-left 0.2s;
     border-left: 2px solid transparent;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
 
     ${(props) => `
       ${

@@ -3,7 +3,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { UiText } from '@uireact/text';
+import { UiLink } from '@uireact/text';
+import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
 
 const SideSection = styled.div`
   min-width: 300px;
@@ -15,7 +16,15 @@ const SideSection = styled.div`
 export const Sidebar = () => {
   return (
     <SideSection>
-      <UiText>Side</UiText>
+      <UiNavbar>
+        <UiNavbarItem>
+          <UiLink>
+            <a href="#">
+                Side bar
+            </a>
+          </UiLink>
+        </UiNavbarItem>
+      </UiNavbar>
     </SideSection>
   )
 };

@@ -126,6 +126,9 @@ importers:
       '@uireact/list':
         specifier: workspace:*
         version: link:../../packages/list
+      '@uireact/navbar':
+        specifier: workspace:*
+        version: link:../../packages/navbar
       '@uireact/separator':
         specifier: workspace:*
         version: link:../../packages/separator

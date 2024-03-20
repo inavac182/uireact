@@ -1,6 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 
-import { UiHeading, UiLink, UiText } from '@uireact/text';
+import { UiHeading, UiLink } from '@uireact/text';
 import { UiLineSeparator } from '@uireact/separator';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
