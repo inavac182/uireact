@@ -7,7 +7,7 @@ import Colima from '../../../public/colima.jpg';
 import styled from "styled-components";
 
 const ImageLoader = styled(Image)`
-  width: 80%;
+  width: 100%;
   height: auto;
 `;
 

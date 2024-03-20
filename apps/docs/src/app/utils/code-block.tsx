@@ -15,7 +15,7 @@ export default function CodeBlock({ children, className, live, scope, language }
   const childCode = children?.props;
 
   if (!childCode) { 
-    return <code>No content</code>;
+    return <code lang="language-tsx">No content</code>;
   }
 
   const code = childCode.children.replace(/\n$/, "");
@@ -31,5 +31,9 @@ export default function CodeBlock({ children, className, live, scope, language }
     );
   }
 
-  return codeBlock;
+  return (
+    <LiveProvider code={code} scope={scope}>
+      <LiveEditor code={code} language="typescript" />
+    </LiveProvider>
+  );
 }
