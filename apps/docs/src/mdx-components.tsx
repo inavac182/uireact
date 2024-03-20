@@ -1,8 +1,9 @@
 import type { MDXComponents } from 'mdx/types'
+import Pre from './app/utils/custom-pre'
  
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    Plaground: (props) => { console.log(props); return <>props.children</>},
+    pre: Pre,
     ...components,
   }
 }

@@ -1,5 +1,5 @@
-const parseComponents = require('./plugins/parseComponents');
-const createMDX = require('@next/mdx')
+import createMDX from '@next/mdx';
+import codeProps from 'rehype-mdx-code-props';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -12,8 +12,8 @@ const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
     remarkPlugins: [],
-    rehypePlugins: [parseComponents],
+    rehypePlugins: [codeProps],
   },
 })
 
-module.exports = withMDX(nextConfig)
+export default withMDX(nextConfig);

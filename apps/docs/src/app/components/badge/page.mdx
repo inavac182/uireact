@@ -1,16 +1,14 @@
-import { UiSpacing, TextSize } from '@uireact/foundation';
-import { UiIcon } from '@uireact/icons';
+import { UiBadge } from "@uireact/badge";
+import { UiSpacing } from "@uireact/foundation";
+import { UiIcon } from "@uireact/icons";
 
-import * as packageJson from '../../../../../../packages/badge/package.json';
-import { Playground } from '../../utils';
-
-import { UiBadge } from '@uireact/badge';
+import { version } from '../../../../../../packages/badge/package.json';
 
 # UiBadge
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/badge/" target="_blank">
-    v{packageJson.version}
+    v{version}
   </a>
 </sup>
 
@@ -22,7 +20,8 @@ import { UiBadge } from '@uireact/badge';
 
 ## UiBadge
 
-<Playground scope={UiBadge}>
+```jsx live scope={{ UiSpacing, UiBadge, UiIcon }}
+<div>
   <UiSpacing margin={{ block: 'three' }}>
     <UiBadge size="xlarge">✈️ Primary</UiBadge>
   </UiSpacing>
@@ -44,7 +43,8 @@ import { UiBadge } from '@uireact/badge';
       🚨 Warning
     </UiBadge>
   </UiSpacing>
-</Playground>
+</div>
+```
 
 ### Props
 
