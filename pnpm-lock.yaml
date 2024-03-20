@@ -117,6 +117,9 @@ importers:
       '@uireact/grid':
         specifier: workspace:*
         version: link:../../packages/grid
+      '@uireact/header':
+        specifier: workspace:*
+        version: link:../../packages/header
       '@uireact/icons':
         specifier: workspace:*
         version: link:../../packages/icons
