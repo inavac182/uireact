@@ -128,11 +128,11 @@ export const DocsTheme: Theme = {
       level6: '18px',
     },
     texts: {
-      xsmall: '12px',
-      small: '14px',
-      regular: '16px',
-      large: '20px',
-      xlarge: '22px',
+      xsmall: '14px',
+      small: '16px',
+      regular: '20px',
+      large: '22px',
+      xlarge: '26px',
     },
   },
   texts: {

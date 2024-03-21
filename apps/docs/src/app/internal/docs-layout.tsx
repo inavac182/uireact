@@ -14,7 +14,7 @@ type DocsLayoutProps = {
 }
 
 const MainSection = styled.div`
-  max-width: 600px;
+  max-width: 700px;
   text-align: justify;
   margin: 0 auto;
 `;

@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 
-import "./globals.css";
-
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
-import { DocsLayout } from './internal';
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,12 +27,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className}>
+      <body>
         <StyledComponentsRegistry>
           <ViewWrapper>
-            <DocsLayout>
-              {children}
-            </DocsLayout>
+            {children}
           </ViewWrapper>
         </StyledComponentsRegistry>
       </body>
