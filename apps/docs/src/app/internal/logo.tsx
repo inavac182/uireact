@@ -62,7 +62,7 @@ const Span = styled.span<{ $index: number }>`
 `;
 
 
-export const LogoIcon = ({ width = 50 }: LogoProps) => <Image src={sunglassesIcon} width={width} alt="UiReact logo icon" />
+export const LogoIcon = ({ width = 50 }: LogoProps) => <Image src={sunglassesIcon} width={width} alt="UiReact logo icon" unoptimized />
 
 export const Logo = (): React.ReactElement => (
   <UiLink>

@@ -1,3 +1,19 @@
 .container {
   width: 100%;
+  height: 100vh;
+}
+
+.example {
+  background-color: var(--tertiary-token_100);
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+  margin: 200px auto;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
 }
