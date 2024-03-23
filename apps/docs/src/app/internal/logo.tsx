@@ -11,6 +11,7 @@ import sunglassesIcon from '../../../public/sunglasses_cat.gif';
 
 type LogoProps = {
   width?: number;
+  iconOnTop?: Boolean;
 }
 
 const Div = styled.div`
@@ -61,12 +62,22 @@ const Span = styled.span<{ $index: number }>`
   ${(props) => `color: ${getColorValue(props.$index)};`}
 `;
 
+const LogoCentered = styled.div`
+  text-align: center;
+  margin-bottom: 20px;
+`;
+
 
 export const LogoIcon = ({ width = 50 }: LogoProps) => <Image src={sunglassesIcon} width={width} alt="UiReact logo icon" unoptimized />
 
-export const Logo = (): React.ReactElement => (
+export const Logo = ({ iconOnTop }: LogoProps): React.ReactElement => (
   <UiLink>
     <a href="/">
+      {iconOnTop && (
+          <LogoCentered>
+            <LogoIcon width={30} />
+          </LogoCentered>
+      )}
       <Div>
         <H1>
           <Span $index={1}>@</Span>
@@ -78,7 +89,8 @@ export const Logo = (): React.ReactElement => (
           <Span $index={7}>c</Span>
           <Span $index={8}>t</Span>
         </H1>
-        <LogoIcon width={30} />
+        {!iconOnTop && (<LogoIcon width={30} />)}
+        
       </Div>
     </a>
   </UiLink>

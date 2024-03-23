@@ -30,7 +30,7 @@ const StarsContainer = styled.div`
 const LogoContainer = styled.div`
   margin: 50px auto;
   z-index: 2;
-  width: 270px;
+  width: 240px;
 
   a {
     font-size: 34px;
@@ -74,7 +74,7 @@ export const Hero = () => {
           </Canvas>
         </StarsContainer>
         <LogoContainer>
-          <Logo />
+          <Logo iconOnTop />
         </LogoContainer>
         <HeroHeadingContainer>
           <HeroHeading>Web doesn&apos;t have to be static</HeroHeading>
