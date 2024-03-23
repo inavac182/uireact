@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 .example {
@@ -16,4 +17,10 @@
   top: 10px;
   left: 10px;
   z-index: 1;
+}
+
+.separator {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }

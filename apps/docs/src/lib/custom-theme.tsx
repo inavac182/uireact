@@ -83,11 +83,11 @@ export const DocsTheme: Theme = {
       token_200: '#2F9ED5',
     },
     tertiary: {
-      token_10: '#1E8CC1',
-      token_50: '#1A85B8',
-      token_100: '#187FB0',
-      token_150: '#1379A9',
-      token_200: '#116F9C',
+      token_10: '#61C9FC',
+      token_50: '#45C0FB',
+      token_100: '#1FB6FF',
+      token_150: '#18A9EF',
+      token_200: '#129CDF',
     },
     positive: {
       token_10: '#62fc84',
