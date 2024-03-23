@@ -10,7 +10,7 @@ import { Logo } from './logo';
 import { Section } from './section';
 import { UiText } from '@uireact/text';
 
-const colors = ['#df626b', '#0c0d2b', '#742695', '#2e1433'];
+const colors = ['#5fcfbd', '#df626b', '#0c0d2b', '#742695', '#2e1433'];
 
 const Background = styled(motion.div)`
   width: 100%;
