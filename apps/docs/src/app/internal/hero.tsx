@@ -35,7 +35,21 @@ const LogoContainer = styled.div`
   a {
     font-size: 34px;
   }
-`
+`;
+
+const HeroHeadingContainer = styled.div`
+  width: 100%;
+  top: 40%;
+  left: 0;
+  position: absolute;
+`;
+
+const HeroHeading = styled.h1`
+  width: 70%;
+  text-align: center;
+  font-size: 48px;
+  margin: 0 auto;
+`;
 
 export const Hero = () => { 
   const { scrollYProgress } = useScroll();
@@ -62,6 +76,9 @@ export const Hero = () => {
         <LogoContainer>
           <Logo />
         </LogoContainer>
+        <HeroHeadingContainer>
+          <HeroHeading>Web doesn&apos;t have to be static</HeroHeading>
+        </HeroHeadingContainer>
       </Background>
     </Section>
   )
