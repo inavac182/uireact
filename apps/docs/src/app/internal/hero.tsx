@@ -31,6 +31,7 @@ const LogoContainer = styled.div`
   margin: 50px auto;
   z-index: 2;
   width: 270px;
+
   a {
     font-size: 34px;
   }
