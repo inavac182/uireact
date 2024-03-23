@@ -8,6 +8,7 @@ import { Stars } from '@react-three/drei';
 import { Logo } from './logo';
 
 import { Section } from './section';
+import { UiText } from '@uireact/text';
 
 const colors = ['#df626b', '#0c0d2b', '#742695', '#2e1433'];
 
@@ -77,7 +78,7 @@ export const Hero = () => {
           <Logo iconOnTop />
         </LogoContainer>
         <HeroHeadingContainer>
-          <HeroHeading>Web doesn&apos;t have to be static</HeroHeading>
+          <HeroHeading>Web doesn&apos;t have to be <UiText inline category='tertiary' size='xlarge'>static</UiText></HeroHeading>
         </HeroHeadingContainer>
       </Background>
     </Section>
