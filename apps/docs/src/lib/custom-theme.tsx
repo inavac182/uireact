@@ -120,12 +120,12 @@ export const DocsTheme: Theme = {
   },
   sizes: {
     headings: {
-      level1: '26px',
-      level2: '24px',
-      level3: '20px',
-      level4: '18px',
-      level5: '18px',
-      level6: '18px',
+      level1: '38px',
+      level2: '34px',
+      level3: '28px',
+      level4: '24px',
+      level5: '10px',
+      level6: '16px',
     },
     texts: {
       xsmall: '14px',

@@ -16,6 +16,7 @@
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
     "@types/react": "^18",
+    "@uireact/card": "workspace:*",
     "@uireact/dialog": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/text": "workspace:*",

@@ -1,14 +1,14 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, useScroll, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
 import styled from 'styled-components';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 
-import { Logo } from './logo';
+import { Logo } from '../internal/logo';
 
-import { Section } from './section';
-import { UiText } from '@uireact/text';
+import { Section } from '../internal/section';
+import { HeroMessage } from './hero-components';
 
 const colors = ['#5fcfbd', '#df626b', '#0c0d2b', '#742695', '#2e1433'];
 
@@ -45,14 +45,8 @@ const HeroHeadingContainer = styled.div`
   position: absolute;
 `;
 
-const HeroHeading = styled.h1`
-  width: 70%;
-  text-align: center;
-  font-size: 48px;
-  margin: 0 auto;
-`;
-
 export const Hero = () => { 
+  const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll();
   const color = useMotionValue(colors[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
@@ -66,8 +60,10 @@ export const Hero = () => {
     });
   }, [color]);
 
+  console.log(scrollYProgress);
+
   return (
-    <Section>
+    <Section ref={sectionRef}>
       <Background style={{ backgroundImage }}>
         <StarsContainer>
           <Canvas>
@@ -78,7 +74,7 @@ export const Hero = () => {
           <Logo iconOnTop />
         </LogoContainer>
         <HeroHeadingContainer>
-          <HeroHeading>Web doesn&apos;t have to be <UiText inline category='tertiary' size='xlarge'>static</UiText></HeroHeading>
+        <HeroMessage />
         </HeroHeadingContainer>
       </Background>
     </Section>

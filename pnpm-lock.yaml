@@ -20,6 +20,9 @@ importers:
       '@types/react':
         specifier: ^18
         version: 18.2.67
+      '@uireact/card':
+        specifier: workspace:*
+        version: link:packages/card
       '@uireact/dialog':
         specifier: workspace:*
         version: link:packages/dialog
@@ -83,6 +86,39 @@ importers:
       '@types/mdx':
         specifier: ^2.0.11
         version: 2.0.11
+      '@uireact/badge':
+        specifier: workspace:*
+        version: link:../../packages/badge
+      '@uireact/card':
+        specifier: workspace:*
+        version: link:../../packages/card
+      '@uireact/flex':
+        specifier: workspace:*
+        version: link:../../packages/flex
+      '@uireact/foundation':
+        specifier: workspace:*
+        version: link:../../packages/foundation
+      '@uireact/grid':
+        specifier: workspace:*
+        version: link:../../packages/grid
+      '@uireact/header':
+        specifier: workspace:*
+        version: link:../../packages/header
+      '@uireact/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@uireact/list':
+        specifier: workspace:*
+        version: link:../../packages/list
+      '@uireact/navbar':
+        specifier: workspace:*
+        version: link:../../packages/navbar
+      '@uireact/separator':
+        specifier: workspace:*
+        version: link:../../packages/separator
+      '@uireact/view':
+        specifier: workspace:*
+        version: link:../../packages/view
       framer-motion:
         specifier: ^11.0.18
         version: 11.0.18(react-dom@18.2.0)(react@18.2.0)
@@ -120,36 +156,6 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.22
-      '@uireact/badge':
-        specifier: workspace:*
-        version: link:../../packages/badge
-      '@uireact/flex':
-        specifier: workspace:*
-        version: link:../../packages/flex
-      '@uireact/foundation':
-        specifier: workspace:*
-        version: link:../../packages/foundation
-      '@uireact/grid':
-        specifier: workspace:*
-        version: link:../../packages/grid
-      '@uireact/header':
-        specifier: workspace:*
-        version: link:../../packages/header
-      '@uireact/icons':
-        specifier: workspace:*
-        version: link:../../packages/icons
-      '@uireact/list':
-        specifier: workspace:*
-        version: link:../../packages/list
-      '@uireact/navbar':
-        specifier: workspace:*
-        version: link:../../packages/navbar
-      '@uireact/separator':
-        specifier: workspace:*
-        version: link:../../packages/separator
-      '@uireact/view':
-        specifier: workspace:*
-        version: link:../../packages/view
       eslint:
         specifier: ^8
         version: 8.57.0
