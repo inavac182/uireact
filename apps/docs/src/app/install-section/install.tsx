@@ -2,6 +2,8 @@
 
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiHeading, UiLink, UiText } from "@uireact/text"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { Section, ScriptCard } from '../internal';
 
@@ -28,20 +30,20 @@ export const Installation = () => {
           <UiHeading>
             <UiText inline category="tertiary" size="xlarge">3.</UiText> Set up your UiView, by wrapping your entire react tree in the UiView component
           </UiHeading>
-          <pre>
+          <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
             {`
 import React from 'react';
 
 import { DefaultTheme } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
-export const MyAppView = () => (
+export const MyWrapper = () => (
   <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
     <p>View content</p>
   </UiView>
 );
             `}
-          </pre>
+          </SyntaxHighlighter>
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
@@ -56,6 +58,9 @@ export const MyAppView = () => (
               If you want to build a custom theme visit <UiLink><a href="https://uireact.io/create-theme">Create your own theme</a></UiLink> to learn more about it.
             </UiText>
           </UiSpacing>
+        </UiSpacing>
+        <UiSpacing padding={contentSpacing}>
+          <UiHeading>🏁 That&apos;s it, Start creating magic ✨</UiHeading>
         </UiSpacing>
       </UiSpacing>
     </Section>
