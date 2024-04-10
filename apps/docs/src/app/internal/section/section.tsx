@@ -5,34 +5,36 @@ import { Separator } from './separator';
 
 type SectionProps = {
   children?: React.ReactElement;
-  ref?: React.Ref<HTMLElement>;
+  customRef?: React.Ref<HTMLDivElement>;
   centerContent?: boolean;
+  skipSeparator?: boolean;
 }
 
 const SectionContainer = styled.section`
   width: 100%;
-  min-height: 80vh;
-  position: relative;
-  padding-bottom: 100px;
+  min-height: 70vh;
+  margin-top: -10px;
+  background-color: var(--primary-token_100);
 `;
 
 const SectionCenteredContent = styled.div`
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 `
 
-export const Section = ({ centerContent, children, ref }: SectionProps) => {
+export const Section = ({ centerContent, children, customRef, skipSeparator }: SectionProps) => {
   return (
-    <SectionContainer ref={ref}>
-      {centerContent ? (
-        <SectionCenteredContent>
-          {children}
-        </SectionCenteredContent>
-      ): (
-        <>{ children }</>
-      )}
-      
-      <Separator />
-    </SectionContainer>
+    <div ref={customRef}>
+      {!skipSeparator && <Separator />}
+      <SectionContainer>
+        {centerContent ? (
+          <SectionCenteredContent>
+            {children}
+          </SectionCenteredContent>
+        ): (
+          <>{ children }</>
+        )}
+      </SectionContainer>
+    </div>
   );
 };

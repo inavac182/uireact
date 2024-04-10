@@ -3,8 +3,7 @@
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiHeading, UiLink, UiText } from "@uireact/text"
 
-import { Section } from "../internal/section"
-import { ScriptCard } from '../internal';
+import { Section, ScriptCard } from '../internal';
 
 const contentSpacing: UiSpacingProps['padding'] = { top: 'six' };
 
@@ -15,19 +14,19 @@ export const Installation = () => {
         <UiHeading level={1} centered>🔥 Getting started</UiHeading>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            1. Install peer dependencies:
+            <UiText inline category="tertiary" size="xlarge">1.</UiText> Install peer dependencies:
           </UiHeading>
           <ScriptCard script="npm i -S react react-dom styled-components tslib" />
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            2. Install the foundation and view packages:
+            <UiText inline category="tertiary" size="xlarge">2.</UiText> Install the foundation and view packages:
           </UiHeading>
           <ScriptCard script="npm i -S @uireact/foundation @uireact/view" />
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            3. Set up your UiView, by wrapping your entire react tree in the UiView component
+            <UiText inline category="tertiary" size="xlarge">3.</UiText> Set up your UiView, by wrapping your entire react tree in the UiView component
           </UiHeading>
           <pre>
             {`
@@ -46,7 +45,7 @@ export const MyAppView = () => (
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            4. Create your theme! ✨
+            <UiText inline category="tertiary" size="xlarge">4.</UiText> Create your theme! ✨
           </UiHeading>
           <UiSpacing padding={contentSpacing}>
             <UiText>

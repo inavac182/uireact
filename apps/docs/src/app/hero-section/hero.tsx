@@ -1,12 +1,11 @@
 'use client';
 import { useEffect, useRef } from 'react';
+
 import { motion, useScroll, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
 import styled from 'styled-components';
-import { Canvas } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
 
+import { useParallax } from '../hooks';
 import { Logo } from '../internal/logo';
-
 import { Section } from '../internal/section';
 import { HeroMessage } from './hero-components';
 
@@ -19,16 +18,7 @@ const Background = styled(motion.div)`
   top: 0;
 `;
 
-const StarsContainer = styled.div`
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-`;
-
-const LogoContainer = styled.div`
+const LogoContainer = styled(motion.div)`
   margin: 50px auto;
   z-index: 2;
   width: 240px;
@@ -38,9 +28,9 @@ const LogoContainer = styled.div`
   }
 `;
 
-const HeroHeadingContainer = styled.div`
+const HeroHeadingContainer = styled(motion.div)`
   width: 100%;
-  top: 40%;
+  top: 30%;
   left: 0;
   position: absolute;
 `;
@@ -50,6 +40,8 @@ export const Hero = () => {
   const { scrollYProgress } = useScroll();
   const color = useMotionValue(colors[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
+  const logoY = useParallax(scrollYProgress, -50);
+  const heroTextY = useParallax(scrollYProgress, -200);
 
   useEffect(() => {
     animate(color, colors, {
@@ -60,21 +52,14 @@ export const Hero = () => {
     });
   }, [color]);
 
-  console.log(scrollYProgress);
-
   return (
-    <Section ref={sectionRef}>
+    <Section customRef={sectionRef} skipSeparator>
       <Background style={{ backgroundImage }}>
-        <StarsContainer>
-          <Canvas>
-            <Stars radius={50} count={2500} factor={4} fade speed={2} />
-          </Canvas>
-        </StarsContainer>
-        <LogoContainer>
+        <LogoContainer style={{ y: logoY }}>
           <Logo iconOnTop />
         </LogoContainer>
-        <HeroHeadingContainer>
-        <HeroMessage />
+        <HeroHeadingContainer style={{ y: heroTextY }}>
+          <HeroMessage />
         </HeroHeadingContainer>
       </Background>
     </Section>

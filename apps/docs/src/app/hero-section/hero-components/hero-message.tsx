@@ -1,13 +1,14 @@
 'use client';
 import { AnimatePresence, AnimationProps, motion, Variants } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 
 const HeroHeading = styled.h1`
   width: 70%;
   text-align: center;
-  font-size: 48px;
+  font-size: 36px;
   margin: 0 auto;
+  font-family: "Press Start 2P", system-ui;
 `;
 
 const HeroLetter = styled(motion.span)`
@@ -20,6 +21,7 @@ const HeroLettersContainer = styled.div`
   font-size: 48px;
   font-weight: bold;
   margin: 50px auto;
+  font-family: "Press Start 2P", system-ui;
 `;
 
 export const HeroMessage = () => {
@@ -79,13 +81,13 @@ const HeroLoop = () => {
     <HeroLettersContainer>
       <AnimatePresence mode='popLayout'>
         {texts.map((text, index) => (
-          <>
+          <React.Fragment key={`letter-${index}`}>
             {visible === index && (
-              <HeroLetter key={`letter-${index}`} initial='initial' animate='bumpy' variants={variants}>
+              <HeroLetter initial='initial' animate='bumpy' variants={variants}>
                 {text}
               </HeroLetter>
             )}
-          </>
+          </React.Fragment>
         ))}
       </AnimatePresence>
     </HeroLettersContainer>
