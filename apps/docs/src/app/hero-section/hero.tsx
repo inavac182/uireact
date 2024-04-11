@@ -40,8 +40,9 @@ export const Hero = () => {
   const { scrollYProgress } = useScroll();
   const color = useMotionValue(colors[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
-  const logoY = useParallax(scrollYProgress, -50);
-  const heroTextY = useParallax(scrollYProgress, -200);
+  const logoY = useParallax(scrollYProgress, 800, 0);
+  const heroTextX = useParallax(scrollYProgress, 3, 1);
+  const heroTextY = useParallax(scrollYProgress, 600, 0);
 
   useEffect(() => {
     animate(color, colors, {
@@ -58,7 +59,7 @@ export const Hero = () => {
         <LogoContainer style={{ y: logoY }}>
           <Logo iconOnTop />
         </LogoContainer>
-        <HeroHeadingContainer style={{ y: heroTextY }}>
+        <HeroHeadingContainer style={{ scale: heroTextX, y: heroTextY }}>
           <HeroMessage />
         </HeroHeadingContainer>
       </Background>

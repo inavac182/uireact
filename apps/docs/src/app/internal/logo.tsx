@@ -90,7 +90,6 @@ export const Logo = ({ iconOnTop }: LogoProps): React.ReactElement => (
           <Span $index={8}>t</Span>
         </H1>
         {!iconOnTop && (<LogoIcon width={30} />)}
-        
       </Div>
     </a>
   </UiLink>

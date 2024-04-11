@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
 
-const inter = Inter({ subsets: ["latin"] });
+import styles from './global.module.scss';
 
 export const metadata: Metadata = {
   title: "@UiReact",
@@ -27,7 +27,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className={styles.globalStyles}>
         <StyledComponentsRegistry>
           <ViewWrapper>
             {children}

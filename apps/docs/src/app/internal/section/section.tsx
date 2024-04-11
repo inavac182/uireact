@@ -12,7 +12,7 @@ type SectionProps = {
 
 const SectionContainer = styled.section`
   width: 100%;
-  min-height: 70vh;
+  min-height: 100vh;
   margin-top: -10px;
   background-color: var(--primary-token_100);
 `;
