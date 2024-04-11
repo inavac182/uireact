@@ -18,6 +18,8 @@ const SectionContainer = styled.section<{ $weight: ColorToken }>`
   min-height: 100vh;
   margin-top: -10px;
   background-color: var(--primary-${(props) => `token_${props.$weight}`});
+  position: relative;
+  box-sizing: border-box;
 `;
 
 const SectionCenteredContent = styled.div`

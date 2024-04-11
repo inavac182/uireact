@@ -38,7 +38,7 @@ export const Demo = () => {
     offset: ["100vh", "400vh"]
   });
   const upwardsGrid = useParallax(scrollYProgress, "-1000px", "0px");
-  const downwardsGrid = useParallax(scrollYProgress, "1000px", "-800px");
+  const downwardsGrid = useParallax(scrollYProgress, "2000px", "-300px");
 
   return (
     <>

@@ -8,6 +8,7 @@ import { useParallax } from '../hooks';
 import { Logo } from '../internal/logo';
 import { Section } from '../internal/section';
 import { HeroMessage } from './hero-components';
+import { useViewport } from '@uireact/foundation';
 
 const colors = ['#5fcfbd', '#df626b', '#0c0d2b', '#742695', '#2e1433'];
 
@@ -41,7 +42,7 @@ export const Hero = () => {
   const color = useMotionValue(colors[0]);
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const logoY = useParallax(scrollYProgress, 800, 0);
-  const heroTextX = useParallax(scrollYProgress, 3, 1);
+  const heroTextX = useParallax(scrollYProgress, 2, 1);
   const heroTextY = useParallax(scrollYProgress, 1500, 0);
 
   useEffect(() => {
