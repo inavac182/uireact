@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { ColorToken } from '@uireact/foundation';
+
 import { Separator } from './separator';
 
 type SectionProps = {
@@ -8,25 +10,26 @@ type SectionProps = {
   customRef?: React.Ref<HTMLDivElement>;
   centerContent?: boolean;
   skipSeparator?: boolean;
+  weight?: ColorToken;
 }
 
-const SectionContainer = styled.section`
+const SectionContainer = styled.section<{ $weight: ColorToken }>`
   width: 100%;
   min-height: 100vh;
   margin-top: -10px;
-  background-color: var(--primary-token_100);
+  background-color: var(--primary-${(props) => `token_${props.$weight}`});
 `;
 
 const SectionCenteredContent = styled.div`
   max-width: 600px;
   margin: 0 auto;
-`
+`;
 
-export const Section = ({ centerContent, children, customRef, skipSeparator }: SectionProps) => {
+export const Section = ({ centerContent, children, customRef, skipSeparator, weight = '100' }: SectionProps) => {
   return (
     <div ref={customRef}>
-      {!skipSeparator && <Separator />}
-      <SectionContainer>
+      {!skipSeparator && <Separator weight={weight} />}
+      <SectionContainer $weight={weight}>
         {centerContent ? (
           <SectionCenteredContent>
             {children}

@@ -9,6 +9,7 @@ const HeroHeading = styled.h1`
   font-size: 36px;
   margin: 0 auto;
   font-family: "Press Start 2P", system-ui;
+  color: #e0dede;
 `;
 
 const HeroLetter = styled(motion.span)`
@@ -40,7 +41,7 @@ const variants: Variants = {
     y: 0,
     opacity: 0
   },
-  bumpy: {
+  flashing: {
     y: [0, -30, -50],
     opacity: [0, 1, 0],
     scale: [1, 1.25, 1],
@@ -83,7 +84,7 @@ const HeroLoop = () => {
         {texts.map((text, index) => (
           <React.Fragment key={`letter-${index}`}>
             {visible === index && (
-              <HeroLetter initial='initial' animate='bumpy' variants={variants}>
+              <HeroLetter initial='initial' animate='flashing' variants={variants}>
                 {text}
               </HeroLetter>
             )}

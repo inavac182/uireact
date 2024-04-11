@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 
-import { Inter } from "next/font/google";
-
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
 
 import styles from './global.module.scss';
 
 export const metadata: Metadata = {
-  title: "@UiReact",
+  title: "@UiReact | Themed UI Library",
   description: "Themed UI React library of components",
 };
 

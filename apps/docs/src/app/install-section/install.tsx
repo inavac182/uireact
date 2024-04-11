@@ -11,7 +11,7 @@ const contentSpacing: UiSpacingProps['padding'] = { top: 'six' };
 
 export const Installation = () => { 
   return (
-    <Section centerContent>
+    <Section centerContent weight="150">
       <UiSpacing padding={contentSpacing}>
         <UiHeading level={1} centered>🔥 Getting started</UiHeading>
         <UiSpacing padding={contentSpacing}>

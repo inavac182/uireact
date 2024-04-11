@@ -26,6 +26,10 @@ const DemoGridContainer = styled(motion.div)`
 const GridContainer = styled.div`
   height: 500px;
   overflow: hidden;
+`;
+
+const SeparatorWrapper = styled.div`
+  margin-top: -50px;
 `
 
 export const Demo = () => {
@@ -38,7 +42,9 @@ export const Demo = () => {
 
   return (
     <>
-      <Separator />
+      <SeparatorWrapper>
+        <Separator weight='100' />
+      </SeparatorWrapper>
       <DemoContainer ref={ref}>
         <UiHeading>Themed React components</UiHeading>
         <UiLineSeparator />
