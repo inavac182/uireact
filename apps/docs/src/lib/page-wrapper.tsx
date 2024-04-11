@@ -13,10 +13,6 @@ type ViewWrapperProps = {
   children: React.ReactNode;
 };
 
-const Wrapper = styled.div`
-  overflow-x: hidden;
-`;
-
 const useThemeDetector = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const mqListener = useCallback((e: MediaQueryListEvent) => {
@@ -49,10 +45,8 @@ export const ViewWrapper = ({ children }: ViewWrapperProps) => {
   }, [isDarkTheme]);
 
   return (
-    <Wrapper>
-      <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper">
-        {children}
-      </UiView>
-    </Wrapper>
+    <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper">
+      {children}
+    </UiView>
   );
 };
