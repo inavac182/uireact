@@ -2,15 +2,16 @@ import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import styled from 'styled-components';
 
-import { UiHeading, UiText } from "@uireact/text";
-import { UiCard } from '@uireact/card';
+import { UiButtonLink, UiHeading, UiLink } from "@uireact/text";
 import { UiLineSeparator } from '@uireact/separator';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 
 import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
-import { UiSpacing } from '@uireact/foundation';
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import Link from 'next/link';
+import { UiIcon } from '@uireact/icons';
 
 
 const DemoContainer = styled(motion.div)`
@@ -24,21 +25,23 @@ const DemoGridContainer = styled(motion.div)`
 `;
 
 const GridContainer = styled.div`
-  height: 500px;
+  height: 100vh;
   overflow: hidden;
 `;
 
 const SeparatorWrapper = styled.div`
   margin-top: -280px;
-`
+`;
+
+const headingSpacing: UiSpacingProps['padding'] = { block: 'five', inline: 'five' };
 
 export const Demo = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     offset: ["100vh", "400vh"]
   });
-  const upwardsGrid = useParallax(scrollYProgress, "-1000px", "0px");
-  const downwardsGrid = useParallax(scrollYProgress, "2000px", "-300px");
+  const upwardsGrid = useParallax(scrollYProgress, "-1000px", "100px");
+  const downwardsGrid = useParallax(scrollYProgress, "1000px", "-400px");
 
   return (
     <>
@@ -46,7 +49,20 @@ export const Demo = () => {
         <Separator weight='100' />
       </SeparatorWrapper>
       <DemoContainer ref={ref}>
-        <UiHeading>Themed React components</UiHeading>
+        <UiSpacing padding={headingSpacing}>
+          <UiFlexGrid justifyContent='center'>
+            <UiFlexGridItem grow={1}>
+              <UiHeading>@UiReact | Themed UI React components</UiHeading>
+            </UiFlexGridItem>
+            <UiFlexGridItem>
+              <UiButtonLink>
+                <Link href="docs/">
+                  <UiIcon icon='Book'/> Docs
+                </Link>
+              </UiButtonLink>
+            </UiFlexGridItem>
+          </UiFlexGrid>
+        </UiSpacing>
         <UiLineSeparator />
         <br />
         <GridContainer>
