@@ -56,6 +56,10 @@ const H1 = styled.h1`
 
     text-decoration: none;
   }
+
+  @media screen and (max-width: '500px') {
+    font-size: 20px;
+  }
 `;
 
 const Span = styled.span<{ $index: number }>`

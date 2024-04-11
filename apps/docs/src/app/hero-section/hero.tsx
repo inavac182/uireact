@@ -42,7 +42,7 @@ export const Hero = () => {
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
   const logoY = useParallax(scrollYProgress, 800, 0);
   const heroTextX = useParallax(scrollYProgress, 3, 1);
-  const heroTextY = useParallax(scrollYProgress, 600, 0);
+  const heroTextY = useParallax(scrollYProgress, 1500, 0);
 
   useEffect(() => {
     animate(color, colors, {

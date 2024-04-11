@@ -2,6 +2,8 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 
+import styled from "styled-components";
+
 import { ThemeColor } from "@uireact/foundation";
 import { UiView } from "@uireact/view";
 
@@ -10,6 +12,10 @@ import { DocsTheme } from "./custom-theme";
 type ViewWrapperProps = {
   children: React.ReactNode;
 };
+
+const Wrapper = styled.div`
+  overflow-x: hidden;
+`;
 
 const useThemeDetector = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -43,8 +49,10 @@ export const ViewWrapper = ({ children }: ViewWrapperProps) => {
   }, [isDarkTheme]);
 
   return (
-    <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground>
-      {children}
-    </UiView>
+    <Wrapper>
+      <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper">
+        {children}
+      </UiView>
+    </Wrapper>
   );
 };

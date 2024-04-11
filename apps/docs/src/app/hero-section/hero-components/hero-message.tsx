@@ -1,4 +1,5 @@
 'use client';
+import { useViewport } from '@uireact/foundation';
 import { AnimatePresence, AnimationProps, motion, Variants } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
@@ -10,11 +11,19 @@ const HeroHeading = styled.h1`
   margin: 0 auto;
   font-family: "Press Start 2P", system-ui;
   color: #e0dede;
+
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
 
 const HeroLetter = styled(motion.span)`
   display: inline-block;
   color: var(--tertiary-token_100);
+
+  @media screen and (max-width: '500px') {
+    font-size: 10px;
+  }
 `;
 
 const HeroLettersContainer = styled.div`
@@ -23,6 +32,10 @@ const HeroLettersContainer = styled.div`
   font-weight: bold;
   margin: 50px auto;
   font-family: "Press Start 2P", system-ui;
+
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+  }
 `;
 
 export const HeroMessage = () => {
@@ -51,20 +64,30 @@ const variants: Variants = {
       stiffness: 1000,
       damping: 200
     }
+  },
+  flashingMobile: {
+    y: [0, -30, -50],
+    opacity: [0, 1, 0],
+    transition: {
+      duration: 3,
+      ease: 'easeIn',
+      stiffness: 1000,
+      damping: 200
+    }
   }
 };
 
 const texts = [
-  '🤩 dynamic',
-  '😝 fun',
-  '😮 impressive',
-  '🧐 interesting',
-  '😎 cool',
-  '✨ @uiReact'
+  '🤩 dynamic 🤩',
+  '😮 impressive 😮',
+  '🧐 interesting 🧐',
+  '😎 cool 😎',
+  '✨ @UiReact ✨'
 ]
 
 const HeroLoop = () => {
   const [visible, setVisible] = useState(0);
+  const { isSmall } = useViewport();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -84,7 +107,7 @@ const HeroLoop = () => {
         {texts.map((text, index) => (
           <React.Fragment key={`letter-${index}`}>
             {visible === index && (
-              <HeroLetter initial='initial' animate='flashing' variants={variants}>
+              <HeroLetter initial='initial' animate={isSmall ? 'flashingMobile' : 'flashing'} variants={variants}>
                 {text}
               </HeroLetter>
             )}

@@ -29,7 +29,7 @@ const GridContainer = styled.div`
 `;
 
 const SeparatorWrapper = styled.div`
-  margin-top: -50px;
+  margin-top: -280px;
 `
 
 export const Demo = () => {
