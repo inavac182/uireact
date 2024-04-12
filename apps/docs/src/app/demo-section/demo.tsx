@@ -1,18 +1,18 @@
 import { useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import styled from 'styled-components';
+import Link from 'next/link';
 
-import { UiButtonLink, UiHeading, UiLink } from "@uireact/text";
+import { UiButtonLink, UiHeading, UiLink, UiText } from "@uireact/text";
 import { UiLineSeparator } from '@uireact/separator';
 import { UiGrid, UiGridItem } from '@uireact/grid';
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import { UiIcon } from '@uireact/icons';
 
 import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
-import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
-import Link from 'next/link';
-import { UiIcon } from '@uireact/icons';
-
+import { DemoCard } from '../internal';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
@@ -21,7 +21,7 @@ const DemoContainer = styled(motion.div)`
 `;
 
 const DemoGridContainer = styled(motion.div)`
-  height: 800px
+  height: 800px;
 `;
 
 const GridContainer = styled.div`
@@ -68,91 +68,79 @@ export const Demo = () => {
         <GridContainer>
           <UiGrid cols={{ small: 1, medium: 2, large: 4, xlarge: 4 }} rows={1}>
             <UiGridItem>
-            <DemoGridContainer style={{ y: upwardsGrid }}>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.1</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.2</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.3</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.4</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.5</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 1.6</p>
-                </UiSpacing>
+              <DemoGridContainer style={{ y: upwardsGrid }}>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.1</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.2</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.3</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.4</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.5</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 2.6</p>
-                </UiSpacing>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: upwardsGrid }}>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.1</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.2</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.3</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.4</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.5</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 3.6</p>
-                </UiSpacing>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.1</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.2</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.3</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.4</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.5</p>
-              </UiSpacing>
-              <UiSpacing padding={{ block: 'seven' }}>
-                <p>Grid 4.6</p>
-                </UiSpacing>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard transparent>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
+                <DemoCard>
+                  <UiText>Demo component</UiText>
+                </DemoCard>
               </DemoGridContainer>
             </UiGridItem>
           </UiGrid>
