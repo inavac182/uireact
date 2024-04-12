@@ -92,6 +92,9 @@ importers:
       '@uireact/badge':
         specifier: workspace:*
         version: link:../../packages/badge
+      '@uireact/button':
+        specifier: workspace:*
+        version: link:../../packages/button
       '@uireact/card':
         specifier: workspace:*
         version: link:../../packages/card

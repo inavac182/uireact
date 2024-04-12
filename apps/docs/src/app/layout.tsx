@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
+import {DocsThemeProvider  } from '@/app/providers';
 
 import styles from './global.module.scss';
 
@@ -27,9 +28,11 @@ export default function RootLayout({
       </head>
       <body>
         <StyledComponentsRegistry>
-          <ViewWrapper>
-            {children}
-          </ViewWrapper>
+          <DocsThemeProvider>
+            <ViewWrapper>
+              {children}
+            </ViewWrapper>
+          </DocsThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

@@ -2,18 +2,23 @@
 
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiHeading, UiLink, UiText } from "@uireact/text"
+import { UiLineSeparator } from "@uireact/separator";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { Section, ScriptCard } from '../internal';
 
 const contentSpacing: UiSpacingProps['padding'] = { top: 'six' };
+const headingSpacing: UiSpacingProps['padding'] = { bottom: 'five' };
 
 export const Installation = () => { 
   return (
-    <Section centerContent weight="150">
+    <Section centerContent weight="150" includeBottomSeparator>
       <UiSpacing padding={contentSpacing}>
-        <UiHeading level={1} centered>🔥 Getting started</UiHeading>
+        <UiSpacing padding={headingSpacing}>
+          <UiHeading level={1} centered>🔥 Getting started</UiHeading>
+        </UiSpacing>
+        <UiLineSeparator />
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
             <UiText inline category="tertiary" size="xlarge">1.</UiText> Install peer dependencies:

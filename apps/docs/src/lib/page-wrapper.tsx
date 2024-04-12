@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
-
-import styled from "styled-components";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import { ThemeColor } from "@uireact/foundation";
 import { UiView } from "@uireact/view";
 
 import { DocsTheme } from "./custom-theme";
+import { DocsThemeContext } from "@/app/providers";
 
 type ViewWrapperProps = {
   children: React.ReactNode;
@@ -35,14 +34,12 @@ const useThemeDetector = () => {
 };
 
 export const ViewWrapper = ({ children }: ViewWrapperProps) => {
+  const { selectTheme, selectedTheme } = useContext(DocsThemeContext);
   const isDarkTheme = useThemeDetector();
-  const [selectedTheme, setSelectedTheme] = useState(
-    isDarkTheme ? ThemeColor.dark : ThemeColor.light,
-  );
 
   useEffect(() => {
-    setSelectedTheme(isDarkTheme ? ThemeColor.dark : ThemeColor.light);
-  }, [isDarkTheme]);
+    selectTheme(isDarkTheme ? ThemeColor.dark : ThemeColor.light);
+  }, [isDarkTheme, selectTheme]);
 
   return (
     <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper">

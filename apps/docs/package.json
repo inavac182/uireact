@@ -17,6 +17,7 @@
     "@types/mdx": "^2.0.11",
     "@types/react-syntax-highlighter": "^15.5.11",
     "@uireact/badge": "workspace:*",
+    "@uireact/button": "workspace:*",
     "@uireact/card": "workspace:*",
     "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
