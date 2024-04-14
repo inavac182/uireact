@@ -15,6 +15,7 @@ import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
 import { DemoCard } from '../internal';
 import { DocsThemeContext } from '../providers';
+import { BadgesDemo, TextsDemo, ThemeDemo } from './demos';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
@@ -54,11 +55,11 @@ export const Demo = () => {
       <SeparatorWrapper>
         <Separator weight='100' />
       </SeparatorWrapper>
-      <DemoContainer ref={ref}>
+      <DemoContainer ref={ref} id="demo-components">
         <UiSpacing padding={headingSpacing}>
           <UiFlexGrid justifyContent='center' columnGap='four'>
             <UiFlexGridItem grow={1}>
-              <UiHeading>@UiReact | Themed UI React components</UiHeading>
+              <UiHeading>@UiReact | Themed Components</UiHeading>
             </UiFlexGridItem>
             <UiFlexGridItem>
               <UiButton styling='icon' category='tertiary' onClick={toggleTheme}>
@@ -79,16 +80,12 @@ export const Demo = () => {
           <UiGrid cols={{ small: 1, medium: 2, large: 4, xlarge: 4 }} rows={1}>
             <UiGridItem>
               <DemoGridContainer style={{ y: upwardsGrid }}>
+                <TextsDemo />
+                <BadgesDemo />
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='primary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
@@ -98,9 +95,7 @@ export const Demo = () => {
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
-                <DemoCard transparent>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <ThemeDemo />
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
