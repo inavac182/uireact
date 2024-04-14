@@ -99,13 +99,13 @@ export const Demo = () => {
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
               </DemoGridContainer>
@@ -115,13 +115,13 @@ export const Demo = () => {
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
@@ -134,13 +134,13 @@ export const Demo = () => {
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
-                <DemoCard transparent>
+                <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>
                 <DemoCard>
