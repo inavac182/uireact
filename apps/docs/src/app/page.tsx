@@ -11,6 +11,7 @@ import { Hero } from './hero-section';
 import { Installation } from './install-section';
 import { useParallax } from './hooks';
 import { Demo } from './demo-section';
+import { Footer } from './footer-section';
 
 const StarsContainer = styled.div`
   position: absolute;
@@ -38,9 +39,8 @@ export default function HomePage() {
         </Canvas>
       </StarsContainer>
       <Demo />
-      <motion.div style={{ y: sectionY }}>
-        <Installation />
-      </motion.div>
+      <Installation />
+      <Footer />
     </Container>
   )
 }
