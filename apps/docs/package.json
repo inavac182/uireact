@@ -20,6 +20,7 @@
     "@uireact/button": "workspace:*",
     "@uireact/card": "workspace:*",
     "@uireact/flex": "workspace:*",
+    "@uireact/form": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/grid": "workspace:*",
     "@uireact/header": "workspace:*",

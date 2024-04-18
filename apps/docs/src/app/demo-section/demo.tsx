@@ -3,7 +3,7 @@ import { motion, useScroll } from 'framer-motion';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-import { UiButtonLink, UiHeading, UiLink, UiText } from "@uireact/text";
+import { UiButtonLink, UiHeading, UiText } from "@uireact/text";
 import { UiLineSeparator } from '@uireact/separator';
 import { UiGrid, UiGridItem } from '@uireact/grid';
 import { ThemeColor, UiSpacing, UiSpacingProps } from '@uireact/foundation';
@@ -15,7 +15,7 @@ import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
 import { DemoCard } from '../internal';
 import { DocsThemeContext } from '../providers';
-import { BadgesDemo, TextsDemo, ThemeDemo } from './demos';
+import { BadgesDemo, ButtonsDemo, Cards, FormsDemo, FramerMotionDemo, StyledDemo, TextsDemo, ThemeDemo } from './demos';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
@@ -80,38 +80,21 @@ export const Demo = () => {
           <UiGrid cols={{ small: 1, medium: 2, large: 4, xlarge: 4 }} rows={1}>
             <UiGridItem>
               <DemoGridContainer style={{ y: upwardsGrid }}>
-                <TextsDemo />
-                <BadgesDemo />
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='primary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <StyledDemo />
+                <FramerMotionDemo />
+                <Cards />
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
                 <ThemeDemo />
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <TextsDemo />
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: upwardsGrid }}>
+                <FormsDemo />
+                <ButtonsDemo />
                 <DemoCard>
                   <UiText>Demo component</UiText>
                 </DemoCard>
@@ -131,9 +114,7 @@ export const Demo = () => {
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <BadgesDemo />
                 <DemoCard category='tertiary'>
                   <UiText>Demo component</UiText>
                 </DemoCard>

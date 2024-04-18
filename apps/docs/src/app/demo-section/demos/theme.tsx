@@ -33,7 +33,7 @@ const settingsSpacing: UiSpacingProps['padding'] = { left: 'five' };
 
 export const ThemeDemo = () => {
   return (
-    <DemoCard category="primary" shadow={false}>
+    <DemoCard category="primary" shadow={false} spacing={{}}>
       <>
         <UiHeading level={4}>Light and Dark colorations</UiHeading>
         <br />

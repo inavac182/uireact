@@ -7,6 +7,7 @@ type DemoCardProps = {
   shadow?: boolean;
   category?: ColorCategory;
   weight?: ColorToken;
+  spacing?: UiSpacingProps['padding'];
 }
 
 type DemoCardContentProps = {
@@ -30,9 +31,9 @@ const DemoCardContent = styled.div<DemoCardContentProps>`
 
 const DemoCardSpacing: UiSpacingProps['padding'] = { all: 'five' };
 
-export const DemoCard = ({ children, shadow = true, category = 'primary', weight = '100' }: DemoCardProps) => {
+export const DemoCard = ({ children, shadow = true, category = 'primary', weight = '100', spacing = DemoCardSpacing }: DemoCardProps) => {
   return (
-    <UiSpacing padding={DemoCardSpacing}>
+    <UiSpacing padding={spacing}>
       <DemoCardContent $category={category} $weight={weight} $shadow={shadow}>
         {children}
       </DemoCardContent>

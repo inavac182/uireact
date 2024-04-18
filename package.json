@@ -19,6 +19,7 @@
     "@uireact/card": "workspace:*",
     "@uireact/dialog": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/form": "workspace:*",
     "@uireact/text": "workspace:*",
     "@uireact/view": "workspace:*",
     "add": "^2.0.6",

@@ -5,7 +5,7 @@ import { DemoCard } from "@/app/internal"
 
 export const BadgesDemo = () => {
   return (
-    <DemoCard category='tertiary' weight='200'>
+    <DemoCard shadow={false}>
       <>
         <UiHeading>Badges</UiHeading>
         <br />
