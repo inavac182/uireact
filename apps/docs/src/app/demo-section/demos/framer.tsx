@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { UiHeading, UiText } from "@uireact/text"
@@ -18,7 +19,8 @@ export const FramerMotionDemo = () => {
                         width: '100px',
                         height: '100px',
                         backgroundColor: 'var(--primary-token_100)',
-                        margin: '0 auto'
+                        margin: '0 auto',
+                        display: 'flex'
                     }}
                     animate={{
                         scale: [1, 2, 2, 1, 1],
@@ -32,7 +34,9 @@ export const FramerMotionDemo = () => {
                         repeat: Infinity,
                         repeatDelay: 1
                     }}
-                    />
+                >
+                    🌕
+                </motion.div>
             </>
         </DemoCard>
     )

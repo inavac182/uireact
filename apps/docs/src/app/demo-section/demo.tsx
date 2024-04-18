@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { UiButtonLink, UiHeading, UiText } from "@uireact/text";
 import { UiLineSeparator } from '@uireact/separator';
 import { UiGrid, UiGridItem } from '@uireact/grid';
-import { ThemeColor, UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { Breakpoints, ThemeColor, UiSpacing, UiSpacingProps, UiViewport } from '@uireact/foundation';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
 import { UiButton } from '@uireact/button';
@@ -15,16 +15,14 @@ import { UiDialog } from '@uireact/dialog';
 import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
 import { DocsThemeContext } from '../providers';
-import { BadgesDemo, ButtonsDemo, Cards, DialogsDemo, ExpandosDemo, FormsDemo, FramerMotionDemo, MenusDemos, StyledDemo, Tabs, TextsDemo, ThemeDemo, ThemeSelectorDemo, TooltipsDemo } from './demos';
+import { LargeShowcase } from './large-showcase';
+import { SmallShowcase } from './small-showcase';
+import { MediumShowcase } from './medium-showcase';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
   height: 200vh;
   top: 0;
-`;
-
-const DemoGridContainer = styled(motion.div)`
-  height: 800px;
 `;
 
 const GridContainer = styled.div`
@@ -81,36 +79,15 @@ export const Demo = () => {
         <UiLineSeparator />
         <GridContainer>
           <UiGrid cols={{ small: 1, medium: 2, large: 4, xlarge: 4 }} rows={1}>
-            <UiGridItem>
-              <DemoGridContainer style={{ y: upwardsGrid }}>
-                <StyledDemo />
-                <FramerMotionDemo />
-                <Cards />
-              </DemoGridContainer>
-            </UiGridItem>
-            <UiGridItem>
-            <DemoGridContainer style={{ y: downwardsGrid }}>
-                <ThemeDemo />
-                <ThemeSelectorDemo />
-                <TextsDemo />
-              </DemoGridContainer>
-            </UiGridItem>
-            <UiGridItem>
-            <DemoGridContainer style={{ y: upwardsGrid }}>
-                <TooltipsDemo />
-                <FormsDemo />
-                <ButtonsDemo />
-                <Tabs />
-              </DemoGridContainer>
-            </UiGridItem>
-            <UiGridItem>
-            <DemoGridContainer style={{ y: downwardsGrid }}>
-                <DialogsDemo />
-                <BadgesDemo />
-                <MenusDemos />
-                <ExpandosDemo />
-              </DemoGridContainer>
-            </UiGridItem>
+            <UiViewport criteria={'l|xl'}>
+              <LargeShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
+            </UiViewport>
+            <UiViewport criteria={Breakpoints.MEDIUM}>
+              <MediumShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
+            </UiViewport>
+            <UiViewport criteria={Breakpoints.SMALL}>
+              <SmallShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
+            </UiViewport>
           </UiGrid>
         </GridContainer>
         <UiDialog dialogId={dialogId}>
