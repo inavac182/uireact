@@ -11,26 +11,26 @@ const DemoGridContainer = styled(motion.div)`
 `;
 
 export const SmallShowcase = ({ scrollProgress }: ShowcaseProps) => {
-    const downwardsGrid = useParallax(scrollProgress, "1000px", "-400px");
+    const upwardsGrid = useParallax(scrollProgress, "-5500px", "0px");
 
     return (
         <>
             <UiGridItem>
-                <DemoGridContainer style={{ y: downwardsGrid }}>
+                <DemoGridContainer style={{ y: upwardsGrid }}>
                     <StyledDemo />
                     <FramerMotionDemo />
+                    <ThemeDemo />
+                    <ThemeSelectorDemo />
+                    <FormsDemo />
                     <Cards />
+                    <ButtonsDemo />
                     <DialogsDemo />
+                    <TooltipsDemo />
                     <BadgesDemo />
                     <MenusDemos />
                     <ExpandosDemo />
-                    <TooltipsDemo />
-                    <FormsDemo />
-                    <ButtonsDemo />
                     <Tabs />
                     <TextsDemo />
-                    <ThemeSelectorDemo />
-                    <ThemeDemo />
                 </DemoGridContainer>
             </UiGridItem>
         </>
