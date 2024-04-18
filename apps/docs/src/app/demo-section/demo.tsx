@@ -5,29 +5,20 @@ import Link from 'next/link';
 
 import { UiButtonLink, UiHeading, UiText } from "@uireact/text";
 import { UiLineSeparator } from '@uireact/separator';
-import { UiGrid, UiGridItem } from '@uireact/grid';
-import { Breakpoints, ThemeColor, UiSpacing, UiSpacingProps, UiViewport } from '@uireact/foundation';
+import { ThemeColor, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
 import { UiButton } from '@uireact/button';
 import { UiDialog } from '@uireact/dialog';
 
 import { Separator } from '../internal/section/separator';
-import { useParallax } from '../hooks';
 import { DocsThemeContext } from '../providers';
-import { LargeShowcase } from './large-showcase';
-import { SmallShowcase } from './small-showcase';
-import { MediumShowcase } from './medium-showcase';
+import { ShowcaseGrid } from './showcase';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
   height: 200vh;
   top: 0;
-`;
-
-const GridContainer = styled.div`
-  height: 100vh;
-  overflow: hidden;
 `;
 
 const SeparatorWrapper = styled.div`
@@ -41,12 +32,6 @@ const headingSpacing: UiSpacingProps['padding'] = { block: 'five', inline: 'five
 
 export const Demo = () => {
   const { selectTheme, selectedTheme } = useContext(DocsThemeContext);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    offset: ["100vh", "400vh"]
-  });
-  const upwardsGrid = useParallax(scrollYProgress, "-1000px", "100px");
-  const downwardsGrid = useParallax(scrollYProgress, "1000px", "-400px");
   const toggleTheme = useCallback(() => {
     selectTheme(selectedTheme === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark);
   }, [selectTheme, selectedTheme]);
@@ -56,7 +41,7 @@ export const Demo = () => {
       <SeparatorWrapper>
         <Separator weight='100' />
       </SeparatorWrapper>
-      <DemoContainer ref={ref} id="demo-components">
+      <DemoContainer id="demo-components">
         <UiSpacing padding={headingSpacing}>
           <UiFlexGrid justifyContent='center' columnGap='four'>
             <UiFlexGridItem grow={1}>
@@ -77,19 +62,7 @@ export const Demo = () => {
           </UiFlexGrid>
         </UiSpacing>
         <UiLineSeparator />
-        <GridContainer>
-          <UiGrid cols={{ small: 1, medium: 2, large: 4, xlarge: 4 }} rows={1}>
-            <UiViewport criteria={'l|xl'}>
-              <LargeShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
-            </UiViewport>
-            <UiViewport criteria={Breakpoints.MEDIUM}>
-              <MediumShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
-            </UiViewport>
-            <UiViewport criteria={Breakpoints.SMALL}>
-              <SmallShowcase downwardsGrid={downwardsGrid} upwardsGrid={upwardsGrid} />
-            </UiViewport>
-          </UiGrid>
-        </GridContainer>
+        <ShowcaseGrid />
         <UiDialog dialogId={dialogId}>
             <UiSpacing padding={dialogSpacing}>
                 <UiHeading>Hey there!</UiHeading>

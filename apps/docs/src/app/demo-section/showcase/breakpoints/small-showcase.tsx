@@ -1,18 +1,18 @@
 import { UiGridItem } from "@uireact/grid";
-import { MotionValue, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import { StyledDemo, FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "./demos";
 
-type ShowcaseProps = {
-    upwardsGrid: MotionValue<string | number>,
-    downwardsGrid: MotionValue<string | number>
-}
+import { StyledDemo, FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "../../demos";
+import { ShowcaseProps } from "./showcase-props";
+import { useParallax } from "@/app/hooks";
 
 const DemoGridContainer = styled(motion.div)`
   height: 800px;
 `;
 
-export const SmallShowcase = ({downwardsGrid, upwardsGrid}: ShowcaseProps) => {
+export const SmallShowcase = ({ scrollProgress }: ShowcaseProps) => {
+    const downwardsGrid = useParallax(scrollProgress, "1000px", "-400px");
+
     return (
         <>
             <UiGridItem>

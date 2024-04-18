@@ -40,6 +40,7 @@ export const ThemeDemo = () => {
         <br />
         <ThemeDiv $category="primary">
           <UiHeading level={5}>Active theme</UiHeading>
+          <UiText size="small">These are the colors for the default theme included in the UiView</UiText>
           <br />
           <UiText>Main colors</UiText>
           <table>
