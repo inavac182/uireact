@@ -26,6 +26,9 @@ importers:
       '@uireact/dialog':
         specifier: workspace:*
         version: link:packages/dialog
+      '@uireact/form':
+        specifier: workspace:*
+        version: link:packages/form
       '@uireact/foundation':
         specifier: workspace:*
         version: link:packages/foundation
@@ -98,12 +101,15 @@ importers:
       '@uireact/card':
         specifier: workspace:*
         version: link:../../packages/card
+      '@uireact/expando':
+        specifier: workspace:*
+        version: link:../../packages/expando
       '@uireact/flex':
         specifier: workspace:*
         version: link:../../packages/flex
       '@uireact/form':
-        specifier: ^2.4.2
-        version: 2.4.2(@uireact/foundation@packages+foundation)(@uireact/text@2.4.1(@uireact/foundation@packages+foundation)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2)
+        specifier: workspace:*
+        version: link:../../packages/form
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../../packages/foundation
@@ -119,12 +125,21 @@ importers:
       '@uireact/list':
         specifier: workspace:*
         version: link:../../packages/list
+      '@uireact/menu':
+        specifier: workspace:*
+        version: link:../../packages/menu
       '@uireact/navbar':
         specifier: workspace:*
         version: link:../../packages/navbar
       '@uireact/separator':
         specifier: workspace:*
         version: link:../../packages/separator
+      '@uireact/tabs':
+        specifier: workspace:*
+        version: link:../../packages/tabs
+      '@uireact/tooltip':
+        specifier: workspace:*
+        version: link:../../packages/tooltip
       '@uireact/view':
         specifier: workspace:*
         version: link:../../packages/view
@@ -2201,25 +2216,6 @@ packages:
   '@typescript-eslint/visitor-keys@6.21.0':
     resolution: {integrity: sha512-JJtkDduxLi9bivAB+cYOVMtbkqdPOhZ+ZI5LC47MIRrDV4Yn2o+ZnW10Nkmr28xRpSpdJ6Sm42Hjf2+REYXm0A==}
     engines: {node: ^16.0.0 || >=18.0.0}
-
-  '@uireact/form@2.4.2':
-    resolution: {integrity: sha512-0XMOicdMX1Ylcm9XDZvTueWXd1cilmY6JIQs+VM+97IBV048VtCl5DWzKqfnD5kDROIRf1X95EYSyLAJzuHXkg==}
-    peerDependencies:
-      '@uireact/foundation': ^2.0.2
-      '@uireact/text': ^2.0.1
-      react: '>= 17 < 19'
-      react-dom: '>= 17 < 19'
-      styled-components: '>= 4 <= 6'
-      tslib: ^2.5.0
-
-  '@uireact/text@2.4.1':
-    resolution: {integrity: sha512-ptLEW+pL47kGHLnQjHP4xd0YFzQfClwjEYZWtHtiUn26zO9vajRhkBo6oSvfAmIgoMPgMRCdF1QofuWBwZg1Sg==}
-    peerDependencies:
-      '@uireact/foundation': ^2.0.1
-      react: '>= 17 < 19'
-      react-dom: '>= 17 < 19'
-      styled-components: '>= 4 <= 6'
-      tslib: ^2.5.0
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
@@ -6004,23 +6000,6 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 6.21.0
       eslint-visitor-keys: 3.4.3
-
-  '@uireact/form@2.4.2(@uireact/foundation@packages+foundation)(@uireact/text@2.4.1(@uireact/foundation@packages+foundation)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2)':
-    dependencies:
-      '@uireact/foundation': link:packages/foundation
-      '@uireact/text': 2.4.1(@uireact/foundation@packages+foundation)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      tslib: 2.6.2
-
-  '@uireact/text@2.4.1(@uireact/foundation@packages+foundation)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(tslib@2.6.2)':
-    dependencies:
-      '@uireact/foundation': link:packages/foundation
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      tslib: 2.6.2
 
   '@ungap/structured-clone@1.2.0': {}
 

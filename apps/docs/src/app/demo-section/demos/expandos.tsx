@@ -1,0 +1,21 @@
+import { UiHeading, UiText } from "@uireact/text"
+import { UiExpandoCard } from '@uireact/expando';
+
+import { DemoCard } from "@/app/internal"
+
+export const ExpandosDemo = () => {
+    return (
+        <DemoCard shadow={false} spacing={{}}>
+            <>
+                <UiHeading>Expandos</UiHeading>
+                <UiText size="small">Components that expand to reveal content</UiText>
+                <br />
+                <UiExpandoCard category="tertiary" expanded={false} expandLabel="Expand Card" collapseLabel="Collapse Card">
+                    <UiText>
+                        Some content
+                    </UiText>
+                </UiExpandoCard>
+            </>
+        </DemoCard>
+    )
+}

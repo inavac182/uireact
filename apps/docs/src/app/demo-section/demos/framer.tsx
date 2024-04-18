@@ -8,9 +8,9 @@ export const FramerMotionDemo = () => {
     return (
         <DemoCard category='tertiary'>
             <>
-                <UiHeading>Framer Motion</UiHeading>
+                <UiHeading coloration="light">Framer Motion</UiHeading>
                 <br />
-                <UiText>Components animated with framer</UiText>
+                <UiText coloration="light">Components animated with framer</UiText>
                 <br />
                 <motion.div
                     className="box"

@@ -7,3 +7,8 @@ export * from './framer';
 export * from './styled';
 export * from './tabs';
 export * from './cards';
+export * from './theme-selector';
+export * from './dialogs';
+export * from './expandos';
+export * from './menus';
+export * from './tooltips';

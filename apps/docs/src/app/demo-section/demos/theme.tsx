@@ -36,6 +36,7 @@ export const ThemeDemo = () => {
     <DemoCard category="primary" shadow={false} spacing={{}}>
       <>
         <UiHeading level={4}>Light and Dark colorations</UiHeading>
+        <UiText size="small">All components in the library are ready to render in these two colorations</UiText>
         <br />
         <ThemeDiv $category="primary">
           <UiHeading level={5}>Active theme</UiHeading>
@@ -75,24 +76,6 @@ export const ThemeDemo = () => {
               <TableCell><ColorDiv $category="negative" /></TableCell>
             </tr>
           </table>
-        </ThemeDiv>
-        <br />
-        <ThemeDiv $category="primary">
-          <UiText>Controlled by user&apos;s device settings</UiText>
-          <br />
-          <UiSpacing padding={settingsSpacing}>
-            <UiList type="ORDERED">
-              <UiListItem>
-                <UiText size="small">Go to settings</UiText>
-              </UiListItem>
-              <UiListItem>
-                <UiText size="small">Go to appearance</UiText>
-              </UiListItem>
-              <UiListItem>
-                <UiText size="small">Change appearance</UiText>
-              </UiListItem>
-            </UiList>
-          </UiSpacing>
         </ThemeDiv>
       </>
     </DemoCard>

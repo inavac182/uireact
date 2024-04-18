@@ -13,7 +13,7 @@ export const ButtonsDemo = () => {
     return (
         <DemoCard category="tertiary">
             <>
-                <UiHeading>Buttons with styles</UiHeading>
+                <UiHeading coloration="light">Buttons with styles</UiHeading>
                 <br />
                 <UiFlexGrid alignItems="center" gap="four">
                     <UiFlexGridItem>

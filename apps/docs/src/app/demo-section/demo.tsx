@@ -10,12 +10,12 @@ import { ThemeColor, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
 import { UiButton } from '@uireact/button';
+import { UiDialog } from '@uireact/dialog';
 
 import { Separator } from '../internal/section/separator';
 import { useParallax } from '../hooks';
-import { DemoCard } from '../internal';
 import { DocsThemeContext } from '../providers';
-import { BadgesDemo, ButtonsDemo, Cards, FormsDemo, FramerMotionDemo, StyledDemo, TextsDemo, ThemeDemo } from './demos';
+import { BadgesDemo, ButtonsDemo, Cards, DialogsDemo, ExpandosDemo, FormsDemo, FramerMotionDemo, MenusDemos, StyledDemo, Tabs, TextsDemo, ThemeDemo, ThemeSelectorDemo, TooltipsDemo } from './demos';
 
 const DemoContainer = styled(motion.div)`
   position: sticky;
@@ -36,6 +36,9 @@ const SeparatorWrapper = styled.div`
   margin-top: -280px;
 `;
 
+const dialogId = 'demo-dialog';
+
+const dialogSpacing: UiSpacingProps['padding'] = { all: 'four'};
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five', inline: 'five' };
 
 export const Demo = () => {
@@ -88,49 +91,34 @@ export const Demo = () => {
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
                 <ThemeDemo />
+                <ThemeSelectorDemo />
                 <TextsDemo />
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: upwardsGrid }}>
+                <TooltipsDemo />
                 <FormsDemo />
                 <ButtonsDemo />
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <Tabs />
               </DemoGridContainer>
             </UiGridItem>
             <UiGridItem>
             <DemoGridContainer style={{ y: downwardsGrid }}>
+                <DialogsDemo />
                 <BadgesDemo />
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard category='tertiary'>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
-                <DemoCard>
-                  <UiText>Demo component</UiText>
-                </DemoCard>
+                <MenusDemos />
+                <ExpandosDemo />
               </DemoGridContainer>
             </UiGridItem>
           </UiGrid>
         </GridContainer>
+        <UiDialog dialogId={dialogId}>
+            <UiSpacing padding={dialogSpacing}>
+                <UiHeading>Hey there!</UiHeading>
+                <UiText>This is a centered dialog</UiText>
+            </UiSpacing>
+        </UiDialog>
       </DemoContainer>
     </>
   )
