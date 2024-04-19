@@ -15,7 +15,7 @@ export const DatePickerExample: React.FC = () => {
   const [datepickerVisible, setDatepickerVisible] = useState<boolean>(false);
 
   const onSelectDate = useCallback(
-    (date) => {
+    (date: Date) => {
       setDateSelected(date);
     },
     [setDateSelected]

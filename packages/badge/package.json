@@ -16,6 +16,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "dev": "tsc",
     "clean": " rm -rf dist node_modules coverage",
     "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",

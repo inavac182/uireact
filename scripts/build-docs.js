@@ -1,8 +1,8 @@
-const { readdirSync, existsSync, mkdirSync, unlink, cpSync } =  require('fs');
+const { readdirSync, existsSync, mkdirSync, rmSync, cpSync } =  require('fs');
 
 const baseDocsAppPath = `./apps/docs/src/app/docs/(pages)`;
 
-console.log('Building docs...');
+console.log('Compiling doc pages...');
 
 const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
@@ -14,6 +14,9 @@ const getFilesInDirectory = source => readdirSync(source, { withFileTypes: true 
 // verify base path
 
 if (!existsSync(baseDocsAppPath)) {
+  mkdirSync(baseDocsAppPath);
+} else {
+  rmSync(baseDocsAppPath, { recursive: true, force: true });
   mkdirSync(baseDocsAppPath);
 }
 
@@ -27,26 +30,16 @@ directories.map((directory) => {
   const packageDocsEntries = getFilesInDirectory(`./packages/${directory}/docs`);
   const packageDocFolderRoute = `${baseDocsAppPath}/${directory}/`;
 
-  // First, Create doc folder or clean up if it exists inside docs app
+  // Create doc folder or clean up if it exists inside docs app
 
   if (!existsSync(packageDocFolderRoute)){
     mkdirSync(packageDocFolderRoute);
-  } else {
-    readdirSync(packageDocFolderRoute, (err, files) => {
-      if (err) throw err;
-
-      for (const file of files) {
-        unlink(path.join(directory, file), (err) => {
-          if (err) throw err;
-        });
-      }
-    });
   }
 
-  // Second, Copy files from package folder to pages.mdx inside docs app
-
+  // Copy files from package folder to docs app
   packageDocsEntries.forEach((entry) => {
-    console.log(entry);
-      cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true });
+    cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true });
   });
 });
+
+console.log('Doc pages compiled');

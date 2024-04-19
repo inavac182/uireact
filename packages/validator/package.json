@@ -15,6 +15,7 @@
   "scripts": {
     "build": "tsc",
     "clean": " rm -rf dist node_modules coverage",
+    "dev": "tsc",
     "eslint": "eslint ./src/**/*.ts ./__tests__/**/*.ts --max-warnings=0",
     "lint": "npm run tsc && npm run eslint",
     "test": "jest",

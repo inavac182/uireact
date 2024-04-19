@@ -13,12 +13,12 @@ const formSpacing: UiSpacingProps['padding'] = { block: 'four' };
 const buttonMargin: UiSpacingProps['margin'] = { block: 'four' };
 
 export const DatePickerInputExample: React.FC = () => {
-  const [dateSelected, setDateSelected] = useState<Date | undefined>();
+  const [dateSelected, setDateSelected] = useState<string>();
   const [successMessageVisible, setSuccessMessageVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>();
 
   const onChange = useCallback(
-    (date) => {
+    (date: string) => {
       setDateSelected(date);
       setSuccessMessageVisible(false);
       setErrorMessage('');

@@ -16,9 +16,6 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
       "@uireact/*": [
         "./packages/*"
       ]
@@ -27,17 +24,20 @@
     "baseUrl": "./src",
     "jsx": "react"
   },
+  "include": [
+    "packages/**/src",
+    "packages/**/docs"
+  ],
   "exclude": [
     "node_modules",
     "jest.config.ts",
     "coverage",
     "packages/**/coverage",
-    "__tests__"
+    "packages/**/__tests__/",
+    "__tests__",
+    "old-repo"
   ],
   "paths": {
-    "@/*": [
-      "./src/*"
-    ],
     "@uireact/*": [
       "./packages/*"
     ]

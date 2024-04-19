@@ -11,7 +11,7 @@ export const ProgressIndicatorExample: React.FC = () => {
   const [step, setStep] = React.useState(1);
 
   const changeStep = React.useCallback(
-    (newStep) => {
+    (newStep: number) => {
       setStep(newStep);
     },
     [setStep]
@@ -34,14 +34,14 @@ export const ProgressIndicatorExample: React.FC = () => {
         </UiProgressIndicator>
 
         {step === 1 && (
-          <UiCard bordered>
+          <UiCard>
             <UiText>This is step 1</UiText>
             <UiButton onClick={() => changeStep(2)}>Next Step</UiButton>
           </UiCard>
         )}
 
         {step === 2 && (
-          <UiCard bordered>
+          <UiCard>
             <UiText>This is step 2</UiText>
             <UiButton onClick={() => changeStep(1)}>Go Back</UiButton>{' '}
             <UiButton onClick={() => changeStep(3)}>Next Step</UiButton>
@@ -49,7 +49,7 @@ export const ProgressIndicatorExample: React.FC = () => {
         )}
 
         {step === 3 && (
-          <UiCard bordered>
+          <UiCard>
             <UiText>This is step 3</UiText>
             <UiButton onClick={() => changeStep(2)}>Go Back</UiButton>
           </UiCard>

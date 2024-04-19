@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "node ./scripts/build-docs.js && turbo run dev",
+    "dev": "nodemon --ignore apps -e mdx --exec \"turbo run dev\"",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
@@ -16,10 +16,18 @@
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
     "@types/react": "^18",
+    "@uireact/badge": "workspace:*",
+    "@uireact/button": "workspace:*",
     "@uireact/card": "workspace:*",
     "@uireact/dialog": "workspace:*",
-    "@uireact/foundation": "workspace:*",
+    "@uireact/flex": "workspace:*",
     "@uireact/form": "workspace:*",
+    "@uireact/foundation": "workspace:*",
+    "@uireact/grid": "workspace:*",
+    "@uireact/icons": "workspace:*",
+    "@uireact/list": "workspace:*",
+    "@uireact/separator": "workspace:*",
+    "@uireact/table": "workspace:*",
     "@uireact/text": "workspace:*",
     "@uireact/view": "workspace:*",
     "add": "^2.0.6",
@@ -32,5 +40,9 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "turbo": "^1.8.3"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.0",
+    "tsc-watch": "^6.2.0"
   }
 }

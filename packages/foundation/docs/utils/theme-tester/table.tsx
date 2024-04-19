@@ -37,7 +37,7 @@ export const TableExample = (): JSX.Element => {
 
   return (
     <UiSpacing padding={{ all: 'five' }}>
-      <UiTable data={data} onSelect={callback} />
+      <UiTable data={data} onClick={callback} />
     </UiSpacing>
   );
 };
