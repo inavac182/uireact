@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "node ./scripts/build-docs.js && turbo run dev",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
