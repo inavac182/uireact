@@ -11,6 +11,12 @@ const getDirectories = source =>
 
 const getFilesInDirectory = source => readdirSync(source, { withFileTypes: true });
 
+// verify base path
+
+if (!existsSync(baseDocsAppPath)) {
+  mkdirSync(baseDocsAppPath);
+}
+
 // Get package folders list
 
 const directories = getDirectories('packages');
