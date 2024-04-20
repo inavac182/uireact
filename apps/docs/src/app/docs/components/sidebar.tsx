@@ -5,7 +5,9 @@ const SidebarWrapper = styled.div`
     width: 300px;
     height: 100%;
     position: sticky;
+    padding: 30px;
     border-right: 3px solid var(--primary-token_150);
+    box-sizing: border-box;
 `;
 
 export const SideBar = () => {
@@ -14,4 +16,4 @@ export const SideBar = () => {
             <UiText>Side bar</UiText>
         </SidebarWrapper>
     )
-}
+};

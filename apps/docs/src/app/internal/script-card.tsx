@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { UiFlexGrid } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
+import { useCallback } from 'react';
 
 export const ScriptCardContainer = styled(motion.div)`
   margin: 20px 0;
@@ -14,6 +15,13 @@ export const ScriptCardContainer = styled(motion.div)`
   background-color: var(--secondary-token_100);
   cursor: pointer;
   font-family: "Press Start 2P", system-ui;
+`;
+
+export const ScriptSpan = styled(motion.span)`
+  font-family: "Press Start 2P", system-ui;
+  color: var(fonts-token_10);
+  font-size: 10px;
+  cursor: pointer;
 `;
 
 type ScriptCardProps = {
@@ -30,3 +38,16 @@ export const ScriptCard = ({ script }: ScriptCardProps) => {
     </ScriptCardContainer>
   )
 };
+
+export const ScriptText = ({ script }: ScriptCardProps) => {
+  const onScriptClick = useCallback(() => {
+    navigator.clipboard.writeText(script);
+  }, []);
+
+  return (
+    <UiFlexGrid direction='row' columnGap='five' alignItems='center'>
+      <UiIcon icon="AngleSquareRight" />
+      <ScriptSpan whileTap={{ scale: 0.8 }} onClick={onScriptClick}>{script}</ScriptSpan>
+    </UiFlexGrid>
+  )
+}
