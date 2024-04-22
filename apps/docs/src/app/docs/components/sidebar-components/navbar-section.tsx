@@ -16,6 +16,7 @@ const Container = styled.div`
 
 const NavbarTitleContainer = styled.div`
     cursor: pointer;
+
     &:hover {
         color: var(--fonts-token_150);
     }
@@ -24,13 +25,13 @@ const NavbarTitleContainer = styled.div`
 export type NavbarItem = {
     link: string;
     title: string;
-    items?: [NavbarItem];
+    items?: NavbarItem[];
 }
 
 export type NavbarSectionProps = {
-    opened: boolean;
+    opened?: boolean;
     title: string;
-    items: [NavbarItem];
+    items: NavbarItem[];
 }
 
 const nestedNavbarSpacing: UiSpacingProps['padding'] = {
@@ -56,28 +57,30 @@ export const NavbarSection = ({ opened = false, title, items}: NavbarSectionProp
             <NavbarTitleContainer onClick={toggleSection}>
                 <p>{title}</p>
             </NavbarTitleContainer>
-            {selected && (
-                <UiNavbar styling='filled' orientation='stacked'>
-                    {items.map((item, index) => (
+            {selected && items && (
+                <UiNavbar styling='bordered' orientation='stacked' category='tertiary'>
+                    {items?.map((item, index) => (
                         <UiNavbarItem active={path === item.link} key={`sidebar-item-${index}`}>
                             <UiSpacing padding={navbarItemTitle}>
                                 <UiLink>
-                                    <Link href={item.link}>{item.title}</Link>
+                                    <Link href={`/docs${item.link}`}>{item.title}</Link>
                                 </UiLink>
                             </UiSpacing>
-                            <UiSpacing padding={nestedNavbarSpacing}>
-                                <UiNavbar styling='bordered' orientation='stacked' category='tertiary'>
-                                    {item.items?.map((item, nestedIndex) => (
-                                        <UiNavbarItem key={`nester-sidebar-item-${nestedIndex}-${index}`} active={`#${hash}` === item.link}>
-                                            <UiLink size='small'>
-                                                <Link href={item.link}>
-                                                    {item.title}
-                                                </Link>
-                                            </UiLink>
-                                        </UiNavbarItem>
-                                    ))}
-                                </UiNavbar>
-                            </UiSpacing>
+                            {item.items && (
+                                <UiSpacing padding={nestedNavbarSpacing}>
+                                    <UiNavbar styling='bordered' orientation='stacked' category='tertiary'>
+                                        {item.items.map((item, nestedIndex) => (
+                                            <UiNavbarItem key={`nester-sidebar-item-${nestedIndex}-${index}`} active={`#${hash}` === item.link}>
+                                                <UiLink size='small'>
+                                                    <Link href={item.link}>
+                                                        {item.title}
+                                                    </Link>
+                                                </UiLink>
+                                            </UiNavbarItem>
+                                        ))}
+                                    </UiNavbar>
+                                </UiSpacing>
+                            )}
                         </UiNavbarItem>
                     ))}
                 </UiNavbar>

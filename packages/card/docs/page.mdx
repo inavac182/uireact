@@ -1,23 +1,14 @@
----
-name: UiCard
-menu: Components
----
-
-import { Props } from 'docz';
-
 import { UiText, UiHeading } from '@uireact/text';
 
-import { UiSpacing, ColorTokens, ColorCategory } from '@uireact/foundation';
+import { UiSpacing, ColorTokens } from '@uireact/foundation';
 
-import Playground from '../../../src/Playground';
-import { UiCard } from '../src/';
-import * as packageJson from '../package.json';
+import { UiCard } from '@uireact/card';
 
 # UiCard
 
 <sup>
   <a href="https://github.com/inavac182/ui-react/blob/main/packages/card/" target="_blank">
-    v{packageJson.version}
+    
   </a>
 </sup>
 
@@ -31,33 +22,33 @@ import * as packageJson from '../package.json';
 
 ### UiCard
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading, UiText}}
   <UiCard>
     <UiHeading>Card header</UiHeading>
     <UiText>This is the content</UiText>
     <UiText size="xsmall">This is the footer</UiText>
   </UiCard>
-</Playground>
+```
 
 ### Card as a link
 
-<Playground>
+```jsx live scope={{UiCard, UiText}}
   <UiCard link="https://www.uireact.io" bordered>
     <UiText>Open UiReact docs</UiText>
   </UiCard>
-</Playground>
+```
 
 ### UiCard with click handler
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading}}
   <UiCard clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID" squared>
     <UiHeading>Click me!</UiHeading>
   </UiCard>
-</Playground>
+```
 
 ### UiCard with image content
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading, UiText, UiSpacing}}
   <UiCard noPadding>
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Colima_360.jpg"
@@ -69,11 +60,11 @@ import * as packageJson from '../package.json';
       <UiText size="xsmall">This is the footer</UiText>
     </UiSpacing>
   </UiCard>
-</Playground>
+```
 
 ### UiCard with weight
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading, UiText, UiSpacing}}
   <UiSpacing margin={{ block: 'three' }}>
     <UiCard weight="10">
       <UiHeading>Card header</UiHeading>
@@ -109,11 +100,11 @@ import * as packageJson from '../package.json';
       <UiText size="xsmall">This is the footer</UiText>
     </UiCard>
   </UiSpacing>
-</Playground>
+```
 
 ### UiCard with color category
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading, UiText, UiSpacing}}
   <UiSpacing margin={{ block: 'three' }}>
     <UiCard weight="10" category="positive">
       <UiHeading>Card header</UiHeading>
@@ -135,11 +126,11 @@ import * as packageJson from '../package.json';
       <UiText size="xsmall">This is the footer</UiText>
     </UiCard>
   </UiSpacing>
-</Playground>
+```
 
 ### UiCard outlined
 
-<Playground>
+```jsx live scope={{UiCard, UiHeading, UiText, UiSpacing}}
   <UiSpacing margin={{ block: 'three' }}>
     <UiCard weight="10" category="positive" styling="outlined">
       <h3>Card header</h3>
@@ -147,11 +138,11 @@ import * as packageJson from '../package.json';
       <UiText size="small">This is the footer, using UiText styling is different.</UiText>
     </UiCard>
   </UiSpacing>
-</Playground>
+```
 
 The outlined card will give some basic coloration to texts, although if you use any text component
 the styling will be overwritten and has to be manually set up on each text component.
 
 ## Props
 
-<Props of={UiCard} />
+

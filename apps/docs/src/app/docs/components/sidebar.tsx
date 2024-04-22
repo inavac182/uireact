@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { NavbarItem, NavbarSection } from './sidebar-components';
+import { NavbarSection } from './sidebar-components';
+import { ChartsSideBarData, ComponentsSideBarData, FormsSideBarData, FoundationSideBarData, GridsSideBarData, TypographySideBarData, UtilsSideBarData, ViewSideBarData } from './sidebar-data';
 
 const SidebarWrapper = styled.div`
     width: 300px;
@@ -11,23 +12,17 @@ const SidebarWrapper = styled.div`
     box-sizing: border-box;
 `;
 
-const docItems: [NavbarItem] = [
-    {
-        link: '/docs',
-        title: 'Set up',
-        items: [
-            {
-                link: '#installation',
-                title: 'Installation'
-            }
-        ]
-    }
-]
-
 export const SideBar = () => {
     return (
         <SidebarWrapper>
-            <NavbarSection title='Documentation' items={docItems} opened={true} />
+            <NavbarSection title='Components' items={ComponentsSideBarData} />
+            <NavbarSection title='Charts' items={ChartsSideBarData} />
+            <NavbarSection title='Forms' items={FormsSideBarData} />
+            <NavbarSection title='Foundation' items={FoundationSideBarData} />
+            <NavbarSection title='Grids' items={GridsSideBarData} />
+            <NavbarSection title='Typography' items={TypographySideBarData} />
+            <NavbarSection title='Utils' items={UtilsSideBarData} />
+            <NavbarSection title='Main View' items={ViewSideBarData} />
         </SidebarWrapper>
     )
 };
