@@ -44,6 +44,8 @@ const Div = styled.div<NavbarItemWrapperProps>`
         props.$styling === 'bordered'
           ? `
           border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid transparent;
+          padding-left: 10px;
+
             &:hover {
               border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid var(--${getColorCategory(
               props.$category

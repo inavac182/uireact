@@ -1,5 +1,6 @@
-import { UiText } from '@uireact/text';
 import styled from 'styled-components';
+
+import { NavbarItem, NavbarSection } from './sidebar-components';
 
 const SidebarWrapper = styled.div`
     width: 300px;
@@ -10,10 +11,23 @@ const SidebarWrapper = styled.div`
     box-sizing: border-box;
 `;
 
+const docItems: [NavbarItem] = [
+    {
+        link: '/docs',
+        title: 'Set up',
+        items: [
+            {
+                link: '#installation',
+                title: 'Installation'
+            }
+        ]
+    }
+]
+
 export const SideBar = () => {
     return (
         <SidebarWrapper>
-            <UiText>Side bar</UiText>
+            <NavbarSection title='Documentation' items={docItems} opened={true} />
         </SidebarWrapper>
     )
 };
