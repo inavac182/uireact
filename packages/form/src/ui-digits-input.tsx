@@ -65,7 +65,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
 }: UiDigitsInputProps) => {
   const [digitsValues, setDigitsValues] = useState<string[]>([...Array(digits)]);
   const [digitsString, setDigitsString] = useState<string>('');
-  const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
+  const inputsRef = useRef<Array<HTMLInputElement>>([]);
 
   const onDigitChange = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
@@ -134,7 +134,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
               key={`internal-digit-${id}-input`}
               onChange={onDigitChange}
               required={required}
-              ref={(el) => inputsRef.current[id] = el as HTMLInputElement}
+              ref={(instance: HTMLInputElement) => inputsRef.current[id] = instance as HTMLInputElement}
               disabled={disabled}
             />
           ))}
