@@ -1,28 +1,12 @@
----
-name: UiInputDatepicker
-menu: Forms
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiInputDatepicker } from '../src';
-import { DatePickerInputExample } from './example';
-
 import { UiBadge } from '@uireact/badge';
+import { UiInputDatepicker } from '@uireact/datepicker';
 import { UiIcon } from '@uireact/icons';
+
+import { DatePickerInputExample } from './example';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiInputDatepicker
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > An input that lets the user select dates using a datepicker
 
@@ -32,7 +16,7 @@ import { UiIcon } from '@uireact/icons';
 
 ## Date picker input
 
-<Playground>
+```jsx live scope={{ UiInputDatepicker, UiIcon }}
   <div style={{ height: '350px' }}>
     <UiInputDatepicker
       label="Date"
@@ -48,13 +32,13 @@ import { UiIcon } from '@uireact/icons';
       closeLabel="Done"
     />
   </div>
-</Playground>
+```
 
 ## Date picker with initial value
 
 If a prop `date` is passed then it will be used as the default value for the input and the date selected in the datepicker
 
-<Playground>
+```jsx live scope={{ UiInputDatepicker, UiIcon }}
   <div style={{ height: '350px' }}>
     <UiInputDatepicker
       label="Date"
@@ -71,13 +55,13 @@ If a prop `date` is passed then it will be used as the default value for the inp
       closeLabel="Done"
     />
   </div>
-</Playground>
+```
 
 ## Date picker input example with validation
 
-<Playground>
+```jsx live scope={{ DatePickerInputExample }}
   <DatePickerInputExample />
-</Playground>
+```
 
 ```tsx
 export const DatePickerInputExample: React.FC = () => {
@@ -154,7 +138,3 @@ export const DatePickerInputExample: React.FC = () => {
   );
 };
 ```
-
-### Props
-
-<Props of={UiInputDatepicker} />

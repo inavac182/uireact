@@ -1,24 +1,7 @@
----
-name: UiSwitch
-menu: Forms
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { SwitchExample } from './utils';
-
-import { UiSwitch } from '../src';
+import { UiSwitch } from '@uireact/form';
+import { SwitchExample } from './utils'
 
 # UiSwitch
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/form/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component used to render switch inputs
 
@@ -28,46 +11,42 @@ import { UiSwitch } from '../src';
 
 ## UiSwitch
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="checkbox" label="Select option" />
-</Playground>
+```
 
 ## UiSwitch with POSITIVE category
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="positive-checkbox" category="positive" />
-</Playground>
+```
 
 ## UiSwitch with ERROR category
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="error-checkbox" category="error" />
-</Playground>
+```
 
 ## UiSwitch with NEGATIVE category
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="negative-checkbox" category="negative" />
-</Playground>
+```
 
 ## UiSwitch with state management
 
-<Playground>
+```jsx live scope={{SwitchExample}}
   <SwitchExample />
-</Playground>
+```
 
 ## UiSwitch disabled
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="disabled-checkbox" label="Select option" disabled />
-</Playground>
+```
 
 ## UiSwitch with label on the start
 
-<Playground>
+```jsx live scope={{UiSwitch}}
   <UiSwitch name="start-label-checkbox" label="Select option" disabled labelPosition="START" />
-</Playground>
-
-### Props
-
-<Props of={UiSwitch} />
+```

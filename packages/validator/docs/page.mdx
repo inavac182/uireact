@@ -1,27 +1,12 @@
----
-name: UiValidator
-menu: Utils
----
-
-import { Props, Playground } from 'docz';
-
-import * as packageJson from '../package.json';
-
-import { UiValidator } from '../src/';
-import { ValidatorRunner } from './util/validator';
-
+import { UiValidator } from '@uireact/validator';
 import { UiText } from '@uireact/text';
 import { UiList } from '@uireact/list';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiCard } from '@uireact/card';
 
-# UiValidator
+import { ValidatorRunner } from './util/validator';
 
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/validator/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
+# UiValidator
 
 > Validator class that run checks based on a given schema into a given object. Used commonly to validate forms in client and data sets on the server side.
 > We make use of chainable functions so the schema creation is simple and easy.
@@ -95,21 +80,33 @@ export const validator = new UiValidator();
 
 Example using a component that receives the schema and the data and then renders a message if it passes:
 
-<Playground>
-  <ValidatorRunner
-    schema={{
-      age: validator
-        .ruler()
-        .isRequired('The age is required')
-        .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
-      firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-      email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
-    }}
-    data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
-  />
-</Playground>
+<ValidatorRunner
+  schema={{
+    age: validator
+      .ruler()
+      .isRequired('The age is required')
+      .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
+    firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+    email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
+  }}
+  data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
+/>
 
-<small>ValidatorRunner is just for demo purposes this package only exports the UiValidator class.</small>
+```jsx
+<ValidatorRunner
+  schema={{
+    age: validator
+      .ruler()
+      .isRequired('The age is required')
+      .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
+    firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+    email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
+  }}
+  data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
+/>
+```
+
+<small>ValidatorRunner is a component built just for this demo, it isn't actually exported.</small>
 
 <br />
 <br />

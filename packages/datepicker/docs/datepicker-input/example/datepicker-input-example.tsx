@@ -1,3 +1,4 @@
+'use client';
 import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiButton } from '@uireact/button';
@@ -5,8 +6,7 @@ import { UiText } from '@uireact/text';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 import { UiCard } from '@uireact/card';
-
-import { UiInputDatepicker } from '../../src';
+import { UiInputDatepicker } from '@uireact/datepicker';
 
 const buttonPadding: UiSpacingProps['padding'] = { all: 'four' };
 const formSpacing: UiSpacingProps['padding'] = { block: 'four' };

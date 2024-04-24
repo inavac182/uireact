@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
 
-import { UiMenu } from '../../src';
+import { UiMenu } from '@uireact/menu';
 import { UiSpacing } from '@uireact/foundation';
 
 export const MenuExample: React.FC = () => {

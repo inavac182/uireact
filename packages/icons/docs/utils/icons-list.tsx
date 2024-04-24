@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { ColorCategory, TextSize, UiSpacing } from '@uireact/foundation';
@@ -6,10 +7,8 @@ import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiText } from '@uireact/text';
 import { UiSelect } from '@uireact/form';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
-
-import { UiIcon } from '../../src';
-
-import * as Icons from '../../src/public/svgs';
+import { UiIcon } from '@uireact/icons';
+import * as Icons from '@uireact/icons/public/svgs';
 
 export const IconsList: React.FC = () => {
   const [category, setCategory] = React.useState<ColorCategory>();

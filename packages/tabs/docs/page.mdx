@@ -1,26 +1,10 @@
----
-name: UiTabs
-menu: Components
----
-
-import { Props } from 'docz';
-
 import { UiText } from '@uireact/text';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
 
 import { TabsExample } from './utils/';
 
-import { UiTabs, UiTabItem } from '../src/';
+import { UiTabs, UiTabItem } from '@uireact/tabs';
 
 # UiTabs
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/tabs/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component that renders a tabs for an options selection experience. When a tab is clicked it executes a callback and it passes an identifier that
 > to identify what tab was clicked. The UiTabItem allows for any custom type to be passed so the callback function is correctly typed.
@@ -31,9 +15,7 @@ import { UiTabs, UiTabItem } from '../src/';
 
 ## UiTabs
 
-<Playground hideThemeSelector>
-  <TabsExample />
-</Playground>
+<TabsExample />
 
 <br />
 
@@ -70,11 +52,3 @@ export const TabsExample: React.FC = () => {
   );
 };
 ```
-
-### UiTabs Props
-
-<Props of={UiTabs} />
-
-### UiTabItem Props
-
-<Props of={UiTabItem} />

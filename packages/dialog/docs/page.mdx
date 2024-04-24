@@ -1,25 +1,7 @@
----
-name: UiDialog
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiDialog, UiDialogType } from '../src/';
+import { UiDialog, UiDialogType } from '@uireact/dialog';
 import { DialogsExample } from './utils/';
 
 # UiDialog
-
----
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/dialog/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Renders a dialog on top of the content
 
@@ -48,9 +30,9 @@ The `useDialog` hook is used to instantiate a dialog and be able to communicate 
 
 By default, the dialog renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
 
-<Playground hideThemeSelector>
+```jsx live scope={{DialogsExample}}
   <DialogsExample title="Dialog title" dialogId="first-dialog-example" />
-</Playground>
+```
 
 The [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15) that we use throughout this doc. This is an example of the code of a component using a dialog:
 
@@ -90,10 +72,6 @@ Under the hook the `UiDialog` intantiates the `useDialog` hook to know if is ope
 
 The magic of using the `useDialog` hook is that you can control this dialog from anywhere in the react tree you just need to use the same dialog and the `isOpen` or `actions` param will be linked to given dialog.
 
-## Props 🛠️
-
-<Props of={UiDialog} />
-
 <br />
 
 ## More dialog examples 🤓
@@ -104,30 +82,30 @@ The magic of using the `useDialog` hook is that you can control this dialog from
 
 Renders at the right of the screen
 
-<Playground hideThemeSelector>
+```jsx live scope={{DialogsExample, UiDialogType}}
   <DialogsExample type={UiDialogType.FULLSCREEN} dialogId="fullscreen-example" />
-</Playground>
+```
 
 ### Bottom dialog
 
 Renders at the bottom of the screen
 
-<Playground hideThemeSelector>
+```jsx live scope={{DialogsExample, UiDialogType}}
   <DialogsExample type={UiDialogType.BOTTOM} dialogId="bottom-example" />
-</Playground>
+```
 
 ### Left dialog
 
 Renders at the left of the screen
 
-<Playground hideThemeSelector>
+```jsx live scope={{DialogsExample, UiDialogType}}
   <DialogsExample type={UiDialogType.LEFT} dialogId="left-example" />
-</Playground>
+```
 
 ### Right dialog
 
 Renders at the right of the screen
 
-<Playground hideThemeSelector>
+```jsx live scope={{DialogsExample, UiDialogType}}
   <DialogsExample type={UiDialogType.RIGHT} dialogId="right-example" />
-</Playground>
+```

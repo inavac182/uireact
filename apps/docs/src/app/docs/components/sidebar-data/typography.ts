@@ -6,11 +6,11 @@ export const TypographySideBarData: NavbarItem[] = [
         title: 'UiButtonLink'
     },
     {
-        link: '/heading',
+        link: '/headings',
         title: 'UiHeading'
     },
     {
-        link: '/icon',
+        link: '/icons',
         title: 'UiIcon'
     },
     {

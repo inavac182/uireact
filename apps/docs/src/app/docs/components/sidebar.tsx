@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { NavbarSection } from './sidebar-components';
 import { ChartsSideBarData, ComponentsSideBarData, FormsSideBarData, FoundationSideBarData, GridsSideBarData, TypographySideBarData, UtilsSideBarData, ViewSideBarData } from './sidebar-data';
+import { DialogsSideBarData } from './sidebar-data/dialogs';
 
 const SidebarWrapper = styled.div`
     width: 300px;
@@ -17,6 +18,7 @@ export const SideBar = () => {
         <SidebarWrapper>
             <NavbarSection title='Components' items={ComponentsSideBarData} />
             <NavbarSection title='Charts' items={ChartsSideBarData} />
+            <NavbarSection title='Dialogs' items={DialogsSideBarData} />
             <NavbarSection title='Forms' items={FormsSideBarData} />
             <NavbarSection title='Foundation' items={FoundationSideBarData} />
             <NavbarSection title='Grids' items={GridsSideBarData} />

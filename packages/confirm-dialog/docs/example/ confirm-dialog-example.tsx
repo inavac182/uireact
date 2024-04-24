@@ -1,7 +1,8 @@
+'use client';
 import React, { useCallback } from 'react';
 
 import { UiButton } from '@uireact/button';
-import { useConfirmDialog, UiConfirmDialog } from '../../src';
+import { useConfirmDialog, UiConfirmDialog } from '@uireact/confirm-dialog';
 import { UiConfirmDialogOptions } from '@uireact/foundation';
 
 type ConfirmDialogExampleProps = {

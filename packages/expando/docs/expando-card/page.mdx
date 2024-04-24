@@ -1,21 +1,6 @@
----
-name: UiExpandoCard
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-import { UiExpandoCard } from '../src/';
+import { UiExpandoCard } from '@uireact/expando';
 
 # UiExpandoCard
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/expando/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > This component renders a card with a heading that when expanded reveals some content inside the card.
 
@@ -25,28 +10,24 @@ import { UiExpandoCard } from '../src/';
 
 ## Just a expando
 
-<Playground>
+```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me">
     <span>This is some content</span>
   </UiExpandoCard>
-</Playground>
+```
 
 ## Expando with custom category and inverse heading coloration
 
-<Playground>
+```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" category="tertiary" headingInverseColoration>
     <span>This is some content</span>
   </UiExpandoCard>
-</Playground>
+```
 
 ## Expando initiated expanded
 
-<Playground>
+```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" expanded>
     <span>This is some content</span>
   </UiExpandoCard>
-</Playground>
-
-### Props
-
-<Props of={UiExpandoCard} />
+```

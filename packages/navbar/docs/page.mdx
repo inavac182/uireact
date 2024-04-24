@@ -1,25 +1,9 @@
----
-name: UiNavbar
-menu: Components
----
-
-import { Props } from 'docz';
-
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
 import { UiText, UiLink } from '@uireact/text';
-
-import Playground from '../../../src/Playground';
-import { UiNavbar, UiNavbarItem } from '../src/';
-import * as packageJson from '../package.json';
+import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
 
 # UiNavbar & UiNavbarItem
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/grid/navbar/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Render navbars for menus
 
@@ -29,7 +13,7 @@ import * as packageJson from '../package.json';
 
 ## Usage as a stacked navbar
 
-<Playground>
+```jsx live scope={{UiNavbar, UiNavbarItem, UiLink}}
   <UiNavbar orientation="stacked">
     <UiNavbarItem>
       <UiLink href="https://uireact.io" fullWidth>
@@ -52,11 +36,11 @@ import * as packageJson from '../package.json';
       </UiLink>
     </UiNavbarItem>
   </UiNavbar>
-</Playground>
+```
 
 ## Usage inside a card
 
-<Playground>
+```jsx live scope={{UiNavbar, UiNavbarItem, UiLink, UiCard}}
   <UiCard noPadding>
     <UiNavbar orientation="stacked" roundedCorners>
       <UiNavbarItem>
@@ -76,11 +60,11 @@ import * as packageJson from '../package.json';
       </UiNavbarItem>
     </UiNavbar>
   </UiCard>
-</Playground>
+```
 
 ## Usage as an inline navbar
 
-<Playground>
+```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar orientation="inline" align="start" stretchItems>
     <UiNavbarItem>
       <UiText>Option 1</UiText>
@@ -89,11 +73,11 @@ import * as packageJson from '../package.json';
       <UiText>Option 2</UiText>
     </UiNavbarItem>
   </UiNavbar>
-</Playground>
+```
 
 ## With bordered styling and gap
 
-<Playground>
+```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar orientation="stacked" align="start" styling="bordered" gap="five" category="tertiary">
     <UiNavbarItem active>
       <UiText>Option 1</UiText>
@@ -102,12 +86,4 @@ import * as packageJson from '../package.json';
       <UiText>Option 2</UiText>
     </UiNavbarItem>
   </UiNavbar>
-</Playground>
-
-## UiNavbar Props
-
-<Props of={UiNavbar} />
-
-## UiNavbarItem Props
-
-<Props of={UiNavbarItem} />
+```

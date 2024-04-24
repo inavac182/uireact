@@ -1,27 +1,11 @@
----
-name: UiDatepicker
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiDatepicker } from '../src';
-import { DatePickerExample } from './example';
-
 import { UiBadge } from '@uireact/badge';
+import { UiDatepicker } from '@uireact/datepicker';
+
+import { DatePickerExample } from './example';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiDatepicker
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > A datepicker that lets select a date
 
@@ -31,9 +15,9 @@ import { UiBadge } from '@uireact/badge';
 
 ## Datepicker
 
-<Playground>
+```jsx live scope={{DatePickerExample}}
   <DatePickerExample />
-</Playground>
+```
 
 <br />
 
@@ -112,7 +96,3 @@ export const DatePickerExample: React.FC = () => {
   );
 };
 ```
-
-### Props
-
-<Props of={UiDatepicker} />

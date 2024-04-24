@@ -1,27 +1,10 @@
----
-name: UiNotifications
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiNotifications } from '../src';
-import { NotificationsExample } from './example';
-
+import { UiNotifications } from '@uireact/notifications';
 import { UiBadge } from '@uireact/badge';
+import { NotificationsExample } from './example';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiNotifications
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Used to render notifications on the top right corner of the screen, in small breakpoints the notifications appear at the bottom of the screen.
 
@@ -80,11 +63,7 @@ Make sure you look at the [UiIcons](./packages-icons-docs-docs) doc to check the
 
 The notifications provider is set up automatically by the [UiView](./packages-view-docs-view) so make sure you are using a UiView component to wrap your application.
 
-<Playground>
-  <div style={{ height: '300px' }}>
-    <NotificationsExample />
-  </div>
-</Playground>
+<NotificationsExample />
 
 ```tsx
 export const NotificationsExample: React.FC = () => {
@@ -129,7 +108,3 @@ export const NotificationsExample: React.FC = () => {
   );
 };
 ```
-
-### Props
-
-<Props of={UiNotifications} />

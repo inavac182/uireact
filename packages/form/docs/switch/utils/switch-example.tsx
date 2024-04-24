@@ -1,6 +1,7 @@
+'use client';
 import React from 'react';
 
-import { UiSwitch } from '../../src';
+import { UiSwitch } from '@uireact/form';
 
 export const SwitchExample: React.FC = () => {
   const [checked, setChecked] = React.useState(false);

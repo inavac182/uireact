@@ -1,29 +1,12 @@
----
-name: UiButton
-menu: Forms
----
-
-import { Props } from 'docz';
-
 import { UiCard } from '@uireact/card';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiText } from '@uireact/text';
-
-import Playground from '../../../src/Playground';
-import { UiButton } from '../src/';
-import { UiSpacing, Sizing } from '../../foundation/src/';
-import { UiIcon } from '../../icons/src';
-import { UiGrid } from '../../grid/src/';
-
-import * as packageJson from '../package.json';
+import { UiButton } from '@uireact/button';
+import { UiSpacing, Sizing } from '@uireact/foundation';
+import { UiIcon } from '@uireact/icons';
+import { UiGrid } from '@uireact/grid';
 
 # UiButton
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/button/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > An actionable element, commonly used in forms
 
@@ -33,21 +16,17 @@ import * as packageJson from '../package.json';
 
 ## UiButton
 
-<Playground>
+```jsx live scope={{UiButton, UiSpacing, Sizing}}
   <UiButton>
     <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
   </UiButton>
-</Playground>
-
-### Props
-
-<Props of={UiButton} />
+```
 
 ### More examples
 
 #### With fullWidth
 
-<Playground>
+```jsx live scope={{UiGrid, UiButton, UiSpacing}}
   <UiGrid cols={2} rows={1} colsGap='four' justifyItems="center">
     <UiButton fullWidth padding={{ all: 'three' }}>
       Button! 💅🏾
@@ -56,23 +35,22 @@ import * as packageJson from '../package.json';
     <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
       Button! 💅🏾
     </UiButton>
-
   </UiGrid>
-</Playground>
+```
 
 #### As submit button
 
-<Playground>
+```jsx live scope={{UiButton}}
   <form>
     <UiButton theme="secondary" type="submit">
       Button! 💅🏾
     </UiButton>
   </form>
-</Playground>
+```
 
 #### Button themes:
 
-<Playground>
+```jsx live scope={{UiGrid, UiButton}}
   <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap="three" rowsGap="three" justifyItems="center">
     <UiButton fullWidth padding={{ all: 'three' }}>
       Button! 🐬
@@ -96,11 +74,11 @@ import * as packageJson from '../package.json';
       Button! 🌋
     </UiButton>
   </UiGrid>
-</Playground>
+```
 
 #### Rounded button
 
-<Playground>
+```jsx live scope={{UiCard, UiFlexGrid, UiText, UiButton}}
   <UiCard weight="200" category="positive">
     <UiFlexGrid gap="three">
       <UiButton rounded>
@@ -114,11 +92,11 @@ import * as packageJson from '../package.json';
       </UiButton>
     </UiFlexGrid>
   </UiCard>
-</Playground>
+```
 
 #### Clear button
 
-<Playground>
+```jsx live scope={{UiCard, UiFlexGrid, UiButton}}
   <UiCard>
     <UiFlexGrid gap="three">
       <UiButton category="tertiary" styling="clear" padding={{ all: 'three' }}>
@@ -127,11 +105,11 @@ import * as packageJson from '../package.json';
       Some content
     </UiFlexGrid>
   </UiCard>
-</Playground>
+```
 
 #### Icon button
 
-<Playground>
+```jsx live scope={{UiCard, UiFlexGrid, UiIcon, UiButton}}
   <UiCard weight="10">
     <UiFlexGrid gap="three" alignItems="center">
       <UiButton styling="icon" category="primary">
@@ -151,11 +129,11 @@ import * as packageJson from '../package.json';
       </UiButton>
     </UiFlexGrid>
   </UiCard>
-</Playground>
+```
 
 #### Outlined button
 
-<Playground>
+```jsx live scope={{UiCard, UiFlexGrid, UiText, UiButton, UiIcon}}
   <UiCard category="primary" weight="10">
     <UiFlexGrid gap="three">
       <UiButton styling="outlined" category="tertiary">
@@ -173,4 +151,4 @@ import * as packageJson from '../package.json';
       </UiButton>
     </UiFlexGrid>
   </UiCard>
-</Playground>
+```

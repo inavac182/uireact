@@ -1,5 +1,6 @@
 {
     "events": {
+      "start": "turbo run docs:clean && node ./scripts/build-docs.js",
       "restart": "node ./scripts/build-docs.js"
     }
   }

@@ -23,6 +23,9 @@
     "dev": {
       "cache": false
     },
+    "docs:clean": {
+      "cache": false
+    },
     "start": {
       "cache": false
     },

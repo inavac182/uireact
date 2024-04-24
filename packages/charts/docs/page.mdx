@@ -1,22 +1,6 @@
----
-name: UiLinearChart
-menu: Charts
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiLinearChart } from '../src';
+import { UiLinearChart } from '@uireact/charts';
 
 # UiLinearChart
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/charts/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Linear chart that represents the percentage of a current value inside a limit value.
 
@@ -29,7 +13,7 @@ import { UiLinearChart } from '../src';
 This component takes 2 values: `currentValue` and `limitValue`, the `limitValue` is the 100% of the chart and the current value represents how much of the `limitValue` is covered, if the current value is bigger than the limit then it
 will default to 100%.
 
-<Playground>
+```jsx live scope={{UiLinearChart}}
   <UiLinearChart
     data={{
       current: {
@@ -41,13 +25,13 @@ will default to 100%.
       title: 'Demo',
     }}
   />
-</Playground>
+```
 
 ## UiLinearChart - with labels
 
 The limit label appears at the chart's top right corner, the current label renders underneath the current edge by default.
 
-<Playground>
+```jsx live scope={{UiLinearChart}}
   <UiLinearChart
     data={{
       current: {
@@ -60,13 +44,13 @@ The limit label appears at the chart's top right corner, the current label rende
       },
     }}
   />
-</Playground>
+```
 
 ## UiLinearChart - with static label position
 
 When static label is used the label for the current value will be static at the bottom of the chart
 
-<Playground>
+```jsx live scope={{UiLinearChart}}
   <UiLinearChart
     data={{
       current: {
@@ -80,13 +64,13 @@ When static label is used the label for the current value will be static at the 
       },
     }}
   />
-</Playground>
+```
 
 ## UiLinearChart - with theme colors
 
 We can use the color categories for grabbing a specific theme color for the chart
 
-<Playground>
+```jsx live scope={{UiLinearChart}}
   <UiLinearChart
     data={{
       current: {
@@ -103,13 +87,13 @@ We can use the color categories for grabbing a specific theme color for the char
       title: 'Demo with color',
     }}
   />
-</Playground>
+```
 
 ## UiLinearChart - with custom colors
 
 The custom colors supports hex and rgb colors
 
-<Playground>
+```jsx live scope={{UiLinearChart}}
   <UiLinearChart
     data={{
       current: {
@@ -126,11 +110,7 @@ The custom colors supports hex and rgb colors
       title: 'Demo with color',
     }}
   />
-</Playground>
-
-### UiLinearChart - Props
-
-<Props of={UiLinearChart} />
+```
 
 Definiton of `UiLinearChartData`
 

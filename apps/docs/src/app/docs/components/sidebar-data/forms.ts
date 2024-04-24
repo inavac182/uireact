@@ -14,7 +14,7 @@ export const FormsSideBarData: NavbarItem[] = [
         title: 'UiInput'
     },
     {
-        link: '/input-datepicker',
+        link: '/datepicker-input',
         title: 'UiInputDatepicker'
     },
     {

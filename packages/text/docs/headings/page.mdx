@@ -1,22 +1,6 @@
----
-name: UiHeading
-menu: Typography
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiHeading } from '../src';
+import { UiHeading } from '@uireact/text';
 
 # UiHeading
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component to render texts
 
@@ -26,45 +10,43 @@ import { UiHeading } from '../src';
 
 ## UiHeading
 
-<Playground>
+```jsx live scope={{UiHeading}}
   <UiHeading level={1}>Some heading</UiHeading>
-</Playground>
+```
 
 ## UiHeading with inverse coloration
 
-<Playground>
+```jsx live scope={{UiHeading}}
   <UiHeading level={1} inverseColoration>
     Some heading
   </UiHeading>
-</Playground>
+```
 
 ## UiHeading centered
 
-<Playground>
+```jsx live scope={{UiHeading}}
   <UiHeading level={1} centered>
     Some heading
   </UiHeading>
-</Playground>
+```
 
 ## UiHeading wrapped
 
-<Playground>
+```jsx live scope={{UiHeading}}
   <UiHeading level={1} wrap>
     This is a very very very very very loooooong heading so it can be wrapped
   </UiHeading>
-</Playground>
+```
 
 ## UiHeading with default coloration
 
-<Playground>
+```jsx live scope={{UiHeading}}
+<>
   <UiHeading level={1} coloration="dark">
     Will always render with DARK coloration
   </UiHeading>
   <UiHeading level={1} coloration="light">
     Will always render with LIGHT coloration
   </UiHeading>
-</Playground>
-
-### Props
-
-<Props of={UiHeading} />
+</>
+```

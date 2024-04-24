@@ -1,29 +1,11 @@
----
-name: UiDigitsInput
-menu: Forms
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiDigitsInput } from '../src';
-
+import { UiDigitsInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiSpacing } from '@uireact/foundation';
-
 import { UiBadge } from '@uireact/badge';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiDigitsInput
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/form/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component used to render digits inputs
 
@@ -33,7 +15,7 @@ import { UiBadge } from '@uireact/badge';
 
 ## UiDigitsInput
 
-<Playground>
+```jsx live scope={{UiDigitsInput}}
   <UiDigitsInput
     label="Introduce your code"
     digits={6}
@@ -44,11 +26,11 @@ import { UiBadge } from '@uireact/badge';
       console.log(`completed ${code}`);
     }}
   />
-</Playground>
+```
 
 ## UiDigitsInput with size and category
 
-<Playground>
+```jsx live scope={{UiDigitsInput}}
   <UiDigitsInput
     label="Introduce your code"
     digits={6}
@@ -62,8 +44,4 @@ import { UiBadge } from '@uireact/badge';
     category="error"
     error="Code is not valid"
   />
-</Playground>
-
-### Props
-
-<Props of={UiDigitsInput} />
+```

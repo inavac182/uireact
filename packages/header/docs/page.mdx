@@ -1,23 +1,7 @@
----
-name: UiHeader
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiHeader } from '../src/';
-import { UiSpacing, Sizing } from '../../foundation/src';
+import { UiHeader } from '@uireact/header';
+import { UiSpacing, Sizing } from '@uireact/foundation';
 
 # UiHeader
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Header component, usually use to render logo and a few menu user actions
 
@@ -29,7 +13,7 @@ import { UiSpacing, Sizing } from '../../foundation/src';
 
 The header component will render at the top but on scrolling the header will move with the scrolling
 
-<Playground>
+```jsx live scope={{UiHeader, UiSpacing}}
   <div style={{ position: 'relative' }}>
     <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
       <UiHeader>
@@ -51,13 +35,13 @@ The header component will render at the top but on scrolling the header will mov
       </div>
     </div>
   </div>
-</Playground>
+```
 
 ## Header fixed
 
 The header component will kept positioned at the top of the content
 
-<Playground>
+```jsx live scope={{UiHeader, UiSpacing}}
   <div style={{ position: 'relative' }}>
     <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
       <UiHeader fixed>
@@ -79,8 +63,4 @@ The header component will kept positioned at the top of the content
       </div>
     </div>
   </div>
-</Playground>
-
-### Props
-
-<Props of={UiHeader} />
+```

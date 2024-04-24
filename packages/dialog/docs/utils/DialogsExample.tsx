@@ -1,10 +1,10 @@
+'use client';
 import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { TextSize, UiSpacing } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
-
-import { UiDialog, UiDialogType, useDialog } from '../../src';
+import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 
 type DialogsExampleProps = {
   type?: UiDialogType;

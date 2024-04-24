@@ -1,25 +1,9 @@
----
-name: UiTable
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiTable } from '../src';
+import { UiTable } from '@uireact/table';
 import { UiBadge } from '@uireact/badge';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiTable
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Used to render information in a table that is filterable and sortable.
 > The rows can be selectable if the `onSelect` CB is provided.
@@ -30,7 +14,7 @@ import { UiBadge } from '@uireact/badge';
 
 ## UiTable
 
-<Playground>
+```jsx live scope={{UiTable}}
   <UiTable
     data={{
       headings: ['No', 'Summary', 'Price'],
@@ -53,14 +37,14 @@ import { UiBadge } from '@uireact/badge';
       console.log(`id ${id} selected`);
     }}
   />
-</Playground>
+```
 
 - If a row is selected the `onClick` CB is executed
 - If you pass a `selected` id to the table that row will show as selected in the table
 
 ## UiTable - with category
 
-<Playground>
+```jsx live scope={{UiTable}}
   <UiTable
     data={{
       headings: ['Summary', 'Price'],
@@ -68,11 +52,11 @@ import { UiBadge } from '@uireact/badge';
     }}
     category="tertiary"
   />
-</Playground>
+```
 
 ## UiTable - with filter box position
 
-<Playground>
+```jsx live scope={{UiTable}}
   <UiTable
     data={{
       headings: ['Summary', 'Price'],
@@ -81,8 +65,4 @@ import { UiBadge } from '@uireact/badge';
     category="tertiary"
     filterBoxPosition="right"
   />
-</Playground>
-
-### Props
-
-<Props of={UiTable} />
+```

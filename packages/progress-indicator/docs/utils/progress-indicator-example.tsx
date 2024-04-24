@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { UiSpacing } from '@uireact/foundation';
@@ -5,7 +6,7 @@ import { UiHeading, UiText } from '@uireact/text';
 import { UiCard } from '@uireact/card';
 import { UiButton } from '@uireact/button';
 
-import { UiProgressIndicator, UiProgressIndicatorItem } from '../../src';
+import { UiProgressIndicator, UiProgressIndicatorItem } from '@uireact/progress-indicator';
 
 export const ProgressIndicatorExample: React.FC = () => {
   const [step, setStep] = React.useState(1);

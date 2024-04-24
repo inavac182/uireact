@@ -1,25 +1,8 @@
----
-name: UiConfirmDialog
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiConfirmDialog } from '../src';
 import { ConfirmDialogExample } from './example';
 
 # UiConfirmDialog
 
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/COMPONENT-NAME/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
-
-> DESCRIPTION
+> A dialog that shows up 2 options for the user to confirm an action
 
 ## Installation
 
@@ -46,9 +29,9 @@ This function receives 4 parameters:
 
 ## Example
 
-<Playground>
+```jsx live scope={{ConfirmDialogExample}}
   <ConfirmDialogExample />
-</Playground>
+```
 
 ```tsx
 export const ConfirmDialogExample: React.FC = () => {
@@ -84,7 +67,3 @@ export const ConfirmDialogExample: React.FC = () => {
   );
 };
 ```
-
-### Props
-
-<Props of={UiConfirmDialog} />

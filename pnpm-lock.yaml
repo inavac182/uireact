@@ -36,9 +36,21 @@ importers:
       '@uireact/card':
         specifier: workspace:*
         version: link:packages/card
+      '@uireact/charts':
+        specifier: workspace:*
+        version: link:packages/charts
+      '@uireact/confirm-dialog':
+        specifier: workspace:*
+        version: link:packages/confirm-dialog
+      '@uireact/datepicker':
+        specifier: workspace:*
+        version: link:packages/datepicker
       '@uireact/dialog':
         specifier: workspace:*
         version: link:packages/dialog
+      '@uireact/expando':
+        specifier: workspace:*
+        version: link:packages/expando
       '@uireact/flex':
         specifier: workspace:*
         version: link:packages/flex
@@ -51,21 +63,42 @@ importers:
       '@uireact/grid':
         specifier: workspace:*
         version: link:packages/grid
+      '@uireact/header':
+        specifier: workspace:*
+        version: link:packages/header
       '@uireact/icons':
         specifier: workspace:*
         version: link:packages/icons
       '@uireact/list':
         specifier: workspace:*
         version: link:packages/list
+      '@uireact/menu':
+        specifier: workspace:*
+        version: link:packages/menu
+      '@uireact/navbar':
+        specifier: workspace:*
+        version: link:packages/navbar
+      '@uireact/notifications':
+        specifier: workspace:*
+        version: link:packages/notifications
+      '@uireact/progress-indicator':
+        specifier: workspace:*
+        version: link:packages/progress-indicator
       '@uireact/separator':
         specifier: workspace:*
         version: link:packages/separator
       '@uireact/table':
         specifier: workspace:*
         version: link:packages/table
+      '@uireact/tabs':
+        specifier: workspace:*
+        version: link:packages/tabs
       '@uireact/text':
         specifier: workspace:*
         version: link:packages/text
+      '@uireact/validator':
+        specifier: workspace:*
+        version: link:packages/validator
       '@uireact/view':
         specifier: workspace:*
         version: link:packages/view

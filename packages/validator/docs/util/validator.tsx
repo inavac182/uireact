@@ -2,9 +2,7 @@ import React from 'react';
 
 import { UiText } from '@uireact/text';
 
-import { UiValidator } from '../../src';
-
-import { UiValidatorSchema } from '../../src/types';
+import { UiValidator, UiValidatorSchema } from '@uireact/validator';
 
 type ValidatorRunnerProps = {
   data: { [keys in string]: unknown };

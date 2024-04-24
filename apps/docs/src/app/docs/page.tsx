@@ -61,9 +61,9 @@ import React from 'react';
 import { DefaultTheme } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
-export const MyWrapper = () => (
+export const MyWrapper = ({ children }) => (
   <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
-    <p>View content</p>
+    {children}
   </UiView>
 );
             `}

@@ -1,10 +1,8 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
-
-import { UiNotifications } from '../../src';
-import { useNotifications } from '../../src/hook';
+import { UiNotifications, useNotifications } from '@uireact/notifications';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 

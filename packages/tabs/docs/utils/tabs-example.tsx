@@ -1,10 +1,10 @@
+'use client';
 import React from 'react';
 
 import { UiCard } from '@uireact/card';
 import { UiList, UiListItem } from '@uireact/list';
 import { UiText } from '@uireact/text';
-
-import { UiTabs, UiTabItem } from '../../src/';
+import { UiTabs, UiTabItem } from '@uireact/tabs';
 
 const Fruits = () => (
   <div>

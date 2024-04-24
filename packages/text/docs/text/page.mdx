@@ -1,22 +1,6 @@
----
-name: UiText
-menu: Typography
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiText } from '../src';
+import { UiText } from '@uireact/text';
 
 # UiText
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/text/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component to render texts
 
@@ -26,63 +10,63 @@ import { UiText } from '../src';
 
 ## UiText
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText>Some text</UiText>
-</Playground>
+```
 
 By default the text is rendered inside a `p` tag
 
 ## UiText inline
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText inline>Some text</UiText>
-</Playground>
+```
 
 When using inline the text will be rendered in a `Span` tag
 
 ## UiText centered
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText centered>Some text</UiText>
-</Playground>
+```
 
 ## UiText aligned right
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText align="right">Some text</UiText>
-</Playground>
+```
 
 ## UiText wrapped
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText wrap>
     Long text that needs to be wrapped so it doesn't overflow to other areas of the content where we wouldn't like it
   </UiText>
-</Playground>
+```
 
 ## UiText with color category
 
-<Playground>
+```jsx live scope={{UiText}}
+<>
   <UiText category="error">Some text </UiText>
   <UiText category="positive" fontStyle="bold">
     Some text
   </UiText>
   <UiText category="negative">Some text</UiText>
-</Playground>
+</>
+```
 
 ## UiText with inverse coloration
 
-<Playground>
+```jsx live scope={{UiText}}
   <UiText inverseColoration>Some text </UiText>
-</Playground>
+```
 
 ## UiText with default coloration
 
-<Playground>
+```jsx live scope={{UiText}}
+<>
   <UiText coloration="dark">Will always show DARK coloration</UiText>
   <UiText coloration="light">Will always show LIGHT coloration</UiText>
-</Playground>
-
-### Props
-
-<Props of={UiText} />
+</>
+```

@@ -36,10 +36,21 @@ directories.map((directory) => {
     mkdirSync(packageDocFolderRoute);
   }
 
-  // Copy files from package folder to docs app
-  packageDocsEntries.forEach((entry) => {
-    cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true });
-  });
+  const singleDocPage = packageDocsEntries.filter((docEntry) => docEntry.name === 'page.mdx').length > 0;
+
+  if (singleDocPage) {
+    // Copy files from package folder to docs app
+    packageDocsEntries.forEach((entry) => {
+      cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true, force: true });
+    });
+  } else {
+    packageDocsEntries.forEach((entry) => {
+      const packageDocFolderRoute = `${baseDocsAppPath}/${entry.name}/`;
+
+      cpSync(`${entry.path}/${entry.name}`, packageDocFolderRoute, { recursive: true, force: true });
+    });
+  }
+  
 });
 
 console.log('Doc pages compiled');

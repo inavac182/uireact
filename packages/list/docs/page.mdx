@@ -1,23 +1,8 @@
----
-name: UiList
-menu: Components
----
-
-import { Props } from 'docz';
 import { UiText } from '@uireact/text';
 
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiList, UiListItem } from '../src/';
+import { UiList, UiListItem } from '@uireact/list';
 
 # UiList
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/UiList/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component used to render lists, bulleted, ordered or unordered
 
@@ -27,7 +12,7 @@ import { UiList, UiListItem } from '../src/';
 
 ## UiList - default
 
-<Playground>
+```jsx live scope={{UiList, UiListItem, UiText}}
   <UiList>
     <UiListItem>
       <UiText>Item 1</UiText>
@@ -36,11 +21,11 @@ import { UiList, UiListItem } from '../src/';
       <UiText>Item 2</UiText>
     </UiListItem>
   </UiList>
-</Playground>
+```
 
 ## UiList - ordered
 
-<Playground>
+```jsx live scope={{UiList, UiListItem, UiText}}
   <UiList type="ORDERED">
     <UiListItem>
       <UiText>Item 1</UiText>
@@ -49,11 +34,11 @@ import { UiList, UiListItem } from '../src/';
       <UiText>Item 2</UiText>
     </UiListItem>
   </UiList>
-</Playground>
+```
 
 ## UiList - bulleted
 
-<Playground>
+```jsx live scope={{UiList, UiListItem, UiText}}
   <UiList type="BULLETED">
     <UiListItem>
       <UiText>Item 1</UiText>
@@ -62,11 +47,11 @@ import { UiList, UiListItem } from '../src/';
       <UiText>Item 2</UiText>
     </UiListItem>
   </UiList>
-</Playground>
+```
 
 ## UiList - nested
 
-<Playground>
+```jsx live scope={{UiList, UiListItem, UiText}}
   <UiList type="BULLETED">
     <UiListItem>
       <UiText>Item 1</UiText>
@@ -83,8 +68,4 @@ import { UiList, UiListItem } from '../src/';
       <UiText>Item 2</UiText>
     </UiListItem>
   </UiList>
-</Playground>
-
-### Props
-
-<Props of={UiList} />
+```

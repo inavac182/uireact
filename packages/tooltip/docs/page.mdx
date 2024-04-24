@@ -1,23 +1,7 @@
----
-name: UiTooltip
-menu: Components
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
 import { UiTooltip } from '@uireact/tooltip';
 import { UiText } from '@uireact/text';
 
 # UiTooltip
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/tooltip/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component used to render extra information on top of texts or icons.
 
@@ -27,7 +11,8 @@ import { UiText } from '@uireact/text';
 
 ## Above a text element
 
-<Playground>
+```jsx live scope={{UiTooltip, UiText}}
+<>
   <UiTooltip text="Tooltip! 🐣">
     <UiText>Tooltip on top</UiText>
   </UiTooltip>
@@ -43,8 +28,5 @@ import { UiText } from '@uireact/text';
   <UiTooltip text="Tooltip! 🌶️" position="right" category="positive" inverse={false}>
     <UiText>Tooltip on right</UiText>
   </UiTooltip>
-</Playground>
-
-### Props
-
-<Props of={UiTooltip} />
+</>
+```

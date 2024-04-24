@@ -1,9 +1,9 @@
+'use client';
 import React, { useCallback, useState } from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
-
-import { UiDatepicker } from '../../src';
+import { UiDatepicker } from '@uireact/datepicker';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 
 const today = new Date();

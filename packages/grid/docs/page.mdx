@@ -1,25 +1,10 @@
----
-name: UiGrid
-menu: Grids
----
-
-import { Props } from 'docz';
-
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
 import { UiText } from '@uireact/text';
 
-import Playground from '../../../src/Playground';
-import { UiGrid, UiGridItem } from '../src/';
-import * as packageJson from '../package.json';
+import { UiGrid, UiGridItem } from '@uireact/grid';
 
 # UiGrid & UiGridItem
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/grid/card/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Structure and organize the UI using a grid column
 
@@ -31,7 +16,7 @@ import * as packageJson from '../package.json';
 
 ### 1. Using just UiGrid
 
-<Playground>
+```jsx live scope={{UiGrid, UiCard, UiText}}
   <UiGrid cols={3} rows={2} colsGap="four" justifyItems="center">
     <UiCard fullWidth fullHeight>
       <UiText>Item 1!</UiText>
@@ -40,11 +25,11 @@ import * as packageJson from '../package.json';
       <UiText>Item 2!</UiText>
     </UiCard>
   </UiGrid>
-</Playground>
+```
 
 ### 2. Using UiGrid with UiGridItem
 
-<Playground>
+```jsx live scope={{UiGrid, UiGridItem, UiCard, UiText, UiViewport}}
   <UiGrid cols={3} rows={2} colsGap="four">
     <UiViewport criteria="l|xl">
       <UiGridItem cols={2}>
@@ -60,7 +45,7 @@ import * as packageJson from '../package.json';
       </UiCard>
     </UiGridItem>
   </UiGrid>
-</Playground>
+```
 
 In this case as we are using the UigridItem we are able to manipulate each grid item on its own.
 
@@ -70,7 +55,7 @@ Also notice that in Item 1 we are making use of the [UiViewport](./packages-foun
 
 This prop give you the ability to set a number of cols/rows depending on the breakpoint.
 
-<Playground>
+```jsx live scope={{UiGrid, UiCard, UiText}}
   <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }} rows={2} colsGap={20} rowsGap={10}>
     <UiCard>
       <UiText>Item 1!</UiText>
@@ -82,11 +67,11 @@ This prop give you the ability to set a number of cols/rows depending on the bre
       <UiText>Item 3!</UiText>
     </UiCard>
   </UiGrid>
-</Playground>
+```
 
 ### 2. Using custom UiGridItem col span
 
-<Playground>
+```jsx live scope={{UiGrid, UiCard, UiText, UiGridItem}}
   <UiGrid cols={4} colsGap="5px">
     <UiGridItem cols={2}>
       <UiCard>
@@ -99,12 +84,4 @@ This prop give you the ability to set a number of cols/rows depending on the bre
       </UiCard>
     </UiGridItem>
   </UiGrid>
-</Playground>
-
-## UiGrid Props
-
-<Props of={UiGrid} />
-
-## UiGridItem Props
-
-<Props of={UiGridItem} />
+```

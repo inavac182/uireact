@@ -1,25 +1,8 @@
----
-name: UiInput
-menu: Forms
----
-
-import { Props } from 'docz';
-
-import * as packageJson from '../package.json';
-import Playground from '../../../src/Playground';
-
-import { UiInput } from '../src';
-
+import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiSpacing } from '@uireact/foundation';
 
 # UiInput
-
-<sup>
-  <a href="https://github.com/inavac182/ui-react/blob/main/packages/form/" target="_blank">
-    v{packageJson.version}
-  </a>
-</sup>
 
 > Component used to render input fields
 
@@ -29,18 +12,18 @@ import { UiSpacing } from '@uireact/foundation';
 
 ## UiInput with placeholder
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput
     placeholder="First Name"
     onChange={(value) => {
       console.log(value);
     }}
   />
-</Playground>
+```
 
 ## UiInput with size
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput
     placeholder="First Name"
     onChange={(value) => {
@@ -48,56 +31,52 @@ import { UiSpacing } from '@uireact/foundation';
     }}
     size="xlarge"
   />
-</Playground>
+```
 
 ## UiInput with label
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="First Name" labelOnTop />
-</Playground>
+```
 
 ## UiInput with icon
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="Search" placeholder="Type your search" labelOnTop icon={<UiIcon icon="Search" />} />
-</Playground>
+```
 
 ## UiInput disabled
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="First Name" disabled />
-</Playground>
+```
 
 ## UiInput with state
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="First Name" category="positive" />
-</Playground>
+```
 
 ## UiInput with error state and error message
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="First Name" error="Some error" category="error" />
-</Playground>
+```
 
 ## UiInput for passwords
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="Password" labelOnTop type="password" />
-</Playground>
+```
 
 ## UiInput for numbers
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="Number" labelOnTop type="number" value="123" />
-</Playground>
+```
 
 ## UiInput for datepicker
 
-<Playground>
+```jsx live scope={{UiInput}}
   <UiInput label="Date" labelOnTop type="date" />
-</Playground>
-
-### Props
-
-<Props of={UiInput} />
+```
