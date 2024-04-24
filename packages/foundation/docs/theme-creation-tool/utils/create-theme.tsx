@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { UiButton } from '@uireact/button';
@@ -26,11 +27,9 @@ export const CreateTheme: React.FC = () => {
       const keys = e.currentTarget.name.split('-');
 
       if (keys[2]) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         $customTheme[keys[0]][keys[1]][keys[2]] = e.currentTarget.value;
       } else {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         $customTheme[keys[0]][keys[1]] = e.currentTarget.value;
       }

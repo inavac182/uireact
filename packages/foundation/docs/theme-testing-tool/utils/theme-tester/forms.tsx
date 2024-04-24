@@ -1,4 +1,6 @@
+'use client';
 import React, { useCallback, useState } from 'react';
+import { styled } from 'styled-components';
 
 import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
@@ -7,7 +9,6 @@ import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiHeading } from '@uireact/text';
 import { UiSwitch, UiInput, UiSelect } from '@uireact/form';
-import { styled } from 'styled-components';
 
 const Div = styled.div`
   display: flex;

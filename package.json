@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "build": "node ./scripts/build-docs.js && turbo run build",
     "dev": "nodemon --ignore apps -e mdx --exec \"turbo run dev\"",
     "start": "turbo run start",
     "lint": "turbo run lint",
@@ -53,6 +53,7 @@
     "turbo": "^1.8.3"
   },
   "dependencies": {
+    "styled-components": "^6.0.7",
     "nodemon": "^3.1.0",
     "tsc-watch": "^6.2.0"
   }

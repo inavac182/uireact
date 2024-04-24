@@ -1,3 +1,4 @@
+'use client';
 import React, { useCallback } from 'react';
 
 import { UiButton } from '@uireact/button';
@@ -41,10 +42,10 @@ export const NotificationsExample: React.FC<NotificationsExampleProps> = ({
       options: {
         onNotificationShown,
         onNotificationDismissed,
-        onLinkClicked,
+        onLinkClicked
       },
     });
-  }, [showNotification]);
+  }, [showNotification, onNotificationShown, onNotificationDismissed, onLinkClicked]);
 
   const addNotificationWithOptions = useCallback(() => {
     showNotification({

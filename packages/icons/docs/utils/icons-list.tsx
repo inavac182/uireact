@@ -43,7 +43,6 @@ export const IconsList: React.FC = () => {
           {Object.keys(Icons).map((key) => (
             <UiGridItem key={`icon-grid-item-component-${key}`}>
               <UiText size={TextSize.xsmall} category={category} centered>
-                {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                 {/* @ts-ignore */}
                 <UiIcon icon={key} size="xlarge" category={category} />
                 <br />
