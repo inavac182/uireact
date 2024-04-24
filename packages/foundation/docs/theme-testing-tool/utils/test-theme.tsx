@@ -26,7 +26,7 @@ export const TestTheme: React.FC = () => {
     (e: React.FormEvent<HTMLTextAreaElement>) => {
       setThemeInput(e.currentTarget.value);
     },
-    [set$customTheme]
+    []
   );
 
   const toogleColoration = React.useCallback(() => {

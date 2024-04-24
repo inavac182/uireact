@@ -19,7 +19,7 @@ export const CreateTheme: React.FC = () => {
       setThemeVisible(true);
       e.preventDefault();
     },
-    [$customTheme]
+    []
   );
 
   const handleChange = React.useCallback(

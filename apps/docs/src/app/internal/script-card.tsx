@@ -42,7 +42,7 @@ export const ScriptCard = ({ script }: ScriptCardProps) => {
 export const ScriptText = ({ script }: ScriptCardProps) => {
   const onScriptClick = useCallback(() => {
     navigator.clipboard.writeText(script);
-  }, []);
+  }, [script]);
 
   return (
     <UiFlexGrid direction='row' columnGap='five' alignItems='center'>
