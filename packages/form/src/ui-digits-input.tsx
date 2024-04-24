@@ -134,7 +134,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
               key={`internal-digit-${id}-input`}
               onChange={onDigitChange}
               required={required}
-              ref={(el) => (el ? inputsRef.current[id] = el : null)}
+              ref={(el) => (el ? inputsRef.current[id] = el : undefined)}
               disabled={disabled}
             />
           ))}
