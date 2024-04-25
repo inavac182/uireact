@@ -1,6 +1,6 @@
 'use client';
 import React from "react";
-
+import styled, { keyframes } from "styled-components";
 import { LiveProvider, LiveError, LivePreview, LiveEditor } from "react-live";
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -14,6 +14,52 @@ type CodeBlockProps = {
   language?: string;
 };
 
+const LivePreviewWrapper = styled.div`
+  padding: 20px;
+  background-color: var(--primary-token_150);
+  border-radius: 20px 20px 0px 0px;
+`;
+
+const LiveEditorStyled = styled(LiveEditor)`
+  > pre {
+    border-radius: 0px 0px 20px 20px;
+  }
+`;
+
+export const animateGradient = keyframes`
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+`;
+
+const LiveProviderWrapper = styled.div`
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 20px;
+  padding: 5px;
+
+  background: linear-gradient(
+    -45deg,
+    var(--primary-token_100),
+    var(--secondary-token_100),
+    var(--tertiary-token_100),
+    var(--primary-token_10),
+    var(--secondary-token_10),
+    var(--tertiary-token_10),
+    var(--primary-token_200),
+    var(--secondary-token_200),
+    var(--tertiary-token_200)
+  );
+
+  animation: ${animateGradient} 15s ease infinite;
+  background-size: 400% 400%;
+`;
+
 export default function CodeBlock({ children, className, live, scope, language }: CodeBlockProps) {
   const childCode = children?.props;
 
@@ -26,11 +72,15 @@ export default function CodeBlock({ children, className, live, scope, language }
 
   if (live) {
     return (
-      <LiveProvider code={code} scope={scope}>
-        <LivePreview />
-        <LiveError />
-        <LiveEditor code={code} className={className} />
-      </LiveProvider>
+      <LiveProviderWrapper>
+        <LiveProvider code={code} scope={scope} language={language}>
+          <LivePreviewWrapper>
+            <LivePreview />
+          </LivePreviewWrapper>
+          <LiveError />
+          <LiveEditorStyled code={code} className={className} />
+        </LiveProvider>
+      </LiveProviderWrapper>
     );
   }
 
