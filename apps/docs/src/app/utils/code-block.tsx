@@ -68,7 +68,6 @@ export default function CodeBlock({ children, className, live, scope, language }
   }
 
   const code = childCode.children.replace(/\n$/, "");
-  const codeBlock = <code>{code}</code>;
 
   if (live) {
     return (

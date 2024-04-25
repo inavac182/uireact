@@ -18,8 +18,8 @@ const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
 export default function Docs () {
     return (
         <>
-            <UiCard styling='outlined' category='error'>
-                <h3>We are migrating to our new docs page!</h3>
+            <UiCard styling='outlined' category='warning'>
+                <h2><UiIcon icon="Party" category='warning' size='xlarge' /> We just migrated to our new tech stack docs page!</h2>
                 <p>There are a few broken links that we are working on fixing. Sorry for the inconvinience, will try to fix it real quickly.</p>
             </UiCard>
             <br />
