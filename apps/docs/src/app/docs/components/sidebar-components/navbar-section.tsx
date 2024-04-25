@@ -18,9 +18,10 @@ const Container = styled.div`
 
 const NavbarTitleContainer = styled.div`
     cursor: pointer;
+    border-radius: 20px;
 
     &:hover {
-        color: var(--fonts-token_150);
+        background-color: var(--primary-token_10);
     }
 `;
 
@@ -44,8 +45,13 @@ const nestedNavbarSpacing: UiSpacingProps['padding'] = {
     all: 'five'
 };
 
+const navbarTitleSpacing: UiSpacingProps['padding'] = {
+    block: 'four',
+    inline: 'four'
+};
+
 const navbarItemTitle: UiSpacingProps['padding'] = {
-    top: 'four',
+    block: 'four',
     left: 'four'
 };
 const navbarFloatingItemTitle: UiSpacingProps['padding'] = {
@@ -63,10 +69,10 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
     return (
         <Container>
             <NavbarTitleContainer onClick={toggleSection}>
-                <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarItemTitle}>
+                <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
                     <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
-                        <UiIcon icon={icon} coloration='light' />
-                        <UiText size='large' fontStyle='bold' coloration='light'>{title}</UiText>
+                        <UiIcon icon={icon} category='primary' inverseColoration />
+                        <UiText size='large' fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
                     </UiFlexGrid>
                 </UiSpacing>
             </NavbarTitleContainer>
