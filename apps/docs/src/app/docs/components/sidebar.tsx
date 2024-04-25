@@ -15,6 +15,7 @@ const SidebarWrapper = styled.div<{ $isFloatingNavbar?: boolean }>`
             position: sticky;
             padding: 30px;
             box-sizing: border-box;
+            border-right: 3px solid var(--primary-token_150);
         `}
     `}
 `;
@@ -32,7 +33,7 @@ export const SideBar = ({ isFloatingNavbar }: SideBarProps) => {
         } else {
             setSelected(id);
         }
-    }, [setSelected]);
+    }, [setSelected, selected]);
 
     return (
         <SidebarWrapper $isFloatingNavbar={isFloatingNavbar}>

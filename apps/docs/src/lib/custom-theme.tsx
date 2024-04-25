@@ -129,10 +129,10 @@ export const DocsTheme: Theme = {
     },
     texts: {
       xsmall: '12px',
-      small: '16px',
-      regular: '20px',
-      large: '22px',
-      xlarge: '26px',
+      small: '14px',
+      regular: '16px',
+      large: '18px',
+      xlarge: '20px',
     },
   },
   texts: {

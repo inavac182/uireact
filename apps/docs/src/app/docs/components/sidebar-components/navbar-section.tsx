@@ -64,7 +64,7 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
         <Container>
             <NavbarTitleContainer onClick={toggleSection}>
                 <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarItemTitle}>
-                    <UiFlexGrid alignItems='center' justifyContent='center' gap='four'>
+                    <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
                         <UiIcon icon={icon} coloration='light' />
                         <UiText size='large' fontStyle='bold' coloration='light'>{title}</UiText>
                     </UiFlexGrid>

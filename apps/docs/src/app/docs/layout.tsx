@@ -22,8 +22,8 @@ const navbarPadding: UiSpacingProps['padding'] = { inline: 'four', block: 'three
 
 const DocContent = styled.div`
     max-width: 800px;
-    margin: 30px auto;
-    padding: 0px 50px;
+    margin: 0 auto;
+    padding: 30px;
 `;
 
 export default function DocsLayout ({ children }: DocsLayoutProps) {
@@ -42,20 +42,22 @@ export default function DocsLayout ({ children }: DocsLayoutProps) {
                                         <UiSpacing padding={navbarPadding}>
                                             <UiLink>
                                                 <Link href="/docs">
-                                                    Set up
+                                                    Home
                                                 </Link>
                                             </UiLink>
                                         </UiSpacing>
                                     </UiNavbarItem>
-                                    <UiNavbarItem>
-                                        <UiSpacing padding={navbarPadding}>
-                                            <UiLink>
-                                                <Link href="/contact">
-                                                    Contact
-                                                </Link>
-                                            </UiLink>
-                                        </UiSpacing>
-                                    </UiNavbarItem>
+                                    <UiViewport criteria={'l|xl'}>
+                                        <UiNavbarItem>
+                                            <UiSpacing padding={navbarPadding}>
+                                                <UiLink>
+                                                    <Link href="/contact">
+                                                        Contact
+                                                    </Link>
+                                                </UiLink>
+                                            </UiSpacing>
+                                        </UiNavbarItem>
+                                    </UiViewport>
                                 </UiNavbar>
                                 <ThemeSwitcher />
                             </UiFlexGrid>
@@ -66,7 +68,7 @@ export default function DocsLayout ({ children }: DocsLayoutProps) {
             <UiFlexGrid>
                 <UiViewport criteria={'l|xl'}>
                     <UiFlexGridItem>
-                        <SideBar />
+                        <SideBar isFloatingNavbar={false} />
                     </UiFlexGridItem>
                 </UiViewport>
                 <UiFlexGridItem grow={1}>

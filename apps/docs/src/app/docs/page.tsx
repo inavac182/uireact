@@ -22,6 +22,7 @@ export default function Docs () {
                 <UiHeading>Welcome to @UiReact docs</UiHeading>
             </UiSpacing>
             <UiLineSeparator />
+            <br />
             <UiText>This doc page will give you information about all components we have in the library</UiText>
             <br />
             <UiHeading level={4}>Installation</UiHeading>

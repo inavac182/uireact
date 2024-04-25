@@ -19,7 +19,7 @@ export const ScriptCardContainer = styled(motion.div)`
 
 export const ScriptSpan = styled(motion.span)`
   font-family: "Press Start 2P", system-ui;
-  color: var(fonts-token_10);
+  text-wrap: wrap;
   font-size: 10px;
   cursor: pointer;
 `;
