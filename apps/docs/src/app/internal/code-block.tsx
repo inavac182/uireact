@@ -1,10 +1,12 @@
 'use client';
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { LiveProvider, LiveError, LivePreview, LiveEditor } from "react-live";
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { animateGradient } from "./gradient-animation";
 
 type CodeBlockProps = {
   children?: React.ReactElement;
@@ -24,18 +26,6 @@ const LiveEditorStyled = styled(LiveEditor)`
   > pre {
     border-radius: 0px 0px 20px 20px;
   }
-`;
-
-export const animateGradient = keyframes`
-  0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
 `;
 
 const LiveProviderWrapper = styled.div`

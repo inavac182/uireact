@@ -4,9 +4,11 @@ import { UiHeading, UiLink, UiText } from '@uireact/text';
 import { UiLineSeparator } from '@uireact/separator';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
+import { UiCard } from '@uireact/card';
 
-import Pre from './app/utils/custom-pre'
+import Pre from './app/internal/custom-pre'
 import { DocHeading, DocSubHeading } from './app/docs/components';
+import { CustomBlockquote } from './app/internal/custom-blockquote-card';
 
 const headingPadding: UiSpacingProps['padding'] = { top: 'six', bottom: 'five' };
 const componentsPadding: UiSpacingProps['padding'] = { block: 'five' };
@@ -15,6 +17,7 @@ const listsItemsPadding: UiSpacingProps['padding'] = { block: 'three' };
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
+    blockquote: ({ children }) => <UiSpacing padding={componentsPadding}><CustomBlockquote>{children}</CustomBlockquote></UiSpacing>,
     pre: Pre,
     h1: ({ children }) => <UiSpacing padding={headingPadding}><DocHeading>{children}</DocHeading></UiSpacing>,
     h2: ({ children }) => <UiSpacing padding={headingPadding}><DocSubHeading>{children}</DocSubHeading></UiSpacing>,
