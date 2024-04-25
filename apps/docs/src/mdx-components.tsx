@@ -4,7 +4,6 @@ import { UiHeading, UiLink, UiText } from '@uireact/text';
 import { UiLineSeparator } from '@uireact/separator';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
-import { UiCard } from '@uireact/card';
 
 import Pre from './app/internal/custom-pre'
 import { DocHeading, DocSubHeading } from './app/docs/components';
@@ -28,17 +27,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: UiLineSeparator,
     a: ({ children, href, target }) => {
       return (
-        <UiSpacing padding={componentsPadding}>
           <UiLink>
             <a href={href} target={target}>{children}</a>
           </UiLink>
-        </UiSpacing>
       )
     },
     ol: ({ children }) => <UiSpacing padding={listsPadding}><UiList type='ORDERED'>{children}</UiList></UiSpacing>,
     ul: ({ children }) => <UiSpacing padding={listsPadding}><UiList type='BULLETED'>{children}</UiList></UiSpacing>,
     p: ({ children }) => <UiSpacing padding={componentsPadding}><UiText>{children}</UiText></UiSpacing>,
-    span: ({ children }) => <UiSpacing padding={componentsPadding}><UiText inline>{children}</UiText></UiSpacing>,
+    span: ({ children }) => <UiSpacing padding={componentsPadding} inline><UiText inline>{children}</UiText></UiSpacing>,
     li: ({ children }) => <UiSpacing padding={listsItemsPadding}><UiListItem>{children}</UiListItem></UiSpacing>,
     ...components,
   }
