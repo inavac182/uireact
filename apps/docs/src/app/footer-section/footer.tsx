@@ -28,16 +28,16 @@ export const Footer = () => {
                 <UiFlexGrid alignItems="center" justifyContent="center" gap="five">
                     <UiFlexGridItem>
                         <UiButtonLink inverseTextColoration>
-                            <a href="https://github.com/inavac182/uireact">
+                            <a href="https://github.com/inavac182/uireact" target="_blank">
                                 <UiIcon icon="BrandsGithub" /> Repository
                             </a>
                         </UiButtonLink>
                     </UiFlexGridItem>
                     <UiFlexGridItem>
                         <UiButtonLink inverseTextColoration>
-                            <a href="https://github.com/inavac182/uireact">
+                            <Link href='/docs'>
                                 <UiIcon icon="Book" /> Docs
-                            </a>
+                            </Link>
                         </UiButtonLink>
                     </UiFlexGridItem>
                 </UiFlexGrid>
