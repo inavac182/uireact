@@ -1,7 +1,9 @@
 [![Build and Deploy](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml/badge.svg)](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![Lerna](https://img.shields.io/badge/Lerna-3E3E3E?style=for-the-badge&logo=lerna&logoColor=white)
+![Next JS](https://img.shields.io/badge/next-js-blue?logo=nextjs)
+![Turbo](https://img.shields.io/badge/turbo-black?logo=turbo)
+![Pnpm](https://img.shields.io/badge/pnpm-green?logo=pnpm)
 ![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
 
