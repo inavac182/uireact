@@ -9,6 +9,7 @@ import styles from './global.module.scss';
 export const metadata: Metadata = {
   title: "@UiReact | Themed UI Library",
   description: "Themed UI React library of components",
+  keywords: 'uireact, react, js, nodejs, react js, themed components, react components, react library, ui react library, dark theme react ui library, light theme react ui library '
 };
 
 export default function RootLayout({
