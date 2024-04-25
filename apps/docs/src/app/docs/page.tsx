@@ -1,11 +1,10 @@
 import React from 'react';
 
 import Link from 'next/link';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { UiButtonLink, UiHeading, UiLink, UiText } from '@uireact/text';
-import { UiLineSeparator } from '@uireact/separator';
+import { UiButtonLink, UiLink, UiText } from '@uireact/text';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
 
@@ -24,7 +23,7 @@ export default function Docs () {
                 <p>There are a few broken links that we are working on fixing. Sorry for the inconvinience, will try to fix it real quickly.</p>
             </UiCard>
             <br />
-            <DocHeading heading='Welcome to @UiReact docs' />
+            <DocHeading>Welcome to @UiReact docs</DocHeading>
             <br />
             <UiText>
                 @UiReact is a themed library of react components for react web applications that are built with styled components and framer motion. 
@@ -32,10 +31,10 @@ export default function Docs () {
             </UiText>
             <br />
             <UiText>
-                We also publish a few util hooks that help to achieve multiple tasks easier in your applications.
+                We also publish a few utils hooks that help to achieve multiple tasks easier in your applications.
             </UiText>
             <br />
-            <DocSubHeading heading='Installation' link='installation' />
+            <DocSubHeading>Installation</DocSubHeading>
             <UiText>Select the package manager you will be using:</UiText>
             <br />
             <InstallationScripts />
@@ -62,10 +61,10 @@ export default function Docs () {
                 </UiList>
             </UiSpacing>
             <br />
-            <DocSubHeading heading='Set up' link='set-up' />
+            <DocSubHeading>Set up</DocSubHeading>
             <br />
-            <UiText>Create a wrapper componen that is used to wrap your views and use the <UiText fontStyle='bold' inline>UiView</UiText> like this:</UiText>
-            <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines>
+            <UiText>Create a wrapper component that is used to wrap your views and use the <UiText fontStyle='bold' inline>UiView</UiText> like this:</UiText>
+            <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
             {`
 import React from 'react';
 
@@ -78,14 +77,14 @@ export const MyWrapper = ({ children }) => (
   </UiView>
 );
             `}
-            </SyntaxHighlighter>
+          </SyntaxHighlighter>
             <br />
-            <DocSubHeading heading='Theme' link='theme' />
+            <DocSubHeading>Theme</DocSubHeading>
             <br />
             <UiText>@UiReact brings a default theme that can be used for your web app, however if you want to customize colors, fonts, sizes, etc... Then you can create your own theme</UiText>
             <br />
             <UiButtonLink coloration='dark'>
-                <Link href="/create-theme">
+                <Link href="/docs/theme-creation-tool">
                     Create theme <UiIcon icon="Layers" coloration='dark' />
                 </Link>
             </UiButtonLink>

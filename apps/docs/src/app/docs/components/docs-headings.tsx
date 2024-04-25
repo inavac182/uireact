@@ -6,23 +6,24 @@ import { UiLineSeparator } from "@uireact/separator";
 import { UiHeading, UiLink, UiText } from "@uireact/text"
 
 type DocSubHeadingProps = {
-    heading: string;
-    link: string;
+    children: React.ReactNode;
 }
 type DocHeadingProps = {
-    heading: string;
+    children: React.ReactNode;
 }
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
-export const DocSubHeading = ({ heading, link }: DocSubHeadingProps) => {
+export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
+    const link = children?.toString().replace(' ', '-').toLowerCase();
+
     return (
         <UiSpacing padding={headingSpacing}>
             <UiLink>
                 <Link href={`#${link}`} id={link}>
                     <UiFlexGrid gap="four">
                         <UiText category="tertiary" size="xlarge">#</UiText>
-                        <UiHeading level={4}>{heading}</UiHeading>
+                        <UiHeading level={4}>{children}</UiHeading>
                     </UiFlexGrid>
                 </Link>
             </UiLink>
@@ -30,10 +31,10 @@ export const DocSubHeading = ({ heading, link }: DocSubHeadingProps) => {
     )
 }
 
-export const DocHeading = ({ heading }: DocHeadingProps) => {
+export const DocHeading = ({ children }: DocHeadingProps) => {
     return (
         <UiSpacing padding={headingSpacing}>
-            <UiHeading>{heading}</UiHeading>
+            <UiHeading level={1}>{children}</UiHeading>
             <br />
             <UiLineSeparator />
         </UiSpacing>

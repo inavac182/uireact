@@ -3,6 +3,9 @@ import React from "react";
 
 import { LiveProvider, LiveError, LivePreview, LiveEditor } from "react-live";
 
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 type CodeBlockProps = {
   children?: React.ReactElement;
   className?: string;
@@ -32,8 +35,8 @@ export default function CodeBlock({ children, className, live, scope, language }
   }
 
   return (
-    <LiveProvider code={code} scope={scope}>
-      <LiveEditor code={code} language="typescript" />
-    </LiveProvider>
-  );
+    <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
+      {code}
+    </SyntaxHighlighter>
+  )
 }
