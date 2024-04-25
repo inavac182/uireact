@@ -11,6 +11,7 @@ import { UiList, UiListItem } from '@uireact/list';
 
 import { InstallationScripts } from './components/installation-scripts';
 import { UiIcon } from '@uireact/icons';
+import { UiCard } from '@uireact/card';
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'four' };
 const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
@@ -18,6 +19,11 @@ const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
 export default function Docs () {
     return (
         <>
+            <UiCard styling='outlined' category='error'>
+                <h3>We are migrating to our new docs page!</h3>
+                <p>There are a few broken links that we are working on fixing. Sorry for the inconvinience, will try to fix it real quickly.</p>
+            </UiCard>
+            <br />
             <UiSpacing padding={headingSpacing}>
                 <UiHeading>Welcome to @UiReact docs</UiHeading>
             </UiSpacing>
@@ -35,17 +41,17 @@ export default function Docs () {
                 <UiList type='BULLETED'>
                     <UiListItem>
                         <UiLink>
-                            <a href="https://styled-components.com/docs/basics#installation">Styled-components</a>
+                            <a href="https://styled-components.com/docs/basics#installation" target='_blank'>Styled-components</a>
                         </UiLink>
                     </UiListItem>
                     <UiListItem>
                         <UiLink>
-                            <a href="https://www.framer.com/motion/introduction/#install">Framer motion</a>
+                            <a href="https://www.framer.com/motion/introduction/#install" target='_blank'>Framer motion</a>
                         </UiLink>
                     </UiListItem>
                     <UiListItem>
                         <UiLink>
-                            <a href="https://react.dev/learn/installation">React</a>
+                            <a href="https://react.dev/learn/installation" target='_blank'>React</a>
                         </UiLink>
                     </UiListItem>
                 </UiList>
