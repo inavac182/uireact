@@ -12,7 +12,7 @@ export const ThemeSelectorDemo = () => {
             <>
                 <UiHeading coloration="light">Appearance selector</UiHeading>
                 <br />
-                <UiText coloration="light">User can change the theme through their settings</UiText>
+                <UiText coloration="light">User can change the theme through their device settings</UiText>
                 <br />
                 <UiSpacing padding={settingsSpacing}>
                     <UiList type="ORDERED">
