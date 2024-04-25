@@ -23,7 +23,11 @@ export const Installation = () => {
           <UiHeading>
             <UiText inline category="tertiary" size="xlarge">1.</UiText> Install peer dependencies:
           </UiHeading>
-          <ScriptCard script="npm i -S react react-dom styled-components tslib" />
+          <ScriptCard script="npm i -S styled-components framer-motion" />
+          <UiText size="small">
+            We suppose you already have a react environment working, we suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink>for your react app.
+            They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅 styled components set up in Next JS</a></UiLink>.
+          </UiText>
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
