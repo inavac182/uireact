@@ -14,6 +14,13 @@ jobs:
       with:
         ref: ${{ github.head_ref || github.ref_name }}
         fetch-depth: 0
+        token: ${{ secrets.GH_PAT }}
+    - name: Set up github user
+      run: |
+        git config --global user.name "@inavac182"
+        git config --global user.email "16787893+inavac182@users.noreply.github.com"
+      env:
+        GITHUB_PAT: ${{ secrets.GH_PAT }}
     - name: Get node version
       run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       id: nvm
