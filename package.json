@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build && turbo run docs:build",
-    "docs:dev": "nodemon --ignore apps -e mdx --exec \"turbo run docs:dev\"",
+    "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build && turbo run build:docs",
+    "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run dev:docs\"",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
