@@ -24,6 +24,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
       - name: Build packages
-        run: pnpm build
+        run: pnpm build:packages
       - name: Build docs
         run: pnpm build:docs
