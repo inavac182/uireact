@@ -13,6 +13,7 @@
         "**/__tests__/**"
       ],
       "message": "chore: version bump %v",
+      "push": true,
       "yes": true
     }
   },
