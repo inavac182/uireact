@@ -1,6 +1,10 @@
 import { UiView, UiViewRow } from '@uireact/view';
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
 
 # UiView
+
+<Metadata packageName='view' packageJson={packageJson} />
 
 > This component SHOULD wrap your entire app tree
 
@@ -39,7 +43,7 @@ export const ViewExample: React.FC = () => {
 };
 ```
 
-## UiViewRow
+### UiViewRow
 
 The `UiViewRow` component is used to separate parts of the content of the application.
 

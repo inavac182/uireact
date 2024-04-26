@@ -51,6 +51,9 @@ importers:
       '@uireact/dialog':
         specifier: workspace:*
         version: link:packages/dialog
+      '@uireact/docs-tools':
+        specifier: workspace:*
+        version: link:platform/docs-tools
       '@uireact/expando':
         specifier: workspace:*
         version: link:packages/expando
@@ -1536,6 +1539,48 @@ importers:
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../foundation
+      jest-environment-jsdom:
+        specifier: ^29.7.0
+        version: 29.7.0
+      jest-styled-components:
+        specifier: ^7.2.0
+        version: 7.2.0(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+      react:
+        specifier: ^18
+        version: 18.2.0
+      react-dom:
+        specifier: ^18
+        version: 18.2.0(react@18.2.0)
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      typescript:
+        specifier: ^5.4.2
+        version: 5.4.2
+
+  platform/docs-tools:
+    devDependencies:
+      '@testing-library/jest-dom':
+        specifier: ^6.4.2
+        version: 6.4.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.11.29)(ts-node@10.9.2(@types/node@20.11.29)(typescript@5.4.2)))
+      '@testing-library/react':
+        specifier: ^14.2.1
+        version: 14.2.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@types/jest':
+        specifier: ^29.5.12
+        version: 29.5.12
+      '@types/node':
+        specifier: ^20
+        version: 20.11.29
+      '@types/react':
+        specifier: ^18
+        version: 18.2.67
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.2.22
+      '@uireact/text':
+        specifier: workspace:*
+        version: link:../../packages/text
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0

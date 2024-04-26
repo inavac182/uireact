@@ -17,7 +17,8 @@
     "incremental": true,
     "paths": {
       "@uireact/*": [
-        "./packages/*"
+        "./packages/*",
+        "./platform/*"
       ]
     },
     "outDir": "dist",
@@ -26,7 +27,8 @@
   },
   "include": [
     "packages/**/src",
-    "packages/**/docs"
+    "packages/**/docs",
+    "platform/**/src",
   ],
   "exclude": [
     "node_modules",
@@ -39,7 +41,8 @@
   ],
   "paths": {
     "@uireact/*": [
-      "./packages/*"
+      "./packages/*",
+      "./platform/*"
     ]
   },
 }

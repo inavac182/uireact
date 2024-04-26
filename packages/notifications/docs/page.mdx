@@ -1,10 +1,14 @@
 import { UiNotifications } from '@uireact/notifications';
 import { UiBadge } from '@uireact/badge';
 import { NotificationsExample } from './example';
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiNotifications
+
+<Metadata packageName='notifications' packageJson={packageJson} />
 
 > Used to render notifications on the top right corner of the screen, in small breakpoints the notifications appear at the bottom of the screen.
 

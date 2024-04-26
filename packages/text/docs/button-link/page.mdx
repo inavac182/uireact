@@ -3,8 +3,12 @@ import { MemoryRouter } from 'react-router-dom';
 import { UiButtonLink } from '@uireact/text';
 import { UiIcon } from '@uireact/icons';
 import { UiSpacing } from '@uireact/foundation';
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
 
 # UiButtonLink
+
+<Metadata packageName='text' packageJson={packageJson} />
 
 > Component to render a wrapper around links to provide styling, you have to provide the link element, this was done so we could support
 > multiple use cases Link from react router, or Link from next JS or any other router you are using.

@@ -1,9 +1,13 @@
 import { UiTable } from '@uireact/table';
 import { UiBadge } from '@uireact/badge';
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
 
 <UiBadge category="warning">❗️ Beta</UiBadge>
 
 # UiTable
+
+<Metadata packageName='table' packageJson={packageJson} />
 
 > Used to render information in a table that is filterable and sortable.
 > The rows can be selectable if the `onSelect` CB is provided.
