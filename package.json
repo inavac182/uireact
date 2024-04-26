@@ -11,7 +11,7 @@
     "start": "turbo run start",
     "lint": "turbo run lint",
     "publish:packages": "changeset publish",
-    "publish:versions": "changeset version",
+    "publish:versions": "lerna version --no-private --conventional-commits --conventional-graduate",
     "test": "turbo run build && turbo run test",
     "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue"
   },
