@@ -5,8 +5,6 @@ import { UiButton } from '../src';
 
 import { uiRender } from '../../../__tests__/utils';
 
-import 'jest-styled-components';
-
 describe('<UiButton />', () => {
   test('executes onClick CB', () => {
     const mock = jest.fn();

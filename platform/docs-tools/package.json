@@ -16,13 +16,7 @@
   "scripts": {
     "build": "tsc",
     "clean": " rm -rf dist node_modules coverage",
-    "dev": "tsc",
-    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
-    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
-    "lint:styles": "stylelint ./src/**/*.tsx",
-    "test": "jest",
-    "tsc": "tsc",
-    "watch": "tsc --watch"
+    "dev": "tsc"
   },
   "exports": {
     ".": "./src/index.ts",

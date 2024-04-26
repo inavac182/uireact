@@ -23,7 +23,12 @@
     },
     "outDir": "dist",
     "baseUrl": "./src",
-    "jsx": "react"
+    "jsx": "react",
+    "types": [
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "jest-styled-components"
+    ]
   },
   "include": [
     "packages/**/src",

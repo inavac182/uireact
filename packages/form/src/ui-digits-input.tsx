@@ -1,5 +1,5 @@
 'use client';
-import React, { FormEvent, LegacyRef, useCallback, useRef, useState } from 'react';
+import React, { FormEvent, useCallback, useRef, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -65,7 +65,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
 }: UiDigitsInputProps) => {
   const [digitsValues, setDigitsValues] = useState<string[]>([...Array(digits)]);
   const [digitsString, setDigitsString] = useState<string>('');
-  const inputsRef = useRef(Array.from({length: digitsValues.length}, a => React.createRef<HTMLInputElement>()));
+  const inputsRef = useRef(Array.from({length: digitsValues.length}, () => React.createRef<HTMLInputElement>()));
 
   const onDigitChange = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
@@ -94,8 +94,8 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
 
       setDigitsValues(digitsValues);
 
-      if (digitNumber < digitsValues.length && value !== '') {
-        inputsRef.current[digitNumber + 1].current?.focus();
+      if (digitNumber < digitsValues.length && value !== '' && inputsRef.current) {
+        inputsRef.current[digitNumber + 1]?.current?.focus();
       }
 
       let digitString = '';

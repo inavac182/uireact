@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
+    "build:docs": {
       "dependsOn": [
         "^build"
       ],
@@ -11,17 +11,23 @@
         "dist/**"
       ]
     },
+    "build": {
+      "cache": true
+    },
     "test": {
       "dependsOn": [
         "^build"
       ],
-      "outputs": []
+      "cache": false
     },
     "lint": {
       "outputs": []
     },
     "dev": {
       "cache": false
+    },
+    "docs:dev": {
+      "cache": true
     },
     "docs:clean": {
       "cache": false

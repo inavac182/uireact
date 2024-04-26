@@ -9,6 +9,7 @@
       "jest-styled-components"
     ]
   },
+  "exclude": [],
   "include": [
     "*.tsx",
     "*.ts",
