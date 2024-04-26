@@ -39,5 +39,7 @@ yarn-error.log*
 .turbo
 
 packages/**/coverage
+packages/**/docs/**/package-metadata.json
+packages/**/docs/package-metadata.json
 
 apps/docs/src/app/docs/(pages)/*
