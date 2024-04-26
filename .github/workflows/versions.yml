@@ -13,6 +13,7 @@ jobs:
       uses: actions/checkout@main
       with:
         ref: ${{ github.head_ref || github.ref_name }}
+        fetch-depth: 0
     - name: Get node version
       run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       id: nvm
