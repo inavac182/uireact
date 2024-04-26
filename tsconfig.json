@@ -14,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true,
+    "incremental": false,
     "paths": {
       "@uireact/*": [
         "./packages/*",
@@ -43,11 +43,5 @@
     "packages/**/__tests__/",
     "__tests__",
     "old-repo"
-  ],
-  "paths": {
-    "@uireact/*": [
-      "./packages/*",
-      "./platform/*"
-    ]
-  },
+  ]
 }

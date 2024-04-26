@@ -11,6 +11,9 @@
         "dist/**"
       ]
     },
+    "build:publish": {
+      "outputs": ["dist/**"]
+    },
     "build": {
       "cache": true
     },

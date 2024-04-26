@@ -42,3 +42,9 @@ jobs:
         run: pnpm i
       - name: Check npm user
         run: npm whoami
+      - name: Build packages
+        run: npm build:packages
+      - name: Publish packages
+        run: pnpm publish:packages
+      - name: Push tags
+        run: git push --follow-tags

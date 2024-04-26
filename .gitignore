@@ -38,6 +38,7 @@ yarn-error.log*
 # Turborepo
 .turbo
 
+packages/**/dist
 packages/**/coverage
 packages/**/docs/**/package-metadata.json
 packages/**/docs/package-metadata.json
