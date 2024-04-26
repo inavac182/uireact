@@ -33,7 +33,7 @@ const BadgeDiv = styled.div<privateBadgeProps>`
   display: inline-block;
 `;
 
-const BadgeContent = styled.div`
+const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   column-gap: 5px;
@@ -47,7 +47,7 @@ export const UiBadge: React.FC<UiBadgeProps> = ({
   size = 'small',
 }: UiBadgeProps) => (
   <BadgeDiv $category={category} className={className} size={size} data-testid={testId}>
-    <BadgeContent>{children}</BadgeContent>
+    <ContentWrapper>{children}</ContentWrapper>
   </BadgeDiv>
 );
 
