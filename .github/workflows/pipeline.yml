@@ -42,3 +42,5 @@ jobs:
         run: pnpm i
       - name: Check npm user
         run: npm whoami
+      - name: Publish packages
+        run: pnpm publish:packages

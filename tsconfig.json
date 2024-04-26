@@ -14,7 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true,
+    "incremental": false,
     "paths": {
       "@uireact/*": [
         "./packages/*",
