@@ -43,7 +43,7 @@ jobs:
       - name: Check npm user
         run: npm whoami
       - name: Build packages
-        run: npm build:packages
+        run: pnpm build:packages
       - name: Publish packages
         run: pnpm publish:packages
       - name: Push tags
