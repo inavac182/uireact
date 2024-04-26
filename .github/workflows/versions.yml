@@ -24,9 +24,5 @@ jobs:
           version: 8
     - name: Install Dependencies
       run: pnpm i
-    - name: Version
-      uses: changesets/action@v1
-      with:
-        version: pnpm publish:versions
-      env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+    - name: Version packages
+      run: pnpm publish:versions
