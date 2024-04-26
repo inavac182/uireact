@@ -46,3 +46,5 @@ jobs:
         run: npm build:packages
       - name: Publish packages
         run: pnpm publish:packages
+      - name: Push tags
+        run: git push --follow-tags
