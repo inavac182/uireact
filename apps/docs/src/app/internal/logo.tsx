@@ -3,11 +3,13 @@ import React from 'react';
 
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { UiLink } from '@uireact/text';
 
 import { getAnimation, getColorValue } from './animations';
-
 import sunglassesIcon from '../../../public/sunglasses_cat.gif';
+
 
 type LogoProps = {
   width?: number;
@@ -76,7 +78,7 @@ export const LogoIcon = ({ width = 50 }: LogoProps) => <Image src={sunglassesIco
 
 export const Logo = ({ iconOnTop }: LogoProps): React.ReactElement => (
   <UiLink>
-    <a href="/">
+    <Link href="/">
       {iconOnTop && (
           <LogoCentered>
             <LogoIcon width={30} />
@@ -95,6 +97,6 @@ export const Logo = ({ iconOnTop }: LogoProps): React.ReactElement => (
         </H1>
         {!iconOnTop && (<LogoIcon width={30} />)}
       </Div>
-    </a>
+    </Link>
   </UiLink>
 );

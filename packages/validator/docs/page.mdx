@@ -74,6 +74,38 @@ export type UiValidatorResult = {
 The `errors` property will have an object with a list of all errors found keyed by field, you can then decide how and which ones to show to your user.
 All chainable functions have a common attribute `errorMessage`, this overrides the default error messaging from the utility.
 
+```tsx
+import { UiValidator } from '@uireact/validator';
+
+const validator = new UiValidator();
+
+const schema = {
+  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
+};
+
+const data = {
+  firstName: 'Felipe',
+  email: 'test@mymail.com',
+};
+
+const result = validator.validate(schema, data);
+
+console.log(`Passed: ${result.passed}`);
+/* 
+  If we were to access an error on the firstName we could do:
+  
+  if (result.errors) {
+    const { firstName, email } = result.errors; // The errors object has keys that matches the field name of the data object passed.
+
+    if (firstName?.length > 0) {
+      console.log(`Error: ${firstName[0].message}`)
+    }
+  }
+*/
+```
+
+
 export const validator = new UiValidator();
 
 ## Example 💡
@@ -113,11 +145,9 @@ Example using a component that receives the schema and the data and then renders
 <br />
 <br />
 
-## Details 🤓
-
 ### Strict mode 🐣
 
-The strict is set as the 3rd parameter to the validate function:
+The strict mode is set in the 3rd parameter to the validate function:
 
 ```tsx
 const result = validator.validate(schema, data, true);
@@ -134,7 +164,7 @@ This will run the validations in a more strict way and the things validated are:
 <br />
 <br />
 
-## More details 😴
+## Details 🤓
 
 As if it weren't already from here downwards is a wall of text, go under your own risk...
 
@@ -383,8 +413,7 @@ const data = {
 
 const result = validator.validate(schema, data, false);
 
-// result.passed will be true as the data value is a string
-// that can be parse to a date object that is less than `date`
+// result.passed will be true as the data value is a string that can be parse to a date object that is less than `date`
 ```
 
 ## Phone validation 📱

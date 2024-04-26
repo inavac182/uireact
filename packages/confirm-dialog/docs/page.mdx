@@ -8,24 +8,68 @@ import { ConfirmDialogExample } from './example';
 
 > npm i @uireact/foundation @uireact/confirm-dialog
 
-## UiConfirmDialog
+## Usage
 
 In order to use this component you should render the component `<UiConfirmDialog />` inside your `UiView` wrapper component. Only 1
-component should be rendered in the react tree.
+component should be rendered in the react tree. 
+
+Example:
+
+```tsx
+import React from 'react';
+
+import { DefaultTheme } from '@uireact/foundation';
+import { UiView } from '@uireact/view';
+import { UiConfirmDialog } from '@uireact/confirm-dialog'
+
+export const MyWrapper = ({ children }) => (
+  <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
+    <UiConfirmDialog />
+    {children}
+  </UiView>
+);
+```
+
+This is because this component is the one that will be shown everytime a confirm dialog is triggered, the only thing that changes is the content
+that you manually set up using the `useConfirmDialog` hook
 
 ### useConfirmDialog hook
 
-The confirm dialog content is passed through the function `showConfirmDialog` that you can retrieve using the `useConfirmDialog` hook. Look
-at the example below to understand how this works:
+The confirm dialog content is passed through the function `showConfirmDialog` that you can retrieve using the `useConfirmDialog` hook.
 
-### showConfirmDialog() fn
+```tsx
+  const { showConfirmDialog } = useConfirmDialog();
+```
 
 This function receives 4 parameters:
 
-1. data, The confirm dialog data that renders inside the dialog.
-2. onConfirm, Callback executed if user click on the confirm action.
-3. onDeny, Callback executed if user click on the denial action.
-4. options (optional), The options for the confirm dialog.
+1. **data** (UiConfirmDialogData), The confirm dialog data that renders inside the dialog.
+2. **onConfirm**, Callback executed if user click on the confirm action.
+3. **onDeny**, Callback executed if user click on the denial action.
+4. **options** (UiConfirmDialogOptions), The options for the confirm dialog.
+
+You can see the definition of each one of these parameters:
+
+```ts
+export type UiConfirmDialogData = {
+  title: string;
+  message: string;
+  confirmLabel: string;
+  denyLabel: string;
+};
+
+export type UiConfirmDialogHolder = {
+  data: UiConfirmDialogData;
+  confirm: () => void;
+  deny: () => void;
+  options?: UiConfirmDialogOptions;
+};
+
+export type UiConfirmDialogOptions = {
+  direction?: 'inline' | 'stacked';
+};
+
+```
 
 ## Example
 
@@ -67,3 +111,5 @@ export const ConfirmDialogExample: React.FC = () => {
   );
 };
 ```
+
+

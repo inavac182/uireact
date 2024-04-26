@@ -62,8 +62,8 @@ export default function Docs () {
             </UiSpacing>
             <br />
             <UiText size="small">
-            We suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink>for your react app.
-            They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅 styled components set up in Next JS</a></UiLink>.
+            We suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> for your react app.
+            They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅🏾 styled components set up in Next JS</a></UiLink>.
             </UiText>
             <br />
             <DocSubHeading>Set up</DocSubHeading>

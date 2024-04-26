@@ -20,7 +20,6 @@ export const ProgressIndicatorExample: React.FC = () => {
 
   return (
     <>
-      <UiHeading>Progress Indicator example</UiHeading>
       <UiSpacing padding={{ all: 'five' }}>
         <UiProgressIndicator current={step} allowGoBack handleCompletedStepClick={changeStep}>
           <UiProgressIndicatorItem>

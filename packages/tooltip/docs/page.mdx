@@ -3,13 +3,18 @@ import { UiText } from '@uireact/text';
 
 # UiTooltip
 
-> Component used to render extra information on top of texts or icons.
+> Component used to render extra information on top of texts or icons when hovered.
+
+<UiCard category='warning' styling='outlined'>
+  <p><b>Warning:</b> Using tooltips that render content on hover aren't easily accessible, so use with care and make sure
+  that any important information is also repeated to the user in a different way. </p>
+</UiCard>
 
 ## Installation
 
 > npm i @uireact/foundation @uireact/tooltip
 
-## Above a text element
+## Usage
 
 ```jsx live scope={{UiTooltip, UiText}}
 <>
@@ -30,3 +35,5 @@ import { UiText } from '@uireact/text';
   </UiTooltip>
 </>
 ```
+import { UiCard } from "@uireact/card"
+

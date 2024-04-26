@@ -7,10 +7,17 @@ import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 import { UiCard } from '@uireact/card';
 import { UiInputDatepicker } from '@uireact/datepicker';
+import { UiValidator, UiValidatorSchema } from '@uireact/validator';
 
 const buttonPadding: UiSpacingProps['padding'] = { all: 'four' };
 const formSpacing: UiSpacingProps['padding'] = { block: 'four' };
 const buttonMargin: UiSpacingProps['margin'] = { block: 'four' };
+
+const validator = new UiValidator();
+const today = new Date();
+const schema: UiValidatorSchema = {
+  date: validator.ruler().isRequired('Select a date').greaterThan(today, 'Select a date in the future')
+};
 
 export const DatePickerInputExample: React.FC = () => {
   const [dateSelected, setDateSelected] = useState<string>();
@@ -29,21 +36,21 @@ export const DatePickerInputExample: React.FC = () => {
   const onSubmit = useCallback(
     (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       if (!dateSelected) {
-        setSuccessMessageVisible(false);
-        setErrorMessage('Please select a date');
-      } else {
-        const today = new Date();
-        const selectedDate = new Date(dateSelected);
+        setErrorMessage('Select a date');
+        return;
+      }
 
-        if (today < selectedDate) {
-          setSuccessMessageVisible(true);
-          setErrorMessage('');
-        } else {
-          setSuccessMessageVisible(false);
-          setErrorMessage('Please select a date in the future');
-        }
+      const data = {
+        date: new Date(dateSelected)
+      };
+      const validation = validator.validate(schema, data, true);
+
+      if (validation.passed) {
+        setSuccessMessageVisible(true);
+      } else {
+        const errorMessage = validation.errors?.date[0].message;
+        setErrorMessage(errorMessage);
       }
     },
     [dateSelected]
