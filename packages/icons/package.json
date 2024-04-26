@@ -10,10 +10,12 @@
   "files": [
     "src"
   ],
-  "main": "dist/index",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:publish": "tsup src/index.ts --format cjs,esm --dts",
     "build:svgs": "npx @svgr/cli --typescript --icon --out-dir src/public/svgs/ -- svgs/",
     "clean": " rm -rf dist node_modules coverage",
     "dev": "tsc",
@@ -21,7 +23,6 @@
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "tsc": "tsc",
     "tsc:with-icons": "npm run build:svgs && tsc",
     "watch": "tsc --watch"
   },
@@ -54,6 +55,7 @@
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.8",
+    "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {

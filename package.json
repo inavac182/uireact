@@ -5,6 +5,7 @@
   "scripts": {
     "build:packages": "turbo run build",
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
+    "build:publish": "turbo run build:publish",
     "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run dev:docs\"",
     "start": "turbo run start",
     "lint": "turbo run lint",

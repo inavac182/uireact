@@ -43,11 +43,5 @@
     "packages/**/__tests__/",
     "__tests__",
     "old-repo"
-  ],
-  "paths": {
-    "@uireact/*": [
-      "./packages/*",
-      "./platform/*"
-    ]
-  },
+  ]
 }
