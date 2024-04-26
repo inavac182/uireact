@@ -12,7 +12,7 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@main
       with:
-        ref: ${{ github.event.pull_request.head.sha }}
+        ref: ${{ github.head_ref || github.ref_name }}
     - name: Get node version
       run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       id: nvm
