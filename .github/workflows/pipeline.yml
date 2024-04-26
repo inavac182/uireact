@@ -42,25 +42,3 @@ jobs:
         run: pnpm i
       - name: Check npm user
         run: npm whoami
-  build:
-    name: Build
-    needs: publish
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
-      - name: Get node version
-        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
-        id: nvm
-      - name: Install correct node version
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3.0.0
-        with:
-          version: 8
-      - name: Install Dependencies
-        run: pnpm i
-      - name: Build
-        run: pnpm build
