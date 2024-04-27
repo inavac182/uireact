@@ -15,7 +15,7 @@ export const InstallationScripts = () => {
     }, [setSelectedTab]);
 
     return (
-        <UiCard noPadding>
+        <UiCard padding={{}}>
             <UiTabs>
                 <UiTabItem identifier={1} handleClick={onTabSelect} selected={selectedTab === 1}>
                     npm
