@@ -38,10 +38,11 @@ In this example we are passing the prop `whileHover` and `whileTap` to perform a
 You can learn more about it in the [framer motion docs](https://www.framer.com/motion/component/)
 
 ```jsx live scope={{UiCard, UiHeading}}
-  <UiCard clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID" whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+  <UiCard motion={{whileHover:{ scale: 1.2 }, whileTap:{ scale: 0.8 }}} clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID">
     <UiHeading>Click me!</UiHeading>
   </UiCard>
 ```
+
 ### UiCard with only content
 
 ```jsx live scope={{UiCard, UiHeading, UiText}}
