@@ -8,6 +8,7 @@
     "build:publish": "turbo run build:publish",
     "clean": "turbo run clean",
     "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run dev:docs\"",
+    "dev:storybook": "turbo run dev:storybook",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "publish:packages": "changeset publish",
