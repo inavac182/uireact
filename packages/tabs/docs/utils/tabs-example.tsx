@@ -83,7 +83,7 @@ export const TabsExample: React.FC = () => {
   );
 
   return (
-    <UiCard noPadding>
+    <UiCard padding={{}}>
       <UiTabs rounded>
         <UiTabItem<number> selected={selectedTab === 1} identifier={1} handleClick={handleTabClick}>
           <UiText>Fruits</UiText>

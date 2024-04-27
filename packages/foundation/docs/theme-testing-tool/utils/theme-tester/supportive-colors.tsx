@@ -18,19 +18,19 @@ export const SupportiveColors = (): JSX.Element => (
         <UiSpacing margin={{ block: 'three' }}>
           <UiText>Positive</UiText>
         </UiSpacing>
-        <UiCard weight="10" category="positive" squared>
+        <UiCard weight="10" category="positive">
           <UiText centered>10</UiText>
         </UiCard>
-        <UiCard weight="50" category="positive" squared>
+        <UiCard weight="50" category="positive">
           <UiText centered>50</UiText>
         </UiCard>
-        <UiCard weight="100" category="positive" squared>
+        <UiCard weight="100" category="positive">
           <UiText centered>100</UiText>
         </UiCard>
-        <UiCard weight="150" category="positive" squared>
+        <UiCard weight="150" category="positive">
           <UiText centered>150</UiText>
         </UiCard>
-        <UiCard weight="200" category="positive" squared>
+        <UiCard weight="200" category="positive">
           <UiText centered>200</UiText>
         </UiCard>
       </UiCard>
@@ -38,19 +38,19 @@ export const SupportiveColors = (): JSX.Element => (
         <UiSpacing margin={{ block: 'three' }}>
           <UiText>Error</UiText>
         </UiSpacing>
-        <UiCard weight="10" category="error" squared>
+        <UiCard weight="10" category="error">
           <UiText centered>10</UiText>
         </UiCard>
-        <UiCard weight="50" category="error" squared>
+        <UiCard weight="50" category="error">
           <UiText centered>50</UiText>
         </UiCard>
-        <UiCard weight="100" category="error" squared>
+        <UiCard weight="100" category="error">
           <UiText centered>100</UiText>
         </UiCard>
-        <UiCard weight="150" category="error" squared>
+        <UiCard weight="150" category="error">
           <UiText centered>150</UiText>
         </UiCard>
-        <UiCard weight="200" category="error" squared>
+        <UiCard weight="200" category="error">
           <UiText centered>200</UiText>
         </UiCard>
       </UiCard>
@@ -58,19 +58,19 @@ export const SupportiveColors = (): JSX.Element => (
         <UiSpacing margin={{ block: 'three' }}>
           <UiText>Warning</UiText>
         </UiSpacing>
-        <UiCard weight="10" category="warning" squared>
+        <UiCard weight="10" category="warning">
           <UiText centered>10</UiText>
         </UiCard>
-        <UiCard weight="50" category="warning" squared>
+        <UiCard weight="50" category="warning">
           <UiText centered>50</UiText>
         </UiCard>
-        <UiCard weight="100" category="warning" squared>
+        <UiCard weight="100" category="warning">
           <UiText centered>100</UiText>
         </UiCard>
-        <UiCard weight="150" category="warning" squared>
+        <UiCard weight="150" category="warning">
           <UiText centered>150</UiText>
         </UiCard>
-        <UiCard weight="200" category="warning" squared>
+        <UiCard weight="200" category="warning">
           <UiText centered>200</UiText>
         </UiCard>
       </UiCard>
@@ -78,19 +78,19 @@ export const SupportiveColors = (): JSX.Element => (
         <UiSpacing margin={{ block: 'three' }}>
           <UiText>Negative</UiText>
         </UiSpacing>
-        <UiCard weight="10" category="negative" squared>
+        <UiCard weight="10" category="negative">
           <UiText centered>10</UiText>
         </UiCard>
-        <UiCard weight="50" category="negative" squared>
+        <UiCard weight="50" category="negative">
           <UiText centered>50</UiText>
         </UiCard>
-        <UiCard weight="100" category="negative" squared>
+        <UiCard weight="100" category="negative">
           <UiText centered>100</UiText>
         </UiCard>
-        <UiCard weight="150" category="negative" squared>
+        <UiCard weight="150" category="negative">
           <UiText centered>150</UiText>
         </UiCard>
-        <UiCard weight="200" category="negative" squared>
+        <UiCard weight="200" category="negative">
           <UiText centered>200</UiText>
         </UiCard>
       </UiCard>
