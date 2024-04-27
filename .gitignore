@@ -35,6 +35,9 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Nx
+.nx
+
 # Turborepo
 .turbo
 

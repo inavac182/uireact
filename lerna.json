@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "npmClient": "pnpm",
+  "command": {
+    "version": {
+      "amend": true,
+      "conventionalCommits": true,
+      "conventionalGraduate": true,
+      "private": false,
+      "ignoreChanges": [
+        "**/docs/**",
+        "**/__tests__/**"
+      ],
+      "message": "chore: version bump %v",
+      "push": true,
+      "yes": true
+    }
+  },
+  "packages": [
+    "packages/*"
+  ]
+}

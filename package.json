@@ -11,6 +11,7 @@
     "start": "turbo run start",
     "lint": "turbo run lint",
     "publish:packages": "changeset publish",
+    "publish:versions": "lerna version",
     "test": "turbo run build && turbo run test",
     "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue"
   },
@@ -59,6 +60,7 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
+    "lerna": "^8.1.2",
     "nodemon": "^3.1.0",
     "styled-components": "^6.0.7",
     "tsc-watch": "^6.2.0"
