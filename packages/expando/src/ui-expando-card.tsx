@@ -46,7 +46,7 @@ export const UiExpandoCard: React.FC<UiExpandoCardProps> = ({
   }, [expandedInternal]);
 
   return (
-    <UiCard className={className} testId={testId} noPadding category={category}>
+    <UiCard className={className} testId={testId} padding={{}} category={category}>
       <UiSpacing padding={cardPadding}>
         <WrapperExpandoTrigger onClick={onClick} data-testid="expando-trigger">
           <ExpandoHeading data-testid="expando-heading-trigger" $headingInverseColoration={headingInverseColoration}>
