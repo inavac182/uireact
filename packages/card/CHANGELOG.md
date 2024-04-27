@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/inavac182/uireact/compare/@uireact/card@2.1.4...@uireact/card@2.2.0) (2024-04-27)
+
+
+### Features
+
+* adding custom blockquote component ([283b8ad](https://github.com/inavac182/uireact/commit/283b8ad69c88a664cc83ea266d96836bb143df21))
+* adding sidebar data ([6933b16](https://github.com/inavac182/uireact/commit/6933b1650a9546db35c4bfe7b8d16091124e96aa))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/uireact/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+
+
+
+
+
 ## 2.1.4 (2024-03-18)
 
 **Note:** Version bump only for package @uireact/card
