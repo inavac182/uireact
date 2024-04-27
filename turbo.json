@@ -35,7 +35,7 @@
       ],
       "cache": false
     },
-    "docs:dev": {
+    "dev:docs": {
       "cache": true
     },
     "docs:clean": {

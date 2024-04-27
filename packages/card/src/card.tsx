@@ -1,35 +1,69 @@
 'use client';
 import * as React from 'react';
 
-import { ColorCategory, ColorToken, UiReactElementProps } from '@uireact/foundation';
-import { CardWrapper, StyledLink, StyledExternalLink } from './private';
+import { MotionProps, useInView } from 'framer-motion';
+import { ColorCategory, ColorToken, UiReactElementProps, SpacingDistribution, UiSpacingProps, UiSpacing } from '@uireact/foundation';
+
+import { CardWrapper, StyledExternalLink } from './private';
+import { useRef } from 'react';
 
 export type UiCardProps = UiReactElementProps & {
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
   clickHandler?: (idenfifier: string | undefined) => void;
-  /** If the card should take full height */
-  fullHeight?: boolean;
-  /** If the card should take full width */
-  fullWidth?: boolean;
   /** The identifier that is shared to the click handler when card is clicked */
   identifier?: string;
   /** Link for redirecting when card is clicked */
   link?: string;
-  /** Prop for internal link, when true the redirect uses internal react link */
-  internalLink?: boolean;
-  /** Useful when we want to render content at the edge of the card, e.g. Images */
-  noPadding?: boolean;
-  /** If the card should render with squared corners, default FALSE */
-  squared?: boolean;
-  /** Card state */
+  /** Padding used inside card */
+  padding?: SpacingDistribution;
+  /** Color category for the card */
   category?: ColorCategory;
   /** Card weight used for background color */
   weight?: ColorToken;
   /** Card styling */
-  styling?: 'outlined';
+  styling?: 'outlined' | 'filled';
+  /** Built in animations for framer motion */
+  animation?: UiReactAnimation
+  /** Framer motion props */
+  motion?: MotionProps;
 };
 
-export const UiCard: React.FC<UiCardProps> = ({ weight = '100', category = 'secondary', ...props }: UiCardProps) => {
+type UiReactAnimation = 'fadein';
+const defaultPadding: UiSpacingProps['padding'] = {all: 'five'};
+
+const fadeInAnimation: MotionProps = {
+  initial: {
+    y: 10,
+    opacity: 0
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.5
+    }
+  }
+}
+
+const getAnimation = (animation?: UiReactAnimation, motionProps?: MotionProps) => {
+  if (animation === 'fadein') {
+    return fadeInAnimation;
+  } 
+
+  return motionProps;
+}
+
+export const UiCard: React.FC<UiCardProps> = ({ 
+  weight = '100', 
+  category = 'secondary', 
+  padding = defaultPadding,
+  animation,
+  motion,
+  ...props
+}: UiCardProps) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref);
+  const motionProps = getAnimation(animation, motion);
   const onClick = React.useCallback(() => {
     if (props.clickHandler) {
       props.clickHandler(props.identifier);
@@ -42,27 +76,23 @@ export const UiCard: React.FC<UiCardProps> = ({ weight = '100', category = 'seco
         $category={category}
         className={props.className}
         data-testid={props.testId}
-        $fullWidth={props.fullWidth}
-        $fullHeight={props.fullHeight}
         onClick={!props.link ? onClick : undefined}
         $cursorNeeded={props.clickHandler !== undefined}
-        $squared={props.squared}
-        $noPadding={props.noPadding}
         $weight={weight}
         $styling={props.styling}
+        ref={ref}
+        {...motionProps}
       >
-        {props.children}
+        <UiSpacing padding={padding}>
+          {props.children}
+        </UiSpacing>
       </CardWrapper>
     ),
     [props]
   );
 
   if (props.link) {
-    return props.internalLink ? (
-      <StyledLink to={props.link}>{CardWrapperMemo}</StyledLink>
-    ) : (
-      <StyledExternalLink href={props.link}>{CardWrapperMemo}</StyledExternalLink>
-    );
+    <StyledExternalLink href={props.link}>{CardWrapperMemo}</StyledExternalLink>
   }
 
   return <>{CardWrapperMemo}</>;

@@ -9,13 +9,40 @@ import { Metadata } from '@uireact/docs-tools';
 
 <Metadata packageName='card' packageJson={packageJson} />
 
-> Component to render content, it has built in styling and props to make it flexible.
+> Component to render content, it has built in styling and props to make it flexible. It also extends motion.div so you can pass through
+any prop for motion animations.
 
 ## Installation
 
-> npm i @uireact/foundation @uireact/card
+```js
+  npm i @uireact/foundation @uireact/card
+```
 
 ## Usage
+
+### UiCard with built-in animation
+
+In this example we are using a built-in animation passing the prop `animation`. There are several built-in options to choose from, you can visit the [built-in animations doc](/docs/built-if-animation) to learn more
+
+```jsx live scope={{UiCard, UiHeading, UiText}}
+  <UiCard animation='fadein'>
+    <UiHeading>🥵 Card header</UiHeading>
+    <UiText>This is some content</UiText>
+  </UiCard>
+```
+
+### UiCard with click handler and motion animation
+
+In this example we are passing the prop `whileHover` and `whileTap` to perform a scaling animation when any of these events happens.
+
+You can learn more about it in the [framer motion docs](https://www.framer.com/motion/component/)
+
+```jsx live scope={{UiCard, UiHeading}}
+  <UiCard clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID" whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+    <UiHeading>Click me!</UiHeading>
+  </UiCard>
+```
+### UiCard with only content
 
 ```jsx live scope={{UiCard, UiHeading, UiText}}
   <UiCard>
@@ -25,7 +52,7 @@ import { Metadata } from '@uireact/docs-tools';
   </UiCard>
 ```
 
-### Card as a link
+### UiCard as a link
 
 ```jsx live scope={{UiCard, UiText}}
   <UiCard link="https://www.uireact.io" bordered>
@@ -33,21 +60,13 @@ import { Metadata } from '@uireact/docs-tools';
   </UiCard>
 ```
 
-### UiCard with click handler
-
-```jsx live scope={{UiCard, UiHeading}}
-  <UiCard clickHandler={(identifier) => console.log(`Card ${identifier} clicked`)} identifier="My-ID" squared>
-    <UiHeading>Click me!</UiHeading>
-  </UiCard>
-```
-
 ### UiCard with image content
 
 ```jsx live scope={{UiCard, UiHeading, UiText, UiSpacing}}
-  <UiCard noPadding>
+  <UiCard padding={null}>
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Colima_360.jpg"
-      style={{ width: '100%', borderRadius: '3px 3px 0px 0px' }}
+      style={{ width: '100%', borderRadius: '10px 10px 0px 0px' }}
     />
     <UiSpacing padding={{ all: 'five' }}>
       <UiHeading>Card header</UiHeading>

@@ -32,6 +32,8 @@ const LiveProviderWrapper = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 20px;
   padding: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   background: linear-gradient(
     -45deg,
