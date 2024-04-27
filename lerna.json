@@ -4,7 +4,6 @@
   "npmClient": "pnpm",
   "command": {
     "version": {
-      "amend": true,
       "conventionalCommits": true,
       "conventionalGraduate": true,
       "private": false,
