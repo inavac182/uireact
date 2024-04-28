@@ -1,22 +1,30 @@
 {
-  "name": "@uireact/docs-tools",
-  "description": "@uireact/docs-tools package for @uireact docs",
+  "name": "@uireact/framer-animations",
+  "description": "Packges from @uireact library containing framer motion animations",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.0",
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
+  "type": "module",
   "files": [
     "src"
   ],
-  "main": "dist/index",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "build:publish": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsc",
     "clean": " rm -rf dist node_modules coverage",
-    "dev": "tsc"
+    "eslint": "eslint ./src/**/*.{ts,tsx} ./__tests__/**/*.tsx --max-warnings=0",
+    "lint": "npm run tsc && npm run eslint && npm run lint:styles",
+    "lint:styles": "stylelint ./src/**/*.tsx",
+    "test": "jest",
+    "watch": "tsc --watch"
   },
   "exports": {
     ".": "./src/index.ts",
@@ -38,19 +46,13 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@uireact/badge": "workspace:*",
-    "@uireact/icons": "workspace:*",
-    "@uireact/flex": "workspace:*",
-    "@uireact/text": "workspace:*",
+    "@uireact/card": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "styled-components": "^6.1.8",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
+  },
+  "peerDependencies": {
+    "framer-motion": ">= 11"
   }
 }
