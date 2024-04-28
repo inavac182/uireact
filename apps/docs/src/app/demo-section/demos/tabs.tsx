@@ -19,7 +19,7 @@ export const Tabs = () => {
             <>
                 <UiHeading>Tabs</UiHeading>
                 <br /> 
-                <UiCard noPadding>
+                <UiCard padding={{}}>
                     <UiTabs>
                         <UiTabItem identifier={1} handleClick={onSelect} selected={selected === 1}>
                             <UiText>🍎</UiText>

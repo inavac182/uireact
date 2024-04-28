@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { motion } from 'framer-motion';
+
 import { ColorCategory, ColorToken, getColorCategory, getColorTokenValue } from '@uireact/foundation';
 
 type __CardProps = {
@@ -23,16 +25,12 @@ type __CardProps = {
   $fullWidth?: boolean;
   $category?: ColorCategory;
   $cursorNeeded?: boolean;
-  $styling?: 'outlined';
+  $styling?: 'outlined' | 'filled';
 };
 
-export const CardWrapper = styled.div<__CardProps>`
+export const CardWrapper = styled(motion.div)<__CardProps>`
   ${(props) => `
     ${props.$cursorNeeded ? 'cursor: pointer;' : ''}
-    ${!props.$squared ? 'border-radius: 3px;' : ''}
-    ${!props.$noPadding ? 'padding: 5px;' : ''}
-    ${props.$fullWidth ? 'width: 100%;' : ''}
-    ${props.$fullHeight ? 'height: 100%;' : ''}
   `}
 
   ${(props) => {
@@ -51,6 +49,7 @@ export const CardWrapper = styled.div<__CardProps>`
     }
   }}
 
+  border-radius: 10px;
   transition: background .2s, border-color .2s;
   box-sizing: border-box;
 `;

@@ -12,8 +12,8 @@ import { DocHeading, DocSubHeading } from './app/docs/components';
 import { CustomBlockquote } from './app/internal/custom-blockquote-card';
 import { CustomTr } from './app/internal/custom-tr';
 
-const headingPadding: UiSpacingProps['padding'] = { top: 'six', bottom: 'five' };
-const componentsPadding: UiSpacingProps['padding'] = { block: 'five' };
+const headingPadding: UiSpacingProps['padding'] = { block: 'five' };
+const componentsPadding: UiSpacingProps['padding'] = { block: 'four' };
 const listsPadding: UiSpacingProps['padding'] = { block: 'five', inline: 'five' };
 const listsItemsPadding: UiSpacingProps['padding'] = { block: 'three' };
 
@@ -21,8 +21,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     blockquote: ({ children }) => <UiSpacing padding={componentsPadding}><CustomBlockquote>{children}</CustomBlockquote></UiSpacing>,
     pre: Pre,
-    h1: ({ children }) => <UiSpacing padding={headingPadding}><DocHeading>{children}</DocHeading></UiSpacing>,
-    h2: ({ children }) => <UiSpacing padding={headingPadding}><DocSubHeading>{children}</DocSubHeading></UiSpacing>,
+    h1: ({ children }) => <DocHeading>{children}</DocHeading>,
+    h2: ({ children }) => <DocSubHeading>{children}</DocSubHeading>,
     h3: ({ children }) => <UiSpacing padding={headingPadding}><UiHeading level={3}>{children}</UiHeading></UiSpacing>,
     h4: ({ children }) => <UiSpacing padding={headingPadding}><UiHeading level={4}>{children}</UiHeading></UiSpacing>,
     h5: ({ children }) => <UiSpacing padding={headingPadding}><UiHeading level={5}>{children}</UiHeading></UiSpacing>,

@@ -3,7 +3,7 @@
   "description": "Card component from uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -53,17 +53,14 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "react": "^18",
-    "react-dom": "^18",
-    "react-router-dom": "^6.22.3",
     "styled-components": "^6.0.7",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",
+    "framer-motion": "^11.0.18",
     "react": ">= 17 < 19",
-    "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
-    "tslib": "^2.5.0"
+    "styled-components": ">= 4 <= 6"
   }
 }

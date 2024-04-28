@@ -20,19 +20,19 @@ export const MainColors = (): JSX.Element => (
             <UiSpacing margin={{ block: 'three' }}>
               <UiText>Primary</UiText>
             </UiSpacing>
-            <UiCard weight="10" category="primary" squared>
+            <UiCard weight="10" category="primary">
               <UiText centered>10</UiText>
             </UiCard>
-            <UiCard weight="50" category="primary" squared>
+            <UiCard weight="50" category="primary">
               <UiText centered>50</UiText>
             </UiCard>
-            <UiCard weight="100" category="primary" squared>
+            <UiCard weight="100" category="primary">
               <UiText centered>100</UiText>
             </UiCard>
-            <UiCard weight="150" category="primary" squared>
+            <UiCard weight="150" category="primary">
               <UiText centered>150</UiText>
             </UiCard>
-            <UiCard weight="200" category="primary" squared>
+            <UiCard weight="200" category="primary">
               <UiText centered>200</UiText>
             </UiCard>
           </UiCard>
@@ -40,19 +40,19 @@ export const MainColors = (): JSX.Element => (
             <UiSpacing margin={{ block: 'three' }}>
               <UiText>Secondary</UiText>
             </UiSpacing>
-            <UiCard weight="10" category="secondary" squared>
+            <UiCard weight="10" category="secondary">
               <UiText centered>10</UiText>
             </UiCard>
-            <UiCard weight="50" category="secondary" squared>
+            <UiCard weight="50" category="secondary">
               <UiText centered>50</UiText>
             </UiCard>
-            <UiCard weight="100" category="secondary" squared>
+            <UiCard weight="100" category="secondary">
               <UiText centered>100</UiText>
             </UiCard>
-            <UiCard weight="150" category="secondary" squared>
+            <UiCard weight="150" category="secondary">
               <UiText centered>150</UiText>
             </UiCard>
-            <UiCard weight="200" category="secondary" squared>
+            <UiCard weight="200" category="secondary">
               <UiText centered>200</UiText>
             </UiCard>
           </UiCard>
@@ -69,19 +69,19 @@ export const MainColors = (): JSX.Element => (
           <UiSpacing margin={{ block: 'three' }}>
             <UiText>Tertiary</UiText>
           </UiSpacing>
-          <UiCard weight="10" category="tertiary" squared>
+          <UiCard weight="10" category="tertiary">
             <UiText centered>10</UiText>
           </UiCard>
-          <UiCard weight="50" category="tertiary" squared>
+          <UiCard weight="50" category="tertiary">
             <UiText centered>50</UiText>
           </UiCard>
-          <UiCard weight="100" category="tertiary" squared>
+          <UiCard weight="100" category="tertiary">
             <UiText centered>100</UiText>
           </UiCard>
-          <UiCard weight="150" category="tertiary" squared>
+          <UiCard weight="150" category="tertiary">
             <UiText centered>150</UiText>
           </UiCard>
-          <UiCard weight="200" category="tertiary" squared>
+          <UiCard weight="200" category="tertiary">
             <UiText centered>200</UiText>
           </UiCard>
         </UiCard>

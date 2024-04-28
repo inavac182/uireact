@@ -19,7 +19,7 @@ const customCardPadding: UiSpacingProps['padding'] = { block: 'four', inline: 'f
 
 export const CustomBlockquote = ({ children }: CustomBlockquoteProps) => {
     return (
-        <CustomCard noPadding squared>
+        <CustomCard padding={{}} category='primary' weight='150'>
             <UiSpacing padding={customCardPadding}>
             {children}
             </UiSpacing>

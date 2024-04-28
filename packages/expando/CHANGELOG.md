@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/inavac182/uireact/compare/@uireact/expando@1.0.3...@uireact/expando@2.0.0) (2024-03-18)
+
+**BREAKING CHANGE:** Adding framer-motion support for @UiCard
+
+
+
+
+
+
 ## [1.0.3](https://github.com/inavac182/uireact/compare/@uireact/expando@1.0.2...@uireact/expando@1.0.3) (2024-03-18)
 
 **Note:** Version bump only for package @uireact/expando

@@ -12,7 +12,7 @@ type DocHeadingProps = {
     children: React.ReactNode;
 }
 
-const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
+const headingSpacing: UiSpacingProps['padding'] = { block: 'six' };
 
 export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
     const link = children?.toString().replace(' ', '-').toLowerCase();
