@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import { MotionProps } from 'framer-motion';
 import { ColorCategory, ColorToken, UiReactElementProps, SpacingDistribution, UiSpacingProps, UiSpacing } from '@uireact/foundation';
-
 import { CardWrapper, StyledExternalLink } from './private';
 
 export type UiCardProps = UiReactElementProps & {
@@ -21,46 +20,19 @@ export type UiCardProps = UiReactElementProps & {
   weight?: ColorToken;
   /** Card styling */
   styling?: 'outlined' | 'filled';
-  /** Built in animations for framer motion */
-  animation?: UiReactAnimation
   /** Framer motion props */
   motion?: MotionProps;
 };
 
-type UiReactAnimation = 'fadein';
 const defaultPadding: UiSpacingProps['padding'] = {all: 'five'};
-
-const fadeInAnimation: MotionProps = {
-  initial: {
-    y: 10,
-    opacity: 0
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.5
-    }
-  }
-}
-
-const getAnimation = (animation?: UiReactAnimation, motionProps?: MotionProps) => {
-  if (animation === 'fadein') {
-    return fadeInAnimation;
-  } 
-
-  return motionProps;
-}
 
 export const UiCard: React.FC<UiCardProps> = ({ 
   weight = '100', 
   category = 'secondary', 
   padding = defaultPadding,
-  animation,
   motion,
   ...props
 }: UiCardProps) => {
-  const motionProps = getAnimation(animation, motion);
   const onClick = React.useCallback(() => {
     if (props.clickHandler) {
       props.clickHandler(props.identifier);
@@ -77,7 +49,7 @@ export const UiCard: React.FC<UiCardProps> = ({
         $cursorNeeded={props.clickHandler !== undefined}
         $weight={weight}
         $styling={props.styling}
-        {...motionProps}
+        {...motion}
       >
         <UiSpacing padding={padding}>
           {props.children}
