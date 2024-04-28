@@ -1,6 +1,7 @@
 import { UiText, UiHeading } from '@uireact/text';
 import { UiSpacing, ColorTokens } from '@uireact/foundation';
 import { UiCard } from '@uireact/card';
+import { UiReactViewPulse } from '@uireact/framer-animations';
 
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
@@ -20,12 +21,14 @@ any prop for motion animations.
 
 ## Usage
 
-### UiCard with built-in animation
+### UiCard with @uireact/framer-animation
 
-In this example we are using a built-in animation passing the prop `animation`. There are several built-in options to choose from, you can visit the [built-in animations doc](/docs/built-if-animation) to learn more
+In this example we are using an animation object from package @uireact/framer-animation throught the prop `motion`. 
+There are several built-in animations to choose from, you can visit the [framer animations doc](./docs/framer-animations) to learn more 
+about all the animations.
 
-```jsx live scope={{UiCard, UiHeading, UiText}}
-  <UiCard animation='fadein'>
+```jsx live scope={{UiCard, UiHeading, UiText, UiReactViewPulse}}
+  <UiCard motion={UiReactViewPulse}>
     <UiHeading>🥵 Card header</UiHeading>
     <UiText>This is some content</UiText>
   </UiCard>
@@ -159,7 +162,7 @@ You can learn more about it in the [framer motion docs](https://www.framer.com/m
   </UiSpacing>
 ```
 
-The outlined card will give some basic coloration to texts, although if you use any text component
+The outlined card will stylized some content such as texts, although if you use any text component
 the styling will be overwritten and has to be manually set up on each text component.
 
 ## Props
