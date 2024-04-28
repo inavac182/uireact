@@ -1,9 +1,10 @@
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 import { NavbarSection } from './sidebar-components';
-import { ChartsSideBarData, ComponentsSideBarData, FormsSideBarData, FoundationSideBarData, GridsSideBarData, TypographySideBarData, UtilsSideBarData, ViewSideBarData } from './sidebar-data';
+import { ChartsSideBarData, ComponentsSideBarData, FormsSideBarData, FoundationSideBarData, FramerAnimationsSidebarData, GridsSideBarData, TypographySideBarData, UtilsSideBarData, ViewSideBarData } from './sidebar-data';
 import { DialogsSideBarData } from './sidebar-data/dialogs';
-import { useCallback, useState } from 'react';
+
 
 const SidebarWrapper = styled.div<{ $isFloatingNavbar?: boolean }>`
     ${(props) => `
@@ -45,6 +46,7 @@ export const SideBar = ({ isFloatingNavbar }: SideBarProps) => {
                 <NavbarSection title='Components' icon='Layers' items={ComponentsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={1} selected={selected} />
                 <NavbarSection title='Charts' icon='ChartHistogram' items={ChartsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={2} selected={selected} />
                 <NavbarSection title='Dialogs' icon='CheckComment' items={DialogsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={3} selected={selected} />
+                <NavbarSection title='Framer Animations' icon='Party' items={FramerAnimationsSidebarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={10} selected={selected} />
                 <NavbarSection title='Forms' icon='EditSquare' items={FormsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={4} selected={selected} />
                 <NavbarSection title='Foundation' icon='LayoutFluid' items={FoundationSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={5} selected={selected} />
                 <NavbarSection title='Grids' icon='LayoutGrid' items={GridsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={6} selected={selected} />

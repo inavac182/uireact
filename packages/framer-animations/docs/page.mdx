@@ -1,0 +1,168 @@
+import { UiCard } from "@uireact/card";
+import { 
+  UiReactFadeUp,
+  UiReactFadeDown,
+  UiReactFadeLeft,
+  UiReactFadeRight,
+  UiReactHoverScaleUp,
+  UiReactHoverElevate,
+  UiReactTapScaleDown,
+  UiReactTapPush,
+  UiReactViewAppearUp,
+  UiReactViewAppearLeft,
+  UiReactViewAppearRight,
+  UiReactViewFloat,
+  UiReactViewPulse
+} from "@uireact/framer-animations";
+import { UiHeading, UiText } from "@uireact/text";
+import { UiIcon } from '@uireact/icons';
+import { Metadata } from '@uireact/docs-tools';
+
+import packageJson from './package-metadata.json';
+
+# Framer animations
+<Metadata packageName='framer-animations' packageJson={packageJson} />
+
+> Set of basic framer motion props that have animations configured to quickly re use animation objects through multiple components.
+
+## Installation
+
+> npm i -S @uireact/framer-animations
+
+## Usage
+
+All animations uses `MotionProps` type to create the needed animation props so you only pass it to the `@UiReact` components or
+you can spread it into any `motion` component.
+
+### Fade-in animations
+
+These animations are executed when component is rendered:
+
+- UiReactFadeUp
+- UiReactFadeDown 
+- UiReactFadeLeft
+- UiReactFadeRight
+
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactFadeUp, UiReactFadeDown, UiReactFadeLeft, UiReactFadeRight }}
+  <UiCard motion={UiReactFadeUp}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </UiCard>
+```
+
+### Hover animations
+
+These animations are executed when component is hovered:
+
+- UiReactHoverScaleUp 
+- UiReactHoverElevate 
+
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactHoverScaleUp, UiReactHoverElevate }}
+  <UiCard motion={{ ...UiReactHoverScaleUp }}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </UiCard>
+```
+
+### Tap animations
+
+These animations are executed when component is clicked:
+
+- UiReactTapScaleDown
+- UiReactTapPush
+
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactTapScaleDown, UiReactTapPush }}
+  <UiCard motion={{ ...UiReactTapScaleDown }}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </UiCard>
+```
+
+### On-View animations
+
+These animations are executed every time the component enters the view:
+
+- UiReactViewFloat 	&#8734;
+- UiReactViewPulse 	&#8734;
+- UiReactViewAppearUp
+- UiReactViewAppearLeft
+- UiReactViewAppearRight
+
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactViewFloat, UiReactViewPulse, UiReactViewAppearUp, UiReactViewAppearLeft, UiReactViewAppearRight }}
+  <UiCard motion={{ ...UiReactViewFloat }}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </UiCard>
+```
+
+&#8734; = Animation repeats
+
+### Merge multiple animations
+
+Using these objects you CAN'T merge objects for the same animation states because the later would override the previous one for instace:
+
+Merge 2 fade-in animations won't work:
+
+```ts
+❌ { ...UiReactFadeUp, ...UiReactFadeDown}
+```
+
+Although merging different state animatios such as fade-in animation, hover and tap animation will work:
+
+```ts
+✅ { ...UiReactFadeUp, ...UiReactHoverScaleUp, ...UiReactTapScaleDown}
+```
+#### Example merging animations
+
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactViewFloat, UiReactTapScaleDown, UiReactHoverScaleUp }}
+  <UiCard motion={{ 
+      ...UiReactViewFloat, 
+      ...UiReactTapScaleDown, 
+      ...UiReactHoverScaleUp
+  }}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </UiCard>
+```
+
+### In a motion component
+Example on how this would be used in a motion component: 
+
+```tsx
+  // Using it as is:
+  <motion.div style={{backgroundColor: '#000000'}} {...UiReactFadeUp}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </motion.div>
+
+  // Customizing some props:
+
+  const custom = {...UiReactFadeUp, transition: { delay: 2 }};
+
+  <motion.div style={{backgroundColor: '#000000'}} {...custom}>
+    <UiHeading>Card header</UiHeading>
+    <UiText>Card content</UiText>
+  </motion.div>
+```
+
+## Animations exported
+
+These are the animations exported:
+
+```tsx
+import {
+  UiReactFadeUp,
+  UiReactFadeDown,
+  UiReactFadeLeft,
+  UiReactFadeRight,
+  UiReactHoverScaleUp,
+  UiReactHoverElevate,
+  UiReactTapScaleDown,
+  UiReactTapPush,
+  UiReactViewAppearUp,
+  UiReactViewAppearLeft,
+  UiReactViewAppearRight,
+  UiReactViewFloat,
+  UiReactViewPulse
+} from '@uireact/framer-motion'
+```
