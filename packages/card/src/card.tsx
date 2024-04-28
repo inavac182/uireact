@@ -1,11 +1,10 @@
 'use client';
 import * as React from 'react';
 
-import { MotionProps, useInView } from 'framer-motion';
+import { MotionProps } from 'framer-motion';
 import { ColorCategory, ColorToken, UiReactElementProps, SpacingDistribution, UiSpacingProps, UiSpacing } from '@uireact/foundation';
 
 import { CardWrapper, StyledExternalLink } from './private';
-import { useRef } from 'react';
 
 export type UiCardProps = UiReactElementProps & {
   /** on click handler used for handling custom card clicks, when passed cursor pointer is used */
@@ -61,8 +60,6 @@ export const UiCard: React.FC<UiCardProps> = ({
   motion,
   ...props
 }: UiCardProps) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref);
   const motionProps = getAnimation(animation, motion);
   const onClick = React.useCallback(() => {
     if (props.clickHandler) {
@@ -80,7 +77,6 @@ export const UiCard: React.FC<UiCardProps> = ({
         $cursorNeeded={props.clickHandler !== undefined}
         $weight={weight}
         $styling={props.styling}
-        ref={ref}
         {...motionProps}
       >
         <UiSpacing padding={padding}>
@@ -92,7 +88,7 @@ export const UiCard: React.FC<UiCardProps> = ({
   );
 
   if (props.link) {
-    <StyledExternalLink href={props.link}>{CardWrapperMemo}</StyledExternalLink>
+    return <StyledExternalLink href={props.link}>{CardWrapperMemo}</StyledExternalLink>
   }
 
   return <>{CardWrapperMemo}</>;
