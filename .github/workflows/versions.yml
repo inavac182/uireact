@@ -3,11 +3,14 @@ name: Versioning
 on:
   pull_request:
     branches: [ main ]
+    types: [ labeled ]
 
 jobs:
   build:
     name: Changelog and versioning
+    if: ${{ github.event.label.name == 'version' }}
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout Repo
       uses: actions/checkout@main
