@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-
+import { UiReactFadeUp } from '@uireact/framer-animations';
 import { UiCard } from '../src';
 
 const HeadingMock = () => <h1>Heading</h1>;
@@ -119,7 +119,7 @@ describe('UiCard', () => {
 
   test('render card with animation', async () => {
     render(
-      <UiCard testId="UiCard" animation='fadein'>
+      <UiCard testId="UiCard" motion={UiReactFadeUp}>
         <HeadingMock />
       </UiCard>
     );
