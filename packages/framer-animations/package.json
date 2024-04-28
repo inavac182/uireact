@@ -43,12 +43,8 @@
     }
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
     "@uireact/card": "workspace:*",
-    "jest-environment-jsdom": "^29.7.0",
-    "jest-styled-components": "^7.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   },

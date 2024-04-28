@@ -995,24 +995,12 @@ importers:
         specifier: '>= 11'
         version: 11.1.7(@emotion/is-prop-valid@1.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@testing-library/jest-dom':
-        specifier: ^6.4.2
-        version: 6.4.2(@jest/globals@29.7.0)(@types/jest@29.5.12)(jest@29.7.0(@types/node@20.12.7)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5)))
-      '@testing-library/react':
-        specifier: ^14.2.1
-        version: 14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/jest':
         specifier: ^29.5.12
         version: 29.5.12
       '@uireact/card':
         specifier: workspace:*
         version: link:../card
-      jest-environment-jsdom:
-        specifier: ^29.7.0
-        version: 29.7.0
-      jest-styled-components:
-        specifier: ^7.2.0
-        version: 7.2.0(styled-components@6.1.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(ts-node@10.9.2(@types/node@20.12.7)(typescript@5.4.5))(typescript@5.4.5)
