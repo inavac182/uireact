@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.7.2...@uireact/datepicker@0.8.0) (2024-04-30)
+
+
+### Features
+
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/ui-react/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+
+
+
+
+
 ## [0.7.2](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.7.1...@uireact/datepicker@0.7.2) (2024-03-18)
 
 **Note:** Version bump only for package @uireact/datepicker
