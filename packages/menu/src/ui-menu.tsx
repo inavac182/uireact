@@ -2,13 +2,14 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { Breakpoints, UiViewport, useViewport } from '@uireact/foundation';
 import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 
 import { UiMenuProps, privateMenuProps } from './types';
 
-const MenuDiv = styled.div<privateMenuProps>`
+const MenuDiv = styled(motion.div)<privateMenuProps>`
   background-color: var(--primary-token_100);
   border-color: var(--primary-token_150);
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -43,6 +44,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   closeMenuCB,
   fullscreenOnSmall,
   menuId,
+  motion,
   visible,
   testId,
 }: UiMenuProps) => {
@@ -111,7 +113,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
         </UiViewport>
         <UiViewport criteria={'m|l|xl'}>
           <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-          <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId}>
+          <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId} {...motion}>
             {children}
           </MenuDiv>
         </UiViewport>
@@ -122,7 +124,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   return (
     <div>
       <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-      <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId}>
+      <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId} {...motion}>
         {children}
       </MenuDiv>
     </div>

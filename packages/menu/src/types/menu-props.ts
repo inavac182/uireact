@@ -1,4 +1,5 @@
 import { UiReactElementProps } from '@uireact/foundation';
+import { MotionProps } from 'framer-motion';
 
 export type UiMenuProps = {
   /** Close label for dialog on small devices */
@@ -7,6 +8,8 @@ export type UiMenuProps = {
   fullscreenOnSmall?: boolean;
   /** Menu identifier to be used when is fullscreen on small */
   menuId?: string;
+  /** Frame motion props */
+  motion?: MotionProps;
   /** Menu visibility, default FALSE */
   visible: boolean;
   /** CB for when menu is closed */
