@@ -26,10 +26,6 @@ export const ComponentsSideBarData: NavbarItem[] = [
         title: 'UiList'
     },
     {
-        link: '/menu',
-        title: 'UiMenu'
-    },
-    {
         link: '/progress-indicator',
         title: 'UiProgressIndicator'
     },
