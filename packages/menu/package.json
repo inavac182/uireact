@@ -61,7 +61,7 @@
   "peerDependencies": {
     "@uireact/dialog": "^2.0.1",
     "@uireact/foundation": "^2.0.1",
-    "framer-motion": "^11.0.18",
+    "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "styled-components": ">= 4 <= 6",

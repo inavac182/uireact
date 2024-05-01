@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 import { Breakpoints, UiViewport, useViewport } from '@uireact/foundation';
 import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
+import { UiReactFadeUp } from '@uireact/framer-animations';
 
 import { UiMenuProps, privateMenuProps } from './types';
 
@@ -44,7 +45,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   closeMenuCB,
   fullscreenOnSmall,
   menuId,
-  motion,
+  motion = UiReactFadeUp,
   visible,
   testId,
 }: UiMenuProps) => {
