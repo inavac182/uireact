@@ -11,6 +11,9 @@ importers:
       '@changesets/cli':
         specifier: ^2.27.1
         version: 2.27.1
+      framer-motion:
+        specifier: ^11.0.18
+        version: 11.1.7(@emotion/is-prop-valid@1.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       lerna:
         specifier: ^8.1.2
         version: 8.1.2(encoding@0.1.13)
@@ -195,6 +198,9 @@ importers:
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../../packages/foundation
+      '@uireact/framer-animations':
+        specifier: workspace:*
+        version: link:../../packages/framer-animations
       '@uireact/grid':
         specifier: workspace:*
         version: link:../../packages/grid
@@ -734,9 +740,6 @@ importers:
 
   packages/dialog:
     dependencies:
-      '@uireact/framer-animations':
-        specifier: ^0.0.2
-        version: 0.0.2(framer-motion@11.1.7(@emotion/is-prop-valid@1.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       tslib:
         specifier: ^2.5.0
         version: 2.6.2
@@ -1240,6 +1243,9 @@ importers:
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../foundation
+      '@uireact/framer-animations':
+        specifier: workspace:*
+        version: link:../framer-animations
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0
@@ -4326,11 +4332,6 @@ packages:
   '@typescript-eslint/visitor-keys@7.2.0':
     resolution: {integrity: sha512-c6EIQRHhcpl6+tO8EMR+kjkkV+ugUNXOmeASA1rlzkd8EPIriavpWoiEz1HR/VLhbVIdhqnV6E7JZm00cBDx2A==}
     engines: {node: ^16.0.0 || >=18.0.0}
-
-  '@uireact/framer-animations@0.0.2':
-    resolution: {integrity: sha512-t0VA+d1D5FfAT64dQkP3Gkd9FhLvqSxw4e3OV7b3GGfZUnlH6DjomCrDmbChXedr6evQptfiEoudwTi55wJtxQ==}
-    peerDependencies:
-      framer-motion: '>= 11'
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
@@ -13514,10 +13515,6 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 7.2.0
       eslint-visitor-keys: 3.4.3
-
-  '@uireact/framer-animations@0.0.2(framer-motion@11.1.7(@emotion/is-prop-valid@1.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
-    dependencies:
-      framer-motion: 11.1.7(@emotion/is-prop-valid@1.2.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@ungap/structured-clone@1.2.0': {}
 

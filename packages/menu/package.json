@@ -50,6 +50,7 @@
     "@uireact/button": "workspace:*",
     "@uireact/dialog": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/framer-animations": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
     "react": "^18",
@@ -61,6 +62,7 @@
   "peerDependencies": {
     "@uireact/dialog": "^2.0.1",
     "@uireact/foundation": "^2.0.1",
+    "@uireact/framer-animations": "^0.0.2",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",

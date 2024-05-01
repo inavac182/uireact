@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean:docs": "rm -rf ./src/app/docs/(pages)",
+    "clean": "rm -rf .next/ && rm -rf \"./src/app/docs/(pages)/\"",
     "dev:docs": "next dev",
     "build:docs": "next build",
     "docs:start": "next start",
@@ -24,6 +24,7 @@
     "@uireact/flex": "workspace:*",
     "@uireact/form": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/framer-animations": "workspace:*",
     "@uireact/grid": "workspace:*",
     "@uireact/header": "workspace:*",
     "@uireact/icons": "workspace:*",
