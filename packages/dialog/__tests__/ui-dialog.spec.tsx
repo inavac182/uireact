@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import { DefaultTheme, ThemeColor, ThemeContext } from '@uireact/foundation';
 
@@ -76,105 +76,135 @@ describe('<UiDialog />', () => {
     handleDialogClose.mockClear();
   });
 
-  it('opens and closes dialog using Close icon button', () => {
+  it('opens and closes dialog using Close icon button', async () => {
     uiRender(<MockedComponent handleDialogClose={handleDialogClose} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
-    expect(screen.getByText('Dialog content')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     expect(handleDialogClose).toHaveBeenCalledTimes(1);
   });
 
-  it('opens and closes dialog using esc key', () => {
+  it('opens and closes dialog using esc key', async () => {
     uiRender(<MockedComponent handleDialogClose={handleDialogClose} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(dialog).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     expect(handleDialogClose).toHaveBeenCalledTimes(1);
   });
 
-  it('opens and closes dialog when is type bottom', () => {
+  it('opens and closes dialog when is type bottom', async () => {
     uiRender(<MockedComponent type={UiDialogType.BOTTOM} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
   });
 
-  it('opens and closes dialog when is type fullscreen', () => {
+  it('opens and closes dialog when is type fullscreen', async () => {
     uiRender(<MockedComponent type={UiDialogType.FULLSCREEN} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
   });
 
-  it('opens and closes dialog when is type LEFT', () => {
+  it('opens and closes dialog when is type LEFT', async () => {
     uiRender(<MockedComponent type={UiDialogType.LEFT} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
   });
 
-  it('opens and closes dialog when is type RIGHT', () => {
+  it('opens and closes dialog when is type RIGHT', async () => {
     uiRender(<MockedComponent type={UiDialogType.RIGHT} />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Escape', code: 'Escape' });
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
   });
 
-  it('NOT close dialog if key pressed is not esc key', () => {
+  it('NOT close dialog if key pressed is not esc key', async () => {
     uiRender(<MockedComponent />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeVisible();
+
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.keyDown(dialog, { key: 'Enter', code: 'Enter' });
 
     expect(dialog).toBeVisible();
   });
 
-  it('opens and closes dialog clicking in dialog background', () => {
+  it('opens and closes dialog clicking in dialog background', async () => {
     uiRender(<MockedComponent />);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
+
     fireEvent.click(screen.getByTestId('UiDialogBackground'));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
@@ -206,13 +236,16 @@ describe('<UiDialog />', () => {
     console.error = consoleError;
   });
 
-  it('opens and closes dialog when using light theme', () => {
+  it('opens and closes dialog when using light theme', async () => {
     uiRender(<MockedComponent handleDialogClose={handleDialogClose} />, ThemeColor.light);
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
     fireEvent.click(screen.getByText('Open Dialog'));
 
-    expect(screen.getByText('Dialog content')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByText('Dialog content')).toBeVisible();
+    });
+
     fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
 
     expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
@@ -220,17 +253,20 @@ describe('<UiDialog />', () => {
   });
 
   describe('With dialog toolbar', () => {
-    it('Should render dialog toolbar', () => {
+    it('Should render dialog toolbar', async () => {
       uiRender(<MockedComponent title="Dialog toolbar" />);
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
 
-      expect(screen.getByText('Dialog content')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Dialog content')).toBeVisible();
+      });
+
       expect(screen.getByText('Dialog toolbar')).toBeVisible();
     });
 
-    it('Should close dialog using close icon inside dialog toolbar', () => {
+    it('Should close dialog using close icon inside dialog toolbar', async () => {
       uiRender(
         <MockedComponent title="Dialog toolbar" type={UiDialogType.FULLSCREEN} handleDialogClose={handleDialogClose} />
       );
@@ -238,7 +274,10 @@ describe('<UiDialog />', () => {
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
 
-      expect(screen.getByText('Dialog content')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Dialog content')).toBeVisible();
+      });
+
       expect(screen.getByText('Dialog toolbar')).toBeVisible();
 
       fireEvent.click(screen.getByRole('button', { name: 'Close button' }));
@@ -249,25 +288,31 @@ describe('<UiDialog />', () => {
   });
 
   describe('Close icon', () => {
-    it('Should hide close icon', () => {
+    it('Should hide close icon', async () => {
       uiRender(<MockedComponent hideCloseIcon />);
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
 
-      expect(screen.getByText('Dialog content')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Dialog content')).toBeVisible();
+      });
+
       expect(screen.queryByRole('button', { name: 'Close button' })).not.toBeInTheDocument();
     });
   });
 
   describe('Styling', () => {
-    it('Should render with correct colorations', () => {
+    it('Should render with correct colorations', async () => {
       uiRender(<MockedComponent handleDialogClose={handleDialogClose} title="Dialog title" />);
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
 
-      expect(screen.getByText('Dialog content')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByText('Dialog content')).toBeVisible();
+      });
+
       expect(screen.getByTestId('UiDialogBackground')).toHaveStyleRule('background', 'black');
       expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
       expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('color', 'var(--fonts-token_100)');

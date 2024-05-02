@@ -21,7 +21,7 @@ const IconContainer = styled.div`
 const NavbarWrapper = styled.div`
   bottom: 100px;
   padding: 10px;
-  max-width: 300px;
+  max-width: 500px;
   margin: 0 auto;
   z-index: 100;
   box-sizing: border-box;
@@ -38,6 +38,8 @@ const NavbarCard = styled(UiCard)`
     margin-top: 30px;
     border-radius: 25px;
     padding: 25px;
+    max-height: 80%;
+    overflow-y: auto;
 
     box-shadow:
         rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,

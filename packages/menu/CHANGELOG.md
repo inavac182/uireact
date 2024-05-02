@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@2.1.10...@uireact/menu@2.4.0) (2024-05-02)
+
+
+### Features
+
+* adding custom blockquote component ([283b8ad](https://github.com/inavac182/ui-react/commit/283b8ad69c88a664cc83ea266d96836bb143df21))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/ui-react/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+* **menu:** making fade up animation default ([#321](https://github.com/inavac182/ui-react/issues/321)) ([a2baccd](https://github.com/inavac182/ui-react/commit/a2baccdb382937ac21ab018569dd883b3e060593))
+* **UiMenu:** :adding framer motion ([#320](https://github.com/inavac182/ui-react/issues/320)) ([cc158a6](https://github.com/inavac182/ui-react/commit/cc158a6741aee5fd6ab4320989b0b80c6618021d))
+
+
+
+
+
 # [2.3.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@2.1.10...@uireact/menu@2.3.0) (2024-05-02)
 
 

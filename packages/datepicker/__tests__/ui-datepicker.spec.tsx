@@ -274,7 +274,9 @@ describe('<UiDatepicker />', () => {
 
     uiRender(<UiDatepicker date={date} onSelectDate={jest.fn()} isOpen useDialogOnSmall showNextMonth />);
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
   });
 
   it('Renders on menu when useDialogOnSmall is passed but breakpoint is not small', async () => {

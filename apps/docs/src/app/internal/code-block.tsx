@@ -76,7 +76,7 @@ export default function CodeBlock({ children, className, live, scope, language }
   }
 
   return (
-    <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
+    <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines>
       {code}
     </SyntaxHighlighter>
   )

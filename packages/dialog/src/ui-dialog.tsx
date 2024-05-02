@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { UiIcon } from '@uireact/icons';
 
-import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper } from './__private';
+import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper, getAnimationForDialog } from './__private';
 
 import { UiDialogProps, UiDialogType } from './types';
 import { useDialog } from '.';
@@ -27,10 +27,11 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   dialogId,
   handleDialogClose,
   type = UiDialogType.CENTERED,
-  hideCloseIcon,
+  hideCloseIcon = false,
   title,
 }: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
+  const animation = getAnimationForDialog(type);
 
   const closeCB = React.useCallback(() => {
     actions.closeDialog();
@@ -60,15 +61,8 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   if (type !== UiDialogType.CENTERED) {
     return (
-      <DialogContent $type={type} className={className} data-testId={testId}>
-        {title && (
-          <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
-        )}
-        {!title && !hideCloseIcon && (
-          <Button onClick={closeCB} aria-label={closeLabel} data-testid="UiDialogCloseBtn">
-            <UiIcon icon="X" />
-          </Button>
-        )}
+      <DialogContent $type={type} className={className} data-testId={testId} motion={animation}>
+        <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         {children}
       </DialogContent>
     );
@@ -78,21 +72,14 @@ export const UiDialog: React.FC<UiDialogProps> = ({
     <DialogWrapper className={className} data-testId={testId}>
       <>
         <DialogBackground onClick={closeCB} />
-        <DialogContent $type={type}>
-          {title && (
-            <DialogToolbar
-              title={title}
-              hideCloseIcon={hideCloseIcon}
-              closeCB={closeCB}
-              closeLabel={closeLabel}
-              data-testid="UiDialogToolbar"
-            />
-          )}
-          {!title && !hideCloseIcon && (
-            <Button onClick={closeCB} aria-label={closeLabel} data-testid="UiDialogCloseBtn">
-              <UiIcon icon="X" />
-            </Button>
-          )}
+        <DialogContent $type={type} motion={animation}>
+          <DialogToolbar
+            title={title}
+            hideCloseIcon={hideCloseIcon}
+            closeCB={closeCB}
+            closeLabel={closeLabel}
+            data-testid="UiDialogToolbar"
+          />
           {children}
         </DialogContent>
       </>

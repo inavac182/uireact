@@ -35,7 +35,10 @@ The `useDialog` hook is used to instantiate a dialog and be able to communicate 
 By default, the dialog renders centered on top of the content and with a grayed out background that if clicked will close the dialog.
 
 ```jsx live scope={{DialogsExample}}
-  <DialogsExample title="Dialog title" dialogId="first-dialog-example" />
+  <DialogsExample 
+    title="Dialog title" 
+    dialogId="first-dialog-example"
+  />
 ```
 
 The [DialogsExample](https://github.com/inavac182/uireact/blob/main/packages/dialog/docs/utils/DialogsExample.tsx#L15) that we use throughout this doc. This is an example of the code of a component using a dialog:
@@ -45,11 +48,16 @@ import React from 'react';
 
 import { UiButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
-import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
+import { 
+  UiDialog, 
+  UiDialogType, 
+  useDialog 
+} from '@uireact/dialog';
 
-export const DialogsExample: React.FC<DialogsExampleProps> = () => {
+export const DialogsExample = () => {
   const dialogId = 'someFancyDialogId';
-  const { isOpen, actions } = useDialog(dialogId); //Instantiating the dialog hook with a dialogId : string
+  // Instantiating the dialog hook with a dialogId : string
+  const { isOpen, actions } = useDialog(dialogId); 
 
   React.useEffect(() => {
     if (isOpen) {
@@ -58,7 +66,9 @@ export const DialogsExample: React.FC<DialogsExampleProps> = () => {
   }, [isOpen]);
 
   const onClickCB = React.useCallback(() => {
-    actions.openDialog(); // This open dialog function internally triggers the open dialog fn in the dialog controller and it passes the dialog id that was used in the useDialog hook.
+    // This open dialog function internally triggers the open dialog fn in the dialog controller and it passes the dialog id that was used in the useDialog hook.
+
+    actions.openDialog(); 
   }, [actions]);
 
   return (
@@ -87,7 +97,10 @@ The magic of using the `useDialog` hook is that you can control this dialog from
 Renders at the right of the screen
 
 ```jsx live scope={{DialogsExample, UiDialogType}}
-  <DialogsExample type={UiDialogType.FULLSCREEN} dialogId="fullscreen-example" />
+  <DialogsExample 
+    type={UiDialogType.FULLSCREEN}
+    dialogId="fullscreen-example"
+  />
 ```
 
 ### Bottom dialog
@@ -95,7 +108,10 @@ Renders at the right of the screen
 Renders at the bottom of the screen
 
 ```jsx live scope={{DialogsExample, UiDialogType}}
-  <DialogsExample type={UiDialogType.BOTTOM} dialogId="bottom-example" />
+  <DialogsExample 
+    type={UiDialogType.BOTTOM} 
+    dialogId="bottom-example" 
+  />
 ```
 
 ### Left dialog
@@ -103,7 +119,10 @@ Renders at the bottom of the screen
 Renders at the left of the screen
 
 ```jsx live scope={{DialogsExample, UiDialogType}}
-  <DialogsExample type={UiDialogType.LEFT} dialogId="left-example" />
+  <DialogsExample 
+    type={UiDialogType.LEFT} 
+    dialogId="left-example" 
+  />
 ```
 
 ### Right dialog
@@ -111,5 +130,8 @@ Renders at the left of the screen
 Renders at the right of the screen
 
 ```jsx live scope={{DialogsExample, UiDialogType}}
-  <DialogsExample type={UiDialogType.RIGHT} dialogId="right-example" />
+  <DialogsExample 
+    type={UiDialogType.RIGHT} 
+    dialogId="right-example"
+  />
 ```
