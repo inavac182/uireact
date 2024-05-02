@@ -6,7 +6,7 @@ import { MotionProps } from 'framer-motion';
 import { UiButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
 import { UiText } from '@uireact/text';
-import { UiReactFadeLeft, UiReactFadeUp } from '@uireact/framer-animations';
+import { UiReactFadeLeft } from '@uireact/framer-animations';
 import { UiMenu } from '@uireact/menu';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
@@ -32,7 +32,7 @@ export const MenuExample: React.FC = () => {
       <div>
         <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
-      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall motion={UiReactFadeUp}>
+      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
         <UiSpacing margin={{ all: 'five' }}>
           <UiText centered>Menu Content</UiText>
           <div>
@@ -75,7 +75,7 @@ export const AnimatedMenuExample: React.FC = () => {
       <div>
         <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
-      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall motion={UiReactFadeUp}>
+      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
         <UiSpacing margin={{ all: 'five' }}>
           <UiFlexGrid gap='four' direction='column'>
             <UiCard motion={getDelayedAnimation(1)} styling='outlined' category='tertiary'>

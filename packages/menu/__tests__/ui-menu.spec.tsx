@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { act, fireEvent, screen } from '@testing-library/react';
+import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 
 import { UiButton } from '@uireact/button';
 import { UiSpacing } from '@uireact/foundation';
@@ -56,18 +56,20 @@ describe('<UiMenu />', () => {
     global.innerWidth = 950;
   });
 
-  it('menu component opens fine', () => {
+  it('menu component opens fine', async () => {
     uiRender(<MockedComponent />);
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
     expect(screen.getByTestId('UiMenu')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
   });
 
-  it('menu component closes ONLY when esc key is pressed', () => {
+  it('menu component closes ONLY when esc key is pressed', async () => {
     uiRender(<MockedComponent />);
 
     expect(screen.queryByText('Menu Content')).not.toBeInTheDocument();
@@ -76,7 +78,9 @@ describe('<UiMenu />', () => {
 
     const menu = screen.getByText('Menu Content');
 
-    expect(menu).toBeVisible();
+    await waitFor(() => {
+      expect(menu).toBeVisible();
+    });
 
     fireEvent.keyDown(menu, { key: 'Ctrl', code: 'Ctrl' });
 
@@ -87,24 +91,28 @@ describe('<UiMenu />', () => {
     expect(screen.queryByText('Menu Content')).not.toBeInTheDocument();
   });
 
-  it('menu component closes using callback', () => {
+  it('menu component closes using callback', async () => {
     uiRender(<MockedComponent />);
 
     expect(screen.queryByText('Menu Content')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Close menu' }));
 
     expect(screen.queryByText('Menu Content')).not.toBeInTheDocument();
   });
 
-  it('menu renders visible', () => {
+  it('menu renders visible', async () => {
     uiRender(<MockedComponent visible />);
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
   });
 
   describe('fullscreenOnSmall', () => {
@@ -172,14 +180,16 @@ describe('<UiMenu />', () => {
       expect(screen.getByRole('dialog')).toBeVisible();
     });
 
-    it('Renders dialog when screen is resized from large to small', () => {
+    it('Renders dialog when screen is resized from large to small', async () => {
       uiRender(<MockedComponent fullscreenOnSmall />);
 
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('menu')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('menu')).toBeVisible();
+      });
 
       act(() => {
         global.innerWidth = 400;
@@ -190,7 +200,7 @@ describe('<UiMenu />', () => {
       expect(screen.queryByRole('dialog')).toBeVisible();
     });
 
-    it('Renders menu when screen is resized from small to medium', () => {
+    it('Renders menu when screen is resized from small to medium', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -205,11 +215,13 @@ describe('<UiMenu />', () => {
         global.dispatchEvent(new Event('resize'));
       });
 
-      expect(screen.getByRole('menu')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('menu')).toBeVisible();
+      });
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
 
-    it('Renders menu when screen is resized from small to large', () => {
+    it('Renders menu when screen is resized from small to large', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -224,11 +236,13 @@ describe('<UiMenu />', () => {
         global.dispatchEvent(new Event('resize'));
       });
 
-      expect(screen.getByRole('menu')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('menu')).toBeVisible();
+      });
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
 
-    it('Renders menu when screen is resized from small to xlarge', () => {
+    it('Renders menu when screen is resized from small to xlarge', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -243,7 +257,9 @@ describe('<UiMenu />', () => {
         global.dispatchEvent(new Event('resize'));
       });
 
-      expect(screen.getByRole('menu')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('menu')).toBeVisible();
+      });
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
 
