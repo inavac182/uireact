@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { ConfirmDialogExample } from '../docs/example';
 
 describe('<UiConfirmDialog />', () => {
-  it('renders fine and closes fine on confirm', () => {
+  it('renders fine and closes fine on confirm', async () => {
     const onConfirmStub = jest.fn();
 
     uiRender(<ConfirmDialogExample onConfirmCB={onConfirmStub} />);
@@ -15,7 +15,9 @@ describe('<UiConfirmDialog />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Accept' }));
 
@@ -23,7 +25,7 @@ describe('<UiConfirmDialog />', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('renders fine and closes fine on deny', () => {
+  it('renders fine and closes fine on deny', async () => {
     const onDenyStub = jest.fn();
     uiRender(<ConfirmDialogExample onDenyCB={onDenyStub} />);
 
@@ -31,7 +33,9 @@ describe('<UiConfirmDialog />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
 
@@ -39,7 +43,7 @@ describe('<UiConfirmDialog />', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('renders fine and closes fine on background click', () => {
+  it('renders fine and closes fine on background click', async () => {
     const onDenyStub = jest.fn();
     uiRender(<ConfirmDialogExample onDenyCB={onDenyStub} />);
 
@@ -47,7 +51,9 @@ describe('<UiConfirmDialog />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByTestId('confirm-dialog-bg'));
 
@@ -55,38 +61,47 @@ describe('<UiConfirmDialog />', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('renders fine without options', () => {
+  it('renders fine without options', async () => {
     uiRender(<ConfirmDialogExample />);
 
     expect(screen.getByRole('button', { name: 'Open confirm dialog' })).toBeVisible();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
+
     expect(screen.getByRole('button', { name: 'Accept' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeVisible();
   });
 
-  it('renders fine with inline options', () => {
+  it('renders fine with inline options', async () => {
     uiRender(<ConfirmDialogExample options={{ direction: 'inline' }} />);
 
     expect(screen.getByRole('button', { name: 'Open confirm dialog' })).toBeVisible();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
+
     expect(screen.getByRole('button', { name: 'Accept' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeVisible();
   });
 
-  it('renders fine with stacked options', () => {
+  it('renders fine with stacked options', async () => {
     uiRender(<ConfirmDialogExample options={{ direction: 'stacked' }} />);
 
     expect(screen.getByRole('button', { name: 'Open confirm dialog' })).toBeVisible();
 
     fireEvent.click(screen.getByRole('button', { name: 'Open confirm dialog' }));
 
-    expect(screen.getByRole('dialog')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('dialog')).toBeVisible();
+    });
+
     expect(screen.getByRole('button', { name: 'Accept' })).toBeVisible();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeVisible();
   });
