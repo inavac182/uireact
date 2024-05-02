@@ -116,7 +116,7 @@ describe('<UiMenu />', () => {
   });
 
   describe('fullscreenOnSmall', () => {
-    it('Renders dialog instead of menu when fullscreenOnSmall is used and is small breakpoint', () => {
+    it('Renders dialog instead of menu when fullscreenOnSmall is used and is small breakpoint', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -124,11 +124,14 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
+      
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
 
-    it('Closes dialog and menu when dialog is shown', () => {
+    it('Closes dialog and menu when dialog is shown', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -136,7 +139,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       fireEvent.click(screen.getByRole('button', { name: 'Close menu' }));
 
@@ -144,7 +149,7 @@ describe('<UiMenu />', () => {
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
 
-    it('Closes dialog and menu when dialog is shown and close icon is used', () => {
+    it('Closes dialog and menu when dialog is shown and close icon is used', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -152,7 +157,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       fireEvent.click(screen.getByRole('button', { name: 'Close menu dialog' }));
 
@@ -160,7 +167,7 @@ describe('<UiMenu />', () => {
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
 
-    it('Dialog is able to reopen after is closed using the dialog close icon', () => {
+    it('Dialog is able to reopen after is closed using the dialog close icon', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -168,7 +175,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       fireEvent.click(screen.getByRole('button', { name: 'Close menu dialog' }));
 
@@ -177,7 +186,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
     });
 
     it('Renders dialog when screen is resized from large to small', async () => {
@@ -197,7 +208,9 @@ describe('<UiMenu />', () => {
       });
 
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
-      expect(screen.queryByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
     });
 
     it('Renders menu when screen is resized from small to medium', async () => {
@@ -208,7 +221,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       act(() => {
         global.innerWidth = 600;
@@ -229,7 +244,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       act(() => {
         global.innerWidth = 950;
@@ -250,7 +267,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       act(() => {
         global.innerWidth = 1300;
@@ -263,7 +282,7 @@ describe('<UiMenu />', () => {
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
 
-    it('Should NOT show menu when dialog is closed and screen resized from small to large', () => {
+    it('Should NOT show menu when dialog is closed and screen resized from small to large', async () => {
       global.innerWidth = 400;
       uiRender(<MockedComponent fullscreenOnSmall />);
 
@@ -271,7 +290,9 @@ describe('<UiMenu />', () => {
 
       fireEvent.click(screen.getByRole('button', { name: 'Open Menu' }));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       fireEvent.click(screen.getByRole('button', { name: 'Close menu' }));
 
