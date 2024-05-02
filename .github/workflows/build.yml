@@ -4,7 +4,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build docs:
+  build_docs:
     name: Build Docs
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +27,7 @@ jobs:
         run: pnpm build:packages
       - name: Build docs
         run: pnpm build:docs
-  build packages:
+  build_packages:
     name: Build Packages
     runs-on: ubuntu-latest
     steps:
