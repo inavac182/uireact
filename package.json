@@ -6,7 +6,7 @@
     "build:packages": "turbo run build",
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
     "build:publish": "turbo run build:publish",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rm -rf ./node_modules/",
     "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run dev:docs\"",
     "dev:storybook": "turbo run dev:storybook",
     "start": "turbo run start",
@@ -65,7 +65,7 @@
     "framer-motion": "^11.0.18",
     "lerna": "^8.1.2",
     "nodemon": "^3.1.0",
-    "styled-components": "^6.0.7",
+    "styled-components": "6.0.7",
     "tsc-watch": "^6.2.0"
   }
 }
