@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@1.1.0...@uireact/validator@1.2.0) (2024-05-02)
+
+
+### Features
+
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/ui-react/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+
+
+
+
+
 # 1.1.0 (2023-11-26)
 
 

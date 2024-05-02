@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/inavac182/uireact/compare/@uireact/header@1.7.4...@uireact/header@1.8.0) (2024-05-02)
+
+
+### Features
+
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+
+
+
+
+
 ## 1.7.4 (2024-03-18)
 
 **Note:** Version bump only for package @uireact/header

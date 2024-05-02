@@ -3,7 +3,7 @@
   "description": "form package needed for @uireact packages",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "publishConfig": {
     "access": "public"
   },

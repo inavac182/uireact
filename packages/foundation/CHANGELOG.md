@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/inavac182/uireact/compare/@uireact/foundation@2.5.0...@uireact/foundation@2.6.0) (2024-05-02)
+
+
+### Bug Fixes
+
+* gh actions ([#313](https://github.com/inavac182/uireact/issues/313)) ([14d7f60](https://github.com/inavac182/uireact/commit/14d7f6021a4bf98f6a0b454515cdc687e4c9d3f4))
+* warnings ([efd5c08](https://github.com/inavac182/uireact/commit/efd5c0825ec0e11122bd90fd1a14c3fc1adb7655))
+
+
+### Features
+
+* adding custom playground ([2d4ab1b](https://github.com/inavac182/uireact/commit/2d4ab1b0058827cd1bd0e4922207fcd935920b2a))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+* include docs pages to docs app build ([9be9021](https://github.com/inavac182/uireact/commit/9be90214de139d20fc1df71cd56de9c9801f8f13))
+
+
+
+
+
 # 2.5.0 (2024-03-18)
 
 
