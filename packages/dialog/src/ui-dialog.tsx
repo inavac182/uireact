@@ -27,7 +27,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   dialogId,
   handleDialogClose,
   type = UiDialogType.CENTERED,
-  hideCloseIcon,
+  hideCloseIcon = false,
   title,
 }: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
@@ -62,14 +62,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   if (type !== UiDialogType.CENTERED) {
     return (
       <DialogContent $type={type} className={className} data-testId={testId} motion={animation}>
-        {title && (
-          <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
-        )}
-        {!title && !hideCloseIcon && (
-          <Button onClick={closeCB} aria-label={closeLabel} data-testid="UiDialogCloseBtn">
-            <UiIcon icon="X" />
-          </Button>
-        )}
+        <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         {children}
       </DialogContent>
     );
@@ -80,20 +73,13 @@ export const UiDialog: React.FC<UiDialogProps> = ({
       <>
         <DialogBackground onClick={closeCB} />
         <DialogContent $type={type} motion={animation}>
-          {title && (
-            <DialogToolbar
-              title={title}
-              hideCloseIcon={hideCloseIcon}
-              closeCB={closeCB}
-              closeLabel={closeLabel}
-              data-testid="UiDialogToolbar"
-            />
-          )}
-          {!title && !hideCloseIcon && (
-            <Button onClick={closeCB} aria-label={closeLabel} data-testid="UiDialogCloseBtn">
-              <UiIcon icon="X" />
-            </Button>
-          )}
+          <DialogToolbar
+            title={title}
+            hideCloseIcon={hideCloseIcon}
+            closeCB={closeCB}
+            closeLabel={closeLabel}
+            data-testid="UiDialogToolbar"
+          />
           {children}
         </DialogContent>
       </>

@@ -771,6 +771,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.0
+      '@uireact/button':
+        specifier: workspace:*
+        version: link:../button
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../foundation
