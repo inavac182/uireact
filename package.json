@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:packages": "turbo run build",
+    "build:packages": "turbo run build:publish",
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
     "build:publish": "turbo run build:publish",
     "clean": "turbo run clean && rm -rf ./node_modules/",
