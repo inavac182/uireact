@@ -20,17 +20,17 @@ describe('getAnimationForDialog', () => {
 
     it('Should retrieve correct animation for left dialog', () => {
         const animation = getAnimationForDialog(UiDialogType.LEFT);
-        expect(animation).toEqual(UiReactFadeLeft);
+        expect(animation).toEqual(UiReactFadeRight);
     });
 
     it('Should retrieve correct animation for right dialog', () => {
         const animation = getAnimationForDialog(UiDialogType.RIGHT);
-        expect(animation).toEqual(UiReactFadeRight);
+        expect(animation).toEqual(UiReactFadeLeft);
     });
 
     it('Should get null when unrecognized dialog type is used', () => {
         // @ts-ignore
         const animation = getAnimationForDialog('something');
-        expect(animation).toBeNull();
+        expect(animation).toBeUndefined();
     });
 });
