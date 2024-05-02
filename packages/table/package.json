@@ -40,26 +40,6 @@
       ]
     }
   },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@uireact/flex": "workspace:*",
-    "@uireact/form": "workspace:*",
-    "@uireact/foundation": "workspace:*",
-    "@uireact/grid": "workspace:*",
-    "@uireact/icons": "workspace:*",
-    "jest-environment-jsdom": "^29.7.0",
-    "jest-styled-components": "^7.2.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "styled-components": "^6.1.8",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.2"
-  },
   "peerDependencies": {
     "@uireact/flex": "^2.0.1",
     "@uireact/form": "^2.0.0",

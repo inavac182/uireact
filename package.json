@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build:packages": "turbo run build",
+    "build:packages": "turbo run build:publish",
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
     "build:publish": "turbo run build:publish",
-    "clean": "turbo run clean",
+    "clean": "turbo run clean && rm -rf ./node_modules/",
     "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run dev:docs\"",
     "dev:storybook": "turbo run dev:storybook",
     "start": "turbo run start",
@@ -20,7 +20,9 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
+    "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@uireact/badge": "workspace:*",
     "@uireact/button": "workspace:*",
     "@uireact/card": "workspace:*",
@@ -65,7 +67,11 @@
     "framer-motion": "^11.0.18",
     "lerna": "^8.1.2",
     "nodemon": "^3.1.0",
-    "styled-components": "^6.0.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "styled-components": "6.0.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2",
     "tsc-watch": "^6.2.0"
   }
 }

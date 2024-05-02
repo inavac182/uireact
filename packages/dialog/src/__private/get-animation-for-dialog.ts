@@ -1,4 +1,4 @@
-import { UiReactFadeDown, UiReactFadeLeft, UiReactFadeRight, UiReactFadeUp } from "@uireact/framer-animations";
+import { UiReactFadeLeft, UiReactFadeRight } from "@uireact/framer-animations";
 import { MotionProps } from "framer-motion";
 import { UiDialogType } from "../types";
 

@@ -1,6 +1,6 @@
 import { MotionProps } from "framer-motion";
 
-export const UiReactFadeUp: MotionProps = {
+export const UiReactFadeUp = {
     initial: {
         y: 10,
         opacity: 0
