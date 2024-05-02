@@ -1,18 +1,19 @@
 import { UiReactFadeDown, UiReactFadeLeft, UiReactFadeRight, UiReactFadeUp } from "@uireact/framer-animations";
 import { MotionProps } from "framer-motion";
-import { UiDialogType } from "types";
+import { UiDialogType } from "../types";
 
 export const getAnimationForDialog = (type: UiDialogType): MotionProps | undefined => {
     switch (type) {
-        case UiDialogType.BOTTOM: 
         case UiDialogType.CENTERED:
-            return UiReactFadeUp;
+            return { initial: { opacity: 0, y: '-40%', x: '-50%', scale: 0.8 }, animate: { opacity: 1, y: '-50%', x: '-50%', scale: 1} }
+        case UiDialogType.BOTTOM: 
+            return { initial: { opacity: 0, x: '-50%', y: 10 }, animate: { opacity: 1, x: '-50%', y: 0} }
         case UiDialogType.LEFT:
             return UiReactFadeRight;
         case UiDialogType.RIGHT:
             return UiReactFadeLeft;
         case UiDialogType.FULLSCREEN:
-            return UiReactFadeDown;
+            return { initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1} }
         default:
             return undefined;
     }

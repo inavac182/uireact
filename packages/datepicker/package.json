@@ -50,6 +50,7 @@
     "@uireact/button": "workspace:*",
     "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/framer-animations": "workspace:*",
     "@uireact/grid": "workspace:*",
     "@uireact/icons": "workspace:*",
     "@uireact/menu": "workspace:*",
