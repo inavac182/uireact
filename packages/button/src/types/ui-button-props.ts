@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { AriaAttributes, MouseEvent } from 'react';
 
 import { ColorCategory, SpacingDistribution } from '@uireact/foundation';
 
@@ -30,7 +30,7 @@ export type UiButtonProps = {
   rounded?: boolean;
   /** The styling of the button to render */
   styling?: 'clear' | 'icon' | 'outlined';
-};
+} & AriaAttributes;
 
 export type privateButtonProps = {
   /** onClick Handler */

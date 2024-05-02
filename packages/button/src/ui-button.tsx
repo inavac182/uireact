@@ -104,6 +104,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   rounded = false,
   type = 'button',
   testId,
+  ...props
 }: UiButtonProps) => (
   <StyledButton
     $category={category}
@@ -119,6 +120,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
     type={type}
     ref={ref}
     $rounded={rounded}
+    {...props}
   >
     {children}
   </StyledButton>
