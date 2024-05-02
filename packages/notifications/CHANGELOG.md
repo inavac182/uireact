@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.4.0...@uireact/notifications@0.6.0) (2024-05-02)
+
+
+### Features
+
+* **dialogs:** Adding animations to dialogs  ([#322](https://github.com/inavac182/ui-react/issues/322)) ([ad6027b](https://github.com/inavac182/ui-react/commit/ad6027bc27258018f77457a8ef404f39486e409e))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* include docs pages to docs app build ([9be9021](https://github.com/inavac182/ui-react/commit/9be90214de139d20fc1df71cd56de9c9801f8f13))
+
+
+
+
+
 # [0.5.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.4.0...@uireact/notifications@0.5.0) (2024-05-02)
 
 

@@ -1,4 +1,7 @@
+import type { ForwardRefComponent, HTMLMotionProps } from 'framer-motion';
 import styled, { keyframes } from 'styled-components';
+
+import { motion } from 'framer-motion';
 
 export const DialogWrapper = styled.div`
   width: 100%;
@@ -20,7 +23,9 @@ export const DialogBackground = styled.div`
   z-index: 50;
 `;
 
-export const Dialog = styled.div`
+type DialogType = ForwardRefComponent<HTMLDivElement, HTMLMotionProps<'div'>>;
+
+export const Dialog: DialogType = styled(motion.div)`
   background-color: var(--primary-token_100);
   color: var(--fonts-token_100);
   z-index: 100;

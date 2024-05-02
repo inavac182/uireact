@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@1.0.3...@uireact/confirm-dialog@1.2.0) (2024-05-02)
+
+
+### Bug Fixes
+
+* inferred dialog type ([c4c190a](https://github.com/inavac182/uireact/commit/c4c190a82af77d156aa314e5e025132e2ed69bbe))
+
+
+### Features
+
+* adding animation to confirm dialog ([2b7b887](https://github.com/inavac182/uireact/commit/2b7b8872314333d3b5cc5c0901ad859a1f751ac9))
+* **dialogs:** Adding animations to dialogs  ([#322](https://github.com/inavac182/uireact/issues/322)) ([ad6027b](https://github.com/inavac182/uireact/commit/ad6027bc27258018f77457a8ef404f39486e409e))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/uireact/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+
+
+
+
+
 # [1.1.0](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@1.0.3...@uireact/confirm-dialog@1.1.0) (2024-05-02)
 
 

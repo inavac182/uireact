@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/inavac182/uireact/compare/@uireact/view@2.3.2...@uireact/view@2.5.0) (2024-05-02)
+
+
+### Features
+
+* **dialogs:** Adding animations to dialogs  ([#322](https://github.com/inavac182/uireact/issues/322)) ([ad6027b](https://github.com/inavac182/uireact/commit/ad6027bc27258018f77457a8ef404f39486e409e))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+
+
+
+
+
 # [2.4.0](https://github.com/inavac182/uireact/compare/@uireact/view@2.3.2...@uireact/view@2.4.0) (2024-05-02)
 
 

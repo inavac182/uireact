@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/inavac182/uireact/compare/@uireact/navbar@2.2.5...@uireact/navbar@2.3.0) (2024-05-02)
+
+
+### Features
+
+* adding main pages ([3d67462](https://github.com/inavac182/uireact/commit/3d67462558899bd005eab0da39712f8318abec9c))
+* adding sidebar structure ([a8ef0d0](https://github.com/inavac182/uireact/commit/a8ef0d0bacae2fcaae94a25e3cc87311c3db1a71))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+
+
+
+
+
 ## 2.2.5 (2024-03-18)
 
 **Note:** Version bump only for package @uireact/navbar

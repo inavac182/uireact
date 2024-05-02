@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/inavac182/ui-react/compare/@uireact/form@2.4.2...@uireact/form@2.5.0) (2024-05-02)
+
+
+### Bug Fixes
+
+* el ([7cad54f](https://github.com/inavac182/ui-react/commit/7cad54f54197d5432ae6e24441e74f6bbaae1e88))
+* inputs ref ([887ab7c](https://github.com/inavac182/ui-react/commit/887ab7cf526b56eb0e9aa4a813075eefb55929d4))
+* ref ([37f6643](https://github.com/inavac182/ui-react/commit/37f664388112f8e2a7d5b2d99f4e8e316010ee4b))
+* ref ts issue ([9fb240d](https://github.com/inavac182/ui-react/commit/9fb240d4fb90c6f290cb28d2d3e15fd093a933c6))
+* ts ([b7f46c8](https://github.com/inavac182/ui-react/commit/b7f46c87ff51bfc06baad7dfd186aee5beb7c1ec))
+* ts ([04b900b](https://github.com/inavac182/ui-react/commit/04b900b30b4740b0b6993105fa8084a081a9f2e1))
+* ts error ([8f90394](https://github.com/inavac182/ui-react/commit/8f90394ce20f2716118f68793b792d59e403be27))
+* type ([02b619a](https://github.com/inavac182/ui-react/commit/02b619ae4538495a58a287040455738defb0e76c))
+* typing ([8cc1eb7](https://github.com/inavac182/ui-react/commit/8cc1eb7d3520ea07436d283b4137a5be1f89faef))
+* warnings ([efd5c08](https://github.com/inavac182/ui-react/commit/efd5c0825ec0e11122bd90fd1a14c3fc1adb7655))
+
+
+### Features
+
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/ui-react/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+
+
+
+
+
 ## [2.4.2](https://github.com/inavac182/ui-react/compare/@uireact/form@2.4.1...@uireact/form@2.4.2) (2024-03-18)
 
 **Note:** Version bump only for package @uireact/form
