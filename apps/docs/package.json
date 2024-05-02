@@ -24,6 +24,7 @@
     "@uireact/flex": "workspace:*",
     "@uireact/form": "workspace:*",
     "@uireact/foundation": "workspace:*",
+    "@uireact/framer-animations": "workspace:*",
     "@uireact/grid": "workspace:*",
     "@uireact/header": "workspace:*",
     "@uireact/icons": "workspace:*",

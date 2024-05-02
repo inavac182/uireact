@@ -1,3 +1,5 @@
+import { MotionProps } from 'framer-motion';
+
 import { UiReactElementProps } from '@uireact/foundation';
 
 export enum UiDialogType {
@@ -26,4 +28,5 @@ export type UiDialogProps = {
 export type privateUiDialogProps = {
   /** Position where the dialog will be rendered */
   $type?: UiDialogType;
+  motion?: MotionProps;
 } & UiReactElementProps;

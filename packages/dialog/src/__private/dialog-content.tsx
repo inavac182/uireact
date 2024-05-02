@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { UiDialogType, privateUiDialogProps } from '../types';
 
@@ -8,7 +9,7 @@ import { BorderedWrappedDiv } from './border-helpers/bordered-wrapper-div';
 import { getBorderRadius } from './border-helpers/border-radius';
 import { ThemeContext } from '@uireact/foundation';
 
-const Div = styled.div<privateUiDialogProps>`
+const Div = styled(motion.div)<privateUiDialogProps>`
   background-color: var(--primary-token_100);
   color: var(--fonts-token_100);
   z-index: 100;
@@ -74,11 +75,11 @@ const ContentDiv = styled.div<privateUiDialogProps>`
   border-radius: ${(props) => getBorderRadius(props.$type)};
 `;
 
-export const DialogContent: React.FC<privateUiDialogProps> = ({ children, $type }: privateUiDialogProps) => {
+export const DialogContent: React.FC<privateUiDialogProps> = ({ children, motion, $type }: privateUiDialogProps) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <Div $type={$type} role="dialog">
+    <Div $type={$type} role="dialog" {...motion}>
       <BorderedWrappedDiv $selectedTheme={theme.selectedTheme} $type={$type}>
         <ContentDiv $type={$type} data-testid="UiDialogContent">
           {children}

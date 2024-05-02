@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { UiIcon } from '@uireact/icons';
 
-import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper } from './__private';
+import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper, getAnimationForDialog } from './__private';
 
 import { UiDialogProps, UiDialogType } from './types';
 import { useDialog } from '.';
@@ -31,6 +31,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   title,
 }: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
+  const animation = getAnimationForDialog(type);
 
   const closeCB = React.useCallback(() => {
     actions.closeDialog();
@@ -60,7 +61,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   if (type !== UiDialogType.CENTERED) {
     return (
-      <DialogContent $type={type} className={className} data-testId={testId}>
+      <DialogContent $type={type} className={className} data-testId={testId} motion={animation}>
         {title && (
           <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         )}
@@ -78,7 +79,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
     <DialogWrapper className={className} data-testId={testId}>
       <>
         <DialogBackground onClick={closeCB} />
-        <DialogContent $type={type}>
+        <DialogContent $type={type} motion={animation}>
           {title && (
             <DialogToolbar
               title={title}
