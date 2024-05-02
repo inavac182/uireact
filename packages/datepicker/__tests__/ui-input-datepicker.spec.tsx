@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { UiIcon } from '@uireact/icons';
 
 import { uiRender } from '../../../__tests__/utils/render';
@@ -10,7 +10,7 @@ describe('<UiDatepicker />', () => {
   // January 2028
   const date = new Date(2028, 1, 0);
 
-  it('renders fine', () => {
+  it('renders fine', async () => {
     uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} name="someDate" />);
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
@@ -20,22 +20,28 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+    
     expect(screen.getByText('January 2028')).toBeVisible();
   });
 
-  it('renders fine when no date is passed', () => {
+  it('renders fine when no date is passed', async () => {
     uiRender(<UiInputDatepicker onChange={jest.fn()} name="someDate" />);
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+
     expect(screen.getByRole('textbox')).toHaveValue('');
   });
 
-  it('renders fine when using disablePastDates', () => {
+  it('renders fine when using disablePastDates', async () => {
     const someDate = new Date('2029-01-25 ');
 
     uiRender(<UiInputDatepicker onChange={jest.fn()} date={someDate} name="someDate" disablePastDates />);
@@ -44,7 +50,10 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+
     expect(screen.getByRole('button', { name: '24' })).toBeDisabled();
   });
 
@@ -122,7 +131,7 @@ describe('<UiDatepicker />', () => {
     expect(screen.getByRole('textbox', { name: 'date picker input' })).toBeVisible();
   });
 
-  it('renders fine with format yyyy/mm/dd', () => {
+  it('renders fine with format yyyy/mm/dd', async () => {
     // November 1, 2025
 
     const date = new Date(2025, 10, 1);
@@ -134,7 +143,9 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: '1' }));
 
@@ -143,7 +154,7 @@ describe('<UiDatepicker />', () => {
     expect(onChange).toHaveBeenCalledWith('2025/11/01');
   });
 
-  it('renders fine with default format yyyy-mm-dd', () => {
+  it('renders fine with default format yyyy-mm-dd', async () => {
     // November 1, 2025
 
     const date = new Date(2025, 10, 1);
@@ -154,14 +165,16 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: '1' }));
 
     expect(screen.getByRole('textbox')).toHaveValue('2025-11-01');
   });
 
-  it('renders fine with default format mm/dd/yyyy', () => {
+  it('renders fine with default format mm/dd/yyyy', async () => {
     // November 1, 2025
 
     const date = new Date(2025, 10, 1);
@@ -172,14 +185,16 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: '1' }));
 
     expect(screen.getByRole('textbox')).toHaveValue('11/01/2025');
   });
 
-  it('renders fine with default format dd/mm/yyyy', () => {
+  it('renders fine with default format dd/mm/yyyy', async () => {
     // November 1, 2025
 
     const date = new Date(2025, 10, 1);
@@ -190,7 +205,9 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     fireEvent.click(screen.getByRole('button', { name: '1' }));
 
@@ -213,7 +230,7 @@ describe('<UiDatepicker />', () => {
     expect(screen.getByRole('textbox')).toBeVisible();
   });
 
-  it('Datepicker closes when using esc key', () => {
+  it('Datepicker closes when using esc key', async () => {
     const onChange = jest.fn();
 
     uiRender(<UiInputDatepicker date={date} onChange={onChange} testId="date-picker-id" />);
@@ -222,7 +239,9 @@ describe('<UiDatepicker />', () => {
 
     fireEvent.focus(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('menu')).toBeVisible();
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
 
     const datepicker = screen.getByTestId('date-picker-id');
     fireEvent.keyDown(datepicker, { key: 'Escape', code: 'Escape' });
