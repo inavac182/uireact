@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/inavac182/uireact/compare/@uireact/card@3.0.0...@uireact/card@3.1.0) (2024-05-02)
+
+
+### Features
+
+* **UiMenu:** :adding framer motion ([#320](https://github.com/inavac182/uireact/issues/320)) ([cc158a6](https://github.com/inavac182/uireact/commit/cc158a6741aee5fd6ab4320989b0b80c6618021d))
+
+
+
+
+
 ## [3.0.2](https://github.com/inavac182/uireact/compare/@uireact/card@3.0.0...@uireact/card@3.0.2) (2024-04-30)
 
 **Note:** Version bump only for package @uireact/card
