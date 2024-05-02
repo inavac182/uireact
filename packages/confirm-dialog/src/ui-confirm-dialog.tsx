@@ -1,4 +1,5 @@
 import React, { useCallback, useContext } from 'react';
+import { MotionProps } from 'framer-motion';
 
 import { UiConfirmDialogContext, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
@@ -10,6 +11,21 @@ import { Dialog, DialogBackground, DialogBorder, DialogContent, DialogWrapper } 
 const buttonPadding: UiSpacingProps['padding'] = { block: 'four' };
 const actionsPadding: UiSpacingProps['padding'] = { top: 'five' };
 const messagePadding: UiSpacingProps['padding'] = { top: 'four' };
+
+const animation: MotionProps = { 
+  initial: { 
+    opacity: 0, 
+    x: '-50%', 
+    y: '-50%', 
+    scale: 0.8 
+  }, 
+  animate: {
+    opacity: 1,
+    x: '-50%',
+    y: '-50%',
+    scale: 1
+  }
+};
 
 export const UiConfirmDialog: React.FC = () => {
   const { confirmDialog, visible, hideConfirmDialog } = useContext(UiConfirmDialogContext);
@@ -38,12 +54,12 @@ export const UiConfirmDialog: React.FC = () => {
     return (
       <DialogWrapper>
         <DialogBackground onClick={closeCB} data-testid="confirm-dialog-bg" />
-        <Dialog role="dialog">
+        <Dialog role="dialog" {...animation}>
           <DialogBorder>
             <DialogContent>
-              <UiHeading centered>{data.title}</UiHeading>
+              <UiHeading centered level={4}>{data.title}</UiHeading>
               <UiSpacing padding={messagePadding}>
-                <UiText centered>{data.message}</UiText>
+                <UiText centered wrap>{data.message}</UiText>
               </UiSpacing>
               <UiSpacing padding={actionsPadding}>
                 <UiFlexGrid

@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import { motion } from 'framer-motion';
+
 export const DialogWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -20,7 +22,7 @@ export const DialogBackground = styled.div`
   z-index: 50;
 `;
 
-export const Dialog = styled.div`
+export const Dialog = styled(motion.div)`
   background-color: var(--primary-token_100);
   color: var(--fonts-token_100);
   z-index: 100;
