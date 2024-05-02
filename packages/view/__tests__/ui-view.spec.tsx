@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import { DefaultTheme, ThemeColor, IDialogController } from '@uireact/foundation';
 import { UiDialog, useDialog } from '@uireact/dialog';
@@ -111,12 +111,14 @@ describe('<UiView />', () => {
   });
 
   describe('default dialog controller', () => {
-    it('Should set up the default dialog controller', () => {
+    it('Should set up the default dialog controller', async () => {
       render(<MockedComponentWithDialog />);
 
       fireEvent.click(screen.getByText('Open dialog'));
 
-      expect(screen.getByRole('dialog')).toBeVisible();
+      await waitFor(() => {
+        expect(screen.getByRole('dialog')).toBeVisible();
+      });
 
       fireEvent.click(screen.getByText('Close dialog'));
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
