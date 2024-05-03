@@ -12,7 +12,7 @@ const Span = styled.span<privateIconProps>`
   ${(props: privateIconProps) => `
     ${
       props.$coloration === 'dark'
-        ? `fill: ${getThemeColor(
+        ? `stroke: ${getThemeColor(
             props.$theme,
             ThemeColor.dark,
             getColorCategory(props.$category),
@@ -22,7 +22,7 @@ const Span = styled.span<privateIconProps>`
     }
         ${
           props.$coloration === 'light'
-            ? `fill: ${getThemeColor(
+            ? `stroke: ${getThemeColor(
                 props.$theme,
                 ThemeColor.light,
                 getColorCategory(props.$category),
@@ -32,10 +32,9 @@ const Span = styled.span<privateIconProps>`
         }
     ${
       !props.$coloration
-        ? `fill: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);`
+        ? `stroke: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);`
         : ''
     }
-    
 
     ${`font-size: var(--texts-${props.$size});`}
     ${`line-height: var(--texts-${props.$size});`}
@@ -43,6 +42,7 @@ const Span = styled.span<privateIconProps>`
     ${`width: var(--texts-${props.$size});`}
   `}
 
+  fill: none;
   vertical-align: sub;
   display: inline-block;
   justify-content: center;

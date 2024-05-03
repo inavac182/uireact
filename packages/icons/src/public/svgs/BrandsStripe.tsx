@@ -4,13 +4,13 @@ import { ForwardRefComponent, SVGMotionProps, motion} from 'framer-motion';
 
 type SvgProps = {
    motionSvg: ForwardRefComponent<SVGSVGElement,SVGMotionProps<SVGSVGElement>>;
-  pathSvg: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
+  motionPath: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
 }
 
 
 const SvgBrandsStripe = (props: SvgProps) => (
   <motion.svg xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" width="1em" height="1em" viewBox="0 0 24 24" {...props.motionSvg}>
-    <motion.path {...props.pathSvg}
+    <motion.path {...props.motionPath}
       d="M24 12.167c0-1.707-.827-3.053-2.407-3.053-1.587 0-2.547 1.347-2.547 3.04 0 2.007 1.133 3.02 2.76 3.02.793 0 1.393-.18 1.847-.433v-1.333c-.453.227-.973.367-1.633.367-.647 0-1.22-.227-1.293-1.013h3.26c0-.089.013-.435.013-.595zm-3.293-.634c0-.753.46-1.067.88-1.067.407 0 .84.313.84 1.067h-1.72zM16.473 9.113c-.653 0-1.073.307-1.307.52l-.086-.413h-1.467v7.773l1.667-.353.007-1.887c.24.173.593.42 1.18.42 1.193 0 2.28-.96 2.28-3.073-.007-1.933-1.107-2.987-2.274-2.987zm-.4 4.594c-.393 0-.627-.14-.787-.313l-.006-2.474c.173-.193.413-.327.793-.327.607 0 1.027.68 1.027 1.553 0 .894-.413 1.561-1.027 1.561zM11.32 8.72l1.673-.36V7.007l-1.673.353zM11.32 9.227h1.673v5.833H11.32zM9.527 9.72l-.107-.493H7.98v5.833h1.667v-3.953c.393-.513 1.06-.42 1.267-.347V9.227C10.7 9.147 9.92 9 9.527 9.72zM6.193 7.78l-1.626.347-.007 5.34c0 .987.74 1.713 1.727 1.713.547 0 .947-.1 1.167-.22v-1.353c-.214.086-1.267.393-1.267-.594v-2.367h1.267v-1.42H6.187l.006-1.446zM1.687 10.92c0-.26.213-.36.567-.36.507 0 1.147.153 1.653.427V9.42a4.395 4.395 0 0 0-1.653-.307C.9 9.113 0 9.82 0 11c0 1.84 2.533 1.547 2.533 2.34 0 .307-.267.407-.64.407-.553 0-1.26-.227-1.82-.533V14.8c.62.267 1.247.38 1.82.38 1.387 0 2.34-.687 2.34-1.88-.006-1.987-2.546-1.633-2.546-2.38z"
       style={{
         fillRule: 'evenodd',

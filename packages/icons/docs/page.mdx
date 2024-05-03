@@ -1,5 +1,5 @@
 import { UiIcon } from '@uireact/icons';
-import { UiReactViewPulse } from '@uireact/framer-animations';
+import { UiReactSvgDraw } from '@uireact/framer-animations';
 import { IconsList } from './utils';
 
 import packageJson from './package-metadata.json';
@@ -22,8 +22,8 @@ import { Metadata } from '@uireact/docs-tools';
 ```
 ## UiIcon with animation
 
-```jsx live scope={{UiIcon, UiReactViewPulse}}
-  <UiIcon icon="Search" size="xlarge" category="tertiary" motionSvg={{...UiReactViewPulse, animate: { scale: 2 } }} />
+```jsx live scope={{UiIcon, UiReactSvgDraw}}
+  <UiIcon icon="Search" size="xlarge" category="tertiary" motionPath={UiReactSvgDraw} />
 ```
 
 ## UiIcon with inverse coloration

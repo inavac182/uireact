@@ -4,7 +4,7 @@ import { ForwardRefComponent, SVGMotionProps, motion} from 'framer-motion';
 
 type SvgProps = {
    motionSvg: ForwardRefComponent<SVGSVGElement,SVGMotionProps<SVGSVGElement>>;
-  pathSvg: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
+  motionPath: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
 }
 
 
@@ -17,7 +17,7 @@ const SvgLoadingBars = (props: SvgProps) => (
     viewBox="0 0 100 100"
     {...props.motionSvg}
   >
-    <motion.path {...props.pathSvg} fill="#e15b64" d="M15 30h10v40H15z">
+    <motion.path {...props.motionPath} fill="#e15b64" d="M15 30h10v40H15z">
       <animate
         attributeName="opacity"
         begin={-0.6}
@@ -29,7 +29,7 @@ const SvgLoadingBars = (props: SvgProps) => (
         values="1;0.2;1"
       />
     </motion.path>
-    <motion.path {...props.pathSvg} fill="#f47e60" d="M35 30h10v40H35z">
+    <motion.path {...props.motionPath} fill="#f47e60" d="M35 30h10v40H35z">
       <animate
         attributeName="opacity"
         begin={-0.4}
@@ -41,7 +41,7 @@ const SvgLoadingBars = (props: SvgProps) => (
         values="1;0.2;1"
       />
     </motion.path>
-    <motion.path {...props.pathSvg} fill="#f8b26a" d="M55 30h10v40H55z">
+    <motion.path {...props.motionPath} fill="#f8b26a" d="M55 30h10v40H55z">
       <animate
         attributeName="opacity"
         begin={-0.2}
@@ -53,7 +53,7 @@ const SvgLoadingBars = (props: SvgProps) => (
         values="1;0.2;1"
       />
     </motion.path>
-    <motion.path {...props.pathSvg} fill="#abbd81" d="M75 30h10v40H75z">
+    <motion.path {...props.motionPath} fill="#abbd81" d="M75 30h10v40H75z">
       <animate
         attributeName="opacity"
         begin={-1}

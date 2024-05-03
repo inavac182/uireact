@@ -4,7 +4,7 @@ import { ForwardRefComponent, SVGMotionProps, motion} from 'framer-motion';
 
 type SvgProps = {
    motionSvg: ForwardRefComponent<SVGSVGElement,SVGMotionProps<SVGSVGElement>>;
-  pathSvg: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
+  motionPath: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
 }
 
 
