@@ -17,16 +17,16 @@ export const HeaderNavbar = () => {
         <UiLink>
           <Link href="/">
             <UiSpacing padding={LinkSpacing}>
-              About
+              Home
             </UiSpacing>
           </Link>
         </UiLink>
       </UiNavbarItem>
       <UiNavbarItem>
         <UiLink>
-          <Link href="/usage">
+          <Link href="/docs">
             <UiSpacing padding={LinkSpacing}>
-              Usage
+              Docs
             </UiSpacing>
           </Link>
         </UiLink>
