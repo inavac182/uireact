@@ -55,6 +55,8 @@ export const UiIcon: React.FC<UiIconProps> = ({
   size = 'regular',
   testId,
   inverseColoration,
+  motionSvg,
+  motionPath
 }: UiIconProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -67,7 +69,7 @@ export const UiIcon: React.FC<UiIconProps> = ({
       $theme={theme}
       $coloration={coloration}
     >
-      <IconComponent icon={icon} />
+      <IconComponent icon={icon} motionSvg={motionSvg} motionPath={motionPath} />
     </Span>
   );
 };

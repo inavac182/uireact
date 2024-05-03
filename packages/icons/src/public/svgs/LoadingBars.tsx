@@ -1,15 +1,23 @@
 import * as React from 'react';
-import type { SVGProps } from 'react';
-const SvgLoadingBars = (props: SVGProps<SVGSVGElement>) => (
-  <svg
+
+import { ForwardRefComponent, SVGMotionProps, motion} from 'framer-motion';
+
+type SvgProps = {
+   motionSvg: ForwardRefComponent<SVGSVGElement,SVGMotionProps<SVGSVGElement>>;
+  pathSvg: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
+}
+
+
+const SvgLoadingBars = (props: SvgProps) => (
+  <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 100 100"
-    {...props}
+    {...props.motionSvg}
   >
-    <path fill="#e15b64" d="M15 30h10v40H15z">
+    <motion.path {...props.pathSvg} fill="#e15b64" d="M15 30h10v40H15z">
       <animate
         attributeName="opacity"
         begin={-0.6}
@@ -20,8 +28,8 @@ const SvgLoadingBars = (props: SVGProps<SVGSVGElement>) => (
         repeatCount="indefinite"
         values="1;0.2;1"
       />
-    </path>
-    <path fill="#f47e60" d="M35 30h10v40H35z">
+    </motion.path>
+    <motion.path {...props.pathSvg} fill="#f47e60" d="M35 30h10v40H35z">
       <animate
         attributeName="opacity"
         begin={-0.4}
@@ -32,8 +40,8 @@ const SvgLoadingBars = (props: SVGProps<SVGSVGElement>) => (
         repeatCount="indefinite"
         values="1;0.2;1"
       />
-    </path>
-    <path fill="#f8b26a" d="M55 30h10v40H55z">
+    </motion.path>
+    <motion.path {...props.pathSvg} fill="#f8b26a" d="M55 30h10v40H55z">
       <animate
         attributeName="opacity"
         begin={-0.2}
@@ -44,8 +52,8 @@ const SvgLoadingBars = (props: SVGProps<SVGSVGElement>) => (
         repeatCount="indefinite"
         values="1;0.2;1"
       />
-    </path>
-    <path fill="#abbd81" d="M75 30h10v40H75z">
+    </motion.path>
+    <motion.path {...props.pathSvg} fill="#abbd81" d="M75 30h10v40H75z">
       <animate
         attributeName="opacity"
         begin={-1}
@@ -56,7 +64,7 @@ const SvgLoadingBars = (props: SVGProps<SVGSVGElement>) => (
         repeatCount="indefinite"
         values="1;0.2;1"
       />
-    </path>
-  </svg>
+    </motion.path>
+  </motion.svg>
 );
 export default SvgLoadingBars;

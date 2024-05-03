@@ -1,6 +1,7 @@
 import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
 
 import * as SvgsComponent from '../public/svgs';
+import { MotionProps, SVGMotionProps } from 'framer-motion';
 
 export type InverseColorationProp = {
   light: boolean;
@@ -18,6 +19,10 @@ export type UiIconProps = {
   inverseColoration?: boolean;
   /* Defaults the element to a specific theme coloration */
   coloration?: 'dark' | 'light';
+  /** Framer motion props for SVG */
+  motionSvg?: SVGMotionProps<SVGSVGElement>;
+  /** Framer motion props for SVG Path */
+  motionPath?: SVGMotionProps<SVGPathElement>;
 } & UiReactElementProps;
 
 export type privateIconProps = {

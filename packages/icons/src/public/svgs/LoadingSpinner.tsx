@@ -1,13 +1,21 @@
 import * as React from 'react';
-import type { SVGProps } from 'react';
-const SvgLoadingSpinner = (props: SVGProps<SVGSVGElement>) => (
-  <svg
+
+import { ForwardRefComponent, SVGMotionProps, motion} from 'framer-motion';
+
+type SvgProps = {
+   motionSvg: ForwardRefComponent<SVGSVGElement,SVGMotionProps<SVGSVGElement>>;
+  pathSvg: ForwardRefComponent<SVGPathElement,SVGMotionProps<SVGPathElement>>;
+}
+
+
+const SvgLoadingSpinner = (props: SvgProps) => (
+  <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 100 100"
-    {...props}
+    {...props.motionSvg}
   >
     <g transform="translate(80 50)">
       <circle r={6}>
@@ -177,6 +185,6 @@ const SvgLoadingSpinner = (props: SVGProps<SVGSVGElement>) => (
         />
       </circle>
     </g>
-  </svg>
+  </motion.svg>
 );
 export default SvgLoadingSpinner;

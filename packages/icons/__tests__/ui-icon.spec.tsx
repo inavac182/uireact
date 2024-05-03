@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { screen } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
+
+import { DefaultTheme } from '@uireact/foundation';
+import { UiReactFadeUp } from '@uireact/framer-animations';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiIcon } from '../src';
-import { DefaultTheme } from '@uireact/foundation';
 
 import 'jest-styled-components';
 
@@ -56,5 +58,15 @@ describe('<UiIcon />', () => {
     uiRender(<UiIcon icon="XXXX" />);
 
     expect(screen.queryByTestId('Icon')).not.toBeInTheDocument();
+  });
+
+  it('renders fine with motion', async () => {
+    uiRender(<UiIcon icon="Search" testId="UiIcon" motion={UiReactFadeUp} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId('Icon')).toBeVisible();
+    });
+
+    expect(screen.getByTestId('UiIcon')).toHaveStyleRule('fill', 'var(--fonts-token_100)');
   });
 });
