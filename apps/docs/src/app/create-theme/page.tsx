@@ -1,17 +1,16 @@
 'use client';
-import { useEffect } from "react";
-
 import Link from "next/link";
 import styled from "styled-components";
-import { animate, motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { UiCard } from "@uireact/card";
-import { UiFlexGrid, UiFlexGridItem } from "@uireact/flex";
+import { UiFlexGrid } from "@uireact/flex";
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiHeading, UiText } from "@uireact/text";
+import { ColoredCards } from "./components/showcases";
 
 const Div = styled.div`
     height: 200vh;
@@ -65,8 +64,11 @@ export default function CreateThemeToolPage () {
                 <br />
                 <UiLineSeparator />
             </UiSpacing>
+            <UiText size="large" fontStyle="bold">One of the most powerful aspects of this library is the hability to use your custom theme as a plug and play configuration.</UiText>
             <br />
-            <UiText size="large">This tool will help you go through the steps needed to create your theme.</UiText>
+            <ColoredCards />
+            <br />
+            <UiText size="large">This tool will guide you go through the steps needed to create your theme.</UiText>
             <br />
             <UiCard category="primary" weight="200">
                 <UiFlexGrid gap="five" alignItems="center">
