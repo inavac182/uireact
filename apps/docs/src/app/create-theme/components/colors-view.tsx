@@ -7,10 +7,10 @@ const Div = styled.div`
     width: 100%;
     box-sizing: border-box;
 `;
-export const ExamplePage = () => {
+export const ColorsView = () => {
     return (
         <Div>
-            <h1>Create theme</h1>
+            <h1>Theme Colors</h1>
         </Div>
     )
 }

@@ -1,2 +1,2 @@
-export * from './theme-props';
-export * from './example-page';
+export * from './theme-properties';
+export * from './colors-view';
