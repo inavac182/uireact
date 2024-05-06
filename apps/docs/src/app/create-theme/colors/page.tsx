@@ -71,7 +71,7 @@ export default function Colors () {
             <UiButton onClick={onReset} category="error">
                 <UiSpacing padding={buttonSpacing}>
                     <UiFlexGrid gap="four" alignItems="center">
-                        <UiIcon icon="Ban" />
+                        <UiIcon icon="Refresh" />
                         <UiText>Restart</UiText>
                     </UiFlexGrid>
                 </UiSpacing>

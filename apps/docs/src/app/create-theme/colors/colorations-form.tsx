@@ -8,6 +8,7 @@ import { UiFlexGrid } from "@uireact/flex";
 import { ColorBoxPicker } from "./color-box-picker";
 import { isCompletedColoration } from "../utils";
 import { UiIcon } from "@uireact/icons";
+import { UiText } from "@uireact/text";
 
 type ColorationsFormProps = {
     $coloration: ThemeColor;
@@ -49,7 +50,20 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
                 : <UiIcon icon="WarningCircle" category="warning" size="xlarge" /> 
                 } </h3>
             <br />
-            <p>Main colors</p>
+            {$coloration === ThemeColor.dark ? (
+                <>
+                    <p>Coloration used when Dark theme is enabled in user's device.</p>
+                    <p>Colors should mainly be in the darker end as is usually used during nights or dark environments to protect the user's eyes.</p>
+                </>
+            ) : (
+                <>
+                   <p>Coloration used when Light theme is enabled in user's device.</p>
+                   <p>Colors should mainly be in the lighter end as is usually used during daylight or under sun light, so colors should be bright to help against reflections.</p>
+                </> 
+            )}
+            <br />
+            <strong>Main colors</strong>
+            <br />
             <br />
             <UiFlexGrid gap="five" wrap="wrap">
                 <ColorBoxPicker category={ColorCategories.primary} $coloration={$coloration} />
@@ -57,7 +71,9 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
                 <ColorBoxPicker category={ColorCategories.tertiary} $coloration={$coloration} />
             </UiFlexGrid>
             <br />
-            <p>Support colors</p>
+            <br />
+            <strong>Support colors</strong>
+            <br />
             <br />
             <UiFlexGrid gap="five" wrap="wrap">
                 <ColorBoxPicker category={ColorCategories.positive} $coloration={$coloration} />

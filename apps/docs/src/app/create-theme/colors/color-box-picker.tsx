@@ -71,11 +71,12 @@ const ColorTokensBox = styled.div<{ $coloration: ThemeColor, $category?: ColorCa
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
     ${(props) => {
-        if (props.$category === ColorCategories.fonts) {
-            return `background-color: ${props.$coloration === ThemeColor.dark ? baseLightColor : baseDarkColor };`;
-        } 
-
-        return `background-color: ${props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor };`
+        return `
+            background-color: ${props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor };
+            svg {
+                fill: ${props.$coloration === ThemeColor.dark ? baseLightColor : baseDarkColor } !important;
+            }
+        `
     }}
 `;
 
