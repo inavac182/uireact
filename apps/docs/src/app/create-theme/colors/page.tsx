@@ -143,10 +143,12 @@ export default function Colors () {
             <br />
             <br />
             {colorsCompleted ? (
-                <ContinueLink text="Continue" url={`./create-theme/fonts?theme=${searchParams.get('theme')}`} />
+                <ContinueLink text="Continue" url={`./fonts?theme=${searchParams.get('theme')}`} />
             ) : (
                 <UiText fontStyle="bold">There are colors missing, once those are completed you can continue to next step.</UiText>
             )}
+            <br />
+            <br />
         </>
     )
 }
