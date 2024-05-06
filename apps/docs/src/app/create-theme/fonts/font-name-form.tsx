@@ -59,6 +59,8 @@ export const FontNameForm = () => {
             <br />
             <UiInput name="fontName" value={fontName} label="Font name" labelOnTop onChange={updateFontName} category={errors?.fontName ? 'error' : undefined } error={errors?.fontName?.[0]?.message} />
             <br />
+            <UiText size="small">If you select a custom font name, remember that you still have to link it or import it to your web app.</UiText>
+            <br />
             <UiButton onClick={saveFontName} category="tertiary">
                 <UiSpacing padding={buttonSpacing}>
                     <UiText>

@@ -27,10 +27,20 @@ export const FontColor = () => {
             <UiText fontStyle="bold">Font color:</UiText>
             <br />
             <Container $coloration={ThemeColor.dark}>
+                <strong>Font color for dark coloration</strong>
+                <br />
+                <br />
+                <p>We are using your selected primary color for your theme's dark coloration as background in this pill so you can see how your font color will look like on top of it:</p>
+                <br />
                 <FontColorBoxPicker category={ColorCategories.fonts} $coloration={ThemeColor.dark} />
             </Container>
             <br />
             <Container $coloration={ThemeColor.light}>
+                <strong>Font color for light coloration</strong>
+                <br />
+                <br />
+                <p>We are using your selected primary color for your theme's light coloration as background in this pill so you can see how your font color will look like on top of it:</p>
+                <br />
                 <FontColorBoxPicker category={ColorCategories.fonts} $coloration={ThemeColor.light} />
             </Container>
         </div>

@@ -28,18 +28,15 @@ const ColorWrapper = styled.div`
     flex-grow: 1;
 `;
 
-const ColorBox = styled.div<{ $coloration: ThemeColor, color?: string }>`
+const ColorBox = styled.div<{ $coloration: ThemeColor, $color?: string, $primaryColor: string }>`
+    ${props => `background-color: ${props.$primaryColor};`}
     ${props => {
-        if (props.color && props.color !== '') {
-            return `
-                background-color: ${props.color};
-            `;
+        if (props.$color) {
+            return `color: ${props.$color};`;
         } else {
-            return `background-color: ${props.$coloration === ThemeColor.dark ? baseDarkBg : baseLightBg };`;
+            return `color: ${props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor};`;
         }
     }}
-
-    color: ${(props) => props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor};
 
     button {
         &:hover {
@@ -90,9 +87,18 @@ const ColorToken = styled.div<{ $color: string }>`
 
 export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
     const [colorPickerVisible, setColorPickerVisible] = useState(false);
-    const pathname = usePathname()
     const searchParams = useSearchParams();
     const router = useRouter();
+
+    const primaryColor = useMemo(() => {
+        const urlTheme = searchParams.get('theme');
+
+        if (urlTheme) {
+            return getColorFromUrl(urlTheme, $coloration, ColorCategories.primary, ColorTokens.token_100);
+        }
+
+        return '';
+    }, [searchParams]);
     const color = useMemo(() => {
         const urlTheme = searchParams.get('theme');
 
@@ -129,7 +135,7 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
 
     return (
         <ColorWrapper>
-            <ColorBox $coloration={$coloration} color={color}>
+            <ColorBox $coloration={$coloration} $color={color} $primaryColor={primaryColor}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
                     <strong>{category}</strong>
                     <UiButton styling="icon" onClick={tooglePicker}>

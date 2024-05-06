@@ -32,7 +32,7 @@ export default function FontsPage () {
         <>
             <UiSpacing padding={headingSpacing}>
                 <UiFlexGrid alignItems="center" gap="four">
-                    <Link href={`/create-theme/colors?theme=${encodeURIComponent(JSON.stringify(themeParameter))}`}>
+                    <Link href={`/create-theme/colors?theme=${btoa(JSON.stringify(themeParameter))}`}>
                         <UiIcon icon="AngleClearLeft" />
                     </Link>
                     <Heading>Fonts</Heading>
