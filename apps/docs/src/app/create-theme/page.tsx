@@ -10,47 +10,10 @@ import { UiIcon } from "@uireact/icons";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiText } from "@uireact/text";
-
-import { PagesContainer } from "./components";
-
-const StartLinkText = styled.span`
-    a {
-        color: var(--tertiary-token_100);
-        font-size: 40px;
-        max-width: 90%;
-    }
-`;
-
-const LinkContent = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    border-bottom: 5px dotted var(--tertiary-token_100);
-    position: relative;
-    font-weight: bold;
-`;
-
-const IconWrapper = styled(motion.div)`
-    height: var(--texts-xlarge);
-    display: flex;
-    font-size: 30px;
-    position: absolute;
-    box-sizing: border-box;
-`;
+import { ContinueLink } from "./components";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const listSpacing: UiSpacingProps['padding'] = {inline: 'five'};
-
-const angleAnimation = {
-    rest: {
-        opacity: 0,
-        left: '20%'
-    },
-    hovered: {
-        opacity: 1,
-        left: '95%',
-        scale: 1.2
-    }
-}
 
 const Heading = styled.h3`
     font-size: 44px;
@@ -122,18 +85,7 @@ export default function CreateThemeToolPage () {
             </UiSpacing>
             </UiCard>
             <br />
-            <StartLinkText>
-                <Link href="./create-theme/colors/">
-                    <LinkContent initial="rest" whileHover="hovered" whileTap={{ scale: 0.8 }}>
-                        <span>
-                            Start
-                        </span>
-                        <IconWrapper variants={angleAnimation}>
-                            <UiIcon icon="AngleClearRight" category="tertiary" size="xlarge" />
-                        </IconWrapper>
-                    </LinkContent>
-                </Link>
-            </StartLinkText>
+            <ContinueLink text="Start" url="./create-theme/colors/" />
         </>
     )
 }

@@ -6,9 +6,13 @@ import styled from "styled-components";
 
 import { UiButton } from "@uireact/button";
 import { UiFlexGrid } from "@uireact/flex";
-import { ColorCategories, ThemeColor } from "@uireact/foundation";
+import { ColorCategories, ColorTokens, ThemeColor, Tokens } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiMenu } from "@uireact/menu";
+
+import { MergeTokens, generateThemeStructure } from "../utils";
+import { getColorFromUrl, getTokensFromUrl } from "../utils/get-color-from-url";
+import { generateColorTokens } from "../utils";
 
 type ColorBoxPickerProps = {
     category: ColorCategories;
@@ -20,11 +24,15 @@ const baseLightBg = '#F7F7F7';
 const baseDarkColor = '#fff';
 const baseLightColor = '#000';
 
+const ColorWrapper = styled.div`
+    flex-grow: 1;
+`;
+
 const ColorBox = styled.div<{ $coloration: ThemeColor, color?: string }>`
     ${props => {
         if (props.color && props.color !== '') {
             return `
-                background-color: #${props.color};
+                background-color: ${props.color};
             `;
         } else {
             return `background-color: ${props.$coloration === ThemeColor.dark ? baseDarkBg : baseLightBg };`;
@@ -45,13 +53,37 @@ const ColorBox = styled.div<{ $coloration: ThemeColor, color?: string }>`
         fill: ${(props) => props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor} !important;
     }
 
-    flex-grow: 1;
     padding: 10px;
     border-radius: 30px;
 `;
 
 const ColorText = styled.p`
     text-align: center;
+    font-weight: bold;
+`;
+
+const ColorTokensBox = styled.div<{ $coloration: ThemeColor, $category?: ColorCategories }>`
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    ${(props) => {
+        if (props.$category === ColorCategories.fonts) {
+            return `background-color: ${props.$coloration === ThemeColor.dark ? baseLightColor : baseDarkColor };`;
+        } 
+
+        return `background-color: ${props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor };`
+    }}
+`;
+
+const ColorToken = styled.div<{ $color: string }>`
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: ${(props) => props.$color};
 `;
 
 export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
@@ -59,28 +91,69 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
     const pathname = usePathname()
     const searchParams = useSearchParams();
     const router = useRouter();
-    const color = useMemo(() => searchParams.get(category) || '', [searchParams]);
+    const color = useMemo(() => {
+        const urlTheme = searchParams.get('theme');
+
+        if (urlTheme) {
+            return getColorFromUrl(urlTheme, $coloration, category, ColorTokens.token_100);
+        }
+
+        return '';
+    }, [searchParams]);
+    const tokens = useMemo(() => {
+        const urlTheme = searchParams.get('theme');
+
+        if (urlTheme) {
+            return getTokensFromUrl(urlTheme, $coloration, category);
+        }
+
+        return null;
+    }, [searchParams]);
 
     const tooglePicker = useCallback(() => {
         setColorPickerVisible(!colorPickerVisible);
     }, [colorPickerVisible, setColorPickerVisible]);
 
     const setColorCB = useCallback((value: ColorResult) => {
-        router.push(`${pathname}?${category}=${value.hex.replace('#', '')}`, { scroll: false });
-    }, [router]);
+        const themeInUrl = searchParams.get('theme');
+        const theme = themeInUrl ? JSON.parse(themeInUrl) : generateThemeStructure();
+        const tokens = generateColorTokens(value.hsl);
+        const updatedTheme = MergeTokens($coloration, category, tokens, theme);
+
+        const encodedTheme = encodeURIComponent(JSON.stringify(updatedTheme));
+
+        router.push(`${pathname}?theme=${encodedTheme}`, { scroll: false });
+    }, [router, searchParams]);
 
     return (
-        <ColorBox $coloration={$coloration} color={color}>
-            <UiFlexGrid alignItems="center" justifyContent="space-between">
-                <strong>{category}</strong>
-                <UiButton styling="icon" onClick={tooglePicker}>
-                    <UiIcon icon="BarsProgress" />
-                </UiButton>
-            </UiFlexGrid>
-            <UiMenu visible={colorPickerVisible} closeMenuCB={tooglePicker}>
-                <SketchPicker onChangeComplete={setColorCB} color={color} />
-            </UiMenu>
-            <ColorText>{color ? `#${color}` : <UiIcon icon="CaretUp" />}</ColorText>
-        </ColorBox>
+        <ColorWrapper>
+            <ColorBox $coloration={$coloration} color={color}>
+                <UiFlexGrid alignItems="center" justifyContent="space-between">
+                    <strong>{category}</strong>
+                    <UiButton styling="icon" onClick={tooglePicker}>
+                        <UiIcon icon="BarsProgress" />
+                    </UiButton>
+                </UiFlexGrid>
+                <UiMenu visible={colorPickerVisible} closeMenuCB={tooglePicker}>
+                    <SketchPicker onChangeComplete={setColorCB} color={color} />
+                </UiMenu>
+                <ColorText>{color ? color : ''}</ColorText>
+            </ColorBox>
+            {tokens && tokens.token_100 !== '' && (
+                <>
+                    <br />
+                    <ColorTokensBox $coloration={$coloration} $category={category}>
+                        <ColorToken $color={tokens.token_10} />
+                        <ColorToken $color={tokens.token_50} />
+                        <UiFlexGrid direction="column" alignItems="center" justifyContent="center">
+                            <ColorToken $color={tokens.token_100} />
+                            <UiIcon icon="CaretUp" />
+                        </UiFlexGrid>
+                        <ColorToken $color={tokens.token_150} />
+                        <ColorToken $color={tokens.token_200} />
+                    </ColorTokensBox>
+                </>
+            )}
+        </ColorWrapper>
     )
 }
