@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { MotionProps, motion } from "framer-motion";
 
 import { UiCard } from "@uireact/card";
 import { UiFlexGrid } from "@uireact/flex";
@@ -9,15 +9,9 @@ import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
-import { UiHeading, UiText } from "@uireact/text";
-import { ColoredCards } from "./components/showcases";
+import { UiText } from "@uireact/text";
 
-const Div = styled.div`
-    height: 200vh;
-    padding: 30px 50px 30px 50px;
-    width: 100%;
-    box-sizing: border-box;
-`;
+import { PagesContainer } from "./components";
 
 const StartLinkText = styled.span`
     a {
@@ -32,6 +26,7 @@ const LinkContent = styled(motion.div)`
     align-items: center;
     border-bottom: 5px dotted var(--tertiary-token_100);
     position: relative;
+    font-weight: bold;
 `;
 
 const IconWrapper = styled(motion.div)`
@@ -52,32 +47,54 @@ const angleAnimation = {
     },
     hovered: {
         opacity: 1,
-        left: '95%'
+        left: '95%',
+        scale: 1.2
+    }
+}
+
+const Heading = styled.h3`
+    font-size: 44px;
+    width: fit-content;
+    background: -webkit-linear-gradient(45deg,  var(--fonts-token_100) 0%, var(--tertiary-token_100) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+`;
+
+const animation: MotionProps = {
+    whileInView: {
+        rotate: [0, 360, 0],
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 1
+        }
     }
 }
 
 export default function CreateThemeToolPage () {
     return (
-        <Div>
+        <>
             <UiSpacing padding={headingSpacing}>
-                <UiHeading>Create theme tool</UiHeading>
+                <UiFlexGrid alignItems="center" gap="four">
+                    <Heading>Create theme</Heading>
+                    <motion.div {...animation}>
+                        <UiIcon icon="SettingsBig" size="xlarge" category="tertiary" />
+                    </motion.div>
+                </UiFlexGrid>
                 <br />
                 <UiLineSeparator />
             </UiSpacing>
             <UiText size="large" fontStyle="bold">One of the most powerful aspects of this library is the hability to use your custom theme as a plug and play configuration.</UiText>
             <br />
-            <ColoredCards />
-            <br />
             <UiText size="large">This tool will guide you go through the steps needed to create your theme.</UiText>
             <br />
-            <UiCard category="primary" weight="200">
-                <UiFlexGrid gap="five" alignItems="center">
-                    <UiIcon icon="WarningTriangle" category="tertiary" />
-                    <UiText>A few points to keep in mind throughout the process</UiText>
+            <UiCard category="primary" weight="150">
+                <UiFlexGrid gap="four" alignItems="center">
+                    <UiIcon icon="Info" category="tertiary" />
+                    <UiText fontStyle="bold">A few points to keep in mind for your theme:</UiText>
                 </UiFlexGrid>
-            </UiCard>
-            <br />
-            <UiSpacing padding={listSpacing}>
+                <br />
+                <UiSpacing padding={listSpacing}>
                 <UiList type="BULLETED">
                     <UiListItem>
                         <UiText>You will be setting up <UiText inline fontStyle="bold" category="tertiary">2 colorations</UiText> for your theme, <UiText inline fontStyle="bold" category="tertiary">dark and light</UiText></UiText>
@@ -88,9 +105,9 @@ export default function CreateThemeToolPage () {
                         <br />
                         <UiSpacing padding={listSpacing}>
                             <UiList type="BULLETED">
-                                <UiListItem>60% for your primary color.</UiListItem>
-                                <UiListItem>30% for your secondary color.</UiListItem>
-                                <UiListItem>10% for your tertiary color.</UiListItem>
+                                <UiListItem>60% usage for primary color.</UiListItem>
+                                <UiListItem>30% usage for secondary color.</UiListItem>
+                                <UiListItem>10% usage for tertiary color.</UiListItem>
                             </UiList>
                         </UiSpacing>
                         <br />
@@ -103,16 +120,20 @@ export default function CreateThemeToolPage () {
                     </UiListItem>
                 </UiList>
             </UiSpacing>
+            </UiCard>
+            <br />
             <StartLinkText>
                 <Link href="./create-theme/colors/">
                     <LinkContent initial="rest" whileHover="hovered" whileTap={{ scale: 0.8 }}>
-                        Start
+                        <span>
+                            Start
+                        </span>
                         <IconWrapper variants={angleAnimation}>
                             <UiIcon icon="AngleClearRight" category="tertiary" size="xlarge" />
                         </IconWrapper>
                     </LinkContent>
                 </Link>
             </StartLinkText>
-        </Div>
+        </>
     )
 }
