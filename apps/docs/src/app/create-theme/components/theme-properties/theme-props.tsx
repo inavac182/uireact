@@ -1,16 +1,18 @@
 'use client';
+import { useMemo } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+
 
 import { UiHeading, UiText } from "@uireact/text";
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiReactHoverScaleUp, UiReactTapScaleDown } from '@uireact/framer-animations';
-
-import { GradientBorder } from '../../../internal'
 import { UiFlexGrid, UiFlexGridItem } from "@uireact/flex";
 import { UiIcon } from "@uireact/icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { GradientBorder } from '../../../internal'
 
 const Wrapper = styled.div`
     position: sticky;
@@ -40,6 +42,17 @@ const animationProps = {...UiReactHoverScaleUp, ...UiReactTapScaleDown};
 
 export const ThemeProps = () => {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const themeParameter = useMemo(() => {
+        const theme = searchParams.get('theme');
+
+        if (theme) {
+            const parsedTheme = JSON.parse(decodeURIComponent(theme));
+            return encodeURIComponent(JSON.stringify(parsedTheme));
+        }
+
+        return '';
+    }, [searchParams]);
 
     return (
         <Wrapper>
@@ -49,7 +62,7 @@ export const ThemeProps = () => {
                         <UiText fontStyle="bold" size="large">Theme Properties</UiText>
                     </UiSpacing>
                     <ThemePropHeading {...animationProps}>
-                        <Link href='/create-theme/colors'>
+                        <Link href={`/create-theme/colors?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>1. </UiText>
@@ -62,20 +75,20 @@ export const ThemeProps = () => {
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href='/create-theme/texts'>
+                        <Link href={`/create-theme/fonts?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>2. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Fonts
                                     </UiFlexGridItem>
-                                    {pathname.includes('texts') && <UiIcon icon="CaretRight" />}
+                                    {pathname.includes('fonts') && <UiIcon icon="CaretRight" />}
                                 </UiFlexGrid>
                             </UiHeading>
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href='/create-theme/sizes'>
+                        <Link href={`/create-theme/sizes?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>3. </UiText>
@@ -88,7 +101,7 @@ export const ThemeProps = () => {
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href='/create-theme/spaces'>
+                        <Link href={`/create-theme/spaces?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>4. </UiText>

@@ -4,3 +4,4 @@ export * from './script-card';
 export * from './section';
 export * from './demo-card';
 export * from './gradient-border';
+export * from './custom-heading';

@@ -8,23 +8,17 @@ import { UiFlexGrid } from "@uireact/flex";
 import { UiSpacingProps, UiSpacing, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiLineSeparator } from "@uireact/separator";
-import { UiHeading, UiText } from "@uireact/text";
+import { UiText } from "@uireact/text";
+import { UiButton } from "@uireact/button";
+import { UiExpandoText } from "@uireact/expando";
+import { UiList, UiListItem } from "@uireact/list";
+import { UiCard } from "@uireact/card";
 
 import { ColorationsForm } from "./colorations-form";
 import { isCompletedColoration } from "../utils";
 import { ContinueLink } from "../components";
-import { UiButton } from "@uireact/button";
-import { UiExpandoCard, UiExpandoText } from "@uireact/expando";
-import { UiList, UiListItem } from "@uireact/list";
-import { UiCard } from "@uireact/card";
 
-const Heading = styled.h3`
-    font-size: 44px;
-    width: fit-content;
-    background: -webkit-linear-gradient(45deg,  var(--fonts-token_100) 0%, var(--tertiary-token_100) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-`;
+import { Heading } from "@/app/internal";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const buttonSpacing: UiSpacingProps['padding'] = {block: 'four', inline: 'five'};
@@ -48,6 +42,15 @@ export default function Colors () {
     const onReset = useCallback(() => {
         router.push('/create-theme/colors');
     }, [router]);
+    const themeParameter = useMemo(() => {
+        const theme = searchParams.get('theme');
+
+        if (theme) {
+            return JSON.parse(decodeURIComponent(theme));
+        }
+
+        return '';
+    }, [searchParams]);
 
     return (
         <>
@@ -143,7 +146,7 @@ export default function Colors () {
             <br />
             <br />
             {colorsCompleted ? (
-                <ContinueLink text="Continue" url={`./fonts?theme=${searchParams.get('theme')}`} />
+                <ContinueLink text="Continue" url={`./fonts?theme=${encodeURIComponent(JSON.stringify(themeParameter))}`} />
             ) : (
                 <UiText fontStyle="bold">There are colors missing, once those are completed you can continue to next step.</UiText>
             )}
