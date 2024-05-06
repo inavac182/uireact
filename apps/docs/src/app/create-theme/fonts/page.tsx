@@ -32,7 +32,7 @@ export default function FontsPage () {
                         <UiIcon icon="AngleClearLeft" />
                     </Link>
                     <Heading>Fonts</Heading>
-                    <UiIcon icon="LoadingBars" size="xlarge" category="tertiary" />
+                    <UiIcon icon="EditComment" size="xlarge" category="tertiary" />
                 </UiFlexGrid>
                 <br />
                 <UiLineSeparator />
