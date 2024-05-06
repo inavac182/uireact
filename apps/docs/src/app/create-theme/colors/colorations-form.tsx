@@ -51,7 +51,7 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
             <br />
             <p>Main colors</p>
             <br />
-            <UiFlexGrid gap="five">
+            <UiFlexGrid gap="five" wrap="wrap">
                 <ColorBoxPicker category={ColorCategories.primary} $coloration={$coloration} />
                 <ColorBoxPicker category={ColorCategories.secondary} $coloration={$coloration} />
                 <ColorBoxPicker category={ColorCategories.tertiary} $coloration={$coloration} />
@@ -59,7 +59,7 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
             <br />
             <p>Support colors</p>
             <br />
-            <UiFlexGrid gap="five">
+            <UiFlexGrid gap="five" wrap="wrap">
                 <ColorBoxPicker category={ColorCategories.positive} $coloration={$coloration} />
                 <ColorBoxPicker category={ColorCategories.negative} $coloration={$coloration} />
                 <ColorBoxPicker category={ColorCategories.warning} $coloration={$coloration} />

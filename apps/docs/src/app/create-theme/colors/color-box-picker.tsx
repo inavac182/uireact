@@ -80,10 +80,11 @@ const ColorTokensBox = styled.div<{ $coloration: ThemeColor, $category?: ColorCa
 `;
 
 const ColorToken = styled.div<{ $color: string }>`
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
     background-color: ${(props) => props.$color};
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
@@ -143,14 +144,13 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
                 <>
                     <br />
                     <ColorTokensBox $coloration={$coloration} $category={category}>
+                        <UiIcon icon="Brightness" />
                         <ColorToken $color={tokens.token_10} />
                         <ColorToken $color={tokens.token_50} />
-                        <UiFlexGrid direction="column" alignItems="center" justifyContent="center">
-                            <ColorToken $color={tokens.token_100} />
-                            <UiIcon icon="CaretUp" />
-                        </UiFlexGrid>
+                        <ColorToken $color={tokens.token_100} />
                         <ColorToken $color={tokens.token_150} />
                         <ColorToken $color={tokens.token_200} />
+                        <UiIcon icon="Moon" />
                     </ColorTokensBox>
                 </>
             )}
