@@ -1,12 +1,12 @@
 'use client';
 import { useCallback, useMemo, useState } from "react";
 import { ColorResult, SketchPicker } from "react-color";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import styled from "styled-components";
 
 import { UiButton } from "@uireact/button";
 import { UiFlexGrid } from "@uireact/flex";
-import { ColorCategories, ColorTokens, ThemeColor, Tokens } from "@uireact/foundation";
+import { ColorCategories, ColorTokens, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiMenu } from "@uireact/menu";
 
@@ -19,8 +19,6 @@ type ColorBoxPickerProps = {
     $coloration: ThemeColor;
 };
 
-const baseDarkBg = '#5A5A5A';
-const baseLightBg = '#F7F7F7';
 const baseDarkColor = '#fff';
 const baseLightColor = '#000';
 
@@ -28,8 +26,8 @@ const ColorWrapper = styled.div`
     flex-grow: 1;
 `;
 
-const ColorBox = styled.div<{ $coloration: ThemeColor, $color?: string, $primaryColor: string }>`
-    ${props => `background-color: ${props.$primaryColor};`}
+const ColorBox = styled.div<{ $coloration: ThemeColor, $color?: string, $backgroundColor: string }>`
+    ${props => `background-color: ${props.$backgroundColor};`}
     ${props => {
         if (props.$color) {
             return `color: ${props.$color};`;
@@ -89,16 +87,31 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
     const [colorPickerVisible, setColorPickerVisible] = useState(false);
     const searchParams = useSearchParams();
     const router = useRouter();
+    const urlTheme = searchParams.get('theme');
 
     const primaryColor = useMemo(() => {
-        const urlTheme = searchParams.get('theme');
-
-        if (urlTheme) {
-            return getColorFromUrl(urlTheme, $coloration, ColorCategories.primary, ColorTokens.token_100);
-        }
-
-        return '';
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.primary, ColorTokens.token_100);
+    }, [urlTheme]);
+    const secondaryColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.secondary, ColorTokens.token_100);
     }, [searchParams]);
+    const tertiaryColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.tertiary, ColorTokens.token_100);
+    }, [searchParams]);
+
+    const positiveColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.positive, ColorTokens.token_100);
+    }, [searchParams]);
+    const negativeColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.negative, ColorTokens.token_100);
+    }, [searchParams]);
+    const errorColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.error, ColorTokens.token_100);
+    }, [searchParams]);
+    const warningColor = useMemo(() => {
+        return getColorFromUrl(urlTheme, $coloration, ColorCategories.warning, ColorTokens.token_100);
+    }, [searchParams]);
+
     const color = useMemo(() => {
         const urlTheme = searchParams.get('theme');
 
@@ -135,9 +148,9 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
 
     return (
         <ColorWrapper>
-            <ColorBox $coloration={$coloration} $color={color} $primaryColor={primaryColor}>
+            <ColorBox $coloration={$coloration} $color={color} $backgroundColor={primaryColor}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
-                    <strong>{category}</strong>
+                    <strong>Font coloration</strong>
                     <UiButton styling="icon" onClick={tooglePicker}>
                         <UiIcon icon="BarsProgress" />
                     </UiButton>
@@ -159,6 +172,35 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
                         <ColorToken $color={tokens.token_200} />
                         <UiIcon icon="Moon" />
                     </ColorTokensBox>
+                    <br />
+                    <p>Font color over your other colors:</p>
+                    <br />
+                    <UiFlexGrid gap="five">
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={primaryColor}>
+                                <strong>Primary color</strong>
+                        </ColorBox>
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={secondaryColor}>
+                                <strong>Secondary color</strong>
+                        </ColorBox>
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={tertiaryColor}>
+                                <strong>Tertiary color</strong>
+                        </ColorBox>
+                    </UiFlexGrid>
+                    <br />
+                    <UiFlexGrid gap="five">
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={positiveColor}>
+                                <strong>Positive color</strong>
+                        </ColorBox>
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={negativeColor}>
+                                <strong>Negative color</strong>
+                        </ColorBox>
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={warningColor}>
+                                <strong>Warning color</strong>
+                        </ColorBox>
+                        <ColorBox $coloration={$coloration} $color={color} $backgroundColor={errorColor}>
+                                <strong>Error color</strong>
+                        </ColorBox>
+                    </UiFlexGrid>
                 </>
             )}
         </ColorWrapper>

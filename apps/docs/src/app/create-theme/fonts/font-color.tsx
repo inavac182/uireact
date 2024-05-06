@@ -24,10 +24,10 @@ const Container = styled.div<{ $coloration: ThemeColor }>`
 export const FontColor = () => {
     return (
         <div>
-            <UiText fontStyle="bold">Font color:</UiText>
+            <UiText fontStyle="bold">Set your font colors:</UiText>
             <br />
             <Container $coloration={ThemeColor.dark}>
-                <strong>Font color for dark coloration</strong>
+                <strong>Dark coloration</strong>
                 <br />
                 <br />
                 <p>We are using your selected primary color for your theme's dark coloration as background in this pill so you can see how your font color will look like on top of it:</p>
@@ -36,7 +36,7 @@ export const FontColor = () => {
             </Container>
             <br />
             <Container $coloration={ThemeColor.light}>
-                <strong>Font color for light coloration</strong>
+                <strong>Light coloration</strong>
                 <br />
                 <br />
                 <p>We are using your selected primary color for your theme's light coloration as background in this pill so you can see how your font color will look like on top of it:</p>
