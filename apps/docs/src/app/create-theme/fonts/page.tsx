@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 import { UiFlexGrid } from "@uireact/flex";
-import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
+import { Theme, UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiText } from "@uireact/text";
@@ -13,20 +13,25 @@ import { Heading } from "@/app/internal";
 import Pre from "@/app/internal/custom-pre";
 import { FontNameForm } from "./font-name-form";
 import { FontColor } from "./font-color";
+import { isCompletedFonts } from "../utils";
+import { ContinueLink } from "../components";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 export default function FontsPage () {
     const searchParams = useSearchParams();
-    const themeParameter = useMemo(() => {
+    const themeParameter: Theme | null = useMemo(() => {
         const theme = searchParams.get('theme');
 
         if (theme) {
             return JSON.parse(atob(theme));
         }
 
-        return '';
+        return null;
     }, [searchParams]);
+    const isFontsComplete = useMemo(() => {
+        return isCompletedFonts(themeParameter);
+    }, [themeParameter]);
 
     return (
         <>
@@ -57,6 +62,14 @@ p {
                 <FontNameForm />
                 <br />
                 <FontColor />
+                <br />
+                <br />
+                {isFontsComplete ? (
+                    <ContinueLink text="Continue" url={`./sizes?theme=${btoa(JSON.stringify(themeParameter))}`} />
+                ) : (
+                    <UiText fontStyle="bold">You still need to complete all selections in this page.</UiText>
+                )}
+                <br />
             </UiSpacing>
             <br />
         </>

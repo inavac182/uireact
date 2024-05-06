@@ -48,6 +48,7 @@ const ColorBox = styled.div<{ $coloration: ThemeColor, $color?: string, $backgro
         fill: ${(props) => props.$coloration === ThemeColor.dark ? baseDarkColor : baseLightColor} !important;
     }
 
+    flex-grow: 1;
     padding: 10px;
     border-radius: 30px;
 `;
