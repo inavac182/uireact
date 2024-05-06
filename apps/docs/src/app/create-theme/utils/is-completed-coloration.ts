@@ -1,7 +1,7 @@
 import { ColorCategories, ColorToken, ColorTokens, Theme, ThemeColor, Tokens } from "@uireact/foundation";
 
 export const isCompletedColoration = (stringifiedTheme: string, coloration: ThemeColor) => {
-    const theme: Theme = JSON.parse(decodeURIComponent(stringifiedTheme));
+    const theme: Theme = JSON.parse(atob(stringifiedTheme));
     let isCompleted = true;
     const colorCategories = theme[coloration];
 

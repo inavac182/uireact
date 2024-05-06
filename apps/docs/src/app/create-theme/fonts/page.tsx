@@ -22,7 +22,7 @@ export default function FontsPage () {
         const theme = searchParams.get('theme');
 
         if (theme) {
-            return JSON.parse(decodeURIComponent(theme));
+            return JSON.parse(atob(theme));
         }
 
         return '';
@@ -56,6 +56,7 @@ p {
                 </Pre>
                 <FontNameForm />
                 <br />
+                <FontColor />
             </UiSpacing>
             <br />
         </>

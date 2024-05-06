@@ -5,6 +5,6 @@ export const getFontNameFromUrl = (encodedTheme: string | null) => {
         return '';
     }
 
-    const theme: Theme = JSON.parse(decodeURIComponent(encodedTheme));
+    const theme: Theme = JSON.parse(atob(encodedTheme));
     return theme.texts.font;
 }

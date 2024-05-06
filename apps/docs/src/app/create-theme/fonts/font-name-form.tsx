@@ -36,9 +36,9 @@ export const FontNameForm = () => {
         }
 
         if (urlTheme) {
-            const decodedTheme: Theme = JSON.parse(decodeURIComponent(urlTheme));
+            const decodedTheme: Theme = JSON.parse(atob(urlTheme));
             decodedTheme.texts.font = fontName;
-            router.push(`/create-theme/fonts?theme=${encodeURIComponent(JSON.stringify(decodedTheme))}`);
+            router.push(`/create-theme/fonts?theme=${btoa(JSON.stringify(decodedTheme))}`, { scroll: false });
             setErrors(undefined);
         }
     }, [fontName, router, searchParams]);

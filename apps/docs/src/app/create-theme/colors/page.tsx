@@ -46,7 +46,7 @@ export default function Colors () {
         const theme = searchParams.get('theme');
 
         if (theme) {
-            return JSON.parse(decodeURIComponent(theme));
+            return JSON.parse(atob(theme));
         }
 
         return '';
@@ -146,7 +146,7 @@ export default function Colors () {
             <br />
             <br />
             {colorsCompleted ? (
-                <ContinueLink text="Continue" url={`./fonts?theme=${encodeURIComponent(JSON.stringify(themeParameter))}`} />
+                <ContinueLink text="Continue" url={`./fonts?theme=${btoa(JSON.stringify(themeParameter))}`} />
             ) : (
                 <UiText fontStyle="bold">There are colors missing, once those are completed you can continue to next step.</UiText>
             )}

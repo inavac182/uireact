@@ -88,7 +88,7 @@ const ColorToken = styled.div<{ $color: string }>`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
-export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
+export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
     const [colorPickerVisible, setColorPickerVisible] = useState(false);
     const pathname = usePathname()
     const searchParams = useSearchParams();
@@ -124,7 +124,7 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
 
         const encodedTheme = btoa(JSON.stringify(updatedTheme));
 
-        router.push(`${pathname}?theme=${encodedTheme}`, { scroll: false });
+        router.push(`?theme=${encodedTheme}`, { scroll: false });
     }, [router, searchParams]);
 
     return (

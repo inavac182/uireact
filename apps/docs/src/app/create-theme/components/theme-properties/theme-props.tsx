@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-
 import { UiHeading, UiText } from "@uireact/text";
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiReactHoverScaleUp, UiReactTapScaleDown } from '@uireact/framer-animations';
@@ -47,8 +46,8 @@ export const ThemeProps = () => {
         const theme = searchParams.get('theme');
 
         if (theme) {
-            const parsedTheme = JSON.parse(decodeURIComponent(theme));
-            return encodeURIComponent(JSON.stringify(parsedTheme));
+            const parsedTheme = JSON.parse(atob(theme));
+            return btoa(JSON.stringify(parsedTheme));
         }
 
         return '';
@@ -62,7 +61,7 @@ export const ThemeProps = () => {
                         <UiText fontStyle="bold" size="large">Theme Properties</UiText>
                     </UiSpacing>
                     <ThemePropHeading {...animationProps}>
-                        <Link href={`/create-theme/colors?theme=${themeParameter}`}>
+                        <Link href={`./colors?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>1. </UiText>
@@ -75,7 +74,7 @@ export const ThemeProps = () => {
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href={`/create-theme/fonts?theme=${themeParameter}`}>
+                        <Link href={`./fonts?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>2. </UiText>
@@ -88,7 +87,7 @@ export const ThemeProps = () => {
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href={`/create-theme/sizes?theme=${themeParameter}`}>
+                        <Link href={`./sizes?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>3. </UiText>
@@ -101,7 +100,7 @@ export const ThemeProps = () => {
                         </Link>
                     </ThemePropHeading>
                     <ThemePropHeading {...animationProps}>
-                        <Link href={`/create-theme/spaces?theme=${themeParameter}`}>
+                        <Link href={`./spaces?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
                                     <UiText category="tertiary" size="xlarge" inline>4. </UiText>
