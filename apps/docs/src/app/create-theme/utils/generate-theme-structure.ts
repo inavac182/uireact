@@ -19,7 +19,7 @@ const colorationStructure: Coloration = {
     tertiary: { ...colorStructure }
 }
 
-const sizesStructure: Sizes = {
+export const sizesStructure: Sizes = {
     headings: {
         level1: '',
         level2: '',
