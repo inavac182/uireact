@@ -11,6 +11,7 @@ import { UiValidator, UiValidatorErrors } from "@uireact/validator"
 import { UiIcon } from "@uireact/icons";
 
 import { cleanUpSpacingUnits, spacesStructure } from "../utils";
+import { mergeSpacesTheme } from "../utils/merge-spaces-theme";
 
 const validator = new UiValidator();
 
@@ -60,17 +61,22 @@ export const SpacingForm = () => {
             return;
         }
 
-        const updatedTheme = { ...theme };
-        updatedTheme.spacing = { ...spacesData };
-        Object.keys(updatedTheme.spacing).map((spaceKey) => {
-            const spacing = updatedTheme.spacing[spaceKey as SpacingType]
-            updatedTheme.spacing[spaceKey as SpacingType] = `${spacing}px`;
-        });
-
+        const updatedTheme = mergeSpacesTheme(theme, spacesData);
         setCompleted(true);
         setErrors({});
-        router.push(`?theme=${btoa(JSON.stringify(updatedTheme))}`);
-    }, [setErrors, spacesData]);
+        router.push(`?theme=${btoa(JSON.stringify(updatedTheme))}`, { scroll: false });
+    }, [setErrors, setCompleted, spacesData, theme, router]);
+
+    const resetTheme = useCallback(() => {
+        if (theme) {
+            setSpacesData(spacesStructure);
+            setCompleted(false);
+            setErrors({});
+
+            const updatedTheme = mergeSpacesTheme(theme, spacesStructure);
+            router.push(`?theme=${btoa(JSON.stringify(updatedTheme))}`, { scroll: false });
+        }
+    }, [theme, spacesData, router, setCompleted, setErrors]);
 
     useEffect(() => {
         if (theme) {
@@ -81,16 +87,37 @@ export const SpacingForm = () => {
 
     return (
         <UiCard category="primary" weight="150">
-            <UiText>Spacing values, one being smallest and seven the biggest. All values are in pixels.</UiText>
+            <UiText>Spacing values, one being smallest and seven the biggest. All values are in <UiText inline fontStyle="bold">pixels</UiText>.</UiText>
             <br />
-            <UiFlexGrid direction="column">
-                <UiInput name="one" value={spacesData.one} onChange={updateSpacing} label="One" labelOnTop type="number" category={errors?.one ? 'error' : undefined} />
-                <UiInput name="two" value={spacesData.two} onChange={updateSpacing} label="Two" labelOnTop type="number" category={errors?.two ? 'error' : undefined} />
-                <UiInput name="three" value={spacesData.three} onChange={updateSpacing} label="Three" labelOnTop type="number" category={errors?.three ? 'error' : undefined} />
-                <UiInput name="four" value={spacesData.four} onChange={updateSpacing} label="Four" labelOnTop type="number" category={errors?.four ? 'error' : undefined} />
-                <UiInput name="five" value={spacesData.five} onChange={updateSpacing} label="Five" labelOnTop type="number" category={errors?.five ? 'error' : undefined} />
-                <UiInput name="six" value={spacesData.six} onChange={updateSpacing} label="Six" labelOnTop type="number" category={errors?.six ? 'error' : undefined} />
-                <UiInput name="seven" value={spacesData.seven} onChange={updateSpacing} label="Seven" labelOnTop type="number" category={errors?.seven ? 'error' : undefined} />
+            <UiFlexGrid direction="column" gap="four">
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="one" value={spacesData.one} onChange={updateSpacing} label="One" labelOnTop type="number" category={errors?.one ? 'error' : undefined} /> 
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="two" value={spacesData.two} onChange={updateSpacing} label="Two" labelOnTop type="number" category={errors?.two ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="three" value={spacesData.three} onChange={updateSpacing} label="Three" labelOnTop type="number" category={errors?.three ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="four" value={spacesData.four} onChange={updateSpacing} label="Four" labelOnTop type="number" category={errors?.four ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="five" value={spacesData.five} onChange={updateSpacing} label="Five" labelOnTop type="number" category={errors?.five ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="six" value={spacesData.six} onChange={updateSpacing} label="Six" labelOnTop type="number" category={errors?.six ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
+                <UiFlexGrid alignItems="flex-end" gap="four">
+                    <UiInput name="seven" value={spacesData.seven} onChange={updateSpacing} label="Seven" labelOnTop type="number" category={errors?.seven ? 'error' : undefined} />
+                    <UiText>px</UiText>
+                </UiFlexGrid>
             </UiFlexGrid>
             <br />
             <UiFlexGrid gap="five" alignItems="center">
@@ -103,6 +130,15 @@ export const SpacingForm = () => {
                     <UiIcon icon="CheckCircle" category="positive" />
                 )}
             </UiFlexGrid>
+            <br />
+            <UiButton onClick={resetTheme} category="warning" styling="clear">
+                    <UiSpacing padding={buttonSpacing}>
+                        <UiFlexGrid alignItems="center" gap="four">
+                            <UiIcon icon="Refresh" />
+                            <UiText>Reset</UiText>
+                        </UiFlexGrid>
+                    </UiSpacing>
+                </UiButton>
         </UiCard>
     )
 }
