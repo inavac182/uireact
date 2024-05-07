@@ -5,3 +5,5 @@ export * from './is-completed-coloration';
 export * from './get-font-name-from-url';
 export * from './is-completed-fonts';
 export * from './add-unit-to-sizes';
+export * from './is-completed-spacing';
+export * from './clean-up-spacing-unit';

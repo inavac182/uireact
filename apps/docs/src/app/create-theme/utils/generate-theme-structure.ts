@@ -37,7 +37,7 @@ export const sizesStructure: Sizes = {
     }
 }
 
-const spacesStructure: Spacing = {
+export const spacesStructure: Spacing = {
     one: '',
     two: '',
     three: '',
