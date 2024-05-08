@@ -49,7 +49,7 @@ export default function SpacesPage () {
             {!isSpacingCompleted ? (
                 <UiText fontStyle="bold">There are still missing properties to set up.</UiText>
             ) : (
-                <ContinueLink text="Finish" url={`/create-theme/verify?=${btoa(JSON.stringify(themeParameter))}`} />
+                <ContinueLink text="Finish" url={`/create-theme/verify?theme=${btoa(JSON.stringify(themeParameter))}`} />
             )}
             <br />
         </>
