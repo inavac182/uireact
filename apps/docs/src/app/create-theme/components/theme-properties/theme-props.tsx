@@ -112,6 +112,19 @@ export const ThemeProps = () => {
                             </UiHeading>
                         </Link>
                     </ThemePropHeading>
+                    <ThemePropHeading {...animationProps}>
+                        <Link href={`./verify?theme=${themeParameter}`}>
+                            <UiHeading level={5}>
+                                <UiFlexGrid gap="four" alignItems="center">
+                                    <UiText category="tertiary" size="xlarge" inline>5. </UiText>
+                                    <UiFlexGridItem grow={1}>
+                                        Verify
+                                    </UiFlexGridItem>
+                                    {pathname.includes('verify') && <UiIcon icon="CaretRight" />}
+                                </UiFlexGrid>
+                            </UiHeading>
+                        </Link>
+                    </ThemePropHeading>
                 </Content>
             </GradientBorder>
         </Wrapper>
