@@ -52,12 +52,12 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
             <br />
             {$coloration === ThemeColor.dark ? (
                 <>
-                    <p>Coloration used when Dark theme is enabled in user's device.</p>
-                    <p>Colors should mainly be in the darker end as is usually used during nights or dark environments to protect the user's eyes.</p>
+                    <p>Coloration used when Dark theme is enabled in user&apos;s device.</p>
+                    <p>Colors should mainly be in the darker end as is usually used during nights or dark environments to protect the user&apos;s eyes.</p>
                 </>
             ) : (
                 <>
-                   <p>Coloration used when Light theme is enabled in user's device.</p>
+                   <p>Coloration used when Light theme is enabled in user&apos;s device.</p>
                    <p>Colors should mainly be in the lighter end as is usually used during daylight or under sun light, so colors should be bright to help against reflections.</p>
                 </> 
             )}
