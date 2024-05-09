@@ -44,7 +44,9 @@ export default function SizesPage () {
             </UiSpacing>
             <br />
             <br />
-            <UiText>The sizes properties are used to control the typography components sizes. This means all texts, labels, headings, icons, inputs, buttons, etc...</UiText>
+            <UiText fontStyle="bold">The sizes properties are used to control the typography components sizes. This means all texts, labels, headings, icons, inputs, buttons, etc...</UiText>
+            <br />
+            <UiText fontStyle="bold">We've prefilled this with default values, you can modify them if you want.</UiText>
             <br />
             <SizesForm />
             <br />

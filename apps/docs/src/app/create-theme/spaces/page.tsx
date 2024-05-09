@@ -44,6 +44,8 @@ export default function SpacesPage () {
             <br />
             <UiText fontStyle="bold">There are 7 levels of spacing, you can combine them to create the desired spacing as needed. You can look at <UiLink><Link href="/docs/spacing" target="_blank">UiSpacing docs</Link></UiLink> for more details.</UiText>
             <br />
+            <UiText fontStyle="bold">We've prefilled this with default values, you can modify them if you want.</UiText>
+            <br />
             <SpacingForm />
             <br />
             {!isSpacingCompleted ? (
