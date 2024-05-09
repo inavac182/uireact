@@ -5,7 +5,7 @@ import { UiButton } from "@uireact/button";
 import { UiCard } from "@uireact/card"
 import { UiFlexGrid } from "@uireact/flex";
 import { UiInput } from "@uireact/form";
-import { Spacing, SpacingType, Theme, UiSpacing, UiSpacingProps } from "@uireact/foundation";
+import { Spacing, Theme, UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiText } from "@uireact/text"
 import { UiValidator, UiValidatorErrors } from "@uireact/validator"
 import { UiIcon } from "@uireact/icons";
@@ -27,6 +27,16 @@ const schema = {
 
 const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
 
+const spacingDefaultValues: Spacing = {
+    one: '2',
+    two: '4',
+    three: '8',
+    four: '16',
+    five: '24',
+    six: '32',
+    seven: '40',
+}
+
 export const SpacingForm = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -41,7 +51,7 @@ export const SpacingForm = () => {
     }, [searchParams]);
 
     const [completed, setCompleted] = useState(false);
-    const [spacesData, setSpacesData] = useState(spacesStructure);
+    const [spacesData, setSpacesData] = useState(spacingDefaultValues);
     const [errors, setErrors] = useState<UiValidatorErrors>();
 
     const updateSpacing = useCallback((value: FormEvent<HTMLInputElement>) => {

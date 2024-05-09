@@ -10,7 +10,7 @@ import { UiText } from "@uireact/text";
 import { UiButton } from "@uireact/button";
 import { UiIcon } from "@uireact/icons";
 
-import { addUnitToSizes, cleanUpUnitsFromSizes, sizesStructure } from "../utils";
+import { addUnitToSizes, cleanUpUnitsFromSizes } from "../utils";
 
 const validator = new UiValidator();
 
@@ -31,6 +31,23 @@ const headingsSchema = {
     level6: validator.ruler().isRequired('Level 6 is required'),
 };
 
+const suggestedTextValues: TextSizes = {
+    xsmall: '12',
+    small: '14',
+    regular: '16',
+    large: '18',
+    xlarge: '20'
+};
+
+const suggestedHeadingValues: HeadingSizes = {
+    level1: '32',
+    level2: '28',
+    level3: '24',
+    level4: '22',
+    level5: '20',
+    level6: '18',
+};
+
 const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
 
 export const SizesForm = () => {
@@ -38,8 +55,8 @@ export const SizesForm = () => {
     const router = useRouter();
     const [sizesSuccess, setSizesSuccess] = useState(false);
     const [sizeUnit, setSizeUnit] = useState('px');
-    const [textData, setTextData] = useState<TextSizes>(sizesStructure.texts);
-    const [headingsData, setHeadingsData] = useState<HeadingSizes>(sizesStructure.headings);
+    const [textData, setTextData] = useState<TextSizes>(suggestedTextValues);
+    const [headingsData, setHeadingsData] = useState<HeadingSizes>(suggestedHeadingValues);
     const [textErrors, setTextErrors] = useState<UiValidatorErrors>();
     const [headingErrors, setHeadingErrors] = useState<UiValidatorErrors>();
     const themeParameter = searchParams.get('theme');
