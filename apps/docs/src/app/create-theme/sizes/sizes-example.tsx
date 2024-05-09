@@ -21,7 +21,7 @@ export const SizesExample = () => {
         <>
             <UiCard category="primary" weight="150">
                 <UiHeading>Size for texts:</UiHeading>
-                <UiText>These are the sizes for texts that you've selected</UiText>
+                <UiText>These are the sizes for texts that you&apos;ve selected</UiText>
                 <br />
                 <strong>Xlarge:</strong>
                 <p style={{ fontSize: theme?.sizes.texts.xlarge }}>
@@ -51,7 +51,7 @@ export const SizesExample = () => {
             <br />
             <UiCard category="primary" weight="150">
                 <UiHeading>Size for headings:</UiHeading>
-                <UiText>These are the sizes for headings that you've selected</UiText>
+                <UiText>These are the sizes for headings that you&apos;ve selected</UiText>
                 <br />
                 <strong>level 1:</strong>
                 <h1 style={{ fontSize: theme?.sizes.headings.level1 }}>

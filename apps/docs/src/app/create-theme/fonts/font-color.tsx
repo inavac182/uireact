@@ -30,7 +30,7 @@ export const FontColor = () => {
                 <strong>Dark coloration</strong>
                 <br />
                 <br />
-                <p>We are using your selected primary color for your theme's dark coloration as background in this pill so you can see how your font color will look like on top of it:</p>
+                <p>We are using your selected primary color for your theme&apos;s dark coloration as background in this pill so you can see how your font color will look like on top of it:</p>
                 <br />
                 <FontColorBoxPicker category={ColorCategories.fonts} $coloration={ThemeColor.dark} />
             </Container>
@@ -39,7 +39,7 @@ export const FontColor = () => {
                 <strong>Light coloration</strong>
                 <br />
                 <br />
-                <p>We are using your selected primary color for your theme's light coloration as background in this pill so you can see how your font color will look like on top of it:</p>
+                <p>We are using your selected primary color for your theme&apos;s light coloration as background in this pill so you can see how your font color will look like on top of it:</p>
                 <br />
                 <FontColorBoxPicker category={ColorCategories.fonts} $coloration={ThemeColor.light} />
             </Container>

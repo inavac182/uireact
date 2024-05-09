@@ -49,7 +49,7 @@ export default function FontsPage () {
                 <br />
                 <UiText>The font name goes straight to the CSS rule for font names, so you can set a few fonts here like:</UiText>
                 <br />
-                <UiText fontStyle="italic">'Source Sans Pro', sans-serif, Arial</UiText>
+                <UiText fontStyle="italic">&apos;Source Sans Pro&apos;, sans-serif, Arial</UiText>
                 <br />
                 <UiText>This will then be translated to something like this:</UiText>
                 <Pre>

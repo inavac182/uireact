@@ -98,10 +98,10 @@ export default function Colors () {
                                 <UiText fontStyle="bold">Tertiary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
-                                        <UiText>This is usually your brand's color, used ONLY in the 10% of your app.</UiText>
+                                        <UiText>This is usually your brand&apos;s color, used ONLY in the 10% of your app.</UiText>
                                     </UiListItem>
                                     <UiListItem>
-                                        <UiText>It's commonly used to highlight icons, buttons, links. Actions that you would like the user to do.</UiText>
+                                        <UiText>It&apos;s commonly used to highlight icons, buttons, links. Actions that you would like the user to do.</UiText>
                                     </UiListItem>
                                 </UiList>
                             </UiListItem>

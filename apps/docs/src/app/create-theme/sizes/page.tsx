@@ -46,7 +46,7 @@ export default function SizesPage () {
             <br />
             <UiText fontStyle="bold">The sizes properties are used to control the typography components sizes. This means all texts, labels, headings, icons, inputs, buttons, etc...</UiText>
             <br />
-            <UiText fontStyle="bold">We've prefilled this with default values, you can modify them if you want.</UiText>
+            <UiText fontStyle="bold">We&apos;ve prefilled this with default values, you can modify them if you want.</UiText>
             <br />
             <SizesForm />
             <br />

@@ -70,7 +70,7 @@ export default function VerifyPage () {
                 </UiFlexGrid>
             </UiSpacing>
             <br />
-            <UiText fontStyle="bold">Let's make sure all properties you configured are looking great in this example page:</UiText>
+            <UiText fontStyle="bold">Let&apos;s make sure all properties you configured are looking great in this example page:</UiText>
             <br />
             <UiText size="small"><UiIcon icon="ArrowSquareLeft" size="small" /> You can use the left side bar to navigate to the each theme property if you need to update any, if you think everything is looking great then you can just copy it</UiText>
             <br />
