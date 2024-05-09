@@ -1,5 +1,4 @@
 'use client';
-import Link from "next/link";
 import styled from "styled-components";
 import { MotionProps, motion } from "framer-motion";
 
@@ -11,6 +10,7 @@ import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiText } from "@uireact/text";
 import { ContinueLink } from "./components";
+import { generateThemeStructure } from "./utils";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const listSpacing: UiSpacingProps['padding'] = {inline: 'five'};
@@ -35,6 +35,8 @@ const animation: MotionProps = {
 }
 
 export default function CreateThemeToolPage () {
+    const generatedTheme = generateThemeStructure();
+
     return (
         <>
             <UiSpacing padding={headingSpacing}>
@@ -85,7 +87,7 @@ export default function CreateThemeToolPage () {
             </UiSpacing>
             </UiCard>
             <br />
-            <ContinueLink text="Start" url="./create-theme/colors/" />
+            <ContinueLink text="Start" url={`./create-theme/colors?theme=${btoa(JSON.stringify(generatedTheme))}`} />
         </>
     )
 }
