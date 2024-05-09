@@ -15,7 +15,7 @@ import { UiList, UiListItem } from "@uireact/list";
 import { UiCard } from "@uireact/card";
 
 import { ColorationsForm } from "./colorations-form";
-import { isCompletedColoration } from "../utils";
+import { generateThemeStructure, isCompletedColoration } from "../utils";
 import { ContinueLink } from "../components";
 
 import { Heading } from "@/app/internal";
@@ -40,7 +40,7 @@ export default function Colors () {
         return false;
     }, [searchParams]);
     const onReset = useCallback(() => {
-        router.push('/create-theme/colors');
+        router.push(`?theme=${btoa(JSON.stringify(generateThemeStructure()))}`);
     }, [router]);
     const themeParameter = useMemo(() => {
         const theme = searchParams.get('theme');

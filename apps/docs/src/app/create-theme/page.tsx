@@ -88,6 +88,10 @@ export default function CreateThemeToolPage () {
             </UiCard>
             <br />
             <ContinueLink text="Start" url={`./create-theme/colors?theme=${btoa(JSON.stringify(generatedTheme))}`} />
+            <br />
+            <UiText size="small">
+                <UiIcon icon="Info" /> The theme will be encoded in the URL so if you want to share it with colleagues you can share the URL and they will see the same theme you created.
+            </UiText>
         </>
     )
 }
