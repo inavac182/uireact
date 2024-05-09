@@ -5,6 +5,9 @@ import codeProps from 'rehype-mdx-code-props';
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   // Optionally, add any other Next.js config below
 }
 
