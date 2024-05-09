@@ -1,5 +1,5 @@
 'use client';
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -46,7 +46,9 @@ export default function SpacesPage () {
             <br />
             <UiText fontStyle="bold">We&apos;ve prefilled this with default values, you can modify them if you want.</UiText>
             <br />
-            <SpacingForm />
+            <Suspense>
+                <SpacingForm />
+            </Suspense>
             <br />
             {!isSpacingCompleted ? (
                 <UiText fontStyle="bold">There are still missing properties to set up.</UiText>

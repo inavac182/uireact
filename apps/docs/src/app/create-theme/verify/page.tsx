@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useMemo, useState } from "react";
+import { Suspense, useCallback, useMemo, useState } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "next/navigation";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -95,17 +95,19 @@ ${JSON.stringify(theme, null, 2)}
             <br />
             <UiHeading>Colors</UiHeading>
             <br  />
-            <ExampleWrapper $theme={ThemeColor.dark}>
-                <ExampleTitle $theme={ThemeColor.dark}>Dark</ExampleTitle>
+            <Suspense>
+                <ExampleWrapper $theme={ThemeColor.dark}>
+                    <ExampleTitle $theme={ThemeColor.dark}>Dark</ExampleTitle>
+                    <br />
+                    <ThemeExample theme={theme} coloration={ThemeColor.dark} />
+                </ExampleWrapper>
                 <br />
-                <ThemeExample theme={theme} coloration={ThemeColor.dark} />
-            </ExampleWrapper>
-            <br />
-            <ExampleWrapper $theme={ThemeColor.light}>
-                <ExampleTitle $theme={ThemeColor.light}>Light</ExampleTitle>
-                <br />
-                <ThemeExample theme={theme} coloration={ThemeColor.light} />
-            </ExampleWrapper>
+                <ExampleWrapper $theme={ThemeColor.light}>
+                    <ExampleTitle $theme={ThemeColor.light}>Light</ExampleTitle>
+                    <br />
+                    <ThemeExample theme={theme} coloration={ThemeColor.light} />
+                </ExampleWrapper>
+            </Suspense>
         </>
     )
 }

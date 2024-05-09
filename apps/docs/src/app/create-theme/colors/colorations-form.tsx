@@ -4,11 +4,10 @@ import { useSearchParams } from "next/navigation";
 
 import { ColorCategories, ThemeColor } from "@uireact/foundation"
 import { UiFlexGrid } from "@uireact/flex";
+import { UiIcon } from "@uireact/icons";
 
 import { ColorBoxPicker } from "./color-box-picker";
 import { isCompletedColoration } from "../utils";
-import { UiIcon } from "@uireact/icons";
-import { UiText } from "@uireact/text";
 
 type ColorationsFormProps = {
     $coloration: ThemeColor;

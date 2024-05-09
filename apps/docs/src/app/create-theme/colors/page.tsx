@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useMemo } from "react";
+import { Suspense, useCallback, useMemo } from "react";
 import styled from "styled-components";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -130,9 +130,13 @@ export default function Colors () {
                 </UiExpandoText>
             </UiCard>
             <br />
-            <ColorationsForm $coloration={ThemeColor.dark} />
+            <Suspense>
+                <ColorationsForm $coloration={ThemeColor.dark} />
+            </Suspense>
             <br />
-            <ColorationsForm $coloration={ThemeColor.light} />
+            <Suspense>
+                <ColorationsForm $coloration={ThemeColor.light} />
+            </Suspense>
             <br />
             <br />
             <UiButton onClick={onReset} category="error">

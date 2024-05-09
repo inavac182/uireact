@@ -1,5 +1,5 @@
 'use client';
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -48,7 +48,9 @@ export default function SizesPage () {
             <br />
             <UiText fontStyle="bold">We&apos;ve prefilled this with default values, you can modify them if you want.</UiText>
             <br />
-            <SizesForm />
+            <Suspense>
+                <SizesForm />
+            </Suspense>
             <br />
             {isSizesComplete ? (
                 <>
