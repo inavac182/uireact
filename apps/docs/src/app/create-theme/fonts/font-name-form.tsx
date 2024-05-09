@@ -57,7 +57,7 @@ export const FontNameForm = () => {
                 <UiText>Font Saved <UiIcon icon="CheckCircle" category="positive" /></UiText>
             )}
             <br />
-            <UiInput name="fontName" value={fontName} label="Font name" labelOnTop onChange={updateFontName} category={errors?.fontName ? 'error' : undefined } error={errors?.fontName?.[0]?.message} />
+            <UiInput name="fontName" value={fontName} label="Font name" labelOnTop onChange={updateFontName} category={errors?.fontName ? 'error' : undefined } error={errors?.fontName?.[0]?.message} placeholder="'Source Sans Pro', sans-serif, Arial;" />
             <br />
             <UiText size="small">If you select a custom font name, remember that you still have to link it or import it to your web app.</UiText>
             <br />
