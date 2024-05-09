@@ -79,7 +79,7 @@ export default function CreateThemeToolPage () {
                     </UiListItem>
                     <UiListItem>
                         <UiText>
-                            The font name used in the theme <UiText inline fontStyle="bold" category="tertiary">only set it up in the CSS rules, it doesn't install it</UiText>. If you will use a font from the web e.g. google fonts, remember to add it to your page via {`<link />`} tag, CSS {`@import`}, etc...
+                            The font name used in the theme <UiText inline fontStyle="bold" category="tertiary">only set it up in the CSS rules, it doesn&apos;t install it</UiText>. If you will use a font from the web e.g. google fonts, remember to add it to your page via {`<link />`} tag, CSS {`@import`}, etc...
                         </UiText>
                         <br />
                     </UiListItem>
