@@ -12,7 +12,7 @@ const LinkSpacing: UiSpacingProps['padding'] = { left: 'five', top: 'four', bott
 
 export const HeaderNavbar = () => {
   return (
-    <UiNavbar align='center' category='secondary'>
+    <UiNavbar align='center' category='secondary' styling='bordered'>
       <UiNavbarItem>
         <UiLink>
           <Link href="/">
@@ -33,9 +33,9 @@ export const HeaderNavbar = () => {
       </UiNavbarItem>
       <UiNavbarItem>
         <UiLink>
-          <Link href="/theming">
+          <Link href="/create-theme">
             <UiSpacing padding={LinkSpacing}>
-              Theming
+              Create theme
             </UiSpacing>
           </Link>
         </UiLink>
