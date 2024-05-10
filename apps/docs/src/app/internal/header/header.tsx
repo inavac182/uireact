@@ -26,7 +26,7 @@ export const Header = () => {
                 <HeaderNavbar />
               </UiViewport>
               <UiLink>
-                <a href="https://uireact.io">
+                <a href="https://github.com/inavac182/uireact" target='_blank'>
                   <UiIcon icon='BrandsGithub' />
                 </a>
               </UiLink>

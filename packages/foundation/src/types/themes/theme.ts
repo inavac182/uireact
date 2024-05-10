@@ -14,3 +14,12 @@ export type Theme = {
   /** Set of tokens spacing */
   spacing: Spacing;
 };
+
+export enum ThemeProperties {
+  name = "name",
+  texts = "texts",
+  sizes = "sizes",
+  light = "light",
+  dark = "dark",
+  spacing = "spacing"
+};

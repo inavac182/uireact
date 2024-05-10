@@ -7,6 +7,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { Section, ScriptCard } from '../internal';
+import Link from "next/link";
 
 const contentSpacing: UiSpacingProps['padding'] = { top: 'six' };
 const headingSpacing: UiSpacingProps['padding'] = { bottom: 'five' };
@@ -64,7 +65,7 @@ export const MyWrapper = () => (
               </UiText>
             <br />
             <UiText>
-              If you want to build a custom theme visit <UiLink><a href="https://uireact.io/create-theme">Create your own theme</a></UiLink> to learn more about it.
+              If you want to build a custom theme visit <UiLink><Link href="./create-theme">Create your own theme</Link></UiLink> to learn more about it.
             </UiText>
           </UiSpacing>
         </UiSpacing>
