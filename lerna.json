@@ -5,7 +5,6 @@
   "command": {
     "version": {
       "allowBranch": "main",
-      "amend": true,
       "conventionalCommits": true,
       "conventionalGraduate": true,
       "private": false,
