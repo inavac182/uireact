@@ -4,15 +4,18 @@
   "npmClient": "pnpm",
   "command": {
     "version": {
+      "allowBranch": "main",
+      "amend": true,
       "conventionalCommits": true,
       "conventionalGraduate": true,
       "private": false,
       "ignoreChanges": [
+        "/apps/**",
         "**/docs/**",
-        "**/__tests__/**"
+        "**/__tests__/**",
+        "*.json"
       ],
-      "message": "chore: version bump %v",
-      "push": true,
+      "message": "chore: version bump",
       "yes": true
     }
   },
