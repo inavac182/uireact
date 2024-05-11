@@ -3,21 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.9.0](https://github.com/inavac182/uireact/compare/@uireact/foundation@2.5.0...@uireact/foundation@2.9.0) (2024-05-11)
-
-
-### Bug Fixes
-
-* gh actions ([#313](https://github.com/inavac182/uireact/issues/313)) ([14d7f60](https://github.com/inavac182/uireact/commit/14d7f6021a4bf98f6a0b454515cdc687e4c9d3f4))
-* warnings ([efd5c08](https://github.com/inavac182/uireact/commit/efd5c0825ec0e11122bd90fd1a14c3fc1adb7655))
+# 2.9.0 (2024-05-11)
 
 
 ### Features
 
-* adding custom playground ([2d4ab1b](https://github.com/inavac182/uireact/commit/2d4ab1b0058827cd1bd0e4922207fcd935920b2a))
+* adding framer animations package ([#318](https://github.com/inavac182/uireact/issues/318)) ([ab37997](https://github.com/inavac182/uireact/commit/ab379979e0b18c075bc43e0a89d24a9aaa247370))
 * animation to confirm dialog ([#324](https://github.com/inavac182/uireact/issues/324)) ([e82cb34](https://github.com/inavac182/uireact/commit/e82cb34168dd9314502947bc2505e1495413905a))
-* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
-* include docs pages to docs app build ([9be9021](https://github.com/inavac182/uireact/commit/9be90214de139d20fc1df71cd56de9c9801f8f13))
 * theme creation tool ([#325](https://github.com/inavac182/uireact/issues/325)) ([e5eb318](https://github.com/inavac182/uireact/commit/e5eb31878915cc156d76088e5782e69a5b564a9d))
 * using push lerna config ([9bb3dcb](https://github.com/inavac182/uireact/commit/9bb3dcb5c8829386d55fe2c2b788f6d83a64241d))
 

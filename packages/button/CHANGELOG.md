@@ -3,15 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.7.0](https://github.com/inavac182/uireact/compare/@uireact/button@2.2.2...@uireact/button@2.7.0) (2024-05-11)
+# 2.7.0 (2024-05-11)
 
 
 ### Features
 
+* adding framer animations package ([#318](https://github.com/inavac182/uireact/issues/318)) ([ab37997](https://github.com/inavac182/uireact/commit/ab379979e0b18c075bc43e0a89d24a9aaa247370))
 * animation to confirm dialog ([#324](https://github.com/inavac182/uireact/issues/324)) ([e82cb34](https://github.com/inavac182/uireact/commit/e82cb34168dd9314502947bc2505e1495413905a))
 * **dialogs:** Adding animations to dialogs  ([#322](https://github.com/inavac182/uireact/issues/322)) ([ad6027b](https://github.com/inavac182/uireact/commit/ad6027bc27258018f77457a8ef404f39486e409e))
-* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
-* improve docs texts ([d871b93](https://github.com/inavac182/uireact/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
 * using push lerna config ([9bb3dcb](https://github.com/inavac182/uireact/commit/9bb3dcb5c8829386d55fe2c2b788f6d83a64241d))
 
 
