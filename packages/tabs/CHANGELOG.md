@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2024-05-11)
+
+
+### Features
+
+* adding framer animations package ([#318](https://github.com/inavac182/ui-react/issues/318)) ([ab37997](https://github.com/inavac182/ui-react/commit/ab379979e0b18c075bc43e0a89d24a9aaa247370))
+* animation to confirm dialog ([#324](https://github.com/inavac182/ui-react/issues/324)) ([e82cb34](https://github.com/inavac182/ui-react/commit/e82cb34168dd9314502947bc2505e1495413905a))
+* using push lerna config ([9bb3dcb](https://github.com/inavac182/ui-react/commit/9bb3dcb5c8829386d55fe2c2b788f6d83a64241d))
+
+
+
+
+
 # [2.3.0](https://github.com/inavac182/ui-react/compare/@uireact/tabs@2.1.4...@uireact/tabs@2.3.0) (2024-05-11)
 
 
