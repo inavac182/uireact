@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@2.1.10...@uireact/menu@2.8.0) (2024-05-11)
+
+
+### Features
+
+* adding custom blockquote component ([283b8ad](https://github.com/inavac182/ui-react/commit/283b8ad69c88a664cc83ea266d96836bb143df21))
+* animation to confirm dialog ([#324](https://github.com/inavac182/ui-react/issues/324)) ([e82cb34](https://github.com/inavac182/ui-react/commit/e82cb34168dd9314502947bc2505e1495413905a))
+* **dialogs:** Adding animations to dialogs  ([#322](https://github.com/inavac182/ui-react/issues/322)) ([ad6027b](https://github.com/inavac182/ui-react/commit/ad6027bc27258018f77457a8ef404f39486e409e))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* improve docs texts ([d871b93](https://github.com/inavac182/ui-react/commit/d871b93ba8bcacc81020325c1f8aa9ef63a26c60))
+* **menu:** making fade up animation default ([#321](https://github.com/inavac182/ui-react/issues/321)) ([a2baccd](https://github.com/inavac182/ui-react/commit/a2baccdb382937ac21ab018569dd883b3e060593))
+* **UiMenu:** :adding framer motion ([#320](https://github.com/inavac182/ui-react/issues/320)) ([cc158a6](https://github.com/inavac182/ui-react/commit/cc158a6741aee5fd6ab4320989b0b80c6618021d))
+* using push lerna config ([9bb3dcb](https://github.com/inavac182/ui-react/commit/9bb3dcb5c8829386d55fe2c2b788f6d83a64241d))
+
+
+
+
+
 # [2.7.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@2.1.10...@uireact/menu@2.7.0) (2024-05-11)
 
 
