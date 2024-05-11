@@ -16,6 +16,7 @@
         "*.json"
       ],
       "message": "chore: version bump",
+      "push": true,
       "yes": true
     }
   },

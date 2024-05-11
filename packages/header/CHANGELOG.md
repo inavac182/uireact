@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/inavac182/uireact/compare/@uireact/header@1.7.4...@uireact/header@1.9.0) (2024-05-11)
+
+
+### Features
+
+* animation to confirm dialog ([#324](https://github.com/inavac182/uireact/issues/324)) ([e82cb34](https://github.com/inavac182/uireact/commit/e82cb34168dd9314502947bc2505e1495413905a))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/uireact/commit/4343546a7739f011875050723426f29231d561a8))
+
+
+
+
+
 # [1.8.0](https://github.com/inavac182/uireact/compare/@uireact/header@1.7.4...@uireact/header@1.8.0) (2024-05-02)
 
 
