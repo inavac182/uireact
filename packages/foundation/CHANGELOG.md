@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.7.0 (2024-05-11)
+
+
+### Features
+
+* adding framer animations package ([#318](https://github.com/inavac182/uireact/issues/318)) ([ab37997](https://github.com/inavac182/uireact/commit/ab379979e0b18c075bc43e0a89d24a9aaa247370))
+* animation to confirm dialog ([#324](https://github.com/inavac182/uireact/issues/324)) ([e82cb34](https://github.com/inavac182/uireact/commit/e82cb34168dd9314502947bc2505e1495413905a))
+* theme creation tool ([#325](https://github.com/inavac182/uireact/issues/325)) ([e5eb318](https://github.com/inavac182/uireact/commit/e5eb31878915cc156d76088e5782e69a5b564a9d))
+
+
+
+
+
 # [2.6.0](https://github.com/inavac182/uireact/compare/@uireact/foundation@2.5.0...@uireact/foundation@2.6.0) (2024-05-02)
 
 

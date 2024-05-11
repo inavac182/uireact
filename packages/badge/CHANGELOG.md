@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2024-05-11)
+
+
+### Features
+
+* adding framer animations package ([#318](https://github.com/inavac182/uireact/issues/318)) ([ab37997](https://github.com/inavac182/uireact/commit/ab379979e0b18c075bc43e0a89d24a9aaa247370))
+* animation to confirm dialog ([#324](https://github.com/inavac182/uireact/issues/324)) ([e82cb34](https://github.com/inavac182/uireact/commit/e82cb34168dd9314502947bc2505e1495413905a))
+
+
+
+
+
 ## [1.4.7](https://github.com/inavac182/uireact/compare/@uireact/badge@1.4.5...@uireact/badge@1.4.7) (2024-05-02)
 
 **Note:** Version bump only for package @uireact/badge

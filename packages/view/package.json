@@ -3,7 +3,7 @@
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "publishConfig": {
     "access": "public"
   },
