@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/inavac182/ui-react/compare/@uireact/icons@2.2.1...@uireact/icons@2.5.0) (2024-05-11)
+
+
+### Features
+
+* animation to confirm dialog ([#324](https://github.com/inavac182/ui-react/issues/324)) ([e82cb34](https://github.com/inavac182/ui-react/commit/e82cb34168dd9314502947bc2505e1495413905a))
+* hot load file changes in packages and update app docs ([4343546](https://github.com/inavac182/ui-react/commit/4343546a7739f011875050723426f29231d561a8))
+* include docs pages to docs app build ([9be9021](https://github.com/inavac182/ui-react/commit/9be90214de139d20fc1df71cd56de9c9801f8f13))
+* using push lerna config ([9bb3dcb](https://github.com/inavac182/ui-react/commit/9bb3dcb5c8829386d55fe2c2b788f6d83a64241d))
+
+
+
+
+
 # [2.4.0](https://github.com/inavac182/ui-react/compare/@uireact/icons@2.2.1...@uireact/icons@2.4.0) (2024-05-11)
 
 
