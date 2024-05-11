@@ -9,6 +9,7 @@ import { UiLink } from '@uireact/text';
 
 import { Logo } from '../logo';
 import { HeaderNavbar } from './navbar';
+import { ThemeSwitcher } from '@/app/docs/components/theme-switcher';
 
 const HeaderSpacing: UiSpacingProps['padding'] = { inline: 'six' };
 
@@ -27,9 +28,10 @@ export const Header = () => {
               </UiViewport>
               <UiLink>
                 <a href="https://github.com/inavac182/uireact" target='_blank'>
-                  <UiIcon icon='BrandsGithub' />
+                  <UiIcon icon='BrandsGithub' size='large' />
                 </a>
               </UiLink>
+              <ThemeSwitcher />
             </UiFlexGrid>
           </UiFlexGridItem>
         </UiFlexGrid>
