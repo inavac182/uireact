@@ -16,6 +16,19 @@ describe('greaterThan validation', () => {
     expect(result.errors).toStrictEqual({});
   });
 
+  it('Should validate when value is string and is greater than baseline', () => {
+    const schema = {
+      test: validator.ruler().greaterThan(10),
+    };
+    const data = {
+      test: "11",
+    };
+
+    const result = validator.validate(schema, data, false);
+    expect(result.passed).toBeTruthy();
+    expect(result.errors).toStrictEqual({});
+  });
+
   it('Should use default messaging if none is passed in schema', () => {
     const schema = {
       test: validator.ruler().greaterThan(10),

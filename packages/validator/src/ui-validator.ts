@@ -137,13 +137,14 @@ export class UiValidator {
    * @param value The value that will be compared
    * */
   private validComparable(baseline: number | Date, value: unknown, action: 'greaterThan' | 'lessThan'): boolean {
-    if (typeof baseline === 'number' && typeof value === 'number') {
+    if (typeof baseline === 'number' && (typeof value === 'number' || typeof value === 'string')) {
       /** Numeric comparisson */
+      const parsedValued = parseInt(value as string);
 
       if (action === 'greaterThan') {
-        return value > baseline;
+        return parsedValued > baseline;
       } else {
-        return value < baseline;
+        return parsedValued < baseline;
       }
     } else if (baseline instanceof Date) {
       /** Date comparisson */
