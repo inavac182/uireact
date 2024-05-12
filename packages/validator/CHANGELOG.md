@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/inavac182/ui-react/compare/@uireact/validator@1.5.1...@uireact/validator@1.5.2) (2024-05-12)
+
+
+### Bug Fixes
+
+* **validator:** supporting dots and commas on numeric strings ([#328](https://github.com/inavac182/ui-react/issues/328)) ([276e16a](https://github.com/inavac182/ui-react/commit/276e16a0bc5efc8763f94c4d016eec86d5a4a004))
+
+
+
+
+
 ## 1.5.1 (2024-05-12)
 
 
