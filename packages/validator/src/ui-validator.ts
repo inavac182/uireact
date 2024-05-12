@@ -24,7 +24,7 @@ export class UiValidator {
     }
 
     if (typeof value === 'string') {
-      return /^[0-9]+$/.test(value);
+      return /^[0-9.,]+$/.test(value);
     }
 
     return false;
