@@ -171,6 +171,32 @@ describe('type validation', () => {
       expect(result.passed).toBeTruthy();
     });
 
+    it('Should validate numeric values when received value has dots', () => {
+      const schema = {
+        test: validator.ruler().type('numeric'),
+      };
+      const data = {
+        test: "123.23",
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should validate numeric values when received value has commas', () => {
+      const schema = {
+        test: validator.ruler().type('numeric'),
+      };
+      const data = {
+        test: "123,23",
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
     it('Should validate numeric values when received a number value in string type', () => {
       const schema = {
         test: validator.ruler().type('numeric'),
