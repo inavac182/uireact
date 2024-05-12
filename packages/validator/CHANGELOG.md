@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.1 (2024-05-12)
+
+
+### Bug Fixes
+
+* **validator:** numeric comparison with stringified value ([#327](https://github.com/inavac182/ui-react/issues/327)) ([1aa9665](https://github.com/inavac182/ui-react/commit/1aa9665d732754948fa7647e5604c22aaffd3124))
+
+
+
+
+
 # 1.5.0 (2024-05-11)
 
 
