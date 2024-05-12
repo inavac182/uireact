@@ -3,7 +3,7 @@
   "description": "UiValidator package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "publishConfig": {
     "access": "public"
   },
