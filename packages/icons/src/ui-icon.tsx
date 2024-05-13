@@ -2,13 +2,14 @@
 import React, { useContext } from 'react';
 
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
 
 import { UiIconProps, privateIconProps } from './types';
 import { IconComponent } from './public';
 
-const Span = styled.span<privateIconProps>`
+const Span = styled(motion.span)<privateIconProps>`
   ${(props: privateIconProps) => `
     ${
       props.$coloration === 'dark'
@@ -55,6 +56,7 @@ export const UiIcon: React.FC<UiIconProps> = ({
   size = 'regular',
   testId,
   inverseColoration,
+  motion
 }: UiIconProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -66,6 +68,7 @@ export const UiIcon: React.FC<UiIconProps> = ({
       data-testid={testId}
       $theme={theme}
       $coloration={coloration}
+      {...motion}
     >
       <IconComponent icon={icon} />
     </Span>
