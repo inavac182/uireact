@@ -1,7 +1,7 @@
 import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
+import { MotionProps } from 'framer-motion';
 
 import * as SvgsComponent from '../public/svgs';
-import { MotionProps } from 'framer-motion';
 
 export type InverseColorationProp = {
   light: boolean;
