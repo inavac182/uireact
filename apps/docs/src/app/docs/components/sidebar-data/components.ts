@@ -22,12 +22,24 @@ export const ComponentsSideBarData: NavbarItem[] = [
         title: 'UiExpandoText'
     },
     {
+        link: '/header',
+        title: 'UiHeader'
+    },
+    {
         link: '/list',
         title: 'UiList'
     },
     {
+        link: '/navbar',
+        title: 'UiNavbar'
+    },
+    {
         link: '/progress-indicator',
         title: 'UiProgressIndicator'
+    },
+    {
+        link: '/separator',
+        title: 'UiSeparators'
     },
     {
         link: '/table',

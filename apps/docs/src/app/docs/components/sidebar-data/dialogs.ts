@@ -12,5 +12,9 @@ export const DialogsSideBarData: NavbarItem[] = [
     {
         link: '/menu',
         title: 'UiMenu'
+    },
+    {
+        link: '/notifications',
+        title: 'UiNotifications'
     }
 ];
