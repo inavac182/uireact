@@ -1,4 +1,6 @@
 import { UiIcon } from '@uireact/icons';
+import { UiReactFadeUp } from '@uireact/framer-animations';
+
 import { IconsList } from './utils';
 
 import packageJson from './package-metadata.json';
@@ -18,6 +20,15 @@ import { Metadata } from '@uireact/docs-tools';
 
 ```jsx live scope={{UiIcon}}
   <UiIcon icon="Search" size="xlarge" category="positive" />
+```
+
+## UiIcon animated with motion props
+
+This prop will animate the icon container it won't animate the actual SVG paths, for that we are working on a new package of animated icons 
+as that requires some rework on the icons itself.
+
+```jsx live scope={{UiIcon,UiReactFadeUp}}
+  <UiIcon icon="Search" size="xlarge" category="positive" motion={UiReactFadeUp} />
 ```
 
 ## UiIcon with inverse coloration
