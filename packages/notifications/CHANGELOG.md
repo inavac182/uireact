@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.9.1 (2024-05-14)
+
+
+### Reverts
+
+* Revert "chore: version bump" ([b06a70a](https://github.com/inavac182/ui-react/commit/b06a70ae3e4a32a478c20a9f1e3325ebbf82886f))
+
+
+
+
+
 # 0.9.0 (2024-05-11)
 
 
