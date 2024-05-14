@@ -3,7 +3,7 @@
   "description": "UiHeader from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.11.1",
+  "version": "1.11.0",
   "publishConfig": {
     "access": "public"
   },

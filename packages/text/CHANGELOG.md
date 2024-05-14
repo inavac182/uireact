@@ -3,14 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.8.1](https://github.com/inavac182/ui-react/compare/@uireact/text@2.8.0...@uireact/text@2.8.1) (2024-05-14)
-
-**Note:** Version bump only for package @uireact/text
-
-
-
-
-
 # 2.8.0 (2024-05-11)
 
 
