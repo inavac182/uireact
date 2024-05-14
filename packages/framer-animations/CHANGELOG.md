@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2024-05-14)
+
+
+### Features
+
+* **animations:** adding icon animations props ([#330](https://github.com/inavac182/uireact/issues/330)) ([4c75002](https://github.com/inavac182/uireact/commit/4c75002906c9bea1c1c194334d7a040a0ec2a79b))
+
+
+
+
+
 # [0.7.0](https://github.com/inavac182/uireact/compare/@uireact/framer-animations@0.6.0...@uireact/framer-animations@0.7.0) (2024-05-11)
 
 
