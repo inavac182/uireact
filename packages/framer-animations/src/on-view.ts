@@ -49,3 +49,35 @@ export const UiReactViewAppearLeft: MotionProps = {
         }
     }
 }
+
+export const UiReactViewRotating: MotionProps = {
+    whileInView: {
+        rotate: [0, 360, 0],
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 1
+        }
+    }
+}
+
+export const UiReactViewDancing: MotionProps = {
+    whileInView: {
+        rotate: [0, 45, -45, 0],
+        transition: {
+            duration: .5,
+            repeat: Infinity,
+            repeatDelay: 1
+        }
+    }
+}
+
+export const UiReactViewShaking: MotionProps = {
+    whileInView: {
+        rotate: [0, 45, -45, 0],
+        transition: {
+            duration: .5,
+            repeat: Infinity,
+        }
+    }
+}

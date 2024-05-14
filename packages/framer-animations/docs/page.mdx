@@ -12,7 +12,12 @@ import {
   UiReactViewAppearLeft,
   UiReactViewAppearRight,
   UiReactViewFloat,
-  UiReactViewPulse
+  UiReactViewPulse,
+  UiReactViewDancing,
+  UiReactViewRotating,
+  UiReactViewShaking,
+  UiReactHoverDance,
+  UiReactHoverShake
 } from "@uireact/framer-animations";
 import { UiHeading, UiText } from "@uireact/text";
 import { UiIcon } from '@uireact/icons';
@@ -56,8 +61,10 @@ These animations are executed when component is hovered:
 
 - UiReactHoverScaleUp 
 - UiReactHoverElevate 
+- UiReactHoverDance
+- UiReactHoverShake
 
-```jsx live scope={{ UiCard, UiHeading, UiText, UiReactHoverScaleUp, UiReactHoverElevate }}
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactHoverScaleUp, UiReactHoverElevate, UiReactHoverDance, UiReactHoverShake }}
   <UiCard motion={{ ...UiReactHoverScaleUp }}>
     <UiHeading>Card header</UiHeading>
     <UiText>Card content</UiText>
@@ -84,11 +91,14 @@ These animations are executed every time the component enters the view:
 
 - UiReactViewFloat 	&#8734;
 - UiReactViewPulse 	&#8734;
+- UiReactViewRotating &#8734;
+- UiReactViewDancing &#8734;
+- UiReactViewShaking &#8734;
 - UiReactViewAppearUp
 - UiReactViewAppearLeft
 - UiReactViewAppearRight
 
-```jsx live scope={{ UiCard, UiHeading, UiText, UiReactViewFloat, UiReactViewPulse, UiReactViewAppearUp, UiReactViewAppearLeft, UiReactViewAppearRight }}
+```jsx live scope={{ UiCard, UiHeading, UiText, UiReactViewFloat, UiReactViewPulse, UiReactViewAppearUp, UiReactViewAppearLeft, UiReactViewAppearRight, UiReactViewRotating, UiReactViewShaking, UiReactViewDancing }}
   <UiCard motion={{ ...UiReactViewFloat }}>
     <UiHeading>Card header</UiHeading>
     <UiText>Card content</UiText>
@@ -97,7 +107,31 @@ These animations are executed every time the component enters the view:
 
 &#8734; = Animation repeats
 
-### Merge multiple animations
+## Usage with UiIcon
+
+Some icons play very well with a a few animations like these ones:
+
+Rotating:
+
+```jsx live scope={{UiIcon, UiReactViewRotating}}
+  <UiIcon icon="SettingsBig" category="tertiary" size="xlarge" motion={UiReactViewRotating} />
+```
+
+Dancing:
+
+```jsx live scope={{UiIcon, UiReactViewDancing}}
+  <UiIcon icon="BellRing" category="tertiary" size="xlarge" motion={UiReactViewDancing} />
+```
+
+Shake on hover:
+
+```jsx live scope={{UiIcon, UiReactHoverShake}}
+  <UiIcon icon="ShoppingBasket" category="tertiary" size="xlarge" motion={UiReactHoverShake} />
+```
+
+We are working on animations for icons, that animate the actual SVG paths, stay tuned for that future release 🚀
+
+## Merge multiple animations
 
 Using these objects you CAN'T merge objects for the same animation states because the later would override the previous one for instace:
 
@@ -126,7 +160,7 @@ Although merging different state animatios such as fade-in animation, hover and 
 ```
 
 ### In a motion component
-Example on how this would be used in a motion component: 
+You can use this animation objects without @uireact library, For example in a simple motion component: 
 
 ```tsx
   // Using it as is:
@@ -163,6 +197,11 @@ import {
   UiReactViewAppearLeft,
   UiReactViewAppearRight,
   UiReactViewFloat,
-  UiReactViewPulse
+  UiReactViewPulse,
+  UiReactViewDancing,
+  UiReactViewRotating,
+  UiReactViewShaking,
+  UiReactHoverDance,
+  UiReactHoverShake
 } from '@uireact/framer-motion'
 ```
