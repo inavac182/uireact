@@ -15,5 +15,11 @@ describe('framer-animations', () => {
     expect(Animations.UiReactViewAppearRight).not.toBeNull();
     expect(Animations.UiReactViewFloat).not.toBeNull();
     expect(Animations.UiReactViewPulse).not.toBeNull();
+    expect(Animations.UiReactViewPulse).not.toBeNull();
+    expect(Animations.UiReactHoverDance).not.toBeNull();
+    expect(Animations.UiReactHoverShake).not.toBeNull();
+    expect(Animations.UiReactViewDancing).not.toBeNull();
+    expect(Animations.UiReactViewRotating).not.toBeNull();
+    expect(Animations.UiReactViewShaking).not.toBeNull();
   });
 });
