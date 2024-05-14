@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.7.0 (2024-05-14)
+
+
+### Features
+
+* **icons:** adding motion prop for animations ([#329](https://github.com/inavac182/ui-react/issues/329)) ([1fc3765](https://github.com/inavac182/ui-react/commit/1fc37653b6a866d8451e0651619f247689068c16))
+
+
+
+
+
 # 2.6.0 (2024-05-11)
 
 
