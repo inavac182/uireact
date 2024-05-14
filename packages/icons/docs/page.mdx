@@ -1,5 +1,5 @@
 import { UiIcon } from '@uireact/icons';
-import { UiReactFadeUp } from '@uireact/framer-animations';
+import { UiReactViewShaking } from '@uireact/framer-animations';
 
 import { IconsList } from './utils';
 
@@ -27,9 +27,11 @@ import { Metadata } from '@uireact/docs-tools';
 This prop will animate the icon container it won't animate the actual SVG paths, for that we are working on a new package of animated icons 
 as that requires some rework on the icons itself.
 
-```jsx live scope={{UiIcon,UiReactFadeUp}}
-  <UiIcon icon="Search" size="xlarge" category="positive" motion={UiReactFadeUp} />
+```jsx live scope={{UiIcon,UiReactViewShaking}}
+  <UiIcon icon="BellRing" size="xlarge" category="positive" motion={UiReactViewShaking} />
 ```
+
+You can see the docs for [@uireact/framer-animations](./framer-animations) package to see the full list of available animations.
 
 ## UiIcon with inverse coloration
 
