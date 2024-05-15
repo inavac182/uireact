@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.8.2 (2024-05-15)
+
+
+### Bug Fixes
+
+* **view:** directory publish ([#335](https://github.com/inavac182/uireact/issues/335)) ([d2713c8](https://github.com/inavac182/uireact/commit/d2713c8ac3b96dad012474d09f92ca4c58df3928))
+
+
+
+
+
 ## 2.8.1 (2024-05-14)
 
 
