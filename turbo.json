@@ -26,9 +26,6 @@
     "lint": {
       "outputs": []
     },
-    "dev": {
-      "cache": false
-    },
     "dev:storybook": {
       "dependsOn": [
         "^build"
@@ -36,6 +33,9 @@
       "cache": false
     },
     "dev:docs": {
+      "dependsOn": [
+        "^build:publish"
+      ],
       "cache": true
     },
     "docs:clean": {

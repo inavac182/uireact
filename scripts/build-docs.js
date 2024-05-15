@@ -1,6 +1,15 @@
-const { readdirSync, existsSync, mkdirSync, rmSync, cpSync } =  require('fs');
+const { readdirSync, existsSync, mkdirSync, rmSync, cpSync, renameSync, writeFileSync } =  require('fs');
 
 const baseDocsAppPath = `./apps/docs/src/app/docs/(pages)`;
+
+const docPageContent = `
+"use client";
+import Doc from "./doc.mdx";
+
+export default function Page() {
+  return <Doc />;
+}
+`;
 
 console.log('Compiling doc pages...');
 
@@ -41,13 +50,20 @@ directories.map((directory) => {
   if (singleDocPage) {
     // Copy files from package folder to docs app
     packageDocsEntries.forEach((entry) => {
-      cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true, force: true });
+      if (entry.name === "page.mdx") {
+        cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}doc.mdx`, { recursive: true, force: true });  
+        writeFileSync(`${packageDocFolderRoute}page.tsx`, docPageContent);
+      } else {
+        cpSync(`${entry.path}/${entry.name}`, `${packageDocFolderRoute}${entry.name}`, { recursive: true, force: true });
+      }
     });
   } else {
     packageDocsEntries.forEach((entry) => {
       const packageDocFolderRoute = `${baseDocsAppPath}/${entry.name}/`;
 
       cpSync(`${entry.path}/${entry.name}`, packageDocFolderRoute, { recursive: true, force: true });
+      renameSync(`${packageDocFolderRoute}page.mdx`, `${packageDocFolderRoute}doc.mdx`);
+      writeFileSync(`${packageDocFolderRoute}page.tsx`, docPageContent);
     });
   }
   
