@@ -44,6 +44,7 @@
     "@uireact/separator": "workspace:*",
     "@uireact/table": "workspace:*",
     "@uireact/tabs": "workspace:*",
+    "@uireact/tooltip": "workspace:*",
     "@uireact/text": "workspace:*",
     "@uireact/validator": "workspace:*",
     "@uireact/view": "workspace:*",

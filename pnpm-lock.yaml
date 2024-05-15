@@ -282,6 +282,9 @@ importers:
       '@uireact/text':
         specifier: workspace:*
         version: link:../../packages/text
+      '@uireact/tooltip':
+        specifier: workspace:*
+        version: link:../../packages/tooltip
       '@uireact/validator':
         specifier: workspace:*
         version: link:../../packages/validator
