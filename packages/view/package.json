@@ -3,12 +3,12 @@
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
