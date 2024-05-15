@@ -13,7 +13,7 @@
     "lint": "turbo run lint",
     "publish:packages": "lerna publish",
     "publish:versions": "lerna version",
-    "test": "turbo run build && turbo run test",
+    "test": "turbo run build:publish && turbo run test",
     "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue"
   },
   "devDependencies": {
