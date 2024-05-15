@@ -11,8 +11,7 @@
       "ignoreChanges": [
         "/apps/**",
         "**/docs/**",
-        "**/__tests__/**",
-        "*.json"
+        "**/__tests__/**"
       ],
       "message": "chore: version bump",
       "push": true,
