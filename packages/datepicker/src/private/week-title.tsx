@@ -4,7 +4,7 @@ import { UiGrid, UiGridItem } from '@uireact/grid';
 
 import { getDayTitle } from '../utils';
 import { DateTitleFormats } from '../types';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 type WeekTitleProps = {
   titlesFormat: DateTitleFormats;

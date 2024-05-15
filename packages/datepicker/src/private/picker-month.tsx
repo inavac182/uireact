@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { getDaysInMonth, getStartingDayOfTheWeek, getDaysByWeek } from '../utils';
 import { DateTitleFormats } from '../types';

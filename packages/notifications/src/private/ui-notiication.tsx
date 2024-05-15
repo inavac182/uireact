@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ColorCategory, UiNotification } from '@uireact/foundation';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';

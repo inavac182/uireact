@@ -1,6 +1,6 @@
 'use client';
 import React, { useCallback, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';

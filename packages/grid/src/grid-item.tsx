@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { getItemEndSpan, getItemSpan } from './private';
 import { UiReactElementProps } from '@uireact/foundation';

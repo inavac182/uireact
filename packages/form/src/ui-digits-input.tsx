@@ -1,7 +1,7 @@
 'use client';
 import React, { FormEvent, useCallback, useRef, useState } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ColorCategory, SizesProp, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';

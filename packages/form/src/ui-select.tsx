@@ -1,7 +1,7 @@
 'use client';
 import React, { FormEvent, useCallback } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { UiText, UiLabel } from '@uireact/text';
 

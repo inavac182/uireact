@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiGrid } from '@uireact/grid';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 const EmptySlot = styled.div`
   width: 50px;

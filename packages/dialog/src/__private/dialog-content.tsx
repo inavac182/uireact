@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
 
 import { UiDialogType, privateUiDialogProps } from '../types';
