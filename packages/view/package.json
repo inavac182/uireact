@@ -22,7 +22,7 @@
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "peerDependencies": {
     "@uireact/dialog": "^2.1.8",

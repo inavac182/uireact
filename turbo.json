@@ -33,9 +33,6 @@
       "cache": false
     },
     "dev:docs": {
-      "dependsOn": [
-        "^build:publish"
-      ],
       "cache": true
     },
     "docs:clean": {
@@ -45,6 +42,10 @@
       "cache": false
     },
     "clean": {
+      "cache": false
+    },
+    "watch": {
+      "persistent": true,
       "cache": false
     }
   }
