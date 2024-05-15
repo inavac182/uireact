@@ -3,7 +3,7 @@
   "description": "Icons package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "publishConfig": {
     "access": "public"
   },
@@ -26,7 +26,6 @@
     "tsc:with-icons": "npm run build:svgs && tsc",
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-
   "dependencies": {
     "@uireact/foundation": "workspace:*"
   },

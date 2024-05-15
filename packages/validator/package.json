@@ -3,7 +3,7 @@
   "description": "UiValidator package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,6 @@
     "test": "jest",
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-
   "peerDependencies": {
     "tslib": "^2.5.0"
   }

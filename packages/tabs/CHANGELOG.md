@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.2 (2024-05-15)
+
+
+### Bug Fixes
+
+* **docs:** packages pages to be wrapper ([#336](https://github.com/inavac182/ui-react/issues/336)) ([751d0f5](https://github.com/inavac182/ui-react/commit/751d0f544050ac090dafb11a062c21ab7275e2f3))
+
+
+
+
+
 ## 2.5.1 (2024-05-14)
 
 

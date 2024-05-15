@@ -3,7 +3,7 @@
   "description": "@uireact/confirm-dialog package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,6 @@
     "test": "jest",
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-
   "dependencies": {
     "@uireact/button": "workspace:*",
     "@uireact/flex": "workspace:*",

@@ -3,7 +3,7 @@
   "description": "Foundation package needed for @uireact packages",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.9.2",
+  "version": "2.9.3",
   "publishConfig": {
     "access": "public"
   },
