@@ -67,6 +67,7 @@ try {
 console.log(`Copying project files... 😁`);
 
 try {
+  fs.rmSync('./next-js-w-uireact/.git/', {recursive: true});
   fs.cpSync('./next-js-w-uireact/', './', {recursive: true});
   fs.rmSync('./next-js-w-uireact/', {recursive: true});
 } catch (e) {
@@ -86,6 +87,13 @@ try {
 }
 
 console.log(`All Done! 🥵`);
+console.log('\n');
+console.log(`${txtColors.orange} To get it started run:`);
+console.log(`${txtColors.blue} npm run dev `);
+console.log(`${txtColors.orange} Then, go to:`);
+console.log(`${txtColors.blue} https://localhost:3000`);
+console.log('\n');
+console.log(`${txtColors.blue} Remember, this is just a base working project, you can start customizing it now.`);
 console.log('\n');
 console.log(`${txtColors.pink}Questions!? 👀`);
 console.log(`${txtColors.blue}Feel free to join our discussions board: https://github.com/inavac182/uireact/discussions`);
