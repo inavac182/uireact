@@ -12,6 +12,7 @@
       ]
     },
     "build:publish": {
+      "dependsOn": ["^build:publish"],
       "outputs": ["dist/**"]
     },
     "build": {
@@ -30,6 +31,7 @@
       "cache": false
     },
     "dev:docs": {
+      "dependsOn": ["^build:publish"],
       "cache": true
     },
     "docs:clean": {
@@ -42,6 +44,7 @@
       "cache": false
     },
     "watch": {
+      "dependsOn": ["^watch"],
       "persistent": true,
       "cache": false
     }

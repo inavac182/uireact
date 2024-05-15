@@ -24,6 +24,9 @@
     "test": "jest",
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
+  "dependencies": {
+    "@uireact/foundation": "workspace:*"
+  },
   "peerDependencies": {
     "@uireact/dialog": "^2.1.8",
     "@uireact/foundation": "^2.4.0",

@@ -9,7 +9,7 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",

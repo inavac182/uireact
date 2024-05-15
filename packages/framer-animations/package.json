@@ -10,9 +10,9 @@
   "sideEffects": false,
   "type": "module",
   "files": [
-    "src"
+    "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/index",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,24 +24,9 @@
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": [
-      "./src/*.ts",
-      "./src/*.tsx",
-      "./src/*/index.ts"
-    ]
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*",
-        "src/*/index"
-      ]
-    }
-  },
+
   "peerDependencies": {
     "framer-motion": ">= 11"
   }

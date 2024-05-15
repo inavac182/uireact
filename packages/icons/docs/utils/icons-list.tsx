@@ -7,8 +7,7 @@ import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiText } from '@uireact/text';
 import { UiSelect } from '@uireact/form';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
-import { UiIcon } from '@uireact/icons';
-import * as Icons from '@uireact/icons/public/svgs';
+import { UiIcon, UiReactIcons } from '@uireact/icons';
 
 export const IconsList: React.FC = () => {
   const [category, setCategory] = React.useState<ColorCategory>();
@@ -40,7 +39,7 @@ export const IconsList: React.FC = () => {
       </UiSpacing>
       <UiSpacing padding={{ block: 'five' }}>
         <UiGrid cols={{ small: 2, medium: 3, large: 4, xlarge: 5 }} colsGap="three" rowsGap="five">
-          {Object.keys(Icons).map((key) => (
+          {Object.keys(UiReactIcons).map((key) => (
             <UiGridItem key={`icon-grid-item-component-${key}`}>
               <UiText size={TextSize.xsmall} category={category} centered>
                 {/* @ts-ignore */}

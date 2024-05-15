@@ -32,7 +32,7 @@ export const useDialog = (dialogId: string): UseDialogHook => {
     });
 
     setIsOpen(opened);
-  }, [dialogController, setIsOpen]);
+  }, [dialogController, dialogId, setIsOpen]);
 
   return { isOpen, actions };
 };

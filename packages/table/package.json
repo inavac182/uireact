@@ -8,9 +8,9 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/index",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -22,23 +22,15 @@
     "lint": "npm run tsc && npm run eslint && npm run lint:styles",
     "lint:styles": "stylelint ./src/**/*.tsx",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": [
-      "./src/*.ts",
-      "./src/*.tsx",
-      "./src/*/index.ts"
-    ]
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*",
-        "src/*/index"
-      ]
-    }
+
+  "dependencies": {
+    "@uireact/flex": "workspace:*",
+    "@uireact/form": "workspace:*",
+    "@uireact/foundation": "workspace:*",
+    "@uireact/grid": "workspace:*",
+    "@uireact/icons": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/flex": "^2.0.1",
