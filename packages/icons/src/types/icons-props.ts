@@ -3,6 +3,8 @@ import { MotionProps } from 'framer-motion';
 
 import * as SvgsComponent from '../public/svgs';
 
+export const UiReactIcons = SvgsComponent;
+
 export type InverseColorationProp = {
   light: boolean;
   dark: boolean;

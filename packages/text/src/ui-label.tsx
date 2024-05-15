@@ -1,7 +1,7 @@
 'use client';
 import React, { useContext } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
 

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { SizesProp } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';

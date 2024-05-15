@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useState } from 'react';
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { UiMenu } from '@uireact/menu';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';

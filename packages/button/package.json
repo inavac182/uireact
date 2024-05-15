@@ -8,7 +8,7 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -22,23 +22,10 @@
     "lint:styles": "stylelint ./src/**/*.tsx",
     "lint": "npm run lint:styles && npm run tsc && npm run eslint",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": [
-      "./src/*.ts",
-      "./src/*.tsx",
-      "./src/*/index.ts"
-    ]
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*",
-        "src/*/index"
-      ]
-    }
+  "dependencies": {
+    "@uireact/foundation": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/foundation": "^2.0.1",

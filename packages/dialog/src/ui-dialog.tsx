@@ -1,23 +1,10 @@
 'use client';
 import React from 'react';
 
-import styled from 'styled-components';
-
-import { UiIcon } from '@uireact/icons';
-
 import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper, getAnimationForDialog } from './__private';
 
 import { UiDialogProps, UiDialogType } from './types';
 import { useDialog } from '.';
-
-const Button = styled.button`
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  padding-left: 10px;
-`;
 
 export const UiDialog: React.FC<UiDialogProps> = ({
   closeLabel,

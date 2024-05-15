@@ -8,9 +8,9 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
-  "main": "dist/index.js",
+  "main": "dist/index",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -21,24 +21,9 @@
     "eslint": "eslint ./src/**/*.ts ./__tests__/**/*.ts --max-warnings=0",
     "lint": "npm run tsc && npm run eslint",
     "test": "jest",
-    "watch": "tsc --watch"
+    "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
-  "exports": {
-    ".": "./src/index.ts",
-    "./*": [
-      "./src/*.ts",
-      "./src/*.tsx",
-      "./src/*/index.ts"
-    ]
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "src/*",
-        "src/*/index"
-      ]
-    }
-  },
+
   "peerDependencies": {
     "tslib": "^2.5.0"
   }

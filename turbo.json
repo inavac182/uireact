@@ -12,22 +12,18 @@
       ]
     },
     "build:publish": {
-      "outputs": ["dist/**"]
+      "dependsOn": ["^build:publish"],
+      "outputs": ["dist/**"],
+      "cache": false
     },
     "build": {
       "cache": true
     },
     "test": {
-      "dependsOn": [
-        "^build"
-      ],
       "cache": false
     },
     "lint": {
       "outputs": []
-    },
-    "dev": {
-      "cache": false
     },
     "dev:storybook": {
       "dependsOn": [
@@ -36,6 +32,7 @@
       "cache": false
     },
     "dev:docs": {
+      "dependsOn": ["^build:publish"],
       "cache": true
     },
     "docs:clean": {
@@ -45,6 +42,11 @@
       "cache": false
     },
     "clean": {
+      "cache": false
+    },
+    "watch": {
+      "dependsOn": ["^watch"],
+      "persistent": true,
       "cache": false
     }
   }
