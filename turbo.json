@@ -3,7 +3,7 @@
   "pipeline": {
     "build:docs": {
       "dependsOn": [
-        "^build"
+        "^build:publish"
       ],
       "outputs": [
         ".next/**",

@@ -5,11 +5,10 @@
   "license": "GNU",
   "version": "2.8.2",
   "publishConfig": {
-    "access": "public",
-    "directory": "dist"
+    "access": "public"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",

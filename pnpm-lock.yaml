@@ -140,7 +140,7 @@ importers:
         version: link:packages/validator
       '@uireact/view':
         specifier: workspace:*
-        version: link:packages/view/dist
+        version: link:packages/view
       add:
         specifier: ^2.0.6
         version: 2.0.6
@@ -260,7 +260,7 @@ importers:
         version: link:../../packages/tooltip
       '@uireact/view':
         specifier: workspace:*
-        version: link:../../packages/view/dist
+        version: link:../../packages/view
       framer-motion:
         specifier: ^11.0.18
         version: 11.2.0(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -403,7 +403,7 @@ importers:
         version: link:../../packages/tooltip
       '@uireact/view':
         specifier: workspace:*
-        version: link:../../packages/view/dist
+        version: link:../../packages/view
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -474,8 +474,7 @@ importers:
 
   packages/validator: {}
 
-  packages/view:
-    publishDirectory: dist
+  packages/view: {}
 
   platform/docs-tools: {}
 
