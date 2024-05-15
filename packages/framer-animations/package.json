@@ -7,8 +7,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "dist"
   ],

@@ -28,12 +28,14 @@
   "dependencies": {
     "@uireact/button": "workspace:*",
     "@uireact/foundation": "workspace:*",
-    "@uireact/framer-animations": "workspace:*"
+    "@uireact/framer-animations": "workspace:*",
+    "@uireact/icons": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/button": "^2.2.2",
     "@uireact/foundation": "^2.0.1",
     "@uireact/framer-animations": "^0.0.2",
+    "@uireact/icons": "^2.7.1",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
