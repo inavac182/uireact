@@ -36,6 +36,7 @@
     "platform/**/src",
   ],
   "exclude": [
+    "executables",
     "node_modules",
     "jest.config.ts",
     "coverage",
