@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/inavac182/ui-react/compare/@uireact/menu@2.8.3...@uireact/menu@2.8.4) (2024-05-16)
+
+
+### Bug Fixes
+
+* peers ([#337](https://github.com/inavac182/ui-react/issues/337)) ([2f463aa](https://github.com/inavac182/ui-react/commit/2f463aaa35fd8ffd3e37bcc1d3222f23cfc8ecc9))
+
+
+
+
+
 ## 2.8.3 (2024-05-15)
 
 
