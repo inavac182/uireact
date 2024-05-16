@@ -29,8 +29,12 @@ type ScriptCardProps = {
 };
 
 export const ScriptCard = ({ script }: ScriptCardProps) => {
+  const onScriptClick = useCallback(() => {
+    navigator.clipboard.writeText(script);
+  }, [script]);
+
   return (
-    <ScriptCardContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+    <ScriptCardContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={onScriptClick}>
       <UiFlexGrid direction='row' columnGap='four' alignItems='center'>
         <UiIcon icon="AngleSquareRight" />
         <span>{script}</span>

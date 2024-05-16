@@ -5,16 +5,18 @@ import Link from 'next/link';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-import { UiButtonLink, UiLink, UiText } from '@uireact/text';
+import { UiButtonLink, UiHeading, UiLink, UiText } from '@uireact/text';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
-
-import { InstallationScripts } from './components/installation-scripts';
 import { UiIcon } from '@uireact/icons';
 import { UiCard } from '@uireact/card';
+
+import { InstallationScripts } from './components/installation-scripts';
 import { DocHeading, DocSubHeading } from './components';
+import { ScriptCard } from '../internal';
 
 const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
+const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
 
 export default function Docs () {
     return (
@@ -36,6 +38,21 @@ export default function Docs () {
             </UiText>
             <br />
             <DocSubHeading>Installation</DocSubHeading>
+
+            <UiSpacing padding={contentSpacing}>
+                <UiHeading>Automatic setup ✨</UiHeading>
+                <UiText fontStyle="bold">
+                    This is the suggested approach for brand new projects:
+                </UiText>
+                <ScriptCard script="npx @uireact/create-next-app@latest" />
+                <UiText size="small">
+                    This script will generate a working NextJS project with everything you need set up in the folder you execute it.
+                </UiText>
+            </UiSpacing>
+
+            <UiSpacing padding={contentSpacing}>
+                <UiHeading>Manual setup 🛠️</UiHeading>
+            </UiSpacing>
             <UiText>Select the package manager you will be using:</UiText>
             <br />
             <InstallationScripts />
@@ -84,6 +101,7 @@ export const MyWrapper = ({ children }) => (
 );
             `}
           </SyntaxHighlighter>
+            <UiText size='small'>If you used the automatic script this has been taken care already</UiText>
             <br />
             <DocSubHeading>Theme</DocSubHeading>
             <br />
