@@ -36,16 +36,17 @@ export const Installation = () => {
           <br />
           <UiHeading>Manual setup</UiHeading>
         </UiSpacing>
-        
+        <UiText size="small">
+          We suppose you already have a react environment working, we suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> for your react app.
+          They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅🏾 styled components set up in Next JS</a></UiLink>.
+        </UiText>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">1.</UiText> Install peer dependencies:
+            <UiText inline category="tertiary" size="xlarge">1.</UiText> Set up dependencies:
           </UiHeading>
           <ScriptCard script="npm i -S styled-components framer-motion" />
-          <UiText size="small">
-            We suppose you already have a react environment working, we suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> for your react app.
-            They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅🏾 styled components set up in Next JS</a></UiLink>.
-            If not, you will need to get styled-components running in your React project.
+          <UiText>
+            Get styled-components up and running in your project.
           </UiText>
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
@@ -56,8 +57,10 @@ export const Installation = () => {
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">3.</UiText> Set up your UiView, by wrapping your entire react tree in the UiView component
+            <UiText inline category="tertiary" size="xlarge">3.</UiText> Set up your UiView
           </UiHeading>
+          <UiText>You need to wrap your react tree in the <UiLink><Link href="/docs/view" target="_blank">UiView</Link></UiLink> component</UiText>
+          <br />
           <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
             {`
 import React from 'react';
@@ -79,7 +82,7 @@ export const MyWrapper = () => (
           </UiHeading>
           <UiSpacing padding={contentSpacing}>
             <UiText>
-              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts">default theme</a></UiLink> so you can either use that or create your own. If you like the default theme then you can skip this step.
+              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts">default theme</a></UiLink> so you can use it or create your own. If you like the default theme then you can skip this step.
               </UiText>
             <br />
             <UiText>
