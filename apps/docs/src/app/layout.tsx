@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Press_Start_2P, Sen } from 'next/font/google'
 
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
   keywords: 'uireact, react, js, nodejs, react js, themed components, react components, react library, ui react library, dark theme react ui library, light theme react ui library '
 };
 
+const sen = Sen({ subsets: ['latin'], variable: '--font-family' });
+
+const pressStart = Press_Start_2P({ variable: '--press-start-font-family', style: 'normal', weight: '400', subsets: ['latin'] });
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,15 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={styles.globalStyles}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sen:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+      <head />
+      <body className={`${sen.variable} ${pressStart.variable}`}>
         <StyledComponentsRegistry>
           <DocsThemeProvider>
             <ViewWrapper>

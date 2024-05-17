@@ -15,7 +15,7 @@ export const ViewWrapper = ({ children }: ViewWrapperProps) => {
   const { selectedTheme } = useContext(DocsThemeContext);
 
   return (
-    <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper">
+    <UiView theme={DocsTheme} selectedTheme={selectedTheme} noBackground className="viewWrapper" skipFontName>
       {children}
     </UiView>
   );
