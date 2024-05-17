@@ -28,7 +28,8 @@
     "@uireact/button": "workspace:*",
     "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
-    "@uireact/framer-animations": "workspace:*"
+    "@uireact/framer-animations": "workspace:*",
+    "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/button": "^2.1.1",

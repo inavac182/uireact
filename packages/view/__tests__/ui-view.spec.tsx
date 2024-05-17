@@ -12,6 +12,7 @@ type MockedComponentProps = {
   className?: string;
   noBackground?: boolean;
   selectedTheme?: ThemeColor;
+  skipThemeDetector?: boolean;
 };
 
 const closeDialogMockedFn = jest.fn();
@@ -41,11 +42,12 @@ const DialogComponent = () => {
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
     theme={DefaultTheme}
-    selectedTheme={props.selectedTheme || ThemeColor.dark}
+    selectedTheme={props.selectedTheme}
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
     noBackground={props.noBackground}
+    skipThemeDetector={props.skipThemeDetector}
   >
     <p>Content</p>
     <DialogComponent />
@@ -65,6 +67,22 @@ const MockedComponentWithDialog = (props: MockedComponentProps) => (
 );
 
 describe('<UiView />', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(query => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // Deprecated
+        removeListener: jest.fn(), // Deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
+
   beforeEach(() => {
     closeDialogMockedFn.mockClear();
     openDialogMockedFn.mockClear();
@@ -72,6 +90,12 @@ describe('<UiView />', () => {
 
   it('renders fine', () => {
     render(<MockedComponent />);
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
+  it('renders fine with skip theme detector', () => {
+    render(<MockedComponent  skipThemeDetector selectedTheme={ThemeColor.light} />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });

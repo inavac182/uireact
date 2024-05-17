@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -29,6 +29,7 @@ import {
   SizesVariables,
   SpacingVariables,
 } from './__private';
+import { useThemeDetector } from './hooks';
 
 const GlobalStyle = createGlobalStyle<{ $customTheme: Theme }>`
   * {
@@ -76,24 +77,43 @@ export const UiView: React.FC<UiViewProps> = ({
   selectedTheme,
   children,
   noBackground = false,
+  skipThemeDetector
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
   const notificationsController = useNotificationsController();
   const confirmDialogController = useConfirmDialogController();
+  const isDarkEnabled = useThemeDetector();
+  const [internalSelectedTheme, setSelectedTheme] = useState(selectedTheme || ThemeColor.dark);
 
   useEffect(() => {
     if (selectedTheme === ThemeColor.light) {
+      setSelectedTheme(ThemeColor.light);
       document.documentElement.classList.add('light');
     } else {
+      setSelectedTheme(ThemeColor.dark);
       document.documentElement.classList.remove('light');
     }
   }, [selectedTheme]);
+
+  useEffect(() => {
+    if (skipThemeDetector) {
+      return;
+    }
+
+    if (isDarkEnabled) {
+      setSelectedTheme(ThemeColor.dark);
+      document.documentElement.classList.remove('light');
+    } else {
+      setSelectedTheme(ThemeColor.light);
+      document.documentElement.classList.add('light');
+    }
+  }, [isDarkEnabled, skipThemeDetector]);
 
   return (
     <>
       <GlobalStyle $customTheme={theme} />
       <Div className={className} data-testid="UiView" $noBackground={noBackground}>
-        <ThemeContext.Provider value={{ theme, selectedTheme }}>
+        <ThemeContext.Provider value={{ theme, selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
               <UiConfirmDialogContext.Provider value={confirmDialogController}>
