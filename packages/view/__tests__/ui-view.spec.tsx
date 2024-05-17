@@ -13,6 +13,7 @@ type MockedComponentProps = {
   noBackground?: boolean;
   selectedTheme?: ThemeColor;
   skipThemeDetector?: boolean;
+  skipFontName?: boolean;
 };
 
 const closeDialogMockedFn = jest.fn();
@@ -48,6 +49,7 @@ const MockedComponent = (props: MockedComponentProps) => (
     centeredContent={props.centeredContent}
     noBackground={props.noBackground}
     skipThemeDetector={props.skipThemeDetector}
+    skipFontName={props.skipFontName}
   >
     <p>Content</p>
     <DialogComponent />
@@ -96,6 +98,12 @@ describe('<UiView />', () => {
 
   it('renders fine with skip theme detector', () => {
     render(<MockedComponent  skipThemeDetector selectedTheme={ThemeColor.light} />);
+
+    expect(screen.getByText('Content')).toBeVisible();
+  });
+
+  it('renders fine with skip font name', () => {
+    render(<MockedComponent selectedTheme={ThemeColor.light} skipFontName />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });

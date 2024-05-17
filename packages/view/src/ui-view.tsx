@@ -31,6 +31,7 @@ import {
 } from './__private';
 import { useThemeDetector } from './hooks';
 
+/* istanbul ignore next */
 const GlobalStyle = createGlobalStyle<{ $customTheme: Theme, $skipFontName?: boolean }>`
   * {
     margin: 0;
