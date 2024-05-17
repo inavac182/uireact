@@ -5,11 +5,13 @@ export type UiViewProps = {
   /** If content should render centered and not fullscreen */
   centeredContent?: boolean;
   /** Selected color from theme */
-  selectedTheme: ThemeColor;
+  selectedTheme?: ThemeColor;
   /** Theme for the view */
   theme: Theme;
   /** If the view container should not render a bg */
   noBackground?: boolean;
+  /** Disables the theme detector for user's device */
+  skipThemeDetector?: boolean;
 } & UiReactElementProps;
 
 export type UiViewRowProps = {
