@@ -83,7 +83,7 @@ export const UiView: React.FC<UiViewProps> = ({
   const notificationsController = useNotificationsController();
   const confirmDialogController = useConfirmDialogController();
   const isDarkEnabled = useThemeDetector();
-  const [internalSelectedTheme, setSelectedTheme] = useState(ThemeColor.dark);
+  const [internalSelectedTheme, setSelectedTheme] = useState(selectedTheme || ThemeColor.dark);
 
   useEffect(() => {
     if (selectedTheme === ThemeColor.light) {

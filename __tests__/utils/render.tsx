@@ -13,7 +13,7 @@ type WrapperComponentProps = {
 
 const WrapperComponent: React.FC<WrapperComponentProps> = ({ children, selectedTheme }: WrapperComponentProps) => {
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme ?? ThemeColor.dark}>
+    <UiView theme={DefaultTheme} selectedTheme={selectedTheme ?? ThemeColor.dark} skipThemeDetector>
       {children}
     </UiView>
   );

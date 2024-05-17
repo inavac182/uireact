@@ -304,7 +304,23 @@ describe('<UiDialog />', () => {
 
   describe('Styling', () => {
     it('Should render with correct colorations', async () => {
-      uiRender(<MockedComponent handleDialogClose={handleDialogClose} title="Dialog title" />);
+      uiRender(<MockedComponent handleDialogClose={handleDialogClose} title="Dialog title" />, ThemeColor.dark);
+
+      expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
+      fireEvent.click(screen.getByText('Open Dialog'));
+
+      await waitFor(() => {
+        expect(screen.getByText('Dialog content')).toBeVisible();
+      });
+
+      expect(screen.getByTestId('UiDialogBackground')).toHaveStyleRule('background', 'black');
+      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
+      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+      expect(screen.getByTestId('UiDialogToolbar')).toHaveStyleRule('border-color', 'var(--primary-token_100)');
+    });
+
+    it('Should render with correct colorations on light theme', async () => {
+      uiRender(<MockedComponent handleDialogClose={handleDialogClose} title="Dialog title" />, ThemeColor.light);
 
       expect(screen.queryByText('Dialog content')).not.toBeInTheDocument();
       fireEvent.click(screen.getByText('Open Dialog'));
