@@ -28,20 +28,60 @@ This doc page is wrapped in a `< UiView />` component
 This is an example of our wrapper:
 
 ```jsx
-export const ViewExample: React.FC = () => {
-  const [selectedTheme, setTheme] = React.useState<ThemeColor>(ThemeColor.light);
-  const toogleTheme = () => {
-    setTheme(selectedTheme === ThemeColor.light ? ThemeColor.dark : ThemeColor.light);
-  };
-
-  return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme}>
-      <p>All the react tree should render inside here</p>
-      <UiButton onClick={toogleTheme}>Toggle theme</UiButton>
-    </UiView>
-  );
-};
+export const ViewExample: React.FC = () => (
+  <UiView theme={DefaultTheme}>
+    <p>All the react tree should render inside here</p>
+  </UiView>
+);
 ```
+By default, the `<UiView />` component will attach an event listener to the user's appearance selector. Meaning that they could control their
+theme through their device theme settings.
+
+### NextJS - Fonts optimized frameworks
+
+There are frameworks such as NextJS that [optimizes the font loading](https://nextjs.org/docs/app/building-your-application/optimizing/fonts), when you use this frameworks
+ you should rely on them for font loading, so the suggestion is to assign your main font to the `--font-name` variable, so all components
+ in the library can reference to it.  
+
+For example for NextJS this would look like:
+
+app/layout.tsx:
+
+```tsx
+
+import { Sen } from 'next/font/google'
+
+const sen = Sen({ subsets: ['latin'], variable: '--font-family' }); // Very IMPORTANT, variable should be --font-family.
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head />
+      <body className={sen.variable}> {/** Make sure the variable is used on the class name */}
+        <StyledComponentsRegistry>
+          <ViewWrapper>
+            {children}
+          </ViewWrapper>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
+  );
+}
+
+```
+Once that is set up you can then use `skipFontName` prop on UiView component:
+
+```tsx
+  <UiView theme={DefaultTheme} skipFontName>
+      {...content...}
+  </UiView>
+```
+
+If you used the automatic script to create your NextJS application, the generated project already handles this font set up.
 
 ### UiViewRow
 

@@ -31,7 +31,8 @@ import {
 } from './__private';
 import { useThemeDetector } from './hooks';
 
-const GlobalStyle = createGlobalStyle<{ $customTheme: Theme }>`
+/* istanbul ignore next */
+const GlobalStyle = createGlobalStyle<{ $customTheme: Theme, $skipFontName?: boolean }>`
   * {
     margin: 0;
     padding: 0;
@@ -45,7 +46,7 @@ const GlobalStyle = createGlobalStyle<{ $customTheme: Theme }>`
     ${DarkThemeStyleVariables}
     ${SizesVariables}
     ${SpacingVariables}
-    ${FontFamilyVariable}
+    ${props => !props.$skipFontName ? FontFamilyVariable : ''}
   }
 
   html.light {
@@ -60,10 +61,13 @@ const GlobalStyle = createGlobalStyle<{ $customTheme: Theme }>`
     font-weight: 400;
     width: 100%;
   }
+
+  a,p,span,label,input,select,button,h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-family);
+  }
 `;
 
 const Div = styled.div<privateViewProps>`
-  font-family: var(--font-family);
   font-size: var(--texts-regular);
   background-color: ${(props) => (props.$noBackground ? 'transparent' : 'var(--primary-token_100)')};
   transition: background 0.2s;
@@ -77,7 +81,8 @@ export const UiView: React.FC<UiViewProps> = ({
   selectedTheme,
   children,
   noBackground = false,
-  skipThemeDetector
+  skipThemeDetector,
+  skipFontName
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
   const notificationsController = useNotificationsController();
@@ -111,7 +116,7 @@ export const UiView: React.FC<UiViewProps> = ({
 
   return (
     <>
-      <GlobalStyle $customTheme={theme} />
+      <GlobalStyle $customTheme={theme} $skipFontName={skipFontName} />
       <Div className={className} data-testid="UiView" $noBackground={noBackground}>
         <ThemeContext.Provider value={{ theme, selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>

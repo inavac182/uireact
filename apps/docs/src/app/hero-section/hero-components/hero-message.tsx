@@ -9,7 +9,7 @@ const HeroHeading = styled.h1`
   text-align: center;
   font-size: 36px;
   margin: 0 auto;
-  font-family: "Press Start 2P", system-ui;
+  font-family: var(--press-start-font-family);
   color: #e0dede;
 
   @media screen and (max-width: 500px) {
@@ -20,6 +20,7 @@ const HeroHeading = styled.h1`
 const HeroLetter = styled(motion.span)`
   display: inline-block;
   color: var(--tertiary-token_100);
+  font-family: var(--press-start-font-family);
 
   @media screen and (max-width: '500px') {
     font-size: 10px;
@@ -31,7 +32,6 @@ const HeroLettersContainer = styled.div`
   font-size: 48px;
   font-weight: bold;
   margin: 50px auto;
-  font-family: "Press Start 2P", system-ui;
 
   @media screen and (max-width: 500px) {
     font-size: 18px;

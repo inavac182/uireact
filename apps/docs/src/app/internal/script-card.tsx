@@ -18,7 +18,7 @@ export const ScriptCardContainer = styled(motion.div)`
 `;
 
 export const ScriptSpan = styled(motion.span)`
-  font-family: "Press Start 2P", system-ui;
+  font-family: var(--press-start-font-family);
   text-wrap: wrap;
   font-size: 10px;
   cursor: pointer;
@@ -37,7 +37,7 @@ export const ScriptCard = ({ script }: ScriptCardProps) => {
     <ScriptCardContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={onScriptClick}>
       <UiFlexGrid direction='row' columnGap='four' alignItems='center'>
         <UiIcon icon="AngleSquareRight" />
-        <span>{script}</span>
+        <ScriptSpan>{script}</ScriptSpan>
       </UiFlexGrid>
     </ScriptCardContainer>
   )

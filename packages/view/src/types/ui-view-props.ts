@@ -12,6 +12,8 @@ export type UiViewProps = {
   noBackground?: boolean;
   /** Disables the theme detector for user's device */
   skipThemeDetector?: boolean;
+  /** Skips font name style rule, useful for frameworks that handle font installation like NextJS */
+  skipFontName?: boolean;
 } & UiReactElementProps;
 
 export type UiViewRowProps = {
