@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/inavac182/uireact/compare/@uireact/view@2.9.0...@uireact/view@2.10.0) (2024-05-17)
+
+
+### Features
+
+* **view:** skip font name prop ([#340](https://github.com/inavac182/uireact/issues/340)) ([6cedb21](https://github.com/inavac182/uireact/commit/6cedb21216157b150c0808751dcd98c5e7765b6e))
+
+
+
+
+
 # 2.9.0 (2024-05-17)
 
 
