@@ -29,6 +29,7 @@
     "@uireact/charts": "workspace:*",
     "@uireact/confirm-dialog": "workspace:*",
     "@uireact/create-next-app": "workspace:*",
+    "@uireact/create-remix-app": "workspace:*",
     "@uireact/datepicker": "workspace:*",
     "@uireact/dialog": "workspace:*",
     "@uireact/docs-tools": "workspace:*",
