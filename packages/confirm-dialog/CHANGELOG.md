@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@1.5.4...@uireact/confirm-dialog@1.6.0) (2024-05-17)
+
+
+### Features
+
+* **view:** adding theme detector in UiView ([#339](https://github.com/inavac182/uireact/issues/339)) ([85a5cf7](https://github.com/inavac182/uireact/commit/85a5cf725a02158e99edf8acb1b20cd611188e9c))
+
+
+
+
+
 ## [1.5.4](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@1.5.3...@uireact/confirm-dialog@1.5.4) (2024-05-16)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.9.0 (2024-05-17)
+
+
+### Features
+
+* **view:** adding theme detector in UiView ([#339](https://github.com/inavac182/uireact/issues/339)) ([85a5cf7](https://github.com/inavac182/uireact/commit/85a5cf725a02158e99edf8acb1b20cd611188e9c))
+
+
+
+
+
 ## [2.8.4](https://github.com/inavac182/uireact/compare/@uireact/view@2.8.3...@uireact/view@2.8.4) (2024-05-15)
 
 
