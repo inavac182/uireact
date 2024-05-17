@@ -59,6 +59,8 @@ p {
 }
                     `}
                 </Pre>
+                <UiText fontStyle="bold"><UiIcon icon="Info" /> If you are using a framework that preloads fonts like NextJS, then you can SHOULD use prop `skipFontName` in UiView.</UiText>
+                <br />
                 <FontNameForm />
                 <br />
                 <FontColor />

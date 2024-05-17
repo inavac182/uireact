@@ -46,8 +46,9 @@
     },
     "watch": {
       "dependsOn": ["^watch"],
+      "outputs": ["dist/**"],
       "persistent": true,
-      "cache": false
+      "cache": true
     }
   }
 }
