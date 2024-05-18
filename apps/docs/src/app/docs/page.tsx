@@ -44,9 +44,15 @@ export default function Docs () {
                 <UiText fontStyle="bold">
                     This is the suggested approach for brand new projects:
                 </UiText>
+                <br />
+                <UiText fontStyle="bold">Next JS</UiText>
                 <ScriptCard script="npx @uireact/create-next-app@latest" />
+                <br />
+                <UiText fontStyle="bold">Remix</UiText>
+                <ScriptCard script="npx @uireact/create-remix-app@latest" />
+                <br />
                 <UiText size="small">
-                    This script will generate a working NextJS project with everything you need set up in the folder you execute it.
+                    This script will generate a working project with everything you need set up in the folder you execute it.
                 </UiText>
             </UiSpacing>
 
