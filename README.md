@@ -12,14 +12,35 @@
 You should see our docs: [uireact.io](https://uireact.io).
 
 ## Quick set up ⚙️
+If you are starting a brand new project you can run these 2 scripts which will generate a fully configured project:
 
-1. Install the peer dependencies: 
+**Next Js**
+
 ```
-npm i -S styled-components react react-dom tslib
+npx @uireact/create-next-app@latest
+```
+
+**Remix**
+
+```
+npx @uireact/create-remix-app@latest
+```
+
+If the project already exists and you want to add this library then you will have to manually set it up.
+
+## Manual set up 🛠️
+
+1. Install and set up the peer dependencies: 
+```
+npm i -S styled-components framer-motion
 ```
 <small>You can define which versions of each one to use...</small>
+Check your JS framework for CSS-IN-JS to learn what you need to do to set up styled-components on the framework you are using.
 
-2. Install these packages:
+We have examples for setting this up in NextJS here: [NexJS with @UiReact](https://github.com/inavac182/next-js-w-uireact) and
+Remix: [Remix with @UiReact](https://github.com/inavac182/remix-w-uireact).
+
+2. Install the main packages:
 ```
 npm i -S @uireact/foundation @uireact/view
 ```
