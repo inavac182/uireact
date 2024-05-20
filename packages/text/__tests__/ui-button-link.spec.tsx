@@ -24,6 +24,16 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine with spacing', () => {
+    uiRender(
+      <UiButtonLink padding={{all: 'five'}} margin={{all: 'four'}}>
+        <a href="#">Link</a>
+      </UiButtonLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
   it('renders fine with options', () => {
     uiRender(
       <UiButtonLink category="positive" size="large" inverseTextColoration fullWidth fontStyle="bold" wrap>

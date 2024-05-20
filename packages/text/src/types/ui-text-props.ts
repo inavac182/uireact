@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
 
 export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
 
@@ -25,6 +25,10 @@ export type UiTextProps = {
   /** Align text left or right, default LEFT */
   align?: 'left' | 'right';
   wrap?: boolean;
+  /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  margin?: SpacingDistribution;
+  /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  padding?: SpacingDistribution;
 } & UiReactElementProps;
 
 export type privateTextProps = {
@@ -42,4 +46,6 @@ export type privateTextProps = {
   $align?: 'left' | 'right';
   $wrap?: boolean;
   $theme: Theme;
+  $margin?: SpacingDistribution;
+  $padding?: SpacingDistribution;
 };

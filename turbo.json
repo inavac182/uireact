@@ -32,7 +32,6 @@
       "cache": false
     },
     "dev:docs": {
-      "dependsOn": ["^build:publish"],
       "cache": true
     },
     "docs:clean": {
@@ -45,7 +44,6 @@
       "cache": false
     },
     "watch": {
-      "dependsOn": ["^watch"],
       "outputs": ["dist/**"],
       "persistent": true,
       "cache": true

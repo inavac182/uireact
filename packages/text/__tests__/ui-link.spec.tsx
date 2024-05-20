@@ -26,6 +26,16 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders fine with spacing', () => {
+    uiRender(
+      <UiLink padding={{ all: 'four' }} margin={{ all: 'five' }}>
+        <a href="#">Link</a>
+      </UiLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+  });
+
   it('renders fine with wrap', () => {
     uiRender(
       <UiLink wrap>

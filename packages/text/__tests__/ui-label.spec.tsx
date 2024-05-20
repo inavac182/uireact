@@ -16,6 +16,15 @@ describe('<UiLabel />', () => {
     expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
+  it('renders fine with spacing', () => {
+    uiRender(<UiLabel margin={{all: 'five'}} padding={{all: 'four'}}>Text</UiLabel>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByText('Text')).toHaveStyleRule('margin', 'var(--spacing-five)');
+    expect(screen.getByText('Text')).toHaveStyleRule('padding', 'var(--spacing-four)');
+  });
+
   it('renders fine with category', () => {
     uiRender(<UiLabel category="positive">Text</UiLabel>);
 
