@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 
 import { styled } from 'styled-components';
 
-import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
+import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getSpacingStyle, getThemeColor } from '@uireact/foundation';
 
 import { UiLabelProps, privateLabelProps } from './types';
 
@@ -32,10 +32,9 @@ const Label = styled.label<privateLabelProps>`
     ${!props.$coloration ? `color: var(--${getColorCategory(props.$category)}-token_100);` : ''}
     ${`font-size: var(--texts-${props.$size});`}
     ${`line-height: var(--texts-${props.$size});`}
+    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
+    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
   `}
-
-  padding: 0;
-  margin: 0;
 `;
 
 export const UiLabel: React.FC<UiLabelProps> = ({
@@ -44,10 +43,12 @@ export const UiLabel: React.FC<UiLabelProps> = ({
   htmlFor,
   size = 'small',
   category,
+  margin,
+  padding
 }: UiLabelProps) => {
   const { theme } = useContext(ThemeContext);
   return (
-    <Label $size={size} $coloration={coloration} $category={category} htmlFor={htmlFor} $theme={theme}>
+    <Label $size={size} $coloration={coloration} $category={category} htmlFor={htmlFor} $theme={theme} $margin={margin} $padding={padding}>
       {children}
     </Label>
   );

@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
 
 import { FontStyle } from './ui-text-props';
 
@@ -21,6 +21,10 @@ export type UiButtonLinkProps = {
   inverseTextColoration?: boolean;
   /* Defaults the element to a specific theme coloration */
   coloration?: 'dark' | 'light';
+  /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  margin?: SpacingDistribution;
+  /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  padding?: SpacingDistribution;
 } & UiReactElementProps;
 
 export type privateButtonLinkProps = {
@@ -36,4 +40,6 @@ export type privateButtonLinkProps = {
   /** If link text should render inverse text coloration */
   $inverseTextColoration?: boolean;
   $theme: Theme;
+  $margin?: SpacingDistribution;
+  $padding?: SpacingDistribution;
 };

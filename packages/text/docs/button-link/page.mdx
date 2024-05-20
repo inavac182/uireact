@@ -13,7 +13,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 ## Installation
 
-> npm i @uireact/foundation @uireact/text
+> npm i -S @uireact/text
 
 ## Usage
 
@@ -23,15 +23,13 @@ import { Metadata } from '@uireact/docs-tools';
   </UiButtonLink>
 ```
 
-### UiButtonLink - with options
+### UiButtonLink - with options and spacing
 
 ```jsx live scope={{UiButtonLink, UiSpacing, UiIcon}}
-  <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic">
-    <UiSpacing padding={{ block: 'four' }}>
+  <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic" padding={{ block: 'five' }}>
       <a href="https://uireact.io/">
         Some text <UiIcon icon="Link" inverseColoration />{' '}
       </a>
-    </UiSpacing>
   </UiButtonLink>
 ```
 
@@ -39,10 +37,9 @@ import { Metadata } from '@uireact/docs-tools';
 
 ```jsx live scope={{UiButtonLink}}
 <>
-  <UiButtonLink coloration="dark">
+  <UiButtonLink coloration="dark" margin={{ block: 'four' }}>
     <a href="https://uireact.io/">Will always render text as DARK coloration</a>
   </UiButtonLink>
-  <br />
   <UiButtonLink coloration="light">
     <a href="https://uireact.io/">Will always render text as LIGHT coloration</a>
   </UiButtonLink>

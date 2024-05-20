@@ -10,6 +10,7 @@ import {
   ThemeContext,
   getColorCategory,
   getThemeColor,
+  getSpacingStyle
 } from '@uireact/foundation';
 
 import { UiTextProps, privateTextProps } from './types';
@@ -40,10 +41,8 @@ const SharedStyle = css<privateTextProps>`
         ? `color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);`
         : ''
     }
-    
-    padding: 0;
-    margin: 0;
-
+    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
+    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
     ${
       props.$wrap
         ? `
@@ -75,6 +74,8 @@ export const UiText: React.FC<UiTextProps> = ({
   category,
   inverseColoration,
   wrap,
+  margin,
+  padding
 }: UiTextProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -92,6 +93,8 @@ export const UiText: React.FC<UiTextProps> = ({
         $coloration={coloration}
         $wrap={wrap}
         $theme={theme}
+        $margin={margin}
+        $padding={padding}
       >
         {children}
       </Span>
@@ -111,6 +114,8 @@ export const UiText: React.FC<UiTextProps> = ({
       $coloration={coloration}
       $wrap={wrap}
       $theme={theme}
+      $margin={margin}
+      $padding={padding}
     >
       {children}
     </Text>

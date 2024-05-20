@@ -17,6 +17,15 @@ describe('<UiHeading />', () => {
     expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
+  it('renders fine with default level spacing', () => {
+    uiRender(<UiHeading margin={{ all: 'four' }} padding={{all: 'five'}}>Heading</UiHeading>);
+
+    expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
+    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByRole('heading')).toHaveStyleRule('margin', 'var(--spacing-four)');
+    expect(screen.getByRole('heading')).toHaveStyleRule('padding', 'var(--spacing-five)');
+  });
+
   it('renders fine when is wrapped', () => {
     uiRender(<UiHeading wrap>Heading</UiHeading>);
 
@@ -31,7 +40,6 @@ describe('<UiHeading />', () => {
   });
 
   it('renders fine when level is unrecognized', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     uiRender(<UiHeading level="XXXXX">Heading</UiHeading>);
 

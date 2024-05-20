@@ -7,6 +7,7 @@ import {
   ColorCategories,
   ColorTokens,
   getColorCategory,
+  getSpacingStyle,
   getThemeColor,
   ThemeColor,
   ThemeContext,
@@ -24,6 +25,8 @@ const ButtonWrapper = styled.button<privateButtonLinkProps>`
     border-color: var(--${getColorCategory(props.$category)}-token_50);
     border-width: 1px;
     ${props.$fullWidth ? 'width: 100%;' : ''}
+    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : 'padding: 10px;'}
+    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
   `}
 
   &:hover {
@@ -77,7 +80,6 @@ const ButtonWrapper = styled.button<privateButtonLinkProps>`
       ${props.$wrap ? `text-overflow: ellipsis;white-space: nowrap;overflow: hidden !important;` : ''}
     `}
 
-    padding: 10px;
     cursor: pointer;
     outline: none;
     text-decoration: none;
@@ -96,6 +98,8 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   testId,
   wrap,
   inverseTextColoration,
+  margin,
+  padding
 }: UiButtonLinkProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -112,6 +116,8 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
       $wrap={wrap}
       $inverseTextColoration={inverseTextColoration}
       $theme={theme}
+      $margin={margin}
+      $padding={padding}
     >
       {children}
     </ButtonWrapper>

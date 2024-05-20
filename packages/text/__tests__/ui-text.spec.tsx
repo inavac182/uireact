@@ -16,6 +16,15 @@ describe('<UiText />', () => {
     expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
   });
 
+  it('renders fine with spacing', () => {
+    uiRender(<UiText margin={{ all: 'four' }} padding={{ all: 'three' }}>Text</UiText>);
+
+    expect(screen.getByText('Text')).toBeVisible();
+    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByText('Text')).toHaveStyleRule('margin', 'var(--spacing-four)');
+    expect(screen.getByText('Text')).toHaveStyleRule('padding', 'var(--spacing-three)');
+  });
+
   it('renders fine with class name', () => {
     uiRender(<UiText className="text">Text</UiText>);
 
@@ -67,7 +76,6 @@ describe('<UiText />', () => {
   });
 
   it('renders fine with inverse coloration only in light theme with category', () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     uiRender(<UiText inverseColoration={'ssss'}>Text</UiText>, ThemeColor.light);
 
@@ -164,7 +172,6 @@ describe('<UiText />', () => {
 
   it('renders fine when state is unrecognized', () => {
     uiRender(
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       <UiText size="large" category="XXXXXX">
         Text

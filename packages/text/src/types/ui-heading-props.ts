@@ -1,4 +1,4 @@
-import { Theme, UiReactElementProps } from '@uireact/foundation';
+import { SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
 import { InverseColorationProp } from './ui-text-props';
 
 export type UiHeadingProps = {
@@ -12,6 +12,10 @@ export type UiHeadingProps = {
   inverseColoration?: boolean | InverseColorationProp;
   /* Defaults the element to a specific theme coloration */
   coloration?: 'dark' | 'light';
+  /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  margin?: SpacingDistribution;
+  /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
+  padding?: SpacingDistribution;
 } & UiReactElementProps;
 
 export type privateHeadingProps = {
@@ -21,4 +25,6 @@ export type privateHeadingProps = {
   $inverseColoration?: boolean | InverseColorationProp;
   $coloration?: 'dark' | 'light';
   $theme: Theme;
+  $margin?: SpacingDistribution;
+  $padding?: SpacingDistribution;
 };

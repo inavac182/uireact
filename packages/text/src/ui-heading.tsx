@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { styled, css } from 'styled-components';
 
 import { UiHeadingProps, privateHeadingProps } from './types';
-import { ColorCategories, ColorTokens, ThemeColor, ThemeContext, getThemeColor } from '@uireact/foundation';
+import { ColorCategories, ColorTokens, ThemeColor, ThemeContext, getSpacingStyle, getThemeColor } from '@uireact/foundation';
 
 const commonStyles = css<privateHeadingProps>`
   ${(props) => `
@@ -32,10 +32,10 @@ const commonStyles = css<privateHeadingProps>`
           text-overflow: ellipsis;`
         : ``
     }
+    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
+    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
   `}
 
-  padding: 0;
-  margin: 0;
   font-weight: bold;
 `;
 
@@ -65,6 +65,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   centered,
   children,
   wrap,
+  margin,
+  padding
 }: UiHeadingProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -78,6 +80,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H1>
@@ -91,6 +95,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H2>
@@ -104,6 +110,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H3>
@@ -117,6 +125,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H4>
@@ -130,6 +140,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H5>
@@ -143,6 +155,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H6>
@@ -156,6 +170,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
           $wrap={wrap}
           $inverseColoration={inverseColoration}
           $theme={theme}
+          $margin={margin}
+          $padding={padding}
         >
           {children}
         </H3>

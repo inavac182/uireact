@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 
 import { styled } from 'styled-components';
 
-import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getThemeColor } from '@uireact/foundation';
+import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getSpacingStyle, getThemeColor } from '@uireact/foundation';
 
 import { UiLinkProps, privateLinkProps } from './types';
 
@@ -49,6 +49,8 @@ const AnchorWrapper = styled.span<privateLinkProps>`
       ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
       ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
       ${props.$wrap ? `text-overflow: ellipsis;white-space: nowrap;overflow: hidden !important;` : ''}
+      ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
+      ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
     `}
 
     cursor: pointer;
@@ -68,6 +70,8 @@ export const UiLink: React.FC<UiLinkProps> = ({
   size = 'regular',
   testId,
   wrap,
+  margin,
+  padding
 }: UiLinkProps) => {
   const { theme } = useContext(ThemeContext);
 
@@ -83,6 +87,8 @@ export const UiLink: React.FC<UiLinkProps> = ({
       data-testid={testId}
       $wrap={wrap}
       $theme={theme}
+      $margin={margin}
+      $padding={padding}
     >
       {children}
     </AnchorWrapper>
