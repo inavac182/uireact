@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.9.0 (2024-05-20)
+
+
+### Features
+
+* **text:** adding spacing to typography components ([#342](https://github.com/inavac182/ui-react/issues/342)) ([44210e1](https://github.com/inavac182/ui-react/commit/44210e1e87569eab4c95b6057d904481efb569d0))
+
+
+
+
+
 ## 2.8.2 (2024-05-15)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.4 (2024-05-20)
+
+**Note:** Version bump only for package @uireact/progress-indicator
+
+
+
+
+
 ## [2.5.3](https://github.com/inavac182/uireact/compare/@uireact/progress-indicator@2.5.2...@uireact/progress-indicator@2.5.3) (2024-05-16)
 
 **Note:** Version bump only for package @uireact/progress-indicator

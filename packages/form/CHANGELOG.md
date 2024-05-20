@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.8.3 (2024-05-20)
+
+**Note:** Version bump only for package @uireact/form
+
+
+
+
+
 ## 2.8.2 (2024-05-15)
 
 
