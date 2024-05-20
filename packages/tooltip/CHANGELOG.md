@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/inavac182/uireact/compare/@uireact/tooltip@1.6.3...@uireact/tooltip@1.7.0) (2024-05-20)
+
+
+### Features
+
+* **tooltip:** adding animation on render ([da369e4](https://github.com/inavac182/uireact/commit/da369e47a0e6ac8a1aef5fa5a4bcf29e0753f75e))
+
+
+
+
+
 ## 1.6.3 (2024-05-20)
 
 **Note:** Version bump only for package @uireact/tooltip
