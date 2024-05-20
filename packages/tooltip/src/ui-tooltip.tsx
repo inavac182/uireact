@@ -1,8 +1,10 @@
 'use client';
 import React, { useCallback, useState } from 'react';
 import { styled } from 'styled-components';
+import { animate, motion } from 'framer-motion';
 
 import { UiText } from '@uireact/text';
+import { UiReactFadeDown, UiReactFadeLeft, UiReactFadeRight, UiReactFadeUp } from '@uireact/framer-animations';
 
 import { UiTooltipProps, privateTooltipProps } from './types';
 
@@ -11,7 +13,7 @@ const Div = styled.div`
   display: inline-block;
 `;
 
-const ToolbarDiv = styled.div<privateTooltipProps>`
+const ToolbarDiv = styled(motion.div)<privateTooltipProps>`
   position: absolute;
   border-radius: 4px;
   padding: 6px;
@@ -94,6 +96,20 @@ const ToolbarDiv = styled.div<privateTooltipProps>`
   }}
 `;
 
+const getAnimation = (position?: 'top' | 'bottom' | 'left' | 'right') => {
+  if (position === 'top') {
+    return { initial: { x: "-50%", y: "10px"}, animate: { x: "-50%", y: "0px" } };
+  } else if (position === 'bottom') {
+    return { initial: { x: "-50%", y: "-10px"}, animate: { x: "-50%", y: "0px" } };
+  } else if (position === 'left') {
+    return { initial: { x: "10%", y: "-50%"}, animate: { x: "0%", y: "-50%" } };
+  } else if (position === 'right') {
+    return { initial: { x: "-10%", y: "-50%"}, animate: { x: "0%", y: "-50%" } };
+  } else {
+    return { initial: { x: "-50%", y: "10px"}, animate: { x: "-50%", y: "0px" } };
+  }
+};
+
 export const UiTooltip: React.FC<UiTooltipProps> = ({
   category = 'primary',
   children,
@@ -101,10 +117,10 @@ export const UiTooltip: React.FC<UiTooltipProps> = ({
   inverse = true,
   position,
   text,
-  testId,
+  testId
 }: UiTooltipProps) => {
   const [toolbarVisible, setToolbarVisible] = useState(false);
-
+  const animation = getAnimation(position);
   const onMouseEnter = useCallback(() => {
     setToolbarVisible(true);
   }, [setToolbarVisible]);
@@ -124,6 +140,7 @@ export const UiTooltip: React.FC<UiTooltipProps> = ({
           role="tooltip"
           $category={category}
           $inverse={inverse}
+          {...animation}
         >
           <UiText inverseColoration={inverse}>{text}</UiText>
         </ToolbarDiv>

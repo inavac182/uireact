@@ -1,4 +1,5 @@
 import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
+import { MotionProps } from 'framer-motion';
 
 export type UiTooltipProps = {
   text: string;
