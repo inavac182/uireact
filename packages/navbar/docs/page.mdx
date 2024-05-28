@@ -1,9 +1,11 @@
 import { UiCard } from '@uireact/card';
 import { UiViewport, Breakpoints } from '@uireact/foundation';
 import { UiText, UiLink } from '@uireact/text';
+import { UiIcon } from '@uireact/icons';
 import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
-import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
+
+import packageJson from './package-metadata.json';
 
 # UiNavbar & UiNavbarItem
 
@@ -105,16 +107,49 @@ The rounded prop let you configure the rounded corners for navbar items
 - Edges: Only the items at the edges will have rounded corners
 - None: The item will render squared
 
+## Usage with icons in navbar
+
+This is an example of our docs navbar
+
+```jsx live scope={{UiNavbar, UiNavbarItem, UiText, UiIcon, UiLink}}
+  <UiNavbar 
+    orientation="stacked" 
+    rounded="all" 
+    styling="filled" 
+    gap="five" 
+    category="primary" 
+    hoverColoration="light"
+    noBackground
+  >
+    <UiNavbarItem active>
+      <UiLink padding={{ block: 'four', inline: 'four' }}>
+        <a href="#">
+          <UiIcon icon="Settings" /> Option 1
+        </a>
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiLink padding={{ block: 'four', inline: 'four' }}>
+        <a href="#">
+          <UiIcon icon="BatteryFull" /> Option 2
+        </a>
+      </UiLink>
+    </UiNavbarItem>
+  </UiNavbar>
+```
+
+## Usage with rounded edges and filled styling
+
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar rounded="edges" styling="filled" category="tertiary">
     <UiNavbarItem active>
-      <UiText>Option 1</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 1</UiText>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 2</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 2</UiText>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 3</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 3</UiText>
     </UiNavbarItem>
   </UiNavbar>
 ```
@@ -124,10 +159,10 @@ The rounded prop let you configure the rounded corners for navbar items
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar rounded="all" styling="filled" gap="five" category="primary" hoverColoration="light">
     <UiNavbarItem active>
-      <UiText>Option 1</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 1</UiText>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 2</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 2</UiText>
     </UiNavbarItem>
   </UiNavbar>
 ```
@@ -137,10 +172,10 @@ The rounded prop let you configure the rounded corners for navbar items
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar orientation="stacked" styling="bordered" gap="four" category="tertiary" noBackground>
     <UiNavbarItem active>
-      <UiText>Option 1</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 1</UiText>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 2</UiText>
+      <UiText padding={{block: 'three', inline: 'four'}}>Option 2</UiText>
     </UiNavbarItem>
   </UiNavbar>
 ```

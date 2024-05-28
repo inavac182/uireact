@@ -32,6 +32,10 @@ const Div = styled.div<NavbarItemWrapperProps>`
     ${!props.$noBackground ? `background-color: var(--${props.$category}-token_100);` : ''}
   `}
 
+  a {
+    display: block;
+  }
+
   > :first-child {
     transition: background 0.2s, border-left 0.2s;
     box-sizing: border-box;
