@@ -1,6 +1,6 @@
 {
-    "events": {
-      "start": "turbo run docs:clean && node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run watch --concurrency 28",
-      "restart": "node ./scripts/build-docs.js"
-    }
+  "events": {
+    "start": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js",
+    "restart": "node ./scripts/build-docs.js"
   }
+}

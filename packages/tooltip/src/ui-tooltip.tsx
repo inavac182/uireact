@@ -1,10 +1,9 @@
 'use client';
 import React, { useCallback, useState } from 'react';
 import { styled } from 'styled-components';
-import { animate, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { UiText } from '@uireact/text';
-import { UiReactFadeDown, UiReactFadeLeft, UiReactFadeRight, UiReactFadeUp } from '@uireact/framer-animations';
 
 import { UiTooltipProps, privateTooltipProps } from './types';
 

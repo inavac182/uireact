@@ -6,14 +6,14 @@
         "^build:publish"
       ],
       "outputs": [
-        ".next/**",
+        "./apps/docs/.next/**",
         "!.next/cache/**",
-        "dist/**"
+        "./packages/**/dist/**"
       ]
     },
     "build:publish": {
       "dependsOn": ["^build:publish"],
-      "outputs": ["dist/**"],
+      "outputs": ["./packages/**/dist/**"],
       "cache": false
     },
     "build": {
@@ -32,19 +32,23 @@
       "cache": false
     },
     "dev:docs": {
+      "outputs": [
+        "./packages/**/dist/**",
+        "./apps/docs/.next/**"
+      ],
       "cache": true
     },
     "docs:clean": {
-      "cache": false
+      "cache": true
     },
     "start": {
       "cache": false
     },
     "clean": {
-      "cache": false
+      "cache": true
     },
     "watch": {
-      "outputs": ["dist/**"],
+      "outputs": ["./packages/**/dist/**"],
       "persistent": true,
       "cache": true
     }

@@ -9,7 +9,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 <Metadata packageName='navbar' packageJson={packageJson} />
 
-> Render navbars for menus
+> Creates a navbar container and provides components to provide styling and coloration based on the theme
 
 ## Installation
 
@@ -18,58 +18,41 @@ import { Metadata } from '@uireact/docs-tools';
 ## Usage as a stacked navbar
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiLink}}
-  <UiNavbar orientation="stacked">
+  <UiNavbar orientation="stacked" noBackground appearance="rounded">
     <UiNavbarItem>
-      <UiLink href="https://uireact.io" fullWidth>
-        Option 1
+      <UiLink fullWidth>
+        <a href="https://uireact.io" target="_blank">
+          Option 1
+        </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
       <UiLink href="https://uireact.io" fullWidth>
-        Option 2
+        <a href="https://uireact.io" target="_blank">
+          Option 2
+        </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem active>
       <UiLink href="https://uireact.io" fullWidth>
-        Option 3
+        <a href="https://uireact.io" target="_blank">
+          Option 3
+        </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
       <UiLink href="https://uireact.io" fullWidth>
-        Option 4
+        <a href="https://uireact.io" target="_blank">
+          Option 4
+        </a>
       </UiLink>
     </UiNavbarItem>
   </UiNavbar>
 ```
-
-## Usage inside a card
-
-```jsx live scope={{UiNavbar, UiNavbarItem, UiLink, UiCard}}
-  <UiCard noPadding>
-    <UiNavbar orientation="stacked" roundedCorners>
-      <UiNavbarItem>
-        <UiLink href="https://uireact.io" fullWidth>
-          Option 1
-        </UiLink>
-      </UiNavbarItem>
-      <UiNavbarItem>
-        <UiLink href="https://uireact.io" fullWidth>
-          Option 2
-        </UiLink>
-      </UiNavbarItem>
-      <UiNavbarItem active>
-        <UiLink href="https://uireact.io" fullWidth>
-          Option 3
-        </UiLink>
-      </UiNavbarItem>
-    </UiNavbar>
-  </UiCard>
-```
-
 ## Usage as an inline navbar
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
-  <UiNavbar orientation="inline" align="start" stretchItems>
+  <UiNavbar orientation="inline" stretch noBackground>
     <UiNavbarItem>
       <UiText>Option 1</UiText>
     </UiNavbarItem>
@@ -79,10 +62,80 @@ import { Metadata } from '@uireact/docs-tools';
   </UiNavbar>
 ```
 
-## With bordered styling and gap
+## Usage with category and hoverColoration
+
+```jsx live scope={{UiNavbar, UiNavbarItem, UiLink, UiCard}}
+  <UiNavbar category="primary" hoverColoration="dark" noBackground>
+    <UiNavbarItem>
+      <UiLink fullWidth>
+        <a href="https://uireact.io" target="_blank">
+          Option 1
+        </a>
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiLink fullWidth>
+        <a href="https://uireact.io" target="_blank">
+          Option 2
+        </a>
+      </UiLink>
+    </UiNavbarItem>
+    <UiNavbarItem active>
+      <UiLink fullWidth>
+        <a href="https://uireact.io" target="_blank">
+          Option 3
+        </a>
+      </UiLink>
+    </UiNavbarItem>
+  </UiNavbar>
+```
+
+## Styling and appearance
+
+We have added a few possibilities for styling and appearance. 
+
+The styling will orchestrate the coloration scheme:
+
+- Bordered: Only a border of the item will be highlighted
+- Filled: The entire item will be highlighted
+
+The appearance prop will orchestrate the item appearance
+
+- Rounded: The item will render with rounded items
+- RoundedEdges: Them items at the edges will be rounded
+- Squared: The item will render squared
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
-  <UiNavbar orientation="stacked" align="start" styling="bordered" gap="five" category="tertiary">
+  <UiNavbar appearance="roundedEdges" styling="filled" category="tertiary">
+    <UiNavbarItem active>
+      <UiText>Option 1</UiText>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiText>Option 2</UiText>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiText>Option 3</UiText>
+    </UiNavbarItem>
+  </UiNavbar>
+```
+
+## With filled styling, rounded appearance and hoverColoration light
+
+```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
+  <UiNavbar appearance="rounded" styling="filled" gap="five" category="primary" hoverColoration="light">
+    <UiNavbarItem active>
+      <UiText>Option 1</UiText>
+    </UiNavbarItem>
+    <UiNavbarItem>
+      <UiText>Option 2</UiText>
+    </UiNavbarItem>
+  </UiNavbar>
+```
+
+## With bordered styling, noBackground and gap
+
+```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
+  <UiNavbar orientation="stacked" styling="bordered" gap="four" category="tertiary" noBackground>
     <UiNavbarItem active>
       <UiText>Option 1</UiText>
     </UiNavbarItem>

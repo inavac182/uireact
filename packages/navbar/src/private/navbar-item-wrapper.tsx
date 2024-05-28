@@ -4,17 +4,13 @@ import { styled } from 'styled-components';
 
 import { ColorCategory, getColorCategory } from '@uireact/foundation';
 
-import { Alignment, NavbarStyling, Orientation } from '../types';
-import { getBorderRadiusStyling } from '../utils';
+import { NavbarAppearance, NavbarColoration, NavbarStyling, NavbarOrientation } from '../types';
+import { getBorderRadiusStyling, getColorationToken } from '../utils';
 
 type NavbarItemWrapperProps = {
   children: React.ReactNode;
   /**  Stacked will render all options vertically - INLINE Default */
-  $orientation?: Orientation;
-  /** Navbar alignment */
-  $align?: Alignment;
-  /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
-  $roundedCorners?: boolean;
+  $orientation?: NavbarOrientation;
   /** If items should be stretched, useful when navbar is rendered to cover whole width */
   $stretchItems?: boolean;
   $category: ColorCategory;
@@ -22,38 +18,41 @@ type NavbarItemWrapperProps = {
   $isLast?: boolean;
   $active?: boolean;
   $styling?: NavbarStyling;
+  $appearance?: NavbarAppearance;
+  $hoverColoration?: NavbarColoration;
+  $noBackground?: boolean;
 };
 
 const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
     ${props.$orientation === 'stacked' ? 'width: 100%;' : ''}
-    ${props.$roundedCorners ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
+    ${props.$appearance === 'roundedEdges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
+    ${props.$appearance === 'rounded' ? 'border-radius: 20px;' : ''}
     ${props.$stretchItems ? 'flex-grow: 1; text-align: center;' : ''}
+    ${!props.$noBackground ? `background-color: var(--${props.$category}-token_100);` : ''}
   `}
 
-  > div {
-    ${(props) => `
-      ${props.$roundedCorners ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
-    `}
-
+  > :first-child {
     transition: background 0.2s, border-left 0.2s;
-    border-left: 2px solid transparent;
+    box-sizing: border-box;
 
     ${(props) => `
+      ${props.$appearance === 'roundedEdges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
+      ${props.$appearance === 'rounded' ? 'border-radius: 20px;' : ''}
       ${
         props.$styling === 'bordered'
           ? `
           border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid transparent;
-          padding-left: 10px;
+          ${props.$orientation === 'stacked' ? 'padding-left: 10px;' : ''}
 
             &:hover {
               border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid var(--${getColorCategory(
               props.$category
-            )}-token_100);
+            )}-${getColorationToken(props.$hoverColoration)});
             }`
           : `
             &:hover {
-              background-color: var(--${getColorCategory(props.$category)}-token_50);
+              background-color: var(--${getColorCategory(props.$category)}-${getColorationToken(props.$hoverColoration)});
             }
           `
       }
@@ -63,10 +62,10 @@ const Div = styled.div<NavbarItemWrapperProps>`
             ? `
             border-${props.$orientation === 'inline' ? 'bottom' : 'left'}: 2px solid var(--${getColorCategory(
                 props.$category
-              )}-token_150);
+              )}-${getColorationToken(props.$hoverColoration, true)});
             `
             : `
-            background-color: var(--${getColorCategory}-token_10);`
+            background-color: var(--${getColorCategory(props.$category)}-${getColorationToken(props.$hoverColoration, true)});`
           : ''
       }
     `}
@@ -74,31 +73,32 @@ const Div = styled.div<NavbarItemWrapperProps>`
 `;
 
 export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
-  $align,
+  $appearance,
   $orientation,
   $category,
   children,
   $isFirst,
   $isLast,
-  $roundedCorners,
   $stretchItems,
   $styling,
+  $hoverColoration,
+  $noBackground
 }: NavbarItemWrapperProps) => {
   if (React.isValidElement(children)) {
     const props = children.props;
 
     return (
       <Div
-        $align={$align}
+        $appearance={$appearance}
         $category={$category}
         $orientation={$orientation}
-        $roundedCorners={$roundedCorners}
         $isFirst={$isFirst}
         $isLast={$isLast}
         $stretchItems={$stretchItems}
         $styling={$styling}
-        // eslint-disable-next-line react/prop-types
         $active={props.active}
+        $hoverColoration={$hoverColoration}
+        $noBackground={$noBackground}
       >
         {children}
       </Div>
