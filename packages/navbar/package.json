@@ -3,7 +3,7 @@
   "description": "Navbar component from uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.6.3",
+  "version": "3.0.0",
   "publishConfig": {
     "access": "public"
   },
