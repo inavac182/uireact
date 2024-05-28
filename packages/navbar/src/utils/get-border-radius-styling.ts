@@ -1,6 +1,6 @@
-import { Orientation } from '../types';
+import { NavbarOrientation } from '../types';
 
-export const getBorderRadiusStyling = (orientation?: Orientation, isFirst?: boolean, isLast?: boolean): string => {
+export const getBorderRadiusStyling = (orientation?: NavbarOrientation, isFirst?: boolean, isLast?: boolean): string => {
   let topLeft = '0';
   let topRight = '0';
   let bottomLeft = '0';
@@ -8,25 +8,25 @@ export const getBorderRadiusStyling = (orientation?: Orientation, isFirst?: bool
 
   if (orientation === 'inline') {
     if (isFirst) {
-      topLeft = '3px';
-      bottomLeft = '3px';
+      topLeft = '5px';
+      bottomLeft = '5px';
     }
 
     if (isLast) {
-      topRight = '3px';
-      bottomRight = '3px';
+      topRight = '5px';
+      bottomRight = '5px';
     }
   }
 
   if (orientation === 'stacked') {
     if (isFirst) {
-      topLeft = '3px';
-      topRight = '3px';
+      topLeft = '5px';
+      topRight = '5px';
     }
 
     if (isLast) {
-      bottomLeft = '3px';
-      bottomRight = '3px';
+      bottomLeft = '5px';
+      bottomRight = '5px';
     }
   }
 

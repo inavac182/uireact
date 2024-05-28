@@ -1,13 +1,12 @@
 'use client';
 import React from 'react';
-
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 import { UiNavbarProps, privateNavbarProps } from './types';
 import { NavbarItemWrapper } from './private';
-import { getFlexAlignment } from './utils';
 
-const NavbarWrapper = styled.div<privateNavbarProps>`
+const NavbarWrapper = styled(motion.div)<privateNavbarProps>`
   display: flex;
 
   a: hover {
@@ -17,23 +16,23 @@ const NavbarWrapper = styled.div<privateNavbarProps>`
   ${(props: privateNavbarProps) => {
     return `
       flex-direction: ${props.$orientation === 'stacked' ? 'column' : 'row'};
-      ${getFlexAlignment(props.$align, props.$orientation)}
       ${props.$gap ? `gap: var(--spacing-${props.$gap});` : ''}
     `;
   }}
 `;
 
 export const UiNavbar: React.FC<UiNavbarProps> = ({
-  align = 'start',
+  rounded = 'none',
   category = 'primary',
   children,
   className,
   orientation = 'inline',
   gap,
-  roundedCorners,
-  stretchItems,
+  stretch,
   styling,
   testId,
+  noBackground,
+  hoverColoration
 }: UiNavbarProps) => {
   const NavbarContent = React.useMemo(() => {
     const numberOfItems = React.Children.count(children);
@@ -42,15 +41,16 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     React.Children.map(children, (child, index) => {
       elements.push(
         <NavbarItemWrapper
-          $align={align}
           $category={category}
           $orientation={orientation}
           key={`navbar-item-${index}`}
           $isFirst={index === 0}
           $isLast={index === numberOfItems - 1}
-          $roundedCorners={roundedCorners}
-          $stretchItems={stretchItems}
+          $stretchItems={stretch}
           $styling={styling}
+          $rounded={rounded}
+          $hoverColoration={hoverColoration}
+          $noBackground={noBackground}
         >
           {child}
         </NavbarItemWrapper>
@@ -58,10 +58,16 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     });
 
     return elements;
-  }, [children]);
+  }, [rounded, category, children, hoverColoration, noBackground, orientation, stretch, styling]);
 
   return (
-    <NavbarWrapper $align={align} className={className} $orientation={orientation} data-testid={testId} $gap={gap}>
+    <NavbarWrapper
+      $category={category}
+      className={className} 
+      $orientation={orientation} 
+      data-testid={testId} 
+      $gap={gap}
+    >
       <>{NavbarContent}</>
     </NavbarWrapper>
   );

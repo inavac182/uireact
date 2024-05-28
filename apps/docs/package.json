@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf .next/ && rm -rf \"./src/app/docs/(pages)/\"",
-    "dev:docs": "next dev",
+    "watch": "next dev",
     "build:docs": "next build",
     "docs:start": "next start",
     "lint": "next lint"

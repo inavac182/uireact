@@ -77,7 +77,7 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
                 </UiSpacing>
             </NavbarTitleContainer>
             {selected === id && items && (
-                <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category='tertiary'>
+                <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category='tertiary' noBackground>
                     {items?.map((item, index) => (
                         <UiNavbarItem active={path === item.link} key={`sidebar-item-${index}`}>
                             <UiLink category={ isFloatingNavbar ? 'primary' : undefined } fullWidth coloration='light'>

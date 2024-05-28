@@ -1,2 +1,2 @@
-export * from './get-flex-alignment';
+export * from './get-coloration-token';
 export * from './get-border-radius-styling';

@@ -54,9 +54,9 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 2')).toBeVisible();
   });
 
-  it('Should render navbar when orientation is inline and stretched', () => {
+  it('Should render navbar when orientation is inline and has gap', () => {
     render(
-      <UiNavbar orientation="inline" stretchItems>
+      <UiNavbar orientation="inline" gap='four'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
       </UiNavbar>
@@ -78,9 +78,9 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 2')).toBeVisible();
   });
 
-  it('Should render navbar when has alignments', () => {
+  it('Should render navbar when has all rounded', () => {
     render(
-      <UiNavbar align="start">
+      <UiNavbar rounded='all'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
@@ -106,9 +106,9 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 3')).toBeVisible();
   });
 
-  it('Should render navbar when roundedCorners is used', () => {
+  it('Should render navbar when rounded edges with rounded edges is used', () => {
     render(
-      <UiNavbar category="secondary" roundedCorners>
+      <UiNavbar category="secondary" rounded='edges'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem active>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
@@ -188,6 +188,30 @@ describe('<UiNavbar />', () => {
     expect(screen.queryByText('Option 1')).not.toBeInTheDocument();
     expect(screen.getByText('Option 2')).toBeVisible();
     expect(screen.getByText('Option 3')).toBeVisible();
+  });
+
+  it('Should render with stretched items', () => {
+    render(
+      <UiNavbar stretch>
+        <UiNavbarItem active>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+  });
+
+  it('Should render with no background', () => {
+    render(
+      <UiNavbar noBackground>
+        <UiNavbarItem active>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.getByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
   });
 
   it('Should render navbar with gap', () => {

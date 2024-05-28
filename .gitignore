@@ -42,7 +42,9 @@ lerna-debug.log
 # Turborepo
 .turbo
 
+apps/docs/.next
 packages/**/dist
+packages/**/dist/**
 packages/**/coverage
 packages/**/docs/**/package-metadata.json
 packages/**/docs/package-metadata.json
