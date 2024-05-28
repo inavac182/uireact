@@ -3,7 +3,7 @@ import { ColorCategory, SpacingType, UiReactElementProps } from '@uireact/founda
 export type NavbarOrientation = 'stacked' | 'inline';
 export type NavbarColoration = 'light' | 'dark';
 export type NavbarStyling = 'bordered' | 'filled';
-export type NavbarAppearance = 'squared' | 'rounded' | 'roundedEdges';
+export type NavbarRounded = 'none' | 'all' | 'edges';
 
 export type UiNavbarProps = {
   children: React.ReactNode;
@@ -17,8 +17,8 @@ export type UiNavbarProps = {
   stretch?: boolean;
   /** The Navbar colorations tyling */
   styling?: NavbarStyling;
-  /** The Navbar appearance tyling */
-  appearance?: NavbarAppearance;
+  /** The Navbar rounded edges prop */
+  rounded?: NavbarRounded;
   /** If the navbar should render using lighter or darker tokens */
   hoverColoration?: NavbarColoration;
   /** If the navbar should not render bg */
@@ -36,7 +36,7 @@ export type privateNavbarProps = {
   $stretchItems?: boolean;
   $orientation: NavbarOrientation;
   $styling?: NavbarStyling;
-  $appearance?: NavbarAppearance;
+  $rounded?: NavbarRounded;
   $noBackground?: boolean;
   $hoverColoration?: NavbarColoration;
 };

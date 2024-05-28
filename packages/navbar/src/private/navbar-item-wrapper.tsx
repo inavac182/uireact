@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 
 import { ColorCategory, getColorCategory } from '@uireact/foundation';
 
-import { NavbarAppearance, NavbarColoration, NavbarStyling, NavbarOrientation } from '../types';
+import { NavbarColoration, NavbarStyling, NavbarOrientation, NavbarRounded } from '../types';
 import { getBorderRadiusStyling, getColorationToken } from '../utils';
 
 type NavbarItemWrapperProps = {
@@ -18,7 +18,7 @@ type NavbarItemWrapperProps = {
   $isLast?: boolean;
   $active?: boolean;
   $styling?: NavbarStyling;
-  $appearance?: NavbarAppearance;
+  $rounded?: NavbarRounded;
   $hoverColoration?: NavbarColoration;
   $noBackground?: boolean;
 };
@@ -26,8 +26,8 @@ type NavbarItemWrapperProps = {
 const Div = styled.div<NavbarItemWrapperProps>`
   ${(props) => `
     ${props.$orientation === 'stacked' ? 'width: 100%;' : ''}
-    ${props.$appearance === 'roundedEdges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
-    ${props.$appearance === 'rounded' ? 'border-radius: 20px;' : ''}
+    ${props.$rounded === 'edges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
+    ${props.$rounded === 'all' ? 'border-radius: 20px;' : ''}
     ${props.$stretchItems ? 'flex-grow: 1; text-align: center;' : ''}
     ${!props.$noBackground ? `background-color: var(--${props.$category}-token_100);` : ''}
   `}
@@ -37,8 +37,8 @@ const Div = styled.div<NavbarItemWrapperProps>`
     box-sizing: border-box;
 
     ${(props) => `
-      ${props.$appearance === 'roundedEdges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
-      ${props.$appearance === 'rounded' ? 'border-radius: 20px;' : ''}
+      ${props.$rounded === 'edges' ? getBorderRadiusStyling(props.$orientation, props.$isFirst, props.$isLast) : ''}
+      ${props.$rounded === 'all' ? 'border-radius: 20px;' : ''}
       ${
         props.$styling === 'bordered'
           ? `
@@ -73,7 +73,7 @@ const Div = styled.div<NavbarItemWrapperProps>`
 `;
 
 export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
-  $appearance,
+  $rounded,
   $orientation,
   $category,
   children,
@@ -89,7 +89,7 @@ export const NavbarItemWrapper: React.FC<NavbarItemWrapperProps> = ({
 
     return (
       <Div
-        $appearance={$appearance}
+        $rounded={$rounded}
         $category={$category}
         $orientation={$orientation}
         $isFirst={$isFirst}

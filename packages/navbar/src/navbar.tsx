@@ -22,7 +22,7 @@ const NavbarWrapper = styled(motion.div)<privateNavbarProps>`
 `;
 
 export const UiNavbar: React.FC<UiNavbarProps> = ({
-  appearance = 'squared',
+  rounded = 'none',
   category = 'primary',
   children,
   className,
@@ -48,7 +48,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
           $isLast={index === numberOfItems - 1}
           $stretchItems={stretch}
           $styling={styling}
-          $appearance={appearance}
+          $rounded={rounded}
           $hoverColoration={hoverColoration}
           $noBackground={noBackground}
         >
@@ -58,7 +58,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
     });
 
     return elements;
-  }, [appearance, category, children, hoverColoration, noBackground, orientation, stretch, styling]);
+  }, [rounded, category, children, hoverColoration, noBackground, orientation, stretch, styling]);
 
   return (
     <NavbarWrapper

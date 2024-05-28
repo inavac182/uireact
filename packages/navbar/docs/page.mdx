@@ -99,14 +99,14 @@ The styling will orchestrate the coloration scheme:
 - Bordered: Only a border of the item will be highlighted
 - Filled: The entire item will be highlighted
 
-The appearance prop will orchestrate the item appearance
+The rounded prop let you configure the rounded corners for navbar items
 
-- Rounded: The item will render with rounded items
-- RoundedEdges: Them items at the edges will be rounded
-- Squared: The item will render squared
+- All: The items will render with rounded items
+- Edges: Only the items at the edges will have rounded corners
+- None: The item will render squared
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
-  <UiNavbar appearance="roundedEdges" styling="filled" category="tertiary">
+  <UiNavbar rounded="edges" styling="filled" category="tertiary">
     <UiNavbarItem active>
       <UiText>Option 1</UiText>
     </UiNavbarItem>
@@ -122,7 +122,7 @@ The appearance prop will orchestrate the item appearance
 ## With filled styling, rounded appearance and hoverColoration light
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
-  <UiNavbar appearance="rounded" styling="filled" gap="five" category="primary" hoverColoration="light">
+  <UiNavbar rounded="all" styling="filled" gap="five" category="primary" hoverColoration="light">
     <UiNavbarItem active>
       <UiText>Option 1</UiText>
     </UiNavbarItem>

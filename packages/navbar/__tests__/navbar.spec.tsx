@@ -78,9 +78,9 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 2')).toBeVisible();
   });
 
-  it('Should render navbar when has rounded appearance', () => {
+  it('Should render navbar when has all rounded', () => {
     render(
-      <UiNavbar appearance='rounded'>
+      <UiNavbar rounded='all'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
@@ -106,9 +106,9 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 3')).toBeVisible();
   });
 
-  it('Should render navbar when appearance with rounded edges is used', () => {
+  it('Should render navbar when rounded edges with rounded edges is used', () => {
     render(
-      <UiNavbar category="secondary" appearance='roundedEdges'>
+      <UiNavbar category="secondary" rounded='edges'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem active>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
