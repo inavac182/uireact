@@ -8,6 +8,8 @@ export type UiTableData = {
 };
 
 export type UiTableItem = {
-  id: string;
-  cols: string[];
+  id: string | number;
+  cols: UiTableItemCol[];
 };
+
+export type UiTableItemCol = string | number | React.ReactNode;

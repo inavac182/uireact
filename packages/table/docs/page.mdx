@@ -1,4 +1,6 @@
 import { UiTable } from '@uireact/table';
+import { UiIcon } from '@uireact/icons';
+
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
@@ -15,21 +17,24 @@ import { Metadata } from '@uireact/docs-tools';
 
 ## Usage
 
+The table will render the data as you pass it in the data prop, no sort / filter will be applied till the user interacts 
+with those elements.
+
 ```jsx live scope={{UiTable}}
   <UiTable
     data={{
       headings: ['No', 'Summary', 'Price'],
       items: [
-        { id: '1', cols: ['1', 'item 1', '$10'] },
-        { id: '2', cols: ['2', 'item 2', '$20'] },
-        { id: '3', cols: ['3', 'item 3', '$30'] },
-        { id: '4', cols: ['4', 'item 4', '$40'] },
-        { id: '5', cols: ['5', 'item 5', '$50'] },
-        { id: '6', cols: ['6', 'item 6', '$60'] },
-        { id: '7', cols: ['7', 'item 7', '$70'] },
-        { id: '8', cols: ['8', 'item 8', '$80'] },
-        { id: '9', cols: ['9', 'item 9', '$90'] },
-        { id: '10', cols: ['10', 'item 10', '$100'] },
+        { id: '1', cols: [1, 'item 1', '$10'] },
+        { id: '2', cols: [2, 'item 2', '$20'] },
+        { id: '3', cols: [3, 'item 3', '$30'] },
+        { id: '4', cols: [4, 'item 4', '$40'] },
+        { id: '5', cols: [5, 'item 5', '$50'] },
+        { id: '6', cols: [6, 'item 6', '$60'] },
+        { id: '7', cols: [7, 'item 7', '$70'] },
+        { id: '8', cols: [8, 'item 8', '$80'] },
+        { id: '9', cols: [9, 'item 9', '$90'] },
+        { id: '10', cols: [10, 'item 10', '$100'] },
       ],
     }}
     selected="3"
@@ -65,5 +70,34 @@ import { Metadata } from '@uireact/docs-tools';
     }}
     category="tertiary"
     filterBoxPosition="right"
+  />
+```
+
+### Removing filter and sort
+
+```jsx live scope={{UiTable}}
+  <UiTable
+    data={{
+      headings: ['Summary', 'Price'],
+      items: [{ id: '1', cols: ['item 1', '$10'] }],
+    }}
+    withFilter={false}
+    withSort={false}
+  />
+```
+
+### With a react component as part of the cols
+
+This is useful when you want to render a component in each of the elements.
+
+```jsx live scope={{UiTable, UiIcon}}
+  <UiTable
+    data={{
+      headings: ['Summary', 'Price', 'Actions'],
+      items: [
+        { id: '1', cols: ['item 1', '$10', <UiIcon icon="Edit" />] },
+        { id: '2', cols: ['item 2', '$20', <UiIcon icon="Edit" />] },
+      ]
+    }}
   />
 ```
