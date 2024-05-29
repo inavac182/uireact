@@ -32,7 +32,8 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
   styling,
   testId,
   noBackground,
-  hoverColoration
+  hoverColoration,
+  motion
 }: UiNavbarProps) => {
   const NavbarContent = React.useMemo(() => {
     const numberOfItems = React.Children.count(children);
@@ -67,6 +68,7 @@ export const UiNavbar: React.FC<UiNavbarProps> = ({
       $orientation={orientation} 
       data-testid={testId} 
       $gap={gap}
+      {...motion}
     >
       <>{NavbarContent}</>
     </NavbarWrapper>
