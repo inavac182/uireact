@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2024-05-29)
+
+
+### Features
+
+* **table:** adding sort and react node support ([#344](https://github.com/inavac182/ui-react/issues/344)) ([6056a6e](https://github.com/inavac182/ui-react/commit/6056a6eeeffc3bafa440be1173bceaf722b73561))
+
+
+
+
+
 ## 1.5.4 (2024-05-20)
 
 **Note:** Version bump only for package @uireact/table
