@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/inavac182/ui-react/compare/@uireact/table@1.6.0...@uireact/table@1.6.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* **table:** export data types ([c0d25ca](https://github.com/inavac182/ui-react/commit/c0d25ca9ffca7365d3554fa225cd2abee0d6e71a))
+
+
+
+
+
 # 1.6.0 (2024-05-29)
 
 
