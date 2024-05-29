@@ -17,9 +17,15 @@ export const Table = styled.table<privateTableProps>`
 `;
 
 export const TableHeadingCol = styled.th`
+  cursor: pointer;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
+  color: var(--fonts-token_100);
+
+  &:hover {
+    color: var(--fonts-token_200);
+  }
 `;
 
 export const TableCol = styled.td`
@@ -49,4 +55,9 @@ export const TableRow = styled.tr<privateTableRowProps>`
         : ''
     }
   `}
+`;
+
+export const CaretsWrapper = styled.span`
+    display: inline-block;
+    width: var(--texts-regular);
 `;

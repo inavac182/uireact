@@ -5,9 +5,10 @@ import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
 import { UiTableData } from './types';
-import { Table, TableHeadingCol, TableRow, TableCol } from './private';
+import { Table, TableHeadingCol, TableRow, TableCol, getFilteredData, getSortedData } from './private';
 
 export type UiTableProps = {
   /** The data object that will be rendered in the table */
@@ -16,12 +17,14 @@ export type UiTableProps = {
   category?: ColorCategory;
   /** Flag to disable the filter bar */
   withFilter?: boolean;
+  /** Flag to disable the sort header */
+  withSort?: boolean;
   /** Flag for positioning the filter bar */
   filterBoxPosition?: 'left' | 'right';
   /** The id of the selected field */
   selected?: string;
   /** onClick CB to be executed when a row is selected */
-  onClick?: (id: string) => void;
+  onClick?: (id: string | number) => void;
 } & UiReactElementProps;
 
 export const UiTable: React.FC<UiTableProps> = ({
@@ -30,33 +33,52 @@ export const UiTable: React.FC<UiTableProps> = ({
   category = 'primary',
   testId,
   withFilter = true,
+  withSort = true,
   filterBoxPosition,
   selected,
   onClick,
 }: UiTableProps) => {
   const [_data, setPrivateData] = useState(data);
+  const [sortedCol, setSortedCol] = useState<number | null>(null);
+  const [sortedOrientation, setSortedOrientation] = useState<'UP' | 'DOWN'>('UP');
   const [filterPhrase, setFilterPhrase] = useState('');
 
-  const onFilter = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const newFilterPhrase = e.currentTarget.value;
-      setFilterPhrase(newFilterPhrase);
+  const onFilter = useCallback((e: FormEvent<HTMLInputElement>) => {
+    const newFilterPhrase = e.currentTarget.value;
+    setFilterPhrase(newFilterPhrase);
+  }, [setFilterPhrase]);
 
-      const filteredData = data.items.filter(
-        (field) => field.cols.filter((text) => text.includes(newFilterPhrase)).length > 0
-      );
+  const onSort = useCallback((index: number) => {
+    const isColAlreadySelected = index === sortedCol;
 
-      setPrivateData({ ...data, items: filteredData });
-    },
-    [setFilterPhrase, onClick]
-  );
+    if (isColAlreadySelected) {
+      if (sortedOrientation === 'UP') {
+        setSortedOrientation('DOWN');
+        return;
+      } else {
+        setSortedOrientation('UP');
+        setSortedCol(null);
+        return;
+      }
+    }
+
+    setSortedOrientation('UP');
+    setSortedCol(index);
+  }, [sortedCol, sortedOrientation]);
 
   const handleClick = useCallback(
-    (id: string) => {
+    (id: string | number) => {
       onClick?.(id);
     },
     [onClick]
   );
+
+  useEffect(() => {
+    const filteredItems = getFilteredData(data.items, filterPhrase);
+    const sortedItems = getSortedData(filteredItems, sortedOrientation, sortedCol);
+  
+    setPrivateData({ ...data, items: sortedItems });
+  }, [sortedCol, sortedOrientation, data, filterPhrase]);
 
   useEffect(() => {
     setPrivateData(data);
@@ -75,7 +97,20 @@ export const UiTable: React.FC<UiTableProps> = ({
         <thead>
           <tr>
             {_data.headings.map((heading, index) => (
-              <TableHeadingCol key={`table-heading-${index}`}>{heading}</TableHeadingCol>
+              <TableHeadingCol key={`table-heading-${index}`} onClick={() => { onSort(index) }}>
+                <UiFlexGrid>
+                  <UiFlexGridItem grow={1}>
+                    {heading}
+                  </UiFlexGridItem>
+                  {withSort && (
+                    <UiFlexGridItem>
+                      {sortedCol === index && sortedOrientation === 'UP' && <UiIcon icon="CaretUp" testId='sort-icon-up' />}
+                      {sortedCol === index && sortedOrientation === 'DOWN' && <UiIcon icon="CaretDown" testId='sort-icon-down' />}
+                      {sortedCol !== index && <UiIcon icon='Sort' testId='sort-icon' />}
+                    </UiFlexGridItem>
+                  )}
+                </UiFlexGrid>
+              </TableHeadingCol>
             ))}
           </tr>
         </thead>
