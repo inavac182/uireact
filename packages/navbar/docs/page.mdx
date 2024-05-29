@@ -7,6 +7,8 @@ import { Metadata } from '@uireact/docs-tools';
 
 import packageJson from './package-metadata.json';
 
+import { AnimatedNavbarExample } from './utils';
+
 # UiNavbar & UiNavbarItem
 
 <Metadata packageName='navbar' packageJson={packageJson} />
@@ -17,33 +19,41 @@ import packageJson from './package-metadata.json';
 
 > npm i @uireact/foundation @uireact/navbar
 
+## Animated navbar example
+
+This example uses [framer motion variants](https://www.framer.com/motion/animation/#variants) to animate the icon when you hover on each navbar item.
+
+```jsx live scope={{AnimatedNavbarExample}}
+  <AnimatedNavbarExample />
+```
+
 ## Usage as a stacked navbar
 
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiLink}}
   <UiNavbar orientation="stacked" noBackground appearance="rounded">
     <UiNavbarItem>
-      <UiLink fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 1
         </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiLink href="https://uireact.io" fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 2
         </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem active>
-      <UiLink href="https://uireact.io" fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 3
         </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiLink href="https://uireact.io" fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 4
         </a>
@@ -56,10 +66,10 @@ import packageJson from './package-metadata.json';
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiText}}
   <UiNavbar orientation="inline" stretch noBackground>
     <UiNavbarItem>
-      <UiText>Option 1</UiText>
+      <UiText padding={{all: 'four'}}>Option 1</UiText>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiText>Option 2</UiText>
+      <UiText padding={{all: 'four'}}>Option 2</UiText>
     </UiNavbarItem>
   </UiNavbar>
 ```
@@ -69,21 +79,21 @@ import packageJson from './package-metadata.json';
 ```jsx live scope={{UiNavbar, UiNavbarItem, UiLink, UiCard}}
   <UiNavbar category="primary" hoverColoration="dark" noBackground>
     <UiNavbarItem>
-      <UiLink fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 1
         </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem>
-      <UiLink fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 2
         </a>
       </UiLink>
     </UiNavbarItem>
     <UiNavbarItem active>
-      <UiLink fullWidth>
+      <UiLink padding={{all: 'four'}}>
         <a href="https://uireact.io" target="_blank">
           Option 3
         </a>

@@ -7,8 +7,8 @@ import { UiNavbarItemProps } from './types';
 
 const ItemWrapper = styled(motion.div)``;
 
-export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ children }: UiNavbarItemProps) => {
-  return <ItemWrapper>{children}</ItemWrapper>;
+export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ children, motion }: UiNavbarItemProps) => {
+  return <ItemWrapper {...motion}>{children}</ItemWrapper>;
 };
 
 UiNavbarItem.displayName = 'UiNavbarItem';

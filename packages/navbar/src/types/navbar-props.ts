@@ -1,4 +1,5 @@
 import { ColorCategory, SpacingType, UiReactElementProps } from '@uireact/foundation';
+import { MotionProps } from 'framer-motion';
 
 export type NavbarOrientation = 'stacked' | 'inline';
 export type NavbarColoration = 'light' | 'dark';
@@ -23,6 +24,8 @@ export type UiNavbarProps = {
   hoverColoration?: NavbarColoration;
   /** If the navbar should not render bg */
   noBackground?: boolean;
+  /** Framer motion props */
+  motion?: MotionProps;
 } & Omit<UiReactElementProps, 'children'>;
 
 export type privateNavbarProps = {
