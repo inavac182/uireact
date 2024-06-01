@@ -3,9 +3,11 @@ import { Press_Start_2P, Sen } from 'next/font/google'
 
 import { ViewWrapper } from "@/lib/page-wrapper";
 import { StyledComponentsRegistry } from "@/lib/styled-components-registry";
-import {DocsThemeProvider  } from '@/app/providers';
+import { DocsThemeProvider } from '@/app/providers';
 
 import styles from './global.module.scss';
+
+import './uireact-styles.css';
 
 export const metadata: Metadata = {
   title: "@UiReact | Themed UI Library",

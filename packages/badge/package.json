@@ -13,6 +13,7 @@
   "main": "dist/index",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "sideEffects": ["**/*.css", "*.css"],
   "scripts": {
     "build": "tsc",
     "build:publish": "tsup src/index.ts --format cjs,esm --dts",

@@ -6,7 +6,9 @@ import { styled } from 'styled-components';
 import { getColorCategory } from '@uireact/foundation';
 
 import { UiBadgeProps, privateBadgeProps } from './types';
+import styles from './ui-badge.module.scss';
 
+/*
 const BadgeDiv = styled.div<privateBadgeProps>`
   ${(props) => `
     background-color: var(--${getColorCategory(props.$category)}-token_10);
@@ -31,13 +33,7 @@ const BadgeDiv = styled.div<privateBadgeProps>`
   border-width: 2px;
   border-style: solid;
   display: inline-block;
-`;
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-`;
+`;*/
 
 export const UiBadge: React.FC<UiBadgeProps> = ({
   category = 'primary',
@@ -46,9 +42,9 @@ export const UiBadge: React.FC<UiBadgeProps> = ({
   testId,
   size = 'small',
 }: UiBadgeProps) => (
-  <BadgeDiv $category={category} className={className} size={size} data-testid={testId}>
-    <Container>{children}</Container>
-  </BadgeDiv>
+  <div className={styles.badge} data-testid={testId}>
+    <div>{children}</div>
+  </div>
 );
 
 UiBadge.displayName = 'UiBadge';

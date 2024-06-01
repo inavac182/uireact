@@ -33,7 +33,7 @@
   "include": [
     "packages/**/src",
     "packages/**/docs",
-    "platform/**/src",
+    "platform/**/src"
   ],
   "exclude": [
     "executables",
