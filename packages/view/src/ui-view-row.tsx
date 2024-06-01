@@ -14,7 +14,7 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
   noBackground
 }: UiViewRowProps) => {
   const bgClass = noBackground ? '' : `bg-${category}-${weight}`;
-  const colorClass = `color${inverseFont ? '-inverse': ''}-fonts-${weight}`;
+  const colorClass = `color${inverseFont ? '-inverse': ''}-fonts-100`;
 
   return (
     <div className={`${className} ${bgClass} ${colorClass}`} data-testid={testId}>
