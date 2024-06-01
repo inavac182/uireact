@@ -22,12 +22,6 @@ $sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
 
         :global(.color-inverse-#{$category}-#{$token}) {
             color: var(--inverse-#{$category}-token_#{$token});
-            svg {
-                fill: var(--inverse-#{$category}-token_#{$token});
-            }
-            span, p, label, h1, h2, h3, h4, h5, h6 {
-                color: var(--inverse-#{$category}-token_#{$token});
-            }
         }
     }
 }
