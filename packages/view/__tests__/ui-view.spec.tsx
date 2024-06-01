@@ -49,9 +49,8 @@ const MockedComponent = (props: MockedComponentProps) => (
     centeredContent={props.centeredContent}
     noBackground={props.noBackground}
     skipThemeDetector={props.skipThemeDetector}
-    skipFontName={props.skipFontName}
   >
-    <p>Content</p>
+    Content
     <DialogComponent />
   </UiView>
 );
@@ -94,6 +93,7 @@ describe('<UiView />', () => {
     render(<MockedComponent />);
 
     expect(screen.getByText('Content')).toBeVisible();
+    expect(screen.getByTestId('UiView')).toHaveClass('uireactViewContainer');
   });
 
   it('renders fine with skip theme detector', () => {
@@ -124,7 +124,7 @@ describe('<UiView />', () => {
     render(<MockedComponent noBackground />);
 
     expect(screen.getByText('Content')).toBeVisible();
-    expect(screen.getByTestId('UiView')).toHaveStyleRule('background-color', 'transparent');
+    expect(screen.getByTestId('UiView')).toHaveClass('transparent');
   });
 
   it('renders fine when is centered and xlarge', () => {
@@ -134,6 +134,7 @@ describe('<UiView />', () => {
     render(<MockedComponent centeredContent />);
 
     expect(screen.getByText('Content')).toBeVisible();
+    expect(screen.getByText('Content')).toHaveClass('centered');
   });
 
   it('Should add class name', () => {

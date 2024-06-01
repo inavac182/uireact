@@ -4,7 +4,7 @@ module.exports = {
     treeshake: true,
     splitting: true,
     esbuildPlugins: [sassPlugin({
-        filter: /\.module\.scss$/,
+        filter: /\.scss$/,
         type: 'local-css'
     })]
 }

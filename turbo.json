@@ -14,13 +14,13 @@
     "build:publish": {
       "dependsOn": ["^build:publish"],
       "outputs": ["./packages/**/dist/**"],
-      "cache": false
+      "cache": true
     },
     "build": {
       "cache": true
     },
     "test": {
-      "cache": false
+      "cache": true
     },
     "lint": {
       "outputs": []

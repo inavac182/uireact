@@ -5,7 +5,7 @@ import { styled } from 'styled-components';
 
 import { getColorCategory } from '@uireact/foundation';
 
-import { UiBadgeProps, privateBadgeProps } from './types';
+import { UiBadgeProps } from './types';
 import styles from './ui-badge.module.scss';
 
 /*

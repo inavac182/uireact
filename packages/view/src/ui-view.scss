@@ -1,0 +1,61 @@
+$categories: 'primary', 'secondary', 'tertiary', 'fonts', 'success', 'negative', 'error', 'warning';
+$tokens: 10, 50, 100, 150, 200;
+
+@each $category in $categories {
+    @each $token in $tokens {
+        :global(.bg-#{$category}-#{$token}) {
+            background-color: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.color-#{$category}-#{$token}) {
+            color: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.bg-inverse-#{$category}-#{$token}) {
+            background-color: var(--inverse-#{$category}-token_#{$token});
+        }
+
+        :global(.color-inverse-#{$category}-#{$token}) {
+            color: var(--inverse-#{$category}-token_#{$token});
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+a,p,span,label,input,select,button,h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-family);
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    background-color: var(--primary-token_100);
+}
+
+.uireactViewContainer {
+    font-size: var(--texts-regular);
+    font-family: var(--font-family);
+    font-size: var(--texts-regular);
+    background-color: var(--primary-token_100);
+    color: var(--fonts-token_100);
+    font-weight: 400;
+    width: 100%;
+    transition: background 0.2s;    
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.centered {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}

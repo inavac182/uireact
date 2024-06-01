@@ -1,16 +1,6 @@
-'use client';
 import React, { useEffect, useState } from 'react';
 
-import styled, { createGlobalStyle } from 'styled-components';
-
-import {
-  ThemeContext,
-  UiViewport,
-  Breakpoints,
-  Theme,
-  ThemeColor,
-  useConfirmDialogController,
-} from '@uireact/foundation';
+import { ThemeContext, ThemeColor, useConfirmDialogController } from '@uireact/foundation';
 import {
   UiDialogsControllerContext,
   useDialogController,
@@ -19,70 +9,20 @@ import {
   UiConfirmDialogContext,
 } from '@uireact/foundation';
 
-import { UiViewProps, privateViewProps } from './types/ui-view-props';
-
-import {
-  CenteredDiv,
-  DarkThemeStyleVariables,
-  FontFamilyVariable,
-  LightThemeStyleVariables,
-  SizesVariables,
-  SpacingVariables,
-} from './__private';
+import { UiViewProps } from './types/ui-view-props';
 import { useThemeDetector } from './hooks';
 
-/* istanbul ignore next */
-const GlobalStyle = createGlobalStyle<{ $customTheme: Theme, $skipFontName?: boolean }>`
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  :root {
-    ${DarkThemeStyleVariables}
-    ${SizesVariables}
-    ${SpacingVariables}
-    ${props => !props.$skipFontName ? FontFamilyVariable : ''}
-  }
-
-  html.light {
-    ${LightThemeStyleVariables}
-  }
-
-  body {
-    font-family: var(--font-family);
-    font-size: var(--texts-regular);
-    background-color: var(--primary-token_100);
-    color: var(--fonts-token_100);
-    font-weight: 400;
-    width: 100%;
-  }
-
-  a,p,span,label,input,select,button,h1,h2,h3,h4,h5,h6 {
-    font-family: var(--font-family);
-  }
-`;
-
-const Div = styled.div<privateViewProps>`
-  font-size: var(--texts-regular);
-  background-color: ${(props) => (props.$noBackground ? 'transparent' : 'var(--primary-token_100)')};
-  transition: background 0.2s;
-`;
+import styles from './ui-view.scss';
 
 export const UiView: React.FC<UiViewProps> = ({
   dialogController,
   centeredContent = false,
-  className,
+  className = '',
   theme,
   selectedTheme,
   children,
   noBackground = false,
-  skipThemeDetector,
-  skipFontName
+  skipThemeDetector
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
   const notificationsController = useNotificationsController();
@@ -116,32 +56,17 @@ export const UiView: React.FC<UiViewProps> = ({
 
   return (
     <>
-      <GlobalStyle $customTheme={theme} $skipFontName={skipFontName} />
-      <Div className={className} data-testid="UiView" $noBackground={noBackground}>
+      <div className={`${styles.uireactViewContainer} ${noBackground ? styles.transparent : ''} ${className}`} data-testid="UiView">
         <ThemeContext.Provider value={{ theme, selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
               <UiConfirmDialogContext.Provider value={confirmDialogController}>
-                <>
-                  {centeredContent ? (
-                    <>
-                      <UiViewport criteria={Breakpoints.XLARGE}>
-                        <CenteredDiv $size="xl">{children}</CenteredDiv>
-                      </UiViewport>
-                      <UiViewport criteria={Breakpoints.LARGE}>
-                        <CenteredDiv $size="l">{children}</CenteredDiv>
-                      </UiViewport>
-                      <UiViewport criteria={'s|m'}>{children}</UiViewport>
-                    </>
-                  ) : (
-                    <>{children}</>
-                  )}
-                </>
+                <div className={`${centeredContent ? styles.centered : ''}`}>{children}</div>
               </UiConfirmDialogContext.Provider>
             </UiNotificationsContext.Provider>
           </UiDialogsControllerContext.Provider>
         </ThemeContext.Provider>
-      </Div>
+      </div>
     </>
   );
 };
