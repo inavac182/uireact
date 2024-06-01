@@ -10,12 +10,6 @@ $sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
 
         :global(.color-#{$category}-#{$token}) {
             color: var(--#{$category}-token_#{$token});
-            svg {
-                fill: var(--#{$category}-token_#{$token});
-            }
-            span, p, label, h1, h2, h3, h4, h5, h6 {
-                color: var(--#{$category}-token_#{$token});
-            }
         }
 
         :global(.border-#{$category}-#{$token}) {

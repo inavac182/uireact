@@ -22,8 +22,8 @@ const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
 export default function Docs () {
     return (
         <>
-            <UiCard styling='outlined' category='warning'>
-                <h2><UiIcon icon="Party" category='warning' size='xlarge' motion={UiReactViewDancing} /> V3 is coming!</h2>
+            <UiCard styling='outlined' category='tertiary'>
+                <h2><UiIcon icon="Party" category='tertiary' size='xlarge' motion={UiReactViewDancing} /> V3 is coming!</h2>
                 <br />
                 <h3>We will move aways from styles-components and into SCSS modules.</h3>
                 <br/>
