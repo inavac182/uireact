@@ -11,10 +11,7 @@ describe('<UiBadge />', () => {
     uiRender(<UiBadge testId="UiBadge">Badge</UiBadge>);
 
     expect(screen.getByText('Badge')).toBeVisible();
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('background-color', 'var(--primary-token_10)');
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('color', 'var(--primary-token_200)!important');
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('border-color', 'var(--primary-token_200)');
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('font-size', 'var(--texts-small)');
+    expect(screen.getByTestId('UiBadge')).toHaveClass('badge bg-primary-10 color-primary-200 border-primary-200 size-small radius-small');
   });
 
   it('renders fine with size', () => {
@@ -25,7 +22,7 @@ describe('<UiBadge />', () => {
     );
 
     expect(screen.getByText('Badge')).toBeVisible();
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('font-size', 'var(--texts-large)');
+    expect(screen.getByTestId('UiBadge')).toHaveClass('badge bg-primary-10 color-primary-200 border-primary-200 size-large radius-large');
   });
 
   it('renders fine with category', () => {
@@ -36,8 +33,6 @@ describe('<UiBadge />', () => {
     );
 
     expect(screen.getByText('Badge')).toBeVisible();
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('background-color', 'var(--warning-token_10)');
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('color', 'var(--warning-token_200)!important');
-    expect(screen.getByTestId('UiBadge')).toHaveStyleRule('border-color', 'var(--warning-token_200)');
+    expect(screen.getByTestId('UiBadge')).toHaveClass('badge bg-warning-10 color-warning-200 border-warning-200 size-regular radius-regular');
   });
 });

@@ -13,20 +13,8 @@ export const UiViewRow: React.FC<UiViewRowProps> = ({
   weight = '100',
   noBackground
 }: UiViewRowProps) => {
-  const bgClass = useMemo(() => {
-    if (noBackground) {
-      return '';
-    }
-
-    return `bg-${category}-${weight}`;
-  }, [category, noBackground, weight]);
-  const colorClass = useMemo(() => {
-    if (inverseFont) {
-      return `color-inverse-fonts-${weight}`;
-    }
-
-    return `color-fonts-100`;
-  }, [inverseFont, weight]);
+  const bgClass = noBackground ? '' : `bg-${category}-${weight}`;
+  const colorClass = `color${inverseFont ? '-inverse': ''}-fonts-${weight}`;
 
   return (
     <div className={`${className} ${bgClass} ${colorClass}`} data-testid={testId}>

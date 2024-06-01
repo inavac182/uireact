@@ -1,5 +1,6 @@
 $categories: 'primary', 'secondary', 'tertiary', 'fonts', 'success', 'negative', 'error', 'warning';
 $tokens: 10, 50, 100, 150, 200;
+$sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
 
 @each $category in $categories {
     @each $token in $tokens {
@@ -9,6 +10,16 @@ $tokens: 10, 50, 100, 150, 200;
 
         :global(.color-#{$category}-#{$token}) {
             color: var(--#{$category}-token_#{$token});
+            svg {
+                fill: var(--#{$category}-token_#{$token});
+            }
+            span, p, label, h1, h2, h3, h4, h5, h6 {
+                color: var(--#{$category}-token_#{$token});
+            }
+        }
+
+        :global(.border-#{$category}-#{$token}) {
+            border-color: var(--#{$category}-token_#{$token});
         }
 
         :global(.bg-inverse-#{$category}-#{$token}) {
@@ -17,7 +28,25 @@ $tokens: 10, 50, 100, 150, 200;
 
         :global(.color-inverse-#{$category}-#{$token}) {
             color: var(--inverse-#{$category}-token_#{$token});
+            svg {
+                fill: var(--inverse-#{$category}-token_#{$token});
+            }
+            span, p, label, h1, h2, h3, h4, h5, h6 {
+                color: var(--inverse-#{$category}-token_#{$token});
+            }
         }
+    }
+}
+
+@each $size in $sizes {
+    :global(.radius-#{$size}) {
+        border-radius: var(--texts-#{$size});
+    }
+
+    :global(.size-#{$size}) {
+        font-size: var(--texts-#{$size});
+        line-height: var(--texts-#{$size});
+        height: var(--texts-#{$size});
     }
 }
 
