@@ -1,6 +1,9 @@
 $categories: 'primary', 'secondary', 'tertiary', 'fonts', 'positive', 'negative', 'error', 'warning';
 $tokens: 10, 50, 100, 150, 200;
 $sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
+$hSizes: 'level1', 'level2', 'level3', 'level4', 'level5', 'level6';
+$sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
+$sides: 'top', 'right', 'bottom', 'left';
 
 @each $category in $categories {
     @each $token in $tokens {
@@ -34,7 +37,33 @@ $sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
     :global(.size-#{$size}) {
         font-size: var(--texts-#{$size});
         line-height: var(--texts-#{$size});
-        height: var(--texts-#{$size});
+    }
+}
+
+@each $hSize in $hSizes {
+    :global(.heading-#{$hSize}) {
+        font-size: var(--headings-#{$hSize});
+        line-height: var(--headings-#{$hSize});
+    }
+}
+
+@each $sizing in $sizings {
+    :global(.padding-#{$sizing}) {
+        padding: var(--spacing-#{$sizing});
+    }
+
+    :global(.margin-#{$sizing}) {
+        margin: var(--spacing-#{$sizing});
+    }
+
+    @each $side in $sides {
+        :global(.padding-#{$side}-#{$sizing}) {
+            padding-#{$side}: var(--spacing-#{$sizing});
+        }
+
+        :global(.margin-#{$side}-#{$sizing}) {
+            margin-#{$side}: var(--spacing-#{$sizing});
+        }
     }
 }
 
@@ -75,4 +104,8 @@ a {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
+}
+
+:global(.inline) {
+    display: inline;
 }
