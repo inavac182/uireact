@@ -29,7 +29,7 @@ const getSpacingClass = (type: 'margin' | 'padding', spacing?: SpacingDistributi
     }
 
     if (spacing.inline) {
-      classes += ` ${type}-left-${spacing.block} ${type}-right-${spacing.block}`;
+      classes += ` ${type}-left-${spacing.inline} ${type}-right-${spacing.inline}`;
     }
 
     return classes
@@ -45,11 +45,11 @@ const getSpacingClass = (type: 'margin' | 'padding', spacing?: SpacingDistributi
     classes += ` ${type}-bottom-${spacing.bottom}`;
   }
 
-  if (spacing.bottom) {
+  if (spacing.left) {
     classes += ` ${type}-left-${spacing.left}`;
   }
 
-  if (spacing.bottom) {
+  if (spacing.right) {
     classes += ` ${type}-right-${spacing.right}`;
   }
 
@@ -75,6 +75,7 @@ export const UiSpacing: React.FC<UiSpacingProps> = ({
  * @param sizing 
  * @returns string
  */
+// istanbul ignore next
 export const getSpacingStyle = (sizing: SpacingDistribution): string => {
   if (sizing.all) {
     return `var(--spacing-${sizing.all})`;

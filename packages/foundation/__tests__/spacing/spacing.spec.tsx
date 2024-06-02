@@ -4,8 +4,6 @@ import { render, screen } from '@testing-library/react';
 
 import { UiSpacing } from '../../src';
 
-import 'jest-styled-components';
-
 describe('UiSpacing', () => {
   it('Should render children', () => {
     render(
@@ -24,7 +22,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', 'var(--spacing-one)');
+    expect(screen.getByTestId('spacing-container')).toHaveClass("margin-one");
   });
 
   it('Should render correct padding when using inline', () => {
@@ -34,7 +32,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('padding', '0px var(--spacing-two)');
+    expect(screen.getByTestId('spacing-container')).toHaveClass("padding-left-two padding-right-two");
   });
 
   it('Should render correct margin when using block', () => {
@@ -44,7 +42,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule('margin', 'var(--spacing-four) 0px');
+    expect(screen.getByTestId('spacing-container')).toHaveClass("margin-top-four margin-bottom-four");
   });
 
   it('Should render correct margin when using block and inline', () => {
@@ -54,10 +52,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
-      'margin',
-      'var(--spacing-four) var(--spacing-three)'
-    );
+    expect(screen.getByTestId('spacing-container')).toHaveClass("margin-top-four margin-bottom-four margin-left-three margin-right-three");
   });
 
   it('Should set margin individually', () => {
@@ -67,10 +62,7 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
-      'margin',
-      'var(--spacing-four) 0px 0px var(--spacing-one)'
-    );
+    expect(screen.getByTestId('spacing-container')).toHaveClass("inline margin-top-four margin-left-one");
   });
 
   it('Should set padding individually', () => {
@@ -80,9 +72,6 @@ describe('UiSpacing', () => {
       </UiSpacing>
     );
 
-    expect(screen.getByTestId('spacing-container')).toHaveStyleRule(
-      'margin',
-      '0px var(--spacing-four) var(--spacing-one) 0px'
-    );
+    expect(screen.getByTestId('spacing-container')).toHaveClass("margin-right-four margin-bottom-one");
   });
 });
