@@ -8,7 +8,3 @@ export type UiNavbarItemProps = {
   /** Framer motion props */
   motion?: MotionProps;
 } & UiReactElementProps;
-
-export type privateNavbarItemProps = {
-  $active?: boolean;
-} & UiReactPrivateElementProps;

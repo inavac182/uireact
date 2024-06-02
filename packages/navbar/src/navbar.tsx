@@ -1,77 +1,74 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
-import { styled } from 'styled-components';
+import { motion as MotionParent } from 'framer-motion';
 
-import { UiNavbarProps, privateNavbarProps } from './types';
-import { NavbarItemWrapper } from './private';
-
-const NavbarWrapper = styled(motion.div)<privateNavbarProps>`
-  display: flex;
-
-  a: hover {
-    text-decoration: none;
-  }
-
-  ${(props: privateNavbarProps) => {
-    return `
-      flex-direction: ${props.$orientation === 'stacked' ? 'column' : 'row'};
-      ${props.$gap ? `gap: var(--spacing-${props.$gap});` : ''}
-    `;
-  }}
-`;
+import { UiNavbarProps } from './types';
+import styles from './ui-navbar.scss';
 
 export const UiNavbar: React.FC<UiNavbarProps> = ({
-  rounded = 'none',
+  rounded,
   category = 'primary',
   children,
-  className,
+  className = '',
   orientation = 'inline',
   gap,
   stretch,
-  styling,
+  styling = 'filled',
   testId,
   noBackground,
   hoverColoration,
   motion
 }: UiNavbarProps) => {
+  let classes = `${className} ${styles.navbar} ${styles[orientation]} ${gap ? `gap-${gap}` : ''}`;
+
+  if (rounded === 'edges') {
+    classes = `${classes} ${styles.roundedEdges}`;
+  }
+
   const NavbarContent = React.useMemo(() => {
-    const numberOfItems = React.Children.count(children);
     const elements: React.ReactElement[] = [];
 
     React.Children.map(children, (child, index) => {
-      elements.push(
-        <NavbarItemWrapper
-          $category={category}
-          $orientation={orientation}
-          key={`navbar-item-${index}`}
-          $isFirst={index === 0}
-          $isLast={index === numberOfItems - 1}
-          $stretchItems={stretch}
-          $styling={styling}
-          $rounded={rounded}
-          $hoverColoration={hoverColoration}
-          $noBackground={noBackground}
-        >
-          {child}
-        </NavbarItemWrapper>
-      );
+      let classes = `${styles.itemWrapper}`;
+
+      if (React.isValidElement(child)) {
+        const props = child.props;
+
+        if (styling === 'bordered') {
+          classes = `${classes} hover-border-${category}-150 ${orientation === 'stacked' ? styles.stackedBordered : styles.inlineBordered}`;
+
+          if (props.active) {
+            classes = `${classes} border-${category}-50`;
+          }
+        } else {
+          classes = `${classes} ${!noBackground ? `bg-${category}-100` : ''}`;
+
+          if (hoverColoration === 'light') {
+            classes = `${classes} hover-bg-${category}-${props.active ? '50' : '10'}`;
+          } else {
+            classes = `${classes} hover-bg-${category}-${props.active ? '150' : '200'}`;
+          }
+        }
+
+        if (rounded === 'all') {
+          classes = `${classes} ${styles.rounded}`;
+        }
+
+        elements.push(
+          <div key={`navbar-item-${index}`} className={classes}>
+            {child}
+          </div>
+        );
+      }
     });
 
     return elements;
-  }, [rounded, category, children, hoverColoration, noBackground, orientation, stretch, styling]);
+  }, [children, styling, rounded, category, orientation, noBackground, hoverColoration]);
 
   return (
-    <NavbarWrapper
-      $category={category}
-      className={className} 
-      $orientation={orientation} 
-      data-testid={testId} 
-      $gap={gap}
-      {...motion}
-    >
+    <MotionParent.div className={classes} data-testid={testId} {...motion}>
       <>{NavbarContent}</>
-    </NavbarWrapper>
+    </MotionParent.div>
   );
 };
 

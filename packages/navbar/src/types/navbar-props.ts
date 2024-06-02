@@ -1,10 +1,12 @@
+import { AriaAttributes } from 'react';
+
 import { ColorCategory, SpacingType, UiReactElementProps } from '@uireact/foundation';
 import { MotionProps } from 'framer-motion';
 
 export type NavbarOrientation = 'stacked' | 'inline';
 export type NavbarColoration = 'light' | 'dark';
 export type NavbarStyling = 'bordered' | 'filled';
-export type NavbarRounded = 'none' | 'all' | 'edges';
+export type NavbarRounded = 'all' | 'edges';
 
 export type UiNavbarProps = {
   children: React.ReactNode;
@@ -26,20 +28,4 @@ export type UiNavbarProps = {
   noBackground?: boolean;
   /** Framer motion props */
   motion?: MotionProps;
-} & Omit<UiReactElementProps, 'children'>;
-
-export type privateNavbarProps = {
-  children: React.ReactNode;
-  /** Color category for navbar */
-  $category?: ColorCategory;
-  /** If top and bottom item render rounded corners, useful for rendering navbar inside cards */
-  $roundedCorners?: boolean;
-  /** If items should be stretched, useful when navbar is rendered to cover whole width */
-  $gap?: SpacingType;
-  $stretchItems?: boolean;
-  $orientation: NavbarOrientation;
-  $styling?: NavbarStyling;
-  $rounded?: NavbarRounded;
-  $noBackground?: boolean;
-  $hoverColoration?: NavbarColoration;
-};
+} & UiReactElementProps & AriaAttributes;

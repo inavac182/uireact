@@ -23,7 +23,7 @@ GLOBAL STYLES
         }
 
         :global(.border-#{$category}-#{$token}) {
-            border-color: var(--#{$category}-token_#{$token});
+            border-color: var(--#{$category}-token_#{$token}) !important;
         }
 
         :global(.fill-#{$category}-#{$token}) {
@@ -114,6 +114,10 @@ GLOBAL STYLES
 
     :global(.margin-#{$sizing}) {
         margin: var(--spacing-#{$sizing});
+    }
+
+    :global(.gap-#{$sizing}) {
+        gap: var(--spacing-#{$sizing});
     }
 
     @each $side in $sides {
