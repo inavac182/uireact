@@ -29,11 +29,10 @@
     "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^2.0.2",
-    "@uireact/text": "^2.0.1",
+    "@uireact/foundation": ">= 3",
+    "@uireact/text": ">= 3",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }
