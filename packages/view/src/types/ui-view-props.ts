@@ -6,8 +6,6 @@ export type UiViewProps = {
   centeredContent?: boolean;
   /** Selected color from theme */
   selectedTheme?: ThemeColor;
-  /** Theme for the view */
-  theme: Theme;
   /** If the view container should not render a bg */
   noBackground?: boolean;
   /** Disables the theme detector for user's device */

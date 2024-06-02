@@ -18,8 +18,7 @@ export const UiView: React.FC<UiViewProps> = ({
   dialogController,
   centeredContent = false,
   className = '',
-  theme,
-  selectedTheme,
+  selectedTheme = ThemeColor.dark,
   children,
   noBackground = false,
   skipThemeDetector
@@ -28,7 +27,7 @@ export const UiView: React.FC<UiViewProps> = ({
   const notificationsController = useNotificationsController();
   const confirmDialogController = useConfirmDialogController();
   const isDarkEnabled = useThemeDetector();
-  const [internalSelectedTheme, setSelectedTheme] = useState(selectedTheme || ThemeColor.dark);
+  const [internalSelectedTheme, setSelectedTheme] = useState(selectedTheme);
 
   useEffect(() => {
     if (selectedTheme === ThemeColor.light) {
@@ -57,7 +56,7 @@ export const UiView: React.FC<UiViewProps> = ({
   return (
     <>
       <div className={`${styles.uireactViewContainer} ${noBackground ? styles.transparent : ''} ${className}`} data-testid="UiView">
-        <ThemeContext.Provider value={{ theme, selectedTheme: internalSelectedTheme }}>
+        <ThemeContext.Provider value={{ selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
               <UiConfirmDialogContext.Provider value={confirmDialogController}>

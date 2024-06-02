@@ -4,6 +4,13 @@ $sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
 $hSizes: 'level1', 'level2', 'level3', 'level4', 'level5', 'level6';
 $sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
 $sides: 'top', 'right', 'bottom', 'left';
+$states: 'active', 'hover', 'focus', 'disabled';
+
+/** 
+
+GLOBAL STYLES
+
+*/
 
 @each $category in $categories {
     @each $token in $tokens {
@@ -19,6 +26,14 @@ $sides: 'top', 'right', 'bottom', 'left';
             border-color: var(--#{$category}-token_#{$token});
         }
 
+        :global(.fill-#{$category}-#{$token}) {
+            fill: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.fill-inverse-#{$category}-#{$token}) {
+            fill: var(--#{$category}-token_#{$token});
+        }
+
         :global(.bg-inverse-#{$category}-#{$token}) {
             background-color: var(--inverse-#{$category}-token_#{$token});
         }
@@ -29,6 +44,43 @@ $sides: 'top', 'right', 'bottom', 'left';
     }
 }
 
+@each $category in $categories {
+    @each $token in $tokens {
+        @each $state in $states {
+            :global(.#{$state}-bg-#{$category}-#{$token}) {
+                &:#{$state} {
+                    background-color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-color-#{$category}-#{$token}) {
+                &:#{$state} {
+                    color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-border-#{$category}-#{$token}) {
+                &:#{$state} {
+                    border-color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-bg-inverse-#{$category}-#{$token}) {
+                &:#{$state} {
+                    background-color: var(--inverse-#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-color-inverse-#{$category}-#{$token}) {
+                &:#{$state} {
+                    color: var(--inverse-#{$category}-token_#{$token});
+                }
+            }
+        }
+    }
+}
+
+
 @each $size in $sizes {
     :global(.radius-#{$size}) {
         border-radius: var(--texts-#{$size});
@@ -37,6 +89,14 @@ $sides: 'top', 'right', 'bottom', 'left';
     :global(.size-#{$size}) {
         font-size: var(--texts-#{$size});
         line-height: var(--texts-#{$size});
+    }
+
+    :global(.w-#{$size}) {
+        width: var(--texts-#{$size});
+    }
+
+    :global(.h-#{$size}) {
+        height: var(--texts-#{$size});
     }
 }
 
@@ -72,7 +132,6 @@ $sides: 'top', 'right', 'bottom', 'left';
     padding: 0;
 }
 
-
 a,p,span,label,input,select,button,h1,h2,h3,h4,h5,h6 {
     font-family: var(--font-family);
 }
@@ -81,9 +140,29 @@ a {
     text-decoration: none;
 }
 
+:global(.inline) {
+    display: inline;
+}
+
+:global(.block) {
+    display: block;
+}
+
+:global(.inline-block) {
+    display: inline-block;
+}
+
+:global(.pointer) {
+    cursor: pointer;
+}
+
 :root {
     background-color: var(--primary-token_100);
 }
+
+/**
+    UiView styles
+*/
 
 .uireactViewContainer {
     font-size: var(--texts-regular);
@@ -104,8 +183,4 @@ a {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-}
-
-:global(.inline) {
-    display: inline;
 }
