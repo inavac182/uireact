@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import { UiReactElementProps, SpacingDistribution } from '../types';
+import { getSpacingClass } from './get-spacing-class';
 
 export type UiSpacingProps = UiReactElementProps & {
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
@@ -11,50 +12,6 @@ export type UiSpacingProps = UiReactElementProps & {
   /** For rendering the spacing as inline block */
   inline?: boolean;
 };
-
-const getSpacingClass = (type: 'margin' | 'padding', spacing?: SpacingDistribution) => {
-  if (!spacing) {
-    return '';
-  }
-
-  if (spacing.all) {
-    return `${type}-${spacing.all}`;
-  }
-
-  if (spacing.block || spacing.inline) {
-    let classes = '';
-
-    if (spacing.block) {
-      classes += `${type}-top-${spacing.block} ${type}-bottom-${spacing.block}`;
-    }
-
-    if (spacing.inline) {
-      classes += ` ${type}-left-${spacing.inline} ${type}-right-${spacing.inline}`;
-    }
-
-    return classes
-  }
-
-  let classes = '';
-
-  if (spacing.top) {
-    classes += `${type}-top-${spacing.top}`;
-  }
-
-  if (spacing.bottom) {
-    classes += ` ${type}-bottom-${spacing.bottom}`;
-  }
-
-  if (spacing.left) {
-    classes += ` ${type}-left-${spacing.left}`;
-  }
-
-  if (spacing.right) {
-    classes += ` ${type}-right-${spacing.right}`;
-  }
-
-  return classes;
-}
 
 export const UiSpacing: React.FC<UiSpacingProps> = ({
   children,
