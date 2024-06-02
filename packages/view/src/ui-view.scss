@@ -31,7 +31,7 @@ GLOBAL STYLES
         }
 
         :global(.fill-inverse-#{$category}-#{$token}) {
-            fill: var(--#{$category}-token_#{$token});
+            fill: var(--inverse-#{$category}-token_#{$token});
         }
 
         :global(.bg-inverse-#{$category}-#{$token}) {
