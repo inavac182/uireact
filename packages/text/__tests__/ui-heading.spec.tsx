@@ -2,28 +2,22 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 
-import { DefaultTheme } from '@uireact/foundation';
-
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiHeading } from '../src';
-
-import 'jest-styled-components';
 
 describe('<UiHeading />', () => {
   it('renders fine with default level', () => {
     uiRender(<UiHeading>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
-    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByRole('heading')).toHaveClass('color-fonts-100 heading-level3');
   });
 
   it('renders fine with default level spacing', () => {
     uiRender(<UiHeading margin={{ all: 'four' }} padding={{all: 'five'}}>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
-    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByRole('heading')).toHaveStyleRule('margin', 'var(--spacing-four)');
-    expect(screen.getByRole('heading')).toHaveStyleRule('padding', 'var(--spacing-five)');
+    expect(screen.getByRole('heading')).toHaveClass('color-fonts-100 heading-level3 margin-four padding-five');
   });
 
   it('renders fine when is wrapped', () => {
@@ -36,7 +30,7 @@ describe('<UiHeading />', () => {
     uiRender(<UiHeading inverseColoration>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
-    expect(screen.getByRole('heading')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
+    expect(screen.getByRole('heading')).toHaveClass('color-inverse-fonts-100 heading-level3');
   });
 
   it('renders fine when level is unrecognized', () => {
@@ -212,19 +206,13 @@ describe('<UiHeading />', () => {
     uiRender(<UiHeading coloration="dark">Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByRole('heading', { name: 'Heading' })).toHaveStyleRule(
-      'color',
-      DefaultTheme.dark.fonts.token_100
-    );
+    expect(screen.getByRole('heading')).toHaveClass('color-fonts-100 heading-level3 dark');
   });
 
   it('renders fine with coloration light', () => {
     uiRender(<UiHeading coloration="light">Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByRole('heading', { name: 'Heading' })).toHaveStyleRule(
-      'color',
-      DefaultTheme.light.fonts.token_100
-    );
+    expect(screen.getByRole('heading')).toHaveClass('color-fonts-100 heading-level3 light');
   });
 });

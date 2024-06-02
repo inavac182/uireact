@@ -15,4 +15,4 @@ export enum ColorCategories {
  *
  * <UiBadge theme="primary" /> where `theme` prop could be typed as ColorCategory.
  */
-export type ColorCategory = 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error' | 'warning';
+export type ColorCategory = 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error' | 'warning' | 'fonts';

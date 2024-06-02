@@ -1,4 +1,6 @@
-import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
+
+import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 
 import { FontStyle } from './ui-text-props';
 
@@ -25,21 +27,4 @@ export type UiButtonLinkProps = {
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
-} & UiReactElementProps;
-
-export type privateButtonLinkProps = {
-  /** Link size, default REGULAR */
-  $size: SizesProp;
-  /** If link should take the whole link, useful for rendering links as Navbar items */
-  $fullWidth?: boolean;
-  /** Font style */
-  $fontStyle?: FontStyle;
-  $category?: ColorCategory;
-  $coloration?: 'dark' | 'light';
-  $wrap?: boolean;
-  /** If link text should render inverse text coloration */
-  $inverseTextColoration?: boolean;
-  $theme: Theme;
-  $margin?: SpacingDistribution;
-  $padding?: SpacingDistribution;
-};
+} & UiReactElementProps & AriaAttributes;

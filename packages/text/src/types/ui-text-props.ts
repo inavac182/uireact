@@ -1,6 +1,8 @@
-import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
 
-export type FontStyle = 'italic' | 'bold' | 'regular' | 'light';
+import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+
+export type FontStyle = 'italic' | 'bold' | 'slim';
 
 export type InverseColorationProp = {
   light: boolean;
@@ -12,8 +14,6 @@ export type UiTextProps = {
   coloration?: 'dark' | 'light';
   /* Text size to be used, default is regular */
   size?: SizesProp;
-  /* Render text centered */
-  centered?: boolean;
   /** Font style */
   fontStyle?: FontStyle;
   /* Render text inlined */
@@ -22,30 +22,12 @@ export type UiTextProps = {
   category?: ColorCategory;
   /** If the font color should be inversed to use its counter part coloration. */
   inverseColoration?: boolean;
-  /** Align text left or right, default LEFT */
-  align?: 'left' | 'right';
+  /** Align text, default LEFT */
+  align?: 'left' | 'center' | 'right';
+  /** If the text should wrap */
   wrap?: boolean;
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
-} & UiReactElementProps;
-
-export type privateTextProps = {
-  /* Text size to be used, default is regular */
-  $size: SizesProp;
-  /* Render text centered */
-  $centered?: boolean;
-  /** Font style */
-  $fontStyle?: FontStyle;
-  /* Render text inlined */
-  $inline?: boolean;
-  $category?: ColorCategory;
-  $inverseColoration?: boolean;
-  $coloration?: 'dark' | 'light';
-  $align?: 'left' | 'right';
-  $wrap?: boolean;
-  $theme: Theme;
-  $margin?: SpacingDistribution;
-  $padding?: SpacingDistribution;
-};
+} & UiReactElementProps & AriaAttributes;

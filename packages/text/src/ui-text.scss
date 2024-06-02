@@ -1,0 +1,58 @@
+.alignLeft {
+    text-align: left;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.wrap {
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-style: bold;
+}
+
+.slim {
+    font-weight: 100;
+}
+
+.link {
+    > a {
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.buttonLink {
+    font-weight: bold;
+    border-style: solid;
+    border-radius: 10px;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+    }
+    
+}

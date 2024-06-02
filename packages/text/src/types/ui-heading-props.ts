@@ -1,9 +1,14 @@
-import { SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
+
+import { ColorCategory, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+
 import { InverseColorationProp } from './ui-text-props';
 
 export type UiHeadingProps = {
   /* Heading level to be used */
   level?: 1 | 2 | 3 | 4 | 5 | 6;
+  /* Heading category */
+  category?: ColorCategory;
   /* Heading centered */
   centered?: boolean;
   /* Wrap text with 3 dots at the end */
@@ -16,15 +21,4 @@ export type UiHeadingProps = {
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
-} & UiReactElementProps;
-
-export type privateHeadingProps = {
-  $centered?: boolean;
-  $level: 1 | 2 | 3 | 4 | 5 | 6;
-  $wrap?: boolean;
-  $inverseColoration?: boolean | InverseColorationProp;
-  $coloration?: 'dark' | 'light';
-  $theme: Theme;
-  $margin?: SpacingDistribution;
-  $padding?: SpacingDistribution;
-};
+} & UiReactElementProps & AriaAttributes;

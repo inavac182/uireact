@@ -23,13 +23,13 @@ This component will set up the global styles and providers for @uireact to work 
 
 ### UiView
 
-This doc page is wrapped in a `< UiView />` component
+This doc page is wrapped in a `<UiView />` component
 
 This is an example of our wrapper:
 
 ```jsx
 export const ViewExample: React.FC = () => (
-  <UiView theme={DefaultTheme}>
+  <UiView selectedTheme={'light'}>
     <p>All the react tree should render inside here</p>
   </UiView>
 );
@@ -51,7 +51,7 @@ app/layout.tsx:
 
 import { Sen } from 'next/font/google'
 
-const sen = Sen({ subsets: ['latin'], variable: '--font-family' }); // Very IMPORTANT, variable should be --font-family.
+const sen = Sen({ subsets: ['latin'], variable: '--font-family' }); // VERY IMPORTANT, variable should be --font-family.
 
 export default function RootLayout({
   children,
@@ -73,10 +73,10 @@ export default function RootLayout({
 }
 
 ```
-Once that is set up you can then use `skipFontName` prop on UiView component:
+There is nothing else needed, the font will be picked automatically using the CSS Variable.
 
 ```tsx
-  <UiView theme={DefaultTheme} skipFontName>
+  <UiView>
       {...content...}
   </UiView>
 ```

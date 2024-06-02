@@ -1,97 +1,20 @@
 'use client';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { styled } from 'styled-components';
+import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
-import {
-  ColorCategories,
-  ColorTokens,
-  getColorCategory,
-  getSpacingStyle,
-  getThemeColor,
-  ThemeColor,
-  ThemeContext,
-} from '@uireact/foundation';
+import { UiButtonLinkProps } from './types';
 
-import { privateButtonLinkProps, UiButtonLinkProps } from './types';
+import styles from './ui-text.scss';
 
-const ButtonWrapper = styled.button<privateButtonLinkProps>`
-  font-weight: bold;
-  border-style: solid;
-  border-radius: 10px;
-
-  ${(props) => `
-    background-color: var(--${getColorCategory(props.$category)}-token_100);
-    border-color: var(--${getColorCategory(props.$category)}-token_50);
-    border-width: 1px;
-    ${props.$fullWidth ? 'width: 100%;' : ''}
-    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : 'padding: 10px;'}
-    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
-  `}
-
-  &:hover {
-    ${(props) => `
-      background-color: var(--${getColorCategory(props.$category)}-token_150);
-      border-color: var(--${getColorCategory(props.$category)}-token_100);
-    `}
-  }
-
-  &:active {
-    ${(props) => `
-      background-color: var(--${getColorCategory(props.$category)}-token_200);
-      border-color: var(--${getColorCategory(props.$category)}-token_150);
-    `}
-  }
-
-  &:disabled {
-    ${(props) => `
-      background-color: var(--${getColorCategory(props.$category)}-token_50);
-      border-color: var(--${getColorCategory(props.$category)}-token_10);
-    `}
-  }
-
-  a {
-    ${(props) => `
-      font-size: var(--texts-${props.$size});
-      line-height: var(--texts-${props.$size});
-
-      ${
-        props.$coloration === 'dark'
-          ? `color: ${getThemeColor(props.$theme, ThemeColor.dark, ColorCategories.fonts, ColorTokens.token_100)};`
-          : ''
-      }
-      ${
-        props.$coloration === 'light'
-          ? `color: ${getThemeColor(props.$theme, ThemeColor.light, ColorCategories.fonts, ColorTokens.token_100)};`
-          : ''
-      }
-      ${!props.$coloration ? `color: var(--${props.$inverseTextColoration ? 'inverse-' : ''}fonts-token_100);` : ''}
-      
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      column-gap: 10px;
-
-      ${props.$fullWidth ? 'width: 100%;' : ''}
-      ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
-      ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
-      ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
-      ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
-      ${props.$wrap ? `text-overflow: ellipsis;white-space: nowrap;overflow: hidden !important;` : ''}
-    `}
-
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
-  }
-`;
+const defaultPadding: SpacingDistribution = { inline: 'four', block: 'three'};
 
 export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   category = 'tertiary',
   children,
   coloration,
   handleClick,
-  className,
+  className = '',
   fullWidth,
   fontStyle,
   size = 'regular',
@@ -99,29 +22,51 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   wrap,
   inverseTextColoration,
   margin,
-  padding
+  padding = defaultPadding
 }: UiButtonLinkProps) => {
-  const { theme } = useContext(ThemeContext);
+  let classes = `${className} ${styles.buttonLink} bg-${category}-100 hover-bg-${category}-150 active-bg-${category}-200`;
 
-  return (
-    <ButtonWrapper
-      $category={category}
-      $coloration={coloration}
-      $fullWidth={fullWidth}
-      $fontStyle={fontStyle}
-      onClick={handleClick}
-      className={className}
-      $size={size}
-      data-testid={testId}
-      $wrap={wrap}
-      $inverseTextColoration={inverseTextColoration}
-      $theme={theme}
-      $margin={margin}
-      $padding={padding}
-    >
-      {children}
-    </ButtonWrapper>
-  );
+  if (coloration) {
+    classes = `${classes} ${coloration}`;
+  }
+
+  if (fullWidth) {
+    classes = `${classes} fullWidth`;
+  }
+
+  if (fontStyle) {
+    classes = `${classes} ${fontStyle}`;
+  }
+
+  let linkClasses = `color-${inverseTextColoration ? 'inverse-' : ''}fonts-100 size-${size}`;
+
+  if (coloration) {
+    linkClasses = `${linkClasses} ${coloration}`;
+  }
+
+  if (wrap) {
+    linkClasses = `${linkClasses} ${styles.wrap}`;
+  }
+
+  if (margin || padding) {
+    linkClasses = `${linkClasses} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)}`;
+  }
+
+  if (children && React.isValidElement(children)) {
+    const Element = React.cloneElement(children as React.ReactElement, { className: linkClasses });
+
+    return (
+      <button
+        onClick={handleClick}
+        className={classes}
+        data-testid={testId}
+      >
+        {Element}
+      </button>
+    );
+  }
+
+  return null;
 };
 
 UiButtonLink.displayName = 'UiButtonLink';

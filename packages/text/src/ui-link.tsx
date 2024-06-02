@@ -1,98 +1,51 @@
 'use client';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { styled } from 'styled-components';
+import { getSpacingClass } from '@uireact/foundation';
 
-import { ColorTokens, ThemeColor, ThemeContext, getColorCategory, getSpacingStyle, getThemeColor } from '@uireact/foundation';
+import { UiLinkProps } from './types';
 
-import { UiLinkProps, privateLinkProps } from './types';
-
-const AnchorWrapper = styled.span<privateLinkProps>`
-  > a {
-    ${(props) => `
-      ${
-        props.$coloration === 'dark'
-          ? `color: ${getThemeColor(
-              props.$theme,
-              ThemeColor.dark,
-              getColorCategory(props.$category),
-              ColorTokens.token_100
-            )};`
-          : ''
-      }
-      ${
-        props.$coloration === 'light'
-          ? `color: ${getThemeColor(
-              props.$theme,
-              ThemeColor.light,
-              getColorCategory(props.$category),
-              ColorTokens.token_100
-            )};`
-          : ''
-      }
-      ${!props.$coloration ? `color: var(--${getColorCategory(props.$category)}-token_100);` : ''}
-      
-      font-size: var(--texts-${props.$size});
-      line-height: var(--texts-${props.$size});
-
-      &:hover {
-        color: var(--${getColorCategory(props.$category)}-token_150);
-      }
-
-      &:active {
-        color: var(--${getColorCategory(props.$category)}-token_200);
-      }
-
-      ${props.$fullWidth ? 'width: 100%; display: inline-block;' : ''}
-      ${props.$fontStyle === 'italic' ? `font-style: ${props.$fontStyle};` : ''}
-      ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
-      ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
-      ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
-      ${props.$wrap ? `text-overflow: ellipsis;white-space: nowrap;overflow: hidden !important;` : ''}
-      ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
-      ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
-    `}
-
-    cursor: pointer;
-    outline: none;
-    text-decoration: none;
-  }
-`;
+import styles from './ui-text.scss';
 
 export const UiLink: React.FC<UiLinkProps> = ({
   category = 'tertiary',
   children,
   coloration,
-  handleClick,
-  className,
+  className = '',
   fullWidth,
   fontStyle,
   size = 'regular',
-  testId,
   wrap,
   margin,
   padding
 }: UiLinkProps) => {
-  const { theme } = useContext(ThemeContext);
+  let classes = `${className} color-${category}-100 size-${size}`;
 
-  return (
-    <AnchorWrapper
-      $category={category}
-      $coloration={coloration}
-      $fullWidth={fullWidth}
-      $fontStyle={fontStyle}
-      onClick={handleClick}
-      className={className}
-      $size={size}
-      data-testid={testId}
-      $wrap={wrap}
-      $theme={theme}
-      $margin={margin}
-      $padding={padding}
-    >
-      {children}
-    </AnchorWrapper>
-  );
+  if (coloration) {
+    classes = `${classes} ${coloration}`;
+  }
+
+  if (wrap) {
+    classes = `${classes} ${styles.wrap}`;
+  }
+
+  if (fullWidth) {
+    classes = `${classes} fullWidth`;
+  }
+
+  if (margin || padding) {
+    classes = `${classes} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)}`;
+  }
+
+  if (fontStyle) {
+    classes = `${classes} ${fontStyle}`;
+  }
+
+  if (children && React.isValidElement(children)) {
+    return React.cloneElement(children as React.ReactElement, { className: classes });
+  }
+
+  return null;
 };
 
 UiLink.displayName = 'UiLink';

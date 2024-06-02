@@ -2,6 +2,8 @@ import { UiLink } from '@uireact/text';
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
+import Link from 'next/link';
+
 # UiLink
 
 <Metadata packageName='text' packageJson={packageJson} />
@@ -57,6 +59,16 @@ import { Metadata } from '@uireact/docs-tools';
 <>
   <UiLink padding={{all: 'five'}}>
     <a href="https://uireact.io/">Will always render with DARK coloration</a>
+  </UiLink>
+</>
+```
+
+## UiLink with NextJS Link
+
+```jsx live scope={{UiLink, Link}}
+<>
+  <UiLink padding={{all: 'five'}}>
+    <Link href="https://uireact.io/">Will always render with DARK coloration</Link>
   </UiLink>
 </>
 ```

@@ -1,124 +1,67 @@
 'use client';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { styled, css } from 'styled-components';
+import { getSpacingClass } from '@uireact/foundation';
 
-import {
-  ColorCategories,
-  ColorTokens,
-  ThemeColor,
-  ThemeContext,
-  getColorCategory,
-  getThemeColor,
-  getSpacingStyle
-} from '@uireact/foundation';
-
-import { UiTextProps, privateTextProps } from './types';
-
-const SharedStyle = css<privateTextProps>`
-  ${(props) => `
-    ${props.$centered ? `text-align: center;` : ``}
-    ${props.$align ? `text-align: ${props.$align};` : ``}
-    ${`font-size: var(--texts-${props.$size});`}
-    ${`line-height: var(--texts-${props.$size});`}
-    ${props.$fontStyle === 'italic' ? 'font-style: italic;' : ''}
-    ${props.$fontStyle === 'bold' ? `font-weight: bold;` : ''}
-    ${props.$fontStyle === 'light' ? `font-weight: 300;` : ''}
-    ${props.$fontStyle === 'regular' ? `font-weight: normal;` : ''}
-
-    ${
-      props.$coloration === 'dark'
-        ? `color: ${getThemeColor(props.$theme, ThemeColor.dark, ColorCategories.fonts, ColorTokens.token_100)};`
-        : ''
-    }
-    ${
-      props.$coloration === 'light'
-        ? `color: ${getThemeColor(props.$theme, ThemeColor.light, ColorCategories.fonts, ColorTokens.token_100)};`
-        : ''
-    }
-    ${
-      !props.$coloration
-        ? `color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);`
-        : ''
-    }
-    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
-    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
-    ${
-      props.$wrap
-        ? `
-          overflow:hidden; 
-          white-space:nowrap; 
-          text-overflow: ellipsis;`
-        : ``
-    }
-  `}
-`;
-
-const Text = styled.p<privateTextProps>`
-  ${SharedStyle}
-`;
-
-const Span = styled.span<privateTextProps>`
-  ${SharedStyle}
-`;
+import { UiTextProps } from './types';
+import styles from './ui-text.scss';
 
 export const UiText: React.FC<UiTextProps> = ({
-  align,
+  align = 'left',
   children,
-  className,
-  centered,
+  className = '',
   coloration,
   inline,
   fontStyle,
   size = 'regular',
-  category,
+  category = 'fonts',
   inverseColoration,
   wrap,
   margin,
   padding
 }: UiTextProps) => {
-  const { theme } = useContext(ThemeContext);
+  let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size}`;
+
+  if (align === 'left') {
+    classes = `${classes} ${styles.alignLeft}`;
+  }
+
+  if (align === 'center') {
+    classes = `${classes} ${styles.alignCenter}`;
+  }
+
+  if (align === 'right') {
+    classes = `${classes} ${styles.alignRight}`;
+  }
+
+  if (coloration) {
+    classes = `${classes} ${coloration}`;
+  }
+
+  if (wrap) {
+    classes = `${classes} ${styles.wrap}`;
+  }
+
+  if (margin || padding) {
+    classes = `${classes} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)}`;
+  }
+
+  if (fontStyle) {
+    classes = `${classes} ${fontStyle}`;
+  }
 
   if (inline) {
     return (
-      <Span
-        $category={category}
-        className={className}
-        $fontStyle={fontStyle}
-        $size={size}
-        $align={align}
-        $centered={centered}
-        $inline={inline}
-        $inverseColoration={inverseColoration}
-        $coloration={coloration}
-        $wrap={wrap}
-        $theme={theme}
-        $margin={margin}
-        $padding={padding}
-      >
+      <span className={classes}>
         {children}
-      </Span>
+      </span>
     );
   }
 
   return (
-    <Text
-      $category={category}
-      className={className}
-      $fontStyle={fontStyle}
-      $size={size}
-      $align={align}
-      $centered={centered}
-      $inline={inline}
-      $inverseColoration={inverseColoration}
-      $coloration={coloration}
-      $wrap={wrap}
-      $theme={theme}
-      $margin={margin}
-      $padding={padding}
-    >
+    <p className={classes}>
       {children}
-    </Text>
+    </p>
   );
 };
 

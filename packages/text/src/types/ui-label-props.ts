@@ -1,4 +1,5 @@
-import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
 
 export type UiLabelProps = {
   /* For what elements this label is */
@@ -13,16 +14,4 @@ export type UiLabelProps = {
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
-} & UiReactElementProps;
-
-export type privateLabelProps = {
-  /* For what elements this label is */
-  htmlFor?: string;
-  /* Represents the theme to use for the text, default PRIMARY */
-  $category?: ColorCategory;
-  $size: SizesProp;
-  $coloration?: 'dark' | 'light';
-  $theme: Theme;
-  $margin?: SpacingDistribution;
-  $padding?: SpacingDistribution;
-};
+} & UiReactElementProps & AriaAttributes;
