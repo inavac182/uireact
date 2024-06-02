@@ -30,9 +30,9 @@
   "peerDependencies": {
     "@uireact/foundation": ">= 3",
     "@uireact/view": ">= 3",
+    "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }
