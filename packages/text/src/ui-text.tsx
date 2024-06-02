@@ -47,7 +47,7 @@ export const UiText: React.FC<UiTextProps> = ({
   }
 
   if (fontStyle) {
-    classes = `${classes} ${fontStyle}`;
+    classes = `${classes} ${styles[fontStyle]}`;
   }
 
   if (inline) {
