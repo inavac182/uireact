@@ -1,0 +1,30 @@
+.textarea {
+    font-family: var(--font-family);
+    font-size: var(--texts-regular);
+    color: var(--fonts-token_100);
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: transparent;
+    box-sizing: border-box;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    padding: 5px;
+    outline: none;
+}
+
+.textareaWrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.textareInputWrapper {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.noResize {
+    resize: none;
+}

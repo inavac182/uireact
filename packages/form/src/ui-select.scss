@@ -1,0 +1,24 @@
+.select {
+    font-family: var(--font-family);
+    color: var(--fonts-token_100);
+
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 2px;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.selectWrapper {
+    display: flex;
+}
+
+.selectContainer {
+    display: inline-block;
+    flex-grow: 1;
+}

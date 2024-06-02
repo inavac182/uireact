@@ -1,3 +1,4 @@
+import { AriaAttributes } from 'react';
 import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 
 export type UiDigitsInputProps = {
@@ -11,4 +12,4 @@ export type UiDigitsInputProps = {
   onComplete?: (digits: string) => void;
   size?: SizesProp;
   required?: boolean;
-} & UiReactElementProps;
+} & UiReactElementProps & AriaAttributes;

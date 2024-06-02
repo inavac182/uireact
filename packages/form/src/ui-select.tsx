@@ -1,49 +1,13 @@
-'use client';
 import React, { FormEvent, useCallback } from 'react';
-
-import { styled } from 'styled-components';
 
 import { UiText, UiLabel } from '@uireact/text';
 
-import { UiSelectProps, privateSelectProps } from './types';
-
-const Select = styled.select<privateSelectProps>`
-  ${(props: privateSelectProps) => `
-    font-family: var(--font-family);
-    font-size: var(--texts-regular);
-    background-color: var(--primary-token_100);
-    border: 2px solid var(--${props.$category ?? 'primary'}-token_200);
-    color: var(--fonts-token_100);
-
-    &:focus {
-      background-color: var(--primary-token_200);
-      border-color: var(--${props.$category ?? 'tertiary'}-token_100);
-    }
-  `}
-
-  border-radius: 5px;
-  padding: 5px 10px 5px 10px;
-  outline: none;
-  width: 100%;
-  box-sizing: border-box;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-`;
-
-const WrapperDiv = styled.div`
-  display: flex;
-`;
-
-const SelectDiv = styled.div`
-  display: inline-block;
-  flex-grow: 1;
-`;
+import { UiSelectProps } from './types';
+import styles from './ui-select.scss';
 
 export const UiSelect: React.FC<UiSelectProps> = ({
   children,
-  className,
+  className = '',
   testId,
   disabled,
   defaultValue,
@@ -52,10 +16,12 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   labelOnTop,
   name = 'select-name',
   ref,
-  category,
+  category = 'primary',
   value,
   onChange,
   required,
+  size = 'regular',
+  ...props
 }: UiSelectProps) => {
   const handleChange = useCallback(
     (e: FormEvent<HTMLSelectElement> | undefined) => {
@@ -66,7 +32,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   );
 
   return (
-    <div className={className} data-testid={testId}>
+    <div className={styles.selectWrapper} data-testid={testId}>
       {label && labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category}>
@@ -74,7 +40,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
           </UiLabel>
         </div>
       )}
-      <WrapperDiv>
+      <div>
         {label && !labelOnTop && (
           <div>
             <UiLabel htmlFor={name} category={category}>
@@ -82,23 +48,24 @@ export const UiSelect: React.FC<UiSelectProps> = ({
             </UiLabel>
           </div>
         )}
-        <SelectDiv>
-          <Select
+        <div className={styles.selectContainer}>
+          <select
+            className={`${className} ${styles.select} bg-${category}-100 border-${category}-150 color-fonts-100 hover-bg-${category}-150 hover-border-${category}-200 size-${size} focus-border-tertiary-200`}
             disabled={disabled}
             id={name}
             name={name}
             onChange={handleChange}
             ref={ref}
-            $category={category}
             value={value}
             required={required}
             defaultValue={defaultValue}
+            {...props}
           >
             {children}
-          </Select>
+          </select>
           {error && <UiText category={category}>{error}</UiText>}
-        </SelectDiv>
-      </WrapperDiv>
+        </div>
+      </div>
     </div>
   );
 };

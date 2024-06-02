@@ -1,0 +1,27 @@
+.uiDigitsInput {
+    padding: 10px;
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: var(--primary-token_10);
+    font-family: var(--font-family);
+    color: var(--fonts-token_100);
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    column-gap: 10px;
+}
