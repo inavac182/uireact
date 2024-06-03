@@ -1,45 +1,31 @@
+import React, { useEffect, useState } from 'react';
+
 import { ColorCategory } from '@uireact/foundation';
-import React from 'react';
 
-import styled, { keyframes } from 'styled-components';
-
-const NotificationTimerWrapper = styled.div`
-  width: 100%;
-  height: 10px;
-`;
-
-const animation = keyframes`
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-`;
-
-const NotificationTimerProgress = styled.div<{ $timer: number; $category: ColorCategory }>`
-  width: 0%;
-  height: 10px;
-  animation: ${animation} ${(props) => `${props.$timer / 1000}s`} linear forwards;
-  border-radius: 0 10px 10px 10px;
-
-  ${(props) => `
-    background-color: var(--${props.$category}-token_200);
-  `}
-`;
+import styles from '../ui-notification.scss';
 
 type NotificationTimerProps = {
   time: number;
   category: ColorCategory;
 };
 
-export const NotificationTimer: React.FC<NotificationTimerProps> = ({ time, category }: NotificationTimerProps) => {
+export const NotificationTimer: React.FC<NotificationTimerProps> = ({ time, category }: NotificationTimerProps) => { 
+  const [width, setWidth] = useState(1);
+
+  useEffect(() => {
+    const intervalMs = 10;
+    const step = intervalMs * 100 / time;
+
+    const timer = setInterval(() => {
+      setWidth(width + step);
+    }, intervalMs);
+
+    return () => clearInterval(timer);
+  }, [time, width]);
+
   return (
-    <>
-      <NotificationTimerWrapper>
-        <NotificationTimerProgress $timer={time} $category={category} />
-      </NotificationTimerWrapper>
-    </>
+    <div className={styles.timerWrapper}>
+      <div className={`${styles.timerProgress} bg-${category}-200`} style={{ width: `${width}%` }} />
+    </div>
   );
 };

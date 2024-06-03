@@ -1,0 +1,45 @@
+.container {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    width: 350px;
+    padding: 10px;
+    z-index: 150;
+}
+
+.bottomContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 150;
+}
+
+.notificationWrapper {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.notificationContent {
+    padding: 10px 10px 10px 10px;
+}
+
+.iconWrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.timerWrapper {
+    width: 100%;
+    height: 10px;
+}
+
+.timerProgress {
+    width: 0%;
+    height: 10px;
+    border-radius: 0 10px 10px 10px;
+}
