@@ -2,7 +2,7 @@ import React from 'react';
 
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-import { DefaultTheme, ThemeColor, IDialogController } from '@uireact/foundation';
+import { ThemeColor, IDialogController } from '@uireact/foundation';
 import { UiDialog, useDialog } from '@uireact/dialog';
 
 import { UiView } from '../src/ui-view';
@@ -42,7 +42,6 @@ const DialogComponent = () => {
 
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
-    theme={DefaultTheme}
     selectedTheme={props.selectedTheme}
     dialogController={customDialogController}
     className={props.className}
@@ -57,7 +56,6 @@ const MockedComponent = (props: MockedComponentProps) => (
 
 const MockedComponentWithDialog = (props: MockedComponentProps) => (
   <UiView
-    theme={DefaultTheme}
     selectedTheme={ThemeColor.dark}
     className={props.className}
     centeredContent={props.centeredContent}

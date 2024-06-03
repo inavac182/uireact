@@ -41,7 +41,7 @@ export const IconsList: React.FC = () => {
         <UiGrid cols={{ small: 2, medium: 3, large: 4, xlarge: 5 }} colsGap="three" rowsGap="five">
           {Object.keys(UiReactIcons).map((key) => (
             <UiGridItem key={`icon-grid-item-component-${key}`}>
-              <UiText size={TextSize.xsmall} category={category} centered>
+              <UiText size={TextSize.xsmall} category={category} align='center'>
                 {/* @ts-ignore */}
                 <UiIcon icon={key} size="xlarge" category={category} />
                 <br />

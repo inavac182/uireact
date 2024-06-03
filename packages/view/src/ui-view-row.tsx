@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { UiViewRowProps } from './types';
 import styles from './ui-view-row.scss';
