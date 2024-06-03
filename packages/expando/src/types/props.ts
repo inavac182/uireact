@@ -1,4 +1,5 @@
 import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
 
 export type UiExpandoLinkProps = {
   /** The initial expanded state */
@@ -15,13 +16,7 @@ export type UiExpandoLinkProps = {
   category?: ColorCategory;
   /** The text and icon size */
   size?: SizesProp;
-} & UiReactElementProps;
-
-export type UiExpandoLinkInternalProps = {
-  $inverseColoration: boolean;
-  $category: ColorCategory;
-  $size: SizesProp;
-};
+} & UiReactElementProps & AriaAttributes;
 
 export type UiExpandoCardProps = {
   /** The initial expanded state */
@@ -36,10 +31,4 @@ export type UiExpandoCardProps = {
   category?: ColorCategory;
   /** Use inverse coloration for heading */
   headingInverseColoration?: boolean;
-} & UiReactElementProps;
-
-export type UiExpandoCardInternalProps = {
-  $category?: ColorCategory;
-  $isExpanded?: boolean;
-  $headingInverseColoration?: boolean;
-};
+} & UiReactElementProps & AriaAttributes;

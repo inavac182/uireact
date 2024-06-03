@@ -1,28 +1,11 @@
-'use client';
 import React, { useCallback, useState } from 'react';
-import { styled } from 'styled-components';
 
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 import { UiCard } from '@uireact/card';
 
-import { UiExpandoCardInternalProps, UiExpandoCardProps } from './types';
-
-const WrapperExpandoTrigger = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  justify-content: space-between;
-`;
-
-const ExpandoHeading = styled.h3<UiExpandoCardInternalProps>`
-  padding: 0;
-  font-size: var(--headings-level3);
-
-  ${(props) => `
-    color: var(--${props.$headingInverseColoration ? 'inverse-' : ''}fonts-token_100);
-  `}
-`;
+import { UiExpandoCardProps } from './types';
+import styles from './ui-expando-card.scss';
 
 const cardPadding: UiSpacingProps['padding'] = { all: 'four' };
 
@@ -43,17 +26,17 @@ export const UiExpandoCard: React.FC<UiExpandoCardProps> = ({
     setExpandedInternal(!expandedInternal);
 
     onChange?.(!expandedInternal);
-  }, [expandedInternal]);
+  }, [expandedInternal, onChange]);
 
   return (
     <UiCard className={className} testId={testId} padding={{}} category={category}>
       <UiSpacing padding={cardPadding}>
-        <WrapperExpandoTrigger onClick={onClick} data-testid="expando-trigger">
-          <ExpandoHeading data-testid="expando-heading-trigger" $headingInverseColoration={headingInverseColoration}>
+        <div className={styles.wrapperExpandoTrigger} onClick={onClick} data-testid="expando-trigger">
+          <h3 className={`${styles.expandoHeading} color-${headingInverseColoration ? 'inverse-' : ''}fonts-100`} data-testid="expando-heading-trigger">
             {expandedInternal ? collapseLabel : expandLabel}
-          </ExpandoHeading>
+          </h3>
           <UiIcon icon={expandedInternal ? 'CaretUp' : 'CaretDown'} inverseColoration={headingInverseColoration} />
-        </WrapperExpandoTrigger>
+        </div>
         {expandedInternal && <>{children}</>}
       </UiSpacing>
     </UiCard>

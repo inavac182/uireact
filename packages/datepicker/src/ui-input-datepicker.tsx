@@ -10,7 +10,7 @@ import { UiDatepicker } from './';
 import styles from './ui-input-datepicker.scss';
 
 export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
-  className,
+  className = '',
   testId,
   disabled,
   dateFormat = 'yyyy-mm-dd',
@@ -39,7 +39,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
     datepickerDate ? getFormattedDate(dateFormat, datepickerDate) : ''
   );
   const [datepickerVisible, setDatepickerVisible] = useState(false);
-  let classes = `${styles.input} size-${size} border-${category || 'primary'}-100 active-border-${category || 'tertiary'}-100 focus-border-${category || 'tertiary'}-100 ${styles[`inputPadding${size}`]}`;
+  let classes = `${className} ${styles.input} size-${size} border-${category || 'primary'}-100 active-border-${category || 'tertiary'}-100 focus-border-${category || 'tertiary'}-100 ${styles[`inputPadding${size}`]}`;
 
   if (icon) {
     classes = `${classes} ${styles.inputIconPadding}`;

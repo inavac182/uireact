@@ -5,8 +5,6 @@ import { fireEvent, screen } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiExpandoCard } from '../src';
 
-import 'jest-styled-components';
-
 describe('<UiExpandoCard />', () => {
   it('renders fine', () => {
     uiRender(
@@ -21,9 +19,7 @@ describe('<UiExpandoCard />', () => {
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-heading-trigger')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByTestId('expando-heading-trigger')).toHaveStyleRule('font-size', 'var(--headings-level3)');
-    expect(screen.getByTestId('some-test-id')).toHaveClass('some-class');
+    expect(screen.getByTestId('some-test-id')).toHaveClass('ui_card_card some-class bg-primary-100 color-fonts-100');
 
     fireEvent.click(screen.getByText('Expand label'));
 
@@ -59,13 +55,15 @@ describe('<UiExpandoCard />', () => {
         expandLabel="Expand label"
         collapseLabel="Collapse label"
         headingInverseColoration
+        testId='some-test-id'
       >
         <p>Content</p>
       </UiExpandoCard>
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-heading-trigger')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
+    expect(screen.getByTestId('some-test-id')).toHaveClass('ui_card_card bg-positive-100 color-fonts-100');
+    expect(screen.getByRole('heading')).toHaveClass('expandoHeading color-inverse-fonts-100');
   });
 
   it('triggers callback', () => {

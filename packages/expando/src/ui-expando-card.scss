@@ -1,0 +1,11 @@
+.wrapperExpandoTrigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.expandoHeading {
+    padding: 0;
+    font-size: var(--headings-level3);
+}
