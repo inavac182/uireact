@@ -34,7 +34,7 @@ export const MenuExample: React.FC = () => {
       </div>
       <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
         <UiSpacing margin={{ all: 'five' }}>
-          <UiText centered>Menu Content</UiText>
+          <UiText align='center'>Menu Content</UiText>
           <div>
             <UiButton onClick={closeMenu} category="secondary" fullWidth>
               Close menu
