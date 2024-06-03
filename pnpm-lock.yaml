@@ -715,6 +715,9 @@ importers:
       '@uireact/framer-animations':
         specifier: workspace:*
         version: link:../framer-animations
+      '@uireact/icons':
+        specifier: workspace:*
+        version: link:../icons
       '@uireact/text':
         specifier: workspace:*
         version: link:../text
