@@ -13,8 +13,7 @@ export const getAnimationForDialog = (type: UiDialogType): MotionProps | undefin
         case UiDialogType.RIGHT:
             return UiReactFadeLeft;
         case UiDialogType.FULLSCREEN:
-            return { initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1} };
         default:
-            return undefined;
+            return { initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1} };
     }
 };
