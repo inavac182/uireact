@@ -48,6 +48,8 @@ export const UiButton: React.FC<UiButtonProps> = ({
 
   if (rounded) {
     classes = `${classes} radius-${roundedSize}`;
+  } else if (styling === 'icon') {
+    classes = `${classes} ${styles.buttonIcon}}`;
   } else {
     classes = `${classes} ${styles.buttonRadius}`;
   }
