@@ -1,5 +1,6 @@
-import { UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
+import { SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 
-export type UiListItemProps = UiReactElementProps;
-
-export type privateListItemProps = UiListItemProps;
+export type UiListItemProps = {
+    padding?: SpacingDistribution;
+} & UiReactElementProps & AriaAttributes;

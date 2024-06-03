@@ -1,31 +1,30 @@
-'use client';
 import React from 'react';
 
-import { styled } from 'styled-components';
+import { UiListProps } from './types';
+import styles from './ui-list.scss';
+import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
-import { UiListProps, privateListProps } from './types';
+const defaultPadding: SpacingDistribution = {
+  left: 'five'
+};
 
-const UnorderedList = styled.ul<privateListProps>`
-  ${(props) => `
-    ${props.type === 'UNORDERED' ? 'list-style-type: none;' : ''}
-  `}
-`;
+const defaultUnBulletedPadding: SpacingDistribution = {};
 
-export const UiList: React.FC<UiListProps> = ({ children, className, type = 'UNORDERED' }: UiListProps) => {
+export const UiList: React.FC<UiListProps> = ({ children, className = '', type = 'UNORDERED', padding, ...props }: UiListProps) => {
   switch (type) {
     case 'ORDERED':
-      return <ol className={className}>{children}</ol>;
+      return <ol className={`${className} ${getSpacingClass('padding', padding || defaultPadding)}`} {...props}>{children}</ol>;
     case 'BULLETED':
       return (
-        <UnorderedList className={className} type={type}>
+        <ul className={`${className} ${getSpacingClass('padding', padding || defaultPadding)}`} {...props}>
           {children}
-        </UnorderedList>
+        </ul>
       );
     default:
       return (
-        <UnorderedList className={className} type={type}>
+        <ul className={`${className} ${getSpacingClass('padding', padding || defaultUnBulletedPadding)} ${styles.unordered}`} {...props}>
           {children}
-        </UnorderedList>
+        </ul>
       );
   }
 };
