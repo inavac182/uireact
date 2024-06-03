@@ -23,7 +23,7 @@ GLOBAL STYLES
         }
 
         :global(.border-#{$category}-#{$token}) {
-            border-color: var(--#{$category}-token_#{$token}) !important;
+            border-color: var(--#{$category}-token_#{$token});
         }
 
         :global(.fill-#{$category}-#{$token}) {
