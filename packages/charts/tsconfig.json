@@ -3,9 +3,10 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "*.ts",
-    "*.tsx",
-    "**/*.mdx"
+    "**/*.mdx",
+    "**/*.scss",
+    "*.scss",
+    "../../typings.d.ts"
   ],
   "exclude": [
     "coverage",
