@@ -22,10 +22,6 @@ export const UiText: React.FC<UiTextProps> = ({
 }: UiTextProps) => {
   let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size}`;
 
-  if (align === 'left') {
-    classes = `${classes} ${styles.alignLeft}`;
-  }
-
   if (align === 'center') {
     classes = `${classes} ${styles.alignCenter}`;
   }

@@ -4,15 +4,16 @@ import { fireEvent, screen } from '@testing-library/react';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiTabs, UiTabItem } from '../src';
+import { SpacingType } from '@uireact/foundation';
 
 const onClick = jest.fn();
 
 type MockedComponentProps = {
-  rounded?: boolean;
+  radius?: SpacingType;
 };
 
-const MockedComponent = ({ rounded }: MockedComponentProps) => (
-  <UiTabs rounded={rounded}>
+const MockedComponent = ({ radius }: MockedComponentProps) => (
+  <UiTabs radius={radius}>
     <UiTabItem identifier="1" handleClick={onClick} selected>
       Item 1
     </UiTabItem>
@@ -27,7 +28,7 @@ const MockedComponent = ({ rounded }: MockedComponentProps) => (
 
 describe('<UiTabs />', () => {
   it('renders fine', () => {
-    uiRender(<MockedComponent rounded />);
+    uiRender(<MockedComponent radius='one' />);
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();

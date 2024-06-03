@@ -1,11 +1,8 @@
-import { UiReactElementProps } from '@uireact/foundation';
+import { AriaAttributes } from 'react';
+
+import { SpacingType, UiReactElementProps } from '@uireact/foundation';
 
 export type UiTabsProps = {
-  /** For rounded corners */
-  rounded?: boolean;
-} & UiReactElementProps;
-
-export type privateTabsProps = {
-  /** For rounded corners */
-  $rounded?: boolean;
-};
+  /** Radius sizing */
+  radius?: SpacingType;
+} & UiReactElementProps & AriaAttributes;

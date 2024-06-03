@@ -8,8 +8,3 @@ export type UiTabItemProps<T> = {
   /** On click CB for tab item */
   handleClick: (identifier: T) => void;
 } & UiReactElementProps;
-
-export type privateTabItemProps = {
-  /** Selected state for tab item */
-  $selected?: boolean;
-};
