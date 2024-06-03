@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { UiSpacing } from '@uireact/foundation';
-import { UiHeading, UiText } from '@uireact/text';
+import { UiText } from '@uireact/text';
 import { UiCard } from '@uireact/card';
 import { UiButton } from '@uireact/button';
 
@@ -21,7 +21,7 @@ export const ProgressIndicatorExample: React.FC = () => {
   return (
     <>
       <UiSpacing padding={{ all: 'five' }}>
-        <UiProgressIndicator current={step} allowGoBack handleCompletedStepClick={changeStep}>
+        <UiProgressIndicator current={step} completedStepClick={changeStep}>
           <UiProgressIndicatorItem>
             <UiText>This is the step 1</UiText>
           </UiProgressIndicatorItem>
@@ -36,22 +36,22 @@ export const ProgressIndicatorExample: React.FC = () => {
         {step === 1 && (
           <UiCard>
             <UiText>This is step 1</UiText>
-            <UiButton onClick={() => changeStep(2)}>Next Step</UiButton>
+            <UiButton onClick={() => changeStep(2)} category='tertiary'>Next Step</UiButton>
           </UiCard>
         )}
 
         {step === 2 && (
           <UiCard>
             <UiText>This is step 2</UiText>
-            <UiButton onClick={() => changeStep(1)}>Go Back</UiButton>{' '}
-            <UiButton onClick={() => changeStep(3)}>Next Step</UiButton>
+            <UiButton onClick={() => changeStep(1)} category='tertiary'>Go Back</UiButton>{' '}
+            <UiButton onClick={() => changeStep(3)} category='tertiary'>Next Step</UiButton>
           </UiCard>
         )}
 
         {step === 3 && (
           <UiCard>
             <UiText>This is step 3</UiText>
-            <UiButton onClick={() => changeStep(2)}>Go Back</UiButton>
+            <UiButton onClick={() => changeStep(2)} category='tertiary'>Go Back</UiButton>
           </UiCard>
         )}
       </UiSpacing>

@@ -1,0 +1,18 @@
+.progressIndicatorItem {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    white-space: nowrap;
+    padding: 10px 0 10px 0;
+}
+
+.unbordered {
+    border-color: transparent;
+}
+
+.currentStep {
+    border-color: var(--fonts-token_100);
+}
+
+.missing {
+    opacity: 0.6;
+}

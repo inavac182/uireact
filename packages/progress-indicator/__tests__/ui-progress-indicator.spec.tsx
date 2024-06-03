@@ -22,7 +22,7 @@ const MockedComponent: React.FC<MockedComponentProps> = ({
   const [current] = React.useState(currentSelected);
 
   return (
-    <UiProgressIndicator allowGoBack={allowGoBack} current={current} handleCompletedStepClick={clickCB}>
+    <UiProgressIndicator current={current} completedStepClick={clickCB}>
       <UiProgressIndicatorItem>Item 1</UiProgressIndicatorItem>
       <UiProgressIndicatorItem>Item 2</UiProgressIndicatorItem>
       <UiProgressIndicatorItem>Item 3</UiProgressIndicatorItem>
