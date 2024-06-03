@@ -24,6 +24,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   ref,
   rounded = false,
   type = 'button',
+  roundedSize = 'regular',
   testId,
   ...props
 }: UiButtonProps) => {
@@ -43,6 +44,12 @@ export const UiButton: React.FC<UiButtonProps> = ({
 
   if (margin) {
     classes = `${classes} ${getSpacingClass('margin', margin)}`;
+  }
+
+  if (rounded) {
+    classes = `${classes} radius-${roundedSize}`;
+  } else {
+    classes = `${classes} ${styles.buttonRadius}`;
   }
 
   return (

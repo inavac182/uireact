@@ -1,6 +1,6 @@
 import { AriaAttributes, MouseEvent } from 'react';
 
-import { ColorCategory, SpacingDistribution } from '@uireact/foundation';
+import { ColorCategory, SizesProp, SpacingDistribution } from '@uireact/foundation';
 import { MotionProps } from 'framer-motion';
 
 export type UiButtonProps = {
@@ -35,4 +35,6 @@ export type UiButtonProps = {
   rounded?: boolean;
   /** The styling of the button to render */
   styling?: 'filled' | 'clear' | 'icon' | 'outlined';
+  /** The size of the border */
+  roundedSize?: SizesProp;
 } & AriaAttributes;

@@ -5,7 +5,6 @@
     padding-right: 10px;
     border-width: 1px;
     cursor: pointer;
-    border-radius: 3px;
 
     &:disabled {
         cursor: not-allowed;
@@ -38,4 +37,8 @@
     border-radius: 50%;
     display: inline-flex;
     border-width: 0px;
+}
+
+.buttonRadius {
+    border-radius: 3px;
 }
