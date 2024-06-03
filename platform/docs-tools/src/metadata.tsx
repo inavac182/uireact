@@ -3,9 +3,10 @@ import React from 'react';
 
 import { UiBadge } from '@uireact/badge';
 import { UiIcon } from '@uireact/icons';
-import { UiLink, UiText } from '@uireact/text';
+import { UiHeading, UiLink, UiText } from '@uireact/text';
 import { ColorCategory, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiFlexGrid } from '@uireact/flex';
+import { UiCard } from '@uireact/card';
 
 type MetadataProps = {
   packageName: string;
@@ -34,6 +35,10 @@ const badgesInfo: BadgesInfo = {
   "framer-motion": {
     text: '😈 Framer motion',
     category: 'positive'
+  },
+  "styled-components": {
+    text: 'Styled components',
+    category: 'error'
   }
 }
 
@@ -64,6 +69,22 @@ export const Metadata = ({ packageName, packageJson }: MetadataProps) => {
         </sup>
         {badges.map((badge, index) => badge && <UiBadge category={badge.category} key={`metadata-version-${index}`}>{badge.text}</UiBadge>)}
       </UiFlexGrid>
+      <br />
+      {badges.map((badge, index) => {
+        if (badge?.text === 'Styled components') {
+          return (
+            <UiCard padding={{ all: 'four'}} key={`messages-${index}`} category='warning'>
+              <UiHeading level={5}>CSS-in-JS</UiHeading>
+              <UiText size='small'>
+                This component uses styled components, we are moving away from it in favor of SCSS modules. Stay tuned as this component will be migrated soon.
+              </UiText>
+            </UiCard>
+          );
+        }
+
+        return null;
+      })}
+      
     </UiSpacing>
   )
 }
