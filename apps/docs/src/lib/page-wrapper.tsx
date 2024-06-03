@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 
 import { UiView } from "@uireact/view";
 
-import { DocsTheme } from "./custom-theme";
 import { DocsThemeContext } from "@/app/providers";
 
 type ViewWrapperProps = {
@@ -15,7 +14,7 @@ export const ViewWrapper = ({ children }: ViewWrapperProps) => {
   const { selectedTheme } = useContext(DocsThemeContext);
 
   return (
-    <UiView theme={DocsTheme} selectedTheme={selectedTheme} className="viewWrapper">
+    <UiView selectedTheme={selectedTheme} className="viewWrapper">
       {children}
     </UiView>
   );
