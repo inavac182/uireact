@@ -10,21 +10,21 @@ describe('<UiText />', () => {
     uiRender(<UiText>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular');
   });
 
   it('renders fine with spacing', () => {
     uiRender(<UiText margin={{ all: 'four' }} padding={{ all: 'three' }}>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft margin-four padding-three');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular margin-four padding-three');
   });
 
   it('renders fine with class name', () => {
     uiRender(<UiText className="text">Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('text color-fonts-100 size-regular alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('text color-fonts-100 size-regular');
   });
 
   it('renders fine aligned right', () => {
@@ -38,21 +38,21 @@ describe('<UiText />', () => {
     uiRender(<UiText inverseColoration>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-inverse-fonts-100 size-regular alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-inverse-fonts-100 size-regular');
   });
 
   it('renders fine with dark coloration', () => {
     uiRender(<UiText coloration="dark">Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft dark');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular dark');
   });
 
   it('renders fine with light coloration', () => {
     uiRender(<UiText coloration="light">Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft light');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular light');
   });
 
   it('renders fine with wrap', () => {
@@ -82,7 +82,7 @@ describe('<UiText />', () => {
     uiRender(<UiText inline>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular');
   });
 
   it('renders fine when style is bold', () => {
@@ -93,7 +93,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft bold');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular bold');
   });
 
   it('renders fine when style is slim', () => {
@@ -104,7 +104,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft slim');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular slim');
   });
 
   it('renders fine when style is bold', () => {
@@ -115,7 +115,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft bold');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular bold');
   });
 
   it('renders fine when style is italic', () => {
@@ -126,14 +126,14 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular alignLeft italic');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-regular italic');
   });
 
   it('renders fine when size is provided', () => {
     uiRender(<UiText size="large">Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-large alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-large');
   });
 
   it('renders fine when state is POSITIVE', () => {
@@ -144,7 +144,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-positive-100 size-large alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-positive-100 size-large');
   });
 
   it('renders fine when state is ERROR', () => {
@@ -155,7 +155,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-error-100 size-large alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-error-100 size-large');
   });
 
   it('renders fine when state is NEGATIVE', () => {
@@ -166,7 +166,7 @@ describe('<UiText />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveClass('color-negative-100 size-large alignLeft');
+    expect(screen.getByText('Text')).toHaveClass('color-negative-100 size-large');
   });
 
   it('renders fine when state is unrecognized', () => {

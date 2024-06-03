@@ -34,6 +34,10 @@ GLOBAL STYLES
             fill: var(--inverse-#{$category}-token_#{$token});
         }
 
+        :global(.border-inverse-#{$category}-#{$token}) {
+            border-color: var(--inverse-#{$category}-token_#{$token});
+        }
+
         :global(.bg-inverse-#{$category}-#{$token}) {
             background-color: var(--inverse-#{$category}-token_#{$token});
         }
