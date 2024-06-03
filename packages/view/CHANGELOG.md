@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2024-06-03)
+
+**Note:** Version bump only for package @uireact/view
+
+
+
+
+
 # [2.10.0](https://github.com/inavac182/uireact/compare/@uireact/view@2.9.0...@uireact/view@2.10.0) (2024-05-17)
 
 

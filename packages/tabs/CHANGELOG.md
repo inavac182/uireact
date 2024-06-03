@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.3 (2024-06-03)
+
+**Note:** Version bump only for package @uireact/tabs
+
+
+
+
+
 ## 2.5.2 (2024-05-15)
 
 

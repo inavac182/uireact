@@ -3,7 +3,7 @@
   "description": "Badge component from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "publishConfig": {
     "access": "public"
   },
@@ -13,7 +13,10 @@
   "main": "dist/index",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "sideEffects": ["**/*.css", "*.css"],
+  "sideEffects": [
+    "**/*.css",
+    "*.css"
+  ],
   "scripts": {
     "build": "tsc",
     "build:publish": "tsup src/index.ts --format cjs,esm --dts",
