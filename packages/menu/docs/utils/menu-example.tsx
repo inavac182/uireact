@@ -30,7 +30,7 @@ export const MenuExample: React.FC = () => {
   return (
     <UiSpacing padding={{ all: 'five' }}>
       <div>
-        <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
+        <UiButton category='tertiary' onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
       <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
         <UiSpacing margin={{ all: 'five' }}>
