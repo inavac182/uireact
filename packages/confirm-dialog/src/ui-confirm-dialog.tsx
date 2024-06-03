@@ -1,12 +1,12 @@
 import React, { useCallback, useContext } from 'react';
-import { MotionProps } from 'framer-motion';
+import { MotionProps, motion as MotionParent } from 'framer-motion';
 
 import { UiConfirmDialogContext, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
 import { UiButton } from '@uireact/button';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
-import { Dialog, DialogBackground, DialogBorder, DialogContent, DialogWrapper } from './private';
+import styles from './ui-confirm-dialog.scss';
 
 const buttonPadding: UiSpacingProps['padding'] = { block: 'four' };
 const actionsPadding: UiSpacingProps['padding'] = { top: 'five' };
@@ -34,13 +34,13 @@ export const UiConfirmDialog: React.FC = () => {
     hideConfirmDialog();
     // istanbul ignore next
     confirmDialog?.confirm();
-  }, [confirmDialog]);
+  }, [confirmDialog, hideConfirmDialog]);
 
   const onDeny = useCallback(() => {
     hideConfirmDialog();
     // istanbul ignore next
     confirmDialog?.deny();
-  }, [confirmDialog]);
+  }, [confirmDialog, hideConfirmDialog]);
 
   const closeCB = useCallback(() => {
     hideConfirmDialog();
@@ -52,14 +52,14 @@ export const UiConfirmDialog: React.FC = () => {
     const { options, data } = confirmDialog;
 
     return (
-      <DialogWrapper>
-        <DialogBackground onClick={closeCB} data-testid="confirm-dialog-bg" />
-        <Dialog role="dialog" {...animation}>
-          <DialogBorder>
-            <DialogContent>
+      <div className={styles.dialogWrapper}>
+        <div className={styles.dialogBackground} onClick={closeCB} data-testid="confirm-dialog-bg" />
+        <MotionParent.div role="dialog" className={styles.dialog} {...animation}>
+          <div className={styles.dialogBorder}>
+            <div className={styles.dialogContent}>
               <UiHeading centered level={4}>{data.title}</UiHeading>
               <UiSpacing padding={messagePadding}>
-                <UiText centered wrap>{data.message}</UiText>
+                <UiText align='center' wrap>{data.message}</UiText>
               </UiSpacing>
               <UiSpacing padding={actionsPadding}>
                 <UiFlexGrid
@@ -85,10 +85,10 @@ export const UiConfirmDialog: React.FC = () => {
                   </UiFlexGridItem>
                 </UiFlexGrid>
               </UiSpacing>
-            </DialogContent>
-          </DialogBorder>
-        </Dialog>
-      </DialogWrapper>
+            </div>
+          </div>
+        </MotionParent.div>
+      </div>
     );
   }
 

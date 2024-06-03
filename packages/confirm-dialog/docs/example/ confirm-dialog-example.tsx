@@ -44,7 +44,7 @@ export const ConfirmDialogExample: React.FC<ConfirmDialogExampleProps> = ({
 
   return (
     <div>
-      <UiButton onClick={onClick}>Open confirm dialog</UiButton>
+      <UiButton onClick={onClick} category='tertiary'>Open confirm dialog</UiButton>
       <UiConfirmDialog />
     </div>
   );
