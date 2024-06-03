@@ -1,0 +1,50 @@
+.lineSeparator {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      -45deg,
+      var(--primary-token_100),
+      var(--secondary-token_100),
+      var(--tertiary-token_100),
+      var(--primary-token_10),
+      var(--secondary-token_10),
+      var(--tertiary-token_10),
+      var(--primary-token_200),
+      var(--secondary-token_200),
+      var(--tertiary-token_200)
+    );
+    background-size: 400% 400%;
+}
+
+.lineAnimation {
+    animation: gradientLineAnimation 30s ease infinite;
+}
+
+.lineInverseAnimation {
+    animation: gradientLineAnimationKeyFrames 30s ease infinite;
+}
+
+
+@keyframes gradientLineAnimation {
+    0% {
+		background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradientLineAnimationKeyFrames {
+  0% {
+		background-position: 100% 50%;
+	}
+	50% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}

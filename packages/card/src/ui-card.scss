@@ -1,0 +1,14 @@
+.cardLink {
+    text-decoration: none;
+}
+
+.card {
+    border-radius: 10px;
+    transition: background .2s, border-color .2s;
+    box-sizing: border-box;
+}
+
+.cardOutlined {
+    border-width: 3px;
+    border-style: solid;
+}

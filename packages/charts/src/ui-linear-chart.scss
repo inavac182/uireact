@@ -1,0 +1,24 @@
+.currentLabelSpacing {
+    padding-top: 8px;
+}
+
+.limit {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.current {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: width 1s;
+    width: 0;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    min-height: 5px;
+}

@@ -1,0 +1,44 @@
+.button {
+    font-weight: bold;
+    border-style: solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 1px;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.buttonFullWidth {
+    width: 100%;
+}
+
+.buttonFullHeight {
+    height: 100%;
+}
+
+.buttonClear {
+    border-width: 0;
+    background: transparent;
+}
+
+.buttonOutlined {
+    padding: 5px 10px 5px 10px;
+    background-color: transparent;
+    border-width: 2px;
+}
+
+.buttonIcon {
+    background-color: transparent;
+    color: var(--fonts-token_100);
+    padding: 10px;
+    border-radius: 50%;
+    display: inline-flex;
+    border-width: 0px;
+}
+
+.buttonRadius {
+    border-radius: 3px;
+}

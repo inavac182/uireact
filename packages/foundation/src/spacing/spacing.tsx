@@ -1,9 +1,8 @@
 'use client';
 import * as React from 'react';
 
-import { styled } from 'styled-components';
-
 import { UiReactElementProps, SpacingDistribution } from '../types';
+import { getSpacingClass } from './get-spacing-class';
 
 export type UiSpacingProps = UiReactElementProps & {
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
@@ -14,12 +13,26 @@ export type UiSpacingProps = UiReactElementProps & {
   inline?: boolean;
 };
 
-type __UiSpacingProps = {
-  $margin?: SpacingDistribution;
-  $padding?: SpacingDistribution;
-  $inline?: boolean;
-};
+export const UiSpacing: React.FC<UiSpacingProps> = ({
+  children,
+  className = "",
+  inline,
+  margin,
+  padding,
+  testId,
+}: UiSpacingProps) => (
+  <div className={`${inline ? 'inline' : ''} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)} ${className}`} data-testid={testId}>
+    {children}
+  </div>
+);
 
+/**
+ * 
+ * @deprecated("Stop Using this, will be removed on v3")
+ * @param sizing 
+ * @returns string
+ */
+// istanbul ignore next
 export const getSpacingStyle = (sizing: SpacingDistribution): string => {
   if (sizing.all) {
     return `var(--spacing-${sizing.all})`;
@@ -39,24 +52,3 @@ export const getSpacingStyle = (sizing: SpacingDistribution): string => {
     ${sizing.left ? `var(--spacing-${sizing.left})` : '0px'}
   `;
 };
-
-const Div = styled.div<__UiSpacingProps>`
-  ${(props) => `
-    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
-    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
-    ${props.$inline ? 'display: inline-block' : ''}
-  `}
-`;
-
-export const UiSpacing: React.FC<UiSpacingProps> = ({
-  children,
-  className,
-  inline,
-  margin,
-  padding,
-  testId,
-}: UiSpacingProps) => (
-  <Div $inline={inline} $margin={margin} $padding={padding} className={className} data-testid={testId}>
-    {children}
-  </Div>
-);

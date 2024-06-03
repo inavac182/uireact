@@ -1,27 +1,18 @@
 import { ThemeTokens } from './utils';
-import { DefaultTheme } from '@uireact/foundation';
+
 import { UiLineSeparator } from '@uireact/separator';
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
+import { UiCard } from '@uireact/card';
+
 # Default theme
 <Metadata packageName='foundation' packageJson={packageJson} />
 
-<br />
-
-> npm i @uireact/foundation
-
-@uireact provides with a [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts) in the foundation package,
-the specifics of the default theme are:
-
-### Light Coloration 🤍
-
-You can see the light coloration of the provided theme here: [Light Coloration](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/light.ts)
-
-<ThemeTokens colors={DefaultTheme.light} />
-
-### Dark Coloration 🖤
-
-You can see the dark coloration of the provided theme here: [Dark Theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-colors/dark.ts)
-
-<ThemeTokens colors={DefaultTheme.dark} />
+<UiCard styling='outlined' category='warning'>
+    <h2>Work in progress</h2>
+    <br/>
+    <p>The default theme is being re-worked given that we are moving away from styled-components to SCSS modules.</p>
+    <br/>
+    <p>On the V3 version the theme will br provided as a set of CSS variables where all components will consume their values.</p>
+</UiCard>

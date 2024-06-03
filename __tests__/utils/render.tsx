@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, RenderResult } from '@testing-library/react';
 
-import { DefaultTheme, ThemeColor } from '@uireact/foundation';
+import { ThemeColor } from '@uireact/foundation';
 
 import { UiView } from '@uireact/view';
 
@@ -13,7 +13,7 @@ type WrapperComponentProps = {
 
 const WrapperComponent: React.FC<WrapperComponentProps> = ({ children, selectedTheme }: WrapperComponentProps) => {
   return (
-    <UiView theme={DefaultTheme} selectedTheme={selectedTheme ?? ThemeColor.dark} skipThemeDetector>
+    <UiView selectedTheme={selectedTheme ?? ThemeColor.dark} skipThemeDetector>
       {children}
     </UiView>
   );

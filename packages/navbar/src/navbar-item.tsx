@@ -1,14 +1,11 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
-import { styled } from 'styled-components';
+import { motion as MotionParent } from 'framer-motion';
 
 import { UiNavbarItemProps } from './types';
 
-const ItemWrapper = styled(motion.div)``;
-
 export const UiNavbarItem: React.FC<UiNavbarItemProps> = ({ children, motion }: UiNavbarItemProps) => {
-  return <ItemWrapper {...motion}>{children}</ItemWrapper>;
+  return <MotionParent.div {...motion}>{children}</MotionParent.div>;
 };
 
 UiNavbarItem.displayName = 'UiNavbarItem';

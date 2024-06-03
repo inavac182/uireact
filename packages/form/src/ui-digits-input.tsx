@@ -1,51 +1,11 @@
 'use client';
 import React, { FormEvent, useCallback, useRef, useState } from 'react';
 
-import { styled } from 'styled-components';
-
-import { ColorCategory, SizesProp, UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiText, UiLabel } from '@uireact/text';
 
 import { UiDigitsInputProps } from './types';
-
-const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-`;
-
-const DigitInput = styled.input<{ $category: ColorCategory; $size: SizesProp }>`
-  padding: 10px;
-  border: 0;
-  background-color: var(--primary-token_10);
-  font-family: var(--font-family);
-  color: var(--fonts-token_100);
-  text-align: center;
-  outline: none;
-  border-radius: 5px;
-
-  ${(props) => `
-    border: 2px solid var(--${props.$category}-token_200);
-    font-size: var(--texts-${props.$size});
-    width: var(--texts-${props.$size});
-
-    &:focus {
-      background-color: var(--primary-token_100);
-      border-color: var(--tertiary-token_100);
-      border-style: solid;
-      border-width: 2px;
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
-  `}
-`;
-
-const DigitInputsWrapper = styled.div`
-  display: flex;
-  column-gap: 10px;
-`;
+import styles from './ui-digits-input.scss';
 
 const errorPadding: UiSpacingProps['padding'] = { top: 'two' };
 
@@ -60,7 +20,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
   category,
   onChange,
   onComplete,
-  size,
+  size = 'regular',
   required,
 }: UiDigitsInputProps) => {
   const [digitsValues, setDigitsValues] = useState<string[]>([...Array(digits)]);
@@ -116,7 +76,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
   );
 
   return (
-    <InputWrapper className={className} data-testid={testId}>
+    <div className={styles.wrapper} data-testid={testId}>
       {label && (
         <UiLabel category={category} htmlFor={`internal-digit-0-input`}>
           {label}
@@ -124,11 +84,10 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
       )}
       <div>
         <input type="hidden" name={name} value={digitsString} />
-        <DigitInputsWrapper>
+        <div className={styles.inputWrapper}>
           {digitsValues.map((value, id) => (
-            <DigitInput
-              $category={category || 'primary'}
-              $size={size || 'regular'}
+            <input
+              className={`${className} ${styles.uiDigitsInput} bg-primary-10 focus-border-${category ? category : 'tertiary'}-100 size-${size} w-${size}`}
               name={`internal-digit-${id}-input`}
               value={value || ''}
               key={`internal-digit-${id}-input`}
@@ -138,7 +97,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
               disabled={disabled}
             />
           ))}
-        </DigitInputsWrapper>
+        </div>
         {error && (
           <UiSpacing padding={errorPadding}>
             <UiText category="error" size="small">
@@ -147,7 +106,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
           </UiSpacing>
         )}
       </div>
-    </InputWrapper>
+    </div>
   );
 };
 

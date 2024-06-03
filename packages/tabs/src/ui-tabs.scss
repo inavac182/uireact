@@ -1,0 +1,40 @@
+$sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
+
+.tabs {
+    display: flex;
+}
+
+@each $size in $sizings {
+    .radius-#{$size} {
+        :first-child {
+            border-radius: var(--spacing-#{$size}) 0 0 0;
+        }
+        :last-child {
+            border-radius: 0 var(--spacing-#{$size}) 0 0;
+        }
+    }
+}
+
+.item {
+    transition: background 0.2s, border-color 0.2s;
+    border-width: 0 0 2px 0;
+    text-align: center;
+    border-style: solid;
+    flex-grow: 1;
+    align-content: center;
+    cursor: pointer;
+    padding: 5px 0px 5px 0px;
+
+    &:hover {
+        background-color: var(--primary-token_100);
+        color: var(--fonts-token_100);
+    }
+}
+
+.selected {
+    border-color: var(--primary-token_100);
+}
+
+.nonSelected {
+    border-color: transparent;
+}

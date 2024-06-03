@@ -1,37 +1,13 @@
-'use client';
 import React, { useCallback, useState } from 'react';
-import { styled } from 'styled-components';
 
-import { getColorCategory } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 
-import { UiExpandoLinkInternalProps, UiExpandoLinkProps } from './types';
-
-const WrapperExpandoLink = styled.div<UiExpandoLinkInternalProps>`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  justify-content: space-between;
-
-  ${(props) => `
-    font-size: var(--texts-${props.$size});
-    &:hover {
-      div, span {
-        color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_200);
-      }
-    }
-  `}
-`;
-
-const EpandoLink = styled.div<UiExpandoLinkInternalProps>`
-  ${(props) => `
-    color: var(--${props.$inverseColoration ? 'inverse-' : ''}${getColorCategory(props.$category)}-token_100);
-  `}
-`;
+import { UiExpandoLinkProps } from './types';
+import styles from './ui-expando-text.scss';
 
 export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
-  category = 'tertiary',
-  className,
+  category = 'fonts',
+  className = '',
   children,
   expanded,
   inverseColoration = false,
@@ -42,37 +18,30 @@ export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
   testId,
 }: UiExpandoLinkProps) => {
   const [expandedInternal, setExpandedInternal] = useState<boolean>(expanded || false);
-
+  let classes = `${styles.wrapperExpandoLink} size-${size} color-${inverseColoration ? 'inverse-' : ''}${category}-100 hover-color-${inverseColoration ? 'inverse-' : ''}${category}-200`;
   const onClick = useCallback(() => {
     setExpandedInternal(!expandedInternal);
 
     onChange?.(!expandedInternal);
-  }, [expandedInternal]);
+  }, [expandedInternal, onChange]);
 
   return (
     <div className={className} data-testid={testId}>
-      <WrapperExpandoLink
+      <div
+        className={classes}
         onClick={onClick}
-        $category={category}
-        $inverseColoration={inverseColoration}
-        $size={size}
         data-testid="expando-trigger"
       >
-        <EpandoLink
-          $category={category}
-          $inverseColoration={inverseColoration}
-          $size={size}
-          data-testid="expando-text-trigger"
-        >
+        <div data-testid="expando-text-trigger">
           <span>{expandedInternal ? collapseLabel : expandLabel}</span>
-        </EpandoLink>
+        </div>
         <UiIcon
           icon={expandedInternal ? 'CaretUp' : 'CaretDown'}
           category={category}
           inverseColoration={inverseColoration}
           size={size}
         />
-      </WrapperExpandoLink>
+      </div>
       {expandedInternal && <>{children}</>}
     </div>
   );

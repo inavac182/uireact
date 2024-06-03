@@ -4,7 +4,9 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.mdx",
-    "src/types/custom.d.ts"
+    "**/*.scss",
+    "src/types/custom.d.ts",
+    "../../typings.d.ts"
   ],
   "exclude": [
     "coverage",

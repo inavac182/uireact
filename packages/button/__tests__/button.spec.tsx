@@ -32,10 +32,7 @@ describe('<UiButton />', () => {
     uiRender(<UiButton>MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--primary-token_50)');
-    expect(screen.getByRole('button')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '3px');
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200');
   });
 
   test('renders data test id', () => {
@@ -52,24 +49,28 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200');
   });
 
   test('renders full width', () => {
     uiRender(<UiButton fullWidth>MyButton</UiButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200');
   });
 
   test('renders when is clear', () => {
     uiRender(<UiButton styling="clear">MyButton</UiButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toHaveClass('button buttonClear hover-bg-primary-100 active-bg-primary-200');
   });
 
   test('renders full height', () => {
     uiRender(<UiButton fullHeight>MyButton</UiButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200');
   });
 
   test('renders class name', () => {
@@ -86,40 +87,35 @@ describe('<UiButton />', () => {
     uiRender(<UiButton category="secondary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--secondary-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--secondary-token_50)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 active-bg-secondary-200');
   });
 
   test('renders tertiary button', () => {
     uiRender(<UiButton category="tertiary">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--tertiary-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--tertiary-token_50)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-tertiary-100 border-tertiary-150 hover-bg-tertiary-150 active-bg-tertiary-200');
   });
 
   test('renders positive button', () => {
     uiRender(<UiButton category="positive">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--positive-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--positive-token_50)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-positive-100 border-positive-150 hover-bg-positive-150 active-bg-positive-200');
   });
 
   test('renders negative button', () => {
     uiRender(<UiButton category="negative">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--negative-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--negative-token_50)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-negative-100 border-negative-150 hover-bg-negative-150 active-bg-negative-200');
   });
 
   test('renders error button', () => {
     uiRender(<UiButton category="error">MyButton</UiButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'var(--error-token_100)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--error-token_50)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-error-100 border-error-150 hover-bg-error-150 active-bg-error-200');
   });
 
   test('renders rounded button', () => {
@@ -130,7 +126,7 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '15px/50%');
+    expect(screen.getByRole('button')).toHaveClass('button bg-error-100 border-error-150 hover-bg-error-150 active-bg-error-200');
   });
 
   test('renders icon button', () => {
@@ -141,8 +137,7 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'A' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('border-radius', '50%');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '0px');
+    expect(screen.getByRole('button')).toHaveClass('button buttonIcon hover-bg-error-100 active-bg-error-200');
   });
 
   test('renders button with submit type', () => {
@@ -159,7 +154,18 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('padding', 'var(--spacing-two)');
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200 padding-two');
+  });
+
+  test('renders button with margin', () => {
+    uiRender(
+      <UiButton type="submit" margin={{ all: 'two' }}>
+        Button
+      </UiButton>
+    );
+
+    expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200 margin-two');
   });
 
   test('renders button when outlined', () => {
@@ -170,10 +176,6 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveStyleRule('background-color', 'transparent');
-    expect(screen.getByRole('button')).toHaveStyleRule('color', 'var(--primary-token_100)!important');
-    expect(screen.getByRole('button')).toHaveStyleRule('fill', 'var(--primary-token_100)!important');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-color', 'var(--primary-token_50)');
-    expect(screen.getByRole('button')).toHaveStyleRule('border-width', '2px');
+    expect(screen.getByRole('button')).toHaveClass('button buttonOutlined border-primary-100 hover-bg-primary-100 active-bg-primary-200 color-primary-100 hover-color-primary-10');
   });
 });

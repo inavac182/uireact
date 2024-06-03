@@ -1,48 +1,8 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiGrid } from '@uireact/grid';
-import { styled } from 'styled-components';
 
-const EmptySlot = styled.div`
-  width: 50px;
-  height: 50px;
-`;
-
-//istanbul ignore next
-const DayWrapperButton = styled.button<{ $highlight?: boolean; $selected: boolean }>`
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  color: var(--fonts-token_100);
-  transition: background-color 0.3s;
-
-  ${(props) => `
-    ${props.$highlight && !props.$selected ? 'background-color: var(--primary-token_50);' : ''}
-    ${props.$selected ? 'background-color: var(--tertiary-token_100);' : ''}
-  `}
-
-  &:hover {
-    ${(props) => `
-      ${props.$selected ? 'background-color: var(--tertiary-token_200);' : 'background-color: var(--primary-token_10);'}
-    `}
-  }
-
-  &:disabled {
-    opacity: 0.8;
-    cursor: not-allowed;
-    &:hover {
-      background-color: transparent;
-    }
-  }
-`;
+import styles from '../ui-datepicker.scss';
 
 type PickerWeekProps = {
   focusDate: Date;
@@ -84,27 +44,37 @@ export const PickerWeek: React.FC<PickerWeekProps> = ({
   return (
     <UiGrid cols={7}>
       {[...Array(startingWeekDay)].map((value, index) => (
-        <EmptySlot key={`empty-picker-day-${index}`} />
+        <div className={styles.pickerWeekEmptySlot} key={`empty-picker-day-${index}`} />
       ))}
       {weekDays.map((value) => {
         const currentDateString = `${focusDate.getFullYear()}/${focusDate.getMonth()}/${value}`;
         const todayDateString = `${today.getFullYear()}/${today.getMonth()}/${today.getDate()}`;
-
         const buttonDate = new Date(focusDate.getFullYear(), focusDate.getMonth(), value);
         const isDisabled = disablePastDates && buttonDate <= yesterday;
+        const selected = currentDateString === selectedDateString;
+
+        let classes = styles.dayWrapperButton;
+
+        //istanbul ignore next
+        if (highlightToday && !selected && currentDateString === todayDateString) {
+          classes = `${classes} ${styles.hightlightWrapperButton}`;
+        }
+
+        if (selected) {
+          classes = `${classes} ${styles.selectedDayWrapperButton}`;
+        }
 
         return (
-          <DayWrapperButton
+          <button
+            className={classes}
             type="button"
             key={`picker-day-${month}-${value}`}
-            $highlight={highlightToday && currentDateString === todayDateString}
             onClick={onDateSelected}
             value={value}
-            $selected={currentDateString === selectedDateString}
             disabled={isDisabled}
           >
             {value}
-          </DayWrapperButton>
+          </button>
         );
       })}
     </UiGrid>

@@ -1,0 +1,198 @@
+$categories: 'primary', 'secondary', 'tertiary', 'fonts', 'positive', 'negative', 'error', 'warning';
+$tokens: 10, 50, 100, 150, 200;
+$sizes: 'xsmall', 'small', 'regular', 'large', 'xlarge';
+$hSizes: 'level1', 'level2', 'level3', 'level4', 'level5', 'level6';
+$sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
+$sides: 'top', 'right', 'bottom', 'left';
+$states: 'active', 'hover', 'focus', 'disabled';
+
+/** 
+
+GLOBAL STYLES
+
+*/
+
+@each $category in $categories {
+    @each $token in $tokens {
+        :global(.bg-#{$category}-#{$token}) {
+            background-color: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.color-#{$category}-#{$token}) {
+            color: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.border-#{$category}-#{$token}) {
+            border-color: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.fill-#{$category}-#{$token}) {
+            fill: var(--#{$category}-token_#{$token});
+        }
+
+        :global(.fill-inverse-#{$category}-#{$token}) {
+            fill: var(--inverse-#{$category}-token_#{$token});
+        }
+
+        :global(.border-inverse-#{$category}-#{$token}) {
+            border-color: var(--inverse-#{$category}-token_#{$token});
+        }
+
+        :global(.bg-inverse-#{$category}-#{$token}) {
+            background-color: var(--inverse-#{$category}-token_#{$token});
+        }
+
+        :global(.color-inverse-#{$category}-#{$token}) {
+            color: var(--inverse-#{$category}-token_#{$token});
+        }
+    }
+}
+
+@each $category in $categories {
+    @each $token in $tokens {
+        @each $state in $states {
+            :global(.#{$state}-bg-#{$category}-#{$token}) {
+                &:#{$state} {
+                    background-color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-color-#{$category}-#{$token}) {
+                &:#{$state} {
+                    color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-border-#{$category}-#{$token}) {
+                &:#{$state} {
+                    border-color: var(--#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-bg-inverse-#{$category}-#{$token}) {
+                &:#{$state} {
+                    background-color: var(--inverse-#{$category}-token_#{$token});
+                }
+            }
+    
+            :global(.#{$state}-color-inverse-#{$category}-#{$token}) {
+                &:#{$state} {
+                    color: var(--inverse-#{$category}-token_#{$token});
+                }
+            }
+        }
+    }
+}
+
+
+@each $size in $sizes {
+    :global(.radius-#{$size}) {
+        border-radius: var(--texts-#{$size});
+    }
+
+    :global(.size-#{$size}) {
+        font-size: var(--texts-#{$size});
+        line-height: var(--texts-#{$size});
+    }
+
+    :global(.w-#{$size}) {
+        width: var(--texts-#{$size});
+    }
+
+    :global(.h-#{$size}) {
+        height: var(--texts-#{$size});
+    }
+
+    :global(.radius-#{$size}) {
+        border-radius: var(--texts-#{$size});
+    }
+}
+
+@each $hSize in $hSizes {
+    :global(.heading-#{$hSize}) {
+        font-size: var(--headings-#{$hSize});
+        line-height: var(--headings-#{$hSize});
+    }
+}
+
+@each $sizing in $sizings {
+    :global(.padding-#{$sizing}) {
+        padding: var(--spacing-#{$sizing});
+    }
+
+    :global(.margin-#{$sizing}) {
+        margin: var(--spacing-#{$sizing});
+    }
+
+    :global(.gap-#{$sizing}) {
+        gap: var(--spacing-#{$sizing});
+    }
+
+    @each $side in $sides {
+        :global(.padding-#{$side}-#{$sizing}) {
+            padding-#{$side}: var(--spacing-#{$sizing});
+        }
+
+        :global(.margin-#{$side}-#{$sizing}) {
+            margin-#{$side}: var(--spacing-#{$sizing});
+        }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a,p,span,label,input,select,button,h1,h2,h3,h4,h5,h6 {
+    font-family: var(--font-family);
+}
+
+a {
+    text-decoration: none;
+}
+
+:global(.inline) {
+    display: inline;
+}
+
+:global(.block) {
+    display: block;
+}
+
+:global(.inline-block) {
+    display: inline-block;
+}
+
+:global(.pointer) {
+    cursor: pointer;
+}
+
+:root {
+    background-color: var(--primary-token_100);
+}
+
+/**
+    UiView styles
+*/
+
+.uireactViewContainer {
+    font-size: var(--texts-regular);
+    font-family: var(--font-family);
+    font-size: var(--texts-regular);
+    background-color: var(--primary-token_100);
+    color: var(--fonts-token_100);
+    font-weight: 400;
+    width: 100%;
+    transition: background 0.2s;    
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.centered {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}

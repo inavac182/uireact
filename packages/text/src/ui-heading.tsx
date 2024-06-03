@@ -1,64 +1,15 @@
 'use client';
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { styled, css } from 'styled-components';
+import { getSpacingClass } from '@uireact/foundation';
 
-import { UiHeadingProps, privateHeadingProps } from './types';
-import { ColorCategories, ColorTokens, ThemeColor, ThemeContext, getSpacingStyle, getThemeColor } from '@uireact/foundation';
+import { UiHeadingProps } from './types';
 
-const commonStyles = css<privateHeadingProps>`
-  ${(props) => `
-    font-size: var(--headings-level${props.$level});
-    line-height: var(--headings-level${props.$level});
-
-    ${
-      props.$coloration === 'dark'
-        ? `color: ${getThemeColor(props.$theme, ThemeColor.dark, ColorCategories.fonts, ColorTokens.token_100)};`
-        : ''
-    }
-    ${
-      props.$coloration === 'light'
-        ? `color: ${getThemeColor(props.$theme, ThemeColor.light, ColorCategories.fonts, ColorTokens.token_100)};`
-        : ''
-    }
-    ${!props.$coloration ? `color: var(--${props.$inverseColoration ? 'inverse-' : ''}fonts-token_100);` : ''}
-
-    ${props.$centered ? `text-align: center;` : ``}
-    ${
-      props.$wrap
-        ? `
-          overflow:hidden; 
-          white-space:nowrap; 
-          text-overflow: ellipsis;`
-        : ``
-    }
-    ${props.$padding ? `padding: ${getSpacingStyle(props.$padding)};` : ''}
-    ${props.$margin ? `margin: ${getSpacingStyle(props.$margin)};` : ''}
-  `}
-
-  font-weight: bold;
-`;
-
-const H1 = styled.h1<privateHeadingProps>`
-  ${commonStyles}
-`;
-const H2 = styled.h2<privateHeadingProps>`
-  ${commonStyles}
-`;
-const H3 = styled.h3<privateHeadingProps>`
-  ${commonStyles}
-`;
-const H4 = styled.h4<privateHeadingProps>`
-  ${commonStyles}
-`;
-const H5 = styled.h5<privateHeadingProps>`
-  ${commonStyles}
-`;
-const H6 = styled.h6<privateHeadingProps>`
-  ${commonStyles}
-`;
+import styles from './ui-text.scss';
 
 export const UiHeading: React.FC<UiHeadingProps> = ({
+  className = '',
+  category = 'fonts',
   level = 3,
   inverseColoration,
   coloration,
@@ -68,113 +19,66 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   margin,
   padding
 }: UiHeadingProps) => {
-  const { theme } = useContext(ThemeContext);
+  let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 heading-level${level}`;
+
+  if (coloration) {
+    classes = `${classes} ${coloration}`;
+  }
+
+  if (wrap) {
+    classes = `${classes} ${styles.wrap}`;
+  }
+
+  if (centered) {
+    classes = `${classes} ${styles.alignCenter}`;
+  }
+
+  if (margin || padding) {
+    classes = `${classes} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)}`;
+  }
 
   switch (level) {
     case 1:
       return (
-        <H1
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h1 className={classes}>
           {children}
-        </H1>
+        </h1>
       );
     case 2:
       return (
-        <H2
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h2 className={classes}>
           {children}
-        </H2>
+        </h2>
       );
     case 3:
       return (
-        <H3
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h3 className={classes}>
           {children}
-        </H3>
+        </h3>
       );
     case 4:
       return (
-        <H4
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h4 className={classes}>
           {children}
-        </H4>
+        </h4>
       );
     case 5:
       return (
-        <H5
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h5 className={classes}>
           {children}
-        </H5>
+        </h5>
       );
     case 6:
       return (
-        <H6
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h6 className={classes}>
           {children}
-        </H6>
+        </h6>
       );
     default:
       return (
-        <H3
-          $coloration={coloration}
-          $centered={centered}
-          $level={level}
-          $wrap={wrap}
-          $inverseColoration={inverseColoration}
-          $theme={theme}
-          $margin={margin}
-          $padding={padding}
-        >
+        <h3 className={classes}>
           {children}
-        </H3>
+        </h3>
       );
   }
 };

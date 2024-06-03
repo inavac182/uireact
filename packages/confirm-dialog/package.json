@@ -32,15 +32,14 @@
     "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
-    "@uireact/button": "^2.1.1",
+    "@uireact/button": ">= 3",
     "@uireact/flex": "^2.0.1",
-    "@uireact/foundation": "^2.4.0",
+    "@uireact/foundation": ">= 3",
     "@uireact/framer-animations": ">= 0",
     "@uireact/text": "^2.0.1",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }

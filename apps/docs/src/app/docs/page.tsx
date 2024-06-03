@@ -14,6 +14,7 @@ import { UiCard } from '@uireact/card';
 import { InstallationScripts } from './components/installation-scripts';
 import { DocHeading, DocSubHeading } from './components';
 import { ScriptCard } from '../internal';
+import { UiReactViewDancing } from '@uireact/framer-animations';
 
 const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
 const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
@@ -21,9 +22,15 @@ const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
 export default function Docs () {
     return (
         <>
-            <UiCard styling='outlined' category='warning'>
-                <h2><UiIcon icon="Party" category='warning' size='xlarge' /> We just migrated to our new tech stack docs page!</h2>
-                <p>There are a few broken links that we are working on fixing. Sorry for the inconvinience, will try to fix it real quickly.</p>
+            <UiCard styling='outlined' category='tertiary'>
+                <h2><UiIcon icon="Party" category='tertiary' size='xlarge' motion={UiReactViewDancing} /> V3 is coming!</h2>
+                <br />
+                <h3>We will move aways from styles-components and into SCSS modules.</h3>
+                <br/>
+                <p>
+                    CSS-in-JS has its own limitations, it was good while it lasted, now looking into the future, providing a solution
+                    that plays nicely with Remix and NextJS server components seems a step forward.
+                </p>
             </UiCard>
             <br />
             <DocHeading>Welcome to @UiReact docs</DocHeading>

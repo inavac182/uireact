@@ -1,0 +1,67 @@
+.tooltipWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    border-radius: 4px;
+    padding: 6px;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.caret {
+    position: absolute;
+    pointer-events: none;
+}
+
+.bottomTooltip {
+    bottom: calc(40px * -1);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.leftTooltip {
+    left: auto;
+    right: calc(100% + 20px);
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+}
+
+.rightTooltip {
+    left: calc(100% + 20px);
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+}
+
+.topTooltip {
+    top: calc(40px * -1);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.topCaret {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(var(--texts-large) * -.4));
+}
+
+.bottomCaret {
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(var(--texts-large) * -.6)) rotate(180deg);
+}
+
+.leftCaret {
+    left: auto;
+    left: 100%;
+    top: 50%;
+    transform: translateX(calc(var(--texts-large) * -.4)) translateY(-50%) rotate(270deg);
+}
+
+.rightCaret {
+    right: 100%;
+    top: 50%;
+    transform: translateX(calc(var(--texts-large) * .4)) translateY(-50%) rotate(90deg);
+}

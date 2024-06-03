@@ -22,6 +22,9 @@
     "test": {
       "cache": false
     },
+    "test:package": {
+      "cache": false
+    },
     "lint": {
       "outputs": []
     },

@@ -1,8 +1,6 @@
 'use client';
 import React, { useCallback, useState } from 'react';
 
-import { styled } from 'styled-components';
-
 import { UiMenu } from '@uireact/menu';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
@@ -13,30 +11,12 @@ import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 import { UiDatepickerProps } from './types';
 import { PickerMonth } from './private/picker-month';
 import { getMonthTitle } from './utils';
+import styles from './ui-datepicker.scss';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'four' };
 const buttonPadding: UiSpacingProps['padding'] = { top: 'four', bottom: 'four', right: 'five' };
 const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
-
-const MonthWrapper = styled.div<{ $borderDirection: 'left' | 'top' }>`
-  ${(props) => `
-    border-${props.$borderDirection}: 1px solid var(--primary-token_50);
-  `}
-  flex-grow: 1;
-`;
-
-const CloseButtonWrapperDialog = styled.div`
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
-`;
-
-const CloseButtonWrapperMenu = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  border-top: 1px solid var(--primary-token_50);
-`;
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   date,
@@ -84,7 +64,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
 
     setFocusDate(nextFocusDate);
     setNextFocusDate(new Date(nextFollowingYear, nextFollowingMonth, 1));
-  }, [setFocusDate, focusDate]);
+  }, [nextFocusDate]);
 
   const onSelectInternalDate = useCallback(
     (date: Date) => {
@@ -104,13 +84,13 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
             </UiButton>
           </UiFlexGridItem>
           <UiFlexGridItem grow={1}>
-            <UiText centered fontStyle="bold">
+            <UiText align='center' fontStyle="bold">
               {getMonthTitle(focusDate.getMonth(), monthTitlesFormat)} {focusDate.getFullYear()}
             </UiText>
           </UiFlexGridItem>
           {showNextMonth && !isSmall && (
             <UiFlexGridItem grow={1}>
-              <UiText centered fontStyle="bold">
+              <UiText align='center' fontStyle="bold">
                 {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
               </UiText>
             </UiFlexGridItem>
@@ -135,10 +115,10 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           />
         </UiFlexGridItem>
         {showNextMonth && (
-          <MonthWrapper $borderDirection={isSmall ? 'top' : 'left'}>
+          <div className={styles.monthWrapper}>
             {isSmall && (
               <UiSpacing padding={nextMonthSpacing}>
-                <UiText centered fontStyle="bold">
+                <UiText align='center' fontStyle="bold">
                   {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
                 </UiText>
               </UiSpacing>
@@ -152,11 +132,11 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
               selectedDate={selectedDate}
               disablePastDates={disablePastDates}
             />
-          </MonthWrapper>
+          </div>
         )}
       </UiFlexGrid>
       {closeLabel && !isDialogShown && (
-        <CloseButtonWrapperMenu>
+        <div className={styles.closeButtonWrapperMenu}>
           <UiSpacing padding={buttonPadding}>
             <UiButton type="button" category="tertiary" onClick={onCloseMenu}>
               <UiSpacing padding={buttonContentSpacing}>
@@ -164,20 +144,20 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
               </UiSpacing>
             </UiButton>
           </UiSpacing>
-        </CloseButtonWrapperMenu>
+        </div>
       )}
       {isDialogShown && (
-        <CloseButtonWrapperDialog>
+        <div className={styles.closeButtonWrapperDialog}>
           <UiSpacing padding={buttonPadding}>
             <UiButton category="tertiary" fullWidth onClick={onCloseMenu}>
               <UiSpacing padding={buttonContentSpacing}>
-                <UiText centered size="large">
+                <UiText align='center' size="large">
                   {closeLabel}
                 </UiText>
               </UiSpacing>
             </UiButton>
           </UiSpacing>
-        </CloseButtonWrapperDialog>
+        </div>
       )}
     </UiMenu>
   );

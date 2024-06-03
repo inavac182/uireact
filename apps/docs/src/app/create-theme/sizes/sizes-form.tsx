@@ -117,7 +117,7 @@ export const SizesForm = () => {
         <UiCard category="primary" weight="150">
             <UiFlexGrid justifyContent="center" gap="five">
                 <UiFlexGridItem>
-                    <UiText fontStyle="bold" centered>Texts</UiText>
+                    <UiText fontStyle="bold" align="center">Texts</UiText>
                     <br />
                     <UiInput label="XSmall size" labelOnTop value={textData?.xsmall} onChange={onTextsChange} name="xsmall" category={textErrors?.xsmall ? 'error' : undefined} type="number" />
                     <UiInput label="Small size" labelOnTop value={textData?.small} onChange={onTextsChange} name="small" category={textErrors?.small ? 'error' : undefined} type="number" />
@@ -126,7 +126,7 @@ export const SizesForm = () => {
                     <UiInput label="XLarge size" labelOnTop value={textData?.xlarge} onChange={onTextsChange} name="xlarge" category={textErrors?.xlarge ? 'error' : undefined} type="number" />
                 </UiFlexGridItem>
                 <UiFlexGridItem>
-                    <UiText fontStyle="bold" centered>Headings</UiText>
+                    <UiText fontStyle="bold" align="center">Headings</UiText>
                     <br />
                     <UiInput label="level 1" labelOnTop value={headingsData?.level1} onChange={onHeadingsChange} name="level1" category={headingErrors?.level1 ? 'error' : undefined} type="number" />
                     <UiInput label="level 2" labelOnTop value={headingsData?.level2} onChange={onHeadingsChange} name="level2" category={headingErrors?.level2 ? 'error' : undefined} type="number" />

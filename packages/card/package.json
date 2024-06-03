@@ -28,9 +28,8 @@
     "@uireact/foundation": "workspace:*"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^2.0.1",
-    "framer-motion": "^11.0.18",
-    "react": ">= 17 < 19",
-    "styled-components": ">= 4 <= 7"
+    "@uireact/foundation": ">= 3",
+    "framer-motion": ">= 11",
+    "react": ">= 17 < 19"
   }
 }

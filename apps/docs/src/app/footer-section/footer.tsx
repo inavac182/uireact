@@ -10,11 +10,14 @@ import { UiSpacing, UiSpacingProps } from "@uireact/foundation"
 
 const FooterWrapper = styled.div`
     padding: 50px;
-    max-width: 600px;
     top: 200px;
-    margin: 0 auto;
     position: relative;
-    background-color: var(primary-token_100);
+    background-color: var(--primary-token_100);
+
+    > div {
+        max-width: 600px;
+        margin: 0 auto;
+    }
 `;
 
 const linksSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'seven' }
@@ -22,58 +25,60 @@ const linksSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'seven'
 export const Footer = () => {
     return (
         <FooterWrapper>
-            <UiHeading centered>Learn more</UiHeading>
-            <UiLineSeparator />
-            <UiSpacing padding={linksSpacing}>
-                <UiFlexGrid alignItems="center" justifyContent="center" gap="five">
-                    <UiFlexGridItem>
-                        <UiButtonLink inverseTextColoration>
-                            <a href="https://github.com/inavac182/uireact" target="_blank">
-                                <UiIcon icon="BrandsGithub" /> Repository
-                            </a>
-                        </UiButtonLink>
-                    </UiFlexGridItem>
-                    <UiFlexGridItem>
-                        <UiButtonLink inverseTextColoration>
-                            <Link href='/docs'>
-                                <UiIcon icon="Book" /> Docs
-                            </Link>
-                        </UiButtonLink>
-                    </UiFlexGridItem>
+            <div>
+                <UiHeading centered>Learn more</UiHeading>
+                <UiLineSeparator />
+                <UiSpacing padding={linksSpacing}>
+                    <UiFlexGrid alignItems="center" justifyContent="center" gap="five">
+                        <UiFlexGridItem>
+                            <UiButtonLink inverseTextColoration>
+                                <a href="https://github.com/inavac182/uireact" target="_blank">
+                                    <UiIcon icon="BrandsGithub" /> Repository
+                                </a>
+                            </UiButtonLink>
+                        </UiFlexGridItem>
+                        <UiFlexGridItem>
+                            <UiButtonLink inverseTextColoration>
+                                <Link href='/docs'>
+                                    <UiIcon icon="Book" /> Docs
+                                </Link>
+                            </UiButtonLink>
+                        </UiFlexGridItem>
+                    </UiFlexGrid>
+                </UiSpacing>
+                <UiLineSeparator />
+                <br />
+                <UiHeading>Contact us</UiHeading>
+                <br />
+                <UiFlexGrid direction="column">
+                    <UiLink>
+                        <a href="https://github.com/inavac182/">
+                            <UiIcon icon="BrandsGithub" /> Felipe Nava 
+                        </a>
+                    </UiLink>
+                    <UiLink>
+                        <a href="https://www.linkedin.com/in/inavac/">
+                            <UiIcon icon="BrandsLinkedin" /> Felipe Nava 
+                        </a>
+                    </UiLink>
                 </UiFlexGrid>
-            </UiSpacing>
-            <UiLineSeparator />
-            <br />
-            <UiHeading>Contact us</UiHeading>
-            <br />
-            <UiFlexGrid direction="column">
-                <UiLink>
-                    <a href="https://github.com/inavac182/">
-                        <UiIcon icon="BrandsGithub" /> Felipe Nava 
-                    </a>
-                </UiLink>
-                <UiLink>
-                    <a href="https://www.linkedin.com/in/inavac/">
-                        <UiIcon icon="BrandsLinkedin" /> Felipe Nava 
-                    </a>
-                </UiLink>
-            </UiFlexGrid>
-            <br />
-            <UiFlexGrid direction="column">
-                <UiLink>
-                    <a href="https://github.com/saudelog">
-                        <UiIcon icon="BrandsGithub" /> Sergio Ortiz
-                    </a>
-                </UiLink>
-                <UiLink>
-                    <a href="https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/">
-                        <UiIcon icon="BrandsLinkedin" /> Sergio Ortiz
-                    </a>
-                </UiLink>
-            </UiFlexGrid>
-            <br />
-            <br />
-            <Logo />
+                <br />
+                <UiFlexGrid direction="column">
+                    <UiLink>
+                        <a href="https://github.com/saudelog">
+                            <UiIcon icon="BrandsGithub" /> Sergio Ortiz
+                        </a>
+                    </UiLink>
+                    <UiLink>
+                        <a href="https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/">
+                            <UiIcon icon="BrandsLinkedin" /> Sergio Ortiz
+                        </a>
+                    </UiLink>
+                </UiFlexGrid>
+                <br />
+                <br />
+                <Logo />
+            </div>
         </FooterWrapper>
     )
 }

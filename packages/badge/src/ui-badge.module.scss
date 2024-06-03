@@ -1,0 +1,14 @@
+.badge {
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.badgeContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-three);
+}

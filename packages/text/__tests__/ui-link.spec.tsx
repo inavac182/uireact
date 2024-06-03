@@ -1,21 +1,12 @@
 import React from 'react';
 
-import { fireEvent, screen } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import { TextSize } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiLink } from '../src';
 
-import { TextSize } from '@uireact/foundation';
-
-import 'jest-styled-components';
-
-const onClick = jest.fn();
-
 describe('<UiLink />', () => {
-  afterEach(() => {
-    onClick.mockClear();
-  });
-
   it('renders fine', () => {
     uiRender(
       <UiLink>
@@ -26,6 +17,14 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
   });
 
+  it('renders nothing when children is not valid element', () => {
+    const { container } = render(
+      <UiLink>dasdas</UiLink>
+    );
+
+    expect(container.innerHTML).toBe('');
+  });
+
   it('renders fine with spacing', () => {
     uiRender(
       <UiLink padding={{ all: 'four' }} margin={{ all: 'five' }}>
@@ -34,6 +33,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular margin-five padding-four');
   });
 
   it('renders fine with wrap', () => {
@@ -44,6 +44,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular wrap');
   });
 
   it('renders fine with size', () => {
@@ -54,97 +55,94 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large');
   });
 
   it('renders fine when fontStyle is italic', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="italic">
+      <UiLink size={TextSize.large} fontStyle="italic">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large italic');
   });
 
   it('renders fine when fontStyle is bold', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="bold">
+      <UiLink size={TextSize.large} fontStyle="bold">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large bold');
   });
 
   it('renders fine with light coloration', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="bold" coloration="light">
+      <UiLink size={TextSize.large} fontStyle="bold" coloration="light">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large light bold');
   });
 
   it('renders fine with dark coloration', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="bold" coloration="dark">
+      <UiLink size={TextSize.large} fontStyle="bold" coloration="dark">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large dark bold');
   });
 
-  it('renders fine when fontStyle is regular', () => {
+  it('renders fine when fontStyle is bold', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="regular">
+      <UiLink size={TextSize.large} fontStyle="bold">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large bold');
   });
 
-  it('renders fine when fontStyle is light', () => {
+  it('renders fine when fontStyle is slim', () => {
     uiRender(
-      <UiLink href="#" size={TextSize.large} fontStyle="light">
+      <UiLink size={TextSize.large} fontStyle="slim">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-large slim');
   });
 
   it('renders fine with color category', () => {
     uiRender(
-      <UiLink href="#" category="positive">
+      <UiLink category="positive">
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-positive-100 size-regular');
   });
 
   it('renders fine with fullWidth', () => {
     uiRender(
-      <UiLink href="#" category="positive" fullWidth>
+      <UiLink category="positive" fullWidth>
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-  });
-
-  it('trigger onClick when clicked', () => {
-    uiRender(
-      <UiLink handleClick={onClick} category="positive">
-        <a href="#">Link</a>
-      </UiLink>
-    );
-
-    fireEvent.click(screen.getByRole('link', { name: 'Link' }));
-
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-positive-100 size-regular fullWidth');
   });
 });

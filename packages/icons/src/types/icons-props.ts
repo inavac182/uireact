@@ -1,7 +1,8 @@
-import { ColorCategory, SizesProp, Theme, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 import { MotionProps } from 'framer-motion';
 
 import * as SvgsComponent from '../public/svgs';
+import { AriaAttributes } from 'react';
 
 export const UiReactIcons = SvgsComponent;
 
@@ -23,12 +24,4 @@ export type UiIconProps = {
   coloration?: 'dark' | 'light';
   /* Framer motion props */
   motion?: MotionProps;
-} & UiReactElementProps;
-
-export type privateIconProps = {
-  $size?: SizesProp;
-  $category?: ColorCategory;
-  $inverseColoration?: boolean;
-  $coloration?: 'dark' | 'light';
-  $theme: Theme;
-};
+} & UiReactElementProps & AriaAttributes;

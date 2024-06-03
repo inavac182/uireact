@@ -2,7 +2,7 @@ import * as React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import { ThemeContext } from '../../src/providers';
-import { DefaultTheme, ThemeColor } from '../../src';
+import { ThemeColor } from '../../src';
 
 const MockedComponent = () => {
   const themeContext = React.useContext(ThemeContext);
@@ -17,7 +17,7 @@ const MockedParentComponent = () => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme: DefaultTheme, selectedTheme: selectedTheme }}>
+    <ThemeContext.Provider value={{ selectedTheme: selectedTheme }}>
       <MockedComponent />
       <button onClick={toogleTheme}>Toogle</button>
     </ThemeContext.Provider>

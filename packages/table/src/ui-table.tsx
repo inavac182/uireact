@@ -1,4 +1,3 @@
-'use client';
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
@@ -8,7 +7,9 @@ import { UiGrid, UiGridItem } from '@uireact/grid';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 
 import { UiTableData } from './types';
-import { Table, TableHeadingCol, TableRow, TableCol, getFilteredData, getSortedData } from './private';
+import { getFilteredData, getSortedData } from './private';
+
+import styles from './ui-table.scss';
 
 export type UiTableProps = {
   /** The data object that will be rendered in the table */
@@ -28,7 +29,7 @@ export type UiTableProps = {
 } & UiReactElementProps;
 
 export const UiTable: React.FC<UiTableProps> = ({
-  className,
+  className = '',
   data,
   category = 'primary',
   testId,
@@ -93,11 +94,11 @@ export const UiTable: React.FC<UiTableProps> = ({
           </UiGridItem>
         </UiGrid>
       )}
-      <Table className={className} data-testid={testId} $category={category} cellSpacing="0">
+      <table className={`${className} ${styles.table}`} data-testid={testId} cellSpacing="0">
         <thead>
           <tr>
             {_data.headings.map((heading, index) => (
-              <TableHeadingCol key={`table-heading-${index}`} onClick={() => { onSort(index) }}>
+              <th className={styles.tableHeadingCol} key={`table-heading-${index}`} onClick={() => { onSort(index) }}>
                 <UiFlexGrid>
                   <UiFlexGridItem grow={1}>
                     {heading}
@@ -110,26 +111,24 @@ export const UiTable: React.FC<UiTableProps> = ({
                     </UiFlexGridItem>
                   )}
                 </UiFlexGrid>
-              </TableHeadingCol>
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {_data.items.map((field, rowIndex) => (
-            <TableRow
+            <tr
+              className={`${onClick ? `${styles.tableRowPointer} hover-bg-${category}-100` : ''} ${selected === field.id ? `bg-${category}-100` : ''} `}
               key={`table-item-index-${rowIndex}`}
-              $hasClickHandler={onClick !== undefined}
-              $isSelected={selected === field.id}
-              $category={category}
               onClick={() => handleClick(field.id)}
             >
               {field.cols.map((text, index) => (
-                <TableCol key={`table-item-${rowIndex}-colum-index-${index}`}>{text}</TableCol>
+                <td className={styles.tableCol} key={`table-item-${rowIndex}-colum-index-${index}`}>{text}</td>
               ))}
-            </TableRow>
+            </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };

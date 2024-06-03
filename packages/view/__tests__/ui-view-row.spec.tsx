@@ -16,8 +16,7 @@ describe('<UiViewRow />', () => {
 
     expect(screen.getByText('Content 1')).toBeVisible();
     expect(screen.getByText('Content 2')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('bg-primary-100 color-fonts-100');
   });
 
   it('Should render fine when is centered', () => {
@@ -46,9 +45,9 @@ describe('<UiViewRow />', () => {
   });
 
   it('Should add class name', () => {
-    uiRender(<UiViewRow className="someClass">Content 1</UiViewRow>);
+    uiRender(<UiViewRow className="someClass" testId='UiViewRow'>Content 1</UiViewRow>);
 
-    expect(screen.getByText('Content 1')).toHaveClass('someClass');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('someClass');
   });
 
   it('Should render fine with category', () => {
@@ -59,7 +58,7 @@ describe('<UiViewRow />', () => {
     );
 
     expect(screen.getByText('Content 1')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('background-color', 'var(--secondary-token_100)');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('bg-secondary-100 color-fonts-100');
   });
 
   it('Should render fine with inversed font', () => {
@@ -70,7 +69,7 @@ describe('<UiViewRow />', () => {
     );
 
     expect(screen.getByText('Content 1')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('bg-secondary-100 color-inverse-fonts-100');
   });
 
   it('Should render fine with noBackground and inverse font', () => {
@@ -81,8 +80,7 @@ describe('<UiViewRow />', () => {
     );
 
     expect(screen.getByText('Content 1')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('color', 'var(--inverse-fonts-token_100)');
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('background-color', 'transparent');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('color-inverse-fonts-100');
   });
 
   it('Should render fine with noBackground', () => {
@@ -93,7 +91,6 @@ describe('<UiViewRow />', () => {
     );
 
     expect(screen.getByText('Content 1')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('background-color', 'transparent');
   });
 
   it('Should render fine with weight and category', () => {
@@ -104,7 +101,6 @@ describe('<UiViewRow />', () => {
     );
 
     expect(screen.getByText('Content 1')).toBeVisible();
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('color', 'var(--fonts-token_10)');
-    expect(screen.getByTestId('UiViewRow')).toHaveStyleRule('background-color', 'var(--secondary-token_10)');
+    expect(screen.getByTestId('UiViewRow')).toHaveClass('bg-secondary-10 color-fonts-100');
   });
 });

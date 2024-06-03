@@ -1,1 +1,1 @@
-export * from './containers';
+export * from './get-category-class';

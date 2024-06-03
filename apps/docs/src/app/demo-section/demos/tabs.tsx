@@ -22,13 +22,13 @@ export const Tabs = () => {
                 <UiCard padding={{}}>
                     <UiTabs>
                         <UiTabItem identifier={1} handleClick={onSelect} selected={selected === 1}>
-                            <UiText>🍎</UiText>
+                            <UiText align="center">🍎</UiText>
                         </UiTabItem>
                         <UiTabItem identifier={2} handleClick={onSelect} selected={selected === 2}>
-                            <UiText>🥦</UiText>
+                            <UiText align="center">🥦</UiText>
                         </UiTabItem>
                         <UiTabItem identifier={3} handleClick={onSelect} selected={selected === 3}>
-                            <UiText>🥬</UiText>
+                            <UiText align="center">🥬</UiText>
                         </UiTabItem>
                     </UiTabs>
                     <UiSpacing padding={tabContentSpacing}>

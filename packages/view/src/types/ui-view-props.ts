@@ -6,14 +6,10 @@ export type UiViewProps = {
   centeredContent?: boolean;
   /** Selected color from theme */
   selectedTheme?: ThemeColor;
-  /** Theme for the view */
-  theme: Theme;
   /** If the view container should not render a bg */
   noBackground?: boolean;
   /** Disables the theme detector for user's device */
   skipThemeDetector?: boolean;
-  /** Skips font name style rule, useful for frameworks that handle font installation like NextJS */
-  skipFontName?: boolean;
 } & UiReactElementProps;
 
 export type UiViewRowProps = {
@@ -27,17 +23,4 @@ export type UiViewRowProps = {
   weight?: '10' | '50' | '100' | '150' | '200';
   /** If the view container should not render a bg */
   noBackground?: boolean;
-} & UiReactElementProps;
-
-export type privateViewProps = {
-  /** If the view container should not render a bg */
-  $noBackground?: boolean;
-} & UiReactElementProps;
-
-export type privateViewRowProps = {
-  $centeredContent?: boolean;
-  $weight?: '10' | '50' | '100' | '150' | '200';
-  $category?: ColorCategory;
-  $inverseFont?: boolean;
-  $noBackground?: boolean;
 } & UiReactElementProps;

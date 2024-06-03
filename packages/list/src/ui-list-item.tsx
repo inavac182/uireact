@@ -1,24 +1,14 @@
-'use client';
 import React from 'react';
 
-import { styled } from 'styled-components';
+import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
-import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
+import { UiListItemProps } from './types';
+import styles from './ui-list.scss';
 
-import { UiListItemProps, privateListItemProps } from './types';
+const defaultSpacing: SpacingDistribution = { all: 'three' };
 
-const ListItem = styled.li<privateListItemProps>`
-  font-size: var(--texts-regular);
-`;
-
-const UiListItemSpacing: UiSpacingProps = {
-  margin: { all: 'three' },
-};
-
-export const UiListItem: React.FC<UiListItemProps> = ({ children, className }: UiListItemProps) => (
-  <UiSpacing margin={UiListItemSpacing.margin}>
-    <ListItem className={className}>{children}</ListItem>
-  </UiSpacing>
+export const UiListItem: React.FC<UiListItemProps> = ({ children, className = '', padding = defaultSpacing }: UiListItemProps) => (
+    <li className={`${className} ${styles.item} ${getSpacingClass('padding', padding)}`}>{children}</li>
 );
 
 UiListItem.displayName = 'UiListItem';

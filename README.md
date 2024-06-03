@@ -6,6 +6,14 @@
 ![Pnpm](https://img.shields.io/badge/pnpm-green?logo=pnpm)
 ![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
+# ATTENTION!!!
+
+## V3 is coming, From Styles components to SCSS modules.
+
+### We are moving away from styled-components to SCSS modules, so we can get all the benefits of server components in JS frameworks such as Remix and Next JS. We will be performing a series of updates to the library, so make sure you follow up 
+
+Issue: [Move to SCSS Modules](https://github.com/inavac182/uireact/issues/346).
+
 
 # @UiReact.io <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
 

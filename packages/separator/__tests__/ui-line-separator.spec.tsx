@@ -17,10 +17,4 @@ describe('UiLineSeparator', () => {
 
     expect(screen.getByTestId('separator')).toBeVisible();
   });
-
-  it('Should render correctly with delay', () => {
-    uiRender(<UiLineSeparator testId="separator" delay={200} />);
-
-    expect(screen.getByTestId('separator')).toBeVisible();
-  });
 });

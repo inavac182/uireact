@@ -27,7 +27,7 @@ export const DialogsExample: React.FC<DialogsExampleProps> = ({
 
   return (
     <>
-      <UiButton onClick={onClickCB}>Open dialog</UiButton>
+      <UiButton onClick={onClickCB} category='tertiary'>Open dialog</UiButton>
       <UiDialog dialogId={dialogId} type={type} title={title} hideCloseIcon={hideCloseIcon}>
         <UiSpacing margin={{ all: 'four' }}>
           <UiText size={TextSize.large}>Some content</UiText>

@@ -3,7 +3,7 @@
   "description": "View component from @uireact",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.10.0",
+  "version": "3.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -28,11 +28,10 @@
     "@uireact/foundation": "workspace:*"
   },
   "peerDependencies": {
-    "@uireact/dialog": "^2.1.8",
-    "@uireact/foundation": "^2.4.0",
+    "@uireact/dialog": ">= 3",
+    "@uireact/foundation": ">= 3",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }

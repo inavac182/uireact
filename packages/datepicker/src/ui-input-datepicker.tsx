@@ -6,10 +6,11 @@ import { UiLabel, UiText } from '@uireact/text';
 import { UiInputDatepickerProps } from './types';
 import { getFormattedDate } from './utils';
 import { UiDatepicker } from './';
-import { IconContainer, Input, InputContentDiv, InputDiv, WrapperDiv } from './private';
+
+import styles from './ui-input-datepicker.scss';
 
 export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
-  className,
+  className = '',
   testId,
   disabled,
   dateFormat = 'yyyy-mm-dd',
@@ -22,7 +23,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
   category,
   date,
   onChange,
-  size,
+  size = 'regular',
   required,
   dayTitlesFormat,
   monthTitlesFormat,
@@ -38,6 +39,11 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
     datepickerDate ? getFormattedDate(dateFormat, datepickerDate) : ''
   );
   const [datepickerVisible, setDatepickerVisible] = useState(false);
+  let classes = `${className} ${styles.input} size-${size} border-${category || 'primary'}-100 active-border-${category || 'tertiary'}-100 focus-border-${category || 'tertiary'}-100 ${styles[`inputPadding${size}`]}`;
+
+  if (icon) {
+    classes = `${classes} ${styles.inputIconPadding}`;
+  }
 
   const onChangeInternal = useCallback(() => {
     return;
@@ -49,7 +55,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
       setInputValue(getFormattedDate(dateFormat, newDate));
       onChange(getFormattedDate(dateFormat, newDate));
     },
-    [setDatepickerDate, setInputValue, onChange]
+    [dateFormat, onChange]
   );
 
   const openDatepicker = useCallback(() => {
@@ -69,7 +75,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
           </UiLabel>
         </div>
       )}
-      <WrapperDiv>
+      <div className={styles.inputWrapper}>
         {label && !labelOnTop && (
           <div>
             <UiLabel htmlFor={name} category={category}>
@@ -77,10 +83,11 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
             </UiLabel>
           </div>
         )}
-        <InputDiv>
-          <InputContentDiv>
-            {icon && <IconContainer>{icon}</IconContainer>}
-            <Input
+        <div className={styles.inputDiv}>
+          <div className={styles.inputContent}>
+            {icon && <span className={styles.iconContainer}>{icon}</span>}
+            <input
+              className={classes}
               autoComplete="off"
               disabled={disabled}
               id={name}
@@ -89,16 +96,13 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
               ref={inputRef}
               value={inputValue}
               onChange={onChangeInternal}
-              $category={category}
-              $size={size}
               required={required}
-              $withIcon={icon !== undefined}
               onFocus={openDatepicker}
             />
-          </InputContentDiv>
+          </div>
           {error && <UiText category={category}>{error}</UiText>}
-        </InputDiv>
-      </WrapperDiv>
+        </div>
+      </div>
       <UiDatepicker
         isOpen={datepickerVisible}
         date={datepickerDate}

@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 import { UiHeading, UiText } from "@uireact/text"
 
 import { DemoCard } from "@/app/internal"
@@ -12,7 +10,7 @@ export const StyledDemo = () => {
                 <br />
                 <UiText>We use styled components for CSS</UiText>
                 <br />
-                <UiText centered size='xlarge'>💅</UiText>
+                <UiText align='center' size='xlarge'>💅</UiText>
             </>
         </DemoCard>
     )

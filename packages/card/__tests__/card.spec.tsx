@@ -16,10 +16,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('background-color', 'var(--secondary-token_100)');
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('border-color', undefined);
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('border-radius', '10px');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five');
   });
 
   test('render card with category', () => {
@@ -30,7 +27,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('background-color', 'var(--positive-token_100)');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-positive-100 color-fonts-100 padding-five');
   });
 
   test('render card with weight', () => {
@@ -41,7 +38,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('background-color', 'var(--secondary-token_50)');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-50 color-fonts-100 padding-five');
   });
 
   test('render no padded card', () => {
@@ -62,11 +59,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('background-color', undefined);
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('border-color', 'var(--secondary-token_50)');
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('color', 'var(--secondary-token_100)');
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('border-width', '3px');
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('border-style', 'solid');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card cardOutlined border-secondary-100 color-secondary-100 padding-five');
   });
 
   test('renders card with header, content and footer', () => {
@@ -91,13 +84,13 @@ describe('UiCard', () => {
 
   test('renders card with link', () => {
     render(
-      <UiCard link="https://uireact.io">
+      <UiCard link="https://uireact.io" testId="UiCard">
         <ContentMock />
       </UiCard>
     );
 
     expect(screen.getByRole('link', { name: 'Content' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Content' })).toHaveAttribute('href', 'https://uireact.io');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five');
   });
 
   test('execute card click handler', () => {
@@ -110,7 +103,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveStyleRule('cursor', 'pointer');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five pointer');
 
     fireEvent.click(screen.getByRole('heading'));
 

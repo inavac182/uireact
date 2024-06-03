@@ -10,12 +10,18 @@ describe('<UiSwitch />', () => {
     uiRender(<UiSwitch label="Select this" name="checkbox" />);
 
     expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
-    expect(screen.getByRole('checkbox', { hidden: true })).toHaveStyleRule('visibility', 'hidden');
+    expect(screen.getByText('Select this')).toBeVisible();
+  });
+
+  it('renders fine when is checked', () => {
+    uiRender(<UiSwitch label="Select this" name="checkbox" checked onChange={jest.fn()} />);
+
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
     expect(screen.getByText('Select this')).toBeVisible();
   });
 
   it('renders fine with label is at start', () => {
-    uiRender(<UiSwitch label="Select this" name="checkbox" labelPosition="START" />);
+    uiRender(<UiSwitch label="Select this" name="checkbox" labelPosition="start" />);
 
     expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
     expect(screen.getByText('Select this')).toBeVisible();

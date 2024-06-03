@@ -1,4 +1,4 @@
-import { UiLineSeparator, UiDiagonalSeparator, UiBubblesSeparator } from '@uireact/separator';
+import { UiLineSeparator } from '@uireact/separator';
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
@@ -6,7 +6,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 <Metadata packageName='separator' packageJson={packageJson} />
 
-> A separator element to ease the change of colorations between blocks of content
+> A separator element to split different contents in a section
 
 ## Installation
 
@@ -19,31 +19,5 @@ import { Metadata } from '@uireact/docs-tools';
     <UiLineSeparator />
     <br />
     <UiLineSeparator inverse />
-    <br />
-    <UiLineSeparator delay={2000} />
   </>
-```
-
-## UiDiagonalSeparator
-
-```jsx live scope={{UiDiagonalSeparator}}
-  <UiDiagonalSeparator from="primary" to="secondary" />
-```
-
-## UiDiagonalSeparator inversed
-
-```jsx live scope={{UiDiagonalSeparator}}
-  <UiDiagonalSeparator from="primary" to="secondary" inverse />
-```
-
-## UiBubblesSeparator
-
-```jsx live scope={{UiBubblesSeparator}}
-  <UiBubblesSeparator from="secondary" to="primary" />
-```
-
-## UiBubblesSeparator inversed
-
-```jsx live scope={{UiBubblesSeparator}}
-  <UiBubblesSeparator from="secondary" to="primary" inverse />
 ```

@@ -1,14 +1,11 @@
 import React from 'react';
-import { styled } from 'styled-components';
 
 import { getDaysInMonth, getStartingDayOfTheWeek, getDaysByWeek } from '../utils';
 import { DateTitleFormats } from '../types';
 import { WeekTitle } from './week-title';
 import { PickerWeek } from './picker-week';
 
-const Div = styled.div`
-  padding: 5px;
-`;
+import styles from '../ui-datepicker.scss';
 
 type PickerMonthProps = {
   focusDate: Date;
@@ -38,7 +35,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
   const daysByWeek = getDaysByWeek(daysInMonth, startingDayOfTheWeek);
 
   return (
-    <Div>
+    <div className={styles.pickerMonthContainer}>
       <WeekTitle titlesFormat={dayTitlesFormat} />
       {daysByWeek.map((value, index) => (
         <PickerWeek
@@ -53,6 +50,6 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
           disablePastDates={disablePastDates}
         />
       ))}
-    </Div>
+    </div>
   );
 };

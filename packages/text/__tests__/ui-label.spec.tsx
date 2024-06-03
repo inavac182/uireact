@@ -1,28 +1,23 @@
 import React from 'react';
 
 import { screen } from '@testing-library/react';
-import { DefaultTheme } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiLabel } from '../src';
-
-import 'jest-styled-components';
 
 describe('<UiLabel />', () => {
   it('renders fine', () => {
     uiRender(<UiLabel>Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-small');
   });
 
   it('renders fine with spacing', () => {
     uiRender(<UiLabel margin={{all: 'five'}} padding={{all: 'four'}}>Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByText('Text')).toHaveStyleRule('margin', 'var(--spacing-five)');
-    expect(screen.getByText('Text')).toHaveStyleRule('padding', 'var(--spacing-four)');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-small margin-five padding-four');
   });
 
   it('renders fine with category', () => {
@@ -35,7 +30,7 @@ describe('<UiLabel />', () => {
     uiRender(<UiLabel size="large">Text</UiLabel>);
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveStyleRule('font-size', 'var(--texts-large)');
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-large');
   });
 
   it('renders fine with dark coloration', () => {
@@ -46,8 +41,7 @@ describe('<UiLabel />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveStyleRule('font-size', 'var(--texts-large)');
-    expect(screen.getByText('Text')).toHaveStyleRule('color', DefaultTheme.dark.fonts.token_100);
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-large dark');
   });
 
   it('renders fine with light coloration', () => {
@@ -58,6 +52,6 @@ describe('<UiLabel />', () => {
     );
 
     expect(screen.getByText('Text')).toBeVisible();
-    expect(screen.getByText('Text')).toHaveStyleRule('color', DefaultTheme.light.fonts.token_100);
+    expect(screen.getByText('Text')).toHaveClass('color-fonts-100 size-large light');
   });
 });

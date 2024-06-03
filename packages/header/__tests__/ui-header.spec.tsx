@@ -20,9 +20,7 @@ describe('<UiHeader />', () => {
     );
 
     expect(screen.getByText('Header')).toBeVisible();
-    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
-    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('border-color', 'var(--primary-token_150)');
+    expect(screen.getByTestId('UiHeader')).toHaveClass('header bg-primary-100');
   });
 
   it('renders fine with weight', () => {
@@ -33,7 +31,7 @@ describe('<UiHeader />', () => {
     );
 
     expect(screen.getByText('Header')).toBeVisible();
-    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('background-color', 'var(--primary-token_150)');
+    expect(screen.getByTestId('UiHeader')).toHaveClass('header bg-primary-150');
   });
 
   it('renders fine if is centered', () => {
@@ -54,7 +52,7 @@ describe('<UiHeader />', () => {
     );
 
     expect(screen.getByText('Header')).toBeVisible();
-    expect(screen.getByTestId('UiHeader')).toHaveStyleRule('position', 'sticky');
+    expect(screen.getByTestId('UiHeader')).toHaveClass('header stickyHeader bg-primary-100');
   });
 
   it('renders fine if is centered and xl', () => {
@@ -71,11 +69,23 @@ describe('<UiHeader />', () => {
 
   it('renders fine with className', () => {
     uiRender(
-      <UiHeader centered className="something">
+      <UiHeader centered className="something" testId='UiHeader'>
         <p>Header</p>
       </UiHeader>
     );
 
     expect(screen.getByText('Header')).toBeVisible();
+    expect(screen.getByTestId('UiHeader')).toHaveClass('something header bg-primary-100 padding-four');
+  });
+
+  it('renders fine with padding', () => {
+    uiRender(
+      <UiHeader centered padding={{ inline: 'six' }} testId='UiHeader'>
+        <p>Header</p>
+      </UiHeader>
+    );
+
+    expect(screen.getByText('Header')).toBeVisible();
+    expect(screen.getByTestId('UiHeader')).toHaveClass('header bg-primary-100 padding-left-six padding-right-six');
   });
 });

@@ -1,5 +1,5 @@
 import { UiHeader } from '@uireact/header';
-import { UiSpacing, Sizing } from '@uireact/foundation';
+
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
@@ -17,15 +17,18 @@ import { Metadata } from '@uireact/docs-tools';
 
 The header component will render at the top but on scrolling the header will move with the scrolling
 
-```jsx live scope={{UiHeader, UiSpacing}}
+```jsx live scope={{UiHeader}}
   <div style={{ position: 'relative' }}>
     <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
-      <UiHeader>
-        <UiSpacing margin={{ left: Sizing.five }}>
-          <p>Header</p>
-        </UiSpacing>
+      <UiHeader padding={{ left: 'five' }}>
+        <p>Header</p>
       </UiHeader>
       <div style={{ color: 'black' }}>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
         <p>Some content</p>
         <p>Some content</p>
         <p>Some content</p>
@@ -45,15 +48,18 @@ The header component will render at the top but on scrolling the header will mov
 
 The header component will kept positioned at the top of the content
 
-```jsx live scope={{UiHeader, UiSpacing}}
+```jsx live scope={{UiHeader}}
   <div style={{ position: 'relative' }}>
     <div style={{ overflow: 'auto', maxHeight: '300px', backgroundColor: 'lightGray' }}>
-      <UiHeader fixed>
-        <UiSpacing margin={{ left: Sizing.five }}>
-          <p>Header</p>
-        </UiSpacing>
+      <UiHeader fixed padding={{ block: 'five' }}>
+        <p>Header</p>
       </UiHeader>
       <div style={{ color: 'black' }}>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
+        <p>Some content</p>
         <p>Some content</p>
         <p>Some content</p>
         <p>Some content</p>

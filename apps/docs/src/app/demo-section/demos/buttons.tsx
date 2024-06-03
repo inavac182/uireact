@@ -23,7 +23,7 @@ export const ButtonsDemo = () => {
                     </UiFlexGridItem>
                     <UiFlexGridItem grow={1}>
                         <UiButton styling="outlined" rounded fullWidth>
-                            <UiText size="small">
+                            <UiText size="small" align="center">
                                 🦹🏻‍♂️ Click me
                             </UiText>
                         </UiButton>
@@ -34,7 +34,7 @@ export const ButtonsDemo = () => {
                     <UiFlexGridItem grow={1}>
                         <UiButton fullWidth>
                             <UiSpacing padding={buttonSpacing}>
-                                <UiText>
+                                <UiText align="center">
                                     ☀️
                                 </UiText>
                             </UiSpacing>
@@ -43,7 +43,7 @@ export const ButtonsDemo = () => {
                     <UiFlexGridItem grow={1}>
                         <UiButton styling="outlined" fullWidth>
                             <UiSpacing padding={buttonSpacingOutlined}>
-                                <UiText>
+                                <UiText align="center">
                                     🌙
                                 </UiText>
                             </UiSpacing>
@@ -53,7 +53,7 @@ export const ButtonsDemo = () => {
                 <br />
                 <UiButton category="secondary" fullWidth>
                     <UiSpacing padding={buttonSpacing}>
-                        <UiText>
+                        <UiText align="center">
                             🙈
                         </UiText>
                     </UiSpacing>

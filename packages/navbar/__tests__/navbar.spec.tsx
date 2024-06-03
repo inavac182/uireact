@@ -4,12 +4,10 @@ import { render, screen } from '@testing-library/react';
 
 import { UiNavbar, UiNavbarItem } from '../src';
 
-import 'jest-styled-components';
-
 describe('<UiNavbar />', () => {
   it('Should render navbar', () => {
     render(
-      <UiNavbar>
+      <UiNavbar testId='UiNavbar'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
       </UiNavbar>
@@ -17,6 +15,7 @@ describe('<UiNavbar />', () => {
 
     expect(screen.getByText('Option 1')).toBeVisible();
     expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar inline');
   });
 
   it('Should render navbar with test id', () => {
@@ -39,7 +38,7 @@ describe('<UiNavbar />', () => {
     );
 
     expect(screen.getByTestId('my-navbar')).toBeVisible();
-    expect(screen.getByTestId('my-navbar')).toHaveClass('some-class');
+    expect(screen.getByTestId('my-navbar')).toHaveClass('some-class navbar inline');
   });
 
   it('Should render navbar when orientation is inline', () => {
@@ -68,7 +67,7 @@ describe('<UiNavbar />', () => {
 
   it('Should render navbar when norientation is stacked', () => {
     render(
-      <UiNavbar orientation="stacked">
+      <UiNavbar orientation="stacked" testId='UiNavbar'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
       </UiNavbar>
@@ -76,11 +75,12 @@ describe('<UiNavbar />', () => {
 
     expect(screen.getByText('Option 1')).toBeVisible();
     expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar stacked');
   });
 
   it('Should render navbar when has all rounded', () => {
     render(
-      <UiNavbar rounded='all'>
+      <UiNavbar rounded='all' testId='UiNavbar'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
@@ -90,6 +90,7 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 1')).toBeVisible();
     expect(screen.getByText('Option 2')).toBeVisible();
     expect(screen.getByText('Option 3')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar inline');
   });
 
   it('Should render navbar when category is provided', () => {
@@ -108,7 +109,7 @@ describe('<UiNavbar />', () => {
 
   it('Should render navbar when rounded edges with rounded edges is used', () => {
     render(
-      <UiNavbar category="secondary" rounded='edges'>
+      <UiNavbar category="secondary" rounded='edges' testId='UiNavbar'>
         <UiNavbarItem>Option 1</UiNavbarItem>
         <UiNavbarItem active>Option 2</UiNavbarItem>
         <UiNavbarItem>Option 3</UiNavbarItem>
@@ -118,6 +119,7 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 1')).toBeVisible();
     expect(screen.getByText('Option 2')).toBeVisible();
     expect(screen.getByText('Option 3')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar inline roundedEdges');
   });
 
   it('Should render navbar when an option is active', () => {
@@ -176,6 +178,19 @@ describe('<UiNavbar />', () => {
     expect(screen.getByText('Option 3')).toBeVisible();
   });
 
+  it('Should render with light hover coloration', () => {
+    render(
+      <UiNavbar category="secondary" styling="filled" orientation="stacked" hoverColoration='light' testId='UiNavbar'>
+        <UiNavbarItem active>Option 1</UiNavbarItem>
+        <UiNavbarItem>Option 2</UiNavbarItem>
+      </UiNavbar>
+    );
+
+    expect(screen.queryByText('Option 1')).toBeVisible();
+    expect(screen.getByText('Option 2')).toBeVisible();
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar stacked');
+  });
+
   it('Should render with filled styling', () => {
     render(
       <UiNavbar category="secondary" styling="filled">
@@ -224,6 +239,6 @@ describe('<UiNavbar />', () => {
 
     expect(screen.getByText('Option 1')).toBeVisible();
     expect(screen.getByText('Option 2')).toBeVisible();
-    expect(screen.getByTestId('UiNavbar')).toHaveStyleRule('gap', 'var(--spacing-five)');
+    expect(screen.getByTestId('UiNavbar')).toHaveClass('navbar inline gap-five');
   });
 });

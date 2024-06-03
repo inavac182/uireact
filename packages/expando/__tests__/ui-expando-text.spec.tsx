@@ -5,8 +5,6 @@ import { fireEvent, screen } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiExpandoText } from '../src';
 
-import 'jest-styled-components';
-
 describe('<UiExpandoText />', () => {
   it('renders fine', () => {
     uiRender(
@@ -21,8 +19,6 @@ describe('<UiExpandoText />', () => {
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-text-trigger')).toHaveStyleRule('color', 'var(--tertiary-token_100)');
-    expect(screen.getByTestId('expando-trigger')).toHaveStyleRule('font-size', 'var(--texts-regular)');
     expect(screen.getByTestId('some-test-id')).toHaveClass('some-class');
 
     fireEvent.click(screen.getByText('Expand label'));
@@ -44,13 +40,12 @@ describe('<UiExpandoText />', () => {
 
   it('renders fine with size', () => {
     uiRender(
-      <UiExpandoText expandLabel="Expand label" collapseLabel="Collapse label" size="large">
+      <UiExpandoText expandLabel="Expand label" collapseLabel="Collapse label" size="large" testId='some-test-id'>
         <p>Content</p>
       </UiExpandoText>
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-trigger')).toHaveStyleRule('font-size', 'var(--texts-large)');
 
     fireEvent.click(screen.getByText('Expand label'));
 
@@ -59,24 +54,22 @@ describe('<UiExpandoText />', () => {
 
   it('renders fine with category and inverse', () => {
     uiRender(
-      <UiExpandoText category="positive" expandLabel="Expand label" collapseLabel="Collapse label" inverseColoration>
+      <UiExpandoText category="positive" expandLabel="Expand label" collapseLabel="Collapse label" inverseColoration testId='some-test-id'>
         <p>Content</p>
       </UiExpandoText>
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-text-trigger')).toHaveStyleRule('color', 'var(--inverse-positive-token_100)');
   });
 
   it('renders fine with category and no inverse', () => {
     uiRender(
-      <UiExpandoText category="positive" expandLabel="Expand label" collapseLabel="Collapse label">
+      <UiExpandoText category="positive" expandLabel="Expand label" collapseLabel="Collapse label" testId='some-test-id'>
         <p>Content</p>
       </UiExpandoText>
     );
 
     expect(screen.getByText('Expand label')).toBeVisible();
-    expect(screen.getByTestId('expando-text-trigger')).toHaveStyleRule('color', 'var(--positive-token_100)');
   });
 
   it('triggers callback', () => {
