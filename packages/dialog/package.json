@@ -28,13 +28,15 @@
     "@uireact/button": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/framer-animations": "workspace:*",
-    "@uireact/icons": "workspace:*"
+    "@uireact/icons": "workspace:*",
+    "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/button": ">= 3",
     "@uireact/foundation": ">= 3",
     "@uireact/framer-animations": ">= 0",
     "@uireact/icons": ">= 3",
+    "@uireact/text": ">= 3",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",

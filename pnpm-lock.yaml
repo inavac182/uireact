@@ -561,6 +561,9 @@ importers:
       '@uireact/icons':
         specifier: workspace:*
         version: link:../icons
+      '@uireact/text':
+        specifier: workspace:*
+        version: link:../text
 
   packages/expando:
     dependencies:
