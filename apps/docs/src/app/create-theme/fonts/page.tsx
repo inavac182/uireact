@@ -8,6 +8,7 @@ import { Theme, UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiText } from "@uireact/text";
+import { UiReactViewDancing } from "@uireact/framer-animations";
 
 import { Heading } from "@/app/internal";
 import Pre from "@/app/internal/custom-pre";
@@ -41,7 +42,7 @@ export default function FontsPage () {
                         <UiIcon icon="AngleClearLeft" />
                     </Link>
                     <Heading>Fonts</Heading>
-                    <UiIcon icon="EditComment" size="xlarge" category="tertiary" />
+                    <UiIcon icon="EditComment" size="xlarge" category="tertiary" motion={UiReactViewDancing} />
                 </UiFlexGrid>
                 <br />
                 <UiLineSeparator />

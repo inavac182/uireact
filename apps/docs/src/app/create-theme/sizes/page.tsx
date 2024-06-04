@@ -13,6 +13,7 @@ import { ContinueLink } from "../components";
 import { SizesForm } from "./sizes-form";
 import { isCompleletedSizes } from "../utils/is-completed-sizes";
 import { SizesExample } from "./sizes-example";
+import { UiReactViewFloat } from "@uireact/framer-animations";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
@@ -39,7 +40,7 @@ export default function SizesPage () {
                         <UiIcon icon="AngleClearLeft" />
                     </Link>
                     <Heading>Sizes</Heading>
-                    <UiIcon icon="SortAmountUp" size="xlarge" category="tertiary" />
+                    <UiIcon icon="SortAmountUp" size="xlarge" category="tertiary" motion={UiReactViewFloat} />
                 </UiFlexGrid>
             </UiSpacing>
             <br />

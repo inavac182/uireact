@@ -10,6 +10,8 @@ import { UiIcon } from "@uireact/icons";
 import { UiHeading, UiText } from "@uireact/text";
 import { UiExpandoText } from "@uireact/expando";
 import { UiButton } from "@uireact/button";
+import { UiCard } from "@uireact/card";
+import { UiReactViewDancing } from "@uireact/framer-animations";
 
 import { Heading } from "@/app/internal";
 import { ThemeExample } from "./theme-example";
@@ -17,7 +19,6 @@ import styles from './verify.module.scss';
 import { getThemeColorVariables } from "./get-theme-color-variables";
 import { getSizesVariables } from "./get-sizes-variables";
 import { getSpacingVariables } from "./get-spacing-variables";
-import { UiCard } from "@uireact/card";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
@@ -112,7 +113,7 @@ export default function VerifyPage () {
             <UiSpacing padding={headingSpacing}>
                 <UiFlexGrid alignItems="center" gap="four">
                     <Heading>Verify theme</Heading>
-                    <UiIcon icon="Party" size="xlarge" category="tertiary" />
+                    <UiIcon icon="Party" size="xlarge" category="tertiary" motion={UiReactViewDancing} />
                 </UiFlexGrid>
             </UiSpacing>
             <br />

@@ -6,14 +6,24 @@ import { useSearchParams } from "next/navigation";
 import { UiFlexGrid } from "@uireact/flex";
 import { Theme, UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
+import { UiLink, UiText } from "@uireact/text";
 
 import { Heading } from "@/app/internal";
-import { UiLink, UiText } from "@uireact/text";
 import { SpacingForm } from "./spacing-form";
 import { isCompletedSpacing } from "../utils";
 import { ContinueLink } from "../components";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
+
+const pulse = {
+    whileInView: {
+        scale: [1, 1.4, 1],
+        transition: {
+            duration: 2,
+            repeat: Infinity
+        }
+    }
+};
 
 export default function SpacesPage () {
     const searchParams = useSearchParams();
@@ -36,7 +46,7 @@ export default function SpacesPage () {
                         <UiIcon icon="AngleClearLeft" />
                     </Link>
                     <Heading>Spacing</Heading>
-                    <UiIcon icon="ArrowsExpand" size="xlarge" category="tertiary" />
+                    <UiIcon icon="ArrowsExpand" size="xlarge" category="tertiary" motion={pulse} />
                 </UiFlexGrid>
             </UiSpacing>
             <br />
