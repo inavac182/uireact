@@ -1,26 +1,17 @@
+import { CSSProperties } from "react";
 import styled from "styled-components";
 
-import { ColorCategory, ColorTokens, HeadingLevel, SizesProp, SpacingType, Theme, ThemeColor } from "@uireact/foundation";
+import { ColorCategory, ColorTokens, HeadingLevel, HeadingSizes, SizesProp, SpacingType, Theme, ThemeColor } from "@uireact/foundation";
 import { UiCard } from "@uireact/card";
 import { UiReactFadeUp } from "@uireact/framer-animations";
 import { UiFlexGrid, UiFlexGridItem } from "@uireact/flex";
+
+import styles from './verify.module.scss';
 
 type ThemeExampleProps = {
     coloration: ThemeColor;
     theme: Theme;
 }
-
-const GlobalWrapper = styled.div<{ $theme: Theme, $coloration: ThemeColor }>`
-    border-radius: 30px;
-    padding: 30px;
-
-    ${(props) => `
-        background-color: ${props.$theme[props.$coloration].primary.token_100};
-        color: ${props.$theme[props.$coloration].fonts.token_100};
-        font-family: ${props.$theme.texts.font};
-        font-size: ${props.$theme.sizes.texts.regular};
-    `}
-`;
 
 const CustomCard = styled(UiCard)<{ $theme: Theme, $coloration: ThemeColor, $category: ColorCategory, $weigth?: ColorTokens }>`
     border-radius: 20px;
@@ -32,160 +23,165 @@ const CustomCard = styled(UiCard)<{ $theme: Theme, $coloration: ThemeColor, $cat
     `}
 `;
 
-const CustomHeader = styled.h1<{ $theme: Theme, $coloration: ThemeColor, $level: HeadingLevel }>`
-    ${(props) => `
-        color: ${props.$theme[props.$coloration].fonts.token_100};
-        font-size: ${props.$theme.sizes.headings[props.$level]};
-    `}
-`;
-
-const CustomText = styled.p<{ $theme: Theme, $coloration: ThemeColor, $size: SizesProp, $category?: ColorCategory, $weight?: ColorTokens }>`
-    ${(props) => `
-        color: ${props.$theme[props.$coloration][props.$category || 'fonts'][props.$weight || ColorTokens.token_100]};
-        font-size: ${props.$theme.sizes.texts[props.$size]};
-    `}
-`;
-
 const CustomSpacing = styled.div<{ $theme: Theme, $spacing: SpacingType }>`
     ${(props) => `
         padding-top: ${props.$theme.spacing[props.$spacing]};
     `}
 `;
 
+const getTextStyles = (theme: Theme, coloration: ThemeColor, token: ColorTokens, category: ColorCategory, size: SizesProp): CSSProperties => {
+    return {
+        color: theme[coloration][category][token],
+        fontSize: theme.sizes.texts[size]
+    };
+};
+
+const getHeadingStyles = (theme: Theme, coloration: ThemeColor, token: ColorTokens, category: ColorCategory, level: HeadingLevel): CSSProperties => {
+    return {
+        color: theme[coloration][category][token],
+        fontSize: theme.sizes.headings[level]
+    };
+};
+
 export const ThemeExample = ({ coloration, theme }: ThemeExampleProps) => {
     return (
-        <GlobalWrapper $theme={theme} $coloration={coloration}>
-            <CustomText $theme={theme} $coloration={coloration} $size="regular">Primary color as background</CustomText>
-            <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level1}>Heading level 1</CustomHeader>
+        <div className={styles.wrapper} style={{
+            backgroundColor: theme[coloration].primary.token_100,
+            color: theme[coloration].fonts.token_100,
+            fontFamily: theme.texts.font,
+            fontSize: theme.sizes.texts.regular
+        }}>
+            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Primary color as background</p>
+            <h1 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level1)}>Heading level 1</h1>
             <CustomSpacing $theme={theme} $spacing="six" />
             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary">
                 <UiFlexGrid gap="five">
                     <UiFlexGridItem>
-                    <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level3}>Colorations Examples</CustomHeader>
+                        <h3 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level3)}>Colorations Examples</h3>
                         <CustomSpacing $theme={theme} $spacing="four" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="regular">Secondary color as background in cards.</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Secondary color as background in cards.</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="four" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="regular">Tertiary color</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Tertiary color</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="four" />
-                        <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level3}>Main colorations</CustomHeader>
+                        <h3 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level3)}>Main colorations</h3>
                         <CustomSpacing $theme={theme} $spacing="three" />
-                        <CustomText $theme={theme} $coloration={coloration} $size="small">The base token is the one you selected in the color picker and is reference to as token 100 in the CSS variables</CustomText>
+                        <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'small')}>The base token is the one you selected in the color picker and is reference to as token 100 in the CSS variables</p>
                         <CustomSpacing $theme={theme} $spacing="four" />
-                        <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level4}>Primary</CustomHeader>
+                        <h4 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level4)}>Primary</h4>
                         <UiFlexGrid gap="four">
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary" $weigth={ColorTokens.token_10}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 10</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 10</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 50</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 50</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary">
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Base</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Base</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary" $weigth={ColorTokens.token_150}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 150</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 150</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary" $weigth={ColorTokens.token_200}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 200</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 200</p>
                             </CustomCard>
                         </UiFlexGrid>
                         <CustomSpacing $theme={theme} $spacing="four" />
-                        <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level4}>Secondary</CustomHeader>
+                        <h4 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level4)}>Secondary</h4>
                         <UiFlexGrid gap="four">
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary" $weigth={ColorTokens.token_10}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 10</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 10</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 50</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 50</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Base</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Base</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary" $weigth={ColorTokens.token_150}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 150</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 150</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary" $weigth={ColorTokens.token_200}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 200</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 200</p>
                             </CustomCard>
                         </UiFlexGrid>
                         <CustomSpacing $theme={theme} $spacing="four" />
-                        <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level4}>Tertiary</CustomHeader>
+                        <h4 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level4)}>Tertiary</h4>
                         <UiFlexGrid gap="four">
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary" $weigth={ColorTokens.token_10}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 10</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 10</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 50</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 50</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary">
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Base</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Base</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary" $weigth={ColorTokens.token_150}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 150</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 150</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="tertiary" $weigth={ColorTokens.token_200}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular">Token 200</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Token 200</p>
                             </CustomCard>
                         </UiFlexGrid>
                         <CustomSpacing $theme={theme} $spacing="four" />
                         <br />
-                        <CustomHeader $theme={theme} $coloration={coloration} $level={HeadingLevel.level4}>Support Colors</CustomHeader>
+                        <h4 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level4)}>Support Colors</h4>
                         <br />
-                        <CustomText $theme={theme} $coloration={coloration} $size="small">In this example we are combining background token 50 and font token 200, which is how we suggest to use support colors:</CustomText>
+                        <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'small')}>In this example we are combining background token 50 and font token 200, which is how we suggest to use support colors:</p>
                         <br />
                         <UiFlexGrid gap="four">
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="positive" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular" $category="positive" $weight={ColorTokens.token_200}>Positive</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_200, 'positive', 'regular')}>Positive</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="negative" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular" $category="negative" $weight={ColorTokens.token_200}>Negative</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_200, 'negative', 'regular')}>Negative</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="warning" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular" $category="warning" $weight={ColorTokens.token_200}>Warning</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_200, 'warning', 'regular')}>Warning</p>
                             </CustomCard>
                             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="error" $weigth={ColorTokens.token_50}>
-                                <CustomText $theme={theme} $coloration={coloration} $size="regular" $category="error" $weight={ColorTokens.token_200}>Error</CustomText>
+                                <p style={getTextStyles(theme, coloration, ColorTokens.token_200, 'error', 'regular')}>Error</p>
                             </CustomCard>
                         </UiFlexGrid>
                     </UiFlexGridItem>
                     <UiFlexGridItem>
-                    <CustomText $theme={theme} $coloration={coloration} $size="regular">Spacings Examples:</CustomText>
+                    <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Spacings Examples:</p>
                         <CustomSpacing $theme={theme} $spacing="seven" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 7</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 7</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="six" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 6</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 6</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="five" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 5</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 5</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="four" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 4</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 4</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="three" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 3</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 3</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="two" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 2</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 2</p>
                         </CustomCard>
                         <CustomSpacing $theme={theme} $spacing="one" />
                         <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="secondary">
-                            <CustomText $theme={theme} $coloration={coloration} $size="xsmall">level 1</CustomText>
+                            <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 1</p>
                         </CustomCard>
                     </UiFlexGridItem>
                 </UiFlexGrid>
             </CustomCard>
                 
-        </GlobalWrapper>
+        </div>
     )
 };

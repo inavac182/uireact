@@ -53,16 +53,6 @@ export default function CreateThemeToolPage () {
             <br />
             <UiText size="large">This tool will guide you go through the steps needed to create your theme.</UiText>
             <br />
-            <UiCard styling='outlined' category='warning'>
-                <h2>This generator works only for v1 and v2 components</h2>
-                <br/>
-                <p>We are moving away from styled-components to SCSS modules, as part of that migration we will be updating this generate as well.</p>
-                <br/>
-                <p>Currently it will output you a json object that is useful for V1 and V2 components, for V3 components you need to manually provide CSS variables as of today.</p>
-                <br/>
-                <p>We will update this generator in the following days to output the newer v3 format.</p>
-            </UiCard>
-            <br />
             <UiCard category="primary" weight="150">
                 <UiFlexGrid gap="four" alignItems="center">
                     <UiIcon icon="Info" category="tertiary" />
