@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.0.3...@uireact/menu@3.0.4) (2024-06-04)
+
+
+### Bug Fixes
+
+* **menu:** menu styling ([#351](https://github.com/inavac182/ui-react/issues/351)) ([4d9eca5](https://github.com/inavac182/ui-react/commit/4d9eca52cf54fc642c125f72078b790b660e40a8))
+
+
+
+
+
 ## [3.0.3](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.0.2...@uireact/menu@3.0.3) (2024-06-04)
 
 **Note:** Version bump only for package @uireact/menu
