@@ -101,8 +101,8 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 
   return (
     <div>
-      <div onClick={closeMenuCB}></div>
-      <MotionParent.div role="menu" ref={menuRef} data-testid={testId} {...motion}>
+      <div className={styles.wrapper} onClick={closeMenuCB}></div>
+      <MotionParent.div role="menu" className={menuClasses} ref={menuRef} data-testid={testId} {...motion}>
         {children}
       </MotionParent.div>
     </div>
