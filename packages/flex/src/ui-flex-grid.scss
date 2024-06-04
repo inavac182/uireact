@@ -1,0 +1,79 @@
+$sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
+
+.flexGrid {
+    display: flex;
+}
+
+.inlineFlex {
+    display: inline-flex;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.column-reverse {
+    flex-direction: column-reverse;
+}
+
+@each $sizing in $sizings {
+    .columnGap#{$sizing} {
+        column-gap: var(--spacing-#{$sizing});
+    }
+
+    .rowGap#{$sizing} {
+        column-gap: var(--spacing-#{$sizing});
+    }
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+.justify-flex-start {
+    justify-content: flex-start;
+}
+
+.justify-flex-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
