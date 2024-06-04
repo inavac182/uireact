@@ -77,7 +77,6 @@
     "react": "^18",
     "react-dom": "^18",
     "sass-embedded": "^1.77.2",
-    "styled-components": "6.0.7",
     "tsc-watch": "^6.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
