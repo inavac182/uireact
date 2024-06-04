@@ -8,9 +8,9 @@
 
 # ATTENTION!!!
 
-## V3 is coming, From Styles components to SCSS modules.
+## V3 is here, From Styles components to SCSS modules.
 
-### We are moving away from styled-components to SCSS modules, so we can get all the benefits of server components in JS frameworks such as Remix and Next JS. We will be performing a series of updates to the library, so make sure you follow up 
+### We moved away from styled-components to SCSS modules, so we can get all the benefits of server components in JS frameworks such as Remix and Next JS.
 
 Issue: [Move to SCSS Modules](https://github.com/inavac182/uireact/issues/346).
 
@@ -38,33 +38,34 @@ If the project already exists and you want to add this library then you will hav
 
 ## Manual set up 🛠️
 
-1. Install and set up the peer dependencies: 
-```
-npm i -S styled-components framer-motion
-```
-<small>You can define which versions of each one to use...</small>
-Check your JS framework for CSS-IN-JS to learn what you need to do to set up styled-components on the framework you are using.
-
-We have examples for setting this up in NextJS here: [NexJS with @UiReact](https://github.com/inavac182/next-js-w-uireact) and
-Remix: [Remix with @UiReact](https://github.com/inavac182/remix-w-uireact).
-
-2. Install the main packages:
+1. Install the main packages:
 ```
 npm i -S @uireact/foundation @uireact/view
 ```
 
-3. Wrap your app inside the UiView component: 
+2. Wrap your app inside the UiView component: 
 
 ```tsx
 import { ThemeColor } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
 const App = ({ children }) => (
-  <UiView theme={YourAmazingTheme} selectedTheme={ThemeColor.dark}>
+  <UiView selectedTheme={ThemeColor.dark}>
     {children}
   </UiView>
 )
 ```
+
+3. Link the packages styles to your global styles files:
+
+```
+// In CSS: Update the route based on your project.
+  @import url('../node_modules/@uireact/foundation/dist/index.css'); 
+
+  // Include all packages styles
+  @import url('../node_modules/@uireact/view/dist/index.css'); 
+```
+
 That's it... You are ready to start installing and using any component in this library 🫶
 
 ## Contact ☎️

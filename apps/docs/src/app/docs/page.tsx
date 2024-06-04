@@ -99,17 +99,36 @@ export default function Docs () {
             {`
 import React from 'react';
 
-import { DefaultTheme } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
 export const MyWrapper = ({ children }) => (
-  <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
+  <UiView selectedTheme={ThemeColor.light}>
     {children}
   </UiView>
 );
             `}
           </SyntaxHighlighter>
-            <UiText size='small'>If you used the automatic script this has been taken care already</UiText>
+          <br />
+          <h3>Include style files to your global CSS file</h3>
+          <UiSpacing padding={contentSpacing}>
+            <UiText>
+              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss">default theme</a></UiLink> so you can use it or create your own.
+              </UiText>
+            <br />
+            <UiText>
+              Import the foundation css file which holds the default theme and all styles from all packages into your global styles file:
+            </UiText>
+            <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
+            {`
+  // In CSS: Update the route based on your project.
+  @import url('../node_modules/@uireact/foundation/dist/index.css'); 
+
+  // Include all packages styles
+  @import url('../node_modules/@uireact/view/dist/index.css'); 
+            `}
+          </SyntaxHighlighter>
+          </UiSpacing>
+            <UiText size='small'>If you used the automatic script there will be a global.css file with some imports already there.</UiText>
             <br />
             <DocSubHeading>Theme</DocSubHeading>
             <UiText>@UiReact brings a default theme that can be used for your web app, however if you want to customize colors, fonts, sizes, etc... Then you can create your own theme</UiText>

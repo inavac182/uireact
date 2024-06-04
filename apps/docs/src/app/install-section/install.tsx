@@ -82,16 +82,19 @@ export const MyWrapper = () => (
           </UiHeading>
           <UiSpacing padding={contentSpacing}>
             <UiText>
-              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts">default theme</a></UiLink> so you can use it or create your own.
+              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss">default theme</a></UiLink> so you can use it or create your own.
               </UiText>
             <br />
             <UiText>
-              Import the foundation css file which holds the default theme:
+              Import the foundation css file which holds the default theme and all styles from all packages into your global styles file:
             </UiText>
             <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
             {`
   // In CSS: Update the route based on your project.
   @import url('../node_modules/@uireact/foundation/dist/index.css'); 
+
+  // Include all packages styles
+  @import url('../node_modules/@uireact/view/dist/index.css'); 
             `}
           </SyntaxHighlighter>
           </UiSpacing>
