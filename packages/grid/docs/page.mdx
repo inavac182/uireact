@@ -60,7 +60,7 @@ Also notice that in Item 1 we are making use of the [UiViewport](./packages-foun
 This prop give you the ability to set a number of cols/rows depending on the breakpoint.
 
 ```jsx live scope={{UiGrid, UiCard, UiText}}
-  <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }} rows={2} colsGap={20} rowsGap={10}>
+  <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }} rows={2} colsGap={"five"} rowsGap={"six"}>
     <UiCard>
       <UiText>Item 1!</UiText>
     </UiCard>
@@ -76,7 +76,7 @@ This prop give you the ability to set a number of cols/rows depending on the bre
 ### 2. Using custom UiGridItem col span
 
 ```jsx live scope={{UiGrid, UiCard, UiText, UiGridItem}}
-  <UiGrid cols={4} colsGap="5px">
+  <UiGrid cols={4} colsGap="three">
     <UiGridItem cols={2}>
       <UiCard>
         <UiText>Item 1!</UiText>

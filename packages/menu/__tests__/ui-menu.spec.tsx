@@ -66,7 +66,6 @@ describe('<UiMenu />', () => {
     await waitFor(() => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
-    expect(screen.getByTestId('UiMenu')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
   });
 
   it('menu component closes ONLY when esc key is pressed', async () => {

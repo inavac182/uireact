@@ -1,32 +1,13 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import { styled } from 'styled-components';
 
-import { ColorCategory, UiNotification } from '@uireact/foundation';
+import { UiNotification } from '@uireact/foundation';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import { UiHeading, UiLink, UiText } from '@uireact/text';
 import { UiButton } from '@uireact/button';
+
 import { NotificationTimer } from './notification-timer';
-
-const NotificationWrapper = styled.div<{ $category: ColorCategory; $hasTimer: boolean }>`
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
-  ${(props) => `
-    background-color: var(--${props.$category}-token_50);
-  `}
-`;
-
-const NotificationContent = styled.div`
-  padding: 10px 10px 10px 10px;
-`;
-
-const IconWrapper = styled.div`
-  padding-left: 10px;
-  padding-right: 10px;
-`;
+import styles from '../ui-notification.scss';
 
 type UiNotificationProps = {
   notification: UiNotification;
@@ -60,7 +41,7 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
     }, options.timer);
 
     return () => clearTimeout(timer);
-  }, [onClose]);
+  }, [id, onClose, options.timer]);
 
   useEffect(() => {
     options.onNotificationShown?.();
@@ -69,20 +50,17 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
   const closeNotification = useCallback(() => {
     options.onNotificationDismissed?.();
     onClose(id);
-  }, [onClose, options]);
+  }, [id, onClose, options]);
 
   return (
     <>
-      <NotificationWrapper
-        $category={notification.options?.category || 'primary'}
-        $hasTimer={options.timer && options.timer > 0 ? true : false}
-      >
-        <NotificationContent>
+      <div className={`${styles.notificationWrapper} bg-${notification.options?.category || 'primary'}-100`}>
+        <div className={styles.notificationContent}>
           <UiFlexGrid columnGap="four" alignItems="center">
             {notification.icon && (
-              <IconWrapper>
+              <div className={styles.iconWrapper}>
                 <UiIcon icon={notification.icon as UiIconProps['icon']} />
-              </IconWrapper>
+              </div>
             )}
             <UiFlexGridItem grow={1}>
               <UiFlexGrid direction="column" rowGap="three">
@@ -111,11 +89,11 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
               </UiFlexGridItem>
             )}
           </UiFlexGrid>
-        </NotificationContent>
+        </div>
         {options.timer && options.timer > 0 ? (
           <NotificationTimer time={options.timer} category={options.category} />
         ) : null}
-      </NotificationWrapper>
+      </div>
     </>
   );
 };

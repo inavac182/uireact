@@ -20,22 +20,3 @@ export type UiFlexGridProps = {
   /** Flex grid wrap */
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
 } & UiReactElementProps;
-
-export type privateFlexGridProps = {
-  /** Items alignment inside flex grid */
-  $alignItems?: 'stretch' | 'flex-start' | 'flex-end' | 'center';
-  /** Children component */
-  children?: React.ReactNode;
-  $columnGap?: SpacingType;
-  /** Class name */
-  className?: string;
-  /** Flex grid direction */
-  $direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
-  $gap?: SpacingType;
-  $inline?: boolean;
-  /** Flex grid wrap */
-  $justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
-  $rowGap?: SpacingType;
-  /** Flex grid wrap */
-  $wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
-};

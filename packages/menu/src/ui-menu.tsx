@@ -1,43 +1,14 @@
 'use client';
 import React from 'react';
 
-import { styled } from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion as MotionParent } from 'framer-motion';
 
 import { Breakpoints, UiViewport, useViewport } from '@uireact/foundation';
 import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
 import { UiReactFadeUp } from '@uireact/framer-animations';
 
-import { UiMenuProps, privateMenuProps } from './types';
-
-const MenuDiv = styled(motion.div)<privateMenuProps>`
-  background-color: var(--primary-token_100);
-  border-color: var(--primary-token_150);
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-
-  ${(props) => `  
-    ${
-      // istanbul ignore next
-      props.$isOffset ? `right: 10px;` : ''
-    }
-  `}
-
-  position: absolute;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 5px;
-  width: max-content;
-  z-index: 10;
-`;
-
-const WrapperDiv = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-`;
+import { UiMenuProps } from './types';
+import styles from './ui-menu.scss';
 
 export const UiMenu: React.FC<UiMenuProps> = ({
   closeLabel,
@@ -54,6 +25,12 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   const [isOffset, setIsOffset] = React.useState(false);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
+  let menuClasses = styles.menu;
+
+  //istanbul ignore next
+  if (isOffset) {
+    menuClasses = `${menuClasses} ${styles.offset}`;
+  }
 
   const escCB = React.useCallback(
     (event: KeyboardEvent) => {
@@ -80,7 +57,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     if (visible && isOpen && !isSmall) {
       actions.closeDialog();
     }
-  }, [visible, isOpen, isSmall]);
+  }, [visible, isOpen, isSmall, actions]);
 
   React.useEffect(() => {
     // istanbul ignore this
@@ -113,10 +90,10 @@ export const UiMenu: React.FC<UiMenuProps> = ({
           </UiDialog>
         </UiViewport>
         <UiViewport criteria={'m|l|xl'}>
-          <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-          <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId} {...motion}>
+          <div className={styles.wrapper} onClick={closeMenuCB}></div>
+          <MotionParent.div className={menuClasses} role="menu" ref={menuRef} data-testid={testId} {...motion}>
             {children}
-          </MenuDiv>
+          </MotionParent.div>
         </UiViewport>
       </div>
     );
@@ -124,10 +101,10 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 
   return (
     <div>
-      <WrapperDiv onClick={closeMenuCB}></WrapperDiv>
-      <MenuDiv $visible={visible} role="menu" ref={menuRef} $isOffset={isOffset} data-testid={testId} {...motion}>
+      <div onClick={closeMenuCB}></div>
+      <MotionParent.div role="menu" ref={menuRef} data-testid={testId} {...motion}>
         {children}
-      </MenuDiv>
+      </MotionParent.div>
     </div>
   );
 };

@@ -1,29 +1,17 @@
-'use client';
 import React from 'react';
 
-import { styled } from 'styled-components';
-
-import { UiFlexGridItemProps, privateFlexGridItemProps } from './types';
-
-const Div = styled.div<privateFlexGridItemProps>`
-  ${(props) => `
-    ${props.$align ? `align-self: ${props.$align};` : ''}
-    ${props.$grow ? `flex-grow: ${props.$grow};` : ''}
-    ${props.$order ? `order: ${props.$order};` : ''}
-    ${props.$shrink ? `flex-shrink: ${props.$shrink};` : ''}
-  `}
-`;
+import { UiFlexGridItemProps } from './types';
+import { getFlexItemClasses, getFlexItemStyles } from './helpers';
 
 export const UiFlexGridItem: React.FC<UiFlexGridItemProps> = ({
-  align,
   children,
-  grow,
-  order,
-  shrink,
+  className = '',
+  testId,
+  ...props
 }: UiFlexGridItemProps) => (
-  <Div $align={align} $grow={grow} $order={order} $shrink={shrink}>
+  <div className={`${className} ${getFlexItemClasses(props)}`} style={getFlexItemStyles(props)} data-testid={testId}>
     {children}
-  </Div>
+  </div>
 );
 
 UiFlexGridItem.displayName = 'UiFlexGridItem';

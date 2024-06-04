@@ -3,8 +3,9 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { useViewport } from '@uireact/foundation';
 
-import { NotificationsContainer, BottomNotificationsContainer, UiNotificationWrapper } from './private';
+import { UiNotificationWrapper } from './private';
 import { useNotifications } from './hook';
+import styles from './ui-notification.scss';
 
 export const UiNotifications: React.FC = () => {
   const { isSmall } = useViewport();
@@ -33,13 +34,9 @@ export const UiNotifications: React.FC = () => {
         })}
       </>
     );
-  }, [notifications, hiddenNotifications]);
+  }, [notifications, hiddenNotifications, onClose]);
 
-  if (isSmall) {
-    return <BottomNotificationsContainer>{NotificationsComponent}</BottomNotificationsContainer>;
-  }
-
-  return <NotificationsContainer>{NotificationsComponent}</NotificationsContainer>;
+  return <div className={isSmall ? styles.bottomContainer : styles.container}>{NotificationsComponent}</div>;
 };
 
 UiNotifications.displayName = 'UiNotifications';

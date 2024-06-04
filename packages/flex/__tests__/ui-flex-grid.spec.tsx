@@ -18,7 +18,7 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
-    expect(screen.getByTestId('grid')).toHaveStyleRule('display', 'flex');
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid');
   });
 
   it('renders fine when is inline', () => {
@@ -31,12 +31,12 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
-    expect(screen.getByTestId('grid')).toHaveStyleRule('display', 'inline-flex');
+    expect(screen.getByTestId('grid')).toHaveClass('inlineFlex');
   });
 
   it('renders fine with alignments', () => {
     uiRender(
-      <UiFlexGrid alignItems="center" justifyContent="center">
+      <UiFlexGrid alignItems="center" justifyContent="center" testId="grid">
         <UiFlexGridItem>Item 1</UiFlexGridItem>
         <UiFlexGridItem>Item 2</UiFlexGridItem>
       </UiFlexGrid>
@@ -44,11 +44,12 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid align-center justify-center');
   });
 
   it('renders fine with gaps', () => {
     uiRender(
-      <UiFlexGrid gap="three" columnGap="five" rowGap="three">
+      <UiFlexGrid gap="three" columnGap="five" rowGap="three" testId="grid">
         <UiFlexGridItem>Item 1</UiFlexGridItem>
         <UiFlexGridItem>Item 2</UiFlexGridItem>
       </UiFlexGrid>
@@ -56,11 +57,12 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid gap-three columnGapfive rowGapthree');
   });
 
   it('renders fine with direction', () => {
     uiRender(
-      <UiFlexGrid direction="column">
+      <UiFlexGrid direction="column" testId="grid">
         <UiFlexGridItem>Item 1</UiFlexGridItem>
         <UiFlexGridItem>Item 2</UiFlexGridItem>
       </UiFlexGrid>
@@ -68,11 +70,12 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid column');
   });
 
   it('renders fine with wrap', () => {
     uiRender(
-      <UiFlexGrid wrap="nowrap">
+      <UiFlexGrid wrap="nowrap" testId="grid">
         <UiFlexGridItem>Item 1</UiFlexGridItem>
         <UiFlexGridItem>Item 2</UiFlexGridItem>
       </UiFlexGrid>
@@ -80,5 +83,6 @@ describe('<UiFlexGrid />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid nowrap');
   });
 });

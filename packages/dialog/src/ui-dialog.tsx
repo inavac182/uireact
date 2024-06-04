@@ -1,20 +1,22 @@
 'use client';
 import React from 'react';
 
-import { DialogBackground, DialogContent, DialogToolbar, DialogWrapper, getAnimationForDialog } from './__private';
+import { DialogBackground, DialogContent, DialogToolbar, getAnimationForDialog } from './__private';
 
 import { UiDialogProps, UiDialogType } from './types';
 import { useDialog } from '.';
+import styles from './ui-dialog.scss';
 
 export const UiDialog: React.FC<UiDialogProps> = ({
   closeLabel,
-  className,
+  className = '',
   testId,
   children,
   dialogId,
   handleDialogClose,
   type = UiDialogType.CENTERED,
   hideCloseIcon = false,
+  gradientBorder = 'dark',
   title,
 }: UiDialogProps) => {
   const { isOpen, actions } = useDialog(dialogId);
@@ -23,7 +25,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   const closeCB = React.useCallback(() => {
     actions.closeDialog();
     handleDialogClose?.();
-  }, [actions]);
+  }, [actions, handleDialogClose]);
 
   const escCB = React.useCallback(
     (event: KeyboardEvent) => {
@@ -48,7 +50,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
 
   if (type !== UiDialogType.CENTERED) {
     return (
-      <DialogContent $type={type} className={className} data-testId={testId} motion={animation}>
+      <DialogContent type={type} className={className} data-testid={testId} motion={animation} gradientBorder={gradientBorder}>
         <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
         {children}
       </DialogContent>
@@ -56,10 +58,10 @@ export const UiDialog: React.FC<UiDialogProps> = ({
   }
 
   return (
-    <DialogWrapper className={className} data-testId={testId}>
+    <div className={`${className} ${styles.wrapper}`} data-testid={testId}>
       <>
         <DialogBackground onClick={closeCB} />
-        <DialogContent $type={type} motion={animation}>
+        <DialogContent type={type} motion={animation} gradientBorder={gradientBorder}>
           <DialogToolbar
             title={title}
             hideCloseIcon={hideCloseIcon}
@@ -70,7 +72,7 @@ export const UiDialog: React.FC<UiDialogProps> = ({
           {children}
         </DialogContent>
       </>
-    </DialogWrapper>
+    </div>
   );
 };
 

@@ -9,33 +9,37 @@ beforeEach(() => {
 
 test('renders the grid when is rendered with 2 items', () => {
   render(
-    <UiGrid cols={2} justifyItems="center" colsGap="three" rowsGap="one">
-      <UiGridItem placeSelf="center">Item 1</UiGridItem>
+    <UiGrid cols={2} justifyItems="center" colsGap="three" rowsGap="one" testId='UiGrid'>
+      <UiGridItem placeSelf="center" testId='UiGridItem'>Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
   );
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center columnGapthree rowGapone');
+  expect(screen.getByTestId('UiGridItem')).toHaveClass('place-self-center');
 });
 
 test('renders the grid when items uses starting point', () => {
   render(
-    <UiGrid cols={2} justifyItems="center">
+    <UiGrid cols={5} justifyItems="center" testId='UiGrid'>
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
-      <UiGridItem startingCol={2}>Item 2</UiGridItem>
+      <UiGridItem startingCol={2} cols={3} testId='UiGridItem'>Item 2</UiGridItem>
     </UiGrid>
   );
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
+  expect(screen.getByTestId('UiGridItem')).toHaveStyle({ gridColumnStart: 'span 3', gridColumnEnd: '5', gridRowStart: 'span 1', gridRowEnd: undefined })
 });
 
 test('renders the grid when items uses starting point', () => {
   render(
-    <UiGrid cols={2} rows={2} justifyItems="center">
+    <UiGrid cols={2} rows={2} justifyItems="center" testId='UiGrid'>
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
-      <UiGridItem startingCol={2} startingRow={2}>
+      <UiGridItem startingCol={2} startingRow={2} testId='UiGridItem'>
         Item 2
       </UiGridItem>
     </UiGrid>
@@ -43,13 +47,15 @@ test('renders the grid when items uses starting point', () => {
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
+  expect(screen.getByTestId('UiGridItem')).toHaveStyle({ gridColumnStart: 'span 1', gridColumnEnd: '3', gridRowStart: 'span 1', gridRowEnd: '3' })
 });
 
 test('renders the grid when using a breakpoints object as cols', () => {
   global.innerWidth = 300;
 
   const MockedComponent = () => (
-    <UiGrid cols={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center">
+    <UiGrid cols={{ small: 1, medium: 1, large: 2, xlarge: 2 }} justifyItems="center" testId='UiGrid'>
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>
@@ -59,6 +65,7 @@ test('renders the grid when using a breakpoints object as cols', () => {
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
 
   act(() => {
     global.innerWidth = 600;
@@ -69,6 +76,7 @@ test('renders the grid when using a breakpoints object as cols', () => {
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
 
   act(() => {
     global.innerWidth = 1050;
@@ -79,6 +87,7 @@ test('renders the grid when using a breakpoints object as cols', () => {
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
 
   act(() => {
     global.innerWidth = 1500;
@@ -89,13 +98,13 @@ test('renders the grid when using a breakpoints object as cols', () => {
 
   expect(screen.getByText('Item 1')).toBeVisible();
   expect(screen.getByText('Item 2')).toBeVisible();
+  expect(screen.getByTestId('UiGrid')).toHaveClass('grid justify-center');
 });
 
 test('renders the grid when using a breakpoints object is unrecognized', () => {
   global.innerWidth = 1500;
 
   const MockedComponent = () => (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     <UiGrid cols="XXXX" justifyItems="center">
       <UiGridItem placeSelf="center">Item 1</UiGridItem>
@@ -147,7 +156,7 @@ test('renders the grid when is rendered center justified and in 2 rows', () => {
 
 test('renders the grid when width is specified', () => {
   render(
-    <UiGrid rows={2} gridWidth="200px" gridHeight="100px">
+    <UiGrid rows={2}>
       <UiGridItem justifySelf="center">Item 1</UiGridItem>
       <UiGridItem>Item 2</UiGridItem>
     </UiGrid>

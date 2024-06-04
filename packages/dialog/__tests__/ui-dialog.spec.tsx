@@ -313,10 +313,10 @@ describe('<UiDialog />', () => {
         expect(screen.getByText('Dialog content')).toBeVisible();
       });
 
-      expect(screen.getByTestId('UiDialogBackground')).toHaveStyleRule('background', 'black');
-      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
-      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-      expect(screen.getByTestId('UiDialogToolbar')).toHaveStyleRule('border-color', 'var(--primary-token_100)');
+      expect(screen.getByTestId('UiDialogBackground')).toHaveClass('background');
+      expect(screen.getByTestId('UiDialogContentBorder')).toHaveClass('border centeredRadius bordered');
+      expect(screen.getByTestId('UiDialogContent')).toHaveClass('content centeredRadius');
+      expect(screen.getByTestId('UiDialogContentWrapper')).toHaveClass('contentWrapper centered');
     });
 
     it('Should render with correct colorations on light theme', async () => {
@@ -329,10 +329,11 @@ describe('<UiDialog />', () => {
         expect(screen.getByText('Dialog content')).toBeVisible();
       });
 
-      expect(screen.getByTestId('UiDialogBackground')).toHaveStyleRule('background', 'black');
-      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('background-color', 'var(--primary-token_100)');
-      expect(screen.getByTestId('UiDialogContent')).toHaveStyleRule('color', 'var(--fonts-token_100)');
-      expect(screen.getByTestId('UiDialogToolbar')).toHaveStyleRule('border-color', 'var(--primary-token_100)');
+      expect(screen.getByTestId('UiDialogBackground')).toHaveClass('background');
+      expect(screen.getByTestId('UiDialogContentBorder')).toHaveClass('border centeredRadius');
+      expect(screen.getByTestId('UiDialogContent')).toHaveClass('content centeredRadius');
+      expect(screen.getByTestId('UiDialogContentWrapper')).toHaveClass('contentWrapper centered');
+      
     });
   });
 });

@@ -1,26 +1,9 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-
-import { styled } from 'styled-components';
+import React, { CSSProperties, useEffect, useMemo, useState } from 'react';
 
 import { useViewport, useViewportResponse } from '@uireact/foundation';
 
-import { getGridTemplate } from './private';
-import { GridBreakpointsDistribution, UiGridProps, privateGridProps } from './types';
-
-const Div = styled.div<privateGridProps>`
-  ${(props) => `
-    display: ${props.$inlineGrid ? 'inline-grid' : 'grid'};
-    ${getGridTemplate(props.$cols, props.$colSize, 'cols')}
-    ${getGridTemplate(props.$rows, props.$rowSize, 'rows')}
-    ${props.$justifyItems ? `justify-items: ${props.$justifyItems};` : ''}
-    ${props.$colsGap ? `column-gap: var(--spacing-${props.$colsGap});` : ''}
-    ${props.$rowsGap ? `row-gap: var(--spacing-${props.$rowsGap});;` : ''}
-    ${props.$autoFlow ? `grid-auto-flow: ${props.$autoFlow};` : ''}
-    ${props.$gridWidth ? `width: ${props.$gridWidth};` : ''}
-    ${props.$gridHeight ? `height: ${props.$gridHeight};` : ''}
-  `}
-`;
+import { getGridClasses, getGridTemplate } from './private';
+import { GridBreakpointsDistribution, UiGridProps } from './types';
 
 const getSpanValueFromBreakpoint = (
   viewport: useViewportResponse,
@@ -62,8 +45,16 @@ const getSsrValue = (value: number | GridBreakpointsDistribution): number => {
 export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   const viewport = useViewport();
   const [cols, setCols] = useState<number>(getSsrValue(props.cols || 1));
-
   const [rows, setRows] = useState<number>(getSsrValue(props.rows || 1));
+  const styles = useMemo((): CSSProperties => {
+    const colsTemplate = getGridTemplate(cols, props.colSize);
+    const rowsTemplate = getGridTemplate(rows, props.rowSize);
+
+    return {
+      gridTemplateColumns: colsTemplate,
+      gridTemplateRows: rowsTemplate
+    }
+  }, [cols, props.colSize, props.rowSize, rows]);
 
   useEffect(() => {
     if (props.cols && typeof props.cols === 'object') {
@@ -80,23 +71,9 @@ export const UiGrid: React.FC<UiGridProps> = (props: UiGridProps) => {
   }, [viewport, props.rows]);
 
   return (
-    <Div
-      $autoFlow={props.autoFlow}
-      className={props.className}
-      data-testid={props.testId}
-      $cols={cols}
-      $colsGap={props.colsGap}
-      $colSize={props.colSize}
-      $gridHeight={props.gridHeight}
-      $gridWidth={props.gridWidth}
-      $inlineGrid={props.inlineGrid}
-      $justifyItems={props.justifyItems}
-      $rows={rows}
-      $rowsGap={props.rowsGap}
-      $rowSize={props.rowSize}
-    >
-      {props.children}
-    </Div>
+    <div className={getGridClasses(props)} style={styles} data-testid={props.testId}>
+      {props.children} 
+    </div>
   );
 };
 
