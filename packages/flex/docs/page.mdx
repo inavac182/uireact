@@ -7,7 +7,7 @@ import { Metadata } from '@uireact/docs-tools';
 # UiFlexGrid
 <Metadata packageName='flex' packageJson={packageJson} />
 
-> Component for creating flex grids
+> Component that wraps the content in a flex container, the flex properties are exposed through props
 
 ## Installation
 
@@ -29,18 +29,3 @@ import { Metadata } from '@uireact/docs-tools';
     </UiFlexGridItem>
   </UiFlexGrid>
 ```
-
-### UiReactFlexItem
-
-The Flex item has a couple props that are numeric:
-
-```ts
- /** Grid item grow */
-  grow?: number;
-  /** Grid item shrink */
-  shrink?: number;
-```
-
-The grow prop maps to `flex-grow` and the shrink maps to `flex-shrink` as these properties are numeric, we can't just add
-infinite combinations so we've built only 0, 1 and 2. If other than these values are needed then they should be provided by 
-a class name to cover your specific use case.

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { UiFlexGridItemProps } from './types';
-import { getFlexItemClasses } from './helpers';
+import { getFlexItemStyles } from './helpers';
 
 export const UiFlexGridItem: React.FC<UiFlexGridItemProps> = ({
   children,
@@ -9,7 +9,7 @@ export const UiFlexGridItem: React.FC<UiFlexGridItemProps> = ({
   testId,
   ...props
 }: UiFlexGridItemProps) => (
-  <div className={`${getFlexItemClasses(props)} ${className}`} data-testid={testId}>
+  <div className={className} style={getFlexItemStyles(props)} data-testid={testId}>
     {children}
   </div>
 );

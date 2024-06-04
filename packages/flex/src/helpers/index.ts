@@ -1,2 +1,2 @@
 export * from './get-flex-classes';
-export * from './get-flex-item-classes';
+export * from './get-flex-item-styles';
