@@ -7,15 +7,18 @@
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
     "build:publish": "turbo run build:publish",
     "clean": "turbo run clean && rm -rf ./node_modules/",
-    "dev:docs": "nodemon --ignore apps -e mdx --exec \"turbo run watch --concurrency 29\"",
+    "dev:docs": "concurrently \"pnpm run watch:docs\" \"pnpm run watch:packages --concurrency 29\"",
     "dev:storybook": "turbo run dev:storybook",
     "start": "turbo run start",
     "lint": "turbo run lint",
+    "parse:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js",
     "publish:packages": "lerna publish",
     "publish:versions": "lerna version",
     "test": "turbo run build:publish && turbo run test",
     "test:package": "turbo run test",
-    "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue"
+    "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue",
+    "watch:packages": "turbo run watch",
+    "watch:docs": "nodemon --ignore apps -e mdx --exec \"pnpm run parse:docs\""
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
@@ -70,6 +73,7 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
+    "concurrently": "^8.2.2",
     "esbuild-sass-plugin": "^3.3.0",
     "framer-motion": "^11.0.18",
     "lerna": "^8.1.2",
