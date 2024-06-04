@@ -35,7 +35,6 @@
     "@uireact/foundation": "^2.0.1",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
-    "styled-components": ">= 4 <= 6",
     "tslib": "^2.5.0"
   }
 }

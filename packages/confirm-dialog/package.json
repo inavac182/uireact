@@ -3,7 +3,7 @@
   "description": "@uireact/confirm-dialog package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "1.6.2",
+  "version": "3.0.0",
   "publishConfig": {
     "access": "public"
   },
@@ -33,10 +33,10 @@
   },
   "peerDependencies": {
     "@uireact/button": ">= 3",
-    "@uireact/flex": "^2.0.1",
+    "@uireact/flex": ">= 3",
     "@uireact/foundation": ">= 3",
     "@uireact/framer-animations": ">= 0",
-    "@uireact/text": "^2.0.1",
+    "@uireact/text": ">= 3",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
