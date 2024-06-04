@@ -4,7 +4,6 @@ export * from './theme';
 export * from './forms';
 export * from './buttons';
 export * from './framer';
-export * from './styled';
 export * from './tabs';
 export * from './cards';
 export * from './theme-selector';

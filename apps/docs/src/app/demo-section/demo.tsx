@@ -53,7 +53,7 @@ export const Demo = () => {
               </UiButton>
             </UiFlexGridItem>
             <UiFlexGridItem>
-              <UiButtonLink>
+              <UiButtonLink padding={{ all: 'four'}}>
                 <Link href="docs/">
                   <UiIcon icon='Book'/> Docs
                 </Link>
