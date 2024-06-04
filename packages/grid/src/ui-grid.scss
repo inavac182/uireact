@@ -1,0 +1,57 @@
+$sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
+
+$noSpaces: 1,2,3,4,5,6,7,8,9,10;
+
+.inlineGrid {
+    display: inline-grid;
+    width: 100%;
+    height: 100%;
+}
+
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.justify-start {
+    justify-items: start;
+}
+
+.justify-end {
+    justify-items: end;
+}
+
+.justify-center {
+    justify-items: center;
+}
+
+.justify-stretch {
+    justify-items: stretch;
+}
+
+.autoflow-row {
+    grid-auto-flow: row;
+}
+
+.autoflow-column {
+    grid-auto-flow: column;
+}
+
+.autoflow-row-dense {
+    grid-auto-flow: row dense;
+}
+
+.autoflow-column-dense {
+    grid-auto-flow: column dense;
+}
+
+@each $sizing in $sizings {
+    .columnGap#{$sizing} {
+        column-gap: var(--spacing-#{$sizing});
+    }
+
+    .rowGap#{$sizing} {
+        row-gap: var(--spacing-#{$sizing});
+    }
+}

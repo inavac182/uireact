@@ -3,7 +3,6 @@ import React from 'react';
 import { UiFlexGridProps } from './types';
 import { getFlexClasses } from './helpers';
 
-
 export const UiFlexGrid: React.FC<UiFlexGridProps> = ({
   children,
   className = '',

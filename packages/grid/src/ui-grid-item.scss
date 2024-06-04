@@ -1,0 +1,15 @@
+$values: 'start', 'end', 'center', 'stretch';
+
+@each $value in $values {
+    .justify-self-#{$value} {
+        justify-self: $value;
+    }
+
+    .align-self-#{$value} {
+        align-self: $value;
+    }
+
+    .place-self-#{$value} {
+        place-self: $value;
+    }
+}

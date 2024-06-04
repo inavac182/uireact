@@ -46,7 +46,7 @@ $sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
     }
 
     .rowGap#{$sizing} {
-        column-gap: var(--spacing-#{$sizing});
+        row-gap: var(--spacing-#{$sizing});
     }
 }
 

@@ -1,11 +1,9 @@
-'use client';
-import React from 'react';
-import { styled } from 'styled-components';
+import React, { CSSProperties, useMemo } from 'react';
 
-import { getItemEndSpan, getItemSpan } from './private';
 import { UiReactElementProps } from '@uireact/foundation';
+import { getGridItemClasses } from './private';
 
-type UiGridItemProps = {
+export type UiGridItemProps = {
   /** Aligns the item inside its grid block */
   alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of columns that the item will take */
@@ -20,51 +18,28 @@ type UiGridItemProps = {
   placeSelf?: 'start' | 'end' | 'center' | 'stretch';
   /** Number of rows that the item will take */
   rows?: number;
+  /** Test id used for testing purposes */
+  testId?: string;
 } & UiReactElementProps;
 
-type privateGridItemProps = {
-  /** Aligns the item inside its grid block */
-  $alignSelf?: 'start' | 'end' | 'center' | 'stretch';
-  /** Number of columns that the item will take */
-  $cols?: number;
-  /** The starting column for the grid item */
-  $startingCol?: number;
-  /** The starting row for the grid item */
-  $startingRow?: number;
-  /** Justify the item inside its grid block */
-  $justifySelf?: 'start' | 'end' | 'center' | 'stretch';
-  /** Align and Justify the item inside its grid block */
-  $placeSelf?: 'start' | 'end' | 'center' | 'stretch';
-  /** Number of rows that the item will take */
-  $rows?: number;
-} & UiReactElementProps;
+export const UiGridItem: React.FC<UiGridItemProps> = (props: UiGridItemProps) => {
+  const styles = useMemo((): CSSProperties => {
+    const cols = props.cols || 1;
+    const rows = props.rows || 1;
 
-const Div = styled.div<privateGridItemProps>`
-  ${(props) => `
-    ${getItemSpan(props.$cols, 'cols')}
-    ${props.$startingCol ? getItemEndSpan(props.$cols, 'cols', props.$startingCol) : ''}
-    ${props.$startingRow ? getItemEndSpan(props.$rows, 'rows', props.$startingRow) : ''}
-    ${getItemSpan(props.$rows, 'rows')}
-    ${props.$justifySelf ? `justify-self: ${props.$justifySelf};` : ''}
-    ${props.$alignSelf ? `align-self: ${props.$alignSelf};` : ''}
-    ${props.$placeSelf ? `place-self: ${props.$placeSelf}` : ''}
-  `}
-`;
+    return {
+      gridColumnStart: `span ${cols}`,
+      gridColumnEnd: props.startingCol ? props.startingCol + cols : undefined,
+      gridRowStart: `span ${rows}`,
+      gridRowEnd: props.startingRow ? props.startingRow + rows : undefined
+    }
+  }, [props.cols, props.rows, props.startingCol, props.startingRow]);
 
-export const UiGridItem: React.FC<UiGridItemProps> = (props: UiGridItemProps) => (
-  <Div
-    $alignSelf={props.alignSelf}
-    $cols={props.cols}
-    className={props.className}
-    $justifySelf={props.justifySelf}
-    $placeSelf={props.placeSelf}
-    $rows={props.rows}
-    data-testid={props.testId}
-    $startingCol={props.startingCol}
-    $startingRow={props.startingRow}
-  >
-    {props.children}
-  </Div>
-);
+  return (
+    <div className={getGridItemClasses(props)} data-testid={props.testId} style={styles}>
+      {props.children}
+    </div>
+  );
+};
 
 UiGridItem.displayName = 'UiGridItem';
