@@ -18,6 +18,7 @@ export const UiCard: React.FC<UiCardProps> = ({
   className = '',
   styling = 'filled',
   clickHandler,
+  testId,
   ...props
 }: UiCardProps) => {
   const onClick = React.useCallback(() => {
@@ -30,14 +31,14 @@ export const UiCard: React.FC<UiCardProps> = ({
     () => (
         <MotionParent.div
           className={`${styles.card} ${className} ${getCardClasses(styling, category, weight)} ${getSpacingClass('padding', padding)} ${clickHandler ? 'pointer' : ''}`}
-          data-testid={props.testId}
+          data-testid={testId}
           onClick={!props.link ? onClick : undefined}
           {...motion}
           {...props}
         >
             {props.children}
         </MotionParent.div>
-    ), [category, className, clickHandler, motion, onClick, padding, props, styling, weight]
+    ), [category, className, clickHandler, motion, onClick, padding, props, styling, testId, weight]
   );
 
   if (props.link) {

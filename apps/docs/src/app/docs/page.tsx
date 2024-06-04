@@ -23,25 +23,25 @@ export default function Docs () {
     return (
         <>
             <UiCard styling='outlined' category='tertiary'>
-                <h2><UiIcon icon="Party" category='tertiary' size='xlarge' motion={UiReactViewDancing} /> V3 is coming!</h2>
+                <h2><UiIcon icon="Party" category='tertiary' size='xlarge' motion={UiReactViewDancing} /> V3 is here!</h2>
                 <br />
-                <h3>We will move aways from styles-components and into SCSS modules.</h3>
+                <h3>We just moved aways from styles-components into SCSS modules.</h3>
                 <br/>
                 <p>
                     CSS-in-JS has its own limitations, it was good while it lasted, now looking into the future, providing a solution
-                    that plays nicely with Remix and NextJS server components seems a step forward.
+                    that plays better with Remix and NextJS server components seems a step forward.
                 </p>
             </UiCard>
             <br />
             <DocHeading>Welcome to @UiReact docs</DocHeading>
             <br />
             <UiText>
-                @UiReact is a themed library of react components for react web applications that are built with styled components and framer motion. 
+                @UiReact is a themed library of react components for react web applications that are built with SCSS and framer motion. 
                 These components are ready to use 2 colorations for light and dark themes.
             </UiText>
             <br />
             <UiText>
-                We also publish a few utils hooks that help to achieve multiple tasks easier in your applications.
+                There are also a few tools exported from this library that will help your React development.
             </UiText>
             <br />
             <DocSubHeading>Installation</DocSubHeading>
@@ -70,15 +70,10 @@ export default function Docs () {
             <br />
             <InstallationScripts />
             <br />
-            <UiText>Make sure you also install all the peer dependencies:</UiText>
+            <UiText>Make sure you also install the peer dependencies used throutout the library:</UiText>
             <br />
             <UiSpacing padding={listSpacing}>
                 <UiList type='BULLETED'>
-                    <UiListItem>
-                        <UiLink>
-                            <a href="https://styled-components.com/docs/basics#installation" target='_blank'>Styled-components</a>
-                        </UiLink>
-                    </UiListItem>
                     <UiListItem>
                         <UiLink>
                             <a href="https://www.framer.com/motion/introduction/#install" target='_blank'>Framer motion</a>
@@ -93,12 +88,12 @@ export default function Docs () {
             </UiSpacing>
             <br />
             <UiText size="small">
-            We suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> for your react app.
-            They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅🏾 styled components set up in Next JS</a></UiLink>.
+                We suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> or 
+                <UiLink size="small"><a href="https://remix.run/" target="_blank">Remix</a></UiLink> for your react app. The both have
+                They both have natively support for CSS imports so integration is very simple.
             </UiText>
             <br />
             <DocSubHeading>Set up</DocSubHeading>
-            <br />
             <UiText>Create a wrapper component that is used to wrap your views and use the <UiText fontStyle='bold' inline>UiView</UiText> like this:</UiText>
             <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
             {`
@@ -117,10 +112,9 @@ export const MyWrapper = ({ children }) => (
             <UiText size='small'>If you used the automatic script this has been taken care already</UiText>
             <br />
             <DocSubHeading>Theme</DocSubHeading>
-            <br />
             <UiText>@UiReact brings a default theme that can be used for your web app, however if you want to customize colors, fonts, sizes, etc... Then you can create your own theme</UiText>
             <br />
-            <UiButtonLink coloration='dark'>
+            <UiButtonLink coloration='dark' padding={{all: 'four'}}>
                 <Link href="./create-theme">
                     Create theme <UiIcon icon="Layers" coloration='dark' />
                 </Link>
