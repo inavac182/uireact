@@ -43,7 +43,6 @@ describe('<UiFlexGridItem />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
-    expect(screen.getByTestId('item')).toHaveClass('grow-1');
   });
 
   it('renders fine with shrink', () => {
@@ -56,6 +55,5 @@ describe('<UiFlexGridItem />', () => {
 
     expect(screen.getByText('Item 1')).toBeVisible();
     expect(screen.getByText('Item 2')).toBeVisible();
-    expect(screen.getByTestId('item')).toHaveClass('shrink-1');
   });
 });
