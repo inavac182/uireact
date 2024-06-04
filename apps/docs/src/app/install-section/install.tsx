@@ -40,30 +40,25 @@ export const Installation = () => {
         <UiSpacing padding={contentSpacing}>
           <UiLineSeparator />
           <br />
-          <UiHeading>Manual setup</UiHeading>
+          <UiHeading level={2}>Manual setup</UiHeading>
+          <br />
+          <UiText size="large" fontStyle="bold">4 Simple steps to get your project up and running with @UiReact.</UiText>
+          <br />
         </UiSpacing>
-        <UiText size="small">
-          We suppose you already have a react environment working, we suggest you use <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> for your react app.
-          They also have a doc page for getting <UiLink size="small"><a href="https://nextjs.org/docs/app/building-your-application/styling/css-in-js#styled-components" target="_blank">💅🏾 styled components set up in Next JS</a></UiLink>.
+        <UiText>
+          We suppose you already have a react environment working, we suggest you use 
+          either <UiLink size="small"><a href="https://nextjs.org/" target="_blank">Next JS</a></UiLink> or{' '}
+           <UiLink size="small"><a href="https://remix.run" target="_blank">Remix</a></UiLink> for your react app.
         </UiText>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">1.</UiText> Set up dependencies:
-          </UiHeading>
-          <ScriptCard script="npm i -S styled-components framer-motion" />
-          <UiText>
-            Get styled-components up and running in your project.
-          </UiText>
-        </UiSpacing>
-        <UiSpacing padding={contentSpacing}>
-          <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">2.</UiText> Install the foundation and view packages:
+            <UiText inline category="tertiary" size="xlarge">1.</UiText> Install the foundation and view packages:
           </UiHeading>
           <ScriptCard script="npm i -S @uireact/foundation @uireact/view" />
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">3.</UiText> Set up your UiView
+            <UiText inline category="tertiary" size="xlarge">2.</UiText> Set up UiView
           </UiHeading>
           <UiText>You need to wrap your react tree in the <UiLink><Link href="/docs/view" target="_blank">UiView</Link></UiLink> component</UiText>
           <br />
@@ -71,11 +66,10 @@ export const Installation = () => {
             {`
 import React from 'react';
 
-import { DefaultTheme } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
 export const MyWrapper = () => (
-  <UiView theme={DefaultTheme} selectedTheme={ThemeColor.light}>
+  <UiView selectedTheme={ThemeColor.light}>
     <p>View content</p>
   </UiView>
 );
@@ -84,11 +78,31 @@ export const MyWrapper = () => (
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
           <UiHeading>
-            <UiText inline category="tertiary" size="xlarge">4.</UiText> Create your theme! ✨
+            <UiText inline category="tertiary" size="xlarge">3.</UiText> Link the theme! ✨
           </UiHeading>
           <UiSpacing padding={contentSpacing}>
             <UiText>
-              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts">default theme</a></UiLink> so you can use it or create your own. If you like the default theme then you can skip this step.
+              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/themes/default-theme.ts">default theme</a></UiLink> so you can use it or create your own.
+              </UiText>
+            <br />
+            <UiText>
+              Import the foundation css file which holds the default theme:
+            </UiText>
+            <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLines>
+            {`
+  // In CSS: Update the route based on your project.
+  @import url('../node_modules/@uireact/foundation/dist/index.css'); 
+            `}
+          </SyntaxHighlighter>
+          </UiSpacing>
+        </UiSpacing>
+        <UiSpacing padding={contentSpacing}>
+          <UiHeading>
+            <UiText inline category="tertiary" size="xlarge">4.</UiText> Create your own theme! ✨
+          </UiHeading>
+          <UiSpacing padding={contentSpacing}>
+            <UiText>
+              @uireact provides with a <UiLink><a href="https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss">default theme</a></UiLink> so you can use it or create your own. If you like the default theme then you can skip this step.
               </UiText>
             <br />
             <UiText>

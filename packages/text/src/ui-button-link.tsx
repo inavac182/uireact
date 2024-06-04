@@ -24,7 +24,7 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   margin,
   padding = defaultPadding
 }: UiButtonLinkProps) => {
-  let classes = `${className} ${styles.buttonLink} bg-${category}-100 hover-bg-${category}-150 active-bg-${category}-200`;
+  let classes = `${className} ${styles.buttonLink} bg-${category}-100 border-${category}-100 hover-bg-${category}-150 active-bg-${category}-200`;
 
   if (coloration) {
     classes = `${classes} ${coloration}`;

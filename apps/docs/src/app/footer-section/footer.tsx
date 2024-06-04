@@ -31,16 +31,16 @@ export const Footer = () => {
                 <UiSpacing padding={linksSpacing}>
                     <UiFlexGrid alignItems="center" justifyContent="center" gap="five">
                         <UiFlexGridItem>
-                            <UiButtonLink inverseTextColoration>
+                            <UiButtonLink inverseTextColoration padding={{ all: 'four' }}>
                                 <a href="https://github.com/inavac182/uireact" target="_blank">
-                                    <UiIcon icon="BrandsGithub" /> Repository
+                                    <UiIcon icon="BrandsGithub" category="fonts" inverseColoration /> Repository
                                 </a>
                             </UiButtonLink>
                         </UiFlexGridItem>
                         <UiFlexGridItem>
-                            <UiButtonLink inverseTextColoration>
+                            <UiButtonLink inverseTextColoration padding={{ all: 'four' }}>
                                 <Link href='/docs'>
-                                    <UiIcon icon="Book" /> Docs
+                                    <UiIcon icon="Book" category="fonts" inverseColoration /> Docs
                                 </Link>
                             </UiButtonLink>
                         </UiFlexGridItem>

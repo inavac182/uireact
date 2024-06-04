@@ -1,6 +1,6 @@
 import { UiGridItem } from "@uireact/grid";
 import { motion } from "framer-motion";
-import { StyledDemo, FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "../../demos";
+import { FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "../../demos";
 import styled from "styled-components";
 import { ShowcaseProps } from "./showcase-props";
 import { useParallax } from "@/app/hooks";
@@ -17,7 +17,6 @@ export const MediumShowcase = ({ scrollProgress }: ShowcaseProps) => {
         <>
             <UiGridItem>
                 <DemoGridContainer style={{ y: upwardsGrid }}>
-                    <StyledDemo />
                     <FramerMotionDemo />
                     <ThemeSelectorDemo />
                     <TextsDemo />
