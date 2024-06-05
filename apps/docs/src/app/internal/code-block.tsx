@@ -18,7 +18,7 @@ type CodeBlockProps = {
 
 const LivePreviewWrapper = styled.div`
   padding: 20px;
-  background-color: var(--primary-token_150);
+  background-color: var(--primary-token_10);
   border-radius: 20px 20px 0px 0px;
 `;
 
