@@ -28,7 +28,7 @@
     "@uireact/foundation": "workspace:*"
   },
   "peerDependencies": {
-    "@uireact/foundation": "^2.0.1",
+    "@uireact/foundation": ">= 3",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "tslib": "^2.5.0"
