@@ -91,7 +91,7 @@ describe('<UiView />', () => {
     render(<MockedComponent />);
 
     expect(screen.getByText('Content')).toBeVisible();
-    expect(screen.getByTestId('UiView')).toHaveClass('uireactViewContainer');
+    expect(screen.getByTestId('UiView')).toHaveClass('uireactViewContainer bg-primary-100');
   });
 
   it('renders fine with skip theme detector', () => {

@@ -37,6 +37,17 @@ export const ViewExample: React.FC = () => (
 By default, the `<UiView />` component will attach an event listener to the user's appearance selector. Meaning that they could control their
 theme through their device theme settings.
 
+### UiView styling
+
+The UiView by default will set the background to `PRIMARY` with a the color of token `100`. If you wish to change it you can do so through props, the same way you can change the `UiViewRow`
+
+```tsx
+  <UiView weight="10" category="primary">
+    <p>A view with primary bg and weight 10</p>
+  </UiView>
+```
+
+
 ### NextJS - Fonts optimized frameworks
 
 There are frameworks such as NextJS that [optimizes the font loading](https://nextjs.org/docs/app/building-your-application/optimizing/fonts), when you use this frameworks
