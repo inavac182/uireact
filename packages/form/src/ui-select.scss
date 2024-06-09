@@ -1,7 +1,6 @@
 .select {
     font-family: var(--font-family);
     color: var(--fonts-token_100);
-
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     outline: none;
@@ -19,6 +18,11 @@
 }
 
 .selectContainer {
+    width: 100%;
     display: inline-block;
     flex-grow: 1;
+}
+
+.selectDiv {
+    width: 100%;
 }
