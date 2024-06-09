@@ -4,8 +4,8 @@
     color: var(--fonts-token_100);
     border-radius: 3px;
     border-width: 2px;
-    border-color: transparent;
     box-sizing: border-box;
+    width: 100%;
 
     &:disabled {
         cursor: not-allowed;
@@ -21,10 +21,15 @@
 }
 
 .textareInputWrapper {
+    width: 100%;
     display: inline-block;
     flex-grow: 1;
 }
 
 .noResize {
     resize: none;
+}
+
+.textareaDiv {
+    width: 100%;
 }

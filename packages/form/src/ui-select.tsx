@@ -40,7 +40,7 @@ export const UiSelect: React.FC<UiSelectProps> = ({
           </UiLabel>
         </div>
       )}
-      <div>
+      <div className={styles.selectDiv}>
         {label && !labelOnTop && (
           <div>
             <UiLabel htmlFor={name} category={category}>

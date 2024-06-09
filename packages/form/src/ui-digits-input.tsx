@@ -87,7 +87,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
         <div className={styles.inputWrapper}>
           {digitsValues.map((value, id) => (
             <input
-              className={`${className} ${styles.uiDigitsInput} bg-primary-10 focus-border-${category ? category : 'tertiary'}-100 size-${size} w-${size}`}
+              className={`${className} ${styles.uiDigitsInput} bg-primary-10 border-${category ? category : 'primary'}-100 focus-border-${category ? category : 'tertiary'}-100 size-${size} w-${size}`}
               name={`internal-digit-${id}-input`}
               value={value || ''}
               key={`internal-digit-${id}-input`}
