@@ -16,11 +16,13 @@ import styles from './ui-view.scss';
 
 export const UiView: React.FC<UiViewProps> = ({
   dialogController,
+  category = 'primary',
   centeredContent = false,
   className = '',
   selectedTheme = ThemeColor.dark,
   children,
   noBackground = false,
+  weight = '100',
   skipThemeDetector
 }: UiViewProps) => {
   const defaultDialogController = useDialogController();
@@ -55,7 +57,7 @@ export const UiView: React.FC<UiViewProps> = ({
 
   return (
     <>
-      <div className={`${styles.uireactViewContainer} ${noBackground ? styles.transparent : ''} ${className}`} data-testid="UiView">
+      <div className={`${styles.uireactViewContainer} ${noBackground ? styles.transparent : `bg-${category}-${weight}`} ${className}`} data-testid="UiView">
         <ThemeContext.Provider value={{ selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
