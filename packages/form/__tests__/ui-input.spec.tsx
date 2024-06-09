@@ -25,6 +25,24 @@ describe('<Component />', () => {
     expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
   });
 
+  it('renders fine with category', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="large" category='primary' />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
+  it('renders fine with undefined category', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="large" category={undefined} />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
+  it('renders fine with category and label on top', () => {
+    uiRender(<UiInput label="Input" name="MyInput" size="large" category='primary' labelOnTop />);
+
+    expect(screen.getByRole('textbox', { name: 'Input' })).toBeVisible();
+  });
+
   it('renders fine with required', () => {
     uiRender(<UiInput label="Input" name="MyInput" size="large" required />);
 

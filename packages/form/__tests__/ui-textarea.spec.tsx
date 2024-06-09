@@ -30,6 +30,24 @@ describe('<UiTextArea />', () => {
     expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
   });
 
+  it('renders fine with category', () => {
+    uiRender(<UiTextArea name="text-area" category='primary' label="Description" />);
+
+    expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
+  });
+
+  it('renders fine with undefined category', () => {
+    uiRender(<UiTextArea name="text-area" category={undefined} label="Description" />);
+
+    expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
+  });
+
+  it('renders fine with category and label on top', () => {
+    uiRender(<UiTextArea name="text-area" category='primary' label="Description" labelOnTop />);
+
+    expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
+  });
+
   it('renders fine with error', () => {
     uiRender(<UiTextArea name="text-area" label="Description" error="Type something" />);
 

@@ -27,7 +27,7 @@ export const UiInput: React.FC<UiInputProps> = ({
   <div data-testid={testId}>
     {label && labelOnTop && (
       <div>
-        <UiLabel htmlFor={name} category={category}>
+        <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
           {label} &nbsp;
         </UiLabel>
       </div>
@@ -35,7 +35,7 @@ export const UiInput: React.FC<UiInputProps> = ({
     <div className='wrapperInput'>
       {label && !labelOnTop && (
         <div>
-          <UiLabel htmlFor={name} category={category}>
+          <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
             {label} &nbsp;
           </UiLabel>
         </div>
@@ -45,7 +45,7 @@ export const UiInput: React.FC<UiInputProps> = ({
           {icon && <div className={styles.inputIconContainer}>{icon}</div>}
           <input
             disabled={disabled}
-            className={`${className} ${styles.input} bg-primary-10 focus-border-${category ? category : 'tertiary'}-100 ${icon ? styles.inputIcon : ''}`}
+            className={`${className} ${styles.input} bg-primary-10 border-${category ? category : 'primary'}-100 focus-border-${category ? category : 'tertiary'}-100 ${icon ? styles.inputIcon : ''}`}
             id={name}
             name={name}
             onChange={onChange}
