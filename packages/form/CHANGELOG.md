@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.5 (2024-06-09)
+
+
+### Bug Fixes
+
+* **form:** inputs border not appearing ([#354](https://github.com/inavac182/ui-react/issues/354)) ([6a8a50f](https://github.com/inavac182/ui-react/commit/6a8a50f11bb00b3ccbed2a9573f614db33789d1b))
+
+
+
+
+
 ## 3.0.4 (2024-06-08)
 
 **Note:** Version bump only for package @uireact/form

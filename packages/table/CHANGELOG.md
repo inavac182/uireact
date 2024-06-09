@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.7 (2024-06-09)
+
+**Note:** Version bump only for package @uireact/table
+
+
+
+
+
 ## 1.6.6 (2024-06-08)
 
 **Note:** Version bump only for package @uireact/table
