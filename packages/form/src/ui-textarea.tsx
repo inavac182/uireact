@@ -32,7 +32,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
         </UiLabel>
       </div>
     )}
-    <div>
+    <div className={styles.textareaDiv}>
       {label && !labelOnTop && (
         <div>
           <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
