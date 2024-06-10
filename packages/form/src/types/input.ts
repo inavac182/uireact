@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 import { AriaAttributes } from 'react';
 
 export type UiInputProps = {
@@ -28,6 +28,8 @@ export type UiInputProps = {
   value?: HTMLInputElement['value'];
   /** Input font size */
   size?: SizesProp;
+  /** To override the default input padding */
+  padding?: SpacingDistribution;
   /** If input is required */
   required?: boolean;
 } & UiReactElementProps & AriaAttributes;
