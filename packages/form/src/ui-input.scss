@@ -1,11 +1,9 @@
 .input {
     font-family: var(--font-family);
-    font-size: var(--texts-regular);
     color: var(--fonts-token_100);
     border-radius: 5px;
     border-width: 2px;
     border-style: solid;
-    padding: 5px;
 
     &:disabled {
       cursor: not-allowed;
