@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.0.5...@uireact/form@3.1.0) (2024-06-10)
+
+
+### Features
+
+* **input:** adding padding prop ([#355](https://github.com/inavac182/ui-react/issues/355)) ([4ce6329](https://github.com/inavac182/ui-react/commit/4ce63299743b188332c53459ae2fd891c06a30c1))
+
+
+
+
+
 ## 3.0.5 (2024-06-09)
 
 
