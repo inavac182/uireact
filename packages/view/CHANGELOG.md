@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.1 (2024-06-14)
+
+
+### Bug Fixes
+
+* **view:** remove default background style ([92e1314](https://github.com/inavac182/uireact/commit/92e1314132cf7c2988d968bec98f7116c5b24ffd))
+
+
+
+
+
 # 3.1.0 (2024-06-09)
 
 
