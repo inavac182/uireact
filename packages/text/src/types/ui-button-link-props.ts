@@ -9,8 +9,6 @@ export type UiButtonLinkProps = {
   category?: ColorCategory;
   /** URL to be opened */
   href?: string;
-  /** Handle link click */
-  handleClick?: () => void;
   /** Link size, default REGULAR */
   size?: SizesProp;
   /** If link should take the whole link, useful for rendering links as Navbar items */
@@ -27,4 +25,6 @@ export type UiButtonLinkProps = {
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   padding?: SpacingDistribution;
+  /** The styling of the button */
+  styling?: 'clear' | 'icon';
 } & UiReactElementProps & AriaAttributes;

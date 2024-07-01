@@ -102,10 +102,6 @@ GLOBAL STYLES
     :global(.h-#{$size}) {
         height: var(--texts-#{$size});
     }
-
-    :global(.radius-#{$size}) {
-        border-radius: var(--texts-#{$size});
-    }
 }
 
 @each $hSize in $hSizes {

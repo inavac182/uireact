@@ -43,16 +43,21 @@
 .buttonLink {
     font-weight: bold;
     border-style: solid;
-    border-radius: 10px;
+    border-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+}
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 10px;
-        cursor: pointer;
-        outline: none;
-        text-decoration: none;
-    }
-    
+.buttonLinkRadius {
+    border-radius: 10px;
+}
+
+.buttonLinkIcon {
+    border-radius: 50%;
+    padding: 10px;
 }
