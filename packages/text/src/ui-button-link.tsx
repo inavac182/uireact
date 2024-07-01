@@ -4,27 +4,28 @@ import React from 'react';
 import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
 import { UiButtonLinkProps } from './types';
-
+import { getButtonLinkStyling } from './utils';
 import styles from './ui-text.scss';
 
 const defaultPadding: SpacingDistribution = { inline: 'four', block: 'three'};
+const defaultIconPadding: SpacingDistribution = { all: 'three' };
 
 export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   category = 'tertiary',
   children,
   coloration,
-  handleClick,
   className = '',
   fullWidth,
   fontStyle,
   size = 'regular',
-  testId,
   wrap,
   inverseTextColoration,
   margin,
-  padding = defaultPadding
+  padding,
+  styling
 }: UiButtonLinkProps) => {
-  let classes = `${className} ${styles.buttonLink} bg-${category}-100 border-${category}-100 hover-bg-${category}-150 active-bg-${category}-200`;
+  let classes = `${className} ${styles.buttonLink} ${getButtonLinkStyling(category, styling, size)}`;
+  classes = `${classes} color-${inverseTextColoration ? 'inverse-' : ''}fonts-100 size-${size}`;
 
   if (coloration) {
     classes = `${classes} ${coloration}`;
@@ -38,31 +39,27 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
     classes = `${classes} ${fontStyle}`;
   }
 
-  let linkClasses = `color-${inverseTextColoration ? 'inverse-' : ''}fonts-100 size-${size}`;
-
-  if (coloration) {
-    linkClasses = `${linkClasses} ${coloration}`;
-  }
-
   if (wrap) {
-    linkClasses = `${linkClasses} ${styles.wrap}`;
+    classes = `${classes} ${styles.wrap}`;
   }
 
-  if (margin || padding) {
-    linkClasses = `${linkClasses} ${getSpacingClass('margin', margin)} ${getSpacingClass('padding', padding)}`;
+  if (margin) {
+    classes = `${classes} ${getSpacingClass('margin', margin)}`;
+  }
+
+  if (padding) {
+    classes = `${classes} ${getSpacingClass('padding', padding)}`;
+  } else if (styling !== 'icon') {
+    classes = `${classes} ${getSpacingClass('padding', defaultPadding)}`;
   }
 
   if (children && React.isValidElement(children)) {
-    const Element = React.cloneElement(children as React.ReactElement, { className: linkClasses });
+    const Element = React.cloneElement(children as React.ReactElement, { className: classes });
 
     return (
-      <button
-        onClick={handleClick}
-        className={classes}
-        data-testid={testId}
-      >
+      <>
         {Element}
-      </button>
+      </>
     );
   }
 

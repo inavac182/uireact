@@ -8,8 +8,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 <Metadata packageName='text' packageJson={packageJson} />
 
-> Component to render a wrapper around links to provide styling, you have to provide the link element, this was done so we could support
-> multiple use cases Link from react router, or Link from next JS or any other router you are using.
+> This component adds classes to the passed children link so it renders as a button rather than a link, but it behaves as a link.
 
 ## Installation
 
@@ -26,11 +25,13 @@ import { Metadata } from '@uireact/docs-tools';
 ### UiButtonLink - with options and spacing
 
 ```jsx live scope={{UiButtonLink, UiSpacing, UiIcon}}
-  <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic" padding={{ block: 'five' }}>
+  <UiSpacing padding={{ block: 'five' }}>
+    <UiButtonLink fullWidth inverseTextColoration size="xlarge" fontStyle="italic" padding={{ block: 'five' }}>
       <a href="https://uireact.io/">
         Some text <UiIcon icon="Link" inverseColoration />{' '}
       </a>
-  </UiButtonLink>
+    </UiButtonLink>
+  </UiSpacing>
 ```
 
 ### UiButtonLink with default coloration
@@ -39,9 +40,22 @@ import { Metadata } from '@uireact/docs-tools';
 <>
   <UiButtonLink coloration="dark" margin={{ block: 'four' }}>
     <a href="https://uireact.io/">Will always render text as DARK coloration</a>
-  </UiButtonLink>
+  </UiButtonLink>{" "}
   <UiButtonLink coloration="light">
     <a href="https://uireact.io/">Will always render text as LIGHT coloration</a>
+  </UiButtonLink>
+</>
+```
+
+### UiButtonLink with styling
+
+```jsx live scope={{UiButtonLink, UiIcon}}
+<>
+  <UiButtonLink styling='clear'>
+    <a href="https://uireact.io/" target="_blank">Clear link</a>
+  </UiButtonLink>{" "}
+  <UiButtonLink styling='icon'>
+    <a href="https://uireact.io/" target="_blank"><UiIcon icon="SettingsBig" /></a>
   </UiButtonLink>
 </>
 ```

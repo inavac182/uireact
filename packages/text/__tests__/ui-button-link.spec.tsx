@@ -20,8 +20,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200');
-    expect(screen.getByRole('link')).toHaveClass('color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass(' buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
   });
 
   it('renders fine with spacing', () => {
@@ -32,8 +31,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200');
-    expect(screen.getByRole('link')).toHaveClass('color-fonts-100 size-regular margin-four padding-five');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular margin-four padding-five');
   });
 
   it('renders fine with options', () => {
@@ -44,8 +42,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-positive-100 hover-bg-positive-150 active-bg-positive-200 fullWidth bold');
-    expect(screen.getByRole('link')).toHaveClass('color-inverse-fonts-100 size-large wrap padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 hover-bg-positive-150 active-bg-positive-200 fullWidth bold color-inverse-fonts-100 size-large wrap padding-top-three padding-bottom-three padding-left-four padding-right-four');
   });
 
   it('renders fine with font style bold', () => {
@@ -56,8 +53,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 bold');
-    expect(screen.getByRole('link')).toHaveClass('color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 bold color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
   });
 
   it('renders fine with font style italic', () => {
@@ -68,8 +64,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 italic');
-    expect(screen.getByRole('link')).toHaveClass('color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 italic color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
   });
 
   it('renders fine with dark coloration', () => {
@@ -80,7 +75,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 dark slim');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 dark slim');
   });
 
   it('renders fine with light coloration', () => {
@@ -91,7 +86,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 light');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 light');
   });
 
   it('renders nothing when children component is not valid', () => {
