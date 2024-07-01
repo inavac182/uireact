@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/inavac182/uireact/compare/@uireact/view@3.1.2...@uireact/view@3.2.0) (2024-07-01)
+
+
+### Features
+
+* **button-link:** adding styling prop ([#356](https://github.com/inavac182/uireact/issues/356)) ([8a67e20](https://github.com/inavac182/uireact/commit/8a67e20de0c3d5f7fc5a788cb7d25007ab73ce78))
+
+
+
+
+
 ## [3.1.2](https://github.com/inavac182/uireact/compare/@uireact/view@3.1.1...@uireact/view@3.1.2) (2024-06-14)
 
 
