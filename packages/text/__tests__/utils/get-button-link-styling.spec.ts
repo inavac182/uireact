@@ -3,12 +3,12 @@ import { getButtonLinkStyling } from '../../src/utils';
 describe('getButtonLinkStyling', () => {
   it('Should retrieve correct classes when styling is clear', () => {
     const result = getButtonLinkStyling('primary', 'clear');
-    expect(result).toBe('hover-bg-primary-100 hover-border-primary-100 active-bg-primary-150 buttonLinkRadius');
+    expect(result).toBe('hover-bg-primary-150 hover-border-primary-200 active-bg-primary-200 active-border-primary-200 buttonLinkRadius');
   });
 
   it('Should retrieve correct classes when styling is clear', () => {
     const result = getButtonLinkStyling('primary', 'icon');
-    expect(result).toBe('hover-bg-primary-100 hover-border-primary-100 active-bg-primary-150 buttonLinkIcon');
+    expect(result).toBe('hover-bg-primary-150 hover-border-primary-200 active-bg-primary-200 active-border-primary-200 buttonLinkIcon');
   });
 
   it('Should retrieve correct classes when no styling provided', () => {

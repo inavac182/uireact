@@ -24,7 +24,7 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   padding,
   styling
 }: UiButtonLinkProps) => {
-  let classes = `${className} ${styles.buttonLink} ${getButtonLinkStyling(category, styling, size)}`;
+  let classes = `${className} ${styles.buttonLink} ${getButtonLinkStyling(category, styling)}`;
   classes = `${classes} color-${inverseTextColoration ? 'inverse-' : ''}fonts-100 size-${size}`;
 
   if (coloration) {
