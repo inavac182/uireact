@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.1.3...@uireact/form@3.2.0) (2024-07-01)
+
+
+### Features
+
+* **form:** adding autocomplete prop for input ([e0a16bc](https://github.com/inavac182/ui-react/commit/e0a16bc9519d5b96e874c8ba30f2df95751d0f37))
+
+
+
+
+
 ## [3.1.3](https://github.com/inavac182/ui-react/compare/@uireact/form@3.1.2...@uireact/form@3.1.3) (2024-07-01)
 
 **Note:** Version bump only for package @uireact/form
