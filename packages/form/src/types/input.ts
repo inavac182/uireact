@@ -2,6 +2,8 @@ import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } fr
 import { AriaAttributes } from 'react';
 
 export type UiInputProps = {
+  /** Autocomplete prop for input */
+  autoComplete?: string;
   /** Input field disabled state */
   disabled?: boolean;
   /** Error label for input field */

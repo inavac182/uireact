@@ -9,6 +9,7 @@ import styles from './ui-input.scss';
 const defaultPadding: SpacingDistribution = { block: 'three' };
 
 export const UiInput: React.FC<UiInputProps> = ({
+  autoComplete,
   className = '',
   testId,
   disabled,
@@ -51,6 +52,7 @@ export const UiInput: React.FC<UiInputProps> = ({
           <div className={styles.inputContentDiv}>
             {icon && <div className={styles.inputIconContainer}>{icon}</div>}
             <input
+              autoComplete={autoComplete}
               disabled={disabled}
               className={`${className} ${styles.input} ${paddingClass} bg-primary-10 border-${category ? category : 'primary'}-100 focus-border-${category ? category : 'tertiary'}-100 ${icon ? styles.inputIcon : ''} size-${size}`}
               id={name}
