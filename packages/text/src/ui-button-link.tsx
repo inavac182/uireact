@@ -8,7 +8,6 @@ import { getButtonLinkStyling } from './utils';
 import styles from './ui-text.scss';
 
 const defaultPadding: SpacingDistribution = { inline: 'four', block: 'three'};
-const defaultIconPadding: SpacingDistribution = { all: 'three' };
 
 export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   category = 'tertiary',
@@ -32,7 +31,7 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   }
 
   if (fullWidth) {
-    classes = `${classes} fullWidth`;
+    classes = `${classes} ${styles.fullWidth}`;
   }
 
   if (fontStyle) {
