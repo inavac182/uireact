@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.1 (2024-07-06)
+
+
+### Bug Fixes
+
+* **button:** disabled state styling ([6ccaefe](https://github.com/inavac182/uireact/commit/6ccaefef0d12d719a36f00eabd34ad877d558ca5))
+
+
+
+
+
 # 3.1.0 (2024-06-05)
 
 
