@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.2.1...@uireact/form@3.3.0) (2024-07-06)
+
+
+### Features
+
+* **form:** center digits input ([c849718](https://github.com/inavac182/ui-react/commit/c849718dd72ddb9ae057d41e49d676c6b9015f49))
+
+
+
+
+
 ## [3.2.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.2.0...@uireact/form@3.2.1) (2024-07-06)
 
 **Note:** Version bump only for package @uireact/form
