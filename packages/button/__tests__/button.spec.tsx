@@ -49,7 +49,40 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
-    expect(screen.getByRole('button')).toHaveClass('button bg-primary-100 border-primary-150 hover-bg-primary-150 active-bg-primary-200');
+    expect(screen.getByRole('button')).toHaveClass('button bg-primary-10 buttonRadius');
+  });
+
+  test('renders disabled icon', () => {
+    uiRender(
+      <UiButton testId="my-button" disabled styling='icon'>
+        MyButton
+      </UiButton>
+    );
+
+    expect(screen.getByTestId('my-button')).toBeDisabled();
+    expect(screen.getByRole('button')).toHaveClass('button buttonIcon bg-primary-10 buttonIcon');
+  });
+
+  test('renders disabled clear', () => {
+    uiRender(
+      <UiButton testId="my-button" disabled styling='clear'>
+        MyButton
+      </UiButton>
+    );
+
+    expect(screen.getByTestId('my-button')).toBeDisabled();
+    expect(screen.getByRole('button')).toHaveClass('button buttonClear bg-primary-10 buttonRadius');
+  });
+
+  test('renders disabled outlined', () => {
+    uiRender(
+      <UiButton testId="my-button" disabled styling='outlined'>
+        MyButton
+      </UiButton>
+    );
+
+    expect(screen.getByTestId('my-button')).toBeDisabled();
+    expect(screen.getByRole('button')).toHaveClass('button buttonOutlined border-primary-10 buttonRadius');
   });
 
   test('renders full width', () => {

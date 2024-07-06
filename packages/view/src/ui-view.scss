@@ -164,6 +164,10 @@ a {
     cursor: pointer;
 }
 
+:global(.clear-bg) {
+    background-color: unset;
+}
+
 /**
     UiView styles
 */

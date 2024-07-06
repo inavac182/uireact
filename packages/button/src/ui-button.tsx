@@ -28,7 +28,7 @@ export const UiButton: React.FC<UiButtonProps> = ({
   testId,
   ...props
 }: UiButtonProps) => {
-  let classes = `${className} ${styles.button} ${getButtonStylingClasses(styling, category)}`;
+  let classes = `${className} ${styles.button} ${getButtonStylingClasses(styling, category, disabled)}`;
 
   if (fullWidth) {
     classes = `${classes} ${styles.buttonFullWidth}`;
