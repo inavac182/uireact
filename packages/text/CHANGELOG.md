@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.4](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.3...@uireact/text@3.1.4) (2024-07-06)
+
+
+### Bug Fixes
+
+* **button-link:** full width style ([9691d6a](https://github.com/inavac182/ui-react/commit/9691d6ac323bba2bd2dc174a9ebebc483496a27f))
+
+
+
+
+
 ## [3.1.3](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.2...@uireact/text@3.1.3) (2024-07-01)
 
 **Note:** Version bump only for package @uireact/text
