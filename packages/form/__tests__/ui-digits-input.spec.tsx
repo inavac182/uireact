@@ -30,6 +30,14 @@ describe('<Component />', () => {
     expect(screen.getAllByRole('textbox')[1]).toBeVisible();
   });
 
+  it('renders fine with centered', () => {
+    uiRender(<UiDigitsInput digits={2} label="Input" name="MyInput" category="error" centered />);
+
+    expect(screen.getByText('Input')).toBeVisible();
+    expect(screen.getAllByRole('textbox')[0]).toBeVisible();
+    expect(screen.getAllByRole('textbox')[1]).toBeVisible();
+  });
+
   it('renders fine with error', () => {
     uiRender(<UiDigitsInput digits={2} label="Input" name="MyInput" category="error" error="Some error" />);
 

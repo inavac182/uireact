@@ -18,6 +18,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
   label,
   name = 'input-name',
   category,
+  centered,
   onChange,
   onComplete,
   size = 'regular',
@@ -76,7 +77,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
   );
 
   return (
-    <div className={styles.wrapper} data-testid={testId}>
+    <div className={`${styles.wrapper} ${centered ? styles.centered : ''}`} data-testid={testId}>
       {label && (
         <UiLabel category={category} htmlFor={`internal-digit-0-input`}>
           {label}

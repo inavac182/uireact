@@ -12,4 +12,5 @@ export type UiDigitsInputProps = {
   onComplete?: (digits: string) => void;
   size?: SizesProp;
   required?: boolean;
+  centered?: boolean;
 } & UiReactElementProps & AriaAttributes;
