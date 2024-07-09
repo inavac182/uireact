@@ -73,7 +73,7 @@ export const UiDigitsInput: React.FC<UiDigitsInputProps> = ({
         onComplete?.(digitString);
       }
     },
-    [digitsValues, inputsRef]
+    [digits, digitsValues, onChange, onComplete]
   );
 
   return (
