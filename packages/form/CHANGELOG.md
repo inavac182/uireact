@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.1...@uireact/form@3.3.2) (2024-07-09)
+
+
+### Bug Fixes
+
+* **form:** ui digits input use callback dependencies ([fd4937a](https://github.com/inavac182/ui-react/commit/fd4937a9703e2e33bff525e00f03b80e26e875f1))
+
+
+
+
+
 ## [3.3.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.0...@uireact/form@3.3.1) (2024-07-06)
 
 **Note:** Version bump only for package @uireact/form
