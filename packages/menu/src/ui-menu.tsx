@@ -11,6 +11,7 @@ import { UiMenuProps } from './types';
 import styles from './ui-menu.scss';
 
 export const UiMenu: React.FC<UiMenuProps> = ({
+  className = '',
   closeLabel,
   children,
   closeMenuCB,
@@ -25,7 +26,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   const [isOffset, setIsOffset] = React.useState(false);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
-  let menuClasses = styles.menu;
+  let menuClasses = `${styles.menu} ${className}`;
 
   //istanbul ignore next
   if (isOffset) {
