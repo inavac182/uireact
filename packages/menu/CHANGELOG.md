@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.14 (2024-07-30)
+
+
+### Bug Fixes
+
+* **menu:** use classname prop ([93854db](https://github.com/inavac182/ui-react/commit/93854db2869cf8070e765b7bcb3ed6a092a15257))
+
+
+
+
+
 ## [3.0.13](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.0.12...@uireact/menu@3.0.13) (2024-07-06)
 
 **Note:** Version bump only for package @uireact/menu
