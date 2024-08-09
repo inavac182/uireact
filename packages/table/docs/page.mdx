@@ -22,8 +22,9 @@ with those elements.
 
 ```jsx live scope={{UiTable}}
   <UiTable
+    bordered
     data={{
-      headings: ['No', 'Summary', 'Price'],
+      headings: [{ label: 'No.' }, { label: 'Summary', sort: false } , { label: 'Price' }],
       items: [
         { id: '1', cols: [1, 'item 1', '$10'] },
         { id: '2', cols: [2, 'item 2', '$20'] },
@@ -48,12 +49,17 @@ with those elements.
 - If a row is selected the `onClick` CB is executed
 - If you pass a `selected` id to the table that row will show as selected in the table
 
+#### Stylizing
+
+In the previous example we are using the prop `bordered` to display borders although is not enable by default given that tables are hard to stylized for multiple use cases. So, to stylized the table we recommend passing 
+a `className` value, this will be attached to the `Table` element and you can style the table from there.
+
 ### With category
 
 ```jsx live scope={{UiTable}}
   <UiTable
     data={{
-      headings: ['Summary', 'Price'],
+      headings: [{ label: 'Summary'}, { label: 'Price'}],
       items: [{ id: '1', cols: ['item 1', '$10'] }],
     }}
     category="tertiary"
@@ -65,7 +71,7 @@ with those elements.
 ```jsx live scope={{UiTable}}
   <UiTable
     data={{
-      headings: ['Summary', 'Price'],
+      headings: [{ label: 'Summary'}, { label: 'Price'}],
       items: [{ id: '1', cols: ['item 1', '$10'] }],
     }}
     category="tertiary"
@@ -78,13 +84,27 @@ with those elements.
 ```jsx live scope={{UiTable}}
   <UiTable
     data={{
-      headings: ['Summary', 'Price'],
+      headings: [{ label: 'Summary'}, { label: 'Price'}],
       items: [{ id: '1', cols: ['item 1', '$10'] }],
     }}
     withFilter={false}
     withSort={false}
   />
 ```
+
+### Removing sort from a column
+
+```jsx live scope={{UiTable}}
+  <UiTable
+    data={{
+      headings: [{ label: 'Summary', sort: false}, { label: 'Price'}],
+      items: [{ id: '1', cols: ['item 1', '$10'] }],
+    }}
+    withFilter={false}
+    withSort={false}
+  />
+```
+
 
 ### With a react component as part of the cols
 
@@ -93,7 +113,7 @@ This is useful when you want to render a component in each of the elements.
 ```jsx live scope={{UiTable, UiIcon}}
   <UiTable
     data={{
-      headings: ['Summary', 'Price', 'Actions'],
+      headings: [{ label: 'Summary'}, { label: 'Price'}, { label: 'Actions', sort: false }],
       items: [
         { id: '1', cols: ['item 1', '$10', <UiIcon icon="Edit" />] },
         { id: '2', cols: ['item 2', '$20', <UiIcon icon="Edit" />] },

@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
-import { ColorCategory, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, UiReactElementProps, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiInput } from '@uireact/form';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid, UiGridItem } from '@uireact/grid';
@@ -12,8 +12,14 @@ import { getFilteredData, getSortedData } from './private';
 import styles from './ui-table.scss';
 
 export type UiTableProps = {
+  /** Padding to be added to each heading cell */
+  headingPadding?: UiSpacingProps['padding'];
+  /** Padding to be added to each table cell */
+  cellPadding?: UiSpacingProps['padding'];
   /** The data object that will be rendered in the table */
   data: UiTableData;
+  /** If the table should render borders */
+  bordered?: boolean;
   /** The theme category that will be applied to the styling */
   category?: ColorCategory;
   /** Flag to disable the filter bar */
@@ -29,7 +35,10 @@ export type UiTableProps = {
 } & UiReactElementProps;
 
 export const UiTable: React.FC<UiTableProps> = ({
+  bordered,
   className = '',
+  cellPadding = {},
+  headingPadding = {},
   data,
   category = 'primary',
   testId,
@@ -86,7 +95,7 @@ export const UiTable: React.FC<UiTableProps> = ({
   }, [data]);
 
   return (
-    <div>
+    <div className={`${bordered ? styles.borderedTable : ''}`}>
       {withFilter && (
         <UiGrid cols={{ small: 1, medium: 2, large: 3, xlarge: 3 }}>
           <UiGridItem cols={!filterBoxPosition ? 3 : 1} startingCol={filterBoxPosition === 'right' ? 3 : 1}>
@@ -99,18 +108,20 @@ export const UiTable: React.FC<UiTableProps> = ({
           <tr>
             {_data.headings.map((heading, index) => (
               <th className={styles.tableHeadingCol} key={`table-heading-${index}`} onClick={() => { onSort(index) }}>
-                <UiFlexGrid>
-                  <UiFlexGridItem grow={1}>
-                    {heading}
-                  </UiFlexGridItem>
-                  {withSort && (
-                    <UiFlexGridItem>
-                      {sortedCol === index && sortedOrientation === 'UP' && <UiIcon icon="CaretUp" testId='sort-icon-up' />}
-                      {sortedCol === index && sortedOrientation === 'DOWN' && <UiIcon icon="CaretDown" testId='sort-icon-down' />}
-                      {sortedCol !== index && <UiIcon icon='Sort' testId='sort-icon' />}
+                <UiSpacing padding={headingPadding}>
+                  <UiFlexGrid>
+                    <UiFlexGridItem grow={1}>
+                      {heading.label}
                     </UiFlexGridItem>
-                  )}
-                </UiFlexGrid>
+                    {withSort && heading.sort !== false && (
+                      <UiFlexGridItem>
+                        {sortedCol === index && sortedOrientation === 'UP' && <UiIcon icon="CaretUp" testId='sort-icon-up' />}
+                        {sortedCol === index && sortedOrientation === 'DOWN' && <UiIcon icon="CaretDown" testId='sort-icon-down' />}
+                        {sortedCol !== index && <UiIcon icon='Sort' testId='sort-icon' />}
+                      </UiFlexGridItem>
+                    )}
+                  </UiFlexGrid>
+                </UiSpacing>
               </th>
             ))}
           </tr>
@@ -123,7 +134,11 @@ export const UiTable: React.FC<UiTableProps> = ({
               onClick={() => handleClick(field.id)}
             >
               {field.cols.map((text, index) => (
-                <td className={styles.tableCol} key={`table-item-${rowIndex}-colum-index-${index}`}>{text}</td>
+                <td className={styles.tableCol} key={`table-item-${rowIndex}-colum-index-${index}`}>
+                  <UiSpacing padding={cellPadding}>
+                    {text}
+                  </UiSpacing>
+                </td>
               ))}
             </tr>
           ))}
