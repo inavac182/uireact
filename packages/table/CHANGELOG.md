@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2024-08-09)
+
+
+### Features
+
+* **table:** making table heading an object ([#357](https://github.com/inavac182/ui-react/issues/357)) ([61f0c75](https://github.com/inavac182/ui-react/commit/61f0c7586dc0a16d3c0265e07179b209db466b80))
+
+
+
+
+
 ## [1.6.16](https://github.com/inavac182/ui-react/compare/@uireact/table@1.6.15...@uireact/table@1.6.16) (2024-07-09)
 
 **Note:** Version bump only for package @uireact/table
