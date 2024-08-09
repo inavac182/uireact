@@ -8,7 +8,7 @@ import { UiTableData } from '../src/types';
 
 describe('<Component />', () => {
   const data: UiTableData = {
-    headings: ['id', 'summary'],
+    headings: [{ label: 'id' }, { label: 'summary' }],
     items: [
       { id: '1', cols: [1, 'summary 1'] },
       { id: '2', cols: [2, 'summary 2'] },
@@ -17,6 +17,23 @@ describe('<Component />', () => {
 
   it('renders fine', () => {
     uiRender(<UiTable data={data} />);
+
+    expect(screen.getByRole('table')).toBeVisible();
+    expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
+    expect(screen.getByRole('cell', { name: /summary 1/i })).toBeVisible();
+
+    expect(screen.getAllByTestId('sort-icon')).toHaveLength(2);
+    expect(screen.queryByTestId('sort-icon-up')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('sort-icon-down')).not.toBeInTheDocument();
+
+    expect(screen.getAllByTestId('sort-icon')[0]).toBeVisible();
+
+    expect(screen.getByRole('textbox')).toBeVisible();
+  });
+
+  
+  it('renders fine with styling', () => {
+    uiRender(<UiTable data={data} bordered />);
 
     expect(screen.getByRole('table')).toBeVisible();
     expect(screen.getByRole('columnheader', { name: /id/i })).toBeVisible();
@@ -140,7 +157,7 @@ describe('<Component />', () => {
 
   it('Sorts and filters correctly when used together', () => {
     const data: UiTableData = {
-      headings: ['index', 'summary'],
+      headings: [{ label: 'index' }, { label: 'summary' }],
       items: [
         { id: '1', cols: [1, 'summary'] },
         { id: '2', cols: [2, 'summary'] },

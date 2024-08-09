@@ -2,8 +2,13 @@ export type UiTableItemData = {
   [key in string]: string;
 };
 
+export type UiTableHeading = {
+  label: string;
+  sort?: boolean;
+}
+
 export type UiTableData = {
-  headings: string[];
+  headings: UiTableHeading[];
   items: UiTableItem[];
 };
 

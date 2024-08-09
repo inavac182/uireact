@@ -34,3 +34,29 @@
     cursor: pointer;
     transition: background .2s;
 }
+
+.borderedTable {
+    border: 2px solid var(--tertiary-token_100);
+    padding: 10px;
+    border-radius: 10px;
+
+    table {
+        border-collapse: collapse;
+    }
+
+    thead > tr {
+        border-bottom: 5px solid var(--secondary-token_150);
+    }
+
+    tbody > tr {
+        border-bottom: 2px solid var(--primary-token_150);
+        border-left: 2px solid transparent;
+        
+    }
+
+    tbody > tr {
+        &:hover {
+            border-left: 2px solid var(--tertiary-token_100);
+        }
+    }
+}
