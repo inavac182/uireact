@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 
-import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
-
+import { SpacingDistribution, getSpacingClass } from './spacing-helpers';
 import { UiButtonLinkProps } from './types';
 import { getButtonLinkStyling } from './utils';
 import styles from './ui-text.scss';
