@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 
-import { getSpacingClass } from '@uireact/foundation';
-
+import { getSpacingClass } from './spacing-helpers';
 import { UiTextProps } from './types';
 import styles from './ui-text.scss';
 

@@ -1,6 +1,6 @@
 import { AriaAttributes } from 'react';
 
-import { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
+import type { ColorCategory, SizesProp, SpacingDistribution, Theme, UiReactElementProps } from '@uireact/foundation';
 
 import { FontStyle } from './ui-text-props';
 

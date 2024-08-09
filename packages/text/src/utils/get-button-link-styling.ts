@@ -1,5 +1,6 @@
-import { ColorCategory } from "@uireact/foundation";
 import styles from '../ui-text.scss';
+
+type ColorCategory = 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative' | 'error' | 'warning' | 'fonts';
 
 export const getButtonLinkStyling = (category?: ColorCategory, styling?: 'clear' | 'icon') => {
   if (styling === 'clear') {
