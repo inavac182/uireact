@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+import type { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 import { AriaAttributes } from 'react';
 
 export type UiLabelProps = {

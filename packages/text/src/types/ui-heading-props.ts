@@ -1,6 +1,6 @@
 import { AriaAttributes } from 'react';
 
-import { ColorCategory, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+import type { ColorCategory, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 
 import { InverseColorationProp } from './ui-text-props';
 

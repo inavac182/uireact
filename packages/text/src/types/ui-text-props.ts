@@ -1,6 +1,6 @@
 import { AriaAttributes } from 'react';
 
-import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
+import type { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 
 export type FontStyle = 'italic' | 'bold' | 'slim';
 
