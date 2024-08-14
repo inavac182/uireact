@@ -13,7 +13,7 @@ const getFilesInDirectory = source => readdirSync(source, { withFileTypes: true 
 const directories = getDirectories('packages');
 
 // Copy docs files from package folder to docs package folder
-directories.map((directory) => {
+directories.forEach((directory) => {
     const packageDocsEntries = getFilesInDirectory(`./packages/${directory}/docs`);
     const packageJson = `./packages/${directory}/package.json`;
     const singleDocPage = packageDocsEntries.filter((docEntry) => docEntry.name === 'page.mdx').length > 0;
@@ -24,10 +24,47 @@ directories.map((directory) => {
     }
 
     if (singleDocPage) {
-        cpSync(`./packages/${directory}/package.json`, `./packages/${directory}/docs/package-metadata.json`);
+        if (!existsSync(`./packages/${directory}/package.json`)) {
+            console.error(`No package.json found in: ${directory}`);
+            return;
+        }
+
+        if (!existsSync(`./packages/${directory}/docs/`)) {
+            console.error(`No docs folder found in: ${directory}`);
+            return;
+        }
+
+        if (!existsSync(`./packages/${directory}/docs/package-metadata.json`)) {
+            console.error(`No package-metadata found in: ${directory}`);
+        }
+
+        try {
+            cpSync(`./packages/${directory}/package.json`, `./packages/${directory}/docs/package-metadata.json`, { force: true, recursive: true });
+        } catch(error) {
+            console.error(error);
+        }
+        
     } else {
         packageDocsEntries.forEach((entry) => {
-            cpSync(`./packages/${directory}/package.json`, `./packages/${directory}/docs/${entry.name}/package-metadata.json`);
+            if (!existsSync(`./packages/${directory}/package.json`)) {
+                console.error(`No package.json found in: ${directory}`);
+                return;
+            }
+
+            if (!existsSync(`./packages/${directory}/docs/${entry.name}/`)) {
+                console.error(`No docs folder found in: ${directory}/docs/${entry.name}`);
+                return;
+            }
+
+            if (!existsSync(`./packages/${directory}/docs/${entry.name}/package-metadata.json`)) {
+                console.error(`No docs folder found in: ${directory}/docs/${entry.name}`);
+            }
+
+            try {
+                cpSync(`./packages/${directory}/package.json`, `./packages/${directory}/docs/${entry.name}/package-metadata.json`, { force: true, recursive: true });
+            } catch(error) {
+                console.error(error);
+            }
         });
     }
 });

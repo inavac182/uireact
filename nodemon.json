@@ -1,6 +1,5 @@
 {
   "events": {
-    "start": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js",
-    "restart": "node ./scripts/build-docs.js"
+    "start": "node ./scripts/compile-packages-metadata.js && node ./scripts/re-build-docs.js"
   }
 }

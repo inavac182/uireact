@@ -7,7 +7,7 @@
     "build:docs": "node ./scripts/compile-packages-metadata.js && node ./scripts/build-docs.js && turbo run build:docs",
     "build:publish": "turbo run build:publish",
     "clean": "turbo run clean && rm -rf ./node_modules/",
-    "dev:docs": "concurrently \"pnpm run watch:docs\" \"pnpm run watch:packages --concurrency 29\"",
+    "dev:docs": "pnpm run parse:docs && concurrently \"pnpm run watch:docs\" \"pnpm run watch:packages --concurrency 29\"",
     "dev:storybook": "turbo run dev:storybook",
     "start": "turbo run start",
     "lint": "turbo run lint",
@@ -18,7 +18,7 @@
     "test:package": "turbo run test",
     "test:packages": "turbo run tsc --filter=packages/* && turbo run test --continue",
     "watch:packages": "turbo run watch",
-    "watch:docs": "nodemon --ignore apps -e mdx --exec \"pnpm run parse:docs\""
+    "watch:docs": "nodemon --ignore apps -e mdx"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
