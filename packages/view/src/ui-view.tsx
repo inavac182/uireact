@@ -57,7 +57,7 @@ export const UiView: React.FC<UiViewProps> = ({
 
   return (
     <>
-      <div className={`${styles.uireactViewContainer} ${noBackground ? styles.transparent : `bg-${category}-${weight}`} ${className}`} data-testid="UiView">
+      <div className={`${styles.uireactViewContainer} ${noBackground ? 'transparent' : `bg-${category}-${weight}`} ${className}`} data-testid="UiView">
         <ThemeContext.Provider value={{ selectedTheme: internalSelectedTheme }}>
           <UiDialogsControllerContext.Provider value={dialogController ?? defaultDialogController}>
             <UiNotificationsContext.Provider value={notificationsController}>
