@@ -12,7 +12,7 @@ type DocHeadingProps = {
     children: React.ReactNode;
 }
 
-const headingSpacing: UiSpacingProps['padding'] = { block: 'six' };
+const headingSpacing: UiSpacingProps['padding'] = { block: 'four' };
 
 export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
     const link = children?.toString().replace(' ', '-').toLowerCase();
@@ -21,7 +21,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
         <UiSpacing padding={headingSpacing}>
             <UiLink>
                 <Link href={`#${link}`} id={link}>
-                    <UiFlexGrid gap="four">
+                    <UiFlexGrid gap="four" alignItems="center">
                         <UiText category="tertiary" size="large">#</UiText>
                         <UiHeading level={4}>{children}</UiHeading>
                     </UiFlexGrid>

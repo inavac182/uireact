@@ -48,12 +48,12 @@ const nestedNavbarSpacing: UiSpacingProps['padding'] = {
 };
 
 const navbarTitleSpacing: UiSpacingProps['padding'] = {
-    block: 'four',
+    block: 'three',
     inline: 'four'
 };
 
 const navbarItemTitle: UiSpacingProps['padding'] = {
-    block: 'four',
+    block: 'three',
     left: 'four'
 };
 const navbarFloatingItemTitle: UiSpacingProps['padding'] = {
