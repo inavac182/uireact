@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.1 (2024-08-15)
+
+**Note:** Version bump only for package @uireact/button
+
+
+
+
+
 # 3.2.0 (2024-08-15)
 
 
