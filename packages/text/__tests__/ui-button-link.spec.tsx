@@ -45,6 +45,17 @@ describe('<UiLink />', () => {
     expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 hover-bg-positive-150 active-bg-positive-200 fullWidth bold color-inverse-fonts-100 size-large wrap padding-top-three padding-bottom-three padding-left-four padding-right-four');
   });
 
+  it('renders fine with rounded', () => {
+    uiRender(
+      <UiButtonLink category="positive" size="large" rounded>
+        <a href="#">Link</a>
+      </UiButtonLink>
+    );
+
+    expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 border-positive-100 hover-border-positive-150 hover-bg-positive-150 active-bg-positive-200 color-fonts-100 size-large padding-top-three padding-bottom-three padding-left-four padding-right-four radius-large');
+  });
+
   it('renders fine with font style bold', () => {
     uiRender(
       <UiButtonLink fontStyle="bold">
