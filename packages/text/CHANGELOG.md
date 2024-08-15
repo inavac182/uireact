@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.10](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.9...@uireact/text@3.1.10) (2024-08-15)
+
+**Note:** Version bump only for package @uireact/text
+
+
+
+
+
 ## [3.1.9](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.8...@uireact/text@3.1.9) (2024-08-15)
 
 

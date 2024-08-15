@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2024-08-15)
+
+
+### Features
+
+* **confirm-dialog:** support for promises on CBs and level buttons ([#362](https://github.com/inavac182/uireact/issues/362)) ([601c12e](https://github.com/inavac182/uireact/commit/601c12e8af81e58e05850337c1392dd9694bae86))
+
+
+
+
+
 ## [3.0.3](https://github.com/inavac182/uireact/compare/@uireact/foundation@3.0.2...@uireact/foundation@3.0.3) (2024-06-04)
 
 **Note:** Version bump only for package @uireact/foundation

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@3.0.16...@uireact/confirm-dialog@3.1.0) (2024-08-15)
+
+
+### Features
+
+* **confirm-dialog:** support for promises on CBs and level buttons ([#362](https://github.com/inavac182/uireact/issues/362)) ([601c12e](https://github.com/inavac182/uireact/commit/601c12e8af81e58e05850337c1392dd9694bae86))
+
+
+
+
+
 ## [3.0.16](https://github.com/inavac182/uireact/compare/@uireact/confirm-dialog@3.0.15...@uireact/confirm-dialog@3.0.16) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/confirm-dialog
