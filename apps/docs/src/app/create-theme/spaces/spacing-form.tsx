@@ -28,13 +28,13 @@ const schema = {
 const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
 
 const spacingDefaultValues: Spacing = {
-    one: '2',
-    two: '4',
-    three: '8',
-    four: '16',
-    five: '24',
-    six: '32',
-    seven: '40',
+    one: '0.46',
+    two: '0.61',
+    three: '1.08',
+    four: '2.83',
+    five: '4.04',
+    six: '6.06',
+    seven: '8.09'
 }
 
 export const SpacingForm = () => {
@@ -86,7 +86,7 @@ export const SpacingForm = () => {
             const updatedTheme = mergeSpacesTheme(theme, spacesStructure);
             router.push(`?theme=${btoa(JSON.stringify(updatedTheme))}`, { scroll: false });
         }
-    }, [theme, spacesData, router, setCompleted, setErrors]);
+    }, [theme, router, setCompleted, setErrors]);
 
     useEffect(() => {
         if (theme) {
@@ -102,31 +102,31 @@ export const SpacingForm = () => {
             <UiFlexGrid direction="column" gap="four">
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="one" value={spacesData.one} onChange={updateSpacing} label="One" labelOnTop type="number" category={errors?.one ? 'error' : undefined} /> 
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="two" value={spacesData.two} onChange={updateSpacing} label="Two" labelOnTop type="number" category={errors?.two ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="three" value={spacesData.three} onChange={updateSpacing} label="Three" labelOnTop type="number" category={errors?.three ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="four" value={spacesData.four} onChange={updateSpacing} label="Four" labelOnTop type="number" category={errors?.four ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="five" value={spacesData.five} onChange={updateSpacing} label="Five" labelOnTop type="number" category={errors?.five ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="six" value={spacesData.six} onChange={updateSpacing} label="Six" labelOnTop type="number" category={errors?.six ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
                 <UiFlexGrid alignItems="flex-end" gap="four">
                     <UiInput name="seven" value={spacesData.seven} onChange={updateSpacing} label="Seven" labelOnTop type="number" category={errors?.seven ? 'error' : undefined} />
-                    <UiText>px</UiText>
+                    <UiText>rem</UiText>
                 </UiFlexGrid>
             </UiFlexGrid>
             <br />

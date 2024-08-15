@@ -32,20 +32,20 @@ const headingsSchema = {
 };
 
 const suggestedTextValues: TextSizes = {
-    xsmall: '12',
-    small: '14',
-    regular: '16',
-    large: '18',
-    xlarge: '20'
+    xsmall: '0.75',
+    small: '1',
+    regular: '1.75',
+    large: '2.5',
+    xlarge: '3.75'
 };
 
 const suggestedHeadingValues: HeadingSizes = {
-    level1: '32',
-    level2: '28',
-    level3: '24',
-    level4: '22',
-    level5: '20',
-    level6: '18',
+    level1: '15',
+    level2: '10',
+    level3: '6.25',
+    level4: '3.75',
+    level5: '3',
+    level6: '2.5',
 };
 
 const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
@@ -54,7 +54,7 @@ export const SizesForm = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const [sizesSuccess, setSizesSuccess] = useState(false);
-    const [sizeUnit, setSizeUnit] = useState('px');
+    const [sizeUnit, setSizeUnit] = useState('rem');
     const [textData, setTextData] = useState<TextSizes>(suggestedTextValues);
     const [headingsData, setHeadingsData] = useState<HeadingSizes>(suggestedHeadingValues);
     const [textErrors, setTextErrors] = useState<UiValidatorErrors>();
@@ -101,7 +101,7 @@ export const SizesForm = () => {
         }
     }, [theme, textData, headingsData, sizeUnit, router]);
     const updateSizeMeasure = useCallback((value?: string) => {
-        setSizeUnit(value || 'px');
+        setSizeUnit(value || 'rem');
     }, [setSizeUnit]);
 
     useEffect(() => {
@@ -141,9 +141,10 @@ export const SizesForm = () => {
             <br />
             <UiText>Typography sizes unit</UiText>
             <br />
-            <UiSelect onChange={updateSizeMeasure}>
+            <UiSelect onChange={updateSizeMeasure} defaultValue="rem">
                 <option value="px">px</option>
                 <option value="em">em</option>
+                <option value="rem">rem</option>
             </UiSelect>
             <br />
             <UiFlexGrid alignItems="center" gap="four">

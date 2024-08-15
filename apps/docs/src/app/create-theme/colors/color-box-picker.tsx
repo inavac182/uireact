@@ -9,6 +9,7 @@ import { UiFlexGrid } from "@uireact/flex";
 import { ColorCategories, ColorTokens, ThemeColor, Tokens } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiMenu } from "@uireact/menu";
+import { UiText } from '@uireact/text';
 
 import { MergeTokens, generateThemeStructure } from "../utils";
 import { getColorFromUrl, getTokensFromUrl } from "../utils/get-color-from-url";
@@ -101,7 +102,7 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
         }
 
         return '';
-    }, [searchParams]);
+    }, [$coloration, category, searchParams]);
     const tokens = useMemo(() => {
         const urlTheme = searchParams.get('theme');
 
@@ -110,7 +111,7 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
         }
 
         return null;
-    }, [searchParams]);
+    }, [$coloration, category, searchParams]);
 
     const tooglePicker = useCallback(() => {
         setColorPickerVisible(!colorPickerVisible);
@@ -125,13 +126,15 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
         const encodedTheme = btoa(JSON.stringify(updatedTheme));
 
         router.push(`${pathname}?theme=${encodedTheme}`, { scroll: false });
-    }, [router, searchParams]);
+    }, [$coloration, category, pathname, router, searchParams]);
+
+    const textColor = category === 'secondary' ? $coloration === 'light' ? 'dark' : 'light' : $coloration === 'light' ? 'light' : 'dark';
 
     return (
         <ColorWrapper>
             <ColorBox $coloration={$coloration} color={color}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
-                    <strong>{category}</strong>
+                    <UiText fontStyle="bold" size="large" coloration={textColor}>{category}</UiText>
                     <UiButton styling="icon" onClick={tooglePicker}>
                         <UiIcon icon="BarsProgress" />
                     </UiButton>
@@ -139,7 +142,7 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
                 <UiMenu visible={colorPickerVisible} closeMenuCB={tooglePicker}>
                     <SketchPicker onChangeComplete={setColorCB} color={color} />
                 </UiMenu>
-                <ColorText>{color ? color : ''}</ColorText>
+                <UiText fontStyle="bold" size="large" coloration={textColor} align="center">{color ? color : ''}</UiText>
             </ColorBox>
             {tokens && tokens.token_100 !== '' && (
                 <>

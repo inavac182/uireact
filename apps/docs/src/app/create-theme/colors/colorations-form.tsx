@@ -39,7 +39,7 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
         }
 
         return false;
-    }, [searchParams]);
+    }, [$coloration, searchParams]);
 
     return (
         <Container $coloration={$coloration}>

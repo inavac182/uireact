@@ -21,30 +21,30 @@ const colorationStructure: Coloration = {
 
 export const sizesStructure: Sizes = {
     headings: {
-        level1: '32px',
-        level2: '28px',
-        level3: '24px',
-        level4: '22px',
-        level5: '20px',
-        level6: '18px'
+        level1: '5rem',
+        level2: '4rem',
+        level3: '3.5rem',
+        level4: '3rem',
+        level5: '2.5rem',
+        level6: '2rem'
     },
     texts: {
-        xsmall: '12px',
-        small: '14px',
-        regular: '16px',
-        large: '18px',
-        xlarge: '20px'
+        xsmall: '0.75rem',
+        small: '1rem',
+        regular: '1.2rem',
+        large: '2.5rem',
+        xlarge: '3.75rem'
     }
 }
 
 export const spacesStructure: Spacing = {
-    one: '2px',
-    two: '4px',
-    three: '8px',
-    four: '16px',
-    five: '24px',
-    six: '32px',
-    seven: '40px',
+    one: '0.4rem',
+    two: '0.8rem',
+    three: '1rem',
+    four: '1.5rem',
+    five: '2.5rem',
+    six: '4rem',
+    seven: '6rem'
 }
 
 export const generateThemeStructure = (): Theme => {
