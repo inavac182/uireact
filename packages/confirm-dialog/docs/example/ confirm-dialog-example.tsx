@@ -6,7 +6,7 @@ import { useConfirmDialog, UiConfirmDialog } from '@uireact/confirm-dialog';
 import { UiConfirmDialogOptions } from '@uireact/foundation';
 
 type ConfirmDialogExampleProps = {
-  onConfirmCB?: () => void;
+  onConfirmCB?: () => Promise<void>;
   onDenyCB?: () => void;
   options?: UiConfirmDialogOptions;
 };
@@ -18,9 +18,9 @@ export const ConfirmDialogExample: React.FC<ConfirmDialogExampleProps> = ({
 }: ConfirmDialogExampleProps) => {
   const { showConfirmDialog } = useConfirmDialog();
 
-  const onConfirm = useCallback(() => {
+  const onConfirm = useCallback(async () => {
     console.log('Action Confirmed');
-    onConfirmCB?.();
+    await onConfirmCB?.();
   }, [onConfirmCB]);
 
   const onDeny = useCallback(() => {
@@ -32,7 +32,7 @@ export const ConfirmDialogExample: React.FC<ConfirmDialogExampleProps> = ({
     showConfirmDialog(
       {
         title: 'Are you sure?',
-        message: 'Only accept this if you are completely sure',
+        message: 'Only accept this if you are completely sure about what is going to happen',
         confirmLabel: 'Accept',
         denyLabel: 'Cancel',
       },

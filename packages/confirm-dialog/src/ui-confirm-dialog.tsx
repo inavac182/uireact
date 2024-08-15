@@ -1,10 +1,11 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { MotionProps, motion as MotionParent } from 'framer-motion';
 
 import { UiConfirmDialogContext, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
-import { UiButton } from '@uireact/button';
+import { UiButton, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
+import { UiIcon } from '@uireact/icons';
 
 import styles from './ui-confirm-dialog.scss';
 
@@ -27,26 +28,38 @@ const animation: MotionProps = {
   }
 };
 
+const confirmButtonPadding: UiSpacingProps['padding'] = { block: 'four', inline: 'six' };
+
 export const UiConfirmDialog: React.FC = () => {
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [denyLoading, setDenyLoading] = useState(false);
   const { confirmDialog, visible, hideConfirmDialog } = useContext(UiConfirmDialogContext);
 
-  const onCofirm = useCallback(() => {
-    hideConfirmDialog();
+  const onCofirm = useCallback(async () => {
+    setConfirmLoading(true);
     // istanbul ignore next
-    confirmDialog?.confirm();
-  }, [confirmDialog, hideConfirmDialog]);
+    await confirmDialog?.confirm();
+    hideConfirmDialog();
+    setConfirmLoading(false);
+  }, [confirmDialog, hideConfirmDialog, setConfirmLoading]);
 
-  const onDeny = useCallback(() => {
-    hideConfirmDialog();
+  const onDeny = useCallback(async () => {
+    setDenyLoading(true);
     // istanbul ignore next
-    confirmDialog?.deny();
-  }, [confirmDialog, hideConfirmDialog]);
+    await confirmDialog?.deny();
 
-  const closeCB = useCallback(() => {
     hideConfirmDialog();
+    setDenyLoading(false);
+  }, [confirmDialog, hideConfirmDialog, setDenyLoading]);
+
+  const closeCB = useCallback(async () => {
+    setDenyLoading(true);
     // istanbul ignore next
-    confirmDialog?.deny();
-  }, [hideConfirmDialog, confirmDialog]);
+    await confirmDialog?.deny();
+
+    hideConfirmDialog();
+    setDenyLoading(false);
+  }, [hideConfirmDialog, confirmDialog, setDenyLoading]);
 
   if (visible && confirmDialog) {
     const { options, data } = confirmDialog;
@@ -59,7 +72,7 @@ export const UiConfirmDialog: React.FC = () => {
             <div className={styles.dialogContent}>
               <UiHeading centered level={4}>{data.title}</UiHeading>
               <UiSpacing padding={messagePadding}>
-                <UiText align='center' wrap>{data.message}</UiText>
+                <UiText align='center'>{data.message}</UiText>
               </UiSpacing>
               <UiSpacing padding={actionsPadding}>
                 <UiFlexGrid
@@ -70,18 +83,14 @@ export const UiConfirmDialog: React.FC = () => {
                   direction={options?.direction === 'stacked' ? 'column' : 'row'}
                 >
                   <UiFlexGridItem>
-                    <UiButton category="tertiary" onClick={onCofirm} fullWidth>
-                      <UiSpacing padding={buttonPadding}>
-                        <UiText>{confirmDialog.data.confirmLabel}</UiText>
-                      </UiSpacing>
-                    </UiButton>
+                    <UiPrimaryButton onClick={onCofirm} fullWidth disabled={confirmLoading || denyLoading} padding={confirmButtonPadding}>
+                        {confirmLoading ? <UiIcon icon="LoadingSpinner" inverseColoration /> : confirmDialog.data.confirmLabel}
+                    </UiPrimaryButton>
                   </UiFlexGridItem>
                   <UiFlexGridItem>
-                    <UiButton category="error" onClick={onDeny} styling="clear" fullWidth>
-                      <UiSpacing padding={buttonPadding}>
-                        <UiText>{confirmDialog.data.denyLabel}</UiText>
-                      </UiSpacing>
-                    </UiButton>
+                    <UiTertiaryButton onClick={onDeny} fullWidth disabled={confirmLoading || denyLoading} padding={confirmButtonPadding}>
+                        {denyLoading ? <UiIcon icon="LoadingSpinner" /> : confirmDialog.data.denyLabel}
+                    </UiTertiaryButton>
                   </UiFlexGridItem>
                 </UiFlexGrid>
               </UiSpacing>

@@ -5,8 +5,8 @@ export type IConfirmDialogController = {
   confirmDialog: UiConfirmDialogHolder | null;
   showConfirmDialog: (
     notification: UiConfirmDialogData,
-    onConfirm: () => void,
-    onDeny: () => void,
+    onConfirm: (() => Promise<void>) | (() => void),
+    onDeny: (() => Promise<void>) | (() => void),
     options?: UiConfirmDialogOptions
   ) => void;
   hideConfirmDialog: () => void;

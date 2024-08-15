@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, act } from 'react';
 
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 
@@ -66,10 +66,15 @@ describe('<UiConfirmDialog />', () => {
       expect(screen.getByRole('dialog')).toBeVisible();
     });
 
-    fireEvent.click(screen.getByRole('button', { name: 'Accept' }));
+    act(() => {
+      fireEvent.click(screen.getByRole('button', { name: 'Accept' }));
+    });
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
 
     expect(onConfirmStub).toHaveBeenCalledTimes(1);
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('renders fine and closes fine on deny', async () => {
@@ -84,10 +89,15 @@ describe('<UiConfirmDialog />', () => {
       expect(screen.getByRole('dialog')).toBeVisible();
     });
 
-    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    act(() => {
+      fireEvent.click(screen.getByRole('button', { name: 'Cancel' }));
+    });
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
 
     expect(onDenyStub).toHaveBeenCalledTimes(1);
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('renders fine and closes fine on background click', async () => {
@@ -102,10 +112,15 @@ describe('<UiConfirmDialog />', () => {
       expect(screen.getByRole('dialog')).toBeVisible();
     });
 
-    fireEvent.click(screen.getByTestId('confirm-dialog-bg'));
+    act(() => {
+      fireEvent.click(screen.getByTestId('confirm-dialog-bg'));
+    });
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
 
     expect(onDenyStub).toHaveBeenCalledTimes(1);
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('renders fine without options', async () => {

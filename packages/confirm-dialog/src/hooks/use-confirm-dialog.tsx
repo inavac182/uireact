@@ -4,8 +4,8 @@ import { UiConfirmDialogData, UiConfirmDialogContext, UiConfirmDialogOptions } f
 type UseUiConfirmDialogHook = {
   showConfirmDialog: (
     data: UiConfirmDialogData,
-    onConfirm: () => void,
-    onDeny: () => void,
+    onConfirm: (() => Promise<void>) | (() => void),
+    onDeny: (() => Promise<void>) | (() => void),
     options?: UiConfirmDialogOptions
   ) => void;
 };
