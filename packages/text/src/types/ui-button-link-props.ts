@@ -27,4 +27,6 @@ export type UiButtonLinkProps = {
   padding?: SpacingDistribution;
   /** The styling of the button */
   styling?: 'clear' | 'icon';
+  /** If the button is rounded */
+  rounded?: boolean;
 } & UiReactElementProps & AriaAttributes;

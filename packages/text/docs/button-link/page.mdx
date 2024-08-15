@@ -8,7 +8,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 <Metadata packageName='text' packageJson={packageJson} />
 
-> This component adds classes to the passed children link so it renders as a button rather than a link, but it behaves as a link.
+> This component has to wrap a link component in order to properly work. It will add custom classes to its children to make it look like a button although for a11y it will still be a button.
 
 ## Installation
 
@@ -56,6 +56,19 @@ import { Metadata } from '@uireact/docs-tools';
   </UiButtonLink>{" "}
   <UiButtonLink styling='icon'>
     <a href="https://uireact.io/" target="_blank"><UiIcon icon="SettingsBig" /></a>
+  </UiButtonLink>
+</>
+```
+
+### UiButtonLink with rounded properties
+
+```jsx live scope={{UiButtonLink, UiIcon}}
+<>
+  <UiButtonLink rounded>
+    <a href="https://uireact.io/" target="_blank">Some link</a>
+  </UiButtonLink>{" "}
+  <UiButtonLink rounded size="xlarge">
+    <a href="https://uireact.io/" target="_blank">Some link</a>
   </UiButtonLink>
 </>
 ```
