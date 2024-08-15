@@ -181,7 +181,7 @@ a {
     transition: background 0.2s;    
 }
 
-.transparent {
+:global(.transparent) {
     background-color: transparent;
 }
 

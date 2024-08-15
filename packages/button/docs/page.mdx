@@ -1,7 +1,7 @@
 import { UiCard } from '@uireact/card';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiText } from '@uireact/text';
-import { UiButton } from '@uireact/button';
+import { UiButton, UiPrimaryButton, UiSecondaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiSpacing, Sizing } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
 import { UiGrid } from '@uireact/grid';
@@ -16,41 +16,55 @@ import { Metadata } from '@uireact/docs-tools';
 
 ## Installation
 
-> npm i @uireact/foundation @uireact/button
+> npm i -S @uireact/button
 
-## Usage
+## Usage a level button
 
-```jsx live scope={{UiButton, UiSpacing, Sizing}}
-  <UiButton>
-    <UiSpacing margin={{ all: Sizing.three }}>Button! 💅🏾</UiSpacing>
-  </UiButton>
+We have 3 different button levels
+
+- Primary
+- Secondary
+- Tertiary
+
+These buttons already have and uses a cohesive styling that helps improve the user experience and give clarity of their respective level.
+
+### Primary
+
+```jsx live scope={{UiPrimaryButton, UiSpacing, Sizing}}
+  <UiPrimaryButton margin={{ all: Sizing.three }}>
+    Primary button
+  </UiPrimaryButton>
 ```
 
-### More examples
+### Secondary
 
-#### With fullWidth
-
-```jsx live scope={{UiGrid, UiButton, UiSpacing}}
-  <UiGrid cols={2} rows={1} colsGap='four' justifyItems="center">
-    <UiButton fullWidth padding={{ all: 'three' }}>
-      Button! 💅🏾
-    </UiButton>
-
-    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
-      Button! 💅🏾
-    </UiButton>
-  </UiGrid>
+```jsx live scope={{UiSecondaryButton, UiSpacing, Sizing, UiFlexGrid, UiIcon}}
+  <UiFlexGrid alignItems="center" gap="four">
+    <UiSecondaryButton margin={{ all: Sizing.three }}>
+      Secondary button
+    </UiSecondaryButton>
+    <UiSecondaryButton icon>
+      <UiIcon icon="UserSettings" category="secondary" />
+    </UiSecondaryButton>
+  </UiFlexGrid>
 ```
 
-#### As submit button
+### Tertiary
 
-```jsx live scope={{UiButton}}
-  <form>
-    <UiButton theme="secondary" type="submit">
-      Button! 💅🏾
-    </UiButton>
-  </form>
+```jsx live scope={{UiTertiaryButton, UiSpacing, Sizing, UiFlexGrid, UiText}}
+  <UiFlexGrid alignItems="center" gap="four">
+    <UiTertiaryButton margin={{ all: Sizing.three }}>
+      Tertiary button
+    </UiTertiaryButton>
+    <UiTertiaryButton rounded size="large">
+      Button
+    </UiTertiaryButton>
+  </UiFlexGrid>
 ```
+
+### Usage of a customizable UiButton
+
+The UiButton allows for customization of the styling and colorations, this component can be used to create your own level components in your applications:
 
 #### Button themes:
 
@@ -80,11 +94,39 @@ import { Metadata } from '@uireact/docs-tools';
   </UiGrid>
 ```
 
+### More options
+
+These are options available to the different button components to customize their fit and finish to your use cases:
+
+#### With fullWidth
+
+```jsx live scope={{UiGrid, UiButton, UiSpacing}}
+  <UiGrid cols={2} rows={1} colsGap='four' justifyItems="center">
+    <UiButton fullWidth padding={{ all: 'three' }}>
+      Button! 💅🏾
+    </UiButton>
+
+    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
+      Button! 💅🏾
+    </UiButton>
+  </UiGrid>
+```
+
+#### As submit button
+
+```jsx live scope={{UiButton}}
+  <form>
+    <UiButton theme="secondary" type="submit">
+      Button! 💅🏾
+    </UiButton>
+  </form>
+```
+
 #### Rounded button
 
 ```jsx live scope={{UiCard, UiFlexGrid, UiText, UiButton}}
   <UiCard weight="200" category="positive">
-    <UiFlexGrid gap="three">
+    <UiFlexGrid gap="three" alignItems="center">
       <UiButton rounded>
         <UiText>Button 🌜</UiText>
       </UiButton>
@@ -100,13 +142,13 @@ import { Metadata } from '@uireact/docs-tools';
 
 #### Clear button
 
-```jsx live scope={{UiCard, UiFlexGrid, UiButton}}
+```jsx live scope={{UiCard, UiFlexGrid, UiButton, UiText}}
   <UiCard category="primary">
-    <UiFlexGrid gap="three">
-      <UiButton category="tertiary" styling="clear" padding={{ all: 'three' }}>
+    <UiFlexGrid gap="three" alignItems="center">
+      <UiButton category="tertiary" styling="clear">
         Button! ✨
       </UiButton>
-      Some content
+      <UiText>Some content</UiText>
     </UiFlexGrid>
   </UiCard>
 ```
@@ -144,14 +186,12 @@ import { Metadata } from '@uireact/docs-tools';
         <UiText>Button 🐼</UiText>
       </UiButton>
       <UiButton styling="outlined" category="secondary">
-        <UiText>
-          Button <UiIcon icon="Refresh" />
-        </UiText>
+        <UiText>Button</UiText>
+         <UiIcon icon="Refresh" />
       </UiButton>
       <UiButton styling="outlined" rounded category="positive">
-        <UiText>
-          Button <UiIcon icon="VideoCameraVintage" />
-        </UiText>
+        <UiText>Button</UiText>
+        <UiIcon icon="VideoCameraVintage" />
       </UiButton>
     </UiFlexGrid>
   </UiCard>

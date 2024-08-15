@@ -3,34 +3,33 @@ import * as React from 'react';
 import { motion as MotionParent } from 'framer-motion';
 import { getSpacingClass, SpacingDistribution } from '@uireact/foundation';
 
-import { UiButtonProps } from './types';
-import { getButtonStylingClasses } from './helpers';
+import { UiPrimaryButtonProps } from './types';
+import { getPrimaryClasses } from './helpers';
 
 import styles from './ui-button.scss';
 
 const defaultPadding: SpacingDistribution = { block: 'three', inline: 'four' };
 
-export const UiButton: React.FC<UiButtonProps> = ({
+export const UiPrimaryButton: React.FC<UiPrimaryButtonProps> = ({
   onClick,
   className = '',
   disabled = false,
   children,
   id,
-  category = 'primary',
   fullHeight = false,
   fullWidth = false,
-  styling = 'filled',
   padding,
   margin,
   motion,
   ref,
+  icon = false,
   rounded = false,
   type = 'button',
-  roundedSize = 'regular',
+  size = 'regular',
   testId,
   ...props
-}: UiButtonProps) => {
-  let classes = `${className} ${styles.button} ${getButtonStylingClasses(styling, category, disabled)}`;
+}: UiPrimaryButtonProps) => {
+  let classes = `size-${size} ${className} ${styles.button} ${getPrimaryClasses(disabled)}`;
 
   if (fullWidth) {
     classes = `${classes} ${styles.buttonFullWidth}`;
@@ -47,8 +46,8 @@ export const UiButton: React.FC<UiButtonProps> = ({
   }
 
   if (rounded) {
-    classes = `${classes} radius-${roundedSize}`;
-  } else if (styling === 'icon') {
+    classes = `${classes} radius-${size}`;
+  } else if (icon) {
     classes = `${classes} ${styles.buttonIcon}`;
   } else {
     classes = `${classes} ${styles.buttonRadius}`;
@@ -71,4 +70,4 @@ export const UiButton: React.FC<UiButtonProps> = ({
   );
 };
 
-UiButton.displayName = 'UiButton';
+UiPrimaryButton.displayName = 'UiPrimaryButton';
