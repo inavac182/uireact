@@ -92,7 +92,7 @@ GLOBAL STYLES
 
     :global(.size-#{$size}) {
         font-size: var(--texts-#{$size});
-        line-height: calc(var(--texts-#{$size}) * 1.025);
+        line-height: calc(var(--texts-#{$size}) * 1.25);
     }
 
     :global(.w-#{$size}) {
