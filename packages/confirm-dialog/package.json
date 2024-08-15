@@ -36,6 +36,7 @@
     "@uireact/flex": ">= 3",
     "@uireact/foundation": ">= 3.1.0",
     "@uireact/framer-animations": ">= 0",
+    "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3.1.9",
     "framer-motion": ">= 11",
     "react": ">= 17 < 19",
