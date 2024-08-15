@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.11...@uireact/text@3.2.0) (2024-08-15)
+
+
+### Features
+
+* **text:** calculate line-height using text size ([#363](https://github.com/inavac182/ui-react/issues/363)) ([f47aecc](https://github.com/inavac182/ui-react/commit/f47aecc1fc7221947277b1de0d99d6c92a4896e6))
+
+
+
+
+
 ## [3.1.11](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.10...@uireact/text@3.1.11) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/text

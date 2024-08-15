@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/inavac182/uireact/compare/@uireact/dialog@3.0.18...@uireact/dialog@3.0.19) (2024-08-15)
+
+**Note:** Version bump only for package @uireact/dialog
+
+
+
+
+
 ## [3.0.18](https://github.com/inavac182/uireact/compare/@uireact/dialog@3.0.17...@uireact/dialog@3.0.18) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/dialog

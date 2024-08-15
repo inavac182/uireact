@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/inavac182/uireact/compare/@uireact/view@3.3.2...@uireact/view@3.4.0) (2024-08-15)
+
+
+### Features
+
+* **text:** calculate line-height using text size ([#363](https://github.com/inavac182/uireact/issues/363)) ([f47aecc](https://github.com/inavac182/uireact/commit/f47aecc1fc7221947277b1de0d99d6c92a4896e6))
+
+
+
+
+
 ## [3.3.2](https://github.com/inavac182/uireact/compare/@uireact/view@3.3.1...@uireact/view@3.3.2) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/view

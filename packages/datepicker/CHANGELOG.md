@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.26](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.14.25...@uireact/datepicker@0.14.26) (2024-08-15)
+
+**Note:** Version bump only for package @uireact/datepicker
+
+
+
+
+
 ## [0.14.25](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.14.24...@uireact/datepicker@0.14.25) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/datepicker
