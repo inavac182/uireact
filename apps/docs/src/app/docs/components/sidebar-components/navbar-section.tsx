@@ -48,7 +48,7 @@ const nestedNavbarSpacing: UiSpacingProps['padding'] = {
 };
 
 const navbarTitleSpacing: UiSpacingProps['padding'] = {
-    block: 'three',
+    block: 'four',
     inline: 'four'
 };
 
