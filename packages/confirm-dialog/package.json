@@ -29,6 +29,7 @@
     "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/framer-animations": "workspace:*",
+    "@uireact/icons": "workspace:*",
     "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
