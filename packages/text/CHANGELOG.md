@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.9](https://github.com/inavac182/ui-react/compare/@uireact/text@3.1.8...@uireact/text@3.1.9) (2024-08-15)
+
+
+### Bug Fixes
+
+* **text:** break line property for text ([#361](https://github.com/inavac182/ui-react/issues/361)) ([7cb00a9](https://github.com/inavac182/ui-react/commit/7cb00a949741ad12bfde82cf2f311cc5d909122f))
+
+
+
+
+
 ## 3.1.8 (2024-08-15)
 
 **Note:** Version bump only for package @uireact/text
