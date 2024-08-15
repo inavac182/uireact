@@ -1,3 +1,7 @@
+.text {
+    max-width: 100%;
+}
+
 .alignLeft {
     text-align: left;
 }
@@ -60,4 +64,12 @@
 .buttonLinkIcon {
     border-radius: 50%;
     padding: 10px;
+}
+
+.breakLine {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
 }
