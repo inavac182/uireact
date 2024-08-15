@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.2.0 (2024-08-15)
+
+
+### Features
+
+* **button:** introducing level buttons ([#359](https://github.com/inavac182/uireact/issues/359)) ([cc4e5f5](https://github.com/inavac182/uireact/commit/cc4e5f54f36c16e4fabba49de287258480707f30))
+
+
+
+
+
 ## 3.1.1 (2024-07-06)
 
 
