@@ -19,7 +19,7 @@ export const UiText: React.FC<UiTextProps> = ({
   margin,
   padding
 }: UiTextProps) => {
-  let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size}`;
+  let classes = `${className} ${styles.text} color-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size}`;
 
   if (align === 'center') {
     classes = `${classes} ${styles.alignCenter}`;
@@ -35,6 +35,8 @@ export const UiText: React.FC<UiTextProps> = ({
 
   if (wrap) {
     classes = `${classes} ${styles.wrap}`;
+  } else {
+    classes = `${classes} ${styles.breakLine}`;
   }
 
   if (margin || padding) {
