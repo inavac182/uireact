@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.9](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.8...@uireact/form@3.3.9) (2024-08-15)
+
+
+### Bug Fixes
+
+* **forms:** calc input padding when icon is provided ([d241a52](https://github.com/inavac182/ui-react/commit/d241a52049115dd31361b75bd5a2e94472a948c8))
+
+
+
+
+
 ## [3.3.8](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.7...@uireact/form@3.3.8) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/form
