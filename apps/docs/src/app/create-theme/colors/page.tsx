@@ -71,7 +71,7 @@ export default function Colors () {
             <UiText fontStyle="bold">When you pick a color this tool will automatically calculate the tokens for the darker and lighter colors, you could manually change them later on.</UiText>
             <br />
             <UiCard category="primary" weight="200">
-                <UiExpandoText collapseLabel="Color categories information" expandLabel="Color categories information" category="negative">
+                <UiExpandoText collapseLabel="Color categories information" expandLabel="Color categories information">
                     <br />
                     <UiText>Each category has its own purpose, this information will give you a guideline on each one:</UiText>
                     <br />

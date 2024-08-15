@@ -7,11 +7,11 @@ import { DemoCard } from "@/app/internal"
 
 export const FramerMotionDemo = () => {
     return (
-        <DemoCard category='tertiary'>
+        <DemoCard category='secondary'>
             <>
-                <UiHeading coloration="light">Framer Motion</UiHeading>
+                <UiHeading inverseColoration>Framer Motion</UiHeading>
                 <br />
-                <UiText coloration="light">Components animated with framer</UiText>
+                <UiText inverseColoration>Components animated with framer</UiText>
                 <br />
                 <motion.div
                     className="box"

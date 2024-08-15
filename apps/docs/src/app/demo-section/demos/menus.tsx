@@ -24,10 +24,10 @@ export const MenusDemos = () => {
     }, [visible]);
 
     return (
-        <DemoCard category="tertiary">
+        <DemoCard category="secondary">
             <>
-                <UiHeading coloration="light">Menus</UiHeading>
-                <UiText coloration="light">Component that renders underneath the trigger, click:</UiText>
+                <UiHeading>Menus</UiHeading>
+                <UiText>Component that renders underneath the trigger, click:</UiText>
                 <br />
                 <UiButton onClick={onTrigger} styling="outlined" rounded>
                     <UiIcon icon="BatteryFull" />

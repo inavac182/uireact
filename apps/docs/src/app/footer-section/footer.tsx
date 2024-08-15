@@ -12,7 +12,7 @@ const FooterWrapper = styled.div`
     padding: 50px;
     top: 200px;
     position: relative;
-    background-color: var(--primary-token_100);
+    background-color: var(--primary-token_50);
 
     > div {
         max-width: 600px;

@@ -22,7 +22,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
             <UiLink>
                 <Link href={`#${link}`} id={link}>
                     <UiFlexGrid gap="four">
-                        <UiText category="tertiary" size="xlarge">#</UiText>
+                        <UiText category="tertiary" size="large">#</UiText>
                         <UiHeading level={4}>{children}</UiHeading>
                     </UiFlexGrid>
                 </Link>
@@ -34,7 +34,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
 export const DocHeading = ({ children }: DocHeadingProps) => {
     return (
         <UiSpacing padding={headingSpacing}>
-            <UiHeading level={1}>{children}</UiHeading>
+            <UiHeading level={2}>{children}</UiHeading>
             <br />
             <UiLineSeparator />
         </UiSpacing>

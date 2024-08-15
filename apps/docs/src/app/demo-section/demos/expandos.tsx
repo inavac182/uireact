@@ -10,7 +10,7 @@ export const ExpandosDemo = () => {
                 <UiHeading>Expandos</UiHeading>
                 <UiText size="small">Components that expand to reveal content</UiText>
                 <br />
-                <UiExpandoCard category="tertiary" expanded={false} expandLabel="Expand Card" collapseLabel="Collapse Card">
+                <UiExpandoCard category="secondary" expanded={false} expandLabel="Expand Card" collapseLabel="Collapse Card">
                     <UiText>
                         Some content
                     </UiText>

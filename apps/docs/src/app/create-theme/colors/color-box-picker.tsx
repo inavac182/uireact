@@ -134,15 +134,15 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
         <ColorWrapper>
             <ColorBox $coloration={$coloration} color={color}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
-                    <UiText fontStyle="bold" size="large" coloration={textColor}>{category}</UiText>
-                    <UiButton styling="icon" onClick={tooglePicker}>
+                    <UiText fontStyle="bold" coloration={textColor}>{category}</UiText>
+                    <UiButton styling="icon" onClick={tooglePicker} category="tertiary">
                         <UiIcon icon="BarsProgress" />
                     </UiButton>
                 </UiFlexGrid>
                 <UiMenu visible={colorPickerVisible} closeMenuCB={tooglePicker}>
                     <SketchPicker onChangeComplete={setColorCB} color={color} />
                 </UiMenu>
-                <UiText fontStyle="bold" size="large" coloration={textColor} align="center">{color ? color : ''}</UiText>
+                <UiText fontStyle="bold" coloration={textColor} align="center">{color ? color : ''}</UiText>
             </ColorBox>
             {tokens && tokens.token_100 !== '' && (
                 <>

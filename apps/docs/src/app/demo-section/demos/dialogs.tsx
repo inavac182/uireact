@@ -6,7 +6,7 @@ import { UiSpacing, UiSpacingProps } from "@uireact/foundation"
 import { useDialog } from '@uireact/dialog';
 import { useCallback } from "react";
 
-const triggerButtonSpacing: UiSpacingProps['padding'] = { block: 'four'};
+const triggerButtonSpacing: UiSpacingProps['padding'] = { block: 'three'};
 
 const dialogId = 'demo-dialog';
 
@@ -20,8 +20,8 @@ export const DialogsDemo = () => {
     return (
         <DemoCard category="tertiary">
             <>
-                <UiHeading coloration="light">Dialogs</UiHeading>
-                <UiText size="small" coloration="light">Dialogs handlers built in with the UiView component</UiText>
+                <UiHeading>Dialogs</UiHeading>
+                <UiText size="small">Dialogs handlers built in with the UiView component</UiText>
                 <br />
                 <UiButton fullWidth onClick={onTrigger}>
                     <UiSpacing padding={triggerButtonSpacing}>

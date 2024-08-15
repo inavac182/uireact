@@ -15,6 +15,7 @@ type ThemeExampleProps = {
 
 const CustomCard = styled(UiCard)<{ $theme: Theme, $coloration: ThemeColor, $category: ColorCategory, $weigth?: ColorTokens }>`
     border-radius: 20px;
+    box-sizing: border-box;
 
     ${(props) => `
         background-color: ${props.$theme[props.$coloration][props.$category][props.$weigth || ColorTokens.token_100]};
@@ -55,7 +56,7 @@ export const ThemeExample = ({ coloration, theme }: ThemeExampleProps) => {
             <h1 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level1)}>Heading 1</h1>
             <CustomSpacing $theme={theme} $spacing="three" />
             <CustomCard $theme={theme} $coloration={coloration} motion={UiReactFadeUp} $category="primary">
-                <UiFlexGrid gap="five">
+                <UiFlexGrid gap="five" wrap="wrap">
                     <UiFlexGridItem>
                         <h3 style={getHeadingStyles(theme, coloration, ColorTokens.token_100, 'fonts', HeadingLevel.level4)}>Colorations Examples</h3>
                         <CustomSpacing $theme={theme} $spacing="three" />
@@ -149,6 +150,7 @@ export const ThemeExample = ({ coloration, theme }: ThemeExampleProps) => {
                             </CustomCard>
                         </UiFlexGrid>
                     </UiFlexGridItem>
+                    {/**
                     <UiFlexGridItem>
                     <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'regular')}>Spacings Examples:</p>
                         <CustomSpacing $theme={theme} $spacing="seven" />
@@ -180,6 +182,7 @@ export const ThemeExample = ({ coloration, theme }: ThemeExampleProps) => {
                             <p style={getTextStyles(theme, coloration, ColorTokens.token_100, 'fonts', 'xsmall')}>level 1</p>
                         </CustomCard>
                     </UiFlexGridItem>
+                     */}
                 </UiFlexGrid>
             </CustomCard>
                 

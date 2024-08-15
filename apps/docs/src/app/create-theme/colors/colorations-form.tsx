@@ -45,8 +45,8 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
         <Container $coloration={$coloration}>
             <h3>{$coloration} coloration {
                 isColorationCompleted 
-                ? <UiIcon icon="CheckCircle" category="positive" size="xlarge" /> 
-                : <UiIcon icon="WarningCircle" category="warning" size="xlarge" /> 
+                ? <UiIcon icon="CheckCircle" category="positive" /> 
+                : <UiIcon icon="WarningCircle" category="warning" /> 
                 } </h3>
             <br />
             {$coloration === ThemeColor.dark ? (

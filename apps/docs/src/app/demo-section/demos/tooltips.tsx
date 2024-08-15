@@ -5,9 +5,9 @@ import { UiTooltip } from '@uireact/tooltip';
 
 export const TooltipsDemo = () => {
     return (
-        <DemoCard category="tertiary">
+        <DemoCard category="secondary">
             <>
-                <UiHeading coloration="light">Tooltips</UiHeading>
+                <UiHeading>Tooltips</UiHeading>
                 <br />
                 <UiText>
                     Tooltips appear around a content on hover:
@@ -16,21 +16,21 @@ export const TooltipsDemo = () => {
                 <UiFlexGrid alignItems="center" justifyContent="center" gap="five">
                     <UiFlexGridItem>
                         <UiTooltip text="A dinosaur" position="top">
-                            <UiText size="xlarge">
+                            <UiText size="large">
                                 🦖
                             </UiText>
                         </UiTooltip>
                     </UiFlexGridItem>
                     <UiFlexGridItem>
                         <UiTooltip text="A UNICORN" position="bottom">
-                            <UiText size="xlarge">
+                            <UiText size="large">
                                 🦄
                             </UiText>
                         </UiTooltip>
                     </UiFlexGridItem>
                     <UiFlexGridItem>
                         <UiTooltip text="A Whale" position="left">
-                            <UiText size="xlarge">
+                            <UiText size="large">
                                 🐳
                             </UiText>
                         </UiTooltip>

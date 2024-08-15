@@ -15,9 +15,9 @@ export const FormsDemo = () => {
                     <UiHeading>Forms</UiHeading>
                     <UiText size="small">All form components have categories to render states</UiText>
                     <br />
-                    <UiInput label="Text fields" labelOnTop size="large" />
-                    <UiInput label="Positive" category="positive" labelOnTop size="large" />
-                    <UiInput label="Negative" category="error" labelOnTop size="large" error="Some error" />
+                    <UiInput label="Text fields" labelOnTop />
+                    <UiInput label="Positive" category="positive" labelOnTop />
+                    <UiInput label="Negative" category="error" labelOnTop error="Some error" />
                     <br />
                     <UiSwitch label="Switches" name="switch" checked={checked} onChange={() => setChecked(!checked)}  />
                     <br />

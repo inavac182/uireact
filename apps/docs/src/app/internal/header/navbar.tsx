@@ -7,36 +7,29 @@ import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
 import { UiLink } from '@uireact/text';
 
-
-const LinkSpacing: UiSpacingProps['padding'] = { left: 'five', top: 'four', bottom: 'four', right: 'five' };
+const LinkSpacing: UiSpacingProps['padding'] = { block: 'two', inline: 'three' };
 
 export const HeaderNavbar = () => {
   return (
     <UiNavbar category='tertiary' styling='bordered' noBackground>
       <UiNavbarItem>
-        <UiLink>
+        <UiLink category='fonts' fontStyle='bold' padding={LinkSpacing}>
           <Link href="/">
-            <UiSpacing padding={LinkSpacing}>
-              Home
-            </UiSpacing>
+            Home
           </Link>
         </UiLink>
       </UiNavbarItem>
       <UiNavbarItem>
-        <UiLink>
+        <UiLink category='fonts' fontStyle='bold' padding={LinkSpacing}>
           <Link href="/docs">
-            <UiSpacing padding={LinkSpacing}>
-              Docs
-            </UiSpacing>
+            Docs
           </Link>
         </UiLink>
       </UiNavbarItem>
       <UiNavbarItem>
-        <UiLink>
+        <UiLink category='fonts' fontStyle='bold' padding={LinkSpacing}>
           <Link href="/create-theme">
-            <UiSpacing padding={LinkSpacing}>
-              Create theme
-            </UiSpacing>
+            Create theme
           </Link>
         </UiLink>
       </UiNavbarItem>

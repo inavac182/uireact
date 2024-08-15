@@ -23,7 +23,7 @@ const generateLuminosity = (value: number, token: ColorTokens, type: LumType) =>
             }
 
             if (type === LumType.DARK) {
-                return value * 5;
+                return value * 1.8;
             }
 
             return value * 1.5;
@@ -35,30 +35,30 @@ const generateLuminosity = (value: number, token: ColorTokens, type: LumType) =>
             }
 
             if (type === LumType.DARK) {
-                return value * 3;
+                return value * 1.5;
             }
 
             return value * 1.2;
         case ColorTokens.token_150: 
             if (type === LumType.LIGHT) {
-                return value * 0.5;
+                return value / 1.3;
             }
 
             if (type === LumType.DARK) {
-                return value / 2;
+                return value / 1.4;
             }
 
-            return value * 0.8;
+            return value / 1.5;
         case ColorTokens.token_200: 
             if (type === LumType.LIGHT) {
-                return value * 0.2;
+                return value / 1.4;
             }
 
             if (type === LumType.DARK) {
-                return 0;
+                return value / 1.8;
             }
 
-            return value * 0.5;
+            return value / 1.8;
         default: 
             return value;
     }

@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-    background-color: var(--primary-token_150);
+    background-color: var(--primary-token_100);
     width: 100%;
     height: 100%;
     padding: 0px 30px 100px 30px;
@@ -64,7 +64,7 @@ export const ThemeProps = () => {
                         <Link href={`./colors?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
-                                    <UiText category="tertiary" size="xlarge" inline>1. </UiText>
+                                    <UiText category="tertiary" size="large" inline>1. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Colors
                                     </UiFlexGridItem>
@@ -77,7 +77,7 @@ export const ThemeProps = () => {
                         <Link href={`./fonts?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
-                                    <UiText category="tertiary" size="xlarge" inline>2. </UiText>
+                                    <UiText category="tertiary" size="large" inline>2. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Fonts
                                     </UiFlexGridItem>
@@ -90,7 +90,7 @@ export const ThemeProps = () => {
                         <Link href={`./sizes?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
-                                    <UiText category="tertiary" size="xlarge" inline>3. </UiText>
+                                    <UiText category="tertiary" size="large" inline>3. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Sizes
                                     </UiFlexGridItem>
@@ -103,7 +103,7 @@ export const ThemeProps = () => {
                         <Link href={`./spaces?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
-                                    <UiText category="tertiary" size="xlarge" inline>4. </UiText>
+                                    <UiText category="tertiary" size="large" inline>4. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Spaces
                                     </UiFlexGridItem>
@@ -116,7 +116,7 @@ export const ThemeProps = () => {
                         <Link href={`./verify?theme=${themeParameter}`}>
                             <UiHeading level={5}>
                                 <UiFlexGrid gap="four" alignItems="center">
-                                    <UiText category="tertiary" size="xlarge" inline>5. </UiText>
+                                    <UiText category="tertiary" size="large" inline>5. </UiText>
                                     <UiFlexGridItem grow={1}>
                                         Verify
                                     </UiFlexGridItem>

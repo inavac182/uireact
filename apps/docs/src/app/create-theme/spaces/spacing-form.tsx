@@ -97,34 +97,34 @@ export const SpacingForm = () => {
 
     return (
         <UiCard category="primary" weight="150">
-            <UiText>Spacing values, one being smallest and seven the biggest. All values are in <UiText inline fontStyle="bold">pixels</UiText>.</UiText>
+            <UiText>Spacing values, one being smallest and seven the biggest. All values are in <UiText inline fontStyle="bold">rem</UiText>.</UiText>
             <br />
             <UiFlexGrid direction="column" gap="four">
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="one" value={spacesData.one} onChange={updateSpacing} label="One" labelOnTop type="number" category={errors?.one ? 'error' : undefined} /> 
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="two" value={spacesData.two} onChange={updateSpacing} label="Two" labelOnTop type="number" category={errors?.two ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="three" value={spacesData.three} onChange={updateSpacing} label="Three" labelOnTop type="number" category={errors?.three ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="four" value={spacesData.four} onChange={updateSpacing} label="Four" labelOnTop type="number" category={errors?.four ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="five" value={spacesData.five} onChange={updateSpacing} label="Five" labelOnTop type="number" category={errors?.five ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="six" value={spacesData.six} onChange={updateSpacing} label="Six" labelOnTop type="number" category={errors?.six ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>
-                <UiFlexGrid alignItems="flex-end" gap="four">
+                <UiFlexGrid alignItems="center" gap="four">
                     <UiInput name="seven" value={spacesData.seven} onChange={updateSpacing} label="Seven" labelOnTop type="number" category={errors?.seven ? 'error' : undefined} />
                     <UiText>rem</UiText>
                 </UiFlexGrid>

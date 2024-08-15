@@ -11,17 +11,19 @@ import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import useHash from '@/app/hooks/use-hatch';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import { UiFlexGrid } from '@uireact/flex';
+import { motion } from 'framer-motion';
+import { UiReactHoverScaleUp } from '@uireact/framer-animations';
 
 const Container = styled.div`
     width: 100%;
 `;
 
-const NavbarTitleContainer = styled.div`
+const NavbarTitleContainer = styled(motion.div)`
     cursor: pointer;
     border-radius: 20px;
 
     &:hover {
-        background-color: var(--primary-token_10);
+        background-color: var(--primary-token_200);
     }
 `;
 
@@ -68,19 +70,19 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
 
     return (
         <Container>
-            <NavbarTitleContainer onClick={toggleSection}>
+            <NavbarTitleContainer onClick={toggleSection} {...UiReactHoverScaleUp}>
                 <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
                     <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
                         <UiIcon icon={icon} category='primary' inverseColoration />
-                        <UiText size='large' fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
+                        <UiText fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
                     </UiFlexGrid>
                 </UiSpacing>
             </NavbarTitleContainer>
             {selected === id && items && (
-                <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category='tertiary' noBackground>
+                <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category='secondary' noBackground>
                     {items?.map((item, index) => (
                         <UiNavbarItem active={path === item.link} key={`sidebar-item-${index}`}>
-                            <UiLink category={ isFloatingNavbar ? 'primary' : undefined } fullWidth coloration='light'>
+                            <UiLink category={ isFloatingNavbar ? 'primary' : 'secondary' } fullWidth coloration='light'>
                                     <Link href={`/docs${item.link}`}>
                                         <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarItemTitle}>
                                             {item.title}
@@ -92,7 +94,7 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
                                     <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category={ isFloatingNavbar ? 'secondary' : 'tertiary' }>
                                         {item.items.map((item, nestedIndex) => (
                                             <UiNavbarItem key={`nester-sidebar-item-${nestedIndex}-${index}`} active={`#${hash}` === item.link}>
-                                                <UiLink size='small' category={ isFloatingNavbar ? 'primary' : undefined } fullWidth coloration='light'>
+                                                <UiLink size='small' category={ isFloatingNavbar ? 'primary' : 'secondary' } fullWidth coloration='light'>
                                                     <Link href={item.link}>
                                                         <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarItemTitle}>
                                                             {item.title}

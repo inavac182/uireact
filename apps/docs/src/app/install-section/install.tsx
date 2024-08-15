@@ -14,7 +14,7 @@ const headingSpacing: UiSpacingProps['padding'] = { bottom: 'five' };
 
 export const Installation = () => { 
   return (
-    <Section centerContent weight="150" includeBottomSeparator>
+    <Section centerContent weight="200" includeBottomSeparator>
       <UiSpacing padding={contentSpacing}>
         <UiSpacing padding={headingSpacing}>
           <UiHeading level={1} centered>🔥 Getting started</UiHeading>
@@ -51,13 +51,13 @@ export const Installation = () => {
            <UiLink size="small"><a href="https://remix.run" target="_blank">Remix</a></UiLink> for your react app.
         </UiText>
         <UiSpacing padding={contentSpacing}>
-          <UiHeading>
+          <UiHeading level={4}>
             <UiText inline category="tertiary" size="xlarge">1.</UiText> Install the foundation and view packages:
           </UiHeading>
           <ScriptCard script="npm i -S @uireact/foundation @uireact/view" />
         </UiSpacing>
         <UiSpacing padding={contentSpacing}>
-          <UiHeading>
+          <UiHeading level={4}>
             <UiText inline category="tertiary" size="xlarge">2.</UiText> Set up UiView
           </UiHeading>
           <UiText>You need to wrap your react tree in the <UiLink><Link href="/docs/view" target="_blank">UiView</Link></UiLink> component</UiText>

@@ -49,9 +49,9 @@ export default function CreateThemeToolPage () {
                 <br />
                 <UiLineSeparator />
             </UiSpacing>
-            <UiText size="large" fontStyle="bold">One of the most powerful aspects of this library is the hability to use your custom theme as a plug and play configuration.</UiText>
+            <UiText fontStyle="bold">One of the most powerful aspects of this library is the hability to use your custom theme as a plug and play configuration.</UiText>
             <br />
-            <UiText size="large">This tool will guide you go through the steps needed to create your theme.</UiText>
+            <UiText>This tool will guide you go through the steps needed to create your theme.</UiText>
             <br />
             <UiCard category="primary" weight="150">
                 <UiFlexGrid gap="four" alignItems="center">

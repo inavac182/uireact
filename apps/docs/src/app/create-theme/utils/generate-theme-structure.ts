@@ -21,12 +21,12 @@ const colorationStructure: Coloration = {
 
 export const sizesStructure: Sizes = {
     headings: {
-        level1: '5rem',
-        level2: '4rem',
-        level3: '3.5rem',
-        level4: '3rem',
-        level5: '2.5rem',
-        level6: '2rem'
+        level1: '4rem',
+        level2: '3rem',
+        level3: '2.5rem',
+        level4: '2rem',
+        level5: '1.5rem',
+        level6: '1rem'
     },
     texts: {
         xsmall: '0.75rem',
@@ -38,13 +38,13 @@ export const sizesStructure: Sizes = {
 }
 
 export const spacesStructure: Spacing = {
-    one: '0.4rem',
-    two: '0.8rem',
-    three: '1rem',
-    four: '1.5rem',
-    five: '2.5rem',
-    six: '4rem',
-    seven: '6rem'
+    one: '0.1rem',
+    two: '0.2rem',
+    three: '0.6rem',
+    four: '1rem',
+    five: '1.2rem',
+    six: '1.5rem',
+    seven: '3rem'
 }
 
 export const generateThemeStructure = (): Theme => {

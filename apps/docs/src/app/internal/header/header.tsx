@@ -28,7 +28,7 @@ export const Header = () => {
               </UiViewport>
               <UiLink>
                 <a href="https://github.com/inavac182/uireact" target='_blank'>
-                  <UiIcon icon='BrandsGithub' size='large' />
+                  <UiIcon icon='BrandsGithub' />
                 </a>
               </UiLink>
               <ThemeSwitcher />

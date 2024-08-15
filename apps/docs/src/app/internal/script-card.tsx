@@ -19,6 +19,7 @@ export const ScriptCardContainer = styled(motion.div)`
 
 export const ScriptSpan = styled(motion.span)`
   font-family: var(--press-start-font-family);
+  color: var(--inverse-fonts-token_100);
   text-wrap: wrap;
   font-size: 10px;
   cursor: pointer;
@@ -36,7 +37,7 @@ export const ScriptCard = ({ script }: ScriptCardProps) => {
   return (
     <ScriptCardContainer whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} onClick={onScriptClick}>
       <UiFlexGrid direction='row' columnGap='four' alignItems='center'>
-        <UiIcon icon="AngleSquareRight" />
+        <UiIcon icon="AngleSquareRight" inverseColoration />
         <ScriptSpan>{script}</ScriptSpan>
       </UiFlexGrid>
     </ScriptCardContainer>

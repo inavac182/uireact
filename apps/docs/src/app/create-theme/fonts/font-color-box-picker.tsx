@@ -152,7 +152,7 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
             <ColorBox $coloration={$coloration} $color={color} $backgroundColor={primaryColor}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
                     <strong>Font coloration</strong>
-                    <UiButton styling="icon" onClick={tooglePicker}>
+                    <UiButton styling="icon" onClick={tooglePicker} category="tertiary">
                         <UiIcon icon="BarsProgress" />
                     </UiButton>
                 </UiFlexGrid>

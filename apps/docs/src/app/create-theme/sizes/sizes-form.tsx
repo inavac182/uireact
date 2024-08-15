@@ -139,7 +139,8 @@ export const SizesForm = () => {
             <br />
             <hr />
             <br />
-            <UiText>Typography sizes unit</UiText>
+            <UiText fontStyle="bold">Typography sizes unit</UiText>
+            <UiText size="small">We highly recommend going with `rem` given that it provides the best user experience</UiText>
             <br />
             <UiSelect onChange={updateSizeMeasure} defaultValue="rem">
                 <option value="px">px</option>

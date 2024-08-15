@@ -6,14 +6,14 @@ import { UiHeading, UiText } from "@uireact/text"
 
 import { DemoCard } from "@/app/internal"
 
-const buttonSpacing: UiSpacingProps['padding'] = { block: 'four'};
+const buttonSpacing: UiSpacingProps['padding'] = { block: 'one'};
 const buttonSpacingOutlined: UiSpacingProps['padding'] = { block: 'two'};
 
 export const ButtonsDemo = () => {
     return (
-        <DemoCard category="tertiary">
+        <DemoCard category="secondary">
             <>
-                <UiHeading coloration="light">Buttons with styles</UiHeading>
+                <UiHeading>Buttons with styles</UiHeading>
                 <br />
                 <UiFlexGrid alignItems="center" gap="four">
                     <UiFlexGridItem>
