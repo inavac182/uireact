@@ -20,7 +20,9 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   inverseTextColoration,
   margin,
   padding,
-  styling
+  styling,
+  rounded = false,
+  ...props
 }: UiButtonLinkProps) => {
   let classes = `${className} ${styles.buttonLink} ${getButtonLinkStyling(category, styling)}`;
   classes = `${classes} color-${inverseTextColoration ? 'inverse-' : ''}fonts-100 size-${size}`;
@@ -51,8 +53,16 @@ export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
     classes = `${classes} ${getSpacingClass('padding', defaultPadding)}`;
   }
 
+  if (styling !== 'icon') {
+    if (rounded) {
+      classes = `${classes} radius-${size}`;
+    } else {
+      classes = `${classes} ${styles.buttonLinkRadius}`;
+    }
+  }
+
   if (children && React.isValidElement(children)) {
-    const Element = React.cloneElement(children as React.ReactElement, { className: classes });
+    const Element = React.cloneElement(children as React.ReactElement, { className: classes, ...props });
 
     return (
       <>
