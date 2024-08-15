@@ -164,7 +164,7 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
             {tokens && tokens.token_100 !== '' && (
                 <>
                     <br />
-                    <ColorTokensBox $coloration={$coloration} $category={category}>
+                    <ColorTokensBox $coloration={$coloration === ThemeColor.dark ? ThemeColor.light : ThemeColor.dark} $category={category}>
                         <UiIcon icon="Brightness" />
                         <ColorToken $color={tokens.token_10} />
                         <ColorToken $color={tokens.token_50} />
@@ -187,6 +187,9 @@ export const FontColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProp
                                 <strong>Tertiary color</strong>
                         </ColorBox>
                     </UiFlexGrid>
+                    <br />
+                    <small>The secondary color usually is inversed, so don&apos;t worry if it doesn&apos;t look great on this example, you will see it again in the final step.</small>
+                    <br />
                     <br />
                     <UiFlexGrid gap="five">
                         <ColorBox $coloration={$coloration} $color={color} $backgroundColor={positiveColor}>
