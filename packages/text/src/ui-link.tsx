@@ -37,7 +37,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   }
 
   if (fontStyle) {
-    classes = `${classes} ${fontStyle}`;
+    classes = `${classes} ${styles[fontStyle]}`;
   }
 
   if (children && React.isValidElement(children)) {
