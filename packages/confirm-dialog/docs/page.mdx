@@ -78,7 +78,11 @@ export type UiConfirmDialogOptions = {
 ## Example
 
 ```jsx live scope={{ConfirmDialogExample}}
-  <ConfirmDialogExample />
+  <ConfirmDialogExample  onConfirmCB={async () => {
+    console.log('Confirm CB triggered');
+    await new Promise(r => setTimeout(r, 2000));
+    console.log('Confirm CB completed');
+  }} />
 ```
 
 ```tsx

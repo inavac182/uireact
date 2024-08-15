@@ -11,7 +11,7 @@ export type UiConfirmDialogOptions = {
 
 export type UiConfirmDialogHolder = {
   data: UiConfirmDialogData;
-  confirm: () => void;
-  deny: () => void;
+  confirm: (() => Promise<void>) | (() => void);
+  deny: (() => Promise<void>) | (() => void);
   options?: UiConfirmDialogOptions;
 };
