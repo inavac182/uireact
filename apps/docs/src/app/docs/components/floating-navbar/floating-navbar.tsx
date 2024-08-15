@@ -8,7 +8,7 @@ import { SideBar } from '../sidebar';
 
 const FloatingNavbarContent = styled.div`
     position: fixed;
-    bottom: 10px;
+    bottom: 30px;
     width: 100%;
 `;
 
@@ -19,12 +19,14 @@ const IconContainer = styled.div`
 `;
 
 const NavbarWrapper = styled.div`
-  bottom: 100px;
+  bottom: 50px;
   padding: 10px;
-  max-width: 500px;
+  max-width: 100%;
+  height: 500px;
   margin: 0 auto;
   z-index: 100;
   box-sizing: border-box;
+  position: relative;
 `;
 
 const NavbarButton = styled(UiButton)`
@@ -37,8 +39,8 @@ const NavbarButton = styled(UiButton)`
 const NavbarCard = styled(UiCard)`
     margin-top: 30px;
     border-radius: 25px;
-    padding: 25px;
-    max-height: 80%;
+    padding: 30px;
+    max-height: 100%;
     overflow-y: auto;
 
     box-shadow:
@@ -57,13 +59,13 @@ export const FloatingNavbar = () => {
         <FloatingNavbarContent>
             {isNavbarShown && (
                 <NavbarWrapper>
-                    <NavbarCard category='tertiary'>
+                    <NavbarCard category='secondary' weight='10'>
                         <SideBar isFloatingNavbar />
                     </NavbarCard>
                 </NavbarWrapper>
             )}
             <IconContainer>
-                <NavbarButton category="tertiary" rounded onClick={onNavbarClick}>
+                <NavbarButton category="secondary" rounded onClick={onNavbarClick}>
                     <UiIcon icon="MenuBurger" size='large' />
                 </NavbarButton>
             </IconContainer>
