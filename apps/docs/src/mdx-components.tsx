@@ -12,7 +12,7 @@ import { DocHeading, DocSubHeading } from './app/docs/components';
 import { CustomBlockquote } from './app/internal/custom-blockquote-card';
 import { CustomTr } from './app/internal/custom-tr';
 
-const headingPadding: UiSpacingProps['padding'] = { block: 'five' };
+const headingPadding: UiSpacingProps['padding'] = { block: 'three' };
 const componentsPadding: UiSpacingProps['padding'] = { block: 'four' };
 const listsPadding: UiSpacingProps['padding'] = { block: 'five', inline: 'five' };
 const listsItemsPadding: UiSpacingProps['padding'] = { block: 'three' };
