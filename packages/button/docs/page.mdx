@@ -31,7 +31,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 ### Primary
 
 ```jsx live scope={{UiPrimaryButton, UiSpacing, Sizing}}
-  <UiPrimaryButton margin={{ all: Sizing.three }}>
+  <UiPrimaryButton margin={{ all: 'two' }}>
     Primary button
   </UiPrimaryButton>
 ```
@@ -40,7 +40,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 
 ```jsx live scope={{UiSecondaryButton, UiSpacing, Sizing, UiFlexGrid, UiIcon}}
   <UiFlexGrid alignItems="center" gap="four">
-    <UiSecondaryButton margin={{ all: Sizing.three }}>
+    <UiSecondaryButton margin={{ all: 'three' }}>
       Secondary button
     </UiSecondaryButton>
     <UiSecondaryButton icon>
@@ -53,7 +53,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 
 ```jsx live scope={{UiTertiaryButton, UiSpacing, Sizing, UiFlexGrid, UiText}}
   <UiFlexGrid alignItems="center" gap="four">
-    <UiTertiaryButton margin={{ all: Sizing.three }}>
+    <UiTertiaryButton margin={{ all: 'three' }}>
       Tertiary button
     </UiTertiaryButton>
     <UiTertiaryButton rounded size="large">
@@ -70,25 +70,25 @@ The UiButton allows for customization of the styling and colorations, this compo
 
 ```jsx live scope={{UiGrid, UiButton}}
   <UiGrid cols={{ small: 1, medium: 5, large: 7, xlarge: 7 }} colsGap="three" rowsGap="three" justifyItems="center">
-    <UiButton fullWidth padding={{ all: 'three' }}>
+    <UiButton fullWidth>
       Button! 🐬
     </UiButton>
-    <UiButton fullWidth category="secondary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="secondary">
       Button! 🐉
     </UiButton>
-    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="tertiary">
       Button! 🌹
     </UiButton>
-    <UiButton fullWidth category="positive" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="positive">
       Button! 🌎
     </UiButton>
-    <UiButton fullWidth category="negative" disabled padding={{ all: 'three' }}>
+    <UiButton fullWidth category="negative" disabled>
       Button! 🌈
     </UiButton>
-    <UiButton fullWidth category="error" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="error">
       Button! ⚡️
     </UiButton>
-    <UiButton fullWidth category="warning" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="warning">
       Button! 🌋
     </UiButton>
   </UiGrid>
@@ -102,11 +102,11 @@ These are options available to the different button components to customize thei
 
 ```jsx live scope={{UiGrid, UiButton, UiSpacing}}
   <UiGrid cols={2} rows={1} colsGap='four' justifyItems="center">
-    <UiButton fullWidth padding={{ all: 'three' }}>
+    <UiButton fullWidth>
       Button! 💅🏾
     </UiButton>
 
-    <UiButton fullWidth category="tertiary" padding={{ all: 'three' }}>
+    <UiButton fullWidth category="tertiary">
       Button! 💅🏾
     </UiButton>
   </UiGrid>

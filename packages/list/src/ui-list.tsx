@@ -5,7 +5,7 @@ import styles from './ui-list.scss';
 import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
 const defaultPadding: SpacingDistribution = {
-  left: 'five'
+  left: 'three'
 };
 
 const defaultUnBulletedPadding: SpacingDistribution = {};

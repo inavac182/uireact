@@ -27,8 +27,8 @@ const SeparatorWrapper = styled.div`
 
 const dialogId = 'demo-dialog';
 
-const dialogSpacing: UiSpacingProps['padding'] = { all: 'four'};
-const headingSpacing: UiSpacingProps['padding'] = { block: 'four', inline: 'five' };
+const dialogSpacing: UiSpacingProps['padding'] = { all: 'three'};
+const headingSpacing: UiSpacingProps['padding'] = { block: 'three', inline: 'five' };
 
 export const Demo = () => {
   const { selectTheme, selectedTheme } = useContext(DocsThemeContext);
@@ -43,7 +43,7 @@ export const Demo = () => {
       </SeparatorWrapper>
       <DemoContainer id="demo-components">
         <UiSpacing padding={headingSpacing}>
-          <UiFlexGrid justifyContent='center' columnGap='four'>
+          <UiFlexGrid alignItems='center' justifyContent='center' columnGap='four'>
             <UiFlexGridItem grow={1}>
               <UiHeading level={4}>@UiReact | Themed Components</UiHeading>
             </UiFlexGridItem>
@@ -53,9 +53,9 @@ export const Demo = () => {
               </UiButton>
             </UiFlexGridItem>
             <UiFlexGridItem>
-              <UiButtonLink padding={{ inline: 'five', block: 'three'}} category='secondary'>
+              <UiButtonLink padding={{ inline: 'three', block: 'two'}} category='secondary'>
                 <Link href="docs/">
-                  <UiFlexGrid gap='three'>
+                  <UiFlexGrid gap='two'>
                     <UiIcon icon='Book' inverseColoration/> 
                     <UiText inverseColoration>Docs</UiText>
                   </UiFlexGrid>

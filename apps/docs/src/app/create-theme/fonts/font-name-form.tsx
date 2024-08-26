@@ -11,7 +11,7 @@ import { UiValidator, UiValidatorErrors } from "@uireact/validator"
 
 import { getFontNameFromUrl } from "../utils"
 
-const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
+const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' };
 
 const validator = new UiValidator();
 

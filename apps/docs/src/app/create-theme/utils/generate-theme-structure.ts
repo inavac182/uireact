@@ -26,24 +26,24 @@ export const sizesStructure: Sizes = {
         level3: '2.5rem',
         level4: '2rem',
         level5: '1.5rem',
-        level6: '1rem'
+        level6: '1.2rem'
     },
     texts: {
-        xsmall: '0.75rem',
+        xsmall: '0.8rem',
         small: '1rem',
         regular: '1.2rem',
-        large: '2.5rem',
-        xlarge: '3.75rem'
+        large: '1.5rem',
+        xlarge: '2rem'
     }
 }
 
 export const spacesStructure: Spacing = {
-    one: '0.1rem',
-    two: '0.2rem',
-    three: '0.6rem',
-    four: '1rem',
-    five: '1.2rem',
-    six: '1.5rem',
+    one: '0.2rem',
+    two: '0.4rem',
+    three: '1rem',
+    four: '1.5rem',
+    five: '2rem',
+    six: '2.5rem',
     seven: '3rem'
 }
 

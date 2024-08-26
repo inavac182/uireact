@@ -7,7 +7,7 @@ import { UiCard } from '@uireact/card';
 import { UiExpandoCardProps } from './types';
 import styles from './ui-expando-card.scss';
 
-const cardPadding: UiSpacingProps['padding'] = { all: 'four' };
+const cardPadding: UiSpacingProps['padding'] = { all: 'two' };
 
 export const UiExpandoCard: React.FC<UiExpandoCardProps> = ({
   category = 'primary',

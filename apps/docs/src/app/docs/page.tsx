@@ -133,9 +133,9 @@ export const MyWrapper = ({ children }) => (
             <DocSubHeading>Theme</DocSubHeading>
             <UiText>@UiReact brings a default theme that can be used for your web app, however if you want to customize colors, fonts, sizes, etc... Then you can create your own theme</UiText>
             <br />
-            <UiButtonLink coloration='dark' padding={{all: 'four'}}>
+            <UiButtonLink padding={{all: 'three'}}>
                 <Link href="./create-theme">
-                    Create theme <UiIcon icon="Layers" coloration='dark' />
+                    <UiText coloration='dark'>Create theme <UiIcon icon="Layers" coloration='dark' /></UiText>
                 </Link>
             </UiButtonLink>
             <br />

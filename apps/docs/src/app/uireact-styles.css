@@ -44,8 +44,8 @@
   --secondary-token_10: #bfc6fb;
   --secondary-token_50: #aeb7fa;
   --secondary-token_100: #7988f9;
-  --secondary-token_150: #051fd6;
-  --secondary-token_200: #020c56;
+  --secondary-token_150: #5d70fc;
+  --secondary-token_200: #455af8;
   --tertiary-token_10: #d305f2;
   --tertiary-token_50: #a904c2;
   --tertiary-token_100: #8d03a1;
@@ -96,30 +96,30 @@
       * Texts / Headings Sizes properties
       * **/
       
-  --texts-xsmall: 0.75rem;
+  --texts-xsmall: 0.8rem;
   --texts-small: 1rem;
   --texts-regular: 1.2rem;
-  --texts-large: 2rem;
-  --texts-xlarge: 2.5rem;
+  --texts-large: 1.5rem;
+  --texts-xlarge: 2rem;
 
   --headings-level1: 4rem;
   --headings-level2: 3rem;
   --headings-level3: 2.5rem;
   --headings-level4: 2rem;
   --headings-level5: 1.5rem;
-  --headings-level6: 1rem;
+  --headings-level6: 1.2rem;
   
       /**
       * Spacing properties
       * **/
       
-  --spacing-one: 0.1rem;
-  --spacing-two: 0.2rem;
-  --spacing-three: 0.4rem;
-  --spacing-four: 0.8rem;
-  --spacing-five: 1.2rem;
-  --spacing-six: 1.5rem;
-  --spacing-seven: 3rem;
+  --spacing-one: 0.2rem;
+  --spacing-two: 0.4rem;
+  --spacing-three: 1rem;
+  --spacing-four: 1.2rem;
+  --spacing-five: 1.5rem;
+  --spacing-six: 2rem;
+  --spacing-seven: 2.5rem;
   }
   
   /**
@@ -160,8 +160,8 @@
   --secondary-token_10: #bfc6fb;
   --secondary-token_50: #aeb7fa;
   --secondary-token_100: #7988f9;
-  --secondary-token_150: #051fd6;
-  --secondary-token_200: #020c56;
+  --secondary-token_150: #5d70fc;
+  --secondary-token_200: #455af8;
   --tertiary-token_10: #d305f2;
   --tertiary-token_50: #a904c2;
   --tertiary-token_100: #8d03a1;

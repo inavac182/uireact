@@ -48,7 +48,7 @@ const suggestedHeadingValues: HeadingSizes = {
     level6: '2.5',
 };
 
-const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
+const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' };
 
 export const SizesForm = () => {
     const searchParams = useSearchParams();

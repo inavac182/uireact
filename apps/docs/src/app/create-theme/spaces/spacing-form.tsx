@@ -25,7 +25,7 @@ const schema = {
     seven: validator.ruler().isRequired('The level seven spacing is required')
 }
 
-const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'four' };
+const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' };
 
 const spacingDefaultValues: Spacing = {
     one: '0.46',

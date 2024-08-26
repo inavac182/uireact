@@ -6,7 +6,7 @@ import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 import { UiInputProps } from './types';
 import styles from './ui-input.scss';
 
-const defaultPadding: SpacingDistribution = { block: 'three' };
+const defaultPadding: SpacingDistribution = { block: 'one', inline: 'one' };
 
 export const UiInput: React.FC<UiInputProps> = ({
   autoComplete,

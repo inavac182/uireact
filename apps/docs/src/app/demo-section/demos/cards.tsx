@@ -10,8 +10,6 @@ const CustomCard = styled(UiCard)`
     padding: 30px;
 `;
 
-const cardSpacing: UiSpacingProps['padding'] = { all: 'four'};
-
 export const Cards = () => {
     return (
         <DemoCard  shadow={false}>
@@ -19,13 +17,11 @@ export const Cards = () => {
                 <UiHeading>Cards</UiHeading>
                 <br /> 
                 <UiCard category="secondary">
-                    <UiSpacing padding={cardSpacing}>
-                        <UiText>Content</UiText>
-                    </UiSpacing>
+                    <UiText inverseColoration>Content</UiText>
                 </UiCard>
                 <br /> 
                 <CustomCard category="secondary">
-                    <UiText size='small' fontStyle='bold'>Customizable through styled components</UiText>
+                    <UiText inverseColoration fontStyle='bold'>Customizable through styled components</UiText>
                 </CustomCard>
             </>
         </DemoCard>

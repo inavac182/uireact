@@ -4,7 +4,7 @@ import { UiHeading, UiText } from "@uireact/text"
 
 import { DemoCard } from "@/app/internal"
 
-const settingsSpacing: UiSpacingProps['padding'] = { left: 'five' };
+const settingsSpacing: UiSpacingProps['padding'] = { left: 'three' };
 
 export const ThemeSelectorDemo = () => {
     return (

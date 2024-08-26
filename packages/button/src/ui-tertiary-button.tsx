@@ -8,7 +8,7 @@ import { getTertiaryClasses } from './helpers';
 
 import styles from './ui-button.scss';
 
-const defaultPadding: SpacingDistribution = { block: 'three', inline: 'four' };
+const defaultPadding: SpacingDistribution = { block: 'one', inline: 'two' };
 
 export const UiTertiaryButton: React.FC<UiTertiaryButtonProps> = ({
   onClick,

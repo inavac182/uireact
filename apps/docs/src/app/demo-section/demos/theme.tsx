@@ -36,25 +36,25 @@ export const ThemeDemo = () => {
     <DemoCard category="primary" shadow={false} spacing={{}}>
       <>
         <UiHeading level={4}>Light and Dark colorations</UiHeading>
-        <UiText size="small">All components in the library are ready to render in these two colorations</UiText>
+        <UiText>All components in the library are ready to render in these two colorations</UiText>
         <br />
         <ThemeDiv $category="primary">
           <UiHeading level={5}>Active theme</UiHeading>
-          <UiText size="small">These are the colors for the default theme included in the UiView</UiText>
+          <UiText>These are the colors for the default theme included in the UiView</UiText>
           <br />
           <UiText>Main colors</UiText>
           <table>
             <tbody>
               <tr>
-                <TableCell><UiText size="small">Primary </UiText></TableCell>
+                <TableCell><UiText>Primary </UiText></TableCell>
                 <TableCell><ColorDiv $category="primary" /></TableCell>
               </tr>
               <tr>
-                <TableCell><UiText size="small">Secondary </UiText></TableCell>
+                <TableCell><UiText>Secondary </UiText></TableCell>
                 <TableCell><ColorDiv $category="secondary" /></TableCell>
               </tr>
               <tr>
-                <TableCell><UiText size="small">Tertiary </UiText></TableCell>
+                <TableCell><UiText>Tertiary </UiText></TableCell>
                 <TableCell><ColorDiv $category="tertiary" /></TableCell>
               </tr>
             </tbody>
@@ -64,19 +64,19 @@ export const ThemeDemo = () => {
           <table>
             <tbody>
               <tr>
-                <TableCell><UiText size="small">Positive </UiText></TableCell>
+                <TableCell><UiText>Positive </UiText></TableCell>
                 <TableCell><ColorDiv $category="positive" /></TableCell>
               </tr>
               <tr>
-                <TableCell><UiText size="small">Warning </UiText></TableCell>
+                <TableCell><UiText>Warning </UiText></TableCell>
                 <TableCell><ColorDiv $category="warning" /></TableCell>
               </tr>
               <tr>
-                <TableCell><UiText size="small">Error </UiText></TableCell>
+                <TableCell><UiText>Error </UiText></TableCell>
                 <TableCell><ColorDiv $category="error" /></TableCell>
               </tr>
               <tr>
-                <TableCell><UiText size="small">Negative </UiText></TableCell>
+                <TableCell><UiText>Negative </UiText></TableCell>
                 <TableCell><ColorDiv $category="negative" /></TableCell>
               </tr>
             </tbody>

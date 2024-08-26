@@ -6,7 +6,7 @@ import { UiHeaderProps } from './types';
 import styles from './ui-header.scss';
 import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
-const defaultPadding: SpacingDistribution = {all: 'four'};
+const defaultPadding: SpacingDistribution = {all: 'two'};
 
 export const UiHeader: React.FC<UiHeaderProps> = ({
   centered,

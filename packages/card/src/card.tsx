@@ -8,7 +8,7 @@ import styles from './ui-card.scss';
 import { getCardClasses } from './private';
 import { UiCardProps } from 'types';
 
-const defaultPadding: UiSpacingProps['padding'] = {all: 'five'};
+const defaultPadding: UiSpacingProps['padding'] = {all: 'three'};
 
 export const UiCard: React.FC<UiCardProps> = ({ 
   weight = '100', 

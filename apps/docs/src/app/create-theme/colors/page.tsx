@@ -21,7 +21,7 @@ import { ContinueLink } from "../components";
 import { Heading } from "@/app/internal";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
-const buttonSpacing: UiSpacingProps['padding'] = {block: 'four', inline: 'five'};
+const buttonSpacing: UiSpacingProps['padding'] = {block: 'three', inline: 'five'};
 const listSpacing: UiSpacingProps['padding'] = {inline: 'five'};
 
 export default function Colors () {
