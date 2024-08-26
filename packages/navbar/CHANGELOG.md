@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2024-08-26)
+
+
+### Features
+
+* **datepicker:** adding timepicker component ([#364](https://github.com/inavac182/uireact/issues/364)) ([0a87c18](https://github.com/inavac182/uireact/commit/0a87c18064cdceb3cd1a09bfe0d4a30f0858bbfb))
+
+
+
+
+
 ## [3.0.8](https://github.com/inavac182/uireact/compare/@uireact/navbar@3.0.7...@uireact/navbar@3.0.8) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/navbar
