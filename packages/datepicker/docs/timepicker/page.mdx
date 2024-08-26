@@ -1,0 +1,71 @@
+import { UiTimepicker } from '@uireact/datepicker';
+
+import { Metadata } from '@uireact/docs-tools';
+
+import packageJson from './package-metadata.json';
+import { TimepickerExample } from './example';
+
+# UiTimepicker
+<Metadata packageName='datepicker' packageJson={packageJson} />
+
+> A timepicker that lets the user select a time of the day based on a 24 hours format.
+
+## Installation
+
+> npm i -S @uireact/flex @uireact/button @uireact/grid @uireact/menu @uireact/text @uireact/datepicker
+
+## Datepicker
+
+```jsx live scope={{TimepickerExample}}
+  <TimepickerExample />
+```
+
+The timepicker is a menu component that renders when triggered, once the user selects any hour / minute the callback `onTimeChange` is called with the currently selected values.
+
+The timepicker doesn't close automatically, if the menu closure event is triggered the callback `onClose` is executed.
+
+## Props
+
+Props exposed by the time picker component:
+
+
+```tsx
+export type UiTimepickerProps = {
+  /** The default selected hour in a 24 hours format, valid values: 0-24 */
+  defaultHour?: number;
+  /** The default selected minute in a 60 minutes, valid values: 0-60 */
+  defaultMinute?: number;
+  /** Callback executed when a date is selected */
+  onTimeChange: (selectedHour?: number, selectedMinute?: number) => void;
+  /** Callback executed when a closure action is triggered */
+  onClose?: () => void;
+  /** If the datepicker is opened */
+  isOpen?: boolean;
+  /** The close label used in the close button when `useDialogOnSmall` is passed and datepicker is opened on small breakpoint */
+  closeLabel?: string;
+  /** The label that renders on the hours heading */
+  hoursLabel?: string;
+  /** The label that renders on the minutes heading */
+  minutesLabel?: string;
+} & UiReactElementProps;
+```
+
+#### onTimeChange
+
+The `onTimeChange` function pass 2 parameters:
+
+```tsx
+  onTimeChange(hours: number, minutes: numer);
+```
+
+This callback is triggered everytime the user selects something in the time picker and is up to the consumer to validate each parameter. 
+
+This means if the user select an hour, without selecting a minute then the minutes parameter in the `onTimeChange` CB will be `undefined`.
+
+**NOTE:** The values passed from the callback will be in **number**, so the values `00` are represented by 0, is up to the consumer to parse it to string depending on its use case.
+
+#### onClose
+
+This callback will be executed when the menu closure event is triggered, for instnace clicking outside the component or pressing ESC key. The consumer need to handle this event so the prop `isOpen` can change its value therefore causing the timepicker to be closed.
+
+This was done this way so clients could validate the value retrieved at the moment of closure and prevent the component from being closed if they think user should still select something in the picker.

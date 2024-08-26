@@ -50,6 +50,10 @@ export const ComponentsSideBarData: NavbarItem[] = [
         title: 'UiTabs'
     },
     {
+        link: '/timepicker',
+        title: 'UiTimepicker'
+    },
+    {
         link: '/tooltip',
         title: 'UiTooltip'
     }
