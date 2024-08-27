@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.15.1...@uireact/datepicker@0.16.0) (2024-08-27)
+
+
+### Features
+
+* **datepicker:** adding timepicker input ([#365](https://github.com/inavac182/ui-react/issues/365)) ([c18b43d](https://github.com/inavac182/ui-react/commit/c18b43d01453ffaf36be0701aab7139271f180b8))
+
+
+
+
+
 ## [0.15.1](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.15.0...@uireact/datepicker@0.15.1) (2024-08-26)
 
 **Note:** Version bump only for package @uireact/datepicker
