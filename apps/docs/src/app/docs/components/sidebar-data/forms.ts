@@ -28,5 +28,9 @@ export const FormsSideBarData: NavbarItem[] = [
     {
         link: '/textarea',
         title: 'UiTextArea'
-    }
+    },
+    {
+        link: '/timepicker-input',
+        title: 'UiInputTimepicker'
+    },
 ];

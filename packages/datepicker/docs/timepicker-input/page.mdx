@@ -1,0 +1,76 @@
+import { UiInputTimepicker } from '@uireact/datepicker';
+
+import { Metadata } from '@uireact/docs-tools';
+
+import packageJson from './package-metadata.json';
+import { TimepickerInputExample } from './example';
+
+# UiInputTimepicker
+<Metadata packageName='datepicker' packageJson={packageJson} />
+
+> An input that displays a timepicker and lets user select a time of the day based on a 24 hours format.
+
+## Installation
+
+> npm i -S @uireact/flex @uireact/button @uireact/grid @uireact/menu @uireact/text @uireact/datepicker
+
+## Timepicker input
+
+```jsx live scope={{TimepickerInputExample}}
+  <TimepickerInputExample />
+```
+
+The timepicker input is a `controlled` component that can be controlled with 3 props: `onChange`, `hour` and `minute`.
+
+### onChange 
+
+The `onChange` callback is executed everytime the user selects something in the timepicker, it brings 2 parameters:
+
+```tsx
+onChange(hours?: number, minutes?: numer);
+```
+
+You need to put its response into a state where you can store the hour and minutes selected so you pass them back as the hours and minutes values.
+
+## Props
+
+Props exposed by the time picker component:
+
+
+```tsx
+export type UiInputTimepickerProps = {
+  /** Controlled hour value */
+  hour?: number;
+  /** Controlled minute value */
+  minute?: number;
+  /** Input field disabled state */
+  disabled?: boolean;
+  /** Error label for input field */
+  error?: string;
+  /** An icon element to be rendered inside the input */
+  icon?: React.ReactElement;
+  /** Input name for form submittion */
+  name?: string;
+  /** Label for input field */
+  label?: string;
+  /** Label for hours heading */
+  hoursLabel?: string;
+  /** Label for minutes heading */
+  minutesLabel?: string;
+  /** Label on top of field */
+  labelOnTop?: boolean;
+  /** CB for when value in input changes */
+  onChange: (hour?: number, minute?: number) => void;
+  /** Placeholder string to render inside input field */
+  placeholder?: string;
+  /* React ref */
+  ref?: React.Ref<HTMLInputElement>;
+  /** Input field theme */
+  category?: ColorCategory;
+  /** Input font size */
+  size?: SizesProp;
+  /** If input is required */
+  required?: boolean;
+} & UiReactElementProps;
+
+```

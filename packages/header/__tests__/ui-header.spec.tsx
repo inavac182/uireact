@@ -75,7 +75,7 @@ describe('<UiHeader />', () => {
     );
 
     expect(screen.getByText('Header')).toBeVisible();
-    expect(screen.getByTestId('UiHeader')).toHaveClass('something header bg-primary-100 padding-four');
+    expect(screen.getByTestId('UiHeader')).toHaveClass('something header bg-primary-100 padding-three');
   });
 
   it('renders fine with padding', () => {

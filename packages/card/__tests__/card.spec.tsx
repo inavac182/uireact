@@ -16,7 +16,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-three');
   });
 
   test('render card with category', () => {
@@ -27,7 +27,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-positive-100 color-fonts-100 padding-five');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-positive-100 color-fonts-100 padding-three');
   });
 
   test('render card with weight', () => {
@@ -38,7 +38,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-50 color-fonts-100 padding-five');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-50 color-fonts-100 padding-three');
   });
 
   test('render no padded card', () => {
@@ -59,7 +59,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card cardOutlined border-secondary-100 color-secondary-100 padding-five');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card cardOutlined border-secondary-100 color-secondary-100 padding-three');
   });
 
   test('renders card with header, content and footer', () => {
@@ -90,7 +90,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Content' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-three');
   });
 
   test('execute card click handler', () => {
@@ -103,7 +103,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-five pointer');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card bg-secondary-100 color-fonts-100 padding-three pointer');
 
     fireEvent.click(screen.getByRole('heading'));
 
