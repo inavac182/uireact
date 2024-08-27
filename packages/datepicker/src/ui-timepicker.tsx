@@ -1,5 +1,5 @@
 'use client';
-import React, { MouseEvent, useCallback, useMemo, useState } from 'react';
+import React, { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { UiMenu } from '@uireact/menu';
 import { UiPrimaryButton, UiSecondaryButton } from '@uireact/button';
@@ -28,6 +28,14 @@ export const UiTimepicker: React.FC<UiTimepickerProps> = ({
 }: UiTimepickerProps) => {
   const [hour, setHour] = useState<number | undefined>(defaultHour);
   const [minute, setMinute] = useState<number | undefined>(defaultMinute);
+
+  useEffect(() => {
+    setHour(defaultHour);
+  }, [defaultHour]);
+
+  useEffect(() => {
+    setMinute(defaultMinute);
+  }, [defaultMinute]);
 
   const onHourSelect = useCallback((e?: MouseEvent<HTMLButtonElement>) => {
     // istanbul ignore next
