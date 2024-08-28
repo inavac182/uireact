@@ -44,7 +44,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular wrap');
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular wrap-normal');
   });
 
   it('renders fine with size', () => {
