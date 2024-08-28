@@ -22,21 +22,19 @@ import { Metadata } from '@uireact/docs-tools';
 ```tsx live scope={{MenuExample}}
     <MenuExample />
 ```
-In this example we are making use of the animation `UiReactFadeUp` exported from `@uireact/framer-motion` package to give an animation of fade in upwards.
-This is passed through the `motion` prop like this:
 
-```tsx
-// Import animation prop
-import { UiReactFadeUp } from '@uireact/framer-animations';
+## Visibility Control
 
-// Pass it to the UiMenu component
+The menu is a controlled component, it means you have to handle the visibility and closure callback through 2 props:
 
-<UiMenu motion={UiReactFadeUp}>
-    Content...
-</UiMenu>
-```
+- visible
+- closeMenuCB
 
-#### Example combining with other animations
+The **visible** prop will set the visibility of the menu.
+
+The **closeMenuCB** prop will be executed when the user has performed an action to close the menu, such as `ESC` key or clicking outside the menu.
+
+## Animated menu
 
 You could create more complex animations when combining multiple components for instance:
 

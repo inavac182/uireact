@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { motion as MotionParent } from 'framer-motion';
 
@@ -9,6 +9,7 @@ import { UiReactFadeUp } from '@uireact/framer-animations';
 
 import { UiMenuProps } from './types';
 import styles from './ui-menu.scss';
+import { useClickOutside } from './hooks';
 
 export const UiMenu: React.FC<UiMenuProps> = ({
   className = '',
@@ -33,24 +34,13 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     menuClasses = `${menuClasses} ${styles.offset}`;
   }
 
-  const escCB = React.useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeMenuCB();
-      }
-    },
-    [closeMenuCB]
-  );
+  const escCB = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      closeMenuCB();
+    }
+  }, [closeMenuCB]);
 
-  React.useEffect(() => {
-    document.addEventListener('keydown', escCB, false);
-
-    return () => {
-      document.removeEventListener('keydown', escCB, false);
-    };
-  }, [escCB]);
-
-  React.useEffect(() => {
+  useEffect(() => {
     if (visible && isSmall && !isOpen) {
       actions.openDialog();
     }
@@ -60,7 +50,7 @@ export const UiMenu: React.FC<UiMenuProps> = ({
     }
   }, [visible, isOpen, isSmall, actions]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // istanbul ignore this
     if (menuRef && menuRef.current && visible && typeof window !== undefined) {
       const position = menuRef.current.getBoundingClientRect();
@@ -72,6 +62,18 @@ export const UiMenu: React.FC<UiMenuProps> = ({
       }
     }
   }, [menuRef, visible]);
+
+  useEffect(() => {
+    if (visible) {
+      document.addEventListener('keydown', escCB, false);
+
+      return () => {
+        document.removeEventListener('keydown', escCB, false);
+      };
+    }
+  }, [visible, menuRef, escCB]);
+
+  useClickOutside(menuRef, closeMenuCB, visible);
 
   if (!visible) {
     return null;
@@ -91,7 +93,6 @@ export const UiMenu: React.FC<UiMenuProps> = ({
           </UiDialog>
         </UiViewport>
         <UiViewport criteria={'m|l|xl'}>
-          <div className={styles.wrapper} onClick={closeMenuCB}></div>
           <MotionParent.div className={menuClasses} role="menu" ref={menuRef} data-testid={testId} {...motion}>
             {children}
           </MotionParent.div>
@@ -102,7 +103,6 @@ export const UiMenu: React.FC<UiMenuProps> = ({
 
   return (
     <div>
-      <div className={styles.wrapper} onClick={closeMenuCB}></div>
       <MotionParent.div role="menu" className={menuClasses} ref={menuRef} data-testid={testId} {...motion}>
         {children}
       </MotionParent.div>

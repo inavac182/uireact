@@ -3,7 +3,7 @@ import React from 'react';
 
 import { MotionProps } from 'framer-motion';
 
-import { UiButton } from '@uireact/button';
+import { UiButton, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
 import { UiText } from '@uireact/text';
 import { UiReactFadeLeft } from '@uireact/framer-animations';
@@ -36,9 +36,17 @@ export const MenuExample: React.FC = () => {
         <UiSpacing margin={{ all: 'five' }}>
           <UiText align='center'>Menu Content</UiText>
           <div>
-            <UiButton onClick={closeMenu} category="secondary" fullWidth>
+            <UiPrimaryButton onClick={closeMenu} fullWidth>
               Close menu
-            </UiButton>
+            </UiPrimaryButton>
+          </div>
+        </UiSpacing>
+        <UiSpacing margin={{ all: 'five' }}>
+          <UiText align='center'>Menu Content</UiText>
+          <div>
+            <UiTertiaryButton fullWidth>
+              Some other button
+            </UiTertiaryButton>
           </div>
         </UiSpacing>
       </UiMenu>
@@ -73,7 +81,7 @@ export const AnimatedMenuExample: React.FC = () => {
   return (
     <UiSpacing padding={{ all: 'five' }}>
       <div>
-        <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
+        <UiPrimaryButton onClick={handleMenuOpen}>Open Menu</UiPrimaryButton>
       </div>
       <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
         <UiSpacing margin={{ all: 'five' }}>
