@@ -13,9 +13,10 @@ import { UiMenu } from '../src';
 type MockedComponentProps = {
   fullscreenOnSmall?: boolean;
   visible?: boolean;
+  closeMenuSpy?: () => void;
 };
 
-const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedComponentProps) => {
+const MockedComponent = ({ visible = false, fullscreenOnSmall = false, closeMenuSpy }: MockedComponentProps) => {
   const [isVisible, setIsVisible] = React.useState(visible);
 
   const handleMenuOpen = React.useCallback(() => {
@@ -24,13 +25,15 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false }: MockedC
 
   const closeMenu = React.useCallback(() => {
     setIsVisible(false);
-  }, [setIsVisible]);
+    closeMenuSpy?.();
+  }, [setIsVisible, closeMenuSpy]);
 
   return (
     <div>
       <div>
         <UiButton onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
+      <p data-testid="content-outside-menu">Some content outside menu</p>
       <UiMenu
         visible={isVisible}
         closeLabel="Close menu dialog"
@@ -111,6 +114,30 @@ describe('<UiMenu />', () => {
 
     await waitFor(() => {
       expect(screen.getByRole('menu')).toBeVisible();
+    });
+  });
+
+  it('closes menu when clicking outside menu', async () => {
+    uiRender(<MockedComponent visible />);
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+
+    fireEvent.click(screen.getByTestId('content-outside-menu'));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    });
+  });
+
+  it('Does not execute menu close when clicking outside menu if menu is not visible', async () => {
+    uiRender(<MockedComponent />);
+
+    fireEvent.click(screen.getByTestId('content-outside-menu'));
+
+    await waitFor(() => {
+      expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     });
   });
 
