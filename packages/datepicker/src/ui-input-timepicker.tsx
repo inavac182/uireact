@@ -9,14 +9,14 @@ import { UiTimepicker } from './';
 import styles from './ui-input-timepicker.scss';
 
 const parseTime = (hour?: number, minute?: number): string => {
-  const stringHour = hour && hour < 10 ? `0${hour}` : hour;
-  const stringMinute = minute && minute < 10 ? `0${minute}` : minute;
+  const stringHour = hour !== undefined && hour < 10 ? `0${hour}` : hour;
+  const stringMinute = minute !== undefined && minute < 10 ? `0${minute}` : minute;
 
-  if (hour && minute) {
+  if (hour !== undefined && minute !== undefined) {
     return `${stringHour}:${stringMinute}`;
-  } else if (hour) {
+  } else if (hour !== undefined) {
     return `${stringHour}:`
-  } else if (minute) {
+  } else if (minute !== undefined) {
     return `:${stringMinute}`
   }
 
@@ -58,7 +58,7 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
   const onTimechange = useCallback((hour?: number, minute?: number) => {
     setTimepickerTime(parseTime(hour, minute));
     onChange(hour, minute);
-  }, []);
+  }, [onChange]);
 
   const openDatepicker = useCallback(() => {
     setDatepickerVisible(true);
