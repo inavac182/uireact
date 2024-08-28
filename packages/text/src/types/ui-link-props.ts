@@ -16,8 +16,8 @@ export type UiLinkProps = {
   fullWidth?: boolean;
   /** Font style */
   fontStyle?: FontStyle;
-  /** If text should wrap */
-  wrap?: boolean;
+  /** The wrap styling to apply to the link */
+  wrap?: 'normal' | 'break' | 'ellipsis' | 'clip';
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */

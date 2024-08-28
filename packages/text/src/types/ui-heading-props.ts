@@ -11,8 +11,8 @@ export type UiHeadingProps = {
   category?: ColorCategory;
   /* Heading centered */
   centered?: boolean;
-  /* Wrap text with 3 dots at the end */
-  wrap?: boolean;
+  /* The style for the heading wrapping */
+  wrap?: 'normal' | 'break' | 'ellipsis' | 'clip';
   /* If heading should use inverse theme coloration */
   inverseColoration?: boolean | InverseColorationProp;
   /* Defaults the element to a specific theme coloration */

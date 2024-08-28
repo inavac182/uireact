@@ -38,13 +38,13 @@ describe('<UiLink />', () => {
 
   it('renders fine with wrap', () => {
     uiRender(
-      <UiLink wrap>
+      <UiLink wrap='normal'>
         <a href="#">Link</a>
       </UiLink>
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular wrap');
+    expect(screen.getByRole('link', { name: 'Link' })).toHaveClass('color-tertiary-100 size-regular wrap-normal');
   });
 
   it('renders fine with size', () => {

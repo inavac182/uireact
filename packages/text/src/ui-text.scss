@@ -14,10 +14,29 @@
     text-align: center;
 }
 
-.wrap {
+.wrap-ellipsis {
     overflow:hidden; 
     white-space:nowrap; 
     text-overflow: ellipsis;
+}
+
+.wrap-break {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.wrap-normal {
+    word-wrap: normal;
+    white-space: break-spaces;
+}
+
+.wrap-clip {
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: clip;
 }
 
 .italic {

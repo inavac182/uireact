@@ -15,7 +15,7 @@ export const UiText: React.FC<UiTextProps> = ({
   size = 'regular',
   category = 'fonts',
   inverseColoration,
-  wrap,
+  wrap = 'normal',
   margin,
   padding
 }: UiTextProps) => {
@@ -34,9 +34,7 @@ export const UiText: React.FC<UiTextProps> = ({
   }
 
   if (wrap) {
-    classes = `${classes} ${styles.wrap}`;
-  } else {
-    classes = `${classes} ${styles.breakLine}`;
+    classes = `${classes} ${styles[`wrap-${wrap}`]}`;
   }
 
   if (margin || padding) {

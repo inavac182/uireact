@@ -24,8 +24,8 @@ export type UiTextProps = {
   inverseColoration?: boolean;
   /** Align text, default LEFT */
   align?: 'left' | 'center' | 'right';
-  /** If the text should wrap */
-  wrap?: boolean;
+  /** The style of the text wrapping property */
+  wrap?: 'normal' | 'break' | 'ellipsis' | 'clip';
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
