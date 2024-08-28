@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.11 (2024-08-28)
+
+
+### Bug Fixes
+
+* **form:** icon on input text spacing ([4da2329](https://github.com/inavac182/ui-react/commit/4da23298cc0e5c104314255bcae5a2cc7063f4a1))
+
+
+
+
+
 ## [3.3.10](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.9...@uireact/form@3.3.10) (2024-08-26)
 
 **Note:** Version bump only for package @uireact/form
