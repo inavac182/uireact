@@ -56,7 +56,7 @@ describe('<UiText />', () => {
   });
 
   it('renders fine with wrap', () => {
-    uiRender(<UiText wrap>Text</UiText>);
+    uiRender(<UiText wrap='break'>Text</UiText>);
 
     expect(screen.getByText('Text')).toBeVisible();
   });

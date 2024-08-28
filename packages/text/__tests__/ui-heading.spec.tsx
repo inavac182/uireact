@@ -21,7 +21,7 @@ describe('<UiHeading />', () => {
   });
 
   it('renders fine when is wrapped', () => {
-    uiRender(<UiHeading wrap>Heading</UiHeading>);
+    uiRender(<UiHeading wrap='ellipsis'>Heading</UiHeading>);
 
     expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
   });
@@ -64,7 +64,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 1 and wrapped', () => {
     uiRender(
-      <UiHeading level={1} wrap>
+      <UiHeading level={1} wrap='normal'>
         Heading
       </UiHeading>
     );
@@ -90,7 +90,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 2 and wrapped', () => {
     uiRender(
-      <UiHeading level={2} wrap>
+      <UiHeading level={2} wrap='break'>
         Heading
       </UiHeading>
     );
@@ -116,7 +116,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 3 and wrap', () => {
     uiRender(
-      <UiHeading level={3} wrap>
+      <UiHeading level={3} wrap='normal'>
         Heading
       </UiHeading>
     );
@@ -142,7 +142,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 4 and wrap', () => {
     uiRender(
-      <UiHeading level={4} wrap>
+      <UiHeading level={4} wrap='normal'>
         Heading
       </UiHeading>
     );
@@ -168,7 +168,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 5 and wrap', () => {
     uiRender(
-      <UiHeading level={5} wrap>
+      <UiHeading level={5} wrap='break'>
         Heading
       </UiHeading>
     );
@@ -194,7 +194,7 @@ describe('<UiHeading />', () => {
 
   it('renders fine with level 6 and wrap', () => {
     uiRender(
-      <UiHeading level={6} wrap>
+      <UiHeading level={6} wrap='ellipsis'>
         Heading
       </UiHeading>
     );
