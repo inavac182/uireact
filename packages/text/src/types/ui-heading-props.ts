@@ -12,7 +12,7 @@ export type UiHeadingProps = {
   /* Heading centered */
   centered?: boolean;
   /* The style for the heading wrapping */
-  wrap?: 'normal' | 'break' | 'ellipsis';
+  wrap?: 'normal' | 'break' | 'ellipsis' | 'clip';
   /* If heading should use inverse theme coloration */
   inverseColoration?: boolean | InverseColorationProp;
   /* Defaults the element to a specific theme coloration */

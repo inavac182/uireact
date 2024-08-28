@@ -14,7 +14,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   fullWidth,
   fontStyle,
   size = 'regular',
-  wrap,
+  wrap = 'normal',
   margin,
   padding
 }: UiLinkProps) => {
@@ -25,7 +25,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   }
 
   if (wrap) {
-    classes = `${classes} ${styles.wrap}`;
+    classes = `${classes} ${styles[`wrap-${wrap}`]}`;
   }
 
   if (fullWidth) {

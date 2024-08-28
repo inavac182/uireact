@@ -25,7 +25,7 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   }
 
   if (wrap) {
-    classes = `${classes} ${styles.wrap}`;
+    classes = `${classes} ${styles[`wrap-${wrap}`]}`;
   }
 
   if (centered) {

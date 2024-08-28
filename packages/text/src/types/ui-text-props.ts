@@ -25,7 +25,7 @@ export type UiTextProps = {
   /** Align text, default LEFT */
   align?: 'left' | 'center' | 'right';
   /** The style of the text wrapping property */
-  wrap?: 'normal' | 'break' | 'ellipsis';
+  wrap?: 'normal' | 'break' | 'ellipsis' | 'clip';
   /** Margin to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
   margin?: SpacingDistribution;
   /** Padding to use based on [SpacingDistribution](./packages-foundation-docs-spacing#spacingDistribution) */
