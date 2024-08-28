@@ -50,7 +50,7 @@ export const UiInput: React.FC<UiInputProps> = ({
         )}
         <div className={styles.inputDiv}>
           <div className={styles.inputContentDiv}>
-            {icon && <div className={styles.inputIconContainer}>{icon}</div>}
+            {icon && <div className={styles.inputIconContainer} aria-hidden>{icon}</div>}
             <input
               autoComplete={autoComplete}
               disabled={disabled}
