@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.12](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.11...@uireact/form@3.3.12) (2024-08-28)
+
+
+### Bug Fixes
+
+* **form:** aria hide icon container on inputs ([fb706e3](https://github.com/inavac182/ui-react/commit/fb706e37008534545844cd41ad3d81fd71e4ac76))
+* **form:** icon on input text spacing ([4da2329](https://github.com/inavac182/ui-react/commit/4da23298cc0e5c104314255bcae5a2cc7063f4a1))
+
+
+
+
+
 ## 3.3.11 (2024-08-28)
 
 
