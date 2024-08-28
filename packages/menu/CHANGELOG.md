@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.1.0...@uireact/menu@3.2.0) (2024-08-28)
+
+
+### Features
+
+* **menu:** using close outside hook instead of wrapper to close menu ([#367](https://github.com/inavac182/ui-react/issues/367)) ([1b31aab](https://github.com/inavac182/ui-react/commit/1b31aab7c96369764db5de00f659ca46208225ab))
+
+
+
+
+
 # 3.1.0 (2024-08-28)
 
 
