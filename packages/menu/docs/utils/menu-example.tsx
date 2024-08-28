@@ -44,7 +44,7 @@ export const MenuExample: React.FC = () => {
       </UiMenu>
       <UiText>Some content behind the menu</UiText>
       <UiSpacing margin={{ block: 'five' }}>
-        <UiText wrap>
+        <UiText wrap='break'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida commodo massa non porttitor. Fusce sapien
           lacus, malesuada vel bibendum sed, tempus vitae elit. Vestibulum lectus magna, rutrum vitae consectetur eu,
           malesuada quis nunc. In vitae lectus id massa cursus vestibulum. Quisque accumsan et sem et efficitur. Nulla

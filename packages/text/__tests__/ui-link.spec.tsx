@@ -38,7 +38,7 @@ describe('<UiLink />', () => {
 
   it('renders fine with wrap', () => {
     uiRender(
-      <UiLink wrap>
+      <UiLink wrap='normal'>
         <a href="#">Link</a>
       </UiLink>
     );
