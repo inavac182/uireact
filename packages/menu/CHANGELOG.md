@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2024-08-28)
+
+
+### Features
+
+* **text:** wrap text property ([#366](https://github.com/inavac182/ui-react/issues/366)) ([06c45db](https://github.com/inavac182/ui-react/commit/06c45db7ebda6c04f6cf9d094b14aa97f36a668f))
+
+
+
+
+
 ## 3.0.22 (2024-08-26)
 
 **Note:** Version bump only for package @uireact/menu
