@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.16.1 (2024-08-28)
+
+
+### Bug Fixes
+
+* **datepicker:** timepicker zero check ([fb9963e](https://github.com/inavac182/ui-react/commit/fb9963e6971b358224e70488369a03067ed8d178))
+
+
+
+
+
 # [0.16.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.15.1...@uireact/datepicker@0.16.0) (2024-08-27)
 
 
