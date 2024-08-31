@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { Ref, useCallback, useEffect, useRef, useState } from 'react';
 
 import { UiLabel, UiText } from '@uireact/text';
 
@@ -44,7 +44,7 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
   required
 }: UiInputTimepickerProps) => {
   const [timepickerTime, setTimepickerTime] = useState<string>(parseTime(hour, minute));
-  const [datepickerVisible, setDatepickerVisible] = useState(false);
+  const [timepickerVisible, setTimepickerVisible] = useState(false);
   let classes = `${className} ${styles.input} size-${size} border-${category || 'primary'}-100 active-border-${category || 'tertiary'}-100 focus-border-${category || 'tertiary'}-100 ${styles[`inputPadding${size}`]}`;
 
   if (icon) {
@@ -60,13 +60,19 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
     onChange(hour, minute);
   }, [onChange]);
 
-  const openDatepicker = useCallback(() => {
-    setDatepickerVisible(true);
-  }, [setDatepickerVisible]);
+  const onInputClicked = useCallback(() => {
+    if (!timepickerVisible) {
+      setTimepickerVisible(true);
+    }
+  }, [timepickerVisible]);
 
-  const closeDatepicker = useCallback(() => {
-    setDatepickerVisible(false);
-  }, [setDatepickerVisible]);
+  const openTimepicker = useCallback(() => {
+    setTimepickerVisible(true);
+  }, []);
+
+  const closeTimepicker = useCallback(() => {
+    setTimepickerVisible(false);
+  }, []);
 
   return (
     <div className={className} data-testid={testId}>
@@ -98,8 +104,8 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
               ref={ref}
               value={timepickerTime}
               required={required}
-              onFocus={openDatepicker}
-              onClick={openDatepicker}
+              onFocus={openTimepicker}
+              onClick={onInputClicked}
               readOnly
             />
           </div>
@@ -107,8 +113,8 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
         </div>
       </div>
       <UiTimepicker
-        isOpen={datepickerVisible}
-        onClose={closeDatepicker}
+        isOpen={timepickerVisible}
+        onClose={closeTimepicker}
         defaultHour={hour}
         defaultMinute={minute}
         onTimeChange={onTimechange}

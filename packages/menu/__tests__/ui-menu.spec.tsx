@@ -54,6 +54,8 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false, closeMenu
   );
 };
 
+jest.useFakeTimers();
+
 describe('<UiMenu />', () => {
   beforeEach(() => {
     global.innerWidth = 950;
@@ -123,6 +125,8 @@ describe('<UiMenu />', () => {
     await waitFor(() => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
+
+    jest.advanceTimersByTime(200);
 
     fireEvent.click(screen.getByTestId('content-outside-menu'));
 
