@@ -1,26 +1,36 @@
-import { RefObject, useCallback, useEffect } from "react"
+import { RefObject, useCallback, useEffect, useState } from "react"
 
 export const useClickOutside = (
   ref: RefObject<HTMLElement | undefined>,
   callback: () => void,
-  addEventListener: boolean,
+  listen: boolean,
 ) => {
+  const [listening, setListening] = useState(false);
+  const [abortController, setAbortController] = useState(new AbortController());
+
   const handleClick = useCallback((event: MouseEvent) => {
     if (ref.current && !isChild(event.target as HTMLElement, ref.current)) {
-      console.log('Closing menu');
       callback();
     }
   }, [callback, ref]);
 
   useEffect(() => {
-    if (addEventListener) {
-      document.body.addEventListener('click', handleClick)
+    if (listen && !listening) {
+      setTimeout(() => {
+        const controller = new AbortController();
+
+        document.body.addEventListener('click', handleClick, { signal: controller.signal });
+
+        setAbortController(controller);
+        setListening(true);
+      }, 200);
     }
 
-    return () => {
-      document.body.removeEventListener('click', handleClick)
+    if (listening && !listen) {
+      setListening(false);
+      abortController.abort();
     }
-  }, [addEventListener, handleClick]);
+  }, [handleClick, abortController, listen, setAbortController, listening]);
 };
 
 const isChild = (obj: HTMLElement, parentObj: HTMLElement) => {
