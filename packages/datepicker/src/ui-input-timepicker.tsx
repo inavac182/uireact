@@ -56,7 +56,6 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
   }, [hour, minute]);
 
   const onTimechange = useCallback((hour?: number, minute?: number) => {
-    setTimepickerTime(parseTime(hour, minute));
     onChange(hour, minute);
   }, [onChange]);
 

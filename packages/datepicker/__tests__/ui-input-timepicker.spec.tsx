@@ -22,6 +22,23 @@ describe('<UiInputTimepicker />', () => {
     expect(screen.getByText('Hours')).toBeVisible();
   });
 
+  it('renders fine with hour and minute', async () => {
+    uiRender(<UiInputTimepicker onChange={jest.fn()} label='Select a time' hour={3} minute={30} />);
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+
+    expect(screen.getByRole('textbox')).toHaveValue('03:30');
+
+    fireEvent.focus(screen.getByRole('textbox'));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+    
+    expect(screen.getByRole('textbox', { name: 'Select a time'} )).toBeVisible();
+    expect(screen.getByText('Hours')).toBeVisible();
+  });
+
   it('renders fine on Click', async () => {
     uiRender(<UiInputTimepicker onChange={jest.fn()} label='Select a time' />);
 

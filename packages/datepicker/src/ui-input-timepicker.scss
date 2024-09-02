@@ -9,6 +9,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    background-color: var(--primary-token_50);
   }
 
   outline: none;
