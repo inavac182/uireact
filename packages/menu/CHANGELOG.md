@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.2.0...@uireact/menu@3.3.0) (2024-09-02)
+
+
+### Features
+
+* **datepicker:** fix timepicker menu flickering ([#368](https://github.com/inavac182/ui-react/issues/368)) ([14c64b8](https://github.com/inavac182/ui-react/commit/14c64b88413f1906e7ac5e4aa9e17a5eb99cdcef))
+
+
+
+
+
 # [3.2.0](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.1.0...@uireact/menu@3.2.0) (2024-08-28)
 
 

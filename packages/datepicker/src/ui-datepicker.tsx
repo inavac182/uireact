@@ -4,7 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { UiMenu } from '@uireact/menu';
 import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
-import { UiButton } from '@uireact/button';
+import { UiButton, UiPrimaryButton, UiSecondaryButton } from '@uireact/button';
 import { UiText } from '@uireact/text';
 import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 
@@ -14,8 +14,8 @@ import { getMonthTitle } from './utils';
 import styles from './ui-datepicker.scss';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
-const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'four' };
-const buttonPadding: UiSpacingProps['padding'] = { top: 'four', bottom: 'four', right: 'five' };
+const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'two', inline: 'three' };
+const buttonPadding: UiSpacingProps['padding'] = { block: 'two' };
 const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
@@ -138,24 +138,18 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
       {closeLabel && !isDialogShown && (
         <div className={styles.closeButtonWrapperMenu}>
           <UiSpacing padding={buttonPadding}>
-            <UiButton type="button" category="tertiary" onClick={onCloseMenu}>
-              <UiSpacing padding={buttonContentSpacing}>
-                <UiText>{closeLabel}</UiText>
-              </UiSpacing>
-            </UiButton>
+            <UiPrimaryButton type="button" onClick={onCloseMenu} padding={buttonContentSpacing}>
+              <p>{closeLabel}</p>
+            </UiPrimaryButton>
           </UiSpacing>
         </div>
       )}
       {isDialogShown && (
         <div className={styles.closeButtonWrapperDialog}>
           <UiSpacing padding={buttonPadding}>
-            <UiButton category="tertiary" fullWidth onClick={onCloseMenu}>
-              <UiSpacing padding={buttonContentSpacing}>
-                <UiText align='center' size="large">
-                  {closeLabel}
-                </UiText>
-              </UiSpacing>
-            </UiButton>
+            <UiPrimaryButton type="button" fullWidth onClick={onCloseMenu} padding={buttonContentSpacing}>
+              <p>{closeLabel}</p>
+            </UiPrimaryButton>
           </UiSpacing>
         </div>
       )}

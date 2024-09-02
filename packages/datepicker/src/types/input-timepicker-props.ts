@@ -1,4 +1,5 @@
 import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { RefObject } from 'react';
 
 export type UiInputTimepickerProps = {
   /** Controlled hour value */
@@ -26,7 +27,7 @@ export type UiInputTimepickerProps = {
   /** Placeholder string to render inside input field */
   placeholder?: string;
   /* React ref */
-  ref?: React.Ref<HTMLInputElement>;
+  ref?: RefObject<HTMLInputElement>;
   /** Input field theme */
   category?: ColorCategory;
   /** Input font size */
