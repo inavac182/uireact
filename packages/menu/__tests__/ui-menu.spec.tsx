@@ -44,6 +44,9 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false, closeMenu
         <UiSpacing margin={{ all: 'five' }}>
           <UiText align='center'>Menu Content</UiText>
           <div>
+            <UiButton>Some element</UiButton>
+          </div>
+          <div>
             <UiButton onClick={closeMenu} category="secondary" fullWidth>
               Close menu
             </UiButton>
@@ -134,6 +137,24 @@ describe('<UiMenu />', () => {
 
     await waitFor(() => {
       expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    });
+  });
+
+  it('Should not close if click in an element inside menu', async () => {
+    uiRender(<MockedComponent visible />);
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Some element' }));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
     });
   });
 
