@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { act } from 'react';
 
-import { act, fireEvent, screen, waitFor } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 
 import { UiButton } from '@uireact/button';
 import { UiSpacing } from '@uireact/foundation';
@@ -126,7 +126,9 @@ describe('<UiMenu />', () => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
 
-    jest.advanceTimersByTime(200);
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
 
     fireEvent.click(screen.getByTestId('content-outside-menu'));
 
