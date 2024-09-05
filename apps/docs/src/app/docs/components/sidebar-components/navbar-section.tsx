@@ -12,7 +12,7 @@ import useHash from '@/app/hooks/use-hatch';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import { UiFlexGrid } from '@uireact/flex';
 import { motion } from 'framer-motion';
-import { UiReactHoverScaleUp } from '@uireact/framer-animations';
+import { UiReactHoverScaleUp, UiReactTapScaleDown } from '@uireact/framer-animations';
 
 const Container = styled.div`
     width: 100%;
@@ -41,6 +41,7 @@ export type NavbarSectionProps = {
     selected: number;
     icon: UiIconProps['icon'];
     items: NavbarItem[];
+    link?: string;
 }
 
 const nestedNavbarSpacing: UiSpacingProps['padding'] = {
@@ -60,7 +61,9 @@ const navbarFloatingItemTitle: UiSpacingProps['padding'] = {
     block: 'four'
 };
 
-export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, isFloatingNavbar}: NavbarSectionProps) => {
+const navbarAnimation = {...UiReactHoverScaleUp, ...UiReactTapScaleDown };
+
+export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, isFloatingNavbar, link }: NavbarSectionProps) => {
     const path = usePathname();
     const hash = useHash();
 
@@ -70,13 +73,26 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
 
     return (
         <Container>
-            <NavbarTitleContainer onClick={toggleSection} {...UiReactHoverScaleUp}>
+            <NavbarTitleContainer onClick={toggleSection} {...navbarAnimation}>
+                {items.length === 0 && link ? (
+                    <UiLink>
+                        <Link href={`/docs${link}`}>
+                        <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
+                            <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
+                                <UiIcon icon={icon} category='tertiary' inverseColoration />
+                                <UiText fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
+                            </UiFlexGrid>
+                        </UiSpacing>
+                        </Link>
+                    </UiLink>
+                ) : (
                 <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
                     <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
                         <UiIcon icon={icon} category='primary' inverseColoration />
                         <UiText fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
                     </UiFlexGrid>
                 </UiSpacing>
+                )} 
             </NavbarTitleContainer>
             {selected === id && items && (
                 <UiNavbar styling={isFloatingNavbar ? 'filled' : 'bordered'} orientation='stacked' category='secondary' noBackground>

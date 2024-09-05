@@ -1,0 +1,100 @@
+# Contributing
+
+Are you looking to contribute a feature to our library? If so, this is the right place.
+
+## Open a github issue
+
+The 1st step is to create a github issue, so we can chat about what you are trying to change and why. Please don't put any time in changing something if we haven't agreed, we try to keep the library as open as possible but we always have to discuss the use cases before integrating them into the library.
+
+
+
+## Tech you should know
+
+The repository [https://github.com/inavac182/uireact](https://github.com/inavac182/uireact) is a monorepo that uses these technologies to work:
+
+- **Turbo** For the monorepo management
+- **Lerna** For the node packages publish
+- **pnpm** For the package manager
+- **Typescript** - To prevent bugs 🐛
+- **Jest** For unit tests
+- **Sass** For the styling
+- **NextJS** For this docs app
+- **MDX** For the packages documentation
+
+## Local set up
+
+You need to install the following packages
+
+#### nvm
+
+We use `nvm` to ensure everybody working in the repo is using the same node version. If you don't have it installed, you have to do it:
+
+Docs: [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+
+#### pnpm
+
+We use `pnpm` as the package manager in the repo, so you have to install it. 
+
+Docs: [https://pnpm.io/installation](https://pnpm.io/installation)
+
+#### turbo
+
+Also, you need to install turbo globally so you can run `turbo` in the terminal / console.
+
+Docs: [https://turbo.build/repo/docs/getting-started/installation](https://turbo.build/repo/docs/getting-started/installation)
+
+## Starting up docs app locally
+
+Once you have everything instsalled we can continue with installing the repo dependencies:
+
+```
+nvm use
+pnpm i
+```
+
+After installation you should be able to run the docs app:
+
+```
+pnpm run dev:docs
+```
+
+Wait a bit and then go to [https://localhost:3000](https://localhost:3000) You should see the docs page up and running.
+
+## Running unit tests
+
+If you are done with your changes and need to verify your change locally you can run tests.
+
+Run a single package tests:
+```
+pnpm run test:package --filter=@uireact/YOUR-PACKAGE
+```
+Replace (YOUR-PACKAGE) with whatever package you need.
+
+Run all tests:
+```
+pnpm run test
+```
+
+The latter script will take a while as it will run ALL tests in the repo
+
+## Pull request
+
+Once you are done please open a PR in the repo, add the tag `Ready 4 review` and we will take a look soon.
+
+Make sure you add all the needed information to the PR description so we understand the PR.
+
+#### PR Title
+
+Lerna will automatically bump each modified package after being the PR is merged, for this it requires the PR title to be decriptive, so please use the correct title:
+
+For major version bumps:
+
+- "feat(component): your PR title"
+
+For minor version bumps:
+
+- "refactor(component): your PR title"
+- "fix(component): your PR title"
+
+Replace "component" with the package you are touching so the changelog is created correctly as well.
+

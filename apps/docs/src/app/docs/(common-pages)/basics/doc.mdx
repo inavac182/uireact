@@ -1,0 +1,53 @@
+# The Basics
+
+Our components were created to help speed up React development so folks doesn't have to build atomic pieces that could be shared, throughout the years we have been adding more components to it, so it's become a lot more complete.
+
+**Colorations**
+
+We've always work under the idea of having 2 colorations: `light` and `dark`. You could choose to stick with only 1 for your app but the support for both is built within every component in the library
+
+## Styling
+
+All components in this library require the CSS variable set up by the [UiView](./view) and the theme file. Without these variables the components won't inherit their correct styles.
+
+Also make sure you add all the style files into your CSS file:
+
+Using CSS:
+```css
+  // In CSS: Update the route based on your project.
+  @import url('../node_modules/@uireact/foundation/dist/index.css'); 
+
+  // Include all packages styles
+  @import url('../node_modules/@uireact/view/dist/index.css'); 
+```
+
+#### CSS Variables
+
+As we use CSS Variables, once you import the theme in your global CSS, the variables will be available in your application for you to use, so you can use them for your own components.
+
+For instance you can have a style in a component in your app like this:
+
+```css
+.container {
+  background-color: var(--primary-token_100);
+}
+```
+
+And the variable will bring the value for the primary color with token 100 in the element with class `container`.
+
+You can check all the variables that the theme brings in this [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss).
+
+If you want to use your own values for your own theme you can either copy this in your app and modify it, OR, you can use our step by step form to [Create your theme](/create-theme).
+
+## Theme
+
+We have support for `primary`, `secondary` and `tertiary` colorations as well as supporting colorations such as `Positive`, `Negative`, `Error` and `Warning`.
+
+Use them at your best convenience but we highly recommend:
+
+- Primary - 60%
+- Secondary - 30%
+- Tertiary - 10%
+
+The supporting colors could be used as needed based on your design system.
+
