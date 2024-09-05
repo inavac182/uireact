@@ -7,7 +7,12 @@ import { UiNotificationWrapper } from './private';
 import { useNotifications } from './hook';
 import styles from './ui-notification.scss';
 
-export const UiNotifications: React.FC = () => {
+export type UiNotificationsProps = {
+  topSpacing?: string;
+  className?: string;
+}
+
+export const UiNotifications: React.FC<UiNotificationsProps> = ({ className, topSpacing = "0" }: UiNotificationsProps) => {
   const { isSmall } = useViewport();
   const { notifications } = useNotifications();
 
@@ -36,7 +41,7 @@ export const UiNotifications: React.FC = () => {
     );
   }, [notifications, hiddenNotifications, onClose]);
 
-  return <div className={isSmall ? styles.bottomContainer : styles.container}>{NotificationsComponent}</div>;
+  return <div className={`${isSmall ? styles.bottomContainer : styles.container} ${className}`} style={!isSmall  ? { top: topSpacing } : undefined}>{NotificationsComponent}</div>;
 };
 
 UiNotifications.displayName = 'UiNotifications';
