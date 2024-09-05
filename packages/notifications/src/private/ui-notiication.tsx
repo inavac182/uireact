@@ -56,15 +56,15 @@ export const UiNotificationWrapper: React.FC<UiNotificationProps> = ({
     <>
       <div className={`${styles.notificationWrapper} bg-${notification.options?.category || 'primary'}-100`}>
         <div className={styles.notificationContent}>
-          <UiFlexGrid columnGap="four" alignItems="center">
+          <UiFlexGrid columnGap="three" alignItems="center">
             {notification.icon && (
               <div className={styles.iconWrapper}>
-                <UiIcon icon={notification.icon as UiIconProps['icon']} />
+                <UiIcon icon={notification.icon as UiIconProps['icon']} size='large' />
               </div>
             )}
             <UiFlexGridItem grow={1}>
-              <UiFlexGrid direction="column" rowGap="three">
-                {notification.title && <UiHeading>{notification.title}</UiHeading>}
+              <UiFlexGrid direction="column" rowGap="two">
+                {notification.title && <UiText size='large' fontStyle='bold'>{notification.title}</UiText>}
                 {notification.message && <UiText>{notification.message}</UiText>}
                 {notification.link && (
                   <UiLink>

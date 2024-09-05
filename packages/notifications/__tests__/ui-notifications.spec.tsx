@@ -36,7 +36,7 @@ export const NotificationsExample: React.FC<NotificationsExampleProps> = ({
   const addLinkNotification = useCallback(() => {
     showNotification({
       icon: 'Link',
-      title: 'Notification with link',
+      title: 'Notification with link title',
       message: 'This is a new notification that shows a link',
       link: {
         label: 'Ui React docs',
@@ -53,7 +53,7 @@ export const NotificationsExample: React.FC<NotificationsExampleProps> = ({
   const addNotificationWithOptions = useCallback(() => {
     showNotification({
       icon: 'ArrowTrendDown',
-      title: 'Notification with options',
+      title: 'Notification with options title',
       options: {
         category: 'error',
         closeButton: false,
@@ -112,7 +112,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
-    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+    expect(screen.getByText('New notification')).toBeVisible();
     expect(screen.getByText('This is a new notification')).toBeVisible();
     expect(screen.getByTestId('notification-close-button')).toBeVisible();
 
@@ -131,7 +131,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
-    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+    expect(screen.getByText('New notification')).toBeVisible();
     expect(screen.getByText('This is a new notification')).toBeVisible();
     expect(screen.getByTestId('notification-close-button')).toBeVisible();
 
@@ -147,7 +147,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
     expect(screen.getByText('This is a new notification that shows a link')).toBeVisible();
     expect(screen.getByRole('link', { name: 'Ui React docs' })).toBeVisible();
     expect(screen.getByRole('link', { name: 'Ui React docs' })).toHaveAttribute('href', 'https://uireact.io');
@@ -155,7 +155,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByTestId('notification-close-button'));
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
   });
 
   it('renders fine without close button', () => {
@@ -163,7 +163,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with options' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with options' })).toBeVisible();
+    expect(screen.getByText('Notification with options title')).toBeVisible();
     expect(screen.queryByTestId('notification-close-button')).not.toBeInTheDocument();
   });
 
@@ -172,7 +172,7 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'No timer' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with no timer' })).toBeVisible();
+    expect(screen.getByText('Notification with no timer')).toBeVisible();
     expect(screen.queryByTestId('notification-close-button')).toBeVisible();
   });
 
@@ -189,14 +189,14 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
 
     fireEvent.click(screen.getByTestId('notification-close-button'));
 
     expect(onNotificationDismissed).toHaveBeenCalledTimes(1);
     expect(onNotificationShown).toHaveBeenCalledTimes(1);
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
   });
 
   it('notiticaion does not appear again when resizing', () => {
@@ -206,36 +206,36 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
 
     fireEvent.click(screen.getByTestId('notification-close-button'));
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
 
     act(() => {
       global.innerWidth = 1000;
       global.dispatchEvent(new Event('resize'));
     });
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
   });
 
-  it('Only new notifications are rendered, closed notifications doe not appear', () => {
+  it('Only new notifications are rendered, closed notifications does not appear', () => {
     global.innerWidth = 400;
 
     uiRender(<NotificationsExample />);
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
 
     fireEvent.click(screen.getByTestId('notification-close-button'));
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('Notification with link')).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with options' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with options' })).toBeVisible();
+    expect(screen.getByText('Notification with options title')).toBeVisible();
   });
 
   it('Timer should not reset when another notification is closed', () => {
@@ -245,30 +245,30 @@ describe('<UiNotifications />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Notification with link' }));
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
 
     act(() => {
       jest.advanceTimersByTime(2000);
     });
 
-    expect(screen.getByRole('heading', { name: 'Notification with link' })).toBeVisible();
+    expect(screen.getByText('Notification with link title')).toBeVisible();
 
     fireEvent.click(screen.getByRole('button', { name: 'Add notification' }));
 
-    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+    expect(screen.getByText('New notification')).toBeVisible();
 
     act(() => {
       jest.advanceTimersByTime(3000);
     });
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'New notification' })).toBeVisible();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
+    expect(screen.getByText('New notification')).toBeVisible();
 
     act(() => {
       jest.advanceTimersByTime(2000);
     });
 
-    expect(screen.queryByRole('heading', { name: 'Notification with link' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('heading', { name: 'New notification' })).not.toBeInTheDocument();
+    expect(screen.queryByText('Notification with link title')).not.toBeInTheDocument();
+    expect(screen.queryByText('New notification')).not.toBeInTheDocument();
   });
 });
