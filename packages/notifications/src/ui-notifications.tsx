@@ -12,7 +12,7 @@ export type UiNotificationsProps = {
   className?: string;
 }
 
-export const UiNotifications: React.FC<UiNotificationsProps> = ({ className, topSpacing = "0" }: UiNotificationsProps) => {
+export const UiNotifications: React.FC<UiNotificationsProps> = ({ className = '', topSpacing = "0" }: UiNotificationsProps) => {
   const { isSmall } = useViewport();
   const { notifications } = useNotifications();
 
@@ -41,7 +41,7 @@ export const UiNotifications: React.FC<UiNotificationsProps> = ({ className, top
     );
   }, [notifications, hiddenNotifications, onClose]);
 
-  return <div className={`${isSmall ? styles.bottomContainer : styles.container} ${className}`} style={!isSmall  ? { top: topSpacing } : undefined}>{NotificationsComponent}</div>;
+  return <div className={`${isSmall ? styles.bottomContainer : styles.container} ${className}`} style={!isSmall  ? { top: topSpacing } : {}}>{NotificationsComponent}</div>;
 };
 
 UiNotifications.displayName = 'UiNotifications';
