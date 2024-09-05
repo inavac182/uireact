@@ -73,7 +73,7 @@ export const NotificationsExample: React.FC<NotificationsExampleProps> = ({
 
   return (
     <>
-      <UiNotifications />
+      <UiNotifications topSpacing="100px" />
       <UiFlexGrid columnGap="four">
         <UiButton onClick={addNotification} category="positive">
           <UiSpacing padding={buttonContentPadding}>

@@ -109,3 +109,16 @@ export const NotificationsExample: React.FC = () => {
   );
 };
 ```
+
+## Wrapper spacing
+
+The `UiNotifications` component has a prop to customize the spacing on the top wrapper:
+
+For instance if you want the notifications to render just below your header and your header is 100px tall then you can do this:
+
+```tsx
+  <UiNotifications topSpacing="100px" />
+```
+
+You could also use the `className` prop although you need to check for the breakpoint as the notifications changes position to the bottom when the breakpoint is small. We already take care of this in the `topSpacing` prop.
+
