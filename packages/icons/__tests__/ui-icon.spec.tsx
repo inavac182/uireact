@@ -15,6 +15,13 @@ describe('<UiIcon />', () => {
     expect(screen.getByTestId('UiIcon')).toHaveClass('icon fill-fonts-100 size-regular w-regular h-regular');
   });
 
+  it('renders fine with weight', () => {
+    uiRender(<UiIcon icon="Search" testId="UiIcon" weight='200' />);
+
+    expect(screen.getByTestId('Icon')).toBeVisible();
+    expect(screen.getByTestId('UiIcon')).toHaveClass('icon fill-fonts-200 size-regular w-regular h-regular');
+  });
+
   it('renders fine with motion animation', async () => {
     uiRender(<UiIcon icon="Search" testId="UiIcon" motion={UiReactFadeUp} />);
 

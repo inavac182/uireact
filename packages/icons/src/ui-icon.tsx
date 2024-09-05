@@ -16,10 +16,11 @@ export const UiIcon: React.FC<UiIconProps> = ({
   testId,
   inverseColoration,
   motion,
+  weight = '100',
   ...props
 }: UiIconProps) => {
   return (
-    <MotionParent.span className={`${className} ${styles.icon} ${coloration ? coloration : ''} inline-block fill-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size} w-${size} h-${size}`} data-testid={testId} {...motion} {...props}>
+    <MotionParent.span className={`${className} ${styles.icon} ${coloration ? coloration : ''} inline-block fill-${inverseColoration ? 'inverse-' : ''}${category}-${weight} size-${size} w-${size} h-${size}`} data-testid={testId} {...motion} {...props}>
       <IconComponent icon={icon} />
     </MotionParent.span>
   );
