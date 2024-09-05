@@ -3,7 +3,7 @@
   "description": "Dialogs package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "publishConfig": {
     "access": "public"
   },

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2024-09-05)
+
+
+### Features
+
+* **icons:** adding weight prop ([#369](https://github.com/inavac182/ui-react/issues/369)) ([a594d98](https://github.com/inavac182/ui-react/commit/a594d985a71ecfc0d4fca070b89b9e8ba17b074f))
+
+
+
+
+
 ## [3.0.5](https://github.com/inavac182/ui-react/compare/@uireact/icons@3.0.4...@uireact/icons@3.0.5) (2024-08-15)
 
 **Note:** Version bump only for package @uireact/icons
