@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.9.28...@uireact/notifications@0.10.0) (2024-09-05)
+
+
+### Features
+
+* **notifications:** spacing prop for notifications wrapper ([#371](https://github.com/inavac182/ui-react/issues/371)) ([60d5174](https://github.com/inavac182/ui-react/commit/60d5174870e24f4a934932404a5c34341d953960))
+
+
+
+
+
 ## [0.9.28](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.9.27...@uireact/notifications@0.9.28) (2024-09-05)
 
 **Note:** Version bump only for package @uireact/notifications
