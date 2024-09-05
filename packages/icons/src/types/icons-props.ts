@@ -1,4 +1,4 @@
-import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
+import { ColorCategory, ColorToken, SizesProp, UiReactElementProps } from '@uireact/foundation';
 import { MotionProps } from 'framer-motion';
 
 import * as SvgsComponent from '../public/svgs';
@@ -24,4 +24,6 @@ export type UiIconProps = {
   coloration?: 'dark' | 'light';
   /* Framer motion props */
   motion?: MotionProps;
+  /** Color weight of the icon */
+  weight?: ColorToken;
 } & UiReactElementProps & AriaAttributes;

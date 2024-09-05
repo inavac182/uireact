@@ -62,6 +62,18 @@ These buttons already have and uses a cohesive styling that helps improve the us
   </UiFlexGrid>
 ```
 
+## Example
+
+### Using an UiIcon
+
+This is simulating a disabled button that is waiting on a triggered action:
+
+```jsx live scope={{UiPrimaryButton, UiSpacing, Sizing, UiIcon}}
+  <UiPrimaryButton margin={{ all: 'two' }} padding={{ inline: 'four', block: 'two' }} disabled>
+    <UiIcon icon="LoadingSpinner" category="secondary" weight="200" />
+  </UiPrimaryButton>
+```
+
 ### Usage of a customizable UiButton
 
 The UiButton allows for customization of the styling and colorations, this component can be used to create your own level components in your applications:
