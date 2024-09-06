@@ -3,7 +3,7 @@
   "description": "@uireact/charts package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "3.0.18",
+  "version": "3.0.19",
   "publishConfig": {
     "access": "public"
   },

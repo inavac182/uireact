@@ -107,7 +107,6 @@ GLOBAL STYLES
 @each $hSize in $hSizes {
     :global(.heading-#{$hSize}) {
         font-size: var(--headings-#{$hSize});
-        line-height: calc(var(--headings-#{$hSize}) * 0.85);
     }
 }
 
