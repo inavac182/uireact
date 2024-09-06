@@ -9,12 +9,11 @@ import { UiButtonLink, UiHeading, UiLink, UiText } from '@uireact/text';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiList, UiListItem } from '@uireact/list';
 import { UiIcon } from '@uireact/icons';
-import { UiCard } from '@uireact/card';
+import { UiReactViewDancing } from '@uireact/framer-animations';
 
 import { InstallationScripts } from './components/installation-scripts';
 import { DocHeading, DocSubHeading } from './components';
 import { ScriptCard } from '../internal';
-import { UiReactViewDancing } from '@uireact/framer-animations';
 
 const listSpacing: UiSpacingProps['padding'] = { inline: 'five'};
 const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
@@ -22,18 +21,7 @@ const contentSpacing: UiSpacingProps['padding'] = { block: 'six' };
 export default function Docs () {
     return (
         <>
-            <UiCard styling='outlined' category='tertiary'>
-                <h2><UiIcon icon="Party" category='tertiary' size='xlarge' motion={UiReactViewDancing} /> V3 is here!</h2>
-                <br />
-                <h3>We just moved aways from styles-components into SCSS modules.</h3>
-                <br/>
-                <p>
-                    CSS-in-JS has its own limitations, it was good while it lasted, now looking into the future, providing a solution
-                    that plays better with Remix and NextJS server components seems a step forward.
-                </p>
-            </UiCard>
-            <br />
-            <DocHeading><UiIcon icon="Heart" size='xlarge' /> Welcome to @UiReact docs</DocHeading>
+            <DocHeading><UiIcon icon="Heart" size='xlarge' motion={{...UiReactViewDancing}} /> Welcome to @UiReact docs</DocHeading>
             <br />
             <UiText>
                 @UiReact is a themed library of react components for react web applications that are built with SCSS and framer motion. 
