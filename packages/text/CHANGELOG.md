@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/inavac182/ui-react/compare/@uireact/text@3.4.0...@uireact/text@3.5.0) (2024-09-06)
+
+
+### Features
+
+* **heading:** adding animated heading ([#373](https://github.com/inavac182/ui-react/issues/373)) ([b1400f2](https://github.com/inavac182/ui-react/commit/b1400f29d9520f4c432ec4fc8ad81d0bdd5a9a64))
+
+
+
+
+
 # 3.4.0 (2024-09-06)
 
 
