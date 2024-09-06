@@ -1,13 +1,11 @@
 .menu {
     background-color: var(--primary-token_100);
-    border-color: var(--primary-token_150);
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     position: absolute;
-    border-width: 2px;
-    border-style: solid;
     border-radius: 5px;
     width: max-content;
     z-index: 10;
+    margin-top: 5px;
 }
 
 .wrapper {
