@@ -6,15 +6,23 @@ Our components were created to help speed up React development so folks doesn't 
 
 We've always work under the idea of having 2 colorations: `light` and `dark`. You could choose to stick with only 1 for your app but the support for both is built within every component in the library
 
+## Foundation and View package
+
+These 2 are the main packages that set up all the needed stuff as the CSS variables, hooks, contexts, etc... Consumed by the rest of components in the library.
+
+So, you HAVE to install both of them, if you used the automatic script then these are set up automatically.
+
 ## Styling
 
-All components in this library require the CSS variable set up by the [UiView](./view) and the theme file. Without these variables the components won't inherit their correct styles.
+As mentioned before the [UiView](./view) sets the CSS variables, without these variables the components won't inherit their correct theme styles.
 
-Also make sure you add all the style files into your CSS file:
+You need to ensure to import these styles into your global CSS like this:
 
 Using CSS:
 ```css
   // In CSS: Update the route based on your project.
+  // vvvvvv---- IF YOU ARE GOING TO USE A CUSTOM THEME REMOVE THIS IMPORT ----vvvvvvvv
+
   @import url('../node_modules/@uireact/foundation/dist/index.css'); 
 
   // Include all packages styles
@@ -35,7 +43,14 @@ For instance you can have a style in a component in your app like this:
 
 And the variable will bring the value for the primary color with token 100 in the element with class `container`.
 
-You can check all the variables that the theme brings in this [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss).
+You can check all the variables that the theme brings in this [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss). But basically they follow this pattern:
+
+```
+--{inverse}-{category}-{tokenvalue}
+```
+The inverse in the name means that when Dark theme is enable then these variables will hold the light values.
+Category is the category of the color: primary, secondary, tertiary, etc...
+The token value is the level of the coloration: token_10, token_50, token_100, etc...
 
 If you want to use your own values for your own theme you can either copy this in your app and modify it, OR, you can use our step by step form to [Create your theme](/create-theme).
 
