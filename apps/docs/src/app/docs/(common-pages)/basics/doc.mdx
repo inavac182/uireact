@@ -43,14 +43,14 @@ For instance you can have a style in a component in your app like this:
 
 And the variable will bring the value for the primary color with token 100 in the element with class `container`.
 
-You can check all the variables that the theme brings in this [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss). But basically they follow this pattern:
+You can check all the variables that the theme brings in this [default theme](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/default-theme.scss). They follow this pattern:
 
 ```
---{inverse}-{category}-{tokenvalue}
+--{inverse}-{category}-{tokenValue}
 ```
-The inverse in the name means that when Dark theme is enable then these variables will hold the light values.
-Category is the category of the color: primary, secondary, tertiary, etc...
-The token value is the level of the coloration: token_10, token_50, token_100, etc...
+The **inverse** in the name means that when Dark theme is enable then these variables will hold the light values.
+**Category** is the category of the color: primary, secondary, tertiary, etc...
+The **tokenValue** is the level of the coloration: token_10, token_50, token_100, etc...
 
 If you want to use your own values for your own theme you can either copy this in your app and modify it, OR, you can use our step by step form to [Create your theme](/create-theme).
 
