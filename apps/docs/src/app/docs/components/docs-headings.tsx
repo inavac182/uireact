@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styled from "styled-components";
 
 import { UiFlexGrid } from "@uireact/flex"
 import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
@@ -11,6 +12,14 @@ type DocSubHeadingProps = {
 type DocHeadingProps = {
     children: React.ReactNode;
 }
+
+const Heading = styled.h1`
+    font-size: 44px;
+    width: fit-content;
+    background: -webkit-linear-gradient(45deg,  var(--fonts-token_100) 0%, var(--secondary-token_100) 50%, var(--tertiary-token_100) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+`;
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'four' };
 
@@ -34,7 +43,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
 export const DocHeading = ({ children }: DocHeadingProps) => {
     return (
         <UiSpacing padding={headingSpacing}>
-            <UiHeading level={2}>{children}</UiHeading>
+            <Heading>{children}</Heading>
             <br />
             <UiLineSeparator />
         </UiSpacing>
