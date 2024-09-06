@@ -5,6 +5,7 @@ import { getSpacingClass } from './spacing-helpers';
 import { UiHeadingProps } from './types';
 
 import styles from './ui-text.scss';
+import headingStyles from './ui-heading.module.scss';
 
 export const UiHeading: React.FC<UiHeadingProps> = ({
   className = '',
@@ -16,9 +17,16 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   children,
   wrap,
   margin,
-  padding
+  padding,
+  gradient
 }: UiHeadingProps) => {
-  let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 heading-level${level}`;
+  let classes = `${className}`;
+
+  if (gradient) {
+    classes = `${classes} ${headingStyles.gradientHeading} heading-level${level}`;
+  } else {
+    classes = `${classes} color-${inverseColoration ? 'inverse-' : ''}${category}-100 heading-level${level}`;
+  }
 
   if (coloration) {
     classes = `${classes} ${coloration}`;

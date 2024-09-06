@@ -1,0 +1,7 @@
+.gradientHeading {
+  width: fit-content;
+  background: -webkit-linear-gradient(45deg,  var(--fonts-token_100) 0%, var(--secondary-token_100) 50%, var(--tertiary-token_100) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
