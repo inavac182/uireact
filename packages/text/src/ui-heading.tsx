@@ -21,7 +21,13 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   gradient,
   animated
 }: UiHeadingProps) => {
-  let classes = `${className} color-${inverseColoration ? 'inverse-' : ''}${category}-100 heading-level${level}`;
+  let classes = `${className}`;
+
+  if (gradient) {
+    classes = `${classes} ${headingStyles.gradientHeading} heading-level${level}`;
+  } else {
+    classes = `${classes} color-${inverseColoration ? 'inverse-' : ''}${category}-100 heading-level${level}`;
+  }
 
   if (animated) {
     classes = `${classes} ${headingStyles.animatedBackground}`;
