@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.5.0 (2024-09-06)
+
+
+### Features
+
+* **heading:** adding gradient heading ([#372](https://github.com/inavac182/uireact/issues/372)) ([5000d87](https://github.com/inavac182/uireact/commit/5000d87738f83bb19683f2cbbfbc9d0c751a457a))
+
+
+
+
+
 # [3.4.0](https://github.com/inavac182/uireact/compare/@uireact/view@3.3.2...@uireact/view@3.4.0) (2024-08-15)
 
 
