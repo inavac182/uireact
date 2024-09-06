@@ -13,6 +13,13 @@ describe('<UiHeading />', () => {
     expect(screen.getByRole('heading')).toHaveClass('color-fonts-100 heading-level3');
   });
 
+  it('renders fine with gradient', () => {
+    uiRender(<UiHeading gradient>Heading</UiHeading>);
+
+    expect(screen.getByRole('heading', { name: 'Heading', level: 3 })).toBeVisible();
+    expect(screen.getByRole('heading')).toHaveClass('gradientHeading heading-level3');
+  });
+
   it('renders fine with default level spacing', () => {
     uiRender(<UiHeading margin={{ all: 'four' }} padding={{all: 'five'}}>Heading</UiHeading>);
 
