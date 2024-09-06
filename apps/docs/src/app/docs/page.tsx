@@ -33,7 +33,7 @@ export default function Docs () {
                 </p>
             </UiCard>
             <br />
-            <DocHeading>Welcome to @UiReact docs</DocHeading>
+            <DocHeading><UiIcon icon="Heart" size='xlarge' /> Welcome to @UiReact docs</DocHeading>
             <br />
             <UiText>
                 @UiReact is a themed library of react components for react web applications that are built with SCSS and framer motion. 

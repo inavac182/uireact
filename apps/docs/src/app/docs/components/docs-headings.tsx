@@ -14,7 +14,7 @@ type DocHeadingProps = {
 }
 
 const Heading = styled.h1`
-    font-size: 44px;
+    font-size: 50px;
     width: fit-content;
     background: -webkit-linear-gradient(45deg,  var(--fonts-token_100) 0%, var(--secondary-token_100) 50%, var(--tertiary-token_100) 100%);
     -webkit-background-clip: text;

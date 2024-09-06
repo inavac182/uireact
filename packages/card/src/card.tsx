@@ -36,7 +36,7 @@ export const UiCard: React.FC<UiCardProps> = ({
           {...motion}
           {...props}
         >
-            {props.children}
+          {props.children}
         </MotionParent.div>
     ), [category, className, clickHandler, motion, onClick, padding, props, styling, testId, weight]
   );
