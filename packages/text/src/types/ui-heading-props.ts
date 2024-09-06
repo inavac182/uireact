@@ -23,4 +23,6 @@ export type UiHeadingProps = {
   padding?: SpacingDistribution;
   /** Uses gradient background for the heading */
   gradient?: boolean;
+  /** If heading background should animate */
+  animated?: boolean;
 } & UiReactElementProps & AriaAttributes;
