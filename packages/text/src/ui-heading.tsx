@@ -5,6 +5,7 @@ import { getSpacingClass } from './spacing-helpers';
 import { UiHeadingProps } from './types';
 
 import styles from './ui-text.scss';
+import headingStyles from './ui-heading.module.scss';
 
 export const UiHeading: React.FC<UiHeadingProps> = ({
   className = '',
