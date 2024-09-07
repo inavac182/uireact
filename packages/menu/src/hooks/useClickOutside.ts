@@ -29,6 +29,11 @@ export const useClickOutside = (
     if (listening && !listen) {
       setListening(false);
       abortController.abort();
+      document.body.removeEventListener('click', handleClick);
+    }
+
+    return () => {
+      document.body.removeEventListener('click', handleClick);
     }
   }, [handleClick, abortController, listen, setAbortController, listening]);
 };
