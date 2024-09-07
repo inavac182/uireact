@@ -11,10 +11,8 @@ export const useClickOutside = (
   const handleClick = useCallback((event: MouseEvent) => {
     if (ref.current && !isChild(event.target as HTMLElement, ref.current)) {
       callback();
-      setListening(false);
-      abortController.abort();
     }
-  }, [abortController, callback, ref]);
+  }, [callback, ref]);
 
   useEffect(() => {
     if (listen && !listening) {
@@ -26,6 +24,11 @@ export const useClickOutside = (
         setAbortController(controller);
         setListening(true);
       }, 200);
+    }
+
+    if (listening && !listen) {
+      setListening(false);
+      abortController.abort();
     }
   }, [handleClick, abortController, listen, setAbortController, listening]);
 };
