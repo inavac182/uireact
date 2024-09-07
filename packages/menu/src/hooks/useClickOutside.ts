@@ -1,5 +1,7 @@
 import { RefObject, useCallback, useEffect, useState } from "react"
 
+const TIMEOUT_FOR_ANIMATION = 500;
+
 export const useClickOutside = (
   ref: RefObject<HTMLElement | undefined>,
   callback: () => void,
@@ -11,31 +13,32 @@ export const useClickOutside = (
   const handleClick = useCallback((event: MouseEvent) => {
     if (ref.current && !isChild(event.target as HTMLElement, ref.current)) {
       callback();
+      abortController.abort();
+      document.body.removeEventListener('click', handleClick);
     }
-  }, [callback, ref]);
+  }, [abortController, callback, ref]);
 
   useEffect(() => {
     if (listen && !listening) {
       setTimeout(() => {
         const controller = new AbortController();
 
+        document.body.removeEventListener('click', handleClick);
         document.body.addEventListener('click', handleClick, { signal: controller.signal });
 
         setAbortController(controller);
         setListening(true);
-      }, 200);
+      }, TIMEOUT_FOR_ANIMATION);
     }
+  }, [handleClick, abortController, listen, listening]);
 
+  useEffect(() => {
     if (listening && !listen) {
       setListening(false);
       abortController.abort();
       document.body.removeEventListener('click', handleClick);
     }
-
-    return () => {
-      document.body.removeEventListener('click', handleClick);
-    }
-  }, [handleClick, abortController, listen, setAbortController, listening]);
+  }, [abortController, handleClick, listen, listening]);
 };
 
 const isChild = (obj: HTMLElement, parentObj: HTMLElement) => {
