@@ -53,7 +53,7 @@ export default function CreateThemeToolPage () {
             <br />
             <UiText>This tool will guide you go through the steps needed to create your theme.</UiText>
             <br />
-            <UiCard category="primary" weight="150">
+            <UiCard category="primary" weight="10">
                 <UiFlexGrid gap="four" alignItems="center">
                     <UiIcon icon="Info" category="tertiary" />
                     <UiText fontStyle="bold">A few points to keep in mind for your theme:</UiText>

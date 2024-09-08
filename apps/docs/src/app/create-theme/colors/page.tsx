@@ -1,6 +1,5 @@
 'use client';
 import { Suspense, useCallback, useMemo } from "react";
-import styled from "styled-components";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -9,7 +8,7 @@ import { UiSpacingProps, UiSpacing, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiText } from "@uireact/text";
-import { UiButton } from "@uireact/button";
+import { UiButton, UiPrimaryButton } from "@uireact/button";
 import { UiExpandoText } from "@uireact/expando";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiCard } from "@uireact/card";
@@ -19,6 +18,8 @@ import { generateThemeStructure, isCompletedColoration } from "../utils";
 import { ContinueLink } from "../components";
 
 import { Heading } from "@/app/internal";
+
+import styles from './colors.module.scss';
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const buttonSpacing: UiSpacingProps['padding'] = {block: 'three', inline: 'five'};
@@ -70,16 +71,16 @@ export default function Colors () {
             <br />
             <UiText fontStyle="bold">When you pick a color this tool will automatically calculate the tokens for the darker and lighter colors, you could manually change them later on.</UiText>
             <br />
-            <UiCard category="primary" weight="200">
+            <UiCard category="primary" weight="10" className={styles.colorsCard}>
                 <UiExpandoText collapseLabel="Color categories information" expandLabel="Color categories information">
                     <br />
                     <UiText>Each category has its own purpose, this information will give you a guideline on each one:</UiText>
                     <br />
-                    <UiText fontStyle="bold"> Main colors</UiText>
+                    <UiText fontStyle="bold" category="secondary" size="large"> Main colors</UiText>
                     <UiSpacing padding={listSpacing}>
                         <UiList type="BULLETED">
                             <UiListItem>
-                                <UiText fontStyle="bold">Primary</UiText>
+                                <UiText fontStyle="bold" category="tertiary">Primary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
                                         <UiText>This is your main color around the web app, used for mostly everything in the page such as backgrounds.</UiText>
@@ -87,28 +88,35 @@ export default function Colors () {
                                 </UiList>
                             </UiListItem>
                             <UiListItem>
-                                <UiText fontStyle="bold">Secondary</UiText>
+                                <UiText fontStyle="bold" category="tertiary">Secondary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
-                                        <UiText>Secondary as a primary color to highlight some areas of the application for instance a card in the middle of text, like this one.</UiText>
+                                        <UiText>Secondary color is used to contrast content, so it should be capable of rendering the inverse theme coloration.</UiText>
+                                    </UiListItem>
+                                    <UiListItem>
+                                        <UiText>An example of this would be the <UiText inline fontStyle="bold">UiPrimaryButton</UiText>. The main color is the secondary color and the font is using the inverse font color:</UiText>
+                                        <UiPrimaryButton margin={{ block: 'four' }}>
+                                            <p>Example button</p>
+                                        </UiPrimaryButton>
+                                        <UiText>E.g. When light theme is enabled, secondary color from light theme is used and the font uses the color from the dark theme.</UiText>
                                     </UiListItem>
                                 </UiList>
                             </UiListItem>
                             <UiListItem>
-                                <UiText fontStyle="bold">Tertiary</UiText>
+                                <UiText fontStyle="bold" category="tertiary">Tertiary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
-                                        <UiText>This is usually your brand&apos;s color, used ONLY in the 10% of your app.</UiText>
+                                        <UiText>This is usually your brand&apos;s color or like an accent color, used ONLY in the arounr 10% of your app.</UiText>
                                     </UiListItem>
                                     <UiListItem>
-                                        <UiText>It&apos;s commonly used to highlight icons, buttons, links. Actions that you would like the user to do.</UiText>
+                                        <UiText>It&apos;s commonly used to highlight icons, buttons, links, in some designs used to render headings with personality.</UiText>
                                     </UiListItem>
                                 </UiList>
                             </UiListItem>
                         </UiList>
                     </UiSpacing>
                     <br />
-                    <UiText fontStyle="bold"> Support colors</UiText>
+                    <UiText fontStyle="bold" category="secondary" size="large"> Support colors</UiText>
                     <UiSpacing padding={listSpacing}>
                         <UiList type="BULLETED">
                             <UiListItem>
@@ -126,7 +134,7 @@ export default function Colors () {
                         </UiList>
                     </UiSpacing>
                     <br />
-                    <UiText>This colors help to provide state to the user, they are self explanatory but they could be used to represent the result of an action.</UiText>
+                    <UiText>This colors help to provide state to the user, they are self explanatory.</UiText>
                 </UiExpandoText>
             </UiCard>
             <br />
