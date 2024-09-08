@@ -60,6 +60,9 @@ GLOBAL STYLES
             :global(.#{$state}-color-#{$category}-#{$token}) {
                 &:#{$state} {
                     color: var(--#{$category}-token_#{$token});
+                    svg {
+                        fill: var(--#{$category}-token_#{$token});
+                    }
                 }
             }
     
@@ -78,6 +81,9 @@ GLOBAL STYLES
             :global(.#{$state}-color-inverse-#{$category}-#{$token}) {
                 &:#{$state} {
                     color: var(--inverse-#{$category}-token_#{$token});
+                    svg {
+                        fill: var(--inverse-#{$category}-token_#{$token});
+                    }
                 }
             }
         }
