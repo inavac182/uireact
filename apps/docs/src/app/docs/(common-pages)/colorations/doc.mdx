@@ -1,0 +1,87 @@
+import { UiIcon } from '@uireact/icons';
+import { UiReactViewRotating } from '@uireact/framer-animations';
+import { UiText } from '@uireact/text';
+import { UiInput } from '@uireact/form';
+import { UiFlexGrid } from '@uireact/flex';
+import { UiPrimaryButton, UiSecondaryButton, UiTertiaryButton } from '@uireact/button';
+
+import { ColorationHolder, CustomCard, CustomText, TertiaryButton } from './coloration-holder';
+
+# <UiIcon icon="Opacity" size='xlarge' motion={{...UiReactViewRotating}} /> Colorations
+
+The theme colorations are `primary`, `secondary` and `tertiary`. The `fonts` color is its own category that should only be used on fonts.
+There are also supporting colorations such as `Positive`, `Negative`, `Error` and `Warning`.
+
+## Colors usages
+
+The truth is that you can use them at your best convenience but we highly recommend to follow this pattern:
+
+- <UiText inline category="tertiary">Primary</UiText> - **60%**
+- <UiText inline category="tertiary">Secondary</UiText> - **30%**
+- <UiText inline category="tertiary">Tertiary</UiText> - **10%**
+
+The supporting colors could be used as needed based on your design system.
+
+## Font color
+
+The primary color to be used on your backgrounds, so your fonts should have a color that totally contrast with this color. 
+
+For instance imagine you want your light theme to use the color **#E7E7E7** then your texts should have a very dark color to contrast correctly like: **#001456**.
+
+```jsx live 
+  <div style={{ backgroundColor: "#E7E7E7", padding: "10px", width: "100%", boxSizing: "border-box", borderRadius: "20px" }}>
+    <p style={{color: "#001456"}}>Text colors</p>
+  </div>
+```
+
+## Example on how to choose colorations
+
+The primary and secondary colors are used as the baseline and as the highlight color. 
+
+For instance let's do some mock up thinking that your brand color is: <ColorationHolder color='#1CCB2F' coloration='dark' /> and you want to keep your app with a green-ish coloration.
+
+**Example**
+
+The **tertiary** color would go to : <ColorationHolder color='#1CCB2F' coloration='dark' /> by default as its your brand color.
+
+For **primary** color we will use a soft color like this for light theme: <ColorationHolder color='#E7E7E7' coloration='dark' /> and this for dark theme: <ColorationHolder color='#051C08' coloration='light' />
+
+The **font** color for the **light** theme could be: <ColorationHolder color='#0D4313' coloration='light' /> to be readable on light colorations.
+
+For the **dark** theme, the **font** color could be: <ColorationHolder color='#F2F7EB' coloration='dark' /> to be readble on dark colorations.
+
+Now, for the **secondary** color we can choose a green color that looks great behind the inverse font color like: <ColorationHolder color='#2D5809' coloration='light' /> for light and this: <ColorationHolder color='#C8DEB6' coloration='dark' /> for dark.
+
+**Light coloration**
+
+```jsx live scope={{UiFlexGrid, CustomCard, CustomText, TertiaryButton}}
+  <CustomCard backgroundColor="#E7E7E7">
+    <UiFlexGrid alignItems="center" justifyContent="stretch">
+      <CustomText color="#0D4313"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span></CustomText>
+      <CustomCard backgroundColor="#2D5809">
+        <CustomText color="#F2F7EB">Lorem ipsum dolor sit amet</CustomText>
+      </CustomCard>
+    </UiFlexGrid>
+    <hr style={{ margin: "10px 0" }} />
+    <TertiaryButton>
+      <CustomText color="#0D4313">Lorem</CustomText>
+    </TertiaryButton>
+  </CustomCard>
+```
+
+**Dark coloration**
+
+```jsx live scope={{UiFlexGrid, CustomCard, CustomText, TertiaryButton}}
+  <CustomCard backgroundColor="#0B1503">
+    <UiFlexGrid alignItems="center" justifyContent="stretch">
+      <CustomText color="#F2F7EB">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</CustomText>
+      <CustomCard backgroundColor="#C8DEB6">
+        <CustomText color="#0D4313">Lorem ipsum dolor sit amet</CustomText>
+      </CustomCard>
+    </UiFlexGrid>
+    <hr style={{ margin: "10px 0" }} />
+    <TertiaryButton>
+      <CustomText color="#F2F7EB">Lorem</CustomText>
+    </TertiaryButton>
+  </CustomCard>
+```

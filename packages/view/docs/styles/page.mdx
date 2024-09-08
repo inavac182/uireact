@@ -1,0 +1,154 @@
+# CSS Styles
+
+The `UiView` package exports a CSS file with classes that are used across the library components.
+
+As you need to import this styles into your global CSS then that means that you also have access to these classes.
+
+## Theme classes
+
+The first set of classes exported are created with the CSS Variables that you have in the theme. 
+
+### Color classes
+
+For example the variables for the primary colors in your theme will look like this, just with your own values:
+
+```css
+    --primary-token_10: #0b1433;
+    --primary-token_50: #070e26;
+    --primary-token_100: #050d2a;
+    --primary-token_150: #04091e;
+    --primary-token_200: #030717;
+```
+
+The classes that will be generated are:
+
+```css
+  .bg-primary-10 {
+    background-color: var(--primary-token_10);
+  }
+  .color-primary-10 {
+    color: var(--primary-token_10);
+  }
+  .border-primary-10 {
+    border-color: var(--primary-token_10);
+  }
+  .fill-primary-10 {
+    fill: var(--primary-token_10);
+  }
+```
+
+So, each one will set a specific style with a specific value, so whenever needed you can just assign that class to your component and it will grab the correct value based on the theme that is selected.
+
+Each color ( primary, secondary, tertiary... ) with a combination of the tokens ( token_10, token_50, token_100, ... ) will generate its own set of classes.
+
+
+For instance for the token 50 of the secondary color, the background class would look like this:
+
+```css
+  .bg-secondary-50 {
+    background-color: var(--secondary-token_50);
+  }
+```
+
+### Sizes classes
+The theme also has values for text, headings and spacing sizes all these properties also will generate its own set of classes.
+
+#### Text sizes 
+
+Each of the text levels in the theme will generate its own set of classes, for instance for the `regular` text size these are going to be the classes:
+
+```css
+  .radius-regular {
+    border-radius: var(--texts-regular);
+  }
+  .size-regular {
+    font-size: var(--texts-regular);
+    line-height: calc(var(--texts-regular) * 1.25);
+  }
+  .w-regular {
+    width: var(--texts-regular);
+  }
+  .h-regular {
+    height: var(--texts-regular);
+  }
+```
+
+#### Heading sizes
+
+The headings sizes will also generate classes, for instance the heading level 1 generates:
+
+```css
+  .heading-level1 {
+    font-size: var(--headings-level1);
+  }
+```
+
+#### Spacing sizes
+
+The spacing levels generate classes that are related to spacing, for instance for the spacing level one:
+
+```css
+  .padding-one {
+    padding: var(--spacing-one);
+  }
+  .margin-one {
+    margin: var(--spacing-one);
+  }
+  .gap-one {
+    gap: var(--spacing-one);
+  }
+  .padding-top-one {
+    padding-top: var(--spacing-one);
+  }
+  .margin-top-one {
+    margin-top: var(--spacing-one);
+  }
+  .padding-right-one {
+    padding-right: var(--spacing-one);
+  }
+  .margin-right-one {
+    margin-right: var(--spacing-one);
+  }
+  .padding-bottom-one {
+    padding-bottom: var(--spacing-one);
+  }
+  .margin-bottom-one {
+    margin-bottom: var(--spacing-one);
+  }
+  .padding-left-one {
+    padding-left: var(--spacing-one);
+  }
+  .margin-left-one {
+    margin-left: var(--spacing-one);
+  }
+```
+
+You can use each of these as needed.
+
+## Utility classes
+
+In addition to the classes that are related to your theme there are some other classes that are generated as utility classes that can be used throughout your app:
+
+```css
+  .inline {
+    display: inline;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .clear-bg {
+    background-color: unset;
+  }
+```
+
+If you want to see how all these classes are generated in our library you can see this file: [ui-view.scss](https://github.com/inavac182/uireact/blob/main/packages/view/src/ui-view.scss)

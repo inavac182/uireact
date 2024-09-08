@@ -1,0 +1,16 @@
+.tertiaryButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #1CCB2F;
+  padding: 5px;
+  width: 100px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #1CCB2F;
+  }
+
+  &:active {
+    background-color: #17b529;
+  }
+}

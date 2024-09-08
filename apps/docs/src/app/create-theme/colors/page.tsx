@@ -7,7 +7,7 @@ import { UiFlexGrid } from "@uireact/flex";
 import { UiSpacingProps, UiSpacing, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiLineSeparator } from "@uireact/separator";
-import { UiText } from "@uireact/text";
+import { UiButtonLink, UiText } from "@uireact/text";
 import { UiButton, UiPrimaryButton } from "@uireact/button";
 import { UiExpandoText } from "@uireact/expando";
 import { UiList, UiListItem } from "@uireact/list";
@@ -135,6 +135,13 @@ export default function Colors () {
                     </UiSpacing>
                     <br />
                     <UiText>This colors help to provide state to the user, they are self explanatory.</UiText>
+                    <br />
+                    <UiText>
+                        If you want to learn more details about suggestions on how to choose your colors, you can look at:{" "} 
+                        <UiButtonLink padding={{ block: 'two', inline: 'three' }}>
+                            <Link href="/docs/colorations">Colorations docs</Link>
+                        </UiButtonLink>
+                    </UiText>
                 </UiExpandoText>
             </UiCard>
             <br />
