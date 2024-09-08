@@ -2,7 +2,7 @@ import { UiIcon } from '@uireact/icons';
 import { UiReactViewRotating } from '@uireact/framer-animations';
 import { UiText } from '@uireact/text';
 import { UiInput } from '@uireact/form';
-import { UiFlexGrid } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiPrimaryButton, UiSecondaryButton, UiTertiaryButton } from '@uireact/button';
 
 import { ColorationHolder, CustomCard, CustomText, TertiaryButton } from './coloration-holder';
@@ -54,34 +54,41 @@ Now, for the **secondary** color we can choose a green color that looks great be
 
 **Light coloration**
 
-```jsx live scope={{UiFlexGrid, CustomCard, CustomText, TertiaryButton}}
+```jsx live scope={{UiFlexGrid, UiFlexGridItem, CustomCard, CustomText, TertiaryButton}}
   <CustomCard backgroundColor="#E7E7E7">
-    <UiFlexGrid alignItems="center" justifyContent="stretch">
-      <CustomText color="#0D4313"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span></CustomText>
+    <UiFlexGrid alignItems="center" justifyContent="stretch" gap='two'>
+      <UiFlexGridItem grow={2}>
+        <CustomText color="#0D4313">Font text for light theme on primary coloration</CustomText>
+      </UiFlexGridItem>
       <CustomCard backgroundColor="#2D5809">
-        <CustomText color="#F2F7EB">Lorem ipsum dolor sit amet</CustomText>
+        <CustomText color="#F2F7EB">Inverse font on secondary</CustomText>
       </CustomCard>
     </UiFlexGrid>
     <hr style={{ margin: "10px 0" }} />
     <TertiaryButton>
-      <CustomText color="#0D4313">Lorem</CustomText>
+      <CustomText color="#0D4313">Tertiary button</CustomText>
     </TertiaryButton>
   </CustomCard>
 ```
 
 **Dark coloration**
 
-```jsx live scope={{UiFlexGrid, CustomCard, CustomText, TertiaryButton}}
+```jsx live scope={{UiFlexGrid, UiFlexGridItem, CustomCard, CustomText, TertiaryButton}}
   <CustomCard backgroundColor="#0B1503">
-    <UiFlexGrid alignItems="center" justifyContent="stretch">
-      <CustomText color="#F2F7EB">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</CustomText>
+    <UiFlexGrid alignItems="center" justifyContent="stretch" gap='two'>
+      <UiFlexGridItem grow={2}>
+        <CustomText color="#F2F7EB">Font text for dark theme on primary coloration</CustomText>
+      </UiFlexGridItem>
       <CustomCard backgroundColor="#C8DEB6">
-        <CustomText color="#0D4313">Lorem ipsum dolor sit amet</CustomText>
+        <CustomText color="#0D4313">Inverse font on secondary</CustomText>
       </CustomCard>
     </UiFlexGrid>
     <hr style={{ margin: "10px 0" }} />
     <TertiaryButton>
-      <CustomText color="#F2F7EB">Lorem</CustomText>
+      <CustomText color="#F2F7EB">Tertiary button</CustomText>
     </TertiaryButton>
   </CustomCard>
 ```
+
+This is a very simple exercise that we put together so you can get a head start on colorations, but the best thing would be for you to get started
+and then just play around with your colorations.

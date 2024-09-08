@@ -22,7 +22,7 @@ type CustomCardProps = {
 
 export const CustomCard = ({ children, backgroundColor }: CustomCardProps) => {
   return (
-    <div style={{ backgroundColor, padding: "10px", width: "100%", boxSizing: "border-box", borderRadius: "20px" }}>
+    <div style={{ backgroundColor, padding: "10px", boxSizing: "border-box", borderRadius: "20px" }}>
       {children}
     </div>
   )
