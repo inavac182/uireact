@@ -1,3 +1,4 @@
+
 /**********
  * 
  * @UiReact generated theme variables
@@ -7,7 +8,7 @@
 
 /**
  * Defaulting to dark coloration on SSR
- * Dark coloration values
+ * Dark coloration
  * **/
 
  :root, .dark {
@@ -34,8 +35,8 @@
     --fonts-token_10: #ffffff;
     --fonts-token_50: #f6f6fe;
     --fonts-token_100: #ededfd;
-    --fonts-token_150: #1515e0;
-    --fonts-token_200: #08085a;
+    --fonts-token_150: #babaff;
+    --fonts-token_200: #9999fa;
     --primary-token_10: #0b1433;
     --primary-token_50: #070e26;
     --primary-token_100: #050d2a;
@@ -46,12 +47,12 @@
     --secondary-token_100: #7988f9;
     --secondary-token_150: #5d70fc;
     --secondary-token_200: #455af8;
-    --tertiary-token_10: #d305f2;
-    --tertiary-token_50: #a904c2;
-    --tertiary-token_100: #8d03a1;
-    --tertiary-token_150: #710381;
-    --tertiary-token_200: #460251;
-
+    --tertiary-token_10: #eebaf6;
+    --tertiary-token_50: #da8de6;
+    --tertiary-token_100: #d65aea;
+    --tertiary-token_150: #c323db;
+    --tertiary-token_200: #8c0d9f;
+  
     --inverse-error-token_10: #ffffff;
     --inverse-error-token_50: #fdbbbb;
     --inverse-error-token_100: #fc7474;
@@ -92,28 +93,28 @@
     --inverse-tertiary-token_100: #e13af6;
     --inverse-tertiary-token_150: #d00ae9;
     --inverse-tertiary-token_200: #820692;
-
-    /**
-    * Texts / Headings Sizes properties
-    * **/
     
+        /**
+        * Texts / Headings Sizes properties
+        * **/
+        
     --texts-xsmall: 0.8rem;
     --texts-small: 1rem;
     --texts-regular: 1.2rem;
     --texts-large: 1.5rem;
     --texts-xlarge: 2rem;
-
+  
     --headings-level1: 4rem;
     --headings-level2: 3rem;
     --headings-level3: 2.5rem;
     --headings-level4: 2rem;
     --headings-level5: 1.5rem;
     --headings-level6: 1.2rem;
-
-    /**
-    * Spacing properties
-    * **/
     
+        /**
+        * Spacing properties
+        * **/
+        
     --spacing-one: 0.2rem;
     --spacing-two: 0.4rem;
     --spacing-three: 1rem;
@@ -121,91 +122,91 @@
     --spacing-five: 1.5rem;
     --spacing-six: 2rem;
     --spacing-seven: 2.5rem;
-}
-    
-/**
-    * Light coloration class
-    * **/
-.light {
-    --error-token_10: #ffffff;
-    --error-token_50: #fdbbbb;
-    --error-token_100: #fc7474;
-    --error-token_150: #fa2c2c;
-    --error-token_200: #b30404;
-    --warning-token_10: #fcfcdc;
-    --warning-token_50: #f3f386;
-    --warning-token_100: #eeee4c;
-    --warning-token_150: #e5e516;
-    --warning-token_200: #8f8f0e;
-    --negative-token_10: #ffffff;
-    --negative-token_50: #f1f0f0;
-    --negative-token_100: #e2e0e0;
-    --negative-token_150: #746e6e;
-    --negative-token_200: #2e2c2c;
-    --positive-token_10: #8ff872;
-    --positive-token_50: #59f42d;
-    --positive-token_100: #3ce50b;
-    --positive-token_150: #30b809;
-    --positive-token_200: #1e7306;
-    --fonts-token_10: #0101a1;
-    --fonts-token_50: #010194;
-    --fonts-token_100: #000041;
-    --fonts-token_150: #000020;
-    --fonts-token_200: #000000;
-    --primary-token_10: #ffffff;
-    --primary-token_50: #f7f8fd;
-    --primary-token_100: #eff1fc;
-    --primary-token_150: #e7ebff;
-    --primary-token_200: #d3dafa;
-    --secondary-token_10: #a5b1fb;
-    --secondary-token_50: #91a0fe;
-    --secondary-token_100: #4f67fd;
-    --secondary-token_150: #425afa;
-    --secondary-token_200: #3e50c4;
-    --tertiary-token_10: #f7ccfd;
-    --tertiary-token_50: #ea74f9;
-    --tertiary-token_100: #e13af6;
-    --tertiary-token_150: #d00ae9;
-    --tertiary-token_200: #820692;
-
-    --inverse-error-token_10: #d03434;
-    --inverse-error-token_50: #a92727;
-    --inverse-error-token_100: #8d2020;
-    --inverse-error-token_150: #711a1a;
-    --inverse-error-token_200: #471010;
-    --inverse-warning-token_10: #cfc400;
-    --inverse-warning-token_50: #a59d00;
-    --inverse-warning-token_100: #8a8300;
-    --inverse-warning-token_150: #6e6900;
-    --inverse-warning-token_200: #454100;
-    --inverse-negative-token_10: #d4d4d4;
-    --inverse-negative-token_50: #7f7f7f;
-    --inverse-negative-token_100: #2a2a2a;
-    --inverse-negative-token_150: #151515;
-    --inverse-negative-token_200: #000000;
-    --inverse-positive-token_10: #55ff70;
-    --inverse-positive-token_50: #00cc21;
-    --inverse-positive-token_100: #00440b;
-    --inverse-positive-token_150: #002205;
-    --inverse-positive-token_200: #000000;
-    --inverse-fonts-token_10: #ffffff;
-    --inverse-fonts-token_50: #f6f6fe;
-    --inverse-fonts-token_100: #ededfd;
-    --inverse-fonts-token_150: #1515e0;
-    --inverse-fonts-token_200: #08085a;
-    --inverse-primary-token_10: #0b1433;
-    --inverse-primary-token_50: #070e26;
-    --inverse-primary-token_100: #050d2a;
-    --inverse-primary-token_150: #04091e;
-    --inverse-primary-token_200: #030717;
-    --inverse-secondary-token_10: #bfc6fb;
-    --inverse-secondary-token_50: #aeb7fa;
-    --inverse-secondary-token_100: #7988f9;
-    --inverse-secondary-token_150: #5d70fc;
-    --inverse-secondary-token_200: #455af8;
-    --inverse-tertiary-token_10: #d305f2;
-    --inverse-tertiary-token_50: #a904c2;
-    --inverse-tertiary-token_100: #8d03a1;
-    --inverse-tertiary-token_150: #710381;
-    --inverse-tertiary-token_200: #460251;
-}
+    }
+  
+    /**
+     * Light coloration class
+     * **/
+    .light {
+      --error-token_10: #ffffff;
+      --error-token_50: #fdbbbb;
+      --error-token_100: #fc7474;
+      --error-token_150: #fa2c2c;
+      --error-token_200: #b30404;
+      --warning-token_10: #fcfcdc;
+      --warning-token_50: #f3f386;
+      --warning-token_100: #eeee4c;
+      --warning-token_150: #e5e516;
+      --warning-token_200: #8f8f0e;
+      --negative-token_10: #ffffff;
+      --negative-token_50: #f1f0f0;
+      --negative-token_100: #e2e0e0;
+      --negative-token_150: #746e6e;
+      --negative-token_200: #2e2c2c;
+      --positive-token_10: #8ff872;
+      --positive-token_50: #59f42d;
+      --positive-token_100: #3ce50b;
+      --positive-token_150: #30b809;
+      --positive-token_200: #1e7306;
+      --fonts-token_10: #0101a1;
+      --fonts-token_50: #010194;
+      --fonts-token_100: #000041;
+      --fonts-token_150: #000020;
+      --fonts-token_200: #000000;
+      --primary-token_10: #ffffff;
+      --primary-token_50: #f7f8fd;
+      --primary-token_100: #eff1fc;
+      --primary-token_150: #e7ebff;
+      --primary-token_200: #d3dafa;
+      --secondary-token_10: #a5b1fb;
+      --secondary-token_50: #91a0fe;
+      --secondary-token_100: #4f67fd;
+      --secondary-token_150: #425afa;
+      --secondary-token_200: #3e50c4;
+      --tertiary-token_10: #f7ccfd;
+      --tertiary-token_50: #ea74f9;
+      --tertiary-token_100: #e13af6;
+      --tertiary-token_150: #d00ae9;
+      --tertiary-token_200: #820692;
+  
+      --inverse-error-token_10: #d03434;
+      --inverse-error-token_50: #a92727;
+      --inverse-error-token_100: #8d2020;
+      --inverse-error-token_150: #711a1a;
+      --inverse-error-token_200: #471010;
+      --inverse-warning-token_10: #cfc400;
+      --inverse-warning-token_50: #a59d00;
+      --inverse-warning-token_100: #8a8300;
+      --inverse-warning-token_150: #6e6900;
+      --inverse-warning-token_200: #454100;
+      --inverse-negative-token_10: #d4d4d4;
+      --inverse-negative-token_50: #7f7f7f;
+      --inverse-negative-token_100: #2a2a2a;
+      --inverse-negative-token_150: #151515;
+      --inverse-negative-token_200: #000000;
+      --inverse-positive-token_10: #55ff70;
+      --inverse-positive-token_50: #00cc21;
+      --inverse-positive-token_100: #00440b;
+      --inverse-positive-token_150: #002205;
+      --inverse-positive-token_200: #000000;
+      --inverse-fonts-token_10: #ffffff;
+      --inverse-fonts-token_50: #f6f6fe;
+      --inverse-fonts-token_100: #ededfd;
+      --inverse-fonts-token_150: #babaff;
+      --inverse-fonts-token_200: #9999fa;
+      --inverse-primary-token_10: #0b1433;
+      --inverse-primary-token_50: #070e26;
+      --inverse-primary-token_100: #050d2a;
+      --inverse-primary-token_150: #04091e;
+      --inverse-primary-token_200: #030717;
+      --inverse-secondary-token_10: #bfc6fb;
+      --inverse-secondary-token_50: #aeb7fa;
+      --inverse-secondary-token_100: #7988f9;
+      --inverse-secondary-token_150: #5d70fc;
+      --inverse-secondary-token_200: #455af8;
+      --inverse-tertiary-token_10: #eebaf6;
+      --inverse-tertiary-token_50: #da8de6;
+      --inverse-tertiary-token_100: #d65aea;
+      --inverse-tertiary-token_150: #c323db;
+      --inverse-tertiary-token_200: #8c0d9f;
+  }
