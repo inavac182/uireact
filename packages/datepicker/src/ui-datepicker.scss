@@ -21,6 +21,7 @@
     display: flex;
     justify-content: flex-end;
     border-top: 1px solid var(--primary-token_50);
+    padding: 0 5px;
 }
 
 .pickerMonthContainer {
@@ -55,7 +56,8 @@
     transition: background-color 0.3s;
 
     &:hover {
-        background-color: var(--primary-token_10);
+        background-color: var(--primary-token_200);
+        color: var(--fonts-token-100);
     }
 
     &:disabled {
@@ -68,10 +70,10 @@
 }
 
 .hightlightWrapperButton {
-    background-color: var(--primary-token_50);
+    background-color: var(--primary-token_10);
 }
 
 .selectedDayWrapperButton {
-    background-color: var(--tertiary-token_200);
+    background-color: var(--secondary-token_100);
     color: var(--inverse-fonts-token_100);
 }

@@ -15,7 +15,7 @@ import styles from './ui-datepicker.scss';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'two', inline: 'three' };
-const buttonPadding: UiSpacingProps['padding'] = { block: 'two' };
+const buttonPadding: UiSpacingProps['padding'] = { block: 'two', right: 'two' };
 const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
