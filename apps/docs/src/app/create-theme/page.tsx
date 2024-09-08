@@ -8,9 +8,10 @@ import { UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
-import { UiText } from "@uireact/text";
+import { UiLink, UiText } from "@uireact/text";
 import { ContinueLink } from "./components";
 import { generateThemeStructure } from "./utils";
+import Link from "next/link";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const listSpacing: UiSpacingProps['padding'] = {inline: 'five'};
@@ -84,6 +85,13 @@ export default function CreateThemeToolPage () {
                         <br />
                     </UiListItem>
                 </UiList>
+                <UiText>If you want to learn more about how to choose your colorations you can head to this doc page:{" "}
+                    <UiLink>
+                        <Link href="/docs/colorations">
+                            Colorations information
+                        </Link>
+                    </UiLink>
+                </UiText>
             </UiSpacing>
             </UiCard>
             <br />

@@ -21,7 +21,6 @@ const SidebarWrapper = styled.div<{ $isFloatingNavbar?: boolean }>`
 `;
 
 const SidebarInnerContent = styled.div`
-    position: sticky;
     top: 60px;
 `;
 
