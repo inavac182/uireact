@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/inavac182/uireact/compare/@uireact/flex@3.0.7...@uireact/flex@3.0.8) (2024-09-09)
+
+
+### Bug Fixes
+
+* **flex:** incorrect prop type ([409f15f](https://github.com/inavac182/uireact/commit/409f15fc903f510469277deb3af965ed425cfbdc))
+
+
+
+
+
 ## 3.0.7 (2024-09-08)
 
 **Note:** Version bump only for package @uireact/flex
