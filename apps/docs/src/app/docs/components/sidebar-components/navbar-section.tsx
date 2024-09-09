@@ -78,7 +78,7 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
                     <UiLink>
                         <Link href={`/docs${link}`}>
                         <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
-                            <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
+                            <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'start'} gap='four'>
                                 <UiIcon icon={icon} category='tertiary' inverseColoration />
                                 <UiText fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
                             </UiFlexGrid>
@@ -87,7 +87,7 @@ export const NavbarSection = ({ selected, onSelectMenu, title, id, icon, items, 
                     </UiLink>
                 ) : (
                 <UiSpacing padding={isFloatingNavbar ? navbarFloatingItemTitle : navbarTitleSpacing}>
-                    <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'flex-start'} gap='four'>
+                    <UiFlexGrid alignItems='center' justifyContent={isFloatingNavbar ? 'center' : 'start'} gap='four'>
                         <UiIcon icon={icon} category='primary' inverseColoration />
                         <UiText fontStyle='bold' category='primary' inverseColoration>{title}</UiText>
                     </UiFlexGrid>
