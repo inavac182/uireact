@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.6 (2024-09-09)
+
+
+### Bug Fixes
+
+* **button:** padding when used with icon ([5668222](https://github.com/inavac182/uireact/commit/56682225283bc2deaeb5f8369c1b18d821b5f6d5))
+
+
+
+
+
 ## 3.2.5 (2024-09-08)
 
 **Note:** Version bump only for package @uireact/button
