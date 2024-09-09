@@ -81,7 +81,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
         <UiFlexGrid alignItems="center" justifyContent="center">
           <UiFlexGridItem>
             <UiButton styling="icon" onClick={onSelectPrevMonth} testId="datepicker-previous-month-button">
-              <UiIcon icon="AngleClearLeft" />
+              <UiIcon icon="AngleCircleLeft" />
             </UiButton>
           </UiFlexGridItem>
           <UiFlexGridItem grow={1}>
@@ -106,7 +106,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           )}
           <UiFlexGridItem>
             <UiButton styling="icon" onClick={onSelectNextMonth} testId="datepicker-next-month-button">
-              <UiIcon icon="AngleClearRight" />
+              <UiIcon icon="AngleCircleRight" />
             </UiButton>
           </UiFlexGridItem>
         </UiFlexGrid>
