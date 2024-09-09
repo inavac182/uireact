@@ -7,7 +7,7 @@ export const getButtonStylingClasses = (styling: 'filled' | 'clear' | 'icon' | '
             return `${styles.buttonIcon} bg-${category}-10`;
         }
 
-        return `${styles.buttonIcon} clear-bg hover-bg-${category}-100 active-bg-${category}-200`;
+        return `${styles.buttonIcon} clear-bg hover-bg-${category}-150 active-bg-${category}-200`;
     }
 
     if (styling === 'clear') {

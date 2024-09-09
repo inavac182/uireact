@@ -170,7 +170,7 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'A' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('button buttonIcon hover-bg-error-100 active-bg-error-200');
+    expect(screen.getByRole('button')).toHaveClass('button buttonIcon hover-bg-error-150 active-bg-error-200');
   });
 
   test('renders button with submit type', () => {
