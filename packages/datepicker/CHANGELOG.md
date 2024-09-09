@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.18.13...@uireact/datepicker@0.19.0) (2024-09-09)
+
+
+### Features
+
+* **datepicker:** adding localized labels ([#374](https://github.com/inavac182/ui-react/issues/374)) ([f83ec08](https://github.com/inavac182/ui-react/commit/f83ec081aaf0a05e1586bf04ad641c5a0b897282))
+
+
+
+
+
 ## [0.18.13](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.18.12...@uireact/datepicker@0.18.13) (2024-09-09)
 
 **Note:** Version bump only for package @uireact/datepicker
