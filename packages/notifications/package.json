@@ -3,7 +3,7 @@
   "description": "notifications package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "publishConfig": {
     "access": "public"
   },
