@@ -3,7 +3,7 @@
   "description": "datepicker package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "publishConfig": {
     "access": "public"
   },
