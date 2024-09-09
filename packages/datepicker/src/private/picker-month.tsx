@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getDaysInMonth, getStartingDayOfTheWeek, getDaysByWeek } from '../utils';
-import { DateTitleFormats } from '../types';
+import { DateTitleFormats, UiDatepickerLocalizedLabels } from '../types';
 import { WeekTitle } from './week-title';
 import { PickerWeek } from './picker-week';
 
@@ -15,6 +15,7 @@ type PickerMonthProps = {
   onSelectDate: (selectedDate: Date) => void;
   selectedDate?: Date;
   disablePastDates?: boolean;
+  localizedLabels?: UiDatepickerLocalizedLabels;
 };
 
 export const PickerMonth: React.FC<PickerMonthProps> = ({
@@ -25,6 +26,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
   onSelectDate,
   disablePastDates,
   selectedDate,
+  localizedLabels
 }: PickerMonthProps) => {
   // Using plus one in month, so we can get the last day of the previous month by using 0 as day
   const daysInMonth = getDaysInMonth(focusDate.getMonth() + 1, focusDate.getFullYear());
@@ -36,7 +38,7 @@ export const PickerMonth: React.FC<PickerMonthProps> = ({
 
   return (
     <div className={styles.pickerMonthContainer}>
-      <WeekTitle titlesFormat={dayTitlesFormat} />
+      <WeekTitle titlesFormat={dayTitlesFormat} localizedLabels={localizedLabels} />
       {daysByWeek.map((value, index) => (
         <PickerWeek
           key={`picker-week-${index}`}

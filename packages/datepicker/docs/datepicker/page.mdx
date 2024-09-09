@@ -2,7 +2,7 @@ import { UiDatepicker } from '@uireact/datepicker';
 
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
-import { DatePickerExample } from './example';
+import { DatePickerExample, DatePickerLocalizedExample } from './example';
 
 # UiDatepicker
 <Metadata packageName='datepicker' packageJson={packageJson} />
@@ -25,26 +25,8 @@ This example uses these 2 props to change the behavior of the date picker in sma
 
 <ol>
   <li>`useDialogOnSmall` - When screen is small the datepicker will be opened in a dialog.</li>
-
-{' '}
-
-<li>
-  As there the visibility is now in a state, we can show and hide the datepicker to our convenience.
-  <ul>
-    <li> The Datepicker will be closed if user presses ESC key. </li>
-    <li> The Datepicker will be closed if the user clicks outside the datepicker. </li>
-    <li> Inside the Dialog if the user clicks on the `Close` button then it will trigger the `onClose` CB. </li>
-  </ul>
-</li>
-
-  <li> 3. The `closeLabel` prop is passing the label used inside the dialog in the close button. </li>
+  <li> The `closeLabel` prop is passing the label used inside the dialog in the close button. </li>
 </ol>
-
-<br />
-
-The callback `onClose` is optional as there might be a use case where you would like to close the datepicker when the `onSelectDate` callback
-is triggered, depends on the use case you might rely on the selection or on the close callback. In this example we are using the
-onClose CB to close the datepicker.
 
 <br />
 
@@ -95,4 +77,89 @@ export const DatePickerExample: React.FC = () => {
     </div>
   );
 };
+```
+## Localized picker
+
+For localization of the labels in the datepicker you can pass the labels you want on the prop `localizedLabels` we will retrieve the values from here when present.
+
+Example using spanish labels:
+
+```jsx live scope={{DatePickerLocalizedExample}}
+  <DatePickerLocalizedExample />
+```
+
+DatePickerLocalizedExample: 
+
+```tsx
+const labels: UiDatepickerLocalizedLabels = {
+  months: {
+    january: "Enero",
+    february: "Febrero",
+    march: "Marzo",
+    april: "Abril",
+    may: "Mayo",
+    june: "Junio",
+    july: "Julio",
+    august: "Agosto",
+    september: "Septiembre",
+    october: "Octubre",
+    november: "Noviembre",
+    december: "Diciembre"
+  },
+  weekDays: {
+    sunday: "Domingo",
+    monday: "Lunes",
+    tuesday: "Martes",
+    wednesday: "Miercoles",
+    thursday: "Jueves",
+    friday: "Viernes",
+    saturday: "Sabado"
+  }
+}
+
+export const DatePickerLocalizedExample: React.FC = () => {
+  const [dateSelected, setDateSelected] = useState<Date | undefined>();
+  const [datepickerVisible, setDatepickerVisible] = useState<boolean>(false);
+
+  const onSelectDate = useCallback(
+    (date: Date) => {
+      setDateSelected(date);
+    },
+    [setDateSelected]
+  );
+
+  const onOpenClick = useCallback(() => {
+    setDatepickerVisible(true);
+  }, [setDatepickerVisible]);
+
+  const onClose = useCallback(() => {
+    setDatepickerVisible(false);
+  }, [setDatepickerVisible]);
+
+  return (
+    <div>
+      <UiButton onClick={onOpenClick} category="tertiary">
+        <UiSpacing padding={buttonSpacing}>Open date picker</UiSpacing>
+      </UiButton>
+      <UiDatepicker
+        date={today}
+        onSelectDate={onSelectDate}
+        highlightToday
+        isOpen={datepickerVisible}
+        onClose={onClose}
+        useDialogOnSmall
+        closeLabel="Accept"
+        localizedLabels={labels}
+      />
+      {dateSelected && (
+        <UiSpacing padding={textSpacing}>
+          <UiText>
+            Date selected: {`${dateSelected.getFullYear()}/${dateSelected.getMonth() + 1}/${dateSelected.getDate()}`}
+          </UiText>
+        </UiSpacing>
+      )}
+    </div>
+  );
+};
+
 ```
