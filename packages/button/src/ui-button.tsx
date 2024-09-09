@@ -40,7 +40,9 @@ export const UiButton: React.FC<UiButtonProps> = ({
     classes = `${classes} ${styles.buttonFullHeight}`;
   }
 
-  classes = `${classes} ${getSpacingClass('padding', padding ?? defaultPadding)}`;
+  if (styling !== 'icon') {
+    classes = `${classes} ${getSpacingClass('padding', padding ?? defaultPadding)}`;
+  }
 
   if (margin) {
     classes = `${classes} ${getSpacingClass('margin', margin)}`;
