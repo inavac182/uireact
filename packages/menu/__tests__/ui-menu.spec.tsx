@@ -130,7 +130,7 @@ describe('<UiMenu />', () => {
     });
 
     act(() => {
-      jest.advanceTimersByTime(200);
+      jest.advanceTimersByTime(500);
     });
 
     fireEvent.click(screen.getByTestId('content-outside-menu'));
@@ -148,7 +148,7 @@ describe('<UiMenu />', () => {
     });
 
     act(() => {
-      jest.advanceTimersByTime(200);
+      jest.advanceTimersByTime(500);
     });
 
     fireEvent.click(screen.getByRole('button', { name: 'Some element' }));
