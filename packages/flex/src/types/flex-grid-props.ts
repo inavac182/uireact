@@ -2,7 +2,7 @@ import { SpacingType, UiReactElementProps } from '@uireact/foundation';
 
 export type UiFlexGridProps = {
   /** Items alignment inside flex grid */
-  alignItems?: 'stretch' | 'flex-start' | 'flex-end' | 'center';
+  alignItems?: 'stretch' | 'start' | 'end' | 'center';
   /** Children component */
   children?: React.ReactNode;
   /** Spacing for columns, values gotten from the theme spacing props */
@@ -14,7 +14,7 @@ export type UiFlexGridProps = {
   /** If the flex grid renders inline */
   inline?: boolean;
   /** Flex grid wrap */
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
+  justifyContent?: 'start' | 'end' | 'center' | 'space-between' | 'stretch';
   /** Spacing for rows, values gotten from the theme spacing props */
   rowGap?: SpacingType;
   /** Flex grid wrap */

@@ -62,16 +62,20 @@ $sizings: 'one', 'two', 'three', 'four', 'five', 'six', 'seven';
     flex-wrap: wrap-reverse;
 }
 
-.justify-flex-start {
+.justify-start {
     justify-content: flex-start;
 }
 
-.justify-flex-end {
+.justify-end {
     justify-content: flex-end;
 }
 
 .justify-center {
     justify-content: center;
+}
+
+.justify-stretch {
+    justify-content: stretch;
 }
 
 .justify-space-between {
