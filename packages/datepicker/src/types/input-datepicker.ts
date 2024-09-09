@@ -1,6 +1,7 @@
 import { ColorCategory, SizesProp, UiReactElementProps } from '@uireact/foundation';
 
 import { DateTitleFormats } from './date-titles';
+import { UiDatepickerLocalizedLabels } from './datepicker-props';
 
 export type privateInputDatepickerProps = {
   /** Input autocomplete setting */
@@ -77,4 +78,6 @@ export type UiInputDatepickerProps = {
   useDialogOnSmall?: boolean;
   /** Disables the dates in the past from the given date, if no date is passed today's date is used */
   disablePastDates?: boolean;
+  /** The localized labels to use in the datepicker if needed */
+  localizedLabels?: UiDatepickerLocalizedLabels;
 } & UiReactElementProps;

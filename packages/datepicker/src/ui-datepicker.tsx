@@ -10,7 +10,7 @@ import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 
 import { UiDatepickerProps } from './types';
 import { PickerMonth } from './private/picker-month';
-import { getMonthTitle } from './utils';
+import { getLocalizedMonthLabel, getMonthTitle } from './utils';
 import styles from './ui-datepicker.scss';
 
 const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
@@ -32,6 +32,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   useDialogOnSmall = false,
   isOpen = false,
   selectInitDate = false,
+  localizedLabels
 }: UiDatepickerProps) => {
   const { isSmall } = useViewport();
   const today = new Date();
@@ -85,13 +86,21 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           </UiFlexGridItem>
           <UiFlexGridItem grow={1}>
             <UiText align='center' fontStyle="bold">
-              {getMonthTitle(focusDate.getMonth(), monthTitlesFormat)} {focusDate.getFullYear()}
+              {localizedLabels ? 
+                getLocalizedMonthLabel(focusDate.getMonth(), localizedLabels) 
+                : 
+                getMonthTitle(focusDate.getMonth(), monthTitlesFormat)
+              } {focusDate.getFullYear()}
             </UiText>
           </UiFlexGridItem>
           {showNextMonth && !isSmall && (
             <UiFlexGridItem grow={1}>
               <UiText align='center' fontStyle="bold">
-                {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
+                {localizedLabels ? 
+                  getLocalizedMonthLabel(nextFocusDate.getMonth(), localizedLabels) 
+                  : 
+                  getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)
+                } {nextFocusDate.getFullYear()}
               </UiText>
             </UiFlexGridItem>
           )}
@@ -112,6 +121,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
             onSelectDate={onSelectInternalDate}
             selectedDate={selectedDate}
             disablePastDates={disablePastDates}
+            localizedLabels={localizedLabels}
           />
         </UiFlexGridItem>
         {showNextMonth && (
@@ -131,6 +141,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
               onSelectDate={onSelectInternalDate}
               selectedDate={selectedDate}
               disablePastDates={disablePastDates}
+              localizedLabels={localizedLabels}
             />
           </div>
         )}

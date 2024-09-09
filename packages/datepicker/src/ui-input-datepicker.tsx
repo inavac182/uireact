@@ -32,6 +32,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
   showNextMonth,
   useDialogOnSmall,
   disablePastDates = false,
+  localizedLabels
 }: UiInputDatepickerProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [datepickerDate, setDatepickerDate] = useState<Date | undefined>(date);
@@ -116,6 +117,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
         useDialogOnSmall={useDialogOnSmall}
         disablePastDates={disablePastDates}
         selectInitDate
+        localizedLabels={localizedLabels}
       />
     </div>
   );

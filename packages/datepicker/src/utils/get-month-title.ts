@@ -1,4 +1,4 @@
-import { DateTitle, DateTitleFormats } from '../types';
+import { DateTitle, DateTitleFormats, UiDatepickerLocalizedLabels } from '../types';
 
 const months: DateTitle[] = [
   {
@@ -66,3 +66,34 @@ const months: DateTitle[] = [
 export const getMonthTitle = (month: number, format: DateTitleFormats): string => {
   return months[month][format];
 };
+
+export const getLocalizedMonthLabel = (day: number, localizedLabels: UiDatepickerLocalizedLabels): string => {
+  switch(day) {
+    case 0: 
+      return localizedLabels.months.january
+    case 1: 
+      return localizedLabels.months.february
+    case 2: 
+      return localizedLabels.months.march
+    case 3: 
+      return localizedLabels.months.april
+    case 4: 
+      return localizedLabels.months.may
+    case 5: 
+      return localizedLabels.months.june
+    case 6: 
+      return localizedLabels.months.july
+    case 7: 
+      return localizedLabels.months.august
+    case 8: 
+      return localizedLabels.months.september
+    case 9: 
+      return localizedLabels.months.october
+    case 10: 
+      return localizedLabels.months.november
+    case 11: 
+      return localizedLabels.months.december
+    default:
+      return '';
+  }
+}

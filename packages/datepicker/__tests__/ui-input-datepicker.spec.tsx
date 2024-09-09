@@ -4,7 +4,33 @@ import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { UiIcon } from '@uireact/icons';
 
 import { uiRender } from '../../../__tests__/utils/render';
-import { UiInputDatepicker } from '../src';
+import { UiDatepickerLocalizedLabels, UiInputDatepicker } from '../src';
+
+const labels: UiDatepickerLocalizedLabels = {
+  months: {
+    january: "Enero",
+    february: "Febrero",
+    march: "Marzo",
+    april: "Abril",
+    may: "Mayo",
+    june: "Junio",
+    july: "Julio",
+    august: "Agosto",
+    september: "Septiembre",
+    october: "Octubre",
+    november: "Noviembre",
+    december: "Diciembre"
+  },
+  weekDays: {
+    sunday: "Domingo",
+    monday: "Lunes",
+    tuesday: "Martes",
+    wednesday: "Miercoles",
+    thursday: "Jueves",
+    friday: "Viernes",
+    saturday: "Sabado"
+  }
+}
 
 describe('<UiDatepicker />', () => {
   // January 2028
@@ -25,6 +51,44 @@ describe('<UiDatepicker />', () => {
     });
     
     expect(screen.getByText('January 2028')).toBeVisible();
+  });
+
+  it('renders fine with localized strings', async () => {
+    uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} name="someDate" localizedLabels={labels} />);
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeVisible();
+    expect(screen.getByRole('textbox')).toHaveValue('2028-01-31');
+
+    fireEvent.focus(screen.getByRole('textbox'));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+    
+    expect(screen.getByText('Enero 2028')).toBeVisible();
+    expect(screen.getByText('Domingo')).toBeVisible();
+  });
+
+  it('renders fine with localized strings and next month visible', async () => {
+    uiRender(<UiInputDatepicker date={date} onChange={jest.fn()} name="someDate" localizedLabels={labels} showNextMonth />);
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeVisible();
+    expect(screen.getByRole('textbox')).toHaveValue('2028-01-31');
+
+    fireEvent.focus(screen.getByRole('textbox'));
+
+    await waitFor(() => {
+      expect(screen.getByRole('menu')).toBeVisible();
+    });
+    
+    expect(screen.getByText('Enero 2028')).toBeVisible();
+    expect(screen.getByText('Febrero 2028')).toBeVisible();
+    expect(screen.getAllByText('Domingo')[0]).toBeVisible();
+    expect(screen.getAllByText('Domingo')[1]).toBeVisible();
   });
 
   it('renders fine when no date is passed', async () => {
