@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.18 (2024-09-11)
+
+
+### Bug Fixes
+
+* **form:** label on top for inputs ([#375](https://github.com/inavac182/ui-react/issues/375)) ([b233e27](https://github.com/inavac182/ui-react/commit/b233e27da5668549f65956ac8e2f6fad979c8939))
+
+
+
+
+
 ## 3.3.17 (2024-09-08)
 
 **Note:** Version bump only for package @uireact/form
