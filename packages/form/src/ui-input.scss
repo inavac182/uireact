@@ -16,6 +16,11 @@
 
 .wrapperInput {
     display: flex;
+    gap: var(--spacing-two);
+}
+
+.wrapperAlignedColumn {
+    flex-direction: column;
 }
 
 .inputContentDiv {

@@ -32,25 +32,16 @@ export const UiSelect: React.FC<UiSelectProps> = ({
   );
 
   return (
-    <div className={styles.selectWrapper} data-testid={testId}>
-      {label && labelOnTop && (
-        <div>
-          <UiLabel htmlFor={name} category={category}>
-            {label}
-          </UiLabel>
-        </div>
+    <div className={`${styles.selectWrapper} ${labelOnTop ? styles.selectWrapperAlignedColumn : ''}`} data-testid={testId}>
+      {label && (
+        <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
+          {label}
+        </UiLabel>
       )}
       <div className={styles.selectDiv}>
-        {label && !labelOnTop && (
-          <div>
-            <UiLabel htmlFor={name} category={category}>
-              {label} &nbsp;
-            </UiLabel>
-          </div>
-        )}
         <div className={styles.selectContainer}>
           <select
-            className={`${className} ${styles.select} bg-${category}-100 border-${category}-150 color-fonts-100 hover-bg-${category}-150 hover-border-${category}-200 size-${size} focus-border-tertiary-200`}
+            className={`${className} ${styles.select} bg-primary-10 border-${category}-150 color-fonts-100 hover-border-${category}-200 size-${size} focus-border-tertiary-200`}
             disabled={disabled}
             id={name}
             name={name}
