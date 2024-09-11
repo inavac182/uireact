@@ -24,8 +24,8 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   onChange,
   required,
 }: UiTextAreaProps) => (
-  <div className={`${className} ${styles.textareaWrapper}`} data-testid={testId}>
-    {label && labelOnTop && (
+  <div className={`${className} ${styles.textareaWrapper} ${labelOnTop ? styles.textAreaWrapperColumn : ''}`} data-testid={testId}>
+    {label && (
       <div>
         <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
           {label}
@@ -33,13 +33,6 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
       </div>
     )}
     <div className={styles.textareaDiv}>
-      {label && !labelOnTop && (
-        <div>
-          <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
-            {label} &nbsp;
-          </UiLabel>
-        </div>
-      )}
       <div className={styles.textareInputWrapper}>
         <textarea
           className={`${styles.textarea} bg-primary-10 border-${category ? category : 'primary'}-100 focus-border-${category ? category : 'tertiary'}-100 ${!resize ? styles.noResize : ''}`}
