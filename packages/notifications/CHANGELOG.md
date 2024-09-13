@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.10.9 (2024-09-13)
+
+**Note:** Version bump only for package @uireact/notifications
+
+
+
+
+
 ## [0.10.8](https://github.com/inavac182/ui-react/compare/@uireact/notifications@0.10.7...@uireact/notifications@0.10.8) (2024-09-09)
 
 **Note:** Version bump only for package @uireact/notifications
