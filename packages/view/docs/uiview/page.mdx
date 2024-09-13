@@ -4,22 +4,16 @@ import { Metadata } from '@uireact/docs-tools';
 
 # UiView
 
-<Metadata packageName='view' packageJson={packageJson} />
+<Metadata packageName='view' packageJson={packageJson} includeInformation description='This component will set up the global styles and providers for @uireact components to work properly.' />
 
-> This component SHOULD wrap your entire app tree
-
-This component will set up the global styles and providers for @uireact to work properly.
+All this is set up automatically in this component:
 
 - Theme context provider
 - Dialogs context provider
 - Global styles
 - Notifications context provider
 
-## Installation ⚙️
-
-> npm i @uireact/foundation @uireact/view
-
-## Examples 🤓
+## Usage 🤓
 
 ### UiView
 
@@ -28,14 +22,15 @@ This doc page is wrapped in a `<UiView />` component
 This is an example of our wrapper:
 
 ```jsx
-export const ViewExample: React.FC = () => (
-  <UiView selectedTheme={'light'}>
-    <p>All the react tree should render inside here</p>
+export const AppWrapper: React.FC = ({ children }) => (
+  <UiView>
+    {children}
   </UiView>
 );
 ```
-By default, the `<UiView />` component will attach an event listener to the user's appearance selector. Meaning that they could control their
-theme through their device theme settings.
+The children in this example would be your app tree.
+
+By default, the `<UiView />` component will attach an event listener to the user's appearance selector. Meaning that they can control their theme through their device theme settings.
 
 ### UiView styling
 
@@ -46,7 +41,6 @@ The UiView by default will set the background to `PRIMARY` with a the color of t
     <p>A view with primary bg and weight 10</p>
   </UiView>
 ```
-
 
 ### NextJS - Fonts optimized frameworks
 

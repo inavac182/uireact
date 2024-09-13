@@ -1,15 +1,13 @@
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
-# Breakpoints
+# Responsive
 
-<Metadata packageName='foundation' packageJson={packageJson} />
+The @UiReact library handles responsiveness across multiple devices with the following categories:
 
-> npm i @uireact/foundation
+## Breakpoins breakdown ✍️
 
-## Definition ✍️
-
-We currently support these breakpoints:
+We have these classifications for different sizes of viewports:
 
 ```
 enum Breakpoints {
@@ -24,13 +22,9 @@ enum Breakpoints {
 }
 ```
 
-The [Breakpoints enum](https://github.com/inavac182/uireact/blob/main/packages/foundation/src/types/breakpoints-enum.ts) is exported as part of the package @ui-react/foundation
-this enum has the different breakpoints we support.
+## Breakpoint sizes
 
-## Breakpoints sizes
-
-Based on data around internet of the most common resolutions for each device we have decided to set up the supported breakpoints sizes
-in the following distribution:
+Based on data on internet for the most common viewports on each category we've decided to set up the breakpoints sizes in the following distribution:
 
 ```
 const BreakpointsSizes = {
@@ -53,4 +47,6 @@ const BreakpointsSizes = {
 };
 ```
 
-**NOTE:** @uireact doesn't distinguish between real mobile device and desktop small breakpoint, they are both categorized as SMALL.
+## Usage
+
+The `UiViewport` component uses these categories to decide when some content renders or not based on the viewport. For more information about it you can go to the [UiViewport docs](./viewport).

@@ -13,6 +13,9 @@
   ],
   "main": "dist/index",
   "types": "dist/index.d.ts",
+  "dependencies": {
+    "styled-components": "6.0.7"
+  },
   "scripts": {
     "build": "tsc",
     "clean": " rm -rf dist node_modules coverage",

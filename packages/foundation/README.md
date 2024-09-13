@@ -19,21 +19,7 @@ There are 5 steps you need to get your project up and running using our library:
 
 Doc: https://react.dev/learn/start-a-new-react-project#nextjs-pages-router, Yes, we suggest you use Next JS.
 
-### 2. Install our peer dependencies
-
-```
-npm i -S framer-motion styled-components
-```
-
-We suggest using framer motion v11 and upwards, and styled components version 6 and upwards.
-
-### 3. Get styled components working on your project.
-
-If you are using Next JS this is very simple. [CSS-in-JS Next Js](https://nextjs.org/docs/app/building-your-application/styling/css-in-js)
-
-If you are using Remix [Styled-Components example](https://github.com/remix-run/examples/tree/main/styled-components)
-
-### 4. Install foundation and view component
+### 2. Install foundation and view component
 
 ```
 npm i -S @uireact/foundation @uireact/view
@@ -41,22 +27,23 @@ npm i -S @uireact/foundation @uireact/view
 
 If you want to read more about the view package you can visit its docs page [@uireact/view](https://www.uireact.io/docs/view).
 
-### 5. Wrap your react tree in UiView component
+### 3. Wrap your react tree in UiView component
 
 You need to wrap your react tree in our UiView component like this:
 
 ```tsx
-import { ThemeColor, DefaultTheme } from '@uireact/foundation';
 import { UiView } from '@uireact/view';
 
-const App = ({ children }) => (
-  <UiView theme={DefaultTheme} selectedTheme={ThemeColor.dark}>
+const AppWrapper = ({ children }) => (
+  <UiView>
     {children}
   </UiView>
 );
 ```
 
-And there you have it! You should be up and running now. There are multiple things you can customize to make this even better:
+And there you have it! You should be up and running now. There are multiple things you can customize to make this even better.
+
+The `<UiView />` component attach a listener to the user's device theme so whatever the device theme is selected is what your app will render, isn't it cool!?
 
 ## Create your theme
 
