@@ -11,15 +11,15 @@ We've always work under the idea of having 2 colorations: `light` and `dark`. Yo
 
 ## Foundation and View package
 
-These 2 are the main packages that set up all the needed stuff as the CSS variables, hooks, contexts, etc... Consumed by the rest of components in the library.
+These are the main packages that set up all the needed stuff consumed by the components in the library, things like CSS variables, hooks, contexts, providers, etc...
 
-So, you HAVE to install both of them, if you used the automatic script then these are set up automatically.
+So, you **HAVE** to have both installed, if you used the automatic script then these are already set up.
 
-## Styling
+## Styling import
 
-As mentioned before the [UiView](./view) sets the CSS variables, without these variables the components won't inherit their correct theme styles.
+As mentioned before the [UiView](./view) sets CSS variables, without these variables the components won't inherit their correct theme styles.
 
-You need to ensure to import these styles into your global CSS like this:
+Also, You need to import each package styles into your global CSS for the CSS to be picked up in your application like this:
 
 Using CSS:
 ```css
@@ -31,8 +31,9 @@ Using CSS:
   // Include all packages styles
   @import url('../node_modules/@uireact/view/dist/index.css'); 
 ```
+There are frameworks that allow you to import styles from the node modules, if you are using one of them then you could use that. If you do this make sure you ommit the foundation package if you will provide your own theme variables.
 
-#### CSS Variables
+#### CSS Variables usage
 
 As we use CSS Variables, once you import the theme in your global CSS, the variables will be available in your application for you to use, so you can use them for your own components.
 
@@ -51,6 +52,7 @@ You can check all the variables that the theme brings in this [default theme](ht
 ```
 --{inverse}-{category}-{tokenValue}
 ```
+
 The **inverse** in the name means that when Dark theme is enable then these variables will hold the light values.
 
 **Category** is the category of the color: primary, secondary, tertiary, etc...

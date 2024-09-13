@@ -3,7 +3,7 @@ import { NavbarItem } from "../sidebar-components";
 export const FoundationSideBarData: NavbarItem[] = [
     {
         link: '/breakpoints',
-        title: 'Breakpoints'
+        title: 'Responsive'
     },
     {
         link: '/default-theme',

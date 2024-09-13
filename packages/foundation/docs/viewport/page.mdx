@@ -11,11 +11,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 > This component make it easy to render/remove components from the DOM based on the breakpoint.
 
-## Installation 🧰
-
-This component is exported as part of @uireact/foundation
-
-> npm i @uireact/foundation
+This component is exported as part of **@uireact/foundation** so if you have already set up the library you can just import it from the foundation package.
 
 ## Usages 🛠️
 
@@ -24,27 +20,27 @@ This component is exported as part of @uireact/foundation
 ```jsx live scope={{UiViewport, UiCard, Breakpoints}}
 <>
   <UiViewport criteria={Breakpoints.XLARGE}>
-    <UiCard>Hey, I'm in XLarge!</UiCard>
+    <UiCard category="primary">Hey, I'm in XLarge!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.LARGE}>
-    <UiCard>Hey, I'm in Large!</UiCard>
+    <UiCard category="primary">Hey, I'm in Large!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.MEDIUM}>
-    <UiCard>I appear in Medium!!</UiCard>
+    <UiCard category="primary">I appear in Medium!!</UiCard>
   </UiViewport>
   <UiViewport criteria={Breakpoints.SMALL}>
-    <UiCard>And I'm in Small!</UiCard>
+    <UiCard category="primary">And I'm in Small!</UiCard>
   </UiViewport>
 </>
 ```
 
-The [Breakpoints](./packages-foundation-docs-breakpoints#definition) enum is used to set up one specific breakpoint where we want the UiViewport to render something.
+The [Breakpoints](./breakpoints) enum is used to set up one specific breakpoint where we want the UiViewport to render something.
 
 ### Multiple breakpoints
 
 ```jsx live scope={{UiViewport, UiCard}}
   <UiViewport criteria="m|l|xl">
-    <UiCard>Hey, I appear in medium, large and xlarge!!</UiCard>
+    <UiCard category="primary">Hey, I appear in medium, large and xlarge!!</UiCard>
   </UiViewport>
 ```
 

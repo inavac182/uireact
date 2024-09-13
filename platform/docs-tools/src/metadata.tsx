@@ -3,15 +3,23 @@ import React from 'react';
 
 import { UiBadge } from '@uireact/badge';
 import { UiIcon } from '@uireact/icons';
-import { UiHeading, UiLink, UiText } from '@uireact/text';
+import { UiLink, UiText } from '@uireact/text';
 import { ColorCategory, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiFlexGrid } from '@uireact/flex';
-import { UiCard } from '@uireact/card';
+import { UiExpandoCard } from '@uireact/expando';
+import { UiList, UiListItem } from '@uireact/list';
+
+import { CustomBlockquote } from './custom-block';
+import { DocSubHeading } from './doc-subheading';
 
 type MetadataProps = {
+  description: string;
+  includeInformation: boolean;
   packageName: string;
   packageJson: {
     version: string,
+    description: string,
+    name: string,
     peerDependencies: {
       [key in string]: string
     }
@@ -42,9 +50,7 @@ const badgesInfo: BadgesInfo = {
   }
 }
 
-const MetadaSpacing: UiSpacingProps['padding'] = { block: 'four' };
-
-export const Metadata = ({ packageName, packageJson }: MetadataProps) => {
+export const Metadata = ({ packageName, packageJson, includeInformation, description }: MetadataProps) => {
   const peers = Object.keys(packageJson.peerDependencies);
   const version = packageJson.version;
   const badges = [];
@@ -57,34 +63,44 @@ export const Metadata = ({ packageName, packageJson }: MetadataProps) => {
   }));
 
   return (
-    <UiSpacing padding={MetadaSpacing}>
+    <UiFlexGrid direction='column' gap='three'>
+      <UiText>Package: <UiText fontStyle='bold' inline>{packageJson.name}</UiText></UiText>
       <UiFlexGrid columnGap='four' alignItems='center'>
         <sup>
           <UiLink>
             <a href={`https://github.com/inavac182/uireact/blob/main/packages/${packageName}/`} target="_blank">
+              <UiFlexGrid alignItems='center' gap='two'>
                 <UiIcon icon='BrandsGithub' size='large' />{' '}
                 v{packageJson.version}
+              </UiFlexGrid>
             </a>
           </UiLink>
         </sup>
         {badges.map((badge, index) => badge && <UiBadge category={badge.category} key={`metadata-version-${index}`}>{badge.text}</UiBadge>)}
       </UiFlexGrid>
-      <br />
-      {badges.map((badge, index) => {
-        if (badge?.text === 'Styled components') {
-          return (
-            <UiCard padding={{ all: 'four'}} key={`messages-${index}`} category='warning'>
-              <UiHeading level={5}>CSS-in-JS</UiHeading>
-              <UiText size='small'>
-                This component uses styled components, we are moving away from it in favor of SCSS modules. Stay tuned as this component will be migrated soon.
-              </UiText>
-            </UiCard>
-          );
-        }
-
-        return null;
-      })}
-      
-    </UiSpacing>
+      {includeInformation && (
+        <>
+          {description && (
+            <CustomBlockquote>
+              <UiText>{description}</UiText>
+            </CustomBlockquote>
+          )}
+          <DocSubHeading>Installation ⚙️</DocSubHeading>
+            <UiText>1. Make sure you install peer dependencies first:</UiText>
+            <UiExpandoCard collapseLabel='Collapse peer dependencies' expandLabel='Expand peer dependencies' >
+              <UiSpacing padding={{left: 'three', top: 'three'}}>
+                <UiList type='BULLETED'>
+                  {Object.keys(packageJson.peerDependencies).map((index, deep) => (<UiListItem key={`component-peer-${index}`}><UiText>{`${index}: ${packageJson.peerDependencies[index]}`}</UiText></UiListItem>))}
+                </UiList>
+              </UiSpacing>
+            </UiExpandoCard>
+            <UiText>2. Install package:</UiText>
+            <CustomBlockquote>
+              <UiText> npm i -S {packageJson.name}</UiText>
+            </CustomBlockquote>
+          <DocSubHeading>Documentation 📖</DocSubHeading>
+        </>
+      )}
+    </UiFlexGrid>
   )
 }

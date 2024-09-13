@@ -7,6 +7,6 @@ export const ViewSideBarData: NavbarItem[] = [
     },
     {
         link: '/styles',
-        title: 'Styles'
+        title: 'CSS Styles'
     },
 ];
