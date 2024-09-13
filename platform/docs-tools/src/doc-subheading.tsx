@@ -6,7 +6,7 @@ import { UiLink, UiText, UiHeading } from "@uireact/text";
 
 import Link from 'next/link';
 
-const headingSpacing: UiSpacingProps['padding'] = { block: 'four' };
+const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 type DocSubHeadingProps = {
   children: React.ReactNode;
@@ -21,7 +21,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
         <Link href={`#${link}`} id={link}>
           <UiFlexGrid gap="four" alignItems="center">
             <UiText category="tertiary" size="large">#</UiText>
-            <UiHeading level={4}>{children}</UiHeading>
+            <UiHeading>{children}</UiHeading>
           </UiFlexGrid>
         </Link>
       </UiLink>

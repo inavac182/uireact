@@ -27,12 +27,14 @@
   "dependencies": {
     "@uireact/card": "workspace:*",
     "@uireact/foundation": "workspace:*",
-    "@uireact/icons": "workspace:*"
+    "@uireact/icons": "workspace:*",
+    "@uireact/text": "workspace:*"
   },
   "peerDependencies": {
     "@uireact/card": ">= 3",
     "@uireact/foundation": ">= 3",
     "@uireact/icons": ">= 3",
+    "@uireact/text": ">= 3",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "tslib": "^2.5.0"

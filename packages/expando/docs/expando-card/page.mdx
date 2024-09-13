@@ -4,15 +4,9 @@ import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiExpandoCard
-<Metadata packageName='expando' packageJson={packageJson} />
+<Metadata packageName='expando' packageJson={packageJson} includeInformation description='This component renders a card with a heading that allows to show or hide content when clicked.' />
 
-> This component renders a card with a heading that allows to show or hide content when clicked.
-
-## Installation
-
-> npm i @uireact/foundation @uireact/icons @uireact/expando
-
-## Just a expando
+## Usage
 
 ```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me">
@@ -20,7 +14,7 @@ import { Metadata } from '@uireact/docs-tools';
   </UiExpandoCard>
 ```
 
-## Expando with custom category and inverse heading coloration
+#### Expando with custom category and inverse heading coloration
 
 ```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" category="tertiary" headingInverseColoration>
@@ -28,7 +22,7 @@ import { Metadata } from '@uireact/docs-tools';
   </UiExpandoCard>
 ```
 
-## Expando initiated expanded
+#### Expando initiated expanded
 
 ```jsx live scope={{UiExpandoCard}}
   <UiExpandoCard expandLabel="Expand me" collapseLabel="Collapse me" expanded>

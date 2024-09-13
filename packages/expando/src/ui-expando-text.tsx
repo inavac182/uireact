@@ -1,9 +1,13 @@
 import React, { useCallback, useState } from 'react';
 
+import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiIcon } from '@uireact/icons';
+import { UiText } from '@uireact/text';
 
 import { UiExpandoLinkProps } from './types';
 import styles from './ui-expando-text.scss';
+
+const contentPadding: UiSpacingProps['padding'] = { block: 'two' };
 
 export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
   category = 'fonts',
@@ -33,7 +37,7 @@ export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
         data-testid="expando-trigger"
       >
         <div data-testid="expando-text-trigger">
-          <span>{expandedInternal ? collapseLabel : expandLabel}</span>
+          <UiText fontStyle='bold'>{expandedInternal ? collapseLabel : expandLabel}</UiText>
         </div>
         <UiIcon
           icon={expandedInternal ? 'CaretUp' : 'CaretDown'}
@@ -42,7 +46,11 @@ export const UiExpandoText: React.FC<UiExpandoLinkProps> = ({
           size={size}
         />
       </div>
-      {expandedInternal && <>{children}</>}
+      {expandedInternal && (
+        <UiSpacing padding={contentPadding}>
+          {children}
+        </UiSpacing>
+      )}
     </div>
   );
 };
