@@ -68,6 +68,7 @@ export const SideBar = ({ isFloatingNavbar }: SideBarProps) => {
                     <hr />
                 </UiSpacing>
                 <NavbarSection title='Contributing' icon='Terminal' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={12} selected={selected} link="/contributing" />
+                <NavbarSection title='Feature request' icon='Headphones' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={14} selected={selected} link="/requests" />
             </SidebarInnerContent>
         </SidebarWrapper>
     )

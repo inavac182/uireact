@@ -59,14 +59,14 @@ export const FloatingNavbar = () => {
         <FloatingNavbarContent>
             {isNavbarShown && (
                 <NavbarWrapper>
-                    <NavbarCard category='secondary' weight='10'>
+                    <NavbarCard category='primary' weight='10'>
                         <SideBar isFloatingNavbar />
                     </NavbarCard>
                 </NavbarWrapper>
             )}
             <IconContainer>
                 <NavbarButton category="secondary" rounded onClick={onNavbarClick}>
-                    <UiIcon icon="MenuBurger" size='large' />
+                    <UiIcon icon="MenuBurger" size='large' inverseColoration />
                 </NavbarButton>
             </IconContainer>
         </FloatingNavbarContent>
