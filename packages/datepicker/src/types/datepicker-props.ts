@@ -54,4 +54,6 @@ export type UiDatepickerProps = {
   selectInitDate?: boolean;
   /** Localized strings if you want to replace the current US locale labels */
   localizedLabels?: UiDatepickerLocalizedLabels;
+  /** Render the datepicker without a floating menu */
+  flatPicker?: boolean;
 } & UiReactElementProps;

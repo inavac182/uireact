@@ -5,13 +5,7 @@ import { Metadata } from '@uireact/docs-tools';
 import { DatePickerExample, DatePickerLocalizedExample } from './example';
 
 # UiDatepicker
-<Metadata packageName='datepicker' packageJson={packageJson} />
-
-> A datepicker that lets the user select a date
-
-## Installation
-
-> npm i @uireact/foundation @uireact/flex @uireact/button @uireact/grid @uireact/menu @uireact/text @uireact/datepicker
+<Metadata packageName='datepicker' packageJson={packageJson} includeInformation description='A datepicker that lets the user select a date' />
 
 ## Datepicker
 
@@ -163,3 +157,13 @@ export const DatePickerLocalizedExample: React.FC = () => {
 };
 
 ```
+
+## Datepicker without menu
+
+If you need to just render a datepicker that is not floating then the prop `flatPicker` will render it as a block element:
+
+```jsx live scope={{UiDatepicker}}
+  <UiDatepicker flatPicker onSelectDate={(date) => console.log(date)} />
+```
+
+When rendering this component like this, the props related to the menu like `onClose` won't be relevant nor used.

@@ -9,9 +9,10 @@ You should visit our docs page for all information [@uireact docs](https://uirea
 
 ## @uireact/datepicker
 
-This package exports `UiDatepicker` and `UiInputDatepicker` used to render datepickers and input datepickers.
+This package exports `UiDatepicker`, `UiTimepicker`, `UiInputTimepicker` and `UiInputDatepicker` used to render a calendar for users to select dates as well as a timer picker so times can be selected.
 
-We have a page dedicated to this component [@uireact/datepicker docs](https://www.uireact.io/docs/datepicker-input).
+We have a page dedicated to these components: [@uireact/datepicker docs](https://www.uireact.io/docs/datepicker-input).
+We have a page dedicated to these components: [@uireact/timepicker docs](https://www.uireact.io/docs/timepicker-input).
 
 ## Usage
 
