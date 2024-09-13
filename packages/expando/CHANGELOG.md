@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/inavac182/uireact/compare/@uireact/expando@2.6.18...@uireact/expando@2.7.0) (2024-09-13)
+
+
+### Features
+
+* **expando:** using a text element instead of heading ([#377](https://github.com/inavac182/uireact/issues/377)) ([dfe25b2](https://github.com/inavac182/uireact/commit/dfe25b2c747b46964d6d00a01de63c3d3fd0ab05))
+
+
+
+
+
 ## 2.6.18 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/expando
