@@ -154,7 +154,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
 
   if (flatPicker) {
     return (
-      <div>
+      <div className={className}>
         {HeadingSection}
         {PickerSection}
       </div>
