@@ -294,4 +294,24 @@ describe('<UiDatepicker />', () => {
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
   });
+
+  describe('flat', () => {
+    it('renders fine and execute select date callback', async () => {
+      const onSelectedDate = jest.fn();
+      uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} flatPicker />);
+      
+      expect(screen.getByText('January 2028')).toBeVisible();
+      expect(screen.getByText('Sun')).toBeVisible();
+      expect(screen.getByText('Mon')).toBeVisible();
+      expect(screen.getByText('Tue')).toBeVisible();
+      expect(screen.getByText('Wed')).toBeVisible();
+      expect(screen.getByText('Thu')).toBeVisible();
+      expect(screen.getByText('Fri')).toBeVisible();
+
+      fireEvent.click(screen.getByRole('button', { name: '15' }));
+
+      expect(onSelectedDate).toHaveBeenCalledTimes(1);
+      expect(onSelectedDate.mock.calls[0][0]).toStrictEqual(new Date(2028, 0, 15));
+    });
+  });
 });

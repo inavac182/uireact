@@ -163,3 +163,13 @@ export const DatePickerLocalizedExample: React.FC = () => {
 };
 
 ```
+
+## Datepicker without menu
+
+If you need to just render a datepicker that is not floating then the prop `flatPicker` will render it as a block element:
+
+```jsx live scope={{UiDatepicker}}
+  <UiDatepicker flatPicker onSelectDate={(date) => console.log(date)} />
+```
+
+When rendering this component like this, the props related to the menu like `onClose` won't be relevant nor used.
