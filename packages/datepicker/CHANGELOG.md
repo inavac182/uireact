@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.20.0 (2024-09-13)
+
+
+### Features
+
+* **datepicker:** render datepicker flat ([#378](https://github.com/inavac182/ui-react/issues/378)) ([6437741](https://github.com/inavac182/ui-react/commit/64377418f6ff532306d8e3a16741b33d0f2a1486))
+
+
+
+
+
 ## 0.19.4 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/datepicker
