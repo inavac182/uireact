@@ -32,7 +32,7 @@ export const DocSubHeading = ({ children }: DocSubHeadingProps) => {
                 <Link href={`#${link}`} id={link}>
                     <UiFlexGrid gap="four" alignItems="center">
                         <UiText category="tertiary" size="large">#</UiText>
-                        <UiHeading level={4}>{children}</UiHeading>
+                        <UiHeading level={3}>{children}</UiHeading>
                     </UiFlexGrid>
                 </Link>
             </UiLink>

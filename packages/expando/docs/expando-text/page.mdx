@@ -4,15 +4,9 @@ import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiExpandoText
-<Metadata packageName='expando' packageJson={packageJson} />
+<Metadata packageName='expando' packageJson={packageJson} includeInformation description='This component renders a text and an icon that when expanded reveals some content underneath it.' />
 
-> This component renders a text and an icon that when expanded reveals some content underneath it.
-
-## Installation
-
-> npm i @uireact/foundation @uireact/icons @uireact/expando
-
-## Just a expando
+## Usage
 
 ```jsx live scope={{UiExpandoText}}
   <UiExpandoText expandLabel="Expand me" collapseLabel="Collapse me">
@@ -20,7 +14,7 @@ import { Metadata } from '@uireact/docs-tools';
   </UiExpandoText>
 ```
 
-## Expando with custom category and size
+#### Expando with custom category and size
 
 ```jsx live scope={{UiExpandoText}}
   <UiExpandoText expandLabel="Expand me large" collapseLabel="Collapse me large" category="positive" size="xlarge">
@@ -28,7 +22,7 @@ import { Metadata } from '@uireact/docs-tools';
   </UiExpandoText>
 ```
 
-## Expando initiated expanded
+#### Expando initiated expanded
 
 ```jsx live scope={{UiExpandoText}}
   <UiExpandoText expandLabel="Expand me" collapseLabel="Collapse me" expanded>

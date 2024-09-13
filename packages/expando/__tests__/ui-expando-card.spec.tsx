@@ -63,7 +63,7 @@ describe('<UiExpandoCard />', () => {
 
     expect(screen.getByText('Expand label')).toBeVisible();
     expect(screen.getByTestId('some-test-id')).toHaveClass('ui_card_card bg-positive-100 color-fonts-100');
-    expect(screen.getByRole('heading')).toHaveClass('expandoHeading color-inverse-fonts-100');
+    expect(screen.getByText('Expand label')).toHaveClass('color-inverse-fonts-100');
   });
 
   it('triggers callback', () => {

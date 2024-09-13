@@ -63,7 +63,7 @@ export const Metadata = ({ packageName, packageJson, includeInformation, descrip
   }));
 
   return (
-    <UiFlexGrid direction='column' gap='three'>
+    <UiFlexGrid direction='column' gap='four'>
       <UiText>Package: <UiText fontStyle='bold' inline>{packageJson.name}</UiText></UiText>
       <UiFlexGrid columnGap='four' alignItems='center'>
         <sup>
@@ -98,7 +98,6 @@ export const Metadata = ({ packageName, packageJson, includeInformation, descrip
             <CustomBlockquote>
               <UiText> npm i -S {packageJson.name}</UiText>
             </CustomBlockquote>
-          <DocSubHeading>Documentation 📖</DocSubHeading>
         </>
       )}
     </UiFlexGrid>
