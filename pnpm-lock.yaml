@@ -586,7 +586,7 @@ importers:
         specifier: workspace:*
         version: link:../text
 
-  packages/ez-forms:
+  packages/ezforms:
     dependencies:
       '@uireact/form':
         specifier: workspace:*
