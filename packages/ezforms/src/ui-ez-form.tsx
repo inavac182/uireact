@@ -15,6 +15,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({ schema, initialData }) => {
   return (
     <>
       {Object.keys(schema).map((schemaField, index) => <Fragment key={`ezform-field-${index}`}></Fragment>)}
+      <p>Content</p>
     </>
   )
 };
