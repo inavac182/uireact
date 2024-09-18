@@ -99,6 +99,9 @@ importers:
       '@uireact/expando':
         specifier: workspace:*
         version: link:packages/expando
+      '@uireact/ezforms':
+        specifier: workspace:*
+        version: link:packages/ezforms
       '@uireact/flex':
         specifier: workspace:*
         version: link:packages/flex
@@ -252,6 +255,9 @@ importers:
       '@uireact/expando':
         specifier: workspace:*
         version: link:../../packages/expando
+      '@uireact/ezforms':
+        specifier: workspace:*
+        version: link:../../packages/ezforms
       '@uireact/flex':
         specifier: workspace:*
         version: link:../../packages/flex
@@ -588,12 +594,24 @@ importers:
 
   packages/ezforms:
     dependencies:
+      '@uireact/button':
+        specifier: workspace:*
+        version: link:../button
+      '@uireact/datepicker':
+        specifier: workspace:*
+        version: link:../datepicker
+      '@uireact/flex':
+        specifier: workspace:*
+        version: link:../flex
       '@uireact/form':
         specifier: workspace:*
         version: link:../form
       '@uireact/foundation':
         specifier: workspace:*
         version: link:../foundation
+      '@uireact/icons':
+        specifier: workspace:*
+        version: link:../icons
       '@uireact/text':
         specifier: workspace:*
         version: link:../text

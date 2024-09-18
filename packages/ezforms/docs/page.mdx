@@ -1,4 +1,97 @@
-# EzForm
+import { UiIcon } from '@uireact/icons';
+import { UiReactViewRotating } from '@uireact/framer-animations';
 
-> Create forms quickly and secured
+import { EzFormExample } from './example';
+
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+
+# <UiIcon icon="SettingsBig" size='xlarge' motion={{...UiReactViewRotating}} /> EzForm
+
+<Metadata packageName='expando' packageJson={packageJson} includeInformation description='Create validated forms quickly and easily with a schema object' />
+
+## Usage
+
+The EzForm component builds a form automatically out of a `schema`, the form will be automatically validated using the specifics on the schema. The schema is created using the [@uireact/validator](./validator) util:
+
+The validation will exposes a function: `ezMetada()` which is a chainable function that can be used to pass metadata to each of the schema fields:
+
+```ts
+const validator = new UiValidator();
+
+const schema = {
+  name: validator.field('string').ezMetada({ label: 'First Name', icon: 'User' }).isRequired(),
+  birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
+  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
+  email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired()
+};
+```
+From there you can continue to add any specific validation to each field.
+
+Once the schema is complete we can pass it as a prop and this will be the outcome:
+
+```jsx live scope={{EzFormExample}}
+  <EzFormExample />
+```
+
+The complete code for the `EzFormExample`:
+
+```tsx
+const validator = new UiValidator();
+
+const schema = {
+  name: validator.field('string').ezMetada({ label: 'First Name', icon: 'User' }).isRequired(),
+  birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
+  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
+  email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired()
+};
+
+export const EzFormExample = () => {  
+  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>, data: UiValidatorData) => {
+    e.preventDefault();
+    console.log(data);
+  }, []);
+  const onCancel = useCallback(() => {
+    console.log('Cancel triggered');
+  }, []);
+
+  return (
+    <UiEzForm 
+      schema={schema} 
+      submitLabel='Save' 
+      cancelLabel='Cancel' 
+      onSubmit={onSubmit} 
+      onCancel={onCancel} 
+      initialData={{ birthday: '1992/12/03' }} 
+    />
+  )
+};
+```
+
+### Initial data
+
+The EzForm can be initialized with an initial data this is useful for use cases where you already have some data and the user need to modify or complete it.
+The `initialData` object **MUST** match a field in the schema, **ONLY** the properties in the object that matches a field in the schema will be used.
+
+For instance, for this schema:
+
+```ts
+const schema = {
+  name: validator.field('string').ezMetada({ label: 'First Name', icon: 'User' }).isRequired()
+};
+```
+
+The initial data should be something like: 
+
+```ts
+const initialData = {
+  name: 'Some user data'
+};
+```
+
+### Validations
+
+The EzForm will run validations when user clicks submits the form, all validations are run based on the schema passed.
+
+Each of the validation functions can get their own error message, so if you haven't already you should check the [@uireact/validator](./validator) doc page to learn how to set up the schema.
 

@@ -10,18 +10,23 @@ import { Metadata } from '@uireact/docs-tools';
 
 # UiValidator
 
-<Metadata packageName='validator' packageJson={packageJson} />
+<Metadata packageName='validator' packageJson={packageJson} includeInformation description='Validator class that run checks based on a given schema into a given object. Used commonly to validate forms in client and data sets on the server side.' />
 
-> Validator class that run checks based on a given schema into a given object. Used commonly to validate forms in client and data sets on the server side.
-> We make use of chainable functions so the schema creation is simple and easy.
+## IMPORTANT
 
-## Installation ⚙️
+> Support for `validator.ruler()` is deprecated and will be REMOVED in the next major version. For now you can still ue it at your own risk. Plan to migrate over to `validator.field()` to prepare for next version.
 
-> npm i -S @uireact/validator
+#### What is changing?
+
+- So, The `validator.field()` will expose a few more support functions that will be used from `EzForm` component to automatically generate forms from a schema. 
+- The `rule().type()` function is removed on `field()` given that now the type will be set up as a parameter of the `field()` fn. For instnace: `validator.field('email')`
+
+More information will be coming as we have progress on the EzForm and UiValidator upgrades.
+
 
 ## Usage 🎮
 
-First, we need to create an instance of the `UiValidator`
+The validator class outputs chainable functions that can be put together to create schemas. So, First, we need to create an instance of the `UiValidator`
 
 ```tsx
 import { UiValidator } from '@uireact/validator';
@@ -38,8 +43,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
+  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 ```
 
@@ -51,8 +56,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
+  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 
 const data = {
@@ -84,8 +89,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.ruler().isRequired('Email is required').type('email', 'The mail is not valid'),
+  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 
 const data = {
@@ -116,30 +121,24 @@ export const validator = new UiValidator();
 
 Example using a component that receives the schema and the data and then renders a message if it passes:
 
-<ValidatorRunner
-  schema={{
-    age: validator
-      .ruler()
-      .isRequired('The age is required')
-      .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
-    firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-    email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
-  }}
-  data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
-/>
 
-```jsx
-<ValidatorRunner
-  schema={{
-    age: validator
-      .ruler()
-      .isRequired('The age is required')
-      .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
-    firstName: validator.ruler().isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-    email: validator.ruler().isRequired('Email is required').type('email', 'Email is not valid'),
-  }}
-  data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
-/>
+```jsx live scope={{ValidatorRunner, validator}}
+  <ValidatorRunner
+    schema={{
+      age: validator
+        .field('numeric')
+        .isRequired('The age is required')
+        .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
+      firstName: validator
+        .field('string')
+        .isRequired('First Name is required')
+        .length(0, 10, 'First name is not valid'),
+      email: validator
+        .field('email', 'Email is not valid')
+        .isRequired('Email is required')
+    }}
+    data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
+  />
 ```
 
 <small>ValidatorRunner is a component built just for this demo, it isn't actually exported.</small>
@@ -161,7 +160,6 @@ This will run the validations in a more strict way and the things validated are:
 
 <UiList>
   <li>❌ - When the schema has more properties than the data passed.</li>
-  <li>❌ - When a data field exists in the schema but doesn't have rules to be applied.</li>
   <li>❌ - When a data field doesn't exist in the schema.</li>
 </UiList>
 
@@ -177,7 +175,7 @@ As if it weren't already from here downwards is a wall of text, go under your ow
   width="480"
   height="271"
   frameBorder="0"
-  class="giphy-embed"
+  className="giphy-embed"
   allowFullScreen
 ></iframe>
 
@@ -188,7 +186,7 @@ As if it weren't already from here downwards is a wall of text, go under your ow
 
 These are the chainable functions that you can use, to set the rules, their possible values and examples:
 
-<table>
+<table border={1}>
   <thead>
     <tr>
       <th>Rule</th>
@@ -515,6 +513,6 @@ So, Maybe this rule would make the work for you without worrying about formats:
 
 ```ts
 const schema = {
-  phone: validator.ruler().isRequired().type('numeric').length(10, 12),
+  phone: validator.field('numeric').isRequired().length(10, 12)
 };
 ```

@@ -1,5 +1,7 @@
+import { UiValidatorField } from 'ui-validator-field';
 import { UiRuler } from '../ui-ruler';
 import { UiValidatorError } from './validator-result';
+
 
 /** The value for each rule */
 export type UiValidatorExpectationRule<T> = {
@@ -65,7 +67,45 @@ export type UiValidatorRules = {
   lessThan?: UiValidatorComparisonRule;
 };
 
+/** Set of possible rules for each field */
+export type UiValidatorFieldRules = {
+  /** Validates the type of the value */
+  type: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone' | 'date'>;
+  /** Validates the nullability of the value */
+  required?: UiValidatorExpectationRule<boolean>;
+  /** Validates the length of characters of the value */
+  dateRange?: UiValidatorDateRangeRule;
+  /** Validates the length of characters of the value */
+  range?: UiValidatorRangeRule;
+  /** Validates the length of characters of the value */
+  length?: UiValidatorLengthRule;
+  /** Validates a value is greater than a baseline */
+  greaterThan?: UiValidatorComparisonRule;
+  /** Validates a value is less than a baseline */
+  lessThan?: UiValidatorComparisonRule;
+};
+
+/** Metadata information used from EzForms */
+export type UiValidatorFieldMetadata = {
+  label?: string;
+  icon?: string;
+  dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
+}
+
+/** Set of possible rules for each field */
+export type UiValidatorFieldData = {
+  rules: UiValidatorFieldRules;
+  metadata: UiValidatorFieldMetadata
+};
+
 /** The schema needed for the UiValidator */
 export type UiValidatorSchema = {
   [key in string]: UiRuler;
 };
+
+/** The schema needed for the UiValidator */
+export type UiValidatorSchemaV2 = {
+  [key in string]: UiValidatorField;
+};
+
+export type UiValidatorFieldTypes = 'string' | 'numeric' | 'email' | 'phone' | 'date';

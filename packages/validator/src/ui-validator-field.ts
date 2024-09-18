@@ -1,12 +1,24 @@
-// istanbul ignore file
+import { UiValidatorFieldTypes, UiValidatorFieldRules, UiValidatorFieldData, UiValidatorFieldMetadata } from './types';
 
-import { UiValidatorRules } from './types';
+export class UiValidatorField {
+  private data: UiValidatorFieldData;
 
-export class UiRuler {
-  private rules: UiValidatorRules = {};
+  constructor(type: UiValidatorFieldTypes, message?: string) {
+    this.data = {
+      rules: {
+        type: {
+          expected: type,
+          error: message ? { message } : { message: `This is not a valid ${type}` }
+        }
+      },
+      metadata: {}
+    };
 
-  isRequired(errorMessage?: string): UiRuler {
-    this.rules.required = {
+    return this;
+  }
+
+  isRequired(errorMessage?: string): UiValidatorField {
+    this.data.rules.required = {
       expected: true,
       error: errorMessage
         ? {
@@ -20,27 +32,12 @@ export class UiRuler {
     return this;
   }
 
-  isOptional(): UiRuler {
+  isOptional(): UiValidatorField {
     return this;
   }
 
-  type(type: 'string' | 'numeric' | 'email' | 'phone' | 'date', errorMessage?: string): UiRuler {
-    this.rules.type = {
-      expected: type,
-      error: errorMessage
-        ? {
-            message: errorMessage,
-          }
-        : {
-            message: `This is not a valid ${type}`,
-          },
-    };
-
-    return this;
-  }
-
-  range(min: number, max: number, errorMessage?: string): UiRuler {
-    this.rules.range = {
+  range(min: number, max: number, errorMessage?: string): UiValidatorField {
+    this.data.rules.range = {
       min,
       max,
       error: errorMessage
@@ -55,8 +52,8 @@ export class UiRuler {
     return this;
   }
 
-  dateRange(min: Date, max: Date, errorMessage?: string): UiRuler {
-    this.rules.dateRange = {
+  dateRange(min: Date, max: Date, errorMessage?: string): UiValidatorField {
+    this.data.rules.dateRange = {
       min,
       max,
       error: errorMessage
@@ -71,8 +68,8 @@ export class UiRuler {
     return this;
   }
 
-  length(min: number, max: number, errorMessage?: string): UiRuler {
-    this.rules.length = {
+  length(min: number, max: number, errorMessage?: string): UiValidatorField {
+    this.data.rules.length = {
       min,
       max,
       error: errorMessage
@@ -87,14 +84,15 @@ export class UiRuler {
     return this;
   }
 
-  greaterThan(baseline: number | Date, errorMessage?: string): UiRuler {
+  greaterThan(baseline: number | Date, errorMessage?: string): UiValidatorField {
     const defaultMessage =
       typeof baseline === 'number'
         ? `The value is less than ${baseline}`
         : `The date is earlier ${baseline.getFullYear()}/${(baseline.getMonth() + 1)
             .toString()
             .padStart(2, '0')}/${baseline.getDate().toString().padStart(2, '0')}`;
-    this.rules.greaterThan = {
+
+    this.data.rules.greaterThan = {
       baseline,
       error: {
         message: errorMessage ?? defaultMessage,
@@ -104,14 +102,15 @@ export class UiRuler {
     return this;
   }
 
-  lessThan(baseline: number | Date, errorMessage?: string): UiRuler {
+  lessThan(baseline: number | Date, errorMessage?: string): UiValidatorField {
     const defaultMessage =
       typeof baseline === 'number'
         ? `The value is greater than ${baseline}`
         : `The date is after ${baseline.getFullYear()}/${(baseline.getMonth() + 1)
             .toString()
             .padStart(2, '0')}/${baseline.getDate().toString().padStart(2, '0')}`;
-    this.rules.lessThan = {
+
+    this.data.rules.lessThan = {
       baseline,
       error: {
         message: errorMessage ?? defaultMessage,
@@ -121,8 +120,29 @@ export class UiRuler {
     return this;
   }
 
+  /** Used to set up EzForms field metadata */
+  ezMetada(options: UiValidatorFieldMetadata) {
+    this.data.metadata = { ...options };
+    return this;
+  }
+
+  /** @private To retrieve the field label */
+  getLabel() {
+    return this.data.metadata.label;
+  }
+
+  /** @private To retrieve the field icon */
+  getIcon() {
+    return this.data.metadata.icon;
+  }
+
+  /** @private To retrieve the field icon */
+  getDateFormat() {
+    return this.data.metadata.dateFormat;
+  }
+
   /** @private For validation purposes, don't use it. */
-  getRules(): UiValidatorRules {
-    return this.rules;
+  getRules(): UiValidatorFieldRules {
+    return this.data.rules;
   }
 }

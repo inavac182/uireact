@@ -5,7 +5,7 @@ describe('range validation', () => {
 
   it('Should use default messaging if none is passed in schema', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: 5,
@@ -19,7 +19,7 @@ describe('range validation', () => {
 
   it('Should validate correct range', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: 50,
@@ -32,7 +32,7 @@ describe('range validation', () => {
 
   it('Should error out if value is smaller than the min range', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: 3,
@@ -45,7 +45,7 @@ describe('range validation', () => {
 
   it('Should error out if value is bigger than the max range', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: 150,
@@ -58,7 +58,7 @@ describe('range validation', () => {
 
   it('Should error out if value null and retrieve error message', () => {
     const schema = {
-      test: validator.ruler().range(10, 100, 'Value is not in range'),
+      test: validator.field('numeric').range(10, 100, 'Value is not in range'),
     };
     const data = {
       test: null,
@@ -72,7 +72,7 @@ describe('range validation', () => {
 
   it('Should error out if value undefined and retrieve error code', () => {
     const schema = {
-      test: validator.ruler().range(10, 100, 'Value is not in range'),
+      test: validator.field('numeric').range(10, 100, 'Value is not in range'),
     };
     const data = {
       test: undefined,
@@ -86,7 +86,7 @@ describe('range validation', () => {
 
   it('Should error out if value is not numeric', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: '12aa0',
@@ -99,7 +99,7 @@ describe('range validation', () => {
 
   it('Should error out if value is numeric and does not pass validation', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: '120',
@@ -112,7 +112,7 @@ describe('range validation', () => {
 
   it('Should validate correctly if value is numeric and passes validation', () => {
     const schema = {
-      test: validator.ruler().range(10, 100),
+      test: validator.field('numeric').range(10, 100),
     };
     const data = {
       test: '90',

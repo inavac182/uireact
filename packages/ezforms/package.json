@@ -26,16 +26,24 @@
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "dependencies": {
+    "@uireact/button": "workspace:*",
+    "@uireact/datepicker": "workspace:*",
+    "@uireact/flex": "workspace:*",
     "@uireact/foundation": "workspace:*",
     "@uireact/form": "workspace:*",
+    "@uireact/icons": "workspace:*",
     "@uireact/text": "workspace:*",
     "@uireact/validator": "workspace:*"
   },
   "peerDependencies": {
+    "@uireact/button": ">= 3",
+    "@uireact/datepicker": ">= 3",
+    "@uireact/flex": ">= 3",
     "@uireact/foundation": ">= 3",
     "@uireact/form": ">= 3",
+    "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3",
-    "@uireact/validator": ">= 1",
+    "@uireact/validator": "^1.6.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "tslib": "^2.5.0"

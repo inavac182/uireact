@@ -5,7 +5,7 @@ describe('lessThan validation', () => {
 
   it('Should pass when value is less than baseline', () => {
     const schema = {
-      test: validator.ruler().lessThan(10),
+      test: validator.field('numeric').lessThan(10),
     };
     const data = {
       test: 9,
@@ -18,7 +18,7 @@ describe('lessThan validation', () => {
 
   it('Should fail when value is greater than baseline', () => {
     const schema = {
-      test: validator.ruler().lessThan(10),
+      test: validator.field('numeric').lessThan(10),
     };
     const data = {
       test: 11,
@@ -31,7 +31,7 @@ describe('lessThan validation', () => {
 
   it('Should fail when value is invalid', () => {
     const schema = {
-      test: validator.ruler().lessThan(10, 'The value is invalid'),
+      test: validator.field('numeric').lessThan(10, 'The value is invalid'),
     };
     const data = {
       test: 'some',
@@ -39,14 +39,14 @@ describe('lessThan validation', () => {
 
     const result = validator.validate(schema, data, false);
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test?.[0].message).toBe('The value is invalid');
+    expect(result.errors?.test?.[0].message).toBe('This is not a valid numeric');
   });
 
   it('Should pass when baseline is a date and the value is a date earlier than baseline', () => {
     const date = new Date('2023/12/01');
 
     const schema = {
-      test: validator.ruler().lessThan(date),
+      test: validator.field('date').lessThan(date),
     };
     const data = {
       test: new Date('2023/11/30'),
@@ -61,7 +61,7 @@ describe('lessThan validation', () => {
     const date = new Date('2023/12/01');
 
     const schema = {
-      test: validator.ruler().lessThan(date),
+      test: validator.field('date').lessThan(date),
     };
     const data = {
       test: new Date('2023/12/02'),
@@ -76,7 +76,7 @@ describe('lessThan validation', () => {
     const date = new Date('2023/12/01');
 
     const schema = {
-      test: validator.ruler().lessThan(date),
+      test: validator.field('date').lessThan(date),
     };
     const data = {
       test: '2023/11/30',
@@ -91,7 +91,7 @@ describe('lessThan validation', () => {
     const date = new Date('2023/12/01');
 
     const schema = {
-      test: validator.ruler().lessThan(date),
+      test: validator.field('date').lessThan(date),
     };
     const data = {
       test: '2023/12/02',
@@ -106,7 +106,7 @@ describe('lessThan validation', () => {
     const date = new Date('2023/12/01');
 
     const schema = {
-      test: validator.ruler().lessThan(date),
+      test: validator.field('date').lessThan(date),
     };
     const data = {
       test: '',
@@ -114,6 +114,6 @@ describe('lessThan validation', () => {
 
     const result = validator.validate(schema, data, false);
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test?.[0].message).toBe('The date is after 2023/12/01');
+    expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
   });
 });
