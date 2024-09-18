@@ -219,9 +219,18 @@ These are the chainable functions that you can use, to set the rules, their poss
         </UiList>
       </td>
       <td>
+        If type of value is boolean:
+        <UiList>
+          <li>❌ false</li>
+          <li>❌ null</li>
+          <li>❌ undefined</li>
+          <li>✅ true</li>
+        </UiList>
+
         <UiList>
           <li>❌ null</li>
           <li>❌ undefined</li>
+          <li>❌ ""</li>
           <li>✅ everything else</li>
         </UiList>
       </td>
@@ -295,8 +304,6 @@ These are the chainable functions that you can use, to set the rules, their poss
             boolean
             <UiList>
               <li>&nbsp;&nbsp; ✅ boolean types</li>
-              <li>&nbsp;&nbsp; ✅ 0</li>
-              <li>&nbsp;&nbsp; ✅ 1</li>
               <li>&nbsp;&nbsp; ❌ everything else</li>
             </UiList>
           </li>
