@@ -255,6 +255,9 @@ importers:
       '@uireact/expando':
         specifier: workspace:*
         version: link:../../packages/expando
+      '@uireact/ezforms':
+        specifier: workspace:*
+        version: link:../../packages/ezforms
       '@uireact/flex':
         specifier: workspace:*
         version: link:../../packages/flex
