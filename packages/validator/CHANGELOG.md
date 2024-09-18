@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@1.7.0...@uireact/validator@1.8.0) (2024-09-18)
+
+
+### Features
+
+* **validator:** when boolean provided isRequired only passes if is true ([#383](https://github.com/inavac182/ui-react/issues/383)) ([a905622](https://github.com/inavac182/ui-react/commit/a9056224f440e12c610c9223c578949486446f4c))
+
+
+
+
+
 # 1.7.0 (2024-09-18)
 
 
