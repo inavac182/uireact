@@ -1,6 +1,6 @@
 .switchLabel {
     font-size: var(--texts-regular);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     cursor: pointer;
@@ -46,4 +46,5 @@
 .switch {
     position: relative;
     display: flex;
+    flex-direction: column;
 }
