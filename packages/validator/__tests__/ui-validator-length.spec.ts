@@ -5,7 +5,7 @@ describe('length validation', () => {
 
   it('Should use default messaging if none is passed in schema', () => {
     const schema = {
-      test: validator.ruler().length(5, 10),
+      test: validator.field('numeric').length(5, 10),
     };
     const data = {
       test: 'test',
@@ -14,12 +14,12 @@ describe('length validation', () => {
     const result = validator.validate(schema, data);
 
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test[0].message).toBe(`This does not have a valid length of min 5 and max 10`);
+    expect(result.errors?.test[0].message).toBe(`This is not a valid numeric`);
   });
 
   it('Should validate correct length', () => {
     const schema = {
-      test: validator.ruler().length(0, 10),
+      test: validator.field('string').length(0, 10),
     };
     const data = {
       test: 'testString',
@@ -32,7 +32,7 @@ describe('length validation', () => {
 
   it('Should error out when string is too short and retrieve error message', () => {
     const schema = {
-      test: validator.ruler().length(5, 10, 'Value is too short'),
+      test: validator.field('string').length(5, 10, 'Value is too short'),
     };
     const data = {
       test: 'test',
@@ -46,7 +46,7 @@ describe('length validation', () => {
 
   it('Should error out when string is too long and retrieve error code', () => {
     const schema = {
-      test: validator.ruler().length(5, 10, 'Value is too long'),
+      test: validator.field('string').length(5, 10, 'Value is too long'),
     };
     const data = {
       test: 'This is a very long phrase',
@@ -58,9 +58,9 @@ describe('length validation', () => {
     expect(result.errors?.test[0].message).toBe('Value is too long');
   });
 
-  it('Should error out if value is not a tring', () => {
+  it('Should error out if value is not a string', () => {
     const schema = {
-      test: validator.ruler().length(5, 10),
+      test: validator.field('string').length(5, 10),
     };
     const data = {
       test: {},

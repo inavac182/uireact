@@ -1,5 +1,3 @@
-import { UiDatePickerDateFormats } from '@uireact/datepicker';
-
 import { UiValidatorField } from 'ui-validator-field';
 import { UiRuler } from '../ui-ruler';
 import { UiValidatorError } from './validator-result';
@@ -91,7 +89,7 @@ export type UiValidatorFieldRules = {
 export type UiValidatorFieldMetadata = {
   label?: string;
   icon?: string;
-  dateFormat?: UiDatePickerDateFormats;
+  dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
 }
 
 /** Set of possible rules for each field */

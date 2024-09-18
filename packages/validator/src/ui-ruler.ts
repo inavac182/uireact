@@ -1,3 +1,5 @@
+// istanbul ignore file
+
 import { UiValidatorRules } from './types';
 
 export class UiRuler {

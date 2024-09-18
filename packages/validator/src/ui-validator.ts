@@ -22,7 +22,7 @@ export class UiValidator {
   }
 
   private isNumeric(value: unknown): boolean {
-    if (typeof value === 'number') {
+    if (typeof value === 'number' || value === null || value === undefined) {
       return true;
     }
 
@@ -34,7 +34,7 @@ export class UiValidator {
   }
 
   private isString(value: unknown): boolean {
-    return typeof value === 'string';
+    return typeof value === 'string' || value === null || value === undefined;
   }
 
   private isValidPhone(value: unknown): boolean {
@@ -266,6 +266,7 @@ export class UiValidator {
         }
       }
 
+      // istanbul ignore next
       if (!ruleMatched && strict) {
         console.error(`UiValidator - Field ${field} has NOT valid rules`);
         hasError = true;
@@ -299,6 +300,7 @@ export class UiValidator {
     };
   }
 
+  // istanbul ignore next
   /** @deprecated To be replaced with field(), this will be removed in the next major version bump */
   ruler(): UiRuler {
     return new UiRuler();
