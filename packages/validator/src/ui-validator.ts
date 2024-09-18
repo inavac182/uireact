@@ -62,9 +62,21 @@ export class UiValidator {
     return false;
   }
 
+  private isValidBoolean(value: unknown): boolean {
+    if (typeof value === 'boolean') {
+      return true;
+    }
+
+    if (typeof value === 'number' && (value === 0 || value === 1)) {
+      return true;
+    }
+
+    return false;
+  }
+
   private validExpectationRule(
     value: unknown,
-    rule: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone' | 'date'>
+    rule: UiValidatorExpectationRule<UiValidatorFieldTypes>
   ): boolean {
     if (rule.expected === 'email') {
       return this.isEmailValid(value);
@@ -84,6 +96,10 @@ export class UiValidator {
 
     if (rule.expected === 'date') {
       return this.isValidDate(value);
+    }
+
+    if (rule.expected === 'boolean') {
+      return this.isValidBoolean(value);
     }
 
     return false;
