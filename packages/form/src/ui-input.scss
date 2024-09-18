@@ -4,14 +4,13 @@
     border-radius: 5px;
     border-width: 2px;
     border-style: solid;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
 
     &:disabled {
       cursor: not-allowed;
     }
-
-    outline: none;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .wrapperInput {
