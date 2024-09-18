@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.7.0 (2024-09-18)
+
+
+### Features
+
+* **validator:** adding boolean type ([#382](https://github.com/inavac182/ui-react/issues/382)) ([213d933](https://github.com/inavac182/ui-react/commit/213d933dce869c1f6b4728c020101ba997268c3c))
+
+
+
+
+
 # 1.6.0 (2024-09-18)
 
 
