@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.4.0 (2024-09-18)
+
+
+### Features
+
+* **switch:** adding error label to UiSwitch ([#381](https://github.com/inavac182/ui-react/issues/381)) ([f352e23](https://github.com/inavac182/ui-react/commit/f352e23c4cf8a83a0ab7ae810db554f7021647c1))
+
+
+
+
+
 ## [3.3.19](https://github.com/inavac182/ui-react/compare/@uireact/form@3.3.18...@uireact/form@3.3.19) (2024-09-13)
 
 **Note:** Version bump only for package @uireact/form
