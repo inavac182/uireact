@@ -10,7 +10,7 @@ export type UiEzFormProps = {
   action?: string;
   schema: UiValidatorSchemaV2;
   initialData?: UiValidatorData;
-  submitLabel?: string;
+  submitLabel: string;
   cancelLabel?: string;
   onSubmit?: (e: FormEvent<HTMLFormElement>, data: UiValidatorData) => void;
   onCancel?: () => void;
@@ -73,11 +73,9 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             useBrowserValidation={useBrowserValidation}
           />
         )}
-        {submitLabel && (
-          <UiPrimaryButton type='submit'>
-            {submitLabel}
-          </UiPrimaryButton>
-        )}
+        <UiPrimaryButton type='submit'>
+          {submitLabel}
+        </UiPrimaryButton>
         {cancelLabel && (
           <UiTertiaryButton onClick={onCancel}>
             {cancelLabel}

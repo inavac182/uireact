@@ -17,8 +17,11 @@ export const EzFormExample = () => {
     e.preventDefault();
     console.log(data);
   }, []);
+  const onCancel = useCallback(() => {
+    console.log('Cancel triggered');
+  }, []);
 
   return (
-    <UiEzForm schema={schema} submitLabel='Save' cancelLabel='Reset' onSubmit={onSubmit} initialData={{ birthday: '1992/12/03' }} />
+    <UiEzForm schema={schema} submitLabel='Save' cancelLabel='Cancel' onSubmit={onSubmit} onCancel={onCancel} initialData={{ birthday: '1992/12/03' }} />
   )
 }

@@ -31,7 +31,7 @@ describe('<UiEzForm />', () => {
   });
 
   it('Should render correctly', () => {
-    uiRender(<UiEzForm schema={schema} useBrowserValidation />);
+    uiRender(<UiEzForm schema={schema} useBrowserValidation submitLabel='Submit' />);
 
     expect(screen.getByRole('textbox', { name: 'First Name' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Birthday' })).toBeVisible();
@@ -40,7 +40,7 @@ describe('<UiEzForm />', () => {
   });
 
   it('Should initialize form with given data', () => {
-    uiRender(<UiEzForm schema={schema} initialData={{ firstName: 'Some initial value' }} />);
+    uiRender(<UiEzForm schema={schema} initialData={{ firstName: 'Some initial value' }} submitLabel='Submit' />);
 
     expect(screen.getByRole('textbox', { name: 'First Name' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'First Name' })).toHaveValue('Some initial value');
@@ -178,7 +178,7 @@ describe('<UiEzForm />', () => {
       firstName: validator.field('somethingWrong')
     }
 
-    uiRender(<UiEzForm schema={schema} />);
+    uiRender(<UiEzForm schema={schema} submitLabel='Submit' />);
 
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   });
@@ -203,7 +203,7 @@ describe('<UiEzForm />', () => {
 
   it('Should render cancel button correctly and trigger cancel CB when used', () => {
     const onCancel = jest.fn();
-    uiRender(<UiEzForm schema={schema} cancelLabel='Reset' onCancel={onCancel} />);
+    uiRender(<UiEzForm schema={schema} cancelLabel='Reset' onCancel={onCancel} submitLabel='Submit' />);
 
     expect(screen.getByRole('textbox', { name: 'First Name' })).toBeVisible();
     
