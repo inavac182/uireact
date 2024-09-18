@@ -31,23 +31,30 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
 }) => {
   const [data, setData] = useState<UiValidatorData>(generateInitialData(schema, initialData));
   const [errors, setErrors] = useState<UiValidatorErrors>();
+  const [loading, setLoading] = useState(false);
+
   const onTextInputChange = useCallback((e: FormEvent<HTMLInputElement>) => {
+    setErrors({});
     setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
-  }, [data]);
+  }, [data, errors]);
 
   const onDateInputChange = useCallback((date: string, name: string) => {
+    setErrors({});
     setData({ ...data, [name]: date });
   }, [data]);
 
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
+    setErrors({});
+    setLoading(true);
     const result = validator.validate(schema, data, true);
+
     if (result.passed) {
       onSubmit?.(e, data);
-      return true;
     } else {
       e.preventDefault();
+
       setErrors(result.errors);
-      return false;
+      setLoading(false);
     }
   }, [data, onSubmit, schema]);
 
@@ -58,6 +65,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
           <EzFormField
             key={`ezform-field-${index}`}
             field={schema[schemaField]}
+            value={data[schemaField]}
             name={schemaField}
             error={errors?.[schemaField]?.[0]?.message}
             onTextInputChange={onTextInputChange}

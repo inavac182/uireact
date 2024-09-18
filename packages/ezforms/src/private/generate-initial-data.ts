@@ -7,7 +7,7 @@ export const generateInitialData = (schema: UiValidatorSchemaV2, initialData?: U
     if (initialData?.[schemaField]) {
       data[schemaField] = initialData[schemaField];
     } else {
-      data[schemaField] = null;
+      data[schemaField] = '';
     }
   });
 

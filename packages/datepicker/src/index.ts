@@ -1,4 +1,4 @@
-export type { UiDatepickerProps, UiDatepickerLocalizedLabels } from './types';
+export type { UiDatepickerProps, UiDatepickerLocalizedLabels, UiDatePickerDateFormats } from './types';
 export type { UiInputDatepickerProps } from './types';
 export type { UiTimepickerProps } from './types';
 export type { UiInputTimepickerProps } from './types';

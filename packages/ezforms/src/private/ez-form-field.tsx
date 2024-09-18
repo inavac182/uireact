@@ -22,6 +22,10 @@ export const EzFormField = ({ field, error, name, value, useBrowserValidation, o
     rules.type.expected === 'numeric' ||
     rules.type.expected === 'email' ||
     rules.type.expected === 'phone';
+  const inputType = 
+    rules.type.expected === 'numeric' ? 'number' : 
+    rules.type.expected === 'email' ? 'email' : 
+    undefined
 
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
@@ -31,7 +35,7 @@ export const EzFormField = ({ field, error, name, value, useBrowserValidation, o
     return (
       <UiInput 
         label={field.getLabel()}
-        type={rules.type.expected === 'numeric' ? 'number' : undefined}
+        type={inputType}
         category={error ? 'error' : undefined}
         error={error}
         icon={icon}
@@ -51,6 +55,7 @@ export const EzFormField = ({ field, error, name, value, useBrowserValidation, o
       <UiInputDatepicker 
         label={field.getLabel()}
         category={error ? 'error' : undefined}
+        dateFormat={field.getDateFormat()}
         error={error}
         icon={icon}
         date={selectedDate}
