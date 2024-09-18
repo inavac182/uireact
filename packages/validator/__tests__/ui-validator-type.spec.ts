@@ -752,4 +752,71 @@ describe('type validation', () => {
       expect(result.passed).toBeFalsy();
     });
   });
+
+  describe('boolean', () => {
+    it('Should validate boolean when true boolean is provided', () => {
+      const schema = {
+        test: validator.field('boolean'),
+      };
+      const data = {
+        test: true,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should validate boolean when false boolean is provided', () => {
+      const schema = {
+        test: validator.field('boolean'),
+      };
+      const data = {
+        test: false,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should validate boolean when number 0 is provided', () => {
+      const schema = {
+        test: validator.field('boolean'),
+      };
+      const data = {
+        test: 0,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should validate boolean when number 1 is provided', () => {
+      const schema = {
+        test: validator.field('boolean'),
+      };
+      const data = {
+        test: 1,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should validate boolean when anything else is provided is provided', () => {
+      const schema = {
+        test: validator.field('boolean'),
+      };
+      const data = {
+        test: 'true',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+    });
+  })
 });

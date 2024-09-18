@@ -49,6 +49,9 @@ export type UiValidatorDateRangeRule = {
   error: UiValidatorError;
 };
 
+/** The possible field types for each rule */
+export type UiValidatorFieldTypes = 'string' | 'numeric' | 'email' | 'phone' | 'date' | 'boolean';
+
 /** Set of possible rules for each field */
 export type UiValidatorRules = {
   /** Validates the type of the value */
@@ -70,7 +73,7 @@ export type UiValidatorRules = {
 /** Set of possible rules for each field */
 export type UiValidatorFieldRules = {
   /** Validates the type of the value */
-  type: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone' | 'date'>;
+  type: UiValidatorExpectationRule<UiValidatorFieldTypes>;
   /** Validates the nullability of the value */
   required?: UiValidatorExpectationRule<boolean>;
   /** Validates the length of characters of the value */
@@ -107,5 +110,3 @@ export type UiValidatorSchema = {
 export type UiValidatorSchemaV2 = {
   [key in string]: UiValidatorField;
 };
-
-export type UiValidatorFieldTypes = 'string' | 'numeric' | 'email' | 'phone' | 'date';
