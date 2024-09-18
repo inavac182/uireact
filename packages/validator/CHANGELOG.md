@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2024-09-18)
+
+
+### Features
+
+* **ezforms:** Adding  initial logic for basic types ([#380](https://github.com/inavac182/ui-react/issues/380)) ([9f3a636](https://github.com/inavac182/ui-react/commit/9f3a6367f81c08579446318ad6b2eaa982e0585c))
+
+
+
+
+
 ## 1.5.4 (2024-05-15)
 
 
