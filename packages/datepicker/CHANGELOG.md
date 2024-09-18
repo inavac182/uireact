@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.21.0...@uireact/datepicker@0.21.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* **datepicker:** input mode on inputs ([889ce51](https://github.com/inavac182/ui-react/commit/889ce51102af7999658a74bc87defa280895ce35))
+
+
+
+
+
 # [0.21.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.20.0...@uireact/datepicker@0.21.0) (2024-09-18)
 
 
