@@ -70,4 +70,28 @@ describe('require validation', () => {
 
     expect(result.passed).toBeFalsy();
   });
+
+  it('Should validate correct when a boolean is required and truthy values are provided', () => {
+    const schema = {
+      test: validator.field('boolean').isRequired(),
+    };
+    const data = {
+      test: true,
+    };
+
+    const result = validator.validate(schema, data);
+    expect(result.passed).toBeTruthy();
+  });
+
+  it('Should validate correct when a boolean is required and falsy values are provided', () => {
+    const schema = {
+      test: validator.field('boolean').isRequired(),
+    };
+    const data = {
+      test: false,
+    };
+
+    const result = validator.validate(schema, data);
+    expect(result.passed).toBeFalsy();
+  });
 });
