@@ -227,7 +227,7 @@ These are the chainable functions that you can use, to set the rules, their poss
       </td>
     </tr>
     <tr>
-      <td>type()</td>
+      <td>field()</td>
       <td>
         <UiList>
           <li>
@@ -238,6 +238,7 @@ These are the chainable functions that you can use, to set the rules, their poss
               <li>&nbsp;&nbsp; phone</li>
               <li>&nbsp;&nbsp; email</li>
               <li>&nbsp;&nbsp; date</li>
+              <li>&nbsp;&nbsp; boolean</li>
             </UiList>
           </li>
           <li> ❓ errorMessage</li>
@@ -287,6 +288,15 @@ These are the chainable functions that you can use, to set the rules, their poss
             <UiList>
               <li>&nbsp;&nbsp; ✅ Date object passed</li>
               <li>&nbsp;&nbsp; ✅ When a string passed and it can be parsed to a valid date</li>
+              <li>&nbsp;&nbsp; ❌ everything else</li>
+            </UiList>
+          </li>
+          <li>
+            string
+            <UiList>
+              <li>&nbsp;&nbsp; ✅ boolean types</li>
+              <li>&nbsp;&nbsp; ✅ 0</li>
+              <li>&nbsp;&nbsp; ✅ 1</li>
               <li>&nbsp;&nbsp; ❌ everything else</li>
             </UiList>
           </li>
