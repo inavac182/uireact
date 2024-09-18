@@ -13,6 +13,14 @@ describe('<UiSwitch />', () => {
     expect(screen.getByText('Select this')).toBeVisible();
   });
 
+  it('renders fine with error', () => {
+    uiRender(<UiSwitch label="Select this" name="checkbox" error="Please select the switch to continue" className='SomeClass' />);
+
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
+    expect(screen.getByText('Select this')).toBeVisible();
+    expect(screen.getByText('Please select the switch to continue')).toBeVisible();
+  });
+
   it('renders fine when is checked', () => {
     uiRender(<UiSwitch label="Select this" name="checkbox" checked onChange={jest.fn()} />);
 

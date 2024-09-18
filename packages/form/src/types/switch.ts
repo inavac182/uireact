@@ -10,7 +10,7 @@ export type UiSwitchProps = {
   /** Label to render next to checkbox */
   label?: string;
   /** The error label to be rendered in this input */
-  error?: boolean;
+  error?: string;
   /** Label position */
   labelPosition?: 'start' | 'end';
   /** On change CB to handle checked state */
