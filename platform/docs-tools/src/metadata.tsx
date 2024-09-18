@@ -19,6 +19,7 @@ type MetadataProps = {
   packageJson: {
     version: string,
     description: string,
+    private?: boolean,
     name: string,
     peerDependencies: {
       [key in string]: string
@@ -40,6 +41,10 @@ const badgesInfo: BadgesInfo = {
     text: '‼️ Beta',
     category: 'warning'
   },
+  private: {
+    text: '‼️ Unreleased - WIP',
+    category: 'tertiary'
+  },
   "framer-motion": {
     text: '😈 Framer motion',
     category: 'positive'
@@ -57,6 +62,10 @@ export const Metadata = ({ packageName, packageJson, includeInformation, descrip
   if (parseInt(version) < 1) {
     badges.push(badgesInfo.beta);
   };
+
+  if (packageJson.private) {
+    badges.push(badgesInfo.private);
+  }
 
   badges.push(...peers.map((peer) => {
     return badgesInfo[peer] ?? null;
