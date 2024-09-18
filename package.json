@@ -39,6 +39,7 @@
     "@uireact/dialog": "workspace:*",
     "@uireact/docs-tools": "workspace:*",
     "@uireact/expando": "workspace:*",
+    "@uireact/ezforms": "workspace:*",
     "@uireact/flex": "workspace:*",
     "@uireact/form": "workspace:*",
     "@uireact/foundation": "workspace:*",
