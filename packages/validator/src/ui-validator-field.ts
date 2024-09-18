@@ -1,4 +1,4 @@
-import { UiValidatorFieldTypes, UiValidatorFieldRules, UiValidatorFieldData } from './types';
+import { UiValidatorFieldTypes, UiValidatorFieldRules, UiValidatorFieldData, UiValidatorFieldMetadata } from './types';
 
 export class UiValidatorField {
   private data: UiValidatorFieldData;
@@ -10,7 +10,8 @@ export class UiValidatorField {
           expected: type,
           error: message ? { message } : { message: `This is not a valid ${type}` }
         }
-      }
+      },
+      metadata: {}
     };
 
     return this;
@@ -119,25 +120,25 @@ export class UiValidatorField {
     return this;
   }
 
-  label(label: string): UiValidatorField {
-    this.data.label = label;
-
-    return this;
-  }
-
-  icon(name: string): UiValidatorField {
-    this.data.icon = name;
+  /** Used to set up EzForms field metadata */
+  ezMetada(options: UiValidatorFieldMetadata) {
+    this.data.metadata = { ...options };
     return this;
   }
 
   /** @private To retrieve the field label */
   getLabel() {
-    return this.data.label;
+    return this.data.metadata.label;
   }
 
   /** @private To retrieve the field icon */
   getIcon() {
-    return this.data.icon;
+    return this.data.metadata.icon;
+  }
+
+  /** @private To retrieve the field icon */
+  getDateFormat() {
+    return this.data.metadata.dateFormat;
   }
 
   /** @private For validation purposes, don't use it. */

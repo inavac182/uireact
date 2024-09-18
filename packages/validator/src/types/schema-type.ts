@@ -1,6 +1,9 @@
+import { UiDatePickerDateFormats } from '@uireact/datepicker';
+
 import { UiValidatorField } from 'ui-validator-field';
 import { UiRuler } from '../ui-ruler';
 import { UiValidatorError } from './validator-result';
+
 
 /** The value for each rule */
 export type UiValidatorExpectationRule<T> = {
@@ -84,13 +87,18 @@ export type UiValidatorFieldRules = {
   lessThan?: UiValidatorComparisonRule;
 };
 
+/** Metadata information used from EzForms */
+export type UiValidatorFieldMetadata = {
+  label?: string;
+  icon?: string;
+  dateFormat?: UiDatePickerDateFormats;
+}
+
 /** Set of possible rules for each field */
 export type UiValidatorFieldData = {
   rules: UiValidatorFieldRules;
-  label?: string;
-  icon?: string;
+  metadata: UiValidatorFieldMetadata
 };
-
 
 /** The schema needed for the UiValidator */
 export type UiValidatorSchema = {
