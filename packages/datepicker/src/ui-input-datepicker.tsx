@@ -99,6 +99,7 @@ export const UiInputDatepicker: React.FC<UiInputDatepickerProps> = ({
               onChange={onChangeInternal}
               required={required}
               onFocus={openDatepicker}
+              inputMode='none'
             />
           </div>
           {error && <UiText category={category}>{error}</UiText>}

@@ -106,6 +106,7 @@ export const UiInputTimepicker: React.FC<UiInputTimepickerProps> = ({
               onFocus={openTimepicker}
               onClick={onInputClicked}
               readOnly
+              inputMode='none'
             />
           </div>
           {error && <UiText category={category}>{error}</UiText>}
