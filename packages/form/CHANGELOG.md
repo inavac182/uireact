@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.4.0...@uireact/form@3.4.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* **form:** scss warning on styles ([3715dd2](https://github.com/inavac182/ui-react/commit/3715dd25595b94f63a8a24d3993470163af3ed6b))
+
+
+
+
+
 # 3.4.0 (2024-09-18)
 
 
