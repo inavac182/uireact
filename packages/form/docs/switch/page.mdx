@@ -4,19 +4,53 @@ import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiSwitch
-<Metadata packageName='form' packageJson={packageJson} />
 
-> Component used to render switch inputs
-
-## Installation
-
-> npm i @uireact/foundation @uireact/form
+<Metadata packageName='form' packageJson={packageJson} includeInformation description='A switch component so user can toggle inputs' />
 
 ## Usage
+
+This is a controlled input so you need to control the state of the toggle. This is done through the `onChange` and `checked` props.
 
 ```jsx live scope={{SwitchExample}}
   <SwitchExample />
 ```
+
+SwitchExample:
+```tsx
+export const SwitchExample: React.FC = () => {
+  const [checked, setChecked] = useState(false);
+
+  const onChangeCB = useCallback(() => {
+    setChecked(!checked);
+  }, [checked, setChecked]);
+
+  return (
+    <>
+      <UiSwitch checked={checked} onChange={onChangeCB} name="switch-example" />
+      <p>Checked: {`${checked}`}</p>
+    </>
+  );
+};
+```
+
+### UiSwitch disabled
+
+```jsx live scope={{UiSwitch}}
+  <UiSwitch name="disabled-checkbox" label="Select option" disabled />
+```
+
+### UiSwitch with error
+
+```jsx live scope={{UiSwitch}}
+  <UiSwitch name="disabled-checkbox" label="Select option" error="Please select this option" />
+```
+
+### UiSwitch with label on the start
+
+```jsx live scope={{UiSwitch}}
+  <UiSwitch name="start-label-checkbox" label="Select option" disabled labelPosition="start" />
+```
+
 
 ### UiSwitch with POSITIVE category
 
@@ -36,14 +70,3 @@ import { Metadata } from '@uireact/docs-tools';
   <UiSwitch name="negative-checkbox" category="negative" checked />
 ```
 
-### UiSwitch disabled
-
-```jsx live scope={{UiSwitch}}
-  <UiSwitch name="disabled-checkbox" label="Select option" disabled />
-```
-
-### UiSwitch with label on the start
-
-```jsx live scope={{UiSwitch}}
-  <UiSwitch name="start-label-checkbox" label="Select option" disabled labelPosition="start" />
-```
