@@ -67,10 +67,6 @@ export class UiValidator {
       return true;
     }
 
-    if (typeof value === 'number' && (value === 0 || value === 1)) {
-      return true;
-    }
-
     return false;
   }
 
@@ -145,6 +141,10 @@ export class UiValidator {
   private validRequired(isRequired: boolean, value: unknown): boolean {
     if (typeof value === 'string') {
       return value !== '';
+    }
+
+    if (typeof value === 'boolean') {
+      return value === true;
     }
 
     return isRequired && value !== null && value !== undefined;
