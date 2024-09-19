@@ -1,4 +1,3 @@
-import { UiRuler } from './ui-ruler';
 import { UiValidatorField } from './ui-validator-field';
 import {
   UiValidatorData,
@@ -7,8 +6,7 @@ import {
   UiValidatorExpectationRule,
   UiValidatorResult,
   UiValidatorSchema,
-  UiValidatorFieldTypes,
-  UiValidatorSchemaV2,
+  UiValidatorFieldTypes
 } from './types';
 
 export class UiValidator {
@@ -82,7 +80,7 @@ export class UiValidator {
       return this.isNumeric(value);
     }
 
-    if (rule.expected === 'string') {
+    if (rule.expected === 'text') {
       return this.isString(value);
     }
 
@@ -194,7 +192,7 @@ export class UiValidator {
     return false;
   }
 
-  validate(schema: UiValidatorSchema | UiValidatorSchemaV2, data: UiValidatorData, strict?: boolean): UiValidatorResult {
+  validate(schema: UiValidatorSchema, data: UiValidatorData, strict?: boolean): UiValidatorResult {
     let errors: UiValidatorErrors = {};
     let hasError = false;
 
@@ -314,12 +312,6 @@ export class UiValidator {
       passed: !hasError,
       errors,
     };
-  }
-
-  // istanbul ignore next
-  /** @deprecated To be replaced with field(), this will be removed in the next major version bump */
-  ruler(): UiRuler {
-    return new UiRuler();
   }
 
   field(type: UiValidatorFieldTypes, message?: string): UiValidatorField {

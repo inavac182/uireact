@@ -43,7 +43,7 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
   email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 ```
@@ -56,7 +56,7 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
   email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 
@@ -89,7 +89,7 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('string').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
+  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
   email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
 };
 
@@ -130,7 +130,7 @@ Example using a component that receives the schema and the data and then renders
         .isRequired('The age is required')
         .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
       firstName: validator
-        .field('string')
+        .field('text')
         .isRequired('First Name is required')
         .length(0, 10, 'First name is not valid'),
       email: validator

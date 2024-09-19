@@ -5,7 +5,7 @@ describe('optional', () => {
 
   it('Should pass when value is null', () => {
     const schema = {
-      test: validator.field('string').isOptional(),
+      test: validator.field('text').isOptional(),
     };
 
     const data = {
@@ -19,7 +19,7 @@ describe('optional', () => {
 
   it('Should pass when value is undefined', () => {
     const schema = {
-      test: validator.field('string').isOptional(),
+      test: validator.field('text').isOptional(),
     };
 
     const data = {
@@ -33,7 +33,7 @@ describe('optional', () => {
 
   it('Should pass when value is passed', () => {
     const schema = {
-      test: validator.field('string').isOptional(),
+      test: validator.field('text').isOptional(),
     };
 
     const data = {
