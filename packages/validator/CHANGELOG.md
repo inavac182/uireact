@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/inavac182/ui-react/compare/@uireact/validator@1.8.0...@uireact/validator@2.0.1) (2024-09-19)
+
+**Note:** Version bump only for package @uireact/validator
+
+
+
+
+
 # [1.8.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@1.7.0...@uireact/validator@1.8.0) (2024-09-18)
 
 
