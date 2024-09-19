@@ -14,7 +14,8 @@ const schema = {
   age: validator.field('numeric').ezMetada({ label: 'Your age' }),
   email: validator.field('email').ezMetada({ label: 'Your email', icon: 'Mail' }),
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
-  phone: validator.field('phone').ezMetada({ label: 'Your Phone' })
+  phone: validator.field('phone').ezMetada({ label: 'Your Phone' }),
+  terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' })
 }
 
 describe('<UiEzForm />', () => {
@@ -126,6 +127,35 @@ describe('<UiEzForm />', () => {
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'Birthday' })).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should save correctly switch toogle', async () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }).isRequired("You have to accept our terms")
+    }
+
+    const initialData = {
+      terms: false
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' />);
+
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
+    
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).not.toHaveBeenCalled();
+    expect(screen.getByText('You have to accept our terms')).toBeVisible();
+
+    fireEvent.click(screen.getByText('Terms and conditions'));
 
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
