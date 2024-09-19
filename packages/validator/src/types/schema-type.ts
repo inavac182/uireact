@@ -1,5 +1,4 @@
 import { UiValidatorField } from 'ui-validator-field';
-import { UiRuler } from '../ui-ruler';
 import { UiValidatorError } from './validator-result';
 
 
@@ -50,12 +49,12 @@ export type UiValidatorDateRangeRule = {
 };
 
 /** The possible field types for each rule */
-export type UiValidatorFieldTypes = 'string' | 'numeric' | 'email' | 'phone' | 'date' | 'boolean';
+export type UiValidatorFieldTypes = 'text' | 'numeric' | 'email' | 'phone' | 'date' | 'boolean';
 
 /** Set of possible rules for each field */
 export type UiValidatorRules = {
   /** Validates the type of the value */
-  type?: UiValidatorExpectationRule<'string' | 'numeric' | 'email' | 'phone' | 'date'>;
+  type?: UiValidatorExpectationRule<UiValidatorFieldTypes>;
   /** Validates the nullability of the value */
   required?: UiValidatorExpectationRule<boolean>;
   /** Validates the length of characters of the value */
@@ -103,10 +102,5 @@ export type UiValidatorFieldData = {
 
 /** The schema needed for the UiValidator */
 export type UiValidatorSchema = {
-  [key in string]: UiRuler;
-};
-
-/** The schema needed for the UiValidator */
-export type UiValidatorSchemaV2 = {
   [key in string]: UiValidatorField;
 };

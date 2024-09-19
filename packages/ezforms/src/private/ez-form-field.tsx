@@ -28,7 +28,7 @@ export const EzFormField = ({
 }: EzFormFieldProps) => {
   const rules = field.getRules();
   const icon = field.getIcon() ? <UiIcon icon={field.getIcon() as UiIconProps['icon']} /> : undefined;
-  const isTextInput = rules.type.expected === 'string' || 
+  const isTextInput = rules.type.expected === 'text' || 
     rules.type.expected === 'numeric' ||
     rules.type.expected === 'email' ||
     rules.type.expected === 'phone';

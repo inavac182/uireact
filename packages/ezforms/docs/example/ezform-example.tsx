@@ -8,7 +8,7 @@ import { UiFlexGrid } from '@uireact/flex';
 const validator = new UiValidator();
 
 const schema = {
-  name: validator.field('string').ezMetada({ label: 'First Name', icon: 'User' }).isRequired(),
+  name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).isRequired(),
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
   age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired(),

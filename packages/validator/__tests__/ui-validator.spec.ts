@@ -41,7 +41,7 @@ describe('UiValidator', () => {
 
   it('Should NOT error out if no rules are found when run in NON strict', () => {
     const schema = {
-      diffField: validator.field('string'),
+      diffField: validator.field('text'),
     };
     const data = {
       test: 'felipe',
@@ -56,7 +56,7 @@ describe('UiValidator', () => {
   describe('Strict', () => {
     it('Should error out if no rules are found in schema for a given data field when run in strict', () => {
       const schema = {
-        diffField: validator.field('string'),
+        diffField: validator.field('text'),
       };
       const data = {
         test: 'felipe',
@@ -73,7 +73,7 @@ describe('UiValidator', () => {
 
     it('Should error out if schema has different fields than the data passed in strict', () => {
       const schema = {
-        diffField: validator.field('string'),
+        diffField: validator.field('text'),
       };
       const data = {
         test: 'felipe',
@@ -124,7 +124,7 @@ describe('UiValidator', () => {
   describe('UiValidatorField', () => {
     it('Should instance a new validator field', () => {
       const schema = {
-        firstName: validator.field('string', 'This should be a string')
+        firstName: validator.field('text', 'This should be a string')
       }
 
       const data = {

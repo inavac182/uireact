@@ -10,7 +10,7 @@ import { UiEzForm } from '../src';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('string').ezMetada({ label: 'First Name' }).isRequired(),
+  firstName: validator.field('text').ezMetada({ label: 'First Name' }).isRequired(),
   age: validator.field('numeric').ezMetada({ label: 'Your age' }),
   email: validator.field('email').ezMetada({ label: 'Your email', icon: 'Mail' }),
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
@@ -53,7 +53,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      firstName: validator.field('string').ezMetada({ label: 'First Name' })
+      firstName: validator.field('text').ezMetada({ label: 'First Name' })
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
@@ -76,7 +76,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      firstName: validator.field('string').ezMetada({ label: 'First Name' }).isRequired(),
+      firstName: validator.field('text').ezMetada({ label: 'First Name' }).isRequired(),
       email: validator.field('email').ezMetada({ label: 'Your email' }).isRequired(),
     }
 
@@ -215,7 +215,7 @@ describe('<UiEzForm />', () => {
 
   it('Should trigger default submit method when no onSubmit callback is passed and validation passes', () => {
     const schema = {
-      firstName: validator.field('string').ezMetada({ label: 'First Name' })
+      firstName: validator.field('text').ezMetada({ label: 'First Name' })
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' />);

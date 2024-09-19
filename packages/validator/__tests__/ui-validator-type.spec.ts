@@ -5,7 +5,7 @@ describe('type validation', () => {
 
   it('Should use default messaging if none is passed in schema', () => {
     const schema = {
-      test: validator.field('string'),
+      test: validator.field('text'),
     };
     const data = {
       test: 123,
@@ -14,7 +14,7 @@ describe('type validation', () => {
     const result = validator.validate(schema, data);
 
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test[0].message).toBe('This is not a valid string');
+    expect(result.errors?.test[0].message).toBe('This is not a valid text');
   });
 
   describe('date', () => {
@@ -90,7 +90,7 @@ describe('type validation', () => {
   describe('strings', () => {
     it('Should validate strings when string is provided', () => {
       const schema = {
-        test: validator.field('string'),
+        test: validator.field('text'),
       };
       const data = {
         test: 'felipe',
@@ -103,7 +103,7 @@ describe('type validation', () => {
 
     it('Should validate strings when value provided is a number', () => {
       const schema = {
-        test: validator.field('string'),
+        test: validator.field('text'),
       };
       const data = {
         test: 123,
@@ -116,7 +116,7 @@ describe('type validation', () => {
 
     it('Should error out when value provided is an object', () => {
       const schema = {
-        test: validator.field('string'),
+        test: validator.field('text'),
       };
       const data = {
         test: {},
@@ -129,7 +129,7 @@ describe('type validation', () => {
 
     it('Should NOT error out when VALUE is undefined', () => {
       const schema = {
-        test: validator.field('string'),
+        test: validator.field('text'),
       };
       const data = {
         test: undefined,

@@ -19,7 +19,7 @@ describe('length validation', () => {
 
   it('Should validate correct length', () => {
     const schema = {
-      test: validator.field('string').length(0, 10),
+      test: validator.field('text').length(0, 10),
     };
     const data = {
       test: 'testString',
@@ -32,7 +32,7 @@ describe('length validation', () => {
 
   it('Should error out when string is too short and retrieve error message', () => {
     const schema = {
-      test: validator.field('string').length(5, 10, 'Value is too short'),
+      test: validator.field('text').length(5, 10, 'Value is too short'),
     };
     const data = {
       test: 'test',
@@ -46,7 +46,7 @@ describe('length validation', () => {
 
   it('Should error out when string is too long and retrieve error code', () => {
     const schema = {
-      test: validator.field('string').length(5, 10, 'Value is too long'),
+      test: validator.field('text').length(5, 10, 'Value is too long'),
     };
     const data = {
       test: 'This is a very long phrase',
@@ -60,7 +60,7 @@ describe('length validation', () => {
 
   it('Should error out if value is not a string', () => {
     const schema = {
-      test: validator.field('string').length(5, 10),
+      test: validator.field('text').length(5, 10),
     };
     const data = {
       test: {},

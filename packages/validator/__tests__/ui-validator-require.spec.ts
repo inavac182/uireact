@@ -5,7 +5,7 @@ describe('require validation', () => {
 
   it('Should use default messaging if none is passed in schema', () => {
     const schema = {
-      test: validator.field('string').isRequired(),
+      test: validator.field('text').isRequired(),
     };
     const data = {
       test: null,
@@ -19,7 +19,7 @@ describe('require validation', () => {
 
   it('Should validate correct when is required', () => {
     const schema = {
-      test: validator.field('string').isRequired(),
+      test: validator.field('text').isRequired(),
     };
     const data = {
       test: 'test',
@@ -32,7 +32,7 @@ describe('require validation', () => {
 
   it('Should error out if value is null and retrieve error message', () => {
     const schema = {
-      test: validator.field('string').isRequired('The value is required'),
+      test: validator.field('text').isRequired('The value is required'),
     };
     const data = {
       test: null,
@@ -46,7 +46,7 @@ describe('require validation', () => {
 
   it('Should error out if value is undefined and retrieve error code', () => {
     const schema = {
-      test: validator.field('string').isRequired('The value is required'),
+      test: validator.field('text').isRequired('The value is required'),
     };
     const data = {
       test: undefined,
@@ -60,7 +60,7 @@ describe('require validation', () => {
 
   it('Should still fail if no custom error messaging is passed', () => {
     const schema = {
-      test: validator.field('string').isRequired(),
+      test: validator.field('text').isRequired(),
     };
     const data = {
       test: undefined,

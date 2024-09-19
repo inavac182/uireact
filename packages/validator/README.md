@@ -30,7 +30,7 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-    firstName: validator.ruler().isRequired('The first name is required')
+    firstName: validator.field('text').isRequired('The first name is required')
 };
 ```
 
