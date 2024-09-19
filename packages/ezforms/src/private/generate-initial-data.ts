@@ -1,6 +1,6 @@
-import { UiValidatorData, UiValidatorSchemaV2 } from "@uireact/validator";
+import { UiValidatorData, UiValidatorSchema } from "@uireact/validator";
 
-export const generateInitialData = (schema: UiValidatorSchemaV2, initialData?: UiValidatorData) => {
+export const generateInitialData = (schema: UiValidatorSchema, initialData?: UiValidatorData) => {
   const data: UiValidatorData = {};
 
   Object.keys(schema).forEach(schemaField => {

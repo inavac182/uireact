@@ -2,13 +2,13 @@ import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid } from '@uireact/flex';
-import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchemaV2 } from '@uireact/validator';
+import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchema } from '@uireact/validator';
 
 import { EzFormField, generateInitialData } from './private';
 
 export type UiEzFormProps = {
   action?: string;
-  schema: UiValidatorSchemaV2;
+  schema: UiValidatorSchema;
   initialData?: UiValidatorData;
   submitLabel: string;
   cancelLabel?: string;

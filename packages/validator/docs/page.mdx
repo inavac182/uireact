@@ -16,9 +16,11 @@ import { Metadata } from '@uireact/docs-tools';
 
 These are the breaking changes that came with the validator V2:
 
+- The `ruler()` has been removed and replaced with `field()`
+- The `.type()` function is removed and `field()` replaces it. For instnace: `validator.field('email')`
+- The `.type('string')` has being changed to `.field('text')`.
 - So, The `validator.field()` will expose a few more support functions that will be used from `EzForm` component to automatically generate forms from a schema. 
-- The `rule().type()` function is removed on `field()` given that now the type will be set up as a parameter of the `field()` fn. For instnace: `validator.field('email')`
-- The `.type('string')` has being changed to `.field('text')` we feel using text describes it better than string.
+
 
 More information will be coming as we have progress on the EzForm and UiValidator upgrades.
 
