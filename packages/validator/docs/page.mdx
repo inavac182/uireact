@@ -424,7 +424,7 @@ For instance:
 ```tsx
 const date = new Date('2023/12/01');
 const schema = {
-  test: validator.ruler().lessThan(date),
+  test: validator.field('date').lessThan(date),
 };
 const data = {
   test: '2023/11/30',
