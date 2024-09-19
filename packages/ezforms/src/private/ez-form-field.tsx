@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
-import { UiInput } from '@uireact/form';
+import { UiInput, UiSwitch } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import type { UiValidatorField } from '@uireact/validator';
 
@@ -13,9 +13,19 @@ type EzFormFieldProps = {
   useBrowserValidation?: boolean;
   onTextInputChange: (e: FormEvent<HTMLInputElement>) => void;
   onDateInputChange: (date: string, name: string) => void;
+  onBooleanToogle: (value: boolean, name: string) => void;
 }
 
-export const EzFormField = ({ field, error, name, value, useBrowserValidation, onTextInputChange, onDateInputChange }: EzFormFieldProps) => {
+export const EzFormField = ({ 
+  field, 
+  error,
+  name, 
+  value, 
+  useBrowserValidation, 
+  onTextInputChange, 
+  onDateInputChange,
+  onBooleanToogle
+}: EzFormFieldProps) => {
   const rules = field.getRules();
   const icon = field.getIcon() ? <UiIcon icon={field.getIcon() as UiIconProps['icon']} /> : undefined;
   const isTextInput = rules.type.expected === 'string' || 
@@ -30,6 +40,10 @@ export const EzFormField = ({ field, error, name, value, useBrowserValidation, o
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
   }, [name, onDateInputChange]);
+
+  const onBooleanToogleWrapper = useCallback(() => {
+    onBooleanToogle(!value, name);
+  }, [name, value, onBooleanToogle]);
 
   if (isTextInput) {
     return (
@@ -64,6 +78,19 @@ export const EzFormField = ({ field, error, name, value, useBrowserValidation, o
         labelOnTop
         required={useBrowserValidation && rules.required?.expected}
       />      
+    )
+  }
+
+  if(rules.type.expected === 'boolean') {
+    return (
+      <UiSwitch 
+        label={field.getLabel()}
+        category={error ? 'error' : 'secondary'}
+        error={error}
+        checked={value}
+        name={name}
+        onChange={onBooleanToogleWrapper}
+      />
     )
   }
 

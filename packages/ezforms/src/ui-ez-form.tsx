@@ -43,6 +43,11 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     setData({ ...data, [name]: date });
   }, [data]);
 
+  const onBooleanToogle = useCallback((value: Boolean, name: string) => {
+    setErrors({});
+    setData({ ...data, [name]: value });
+  },[data]);
+
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
     setLoading(true);
@@ -70,6 +75,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             error={errors?.[schemaField]?.[0]?.message}
             onTextInputChange={onTextInputChange}
             onDateInputChange={onDateInputChange}
+            onBooleanToogle={onBooleanToogle}
             useBrowserValidation={useBrowserValidation}
           />
         )}
