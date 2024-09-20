@@ -38,6 +38,11 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
   }, [data, errors]);
 
+  const onTextAreaChange = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
+    setErrors({});
+    setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
+  }, [data, errors]);
+
   const onDateInputChange = useCallback((date: string, name: string) => {
     setErrors({});
     setData({ ...data, [name]: date });
@@ -74,6 +79,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             name={schemaField}
             error={errors?.[schemaField]?.[0]?.message}
             onTextInputChange={onTextInputChange}
+            onTextAreaChange={onTextAreaChange}
             onDateInputChange={onDateInputChange}
             onBooleanToogle={onBooleanToogle}
             useBrowserValidation={useBrowserValidation}
