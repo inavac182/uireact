@@ -126,19 +126,9 @@ export class UiValidatorField {
     return this;
   }
 
-  /** @private To retrieve the field label */
-  getLabel() {
-    return this.data.metadata.label;
-  }
-
-  /** @private To retrieve the field icon */
-  getIcon() {
-    return this.data.metadata.icon;
-  }
-
-  /** @private To retrieve the field icon */
-  getDateFormat() {
-    return this.data.metadata.dateFormat;
+  /** @private To retrieve the field metadata */
+  getEzMetadata() {
+    return this.data.metadata;
   }
 
   /** @private For validation purposes, don't use it. */

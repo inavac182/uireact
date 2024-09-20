@@ -12,7 +12,8 @@ const schema = {
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
   age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions")
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions"),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).isOptional()
 };
 
 export const EzFormExample = () => {  

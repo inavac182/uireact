@@ -24,7 +24,7 @@ const schema = {
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
   age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions")
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isOptional()
 };
 ```
 From there you can continue to add any specific validation to each field.
@@ -45,7 +45,8 @@ const schema = {
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
   age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions")
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions"),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).isOptional()
 };
 
 export const EzFormExample = () => {  
@@ -74,7 +75,8 @@ export const EzFormExample = () => {
 The `field()` function will set a initial type for that specific field in the schema, based on this we will render the input that is more suitable for it:
 
 ```ts
-  string -> <UiInput type="text" />
+  text -> <UiInput type="text" />
+  text with .ezMetadata({ paragraph: true }) -> <UiTextarea />
   numeric -> <UiInput type="number" />
   email -> <UiInput type="email" />
   phone -> <UiInput type="text" />

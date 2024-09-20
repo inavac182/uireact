@@ -92,6 +92,7 @@ export type UiValidatorFieldMetadata = {
   label?: string;
   icon?: string;
   dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
+  paragraph?: boolean;
 }
 
 /** Set of possible rules for each field */

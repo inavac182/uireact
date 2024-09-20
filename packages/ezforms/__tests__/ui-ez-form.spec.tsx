@@ -15,7 +15,8 @@ const schema = {
   email: validator.field('email').ezMetada({ label: 'Your email', icon: 'Mail' }),
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
   phone: validator.field('phone').ezMetada({ label: 'Your Phone' }),
-  terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' })
+  terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true })
 }
 
 describe('<UiEzForm />', () => {
@@ -38,6 +39,7 @@ describe('<UiEzForm />', () => {
     expect(screen.getByRole('textbox', { name: 'Birthday' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Your email' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Your Phone' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
   });
 
   it('Should initialize form with given data', () => {
@@ -70,28 +72,39 @@ describe('<UiEzForm />', () => {
     expect(onSubmit.mock.calls[0][1]).toStrictEqual({ firstName: 'Some value' });
   });
 
-  it('Should render errors on submit when there are errors are found', () => {
+  it('Should render errors on submit when there are errors are found and clean them once are addressed', () => {
     const onSubmit = jest.fn().mockImplementation((e) => {
       e.preventDefault();
     });
 
     const schema = {
       firstName: validator.field('text').ezMetada({ label: 'First Name' }).isRequired(),
-      email: validator.field('email').ezMetada({ label: 'Your email' }).isRequired(),
+      description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).isRequired("Description is required")
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
-
-    const input = screen.getByRole('textbox', { name: 'First Name' });
-
-    fireEvent.change(input, { target: { value: 'Some value' } });
-
-    expect(input).toHaveValue('Some value');
 
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(onSubmit).toHaveBeenCalledTimes(0);
     expect(screen.getByText('This is required')).toBeVisible();
+    expect(screen.getByText('Description is required')).toBeVisible();
+
+    const input = screen.getByRole('textbox', { name: 'First Name' });
+    const textArea = screen.getByRole('textbox', { name: 'Description' });
+
+    fireEvent.change(input, { target: { value: 'Some value' } });
+    fireEvent.change(textArea, { target: { value: 'Some description' } });fireEvent.change(textArea, { target: { value: 'Some description' } });
+
+    expect(input).toHaveValue('Some value');
+    expect(textArea).toHaveValue('Some description');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.queryByText('This is required')).not.toBeInTheDocument();
+    expect(screen.queryByText('Description is required')).not.toBeInTheDocument();
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
   it('Should save correctly datepicker date', async () => {
@@ -188,7 +201,8 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).isRequired()
+      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).isRequired(),
+      description: validator.field('text').ezMetada({ paragraph: true }).isRequired()
     }
 
     uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' useBrowserValidation />);

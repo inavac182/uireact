@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
-import { UiInput, UiSwitch } from '@uireact/form';
+import { UiInput, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import type { UiValidatorField } from '@uireact/validator';
 
@@ -12,6 +12,7 @@ type EzFormFieldProps = {
   value?: any;
   useBrowserValidation?: boolean;
   onTextInputChange: (e: FormEvent<HTMLInputElement>) => void;
+  onTextAreaChange: (e: FormEvent<HTMLTextAreaElement>) => void;
   onDateInputChange: (date: string, name: string) => void;
   onBooleanToogle: (value: boolean, name: string) => void;
 }
@@ -22,12 +23,14 @@ export const EzFormField = ({
   name, 
   value, 
   useBrowserValidation, 
-  onTextInputChange, 
+  onTextInputChange,
+  onTextAreaChange,
   onDateInputChange,
   onBooleanToogle
 }: EzFormFieldProps) => {
+  const ezMetadata = field.getEzMetadata();
   const rules = field.getRules();
-  const icon = field.getIcon() ? <UiIcon icon={field.getIcon() as UiIconProps['icon']} /> : undefined;
+  const icon = ezMetadata.icon ? <UiIcon icon={ezMetadata.icon as UiIconProps['icon']} /> : undefined;
   const isTextInput = rules.type.expected === 'text' || 
     rules.type.expected === 'numeric' ||
     rules.type.expected === 'email' ||
@@ -46,9 +49,24 @@ export const EzFormField = ({
   }, [name, value, onBooleanToogle]);
 
   if (isTextInput) {
+    if (ezMetadata.paragraph) {
+      return (
+        <UiTextArea 
+          label={ezMetadata.label}
+          category={error ? 'error' : undefined}
+          error={error}
+          value={value}
+          name={name}
+          onChange={onTextAreaChange}
+          labelOnTop
+          required={useBrowserValidation && rules.required?.expected}
+        />
+      )
+    }
+
     return (
       <UiInput 
-        label={field.getLabel()}
+        label={ezMetadata.label}
         type={inputType}
         category={error ? 'error' : undefined}
         error={error}
@@ -67,9 +85,9 @@ export const EzFormField = ({
 
     return (
       <UiInputDatepicker 
-        label={field.getLabel()}
+        label={ezMetadata.label}
         category={error ? 'error' : undefined}
-        dateFormat={field.getDateFormat()}
+        dateFormat={ezMetadata.dateFormat}
         error={error}
         icon={icon}
         date={selectedDate}
@@ -84,7 +102,7 @@ export const EzFormField = ({
   if(rules.type.expected === 'boolean') {
     return (
       <UiSwitch 
-        label={field.getLabel()}
+        label={ezMetadata.label}
         category={error ? 'error' : 'secondary'}
         error={error}
         checked={value}
