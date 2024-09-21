@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.1.0...@uireact/validator@2.2.0) (2024-09-21)
+
+
+### Features
+
+* **validator:** adding one of check ([#387](https://github.com/inavac182/ui-react/issues/387)) ([a94fe05](https://github.com/inavac182/ui-react/commit/a94fe05392eec8a1303aedc10f5b067b4cf14a31))
+
+
+
+
+
 # [2.1.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.0.1...@uireact/validator@2.1.0) (2024-09-20)
 
 
