@@ -404,6 +404,24 @@ These are the chainable functions that you can use, to set the rules, their poss
         </UiList>
       </td>
     </tr>
+    <tr>
+      <td>isOneOf()</td>
+      <td>
+        <UiList>
+          <li> ❗️ options: Array\<string | number></li>
+          <li> ❓ errorMessage</li>
+          <li>DEFAULT: "This is not valid, only possible values are: (options)"</li>
+        </UiList>
+      </td>
+      <td>
+        <UiList>
+          <li>✅ When the passed value matches one of the options</li>
+          <li>❌ Everything else</li>
+          <li>Strings:</li>
+          <li>The comparisson is not affected by upper / lower casing it will flatten both to compare them.</li>
+        </UiList>
+      </td>
+    </tr>
   </tbody>
 </table>
 

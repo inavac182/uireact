@@ -120,6 +120,21 @@ export class UiValidatorField {
     return this;
   }
 
+  isOneOf(options: Array<string | number>, errorMessage?: string): UiValidatorField {
+    this.data.rules.oneOf = {
+      options,
+      error: errorMessage
+        ? {
+            message: errorMessage,
+          }
+        : {
+            message: `This is not valid, only possible values are: ${options.map(option => option)}`,
+          },
+    };
+
+    return this;
+  }
+
   /** Used to set up EzForms field metadata */
   ezMetada(options: UiValidatorFieldMetadata) {
     this.data.metadata = { ...options };

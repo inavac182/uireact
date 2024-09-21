@@ -192,6 +192,20 @@ export class UiValidator {
     return false;
   }
 
+  private validOption(options: Array<string | number>, value: unknown): boolean {
+    let comparableValue: string | number | null = null;
+
+    if (typeof value === 'string') {
+      comparableValue = value.toLowerCase();
+    }
+
+    if (typeof value === 'number') {
+      comparableValue = value;
+    }
+
+    return options.filter(option => this.getComparableOption(option) === comparableValue).length > 0;
+  }
+
   validate(schema: UiValidatorSchema, data: UiValidatorData, strict?: boolean): UiValidatorResult {
     let errors: UiValidatorErrors = {};
     let hasError = false;
@@ -280,6 +294,15 @@ export class UiValidator {
         }
       }
 
+      if  (rules?.oneOf) {
+        ruleMatched = true;
+
+        if (!this.validOption(rules.oneOf.options, value)) {
+          hasError = true;
+          fieldErrors.push(rules.oneOf.error);
+        }
+      }
+
       // istanbul ignore next
       if (!ruleMatched && strict) {
         console.error(`UiValidator - Field ${field} has NOT valid rules`);
@@ -316,5 +339,13 @@ export class UiValidator {
 
   field(type: UiValidatorFieldTypes, message?: string): UiValidatorField {
     return new UiValidatorField(type, message);
+  }
+
+  private getComparableOption(option: string | number) {
+    if (typeof option === 'string') {
+      return option.toLowerCase();
+    } else {
+      return option;
+    }
   }
 }
