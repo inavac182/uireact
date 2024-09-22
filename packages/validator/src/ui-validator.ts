@@ -8,6 +8,8 @@ import {
   UiValidatorSchema,
   UiValidatorFieldTypes
 } from './types';
+import { UiValidatorIs } from './ui-validator-is';
+import { UiValidatorRules } from './ui-validator-rules';
 
 export class UiValidator {
   private isEmailValid(value: unknown): boolean {
@@ -339,6 +341,14 @@ export class UiValidator {
 
   field(type: UiValidatorFieldTypes, message?: string): UiValidatorField {
     return new UiValidatorField(type, message);
+  }
+
+  is(): UiValidatorIs {
+    return new UiValidatorIs();
+  }
+
+  rules(): UiValidatorRules {
+    return new UiValidatorRules();
   }
 
   private getComparableOption(option: string | number) {

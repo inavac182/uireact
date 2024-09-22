@@ -2,7 +2,6 @@ import { UiValidator } from '../src';
 
 const validator = new UiValidator();
 
-
 describe('isOneOf', () => {
   describe('strings', () => {
     const schema = {
