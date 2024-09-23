@@ -5,7 +5,6 @@ import {
   UiValidatorWhenValidation
 } from './types';
 import { UiValidatorRules } from './ui-validator-rules';
-import { UiValidatorIs } from './ui-validator-is';
 
 export class UiValidatorField extends UiValidatorRules {
   private metadata?: UiValidatorFieldMetadata;
@@ -15,26 +14,7 @@ export class UiValidatorField extends UiValidatorRules {
     super(type, message);
   }
 
-  isOptional(): UiValidatorRules {
-    return this;
-  }
-
-  isRequired(errorMessage?: string): UiValidatorRules {
-    this.rules.required = {
-      expected: true,
-      error: errorMessage
-        ? {
-            message: errorMessage,
-          }
-        : {
-            message: 'This is required',
-          },
-    };
-
-    return this;
-  }
-
-  when(fieldName: string, validation: UiValidatorIs): UiValidatorWhen {
+  when(fieldName: string, validation: UiValidatorRules): UiValidatorWhen {
     const when = new UiValidatorWhen(this, fieldName, validation);
 
     return when;

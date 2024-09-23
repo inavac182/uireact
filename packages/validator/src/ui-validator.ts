@@ -6,9 +6,9 @@ import {
   UiValidatorExpectationRule,
   UiValidatorResult,
   UiValidatorSchema,
-  UiValidatorFieldTypes
+  UiValidatorFieldTypes,
+  UiValidatorFieldRules
 } from './types';
-import { UiValidatorIs } from './ui-validator-is';
 import { UiValidatorRules } from './ui-validator-rules';
 
 export class UiValidator {
@@ -221,99 +221,32 @@ export class UiValidator {
     }
 
     Object.keys(data).map((field) => {
-      const rules = schema[field]?.getRules?.();
-      const fieldErrors: UiValidatorError[] = [];
-      let ruleMatched = false;
+      const schemaField = schema[field];
 
-      if (!rules && strict) {
+      if (!schemaField && strict) {
         console.error(`UiValidator - Field ${field} is NOT in schema`);
         hasError = true;
         return;
       }
 
-      const value = data[field];
-
-      if (rules?.required) {
-        ruleMatched = true;
-
-        if (!this.validRequired(rules.required.expected, value)) {
-          hasError = true;
-          fieldErrors.push(rules.required.error);
-        }
-      }
-
-      if (rules?.type) {
-        ruleMatched = true;
-
-        if (!this.validExpectationRule(value, rules.type)) {
-          hasError = true;
-          fieldErrors.push(rules.type.error);
-        }
-      }
-
-      if (rules?.range) {
-        ruleMatched = true;
-
-        if (!this.validRangeRule(rules.range.min, rules.range.max, value)) {
-          hasError = true;
-          fieldErrors.push(rules.range.error);
-        }
-      }
-
-      if (rules?.dateRange) {
-        ruleMatched = true;
-
-        if (!this.validDateRange(rules.dateRange.min, rules.dateRange.max, value)) {
-          hasError = true;
-          fieldErrors.push(rules.dateRange.error);
-        }
-      }
-
-      if (rules?.length) {
-        ruleMatched = true;
-
-        if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
-          hasError = true;
-          fieldErrors.push(rules.length.error);
-        }
-      }
-
-      if (rules?.greaterThan) {
-        ruleMatched = true;
-
-        if (!this.validComparable(rules.greaterThan.baseline, value, 'greaterThan')) {
-          hasError = true;
-          fieldErrors.push(rules.greaterThan.error);
-        }
-      }
-
-      if (rules?.lessThan) {
-        ruleMatched = true;
-
-        if (!this.validComparable(rules.lessThan.baseline, value, 'lessThan')) {
-          hasError = true;
-          fieldErrors.push(rules.lessThan.error);
-        }
-      }
-
-      if  (rules?.oneOf) {
-        ruleMatched = true;
-
-        if (!this.validOption(rules.oneOf.options, value)) {
-          hasError = true;
-          fieldErrors.push(rules.oneOf.error);
-        }
-      }
-
-      // istanbul ignore next
-      if (!ruleMatched && strict) {
-        console.error(`UiValidator - Field ${field} has NOT valid rules`);
-        hasError = true;
+      if (!schemaField) {
         return;
       }
+      
+      if ("getRules" in schemaField) {
+        const rules = schemaField.getRules();
+        const value = data[field];
+        const result = this.runValidations(value, field, rules, strict);
 
-      if (fieldErrors.length > 0) {
-        errors = { ...errors, [field]: fieldErrors };
+        if (result.errors.length > 0) {
+          errors[field] = result.errors;
+        }
+
+        if (result.hasError) {
+          hasError = true;
+        }
+      } else {
+        // Run conditionally validation.
       }
     });
 
@@ -339,15 +272,13 @@ export class UiValidator {
     };
   }
 
+  /** field() fn creates a validator field with option to set up metadata and rules */
   field(type: UiValidatorFieldTypes, message?: string): UiValidatorField {
     return new UiValidatorField(type, message);
   }
 
-  is(): UiValidatorIs {
-    return new UiValidatorIs();
-  }
-
-  rules(): UiValidatorRules {
+  /** is() fn used to create an object with rules to validate */
+  is(): UiValidatorRules {
     return new UiValidatorRules();
   }
 
@@ -357,5 +288,95 @@ export class UiValidator {
     } else {
       return option;
     }
+  }
+
+  private runValidations(value: unknown, field: string, rules: UiValidatorFieldRules, strict?: boolean): { errors: UiValidatorError[], hasError: boolean } {
+    let hasError = false;
+
+    const fieldErrors: UiValidatorError[] = [];
+    let ruleMatched = false;
+
+    if (rules.required) {
+      ruleMatched = true;
+
+      if (!this.validRequired(rules.required.expected, value)) {
+        hasError = true;
+        fieldErrors.push(rules.required.error);
+      }
+    }
+
+    if (rules.type) {
+      ruleMatched = true;
+
+      if (!this.validExpectationRule(value, rules.type)) {
+        hasError = true;
+        fieldErrors.push(rules.type.error);
+      }
+    }
+
+    if (rules.range) {
+      ruleMatched = true;
+
+      if (!this.validRangeRule(rules.range.min, rules.range.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.range.error);
+      }
+    }
+
+    if (rules.dateRange) {
+      ruleMatched = true;
+
+      if (!this.validDateRange(rules.dateRange.min, rules.dateRange.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.dateRange.error);
+      }
+    }
+
+    if (rules.length) {
+      ruleMatched = true;
+
+      if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.length.error);
+      }
+    }
+
+    if (rules.greaterThan) {
+      ruleMatched = true;
+
+      if (!this.validComparable(rules.greaterThan.baseline, value, 'greaterThan')) {
+        hasError = true;
+        fieldErrors.push(rules.greaterThan.error);
+      }
+    }
+
+    if (rules.lessThan) {
+      ruleMatched = true;
+
+      if (!this.validComparable(rules.lessThan.baseline, value, 'lessThan')) {
+        hasError = true;
+        fieldErrors.push(rules.lessThan.error);
+      }
+    }
+
+    if  (rules.oneOf) {
+      ruleMatched = true;
+
+      if (!this.validOption(rules.oneOf.options, value)) {
+        hasError = true;
+        fieldErrors.push(rules.oneOf.error);
+      }
+    }
+
+    // istanbul ignore next
+    if (!ruleMatched && strict) {
+      console.error(`UiValidator - Field ${field} has NOT valid rules`);
+      hasError = true;
+    }
+
+    return {
+      errors: fieldErrors,
+      hasError
+    };
   }
 }

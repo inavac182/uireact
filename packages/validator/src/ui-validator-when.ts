@@ -1,19 +1,20 @@
 import { UiValidatorWhenValidation } from "types";
 import { UiValidatorField } from "./ui-validator-field";
-import { UiValidatorIs } from "./ui-validator-is";
+import { UiValidatorRules } from "ui-validator-rules";
 
 export class UiValidatorWhen {
   private fieldData: UiValidatorField;
   private preValidations: Array<UiValidatorWhenValidation>;
+  private rules?: UiValidatorRules;
 
-  constructor(field: UiValidatorField, fieldName: string, validation: UiValidatorIs) {
+  constructor(field: UiValidatorField, fieldName: string, validation: UiValidatorRules) {
     this.fieldData = field;
     this.preValidations = [{
       [fieldName]: validation
     }];
   }
 
-  and(fieldName: string, validation: UiValidatorIs) {
+  and(fieldName: string, validation: UiValidatorRules) {
     this.preValidations = [{
       [fieldName]: validation
     }];
@@ -21,15 +22,15 @@ export class UiValidatorWhen {
     return this;
   }
 
-  run(): UiValidatorField {
-    const fieldData = this.fieldData.getRules();
+  run(rules: UiValidatorRules): UiValidatorWhen {
+    this.rules = rules;
 
-    if (!fieldData.type) {
-      throw new Error("The validator.field has NOT being initialized for this field");
-    }
+    return this;
+  }
 
-    const field = new UiValidatorField(fieldData.type.expected, fieldData.type.error.message);
-    field.setPreset(this.preValidations);
-    return field;
+  else(rules: UiValidatorRules): UiValidatorWhen {
+    this.rules = rules;
+
+    return this;
   }
 }

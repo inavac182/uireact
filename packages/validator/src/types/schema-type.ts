@@ -1,5 +1,6 @@
 import { UiValidatorError } from './validator-result';
 import { UiValidatorRules } from '../ui-validator-rules';
+import { UiValidatorWhen } from 'ui-validator-when';
 
 /** The value for each rule */
 export type UiValidatorExpectationRule<T> = {
@@ -94,5 +95,5 @@ export type UiValidatorFieldData = {
 
 /** The schema needed for the UiValidator */
 export type UiValidatorSchema = {
-  [key in string]: UiValidatorRules;
+  [key in string]: UiValidatorRules | UiValidatorWhen;
 };

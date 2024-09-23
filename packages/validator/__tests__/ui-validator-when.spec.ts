@@ -10,8 +10,8 @@ describe('When', () => {
         .field('text')
         .ezMetada({})
         .when('fistName', validator.is().present())
-        .run()
-        .isRequired()
+        .run(validator.is().present())
+        .else(validator.is().optional())
     }
   });
 });

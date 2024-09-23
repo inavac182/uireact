@@ -71,6 +71,23 @@ describe('UiValidator', () => {
       expect(console.error.mock.calls[0][0]).toBe('UiValidator - Field test is NOT in schema');
     });
 
+    it('Should error out if no rules are found in schema for a given data field when run in strict', () => {
+      const schema = {
+        test: validator.is(),
+      };
+      const data = {
+        test: 'felipe',
+      };
+
+      const result = validator.validate(schema, data, true);
+
+      expect(result.passed).toBeFalsy();
+      expect(console.error).toHaveBeenCalledTimes(1);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      expect(console.error.mock.calls[0][0]).toBe('UiValidator - Field test has NOT valid rules');
+    });
+
     it('Should error out if schema has different fields than the data passed in strict', () => {
       const schema = {
         diffField: validator.field('text'),

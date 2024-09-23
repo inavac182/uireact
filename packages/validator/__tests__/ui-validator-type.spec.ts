@@ -140,6 +140,19 @@ describe('type validation', () => {
       expect(result.passed).toBeTruthy();
     });
 
+    it('Should NOT error out when VALUE is null', () => {
+      const schema = {
+        test: validator.field('text'),
+      };
+      const data = {
+        test: null,
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
     it('Should error out if type is unrecognized', () => {
       const schema = {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

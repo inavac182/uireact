@@ -1,7 +1,7 @@
-import { UiValidatorFieldRules, UiValidatorFieldTypes } from "types";
+import { UiValidatorFieldRules, UiValidatorFieldTypes } from "./types";
 
 export class UiValidatorRules {
-  protected rules:  UiValidatorFieldRules;
+  rules:  UiValidatorFieldRules;
 
   constructor(type?: UiValidatorFieldTypes, message?: string) {
     if (type) {
@@ -15,6 +15,44 @@ export class UiValidatorRules {
       this.rules = {};
     }
   };
+
+  // istanbul ignore next
+  /** @deprecated - This will be removed in the next major version - use present going forward */
+  isRequired(errorMessage?: string): UiValidatorRules {
+    this.rules.required = {
+      expected: true,
+      error: errorMessage
+        ? {
+            message: errorMessage,
+          }
+        : {
+            message: 'This is required',
+          },
+    };
+
+    return this;
+  }
+
+  optional(): UiValidatorRules {
+    return this;
+  }
+
+  // istanbul ignore next
+  /** @deprecated - This will be removed in the next major version - use optional going forward */
+  isOptional(): UiValidatorRules {
+    return this;
+  }
+
+  present(errorMessage?: string) {
+    this.rules.required = {
+      expected: true,
+      error: {
+        message: errorMessage ?? "This is required"
+      }
+    };
+
+    return this;
+  }
 
   range(min: number, max: number, errorMessage?: string): UiValidatorRules {
     this.rules.range = {
@@ -100,7 +138,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  isOneOf(options: Array<string | number>, errorMessage?: string): UiValidatorRules {
+  oneOf(options: Array<string | number>, errorMessage?: string): UiValidatorRules {
     this.rules.oneOf = {
       options,
       error: errorMessage

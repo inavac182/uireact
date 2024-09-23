@@ -1,5 +1,5 @@
-import { UiValidatorIs } from "../ui-validator-is";
+import { UiValidatorRules } from "../ui-validator-rules";
 
 export type UiValidatorWhenValidation = {
-  [x in string]: UiValidatorIs;
+  [x in string]: UiValidatorRules;
 };
