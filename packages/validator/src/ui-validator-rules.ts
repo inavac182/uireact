@@ -1,7 +1,7 @@
 import { UiValidatorFieldRules, UiValidatorFieldTypes } from "./types";
 
 export class UiValidatorRules {
-  rules:  UiValidatorFieldRules;
+  private rules:  UiValidatorFieldRules;
 
   constructor(type?: UiValidatorFieldTypes, message?: string) {
     if (type) {
@@ -34,6 +34,11 @@ export class UiValidatorRules {
   }
 
   optional(): UiValidatorRules {
+    this.rules.required = {
+      expected: false,
+      error: {}
+    };
+
     return this;
   }
 

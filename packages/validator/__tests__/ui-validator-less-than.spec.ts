@@ -11,7 +11,7 @@ describe('lessThan validation', () => {
       test: 9,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -24,7 +24,7 @@ describe('lessThan validation', () => {
       test: 11,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The value is greater than 10');
   });
@@ -37,7 +37,7 @@ describe('lessThan validation', () => {
       test: 'some',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This is not a valid numeric');
   });
@@ -52,7 +52,7 @@ describe('lessThan validation', () => {
       test: new Date('2023/11/30'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -67,7 +67,7 @@ describe('lessThan validation', () => {
       test: new Date('2023/12/02'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date is after 2023/12/01');
   });
@@ -82,7 +82,7 @@ describe('lessThan validation', () => {
       test: '2023/11/30',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -97,7 +97,7 @@ describe('lessThan validation', () => {
       test: '2023/12/02',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date is after 2023/12/01');
   });
@@ -112,7 +112,7 @@ describe('lessThan validation', () => {
       test: '',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
   });

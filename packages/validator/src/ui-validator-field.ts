@@ -1,14 +1,12 @@
 import { UiValidatorWhen } from './ui-validator-when';
 import { 
   UiValidatorFieldTypes,
-  UiValidatorFieldMetadata, 
-  UiValidatorWhenValidation
+  UiValidatorFieldMetadata
 } from './types';
 import { UiValidatorRules } from './ui-validator-rules';
 
 export class UiValidatorField extends UiValidatorRules {
   private metadata?: UiValidatorFieldMetadata;
-  private preValidations?: Array<UiValidatorWhenValidation>;
 
   constructor(type: UiValidatorFieldTypes, message?: string) {
     super(type, message);
@@ -29,15 +27,5 @@ export class UiValidatorField extends UiValidatorRules {
   /** @private To retrieve the field metadata */
   getEzMetadata() {
     return this.metadata;
-  }
-
-  /** @private To retrieve the field metadata */
-  setPreset(preValidations: Array<UiValidatorWhenValidation>) {
-    this.preValidations = preValidations;
-  }
-
-  /** @private To retrieve presets */
-  getPreset() {
-    this.preValidations;
   }
 }

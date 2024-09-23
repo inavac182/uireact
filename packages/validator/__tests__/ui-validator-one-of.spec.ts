@@ -12,7 +12,7 @@ describe('isOneOf', () => {
       const data = {
         color: 'red'
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toStrictEqual(true);
     });
@@ -21,7 +21,7 @@ describe('isOneOf', () => {
       const data = {
         color: 'yellow'
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toStrictEqual(false);
     });
@@ -36,7 +36,7 @@ describe('isOneOf', () => {
       const data = {
         color: 1
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toStrictEqual(true);
     });
@@ -48,7 +48,7 @@ describe('isOneOf', () => {
       const data = {
         color: 3.14
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toStrictEqual(true);
     });
@@ -57,7 +57,7 @@ describe('isOneOf', () => {
       const data = {
         color: 5
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toStrictEqual(false);
     });
@@ -71,7 +71,7 @@ describe('isOneOf', () => {
       const data = {
         color: 5
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.errors?.color?.[0].message).toBe('This is not valid, only possible values are: 1,2,3');
     });
@@ -83,7 +83,7 @@ describe('isOneOf', () => {
       const data = {
         color: 5
       };
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.errors?.color?.[0].message).toBe('The option is not valid')
     });

@@ -76,7 +76,7 @@ export type UiValidatorFieldRules = {
   /** Validates a value is less than a baseline */
   lessThan?: UiValidatorComparisonRule;
   /** Validates that a choice field is one of a given set of values */
-  oneOf?: UiValidatorChoicesRule
+  oneOf?: UiValidatorChoicesRule;
 };
 
 /** Metadata information used from EzForms */
