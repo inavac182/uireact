@@ -65,6 +65,7 @@ describe('UiValidator', () => {
         test: 'felipe',
       };
 
+      //@ts-ignore
       const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();

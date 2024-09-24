@@ -16,13 +16,13 @@ import { mergeSpacesTheme } from "../utils/merge-spaces-theme";
 const validator = new UiValidator();
 
 const schema = {
-    one: validator.field('text').isRequired('The level one spacing is required'),
-    two: validator.field('text').isRequired('The level two spacing is required'),
-    three: validator.field('text').isRequired('The level three spacing is required'),
-    four: validator.field('text').isRequired('The level four spacing is required'),
-    five: validator.field('text').isRequired('The level five spacing is required'),
-    six: validator.field('text').isRequired('The level six spacing is required'),
-    seven: validator.field('text').isRequired('The level seven spacing is required')
+    one: validator.field('text').present('The level one spacing is required'),
+    two: validator.field('text').present('The level two spacing is required'),
+    three: validator.field('text').present('The level three spacing is required'),
+    four: validator.field('text').present('The level four spacing is required'),
+    five: validator.field('text').present('The level five spacing is required'),
+    six: validator.field('text').present('The level six spacing is required'),
+    seven: validator.field('text').present('The level seven spacing is required')
 }
 
 const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' };

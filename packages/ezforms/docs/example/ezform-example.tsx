@@ -8,12 +8,12 @@ import { UiFlexGrid } from '@uireact/flex';
 const validator = new UiValidator();
 
 const schema = {
-  name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).isRequired(),
-  birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).isRequired(),
-  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).isRequired(),
-  email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).isRequired(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).isRequired("You have to accept our terms and conditions"),
-  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).isOptional()
+  name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).present(),
+  birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
+  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present(),
+  email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).present(),
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions"),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).optional()
 };
 
 export const EzFormExample = () => {  

@@ -16,7 +16,7 @@ const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' 
 const validator = new UiValidator();
 
 const schema = {
-    fontName: validator.field('text').isRequired('The font name is required')
+    fontName: validator.field('text').present('The font name is required')
 }
 
 export const FontNameForm = () => {

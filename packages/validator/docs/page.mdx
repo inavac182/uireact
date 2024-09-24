@@ -18,8 +18,8 @@ These are the breaking changes that came with the validator V2:
 
 - The `ruler()` has been removed and replaced with `field()`
 - The `.type()` function is removed and `field()` replaces it. E.g.: `validator.field('email')`
-- The `.isRequired()` function is deprecated and `present()` replaces it.
-- The `.isOptional()` function is deprecated and `optional()` replaces it.
+- The `.present()` function is deprecated and `present()` replaces it.
+- The `.optional()` function is deprecated and `optional()` replaces it.
 - Recognizing texts has changed from `.type('string')` has being changed to `.field('text')`.
 - The `validator.field()` will expose a few more support functions that will be used from `EzForm` component to automatically generate forms from a schema. 
 - The strict mode is now enabled by default.
@@ -46,8 +46,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
+  firstName: validator.field('text').present('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').present('Email is required')
 };
 ```
 
@@ -59,8 +59,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
+  firstName: validator.field('text').present('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').present('Email is required')
 };
 
 const data = {
@@ -92,8 +92,8 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('text').isRequired('First Name is required').length(0, 10, 'First name is not valid'),
-  email: validator.field('email', 'The mail is not valid').isRequired('Email is required')
+  firstName: validator.field('text').present('First Name is required').length(0, 10, 'First name is not valid'),
+  email: validator.field('email', 'The mail is not valid').present('Email is required')
 };
 
 const data = {
@@ -130,15 +130,15 @@ Example using a component that receives the schema and the data and then renders
     schema={{
       age: validator
         .field('numeric')
-        .isRequired('The age is required')
+        .present('The age is required')
         .range(25, 35, 'This only works for ppl from 25 to 35 years old'),
       firstName: validator
         .field('text')
-        .isRequired('First Name is required')
+        .present('First Name is required')
         .length(0, 10, 'First name is not valid'),
       email: validator
         .field('email', 'Email is not valid')
-        .isRequired('Email is required')
+        .present('Email is required')
     }}
     data={{ age: 29, firstName: 'Felipe', email: 'text@mymail.com' }}
   />
@@ -518,6 +518,6 @@ So, Maybe this rule would make the work for you without worrying about formats:
 
 ```ts
 const schema = {
-  phone: validator.field('numeric').isRequired().length(10, 12)
+  phone: validator.field('numeric').present().length(10, 12)
 };
 ```

@@ -82,9 +82,9 @@ export class UiValidator {
   private validExpectationRule(
     value: unknown,
     rule: UiValidatorExpectationRule<UiValidatorFieldTypes>,
-    isOptional: boolean
+    optional: boolean
   ): boolean {
-    if (isOptional && (value === null || value === undefined || value === "")) {
+    if (optional && (value === null || value === undefined || value === "")) {
       return true;
     }
 
@@ -152,8 +152,8 @@ export class UiValidator {
     return false;
   }
 
-  private validRequired(isRequired: boolean, value: unknown): boolean {
-    if (!isRequired) {
+  private validRequired(present: boolean, value: unknown): boolean {
+    if (!present) {
       return true;
     }
 
@@ -165,7 +165,7 @@ export class UiValidator {
       return value === true;
     }
 
-    return isRequired && value !== null && value !== undefined;
+    return present && value !== null && value !== undefined;
   }
 
   /**
@@ -404,9 +404,9 @@ export class UiValidator {
 
     if ( rules.type) {
       ruleMatched = true;
-      const isOptional = rules.required?.expected === false;
+      const optional = rules.required?.expected === false;
 
-      if (!this.validExpectationRule(value, rules.type, isOptional)) {
+      if (!this.validExpectationRule(value, rules.type, optional)) {
         hasError = true;
         fieldErrors.push(rules.type.error);
       }

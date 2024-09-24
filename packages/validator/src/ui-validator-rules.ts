@@ -16,35 +16,12 @@ export class UiValidatorRules {
     }
   };
 
-  // istanbul ignore next
-  /** @deprecated - This will be removed in the next major version - use present going forward */
-  isRequired(errorMessage?: string): UiValidatorRules {
-    this.rules.required = {
-      expected: true,
-      error: errorMessage
-        ? {
-            message: errorMessage,
-          }
-        : {
-            message: 'This is required',
-          },
-    };
-
-    return this;
-  }
-
   optional() {
     this.rules.required = {
       expected: false,
       error: {}
     };
 
-    return this;
-  }
-
-  // istanbul ignore next
-  /** @deprecated - This will be removed in the next major version - use optional going forward */
-  isOptional() {
     return this;
   }
 

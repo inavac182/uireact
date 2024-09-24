@@ -15,20 +15,20 @@ import { addUnitToSizes, cleanUpUnitsFromSizes } from "../utils";
 const validator = new UiValidator();
 
 const textsSchema = {
-    xsmall: validator.field('text').isRequired('XSmall is required'),
-    small: validator.field('text').isRequired('Small is required'),
-    regular: validator.field('text').isRequired('Regular is required'),
-    large: validator.field('text').isRequired('Large is required'),
-    xlarge: validator.field('text').isRequired('XLarge is required')
+    xsmall: validator.field('text').present('XSmall is required'),
+    small: validator.field('text').present('Small is required'),
+    regular: validator.field('text').present('Regular is required'),
+    large: validator.field('text').present('Large is required'),
+    xlarge: validator.field('text').present('XLarge is required')
 };
 
 const headingsSchema = {
-    level1: validator.field('text').isRequired('Level 1 is required'),
-    level2: validator.field('text').isRequired('Level 2 is required'),
-    level3: validator.field('text').isRequired('Level 3 is required'),
-    level4: validator.field('text').isRequired('Level 4 is required'),
-    level5: validator.field('text').isRequired('Level 5 is required'),
-    level6: validator.field('text').isRequired('Level 6 is required'),
+    level1: validator.field('text').present('Level 1 is required'),
+    level2: validator.field('text').present('Level 2 is required'),
+    level3: validator.field('text').present('Level 3 is required'),
+    level4: validator.field('text').present('Level 4 is required'),
+    level5: validator.field('text').present('Level 5 is required'),
+    level6: validator.field('text').present('Level 6 is required'),
 };
 
 const suggestedTextValues: TextSizes = {
