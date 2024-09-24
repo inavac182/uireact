@@ -31,15 +31,6 @@ export const EzFormField = ({
   const ezMetadata = field.getEzMetadata() || {};
   const rules = field.getRules();
   const icon = ezMetadata.icon ? <UiIcon icon={ezMetadata.icon as UiIconProps['icon']} /> : undefined;
-  const isTextInput = rules.type?.expected === 'text' || 
-    rules.type?.expected === 'numeric' ||
-    rules.type?.expected === 'email' ||
-    rules.type?.expected === 'phone';
-  const inputType = 
-    rules.type?.expected === 'numeric' ? 'number' : 
-    rules.type?.expected === 'email' ? 'email' : 
-    undefined
-
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
   }, [name, onDateInputChange]);
@@ -47,6 +38,19 @@ export const EzFormField = ({
   const onBooleanToogleWrapper = useCallback(() => {
     onBooleanToogle(!value, name);
   }, [name, value, onBooleanToogle]);
+
+  if (!rules.type) {
+    return null;
+  }
+
+  const isTextInput = rules.type.expected === 'text' || 
+    rules.type.expected === 'numeric' ||
+    rules.type.expected === 'email' ||
+    rules.type.expected === 'phone';
+  const inputType = 
+    rules.type.expected === 'numeric' ? 'number' : 
+    rules.type.expected === 'email' ? 'email' : 
+    undefined
 
   if (isTextInput) {
     if (ezMetadata.paragraph) {
