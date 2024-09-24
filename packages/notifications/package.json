@@ -37,6 +37,7 @@
     "@uireact/foundation": ">= 3",
     "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3",
+    "@uireact/view": ">= 3.5.0",
     "react": ">= 17 < 19",
     "react-dom": ">= 17 < 19",
     "tslib": "^2.5.0"

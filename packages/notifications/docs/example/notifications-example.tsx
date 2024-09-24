@@ -7,7 +7,7 @@ import { UiNotifications, useNotifications } from '@uireact/notifications';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 
-const buttonContentPadding: UiSpacingProps['padding'] = { block: 'four' };
+const buttonContentPadding: UiSpacingProps['padding'] = { block: 'two', inline: 'three' };
 
 type NotificationsExampleProps = {
   onNotificationShown?: () => void;

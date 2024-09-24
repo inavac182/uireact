@@ -1,23 +1,38 @@
 import { UiNotifications } from '@uireact/notifications';
+import { UiCard } from '@uireact/card';
+
 import { NotificationsExample } from './example';
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiNotifications
 
-<Metadata packageName='notifications' packageJson={packageJson} />
+<Metadata packageName='notifications' packageJson={packageJson} includeInformation description='Used to render notifications on the top right corner of the screen, in small breakpoints the notifications appear at the bottom of the screen.' />
 
-> Used to render notifications on the top right corner of the screen, in small breakpoints the notifications appear at the bottom of the screen.
-
-## Installation
-
-> npm i @uireact/foundation @uireact/notifications
+<br />
 
 ## How to use?
 
-1. Render the component `<UiNotifications />` inside the `<UiView />`.
-2. Use the hook `useNotifications()` to retrieve the function `showNotification()` which allows you to add the notification content.
-3. Once the notification is shown, the timeout will start running and will automatically close the notification after 5 secs.
+<UiCard category='primary'>
+  1. Render the component `<UiNotifications />` inside your `ViewWrapper` as a children of `<UiView />`. There should ONLY be 1 UiNotifications of this in the React tree.
+  2. Use the hook `useNotifications()` to retrieve the function `showNotification()` which allows you to add the notification content.
+  3. Once the notification is shown, the timeout will start running and will automatically close the notification after 5 secs.
+</UiCard>
+
+In your ViewWrapper rendering the `<UiView />` as a child render the notifications component:
+
+```tsx
+import { UiNotifications } from '@uireact/notifications';
+
+const ViewWrapper = ({ children }) => {
+  return (
+    <UiView>
+      <UiNotifications />
+      {children}
+    </UiView>
+  )
+};
+```
 
 ## useNotifications hook
 
@@ -67,6 +82,8 @@ The notifications provider is set up automatically by the [UiView](./packages-vi
 <NotificationsExample />
 
 ```tsx
+import { useNotifications } from '@uireact/notifications';
+
 export const NotificationsExample: React.FC = () => {
   const { showNotification } = useNotifications();
 
@@ -117,7 +134,17 @@ The `UiNotifications` component has a prop to customize the spacing on the top w
 For instance if you want the notifications to render just below your header and your header is 100px tall then you can do this:
 
 ```tsx
-  <UiNotifications topSpacing="100px" />
+import { UiNotifications } from '@uireact/notifications';
+
+const ViewWrapper = ({ children }) => {
+  return (
+    <UiView>
+      <UiNotifications topSpacing="100px" />
+      { children }
+    </UiView>
+  )
+}
+  
 ```
 
 You could also use the `className` prop although you need to check for the breakpoint as the notifications changes position to the bottom when the breakpoint is small. We already take care of this in the `topSpacing` prop.
