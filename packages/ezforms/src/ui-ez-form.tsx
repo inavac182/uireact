@@ -8,6 +8,7 @@ import { EzFormField, generateInitialData } from './private';
 
 export type UiEzFormProps = {
   action?: string;
+  method?: string;
   schema: UiValidatorSchema;
   initialData?: UiValidatorData;
   submitLabel: string;
@@ -22,6 +23,7 @@ const validator = new UiValidator();
 export const UiEzForm: React.FC<UiEzFormProps> = ({ 
   action,
   schema, 
+  method,
   initialData,
   cancelLabel,
   submitLabel,
@@ -53,6 +55,11 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     setData({ ...data, [name]: value });
   },[data]);
 
+  const onSelectChange = useCallback((value: string, name: string) => {
+    setErrors({});
+    setData({ ...data, [name]: value });
+  }, [data]);
+
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
     setLoading(true);
@@ -69,7 +76,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   }, [data, onSubmit, schema]);
 
   return (
-    <form onSubmit={onSubmitCB} action={action}>
+    <form onSubmit={onSubmitCB} action={action} method={method}>
       <UiFlexGrid gap='three' direction='column'>
         {Object.keys(schema).map((schemaField, index) => 
           <EzFormField
@@ -82,6 +89,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             onTextAreaChange={onTextAreaChange}
             onDateInputChange={onDateInputChange}
             onBooleanToogle={onBooleanToogle}
+            onSelectInputChange={onSelectChange}
             useBrowserValidation={useBrowserValidation}
           />
         )}

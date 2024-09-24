@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
-import { UiInput, UiSwitch, UiTextArea } from '@uireact/form';
+import { UiInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import type { UiValidatorField } from '@uireact/validator';
 
@@ -13,6 +13,7 @@ type EzFormFieldProps = {
   useBrowserValidation?: boolean;
   onTextInputChange: (e: FormEvent<HTMLInputElement>) => void;
   onTextAreaChange: (e: FormEvent<HTMLTextAreaElement>) => void;
+  onSelectInputChange: (value: string, name: string) => void;
   onDateInputChange: (date: string, name: string) => void;
   onBooleanToogle: (value: boolean, name: string) => void;
 }
@@ -26,7 +27,8 @@ export const EzFormField = ({
   onTextInputChange,
   onTextAreaChange,
   onDateInputChange,
-  onBooleanToogle
+  onBooleanToogle,
+  onSelectInputChange
 }: EzFormFieldProps) => {
   const ezMetadata = field.getEzMetadata() || {};
   const rules = field.getRules();
@@ -34,6 +36,10 @@ export const EzFormField = ({
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
   }, [name, onDateInputChange]);
+
+  const onSelectChangeWrapper = useCallback((value?: string) => {
+    onSelectInputChange(value || "", name);
+  }, [name, onSelectInputChange]);
 
   const onBooleanToogleWrapper = useCallback(() => {
     onBooleanToogle(!value, name);
@@ -115,6 +121,17 @@ export const EzFormField = ({
         onChange={onBooleanToogleWrapper}
       />
     )
+  }
+
+  if(rules.type.expected === 'choice' && rules.oneOf?.options) {
+    return (
+      <UiSelect name={name} value={value} onChange={onSelectChangeWrapper} error={error} category={error ? 'error' : undefined} label={ezMetadata.label} labelOnTop>
+        <option value=""></option>
+        {
+          rules.oneOf.options.map((option, index) => <option key={`${name}-option-select-${index}`} value={option}>{option}</option>)
+        }
+      </UiSelect>
+    );
   }
 
   return null;

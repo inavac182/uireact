@@ -16,6 +16,7 @@ const schema = {
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
   phone: validator.field('phone').ezMetada({ label: 'Your Phone' }),
   terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }),
+  type: validator.field('choice').ezMetada({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
   description: validator.field('text').ezMetada({ label: 'Description', paragraph: true })
 }
 
@@ -40,6 +41,7 @@ describe('<UiEzForm />', () => {
     expect(screen.getByRole('textbox', { name: 'Your email' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Your Phone' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
+    expect(screen.getByRole('combobox', { name: 'Account type' })).toBeVisible();
   });
 
   it('Should initialize form with given data', () => {
@@ -173,6 +175,58 @@ describe('<UiEzForm />', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should save correctly select change', async () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      type: validator.field('choice').ezMetada({ label: 'Account type' }).oneOf(['user', 'admin', 'editor'], "You have to select an account type")
+    }
+
+    const initialData = {
+      type: 'admin'
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' />);
+
+    const select = screen.getByRole('combobox', { name: 'Account type' });
+
+    expect(select).toBeVisible();
+    expect(select).toHaveValue('admin');
+    
+    fireEvent.change(select, { target: { value: '' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).not.toHaveBeenCalled();
+
+    expect(screen.getByText('You have to select an account type')).toBeVisible();
+
+    fireEvent.change(select, { target: { value: 'user' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should NOT render when choice field does NOT have options', async () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      type: validator.field('choice').ezMetada({ label: 'Account type' })
+    }
+
+    const initialData = {
+      type: 'admin'
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' />);
+    expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
   });
 
   it('Should render errors on datepicker input', async () => {
