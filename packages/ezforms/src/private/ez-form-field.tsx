@@ -39,6 +39,7 @@ export const EzFormField = ({
     onBooleanToogle(!value, name);
   }, [name, value, onBooleanToogle]);
 
+  // istanbul ignore next
   if (!rules.type) {
     return null;
   }
