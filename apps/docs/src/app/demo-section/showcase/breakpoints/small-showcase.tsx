@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "../../demos";
 import { ShowcaseProps } from "./showcase-props";
 import { useParallax } from "@/app/hooks";
+import { EzFormsDemo } from "../../demos/ezforms";
+import { ValidatorDemo } from "../../demos/validator";
 
 const DemoGridContainer = styled(motion.div)`
   height: 800px;
@@ -21,12 +23,14 @@ export const SmallShowcase = ({ scrollProgress }: ShowcaseProps) => {
                     <ThemeDemo />
                     <ThemeSelectorDemo />
                     <FormsDemo />
+                    <EzFormsDemo />
                     <Cards />
                     <ButtonsDemo />
                     <DialogsDemo />
                     <TooltipsDemo />
                     <BadgesDemo />
                     <MenusDemos />
+                    <ValidatorDemo />
                     <ExpandosDemo />
                     <Tabs />
                     <TextsDemo />

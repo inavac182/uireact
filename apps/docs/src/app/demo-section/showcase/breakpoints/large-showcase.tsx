@@ -5,6 +5,8 @@ import { UiGridItem } from "@uireact/grid";
 import { FramerMotionDemo, Cards, TextsDemo, ThemeSelectorDemo, ThemeDemo, TooltipsDemo, FormsDemo, ButtonsDemo, Tabs, DialogsDemo, BadgesDemo, MenusDemos, ExpandosDemo } from "../../demos";
 import { useParallax } from "@/app/hooks";
 import { ShowcaseProps } from "./showcase-props";
+import { ValidatorDemo } from "../../demos/validator";
+import { EzFormsDemo } from "../../demos/ezforms";
 
 const DemoGridContainer = styled(motion.div)`
   height: 800px;
@@ -21,6 +23,7 @@ export const LargeShowcase = ({ scrollProgress }: ShowcaseProps) => {
                 <FramerMotionDemo />
                 <Cards />
                 <ExpandosDemo />
+                <EzFormsDemo />
             </DemoGridContainer>
         </UiGridItem>
         <UiGridItem>
@@ -43,6 +46,7 @@ export const LargeShowcase = ({ scrollProgress }: ShowcaseProps) => {
             <BadgesDemo />
             <MenusDemos />
             <DialogsDemo />
+            <ValidatorDemo />
         </DemoGridContainer>
         </UiGridItem>
         </>
