@@ -2,7 +2,7 @@ import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid } from '@uireact/flex';
-import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchema } from '@uireact/validator';
+import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorField, UiValidatorSchema } from '@uireact/validator';
 
 import { EzFormField, generateInitialData } from './private';
 
@@ -36,12 +36,12 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   const onTextInputChange = useCallback((e: FormEvent<HTMLInputElement>) => {
     setErrors({});
     setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
-  }, [data, errors]);
+  }, [data]);
 
   const onTextAreaChange = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
     setErrors({});
     setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
-  }, [data, errors]);
+  }, [data]);
 
   const onDateInputChange = useCallback((date: string, name: string) => {
     setErrors({});
@@ -74,7 +74,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
         {Object.keys(schema).map((schemaField, index) => 
           <EzFormField
             key={`ezform-field-${index}`}
-            field={schema[schemaField]}
+            field={schema[schemaField] as UiValidatorField}
             value={data[schemaField]}
             name={schemaField}
             error={errors?.[schemaField]?.[0]?.message}

@@ -151,40 +151,6 @@ Example using a component that receives the schema and the data and then renders
 <br />
 <br />
 
-### Strict mode 🐣
-
-The strict mode is set in the 3rd parameter to the validate function:
-
-```tsx
-const result = validator.validate(schema, data);
-```
-
-This will run the validations in a more strict way and the things validated are:
-
-<UiList>
-  <li>❌ - When the schema has more properties than the data passed.</li>
-  <li>❌ - When a data field doesn't exist in the schema.</li>
-</UiList>
-
-<br />
-<br />
-
-## Details 🤓
-
-As if it weren't already from here downwards is a wall of text, go under your own risk...
-
-<iframe
-  src="https://giphy.com/embed/XuDlhFtiWXZEk"
-  width="480"
-  height="271"
-  frameBorder="0"
-  className="giphy-embed"
-  allowFullScreen
-></iframe>
-
-<br />
-<br />
-
 ## All chainable rules 🤖
 
 These are the chainable functions that you can use, to set the rules, their possible values and examples:
@@ -200,21 +166,22 @@ These are the chainable functions that you can use, to set the rules, their poss
   <tbody>
     <tr>
       <td>
-        <UiText>isOptional()</UiText>
+        <UiText>optional()</UiText>
       </td>
       <td></td>
       <td>
         <UiList>
-          <li>✅ everything</li>
+          <li>✅ null</li>
+          <li>✅ undefined</li>
+          <li>✅ ""</li>
         </UiList>
         <small>
-          As this is always true, this is used as a bypass when you don't want any rules to be applied/validated to a
-          specific field and you are running the validation in strict.
+          Used to ignore the `type()` validations if the value passed is null or undefined or empty strings.
         </small>
       </td>
     </tr>
     <tr>
-      <td>isRequired()</td>
+      <td>required()</td>
       <td>
         <UiList>
           <li> ❓ errorMessage</li>
@@ -230,6 +197,7 @@ These are the chainable functions that you can use, to set the rules, their poss
           <li>✅ true</li>
         </UiList>
 
+        If type of value is a string or numeric:
         <UiList>
           <li>❌ null</li>
           <li>❌ undefined</li>
@@ -280,8 +248,7 @@ These are the chainable functions that you can use, to set the rules, their poss
               <li>&nbsp;&nbsp; ✅ All phones with most common patterns</li>
               <li>
                 <small>
-                  &nbsp;&nbsp; *This is intended to validate most of the American and European areas. More info
-                  underneath this table.
+                  &nbsp;&nbsp; *This is intended to validate most of the American and European areas. More info underneath this table.
                 </small>
               </li>
             </UiList>

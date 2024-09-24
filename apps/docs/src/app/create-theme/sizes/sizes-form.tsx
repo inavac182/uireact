@@ -78,8 +78,8 @@ export const SizesForm = () => {
         setHeadingsData(data);
     }, [headingsData, setHeadingsData]);
     const updateTheme = useCallback(() => {
-        const validateText = validator.validate(textsSchema, textData, true);
-        const validateHeading = validator.validate(headingsSchema, headingsData, true);
+        const validateText = validator.validate(textsSchema, textData);
+        const validateHeading = validator.validate(headingsSchema, headingsData);
 
         if (!validateHeading.passed || !validateText.passed) {
             setTextErrors(validateText.errors);

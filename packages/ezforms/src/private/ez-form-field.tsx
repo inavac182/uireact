@@ -28,16 +28,16 @@ export const EzFormField = ({
   onDateInputChange,
   onBooleanToogle
 }: EzFormFieldProps) => {
-  const ezMetadata = field.getEzMetadata();
+  const ezMetadata = field.getEzMetadata() || {};
   const rules = field.getRules();
   const icon = ezMetadata.icon ? <UiIcon icon={ezMetadata.icon as UiIconProps['icon']} /> : undefined;
-  const isTextInput = rules.type.expected === 'text' || 
-    rules.type.expected === 'numeric' ||
-    rules.type.expected === 'email' ||
-    rules.type.expected === 'phone';
+  const isTextInput = rules.type?.expected === 'text' || 
+    rules.type?.expected === 'numeric' ||
+    rules.type?.expected === 'email' ||
+    rules.type?.expected === 'phone';
   const inputType = 
-    rules.type.expected === 'numeric' ? 'number' : 
-    rules.type.expected === 'email' ? 'email' : 
+    rules.type?.expected === 'numeric' ? 'number' : 
+    rules.type?.expected === 'email' ? 'email' : 
     undefined
 
   const onDateChangeWrapper = useCallback((date: string) => {
@@ -80,7 +80,7 @@ export const EzFormField = ({
     )
   }
 
-  if (rules.type.expected === 'date') {
+  if (rules.type?.expected === 'date') {
     const selectedDate = value ? new Date(`${value} 00:00:00`) : undefined;
 
     return (
@@ -99,7 +99,7 @@ export const EzFormField = ({
     )
   }
 
-  if(rules.type.expected === 'boolean') {
+  if(rules.type?.expected === 'boolean') {
     return (
       <UiSwitch 
         label={ezMetadata.label}
