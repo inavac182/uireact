@@ -31,7 +31,7 @@ export class UiValidator {
   }
 
   private isNumeric(value: unknown): boolean {
-    if (typeof value === 'number' || value === null || value === undefined) {
+    if (typeof value === 'number') {
       return true;
     }
 
@@ -43,7 +43,7 @@ export class UiValidator {
   }
 
   private isString(value: unknown): boolean {
-    return typeof value === 'string' || value === null || value === undefined;
+    return typeof value === 'string';
   }
 
   private isValidPhone(value: unknown): boolean {
@@ -81,8 +81,13 @@ export class UiValidator {
 
   private validExpectationRule(
     value: unknown,
-    rule: UiValidatorExpectationRule<UiValidatorFieldTypes>
+    rule: UiValidatorExpectationRule<UiValidatorFieldTypes>,
+    isOptional: boolean
   ): boolean {
+    if (isOptional && (value === null || value === undefined || value === "")) {
+      return true;
+    }
+
     if (rule.expected === 'email') {
       return this.isEmailValid(value);
     }
@@ -333,6 +338,7 @@ export class UiValidator {
         }
 
         const preConditionsPassed = this.runPreconditions(preConditions, data);
+
         let result;
 
         if (preConditionsPassed && rules) {
@@ -387,7 +393,6 @@ export class UiValidator {
 
     const fieldErrors: UiValidatorError[] = [];
     let ruleMatched = false;
-
     if (rules.required) {
       ruleMatched = true;
 
@@ -397,10 +402,11 @@ export class UiValidator {
       }
     }
 
-    if (rules.type) {
+    if ( rules.type) {
       ruleMatched = true;
+      const isOptional = rules.required?.expected === false;
 
-      if (!this.validExpectationRule(value, rules.type)) {
+      if (!this.validExpectationRule(value, rules.type, isOptional)) {
         hasError = true;
         fieldErrors.push(rules.type.error);
       }

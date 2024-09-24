@@ -74,6 +74,27 @@ describe('When', () => {
       expect(result.passed).toBe(true);
     });
 
+    it('Should pass when preconditions are met and validation passes', () => {
+      const schema = {
+        firstName: validator.field('text').present(),
+        phone: validator.field('text').optional(),
+        email: validator
+          .field('email')
+          .when('phone', validator.is().present())
+          .run(validator.is().optional())
+          .else(validator.is().present("If you don't provide a phone number then provide your email"))
+      }
+
+      const data = {
+        firstName: 'Felipe',
+        phone: '123123123',
+        email: ''
+      }
+
+      const result = validator.validate(schema, data);
+      expect(result.passed).toBe(true);
+    })
+
     it('Should run conditional validation correctly when multiple fields are observed', () => {
       const schema = {
         firstName: validator.field('text'),
