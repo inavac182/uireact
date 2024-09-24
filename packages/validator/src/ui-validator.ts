@@ -88,6 +88,10 @@ export class UiValidator {
       return true;
     }
 
+    if (rule.expected === 'choice') {
+      return true;
+    }
+
     if (rule.expected === 'email') {
       return this.isEmailValid(value);
     }
@@ -402,7 +406,7 @@ export class UiValidator {
       }
     }
 
-    if ( rules.type) {
+    if (rules.type) {
       ruleMatched = true;
       const optional = rules.required?.expected === false;
 

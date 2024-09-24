@@ -3,9 +3,33 @@ import { UiValidator } from '../src';
 const validator = new UiValidator();
 
 describe('isOneOf', () => {
-  describe('strings', () => {
+  describe('text', () => {
     const schema = {
       color: validator.field('text').oneOf(['red', 'green', 'blue'], 'The option is not valid')
+    };
+
+    it('Should be true if the given value is one of the provided options', () => {
+      const data = {
+        color: 'red'
+      };
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toStrictEqual(true);
+    });
+  
+    it('Should be false if the given value is NOT one of the options', () => {
+      const data = {
+        color: 'yellow'
+      };
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toStrictEqual(false);
+    });
+  });
+
+  describe('choice', () => {
+    const schema = {
+      color: validator.field('choice').present().oneOf(['red', 'green', 'blue'], 'The option is not valid')
     };
 
     it('Should be true if the given value is one of the provided options', () => {
