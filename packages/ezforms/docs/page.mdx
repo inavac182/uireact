@@ -118,6 +118,8 @@ Each of the validation functions can get their own error message, so if you have
 
 ## Submit
 
+#### Client side 
+
 The `EzForm` exposes a `onSubmit` callback that you can attach to it and will be triggered when the user submits the form and the validation passes. If you want to handle the submit with javascript then here you would do the preventDefault like this:
 
 ```tsx
@@ -137,6 +139,8 @@ export const YourFormComponent = () => {
   )
 };
 ```
+
+#### Browser apis
 
 If you want to let the browser to continue with its normal submit then you don't need to pass any and the form will be triggered and submitted as usual. **Important**, make sure you pass the **action** and **method** prop so the submit goes as you plan to where you plan it to go.
 
