@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.1 (2024-09-24)
+
+
+### Bug Fixes
+
+* **validator:** choice type check ([6f5f872](https://github.com/inavac182/ui-react/commit/6f5f87261912103375b6bd1fe4f1a38e2a70c328))
+
+
+
+
+
 # [2.3.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.2.0...@uireact/validator@2.3.0) (2024-09-24)
 
 
