@@ -44,7 +44,7 @@ export const DatePickerInputExample: React.FC = () => {
       const data = {
         date: new Date(dateSelected)
       };
-      const validation = validator.validate(schema, data, true);
+      const validation = validator.validate(schema, data);
 
       if (validation.passed) {
         setSuccessMessageVisible(true);

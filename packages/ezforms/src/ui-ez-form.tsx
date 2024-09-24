@@ -56,7 +56,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
     setLoading(true);
-    const result = validator.validate(schema, data, true);
+    const result = validator.validate(schema, data);
 
     if (result.passed) {
       onSubmit?.(e, data);

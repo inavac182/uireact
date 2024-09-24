@@ -28,7 +28,7 @@ export const FontNameForm = () => {
     const saveFontName = useCallback(() => {
         const urlTheme = searchParams.get('theme');
         const data = { fontName };
-        const result = validator.validate(schema, data, true);
+        const result = validator.validate(schema, data);
 
         if (!result.passed) {
             setErrors(result.errors);
