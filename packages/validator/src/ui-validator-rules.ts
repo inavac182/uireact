@@ -33,7 +33,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  optional(): UiValidatorRules {
+  optional() {
     this.rules.required = {
       expected: false,
       error: {}
@@ -44,7 +44,7 @@ export class UiValidatorRules {
 
   // istanbul ignore next
   /** @deprecated - This will be removed in the next major version - use optional going forward */
-  isOptional(): UiValidatorRules {
+  isOptional() {
     return this;
   }
 
@@ -59,7 +59,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  range(min: number, max: number, errorMessage?: string): UiValidatorRules {
+  range(min: number, max: number, errorMessage?: string) {
     this.rules.range = {
       min,
       max,
@@ -75,7 +75,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  dateRange(min: Date, max: Date, errorMessage?: string): UiValidatorRules {
+  dateRange(min: Date, max: Date, errorMessage?: string) {
     this.rules.dateRange = {
       min,
       max,
@@ -91,7 +91,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  length(min: number, max: number, errorMessage?: string): UiValidatorRules {
+  length(min: number, max: number, errorMessage?: string) {
     this.rules.length = {
       min,
       max,
@@ -107,7 +107,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  greaterThan(baseline: number | Date, errorMessage?: string): UiValidatorRules {
+  greaterThan(baseline: number | Date, errorMessage?: string) {
     const defaultMessage =
       typeof baseline === 'number'
         ? `The value is less than ${baseline}`
@@ -125,7 +125,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  lessThan(baseline: number | Date, errorMessage?: string): UiValidatorRules {
+  lessThan(baseline: number | Date, errorMessage?: string) {
     const defaultMessage =
       typeof baseline === 'number'
         ? `The value is greater than ${baseline}`
@@ -143,7 +143,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  oneOf(options: Array<string | number>, errorMessage?: string): UiValidatorRules {
+  oneOf(options: Array<string | number>, errorMessage?: string) {
     this.rules.oneOf = {
       options,
       error: errorMessage
