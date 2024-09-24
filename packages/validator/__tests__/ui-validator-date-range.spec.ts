@@ -15,7 +15,7 @@ describe('dateRange validation', () => {
       test: date,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -31,7 +31,7 @@ describe('dateRange validation', () => {
       test: '2023/12/01',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -47,7 +47,7 @@ describe('dateRange validation', () => {
       test: new Date('2023/12/03'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This date is not in valid range');
   });
@@ -63,7 +63,7 @@ describe('dateRange validation', () => {
       test: '2023/12/03',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date range is not correct');
   });
@@ -79,7 +79,7 @@ describe('dateRange validation', () => {
       test: 'some value',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe("This is not a valid date");
   });
@@ -94,7 +94,7 @@ describe('dateRange validation', () => {
       test: 'some value',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
   });

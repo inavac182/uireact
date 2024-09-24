@@ -85,6 +85,19 @@ describe('type validation', () => {
       expect(result.passed).toBeFalsy();
       expect(result.errors?.test?.[0].message).toBe('The value passed is not correct');
     });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('date').optional(),
+      };
+      const data = {
+        test: ''
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
   });
 
   describe('strings', () => {
@@ -127,19 +140,6 @@ describe('type validation', () => {
       expect(result.passed).toBeFalsy();
     });
 
-    it('Should NOT error out when VALUE is undefined', () => {
-      const schema = {
-        test: validator.field('text'),
-      };
-      const data = {
-        test: undefined,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeTruthy();
-    });
-
     it('Should error out if type is unrecognized', () => {
       const schema = {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -153,6 +153,19 @@ describe('type validation', () => {
       const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
+    });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('numeric').optional(),
+      };
+      const data = {
+        test: null
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
     });
   });
 
@@ -237,32 +250,6 @@ describe('type validation', () => {
       expect(result.errors?.test[0].message).toBe('The value is not numeric');
     });
 
-    it('Should NOT error out if provided value is undefined', () => {
-      const schema = {
-        test: validator.field('numeric'),
-      };
-      const data = {
-        test: undefined,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeTruthy();
-    });
-
-    it('Should NOT error out if provided value is null', () => {
-      const schema = {
-        test: validator.field('numeric'),
-      };
-      const data = {
-        test: null,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeTruthy();
-    });
-
     it('Should error out if provided value is NOT a number', () => {
       const schema = {
         test: validator.field('numeric'),
@@ -275,6 +262,19 @@ describe('type validation', () => {
 
       expect(result.passed).toBeFalsy();
     });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('numeric').optional(),
+      };
+      const data = {
+        test: null
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
   });
 
   describe('email', () => {
@@ -284,6 +284,19 @@ describe('type validation', () => {
       };
       const data = {
         test: 'test@mail.com',
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
+    });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('email').optional(),
+      };
+      const data = {
+        test: '',
       };
 
       const result = validator.validate(schema, data);
@@ -468,32 +481,6 @@ describe('type validation', () => {
       };
       const data = {
         test: 'test@mail.co_m',
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeFalsy();
-    });
-
-    it('Should error out mail is null', () => {
-      const schema = {
-        test: validator.field('email'),
-      };
-      const data = {
-        test: null,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeFalsy();
-    });
-
-    it('Should error out mail is undefined', () => {
-      const schema = {
-        test: validator.field('email'),
-      };
-      const data = {
-        test: undefined,
       };
 
       const result = validator.validate(schema, data);
@@ -711,34 +698,6 @@ describe('type validation', () => {
       expect(result.passed).toBeFalsy();
     });
 
-    it('Should error out if phone number is null and retrieve error message', () => {
-      const schema = {
-        test: validator.field('phone', 'The phone is not valid'),
-      };
-      const data = {
-        test: null,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeFalsy();
-      expect(result.errors?.test[0].message).toBe('The phone is not valid');
-    });
-
-    it('Should error out if phone number is undefined and retrieve error code', () => {
-      const schema = {
-        test: validator.field('phone', 'The phone is not valid'),
-      };
-      const data = {
-        test: undefined,
-      };
-
-      const result = validator.validate(schema, data);
-
-      expect(result.passed).toBeFalsy();
-      expect(result.errors?.test[0].message).toBe('The phone is not valid');
-    });
-
     it('Should error out if phone number is an object', () => {
       const schema = {
         test: validator.field('phone'),
@@ -750,6 +709,19 @@ describe('type validation', () => {
       const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
+    });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('phone').optional(),
+      };
+      const data = {
+        test: ''
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
     });
   });
 
@@ -791,6 +763,19 @@ describe('type validation', () => {
       const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
+    });
+
+    it('Should pass when is optional and value is not provided', () => {
+      const schema = {
+        test: validator.field('boolean').optional(),
+      };
+      const data = {
+        test: null
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeTruthy();
     });
   })
 });

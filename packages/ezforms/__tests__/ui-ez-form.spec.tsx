@@ -10,7 +10,7 @@ import { UiEzForm } from '../src';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('text').ezMetada({ label: 'First Name' }).isRequired(),
+  firstName: validator.field('text').ezMetada({ label: 'First Name' }).present(),
   age: validator.field('numeric').ezMetada({ label: 'Your age' }),
   email: validator.field('email').ezMetada({ label: 'Your email', icon: 'Mail' }),
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
@@ -78,8 +78,8 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      firstName: validator.field('text').ezMetada({ label: 'First Name' }).isRequired(),
-      description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).isRequired("Description is required")
+      firstName: validator.field('text').ezMetada({ label: 'First Name' }).present(),
+      description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).present("Description is required")
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
@@ -113,7 +113,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).isRequired()
+      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present()
     }
 
     const initialData = {
@@ -152,7 +152,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }).isRequired("You have to accept our terms")
+      terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }).present("You have to accept our terms")
     }
 
     const initialData = {
@@ -181,7 +181,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).isRequired()
+      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present()
     }
 
     uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' />);
@@ -201,8 +201,8 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).isRequired(),
-      description: validator.field('text').ezMetada({ paragraph: true }).isRequired()
+      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present(),
+      description: validator.field('text').ezMetada({ paragraph: true }).present()
     }
 
     uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' useBrowserValidation />);

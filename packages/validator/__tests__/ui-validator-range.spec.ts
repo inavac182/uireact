@@ -67,7 +67,7 @@ describe('range validation', () => {
     const result = validator.validate(schema, data);
 
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test[0].message).toBe('Value is not in range');
+    expect(result.errors?.test[0].message).toBe('This is not a valid numeric');
   });
 
   it('Should error out if value undefined and retrieve error code', () => {
@@ -81,7 +81,7 @@ describe('range validation', () => {
     const result = validator.validate(schema, data);
 
     expect(result.passed).toBeFalsy();
-    expect(result.errors?.test[0].message).toBe('Value is not in range');
+    expect(result.errors?.test[0].message).toBe('This is not a valid numeric');
   });
 
   it('Should error out if value is not numeric', () => {

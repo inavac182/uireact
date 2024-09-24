@@ -30,7 +30,7 @@ import { UiValidator } from '@uireact/validator';
 const validator = new UiValidator();
 
 const schema = {
-    firstName: validator.field('text').isRequired('The first name is required')
+    firstName: validator.field('text').present('The first name is required')
 };
 ```
 
@@ -66,7 +66,5 @@ if (result.errors) {
 ## What is @UiReact library?
 
 This is a React UI library, that defines a customizable theme object that powers all colorations, texts, sizes, etc.. Across your react application.
-
-We are built using framer-motion for great animations and styled-components for easy CSS management.
 
 You should visit our docs page for all information [@uireact docs](https://uireact.io).

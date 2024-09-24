@@ -6,10 +6,21 @@ import {
   UiValidatorExpectationRule,
   UiValidatorResult,
   UiValidatorSchema,
-  UiValidatorFieldTypes
+  UiValidatorFieldTypes,
+  UiValidatorFieldRules,
+  UiValidatorWhenValidation
 } from './types';
+import { UiValidatorRules } from './ui-validator-rules';
 
 export class UiValidator {
+  private getComparableOption(option: string | number) {
+    if (typeof option === 'string') {
+      return option.toLowerCase();
+    } else {
+      return option;
+    }
+  }
+
   private isEmailValid(value: unknown): boolean {
     if (typeof value === 'string') {
       const mailRegex = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
@@ -20,7 +31,7 @@ export class UiValidator {
   }
 
   private isNumeric(value: unknown): boolean {
-    if (typeof value === 'number' || value === null || value === undefined) {
+    if (typeof value === 'number') {
       return true;
     }
 
@@ -32,7 +43,7 @@ export class UiValidator {
   }
 
   private isString(value: unknown): boolean {
-    return typeof value === 'string' || value === null || value === undefined;
+    return typeof value === 'string';
   }
 
   private isValidPhone(value: unknown): boolean {
@@ -70,8 +81,13 @@ export class UiValidator {
 
   private validExpectationRule(
     value: unknown,
-    rule: UiValidatorExpectationRule<UiValidatorFieldTypes>
+    rule: UiValidatorExpectationRule<UiValidatorFieldTypes>,
+    optional: boolean
   ): boolean {
+    if (optional && (value === null || value === undefined || value === "")) {
+      return true;
+    }
+
     if (rule.expected === 'email') {
       return this.isEmailValid(value);
     }
@@ -136,7 +152,11 @@ export class UiValidator {
     return false;
   }
 
-  private validRequired(isRequired: boolean, value: unknown): boolean {
+  private validRequired(present: boolean, value: unknown): boolean {
+    if (!present) {
+      return true;
+    }
+
     if (typeof value === 'string') {
       return value !== '';
     }
@@ -145,7 +165,7 @@ export class UiValidator {
       return value === true;
     }
 
-    return isRequired && value !== null && value !== undefined;
+    return present && value !== null && value !== undefined;
   }
 
   /**
@@ -206,7 +226,79 @@ export class UiValidator {
     return options.filter(option => this.getComparableOption(option) === comparableValue).length > 0;
   }
 
-  validate(schema: UiValidatorSchema, data: UiValidatorData, strict?: boolean): UiValidatorResult {
+  private validSchema(schema: UiValidatorSchema, data: UiValidatorData): boolean {
+    let valid = true;
+
+    Object.keys(schema).map((field) => {
+      let fieldFound = false;
+      Object.keys(data).map((dataField) => {
+        if (field === dataField) {
+          fieldFound = true;
+        }
+      });
+
+      if (!fieldFound) {
+        console.error(`UiValidator - ${field} from schema is NOT in data`);
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  private validData(schema: UiValidatorSchema, data: UiValidatorData): boolean {
+    let valid = true;
+
+    Object.keys(data).map((field) => {
+      let fieldFound = false;
+      Object.keys(schema).map((schemField) => {
+        if (field === schemField) {
+          fieldFound = true;
+        }
+      });
+
+      if (!fieldFound) {
+        console.error(`UiValidator - ${field} from data is NOT in schema`);
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  private validPreconditions(
+    schema: UiValidatorSchema,
+    field: string,
+    preConditions: UiValidatorWhenValidation
+  ): boolean {
+    let valid = true;
+
+    Object.keys(preConditions).forEach((observedField) => {
+        if (!schema[observedField]) {
+          console.error(`UiValidator - The ${field} has a precondition on ${observedField}, which does NOT exists in the schema, please verify.`);
+          valid = false;
+
+          return;
+        }
+
+        if (Object.keys(preConditions[observedField].getRules()).length === 0) {
+          console.error(`UiValidator - ${field} has preconditions on ${observedField} which are EMPTY.`);
+
+          valid = false;
+          return;
+        }
+    });
+
+    return valid;
+  }
+
+  /**
+   * 
+   * @param schema - The schema with each field's rules
+   * @param data - The data that user provided you to be validated
+   * @returns - The result of the validations
+   */
+  validate(schema: UiValidatorSchema, data: UiValidatorData): UiValidatorResult {
     let errors: UiValidatorErrors = {};
     let hasError = false;
 
@@ -218,118 +310,67 @@ export class UiValidator {
       };
     }
 
-    Object.keys(data).map((field) => {
-      const rules = schema[field]?.getRules?.();
-      const fieldErrors: UiValidatorError[] = [];
-      let ruleMatched = false;
-
-      if (!rules && strict) {
-        console.error(`UiValidator - Field ${field} is NOT in schema`);
-        hasError = true;
-        return;
+    if (!this.validSchema(schema, data) || !this.validData(schema, data)) {
+      return {
+        passed: false
       }
+    }
 
+    Object.keys(data).map((field) => {
+      const schemaField = schema[field];
       const value = data[field];
 
-      if (rules?.required) {
-        ruleMatched = true;
+      if ("getPreConditions" in schemaField) {
+        // This is a field WITH pre conditions
+        const preConditions = schemaField.getPreConditions();
+        const rules = schemaField.getMainRules();
+        const fallbackRules = schemaField.getFallbackRules();
 
-        if (!this.validRequired(rules.required.expected, value)) {
+        if (!rules) {
+          console.error(`UiValidator - Field ${field} does NOT have rules set up.`);
           hasError = true;
-          fieldErrors.push(rules.required.error);
+          return;
         }
-      }
 
-      if (rules?.type) {
-        ruleMatched = true;
-
-        if (!this.validExpectationRule(value, rules.type)) {
+        if (!this.validPreconditions(schema, field, preConditions)) {
           hasError = true;
-          fieldErrors.push(rules.type.error);
+          return;
         }
-      }
 
-      if (rules?.range) {
-        ruleMatched = true;
+        const preConditionsPassed = this.runPreconditions(preConditions, data);
 
-        if (!this.validRangeRule(rules.range.min, rules.range.max, value)) {
+        let result;
+
+        if (preConditionsPassed && rules) {
+          result = this.runValidations(value, field, rules);
+        } else if (!preConditionsPassed && fallbackRules) {
+          result = this.runValidations(value, field, fallbackRules);
+        }
+
+        if (result?.errors && result.errors.length > 0) {
+          errors[field] = result.errors;
+        }
+  
+        if (result?.hasError) {
           hasError = true;
-          fieldErrors.push(rules.range.error);
         }
-      }
 
-      if (rules?.dateRange) {
-        ruleMatched = true;
-
-        if (!this.validDateRange(rules.dateRange.min, rules.dateRange.max, value)) {
-          hasError = true;
-          fieldErrors.push(rules.dateRange.error);
-        }
-      }
-
-      if (rules?.length) {
-        ruleMatched = true;
-
-        if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
-          hasError = true;
-          fieldErrors.push(rules.length.error);
-        }
-      }
-
-      if (rules?.greaterThan) {
-        ruleMatched = true;
-
-        if (!this.validComparable(rules.greaterThan.baseline, value, 'greaterThan')) {
-          hasError = true;
-          fieldErrors.push(rules.greaterThan.error);
-        }
-      }
-
-      if (rules?.lessThan) {
-        ruleMatched = true;
-
-        if (!this.validComparable(rules.lessThan.baseline, value, 'lessThan')) {
-          hasError = true;
-          fieldErrors.push(rules.lessThan.error);
-        }
-      }
-
-      if  (rules?.oneOf) {
-        ruleMatched = true;
-
-        if (!this.validOption(rules.oneOf.options, value)) {
-          hasError = true;
-          fieldErrors.push(rules.oneOf.error);
-        }
-      }
-
-      // istanbul ignore next
-      if (!ruleMatched && strict) {
-        console.error(`UiValidator - Field ${field} has NOT valid rules`);
-        hasError = true;
         return;
       }
 
-      if (fieldErrors.length > 0) {
-        errors = { ...errors, [field]: fieldErrors };
+      // This is a field WITH OUT pre conditions
+      const rules = schemaField.getRules();
+      const result = this.runValidations(value, field, rules);
+
+      if (result.errors.length > 0) {
+        errors[field] = result.errors;
+      }
+
+      if (result.hasError) {
+        hasError = true;
       }
     });
 
-    if (strict) {
-      Object.keys(schema).map((field) => {
-        let fieldFound = false;
-        Object.keys(data).map((dataField) => {
-          if (field === dataField) {
-            fieldFound = true;
-          }
-        });
-
-        if (!fieldFound) {
-          console.error('UiValidator - schema has different fields than the data passed');
-          hasError = true;
-        }
-      });
-    }
 
     return {
       passed: !hasError,
@@ -337,15 +378,123 @@ export class UiValidator {
     };
   }
 
+  /** field() fn creates a validator field with option to set up metadata and rules */
   field(type: UiValidatorFieldTypes, message?: string): UiValidatorField {
     return new UiValidatorField(type, message);
   }
 
-  private getComparableOption(option: string | number) {
-    if (typeof option === 'string') {
-      return option.toLowerCase();
-    } else {
-      return option;
+  /** is() fn used to create an object with rules to validate */
+  is(): UiValidatorRules {
+    return new UiValidatorRules();
+  }
+
+  private runValidations(value: unknown, field: string, rules: UiValidatorFieldRules, strict?: boolean): { errors: UiValidatorError[], hasError: boolean } {
+    let hasError = false;
+
+    const fieldErrors: UiValidatorError[] = [];
+    let ruleMatched = false;
+    if (rules.required) {
+      ruleMatched = true;
+
+      if (!this.validRequired(rules.required.expected, value)) {
+        hasError = true;
+        fieldErrors.push(rules.required.error);
+      }
     }
+
+    if ( rules.type) {
+      ruleMatched = true;
+      const optional = rules.required?.expected === false;
+
+      if (!this.validExpectationRule(value, rules.type, optional)) {
+        hasError = true;
+        fieldErrors.push(rules.type.error);
+      }
+    }
+
+    if (rules.range) {
+      ruleMatched = true;
+
+      if (!this.validRangeRule(rules.range.min, rules.range.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.range.error);
+      }
+    }
+
+    if (rules.dateRange) {
+      ruleMatched = true;
+
+      if (!this.validDateRange(rules.dateRange.min, rules.dateRange.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.dateRange.error);
+      }
+    }
+
+    if (rules.length) {
+      ruleMatched = true;
+
+      if (!this.validLengthRule(rules.length.min, rules.length.max, value)) {
+        hasError = true;
+        fieldErrors.push(rules.length.error);
+      }
+    }
+
+    if (rules.greaterThan) {
+      ruleMatched = true;
+
+      if (!this.validComparable(rules.greaterThan.baseline, value, 'greaterThan')) {
+        hasError = true;
+        fieldErrors.push(rules.greaterThan.error);
+      }
+    }
+
+    if (rules.lessThan) {
+      ruleMatched = true;
+
+      if (!this.validComparable(rules.lessThan.baseline, value, 'lessThan')) {
+        hasError = true;
+        fieldErrors.push(rules.lessThan.error);
+      }
+    }
+
+    if  (rules.oneOf) {
+      ruleMatched = true;
+
+      if (!this.validOption(rules.oneOf.options, value)) {
+        hasError = true;
+        fieldErrors.push(rules.oneOf.error);
+      }
+    }
+
+    if (!ruleMatched) {
+      console.error(`UiValidator - Field ${field} has NOT valid rules`);
+      hasError = true;
+    }
+
+    return {
+      errors: fieldErrors,
+      hasError
+    };
+  }
+
+  private runPreconditions(
+    preConditions: UiValidatorWhenValidation, 
+    data: UiValidatorData
+  ): boolean {
+    let passed = true;
+
+    Object.keys(preConditions).forEach((observedField) => {
+      const conditionData = preConditions[observedField];
+      const value = data[observedField];
+      const rules = conditionData.getRules();
+
+      const result = this.runValidations(value, observedField, rules);
+
+      if (result.hasError) {
+        passed = false;
+      }
+    });
+
+    return passed;
   }
 }

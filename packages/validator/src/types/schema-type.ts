@@ -1,6 +1,7 @@
-import { UiValidatorField } from 'ui-validator-field';
 import { UiValidatorError } from './validator-result';
-
+import { UiValidatorRules } from '../ui-validator-rules';
+import { UiValidatorWhen } from '../ui-validator-when';
+import { UiValidatorField } from '../ui-validator-field';
 
 /** The value for each rule */
 export type UiValidatorExpectationRule<T> = {
@@ -62,7 +63,7 @@ export type UiValidatorFieldTypes = 'text' | 'numeric' | 'email' | 'phone' | 'da
 /** Set of possible rules for each field */
 export type UiValidatorFieldRules = {
   /** Validates the type of the value */
-  type: UiValidatorExpectationRule<UiValidatorFieldTypes>;
+  type?: UiValidatorExpectationRule<UiValidatorFieldTypes>;
   /** Validates the nullability of the value */
   required?: UiValidatorExpectationRule<boolean>;
   /** Validates the length of characters of the value */
@@ -76,7 +77,7 @@ export type UiValidatorFieldRules = {
   /** Validates a value is less than a baseline */
   lessThan?: UiValidatorComparisonRule;
   /** Validates that a choice field is one of a given set of values */
-  oneOf?: UiValidatorChoicesRule
+  oneOf?: UiValidatorChoicesRule;
 };
 
 /** Metadata information used from EzForms */
@@ -90,10 +91,10 @@ export type UiValidatorFieldMetadata = {
 /** Set of possible rules for each field */
 export type UiValidatorFieldData = {
   rules: UiValidatorFieldRules;
-  metadata: UiValidatorFieldMetadata
+  metadata: UiValidatorFieldMetadata;
 };
 
 /** The schema needed for the UiValidator */
 export type UiValidatorSchema = {
-  [key in string]: UiValidatorField;
+  [key in string]: UiValidatorField | UiValidatorWhen;
 };

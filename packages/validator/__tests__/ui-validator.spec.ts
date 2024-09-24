@@ -2,13 +2,15 @@ import { UiValidator } from '../src';
 
 describe('UiValidator', () => {
   const validator = new UiValidator();
+  const mockedFn = jest.fn();
   const consoleError = console.error;
 
   beforeEach(() => {
-    console.error = jest.fn();
+    console.error = mockedFn;
   });
 
   afterEach(() => {
+    mockedFn.mockClear();
     console.error = consoleError;
   });
 
@@ -39,22 +41,8 @@ describe('UiValidator', () => {
     expect(console.error).toHaveBeenCalledWith('UiValidator - Schema is empty');
   });
 
-  it('Should NOT error out if no rules are found when run in NON strict', () => {
-    const schema = {
-      diffField: validator.field('text'),
-    };
-    const data = {
-      test: 'felipe',
-    };
-
-    const result = validator.validate(schema, data);
-
-    expect(result.passed).toBeTruthy();
-    expect(console.error).not.toHaveBeenCalled();
-  });
-
-  describe('Strict', () => {
-    it('Should error out if no rules are found in schema for a given data field when run in strict', () => {
+  describe('Basic sanity validations', () => {
+    it('Should error out if schema field is not found in data object', () => {
       const schema = {
         diffField: validator.field('text'),
       };
@@ -62,38 +50,50 @@ describe('UiValidator', () => {
         test: 'felipe',
       };
 
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
-      expect(console.error).toHaveBeenCalledTimes(2);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      expect(console.error.mock.calls[0][0]).toBe('UiValidator - Field test is NOT in schema');
+      expect(mockedFn).toHaveBeenCalledTimes(1);
+      expect(mockedFn.mock.calls[0][0]).toBe('UiValidator - diffField from schema is NOT in data');
     });
 
-    it('Should error out if schema has different fields than the data passed in strict', () => {
+    it('Should error out if no rules are found in schema for a given data field when run in strict', () => {
       const schema = {
-        diffField: validator.field('text'),
+        test: validator.is(),
       };
       const data = {
         test: 'felipe',
       };
 
-      const result = validator.validate(schema, data, true);
+      //@ts-ignore
+      const result = validator.validate(schema, data);
 
       expect(result.passed).toBeFalsy();
-      expect(console.error).toHaveBeenCalledTimes(2);
+      expect(mockedFn).toHaveBeenCalledTimes(1);
+      expect(mockedFn.mock.calls[0][0]).toBe('UiValidator - Field test has NOT valid rules');
+    });
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      expect(console.error.mock.calls[1][0]).toBe('UiValidator - schema has different fields than the data passed');
+    it('Should error out if data field is not found in schema object', () => {
+      const schema = {
+        test: validator.field('text'),
+      };
+      const data = {
+        test: 'felipe',
+        name: 'felipe'
+      };
+
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toBeFalsy();
+      expect(mockedFn).toHaveBeenCalledTimes(1);
+      expect(mockedFn.mock.calls[0][0]).toBe('UiValidator - name from data is NOT in schema');
     });
   });
 
   describe('multiple checks', () => {
     it('Should verify a value is required and valid email', () => {
       const schema = {
-        test: validator.field('email').isRequired(),
+        test: validator.field('email').present(),
       };
       const data = {
         test: 'test@mail.com',
@@ -106,7 +106,7 @@ describe('UiValidator', () => {
 
     it('Should include all errors if multiple checks fail', () => {
       const schema = {
-        test: validator.field('email', 'Value is not valid email').isRequired('Value is required'),
+        test: validator.field('email', 'Value is not valid email').present('Value is required'),
       };
       const data = {
         test: null,
@@ -131,7 +131,7 @@ describe('UiValidator', () => {
         firstName: 'Some name'
       }
 
-      const result = validator.validate(schema, data, true);
+      const result = validator.validate(schema, data);
       expect(result.passed).toBeTruthy();
     });
   });

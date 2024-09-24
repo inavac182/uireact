@@ -11,7 +11,7 @@ describe('greaterThan validation', () => {
       test: 11,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -24,7 +24,7 @@ describe('greaterThan validation', () => {
       test: "11",
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -37,7 +37,7 @@ describe('greaterThan validation', () => {
       test: 5,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The value is less than 10');
   });
@@ -50,7 +50,7 @@ describe('greaterThan validation', () => {
       test: 5,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The value is invalid');
   });
@@ -63,7 +63,7 @@ describe('greaterThan validation', () => {
       test: 'some',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This is not a valid numeric');
   });
@@ -77,7 +77,7 @@ describe('greaterThan validation', () => {
       test: new Date('2023/12/02'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -91,7 +91,7 @@ describe('greaterThan validation', () => {
       test: new Date('2023/11/30'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date is earlier 2023/12/01');
   });
@@ -105,7 +105,7 @@ describe('greaterThan validation', () => {
       test: new Date('2023/11/30'),
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date is not valid');
   });
@@ -119,7 +119,7 @@ describe('greaterThan validation', () => {
       test: 20,
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('This is not a valid date');
   });
@@ -133,7 +133,7 @@ describe('greaterThan validation', () => {
       test: '2023/12/02',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeTruthy();
     expect(result.errors).toStrictEqual({});
   });
@@ -147,7 +147,7 @@ describe('greaterThan validation', () => {
       test: '2023/11/30',
     };
 
-    const result = validator.validate(schema, data, false);
+    const result = validator.validate(schema, data);
     expect(result.passed).toBeFalsy();
     expect(result.errors?.test?.[0].message).toBe('The date is earlier 2023/12/01');
   });

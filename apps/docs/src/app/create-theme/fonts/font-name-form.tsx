@@ -16,7 +16,7 @@ const buttonSpacing: UiSpacingProps['padding'] = { inline: 'five', block: 'two' 
 const validator = new UiValidator();
 
 const schema = {
-    fontName: validator.field('text').isRequired('The font name is required')
+    fontName: validator.field('text').present('The font name is required')
 }
 
 export const FontNameForm = () => {
@@ -28,7 +28,7 @@ export const FontNameForm = () => {
     const saveFontName = useCallback(() => {
         const urlTheme = searchParams.get('theme');
         const data = { fontName };
-        const result = validator.validate(schema, data, true);
+        const result = validator.validate(schema, data);
 
         if (!result.passed) {
             setErrors(result.errors);

@@ -16,7 +16,7 @@ const buttonMargin: UiSpacingProps['margin'] = { block: 'four' };
 const validator = new UiValidator();
 const today = new Date();
 const schema: UiValidatorSchema = {
-  date: validator.field('text').isRequired('Select a date').greaterThan(today, 'Select a date in the future')
+  date: validator.field('text').present('Select a date').greaterThan(today, 'Select a date in the future')
 };
 
 export const DatePickerInputExample: React.FC = () => {
@@ -44,7 +44,7 @@ export const DatePickerInputExample: React.FC = () => {
       const data = {
         date: new Date(dateSelected)
       };
-      const validation = validator.validate(schema, data, true);
+      const validation = validator.validate(schema, data);
 
       if (validation.passed) {
         setSuccessMessageVisible(true);
