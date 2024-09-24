@@ -84,7 +84,7 @@ export const EzFormField = ({
     )
   }
 
-  if (rules.type?.expected === 'date') {
+  if (rules.type.expected === 'date') {
     const selectedDate = value ? new Date(`${value} 00:00:00`) : undefined;
 
     return (
@@ -103,7 +103,7 @@ export const EzFormField = ({
     )
   }
 
-  if(rules.type?.expected === 'boolean') {
+  if(rules.type.expected === 'boolean') {
     return (
       <UiSwitch 
         label={ezMetadata.label}
