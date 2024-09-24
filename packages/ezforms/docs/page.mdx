@@ -14,7 +14,7 @@ import { Metadata } from '@uireact/docs-tools';
 
 The EzForm component builds a form automatically out of a `schema`, the form will be automatically validated using the specifics on the schema. The schema is created using the [@uireact/validator](./validator) util:
 
-The validation will exposes a function: `ezMetada()` which is a chainable function that can be used to pass metadata to each of the schema fields:
+The `field()` fn exposes a function: `ezMetada()` which is a chainable function that can be used to pass metadata to each of the schema fields:
 
 ```ts
 const validator = new UiValidator();
@@ -22,9 +22,11 @@ const validator = new UiValidator();
 const schema = {
   name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).present(),
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
-  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present(),
+  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present().greaterThan(18, "You have to be older than 18 years old"),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).present(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).optional()
+  type: validator.field('choice').ezMetada({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).optional(),
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions")
 };
 ```
 From there you can continue to add any specific validation to each field.
@@ -43,10 +45,11 @@ const validator = new UiValidator();
 const schema = {
   name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).present(),
   birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
-  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present(),
+  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present().greaterThan(18, "You have to be older than 18 years old"),
   email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).present(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions"),
-  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).optional()
+  type: validator.field('choice').ezMetada({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
+  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).optional(),
+  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions")
 };
 
 export const EzFormExample = () => {  
@@ -70,7 +73,8 @@ export const EzFormExample = () => {
   )
 };
 ```
-### Field types
+
+## Field types
 
 The `field()` function will set a initial type for that specific field in the schema, based on this we will render the input that is more suitable for it:
 
@@ -82,9 +86,10 @@ The `field()` function will set a initial type for that specific field in the sc
   phone -> <UiInput type="text" />
   date -> <UiDatepicker />
   boolean -> <UiSwitch />
+  choice -> <UiSelect />
 ```
 
-### Initial data
+## Initial data
 
 The EzForm can be initialized with an initial data this is useful for use cases where you already have some data and the user need to modify or complete it.
 The `initialData` object **MUST** match a field in the schema, **ONLY** the properties in the object that matches a field in the schema will be used.
@@ -105,9 +110,37 @@ const initialData = {
 };
 ```
 
-### Validations
+## Validations
 
 The EzForm will run validations when user clicks submits the form, all validations are run based on the schema passed.
 
 Each of the validation functions can get their own error message, so if you haven't already you should check the [@uireact/validator](./validator) doc page to learn how to set up the schema.
+
+## Submit
+
+#### Client side 
+
+The `EzForm` exposes a `onSubmit` callback that you can attach to it and will be triggered when the user submits the form and the validation passes. If you want to handle the submit with javascript then here you would do the preventDefault like this:
+
+```tsx
+export const YourFormComponent = () => {  
+  const onSubmit = useCallback((e: FormEvent<HTMLFormElement>, data: UiValidatorData) => {
+    e.preventDefault(); // Here you can prevent default to handle the submit with javascript
+    console.log(data);
+  }, []);
+
+  return (
+    <UiEzForm 
+      schema={{}} 
+      submitLabel='Save' 
+      cancelLabel='Cancel' 
+      onSubmit={onSubmit} 
+    />
+  )
+};
+```
+
+#### Browser apis
+
+If you want to let the browser to continue with its normal submit then you don't need to pass any and the form will be triggered and submitted as usual. **Important**, make sure you pass the **action** and **method** prop so the submit goes as you plan to where you plan it to go.
 
