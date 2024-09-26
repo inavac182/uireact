@@ -3,10 +3,12 @@ import React, { FormEvent, useCallback } from 'react';
 import { UiInputDatepicker } from '@uireact/datepicker';
 import { UiInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
-import type { UiValidatorField } from '@uireact/validator';
+import type { UiValidatorField, UiValidatorWhen } from '@uireact/validator';
+import { getFieldData } from './get-field-data';
+import { getFieldRules } from './get-field-rules';
 
 type EzFormFieldProps = {
-  field: UiValidatorField;
+  field: UiValidatorField | UiValidatorWhen;
   error?: string;
   name: string;
   value?: any;
@@ -30,8 +32,9 @@ export const EzFormField = ({
   onBooleanToogle,
   onSelectInputChange
 }: EzFormFieldProps) => {
-  const ezMetadata = field.getEzMetadata() || {};
-  const rules = field.getRules();
+  const fieldData = getFieldData(field);
+  const ezMetadata = fieldData.getEzMetadata() || {};
+  const rules = getFieldRules(field);
   const icon = ezMetadata.icon ? <UiIcon icon={ezMetadata.icon as UiIconProps['icon']} /> : undefined;
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
@@ -46,7 +49,8 @@ export const EzFormField = ({
   }, [name, value, onBooleanToogle]);
 
   // istanbul ignore next
-  if (!rules.type) {
+  if (!rules || !rules.type) {
+    console.error(`UiEzForm - There are missing rules on field ${name}`)
     return null;
   }
 
