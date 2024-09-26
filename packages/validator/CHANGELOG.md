@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.3.1...@uireact/validator@2.4.0) (2024-09-26)
+
+
+### Features
+
+* **ezforms:** adding support for conditional rules ([#390](https://github.com/inavac182/ui-react/issues/390)) ([19a13a8](https://github.com/inavac182/ui-react/commit/19a13a8e7c446e858adf1198be06c04c01a4b1ea))
+
+
+
+
+
 ## 2.3.1 (2024-09-24)
 
 
