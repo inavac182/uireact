@@ -179,7 +179,23 @@ If you want to let the browser to continue with its normal submit then you don't
 
 ## Button alignemnt
 
-By default the form buttons render inline, although you can pass `buttonAlignemnt` prop as `stacked` and the buttons are going to render stacked:
+#### Inline (Default) 
+
+By default the form buttons render inline:
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      name: new UiValidator().field("text").ezMetada({ label: "Name:" })
+    }}
+    submitLabel='Save' 
+    cancelLabel='Cancel' 
+  />
+```
+
+#### Stacked 
+
+By default the form buttons render inline, although you can pass `buttonsAlignment` prop as `stacked` and the buttons are going to render stacked:
 
 ```jsx live scope={{UiEzForm, UiValidator}}
   <UiEzForm 
