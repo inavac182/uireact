@@ -10,19 +10,19 @@ import { UiEzForm } from '../src';
 const validator = new UiValidator();
 
 const schema = {
-  firstName: validator.field('text').ezMetada({ label: 'First Name' }).present(),
-  age: validator.field('numeric').ezMetada({ label: 'Your age' }),
-  birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
-  phone: validator.field('phone').ezMetada({ label: 'Your Phone' }).optional(),
+  firstName: validator.field('text').ezMetadata({ label: 'First Name' }).present(),
+  age: validator.field('numeric').ezMetadata({ label: 'Your age' }),
+  birthday: validator.field('date').ezMetadata({ label: 'Birthday' }),
+  phone: validator.field('phone').ezMetadata({ label: 'Your Phone' }).optional(),
   email: validator
     .field('email')
-    .ezMetada({ label: 'Your email', icon: 'Mail' }).present()
+    .ezMetadata({ label: 'Your email', icon: 'Mail' }).present()
     .when('phone', validator.is().present())
     .run(validator.is().optional())
     .else(validator.is().present("The email is required if you don't provide your phone number.")),
-  terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }),
-  type: validator.field('choice').ezMetada({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
-  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true })
+  terms: validator.field('boolean').ezMetadata({ label: 'Terms and conditions' }),
+  type: validator.field('choice').ezMetadata({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
+  description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true })
 }
 
 describe('<UiEzForm />', () => {
@@ -62,7 +62,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      firstName: validator.field('text').ezMetada({ label: 'First Name' })
+      firstName: validator.field('text').ezMetadata({ label: 'First Name' })
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
@@ -85,8 +85,8 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      firstName: validator.field('text').ezMetada({ label: 'First Name' }).present(),
-      description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).present("Description is required")
+      firstName: validator.field('text').ezMetadata({ label: 'First Name' }).present(),
+      description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).present("Description is required")
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
@@ -120,10 +120,10 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      phone: validator.field('text').ezMetada({ label: 'Your phone' }).optional(),
+      phone: validator.field('text').ezMetadata({ label: 'Your phone' }).optional(),
       email: validator
         .field('text')
-        .ezMetada({ label: 'Your email' })
+        .ezMetadata({ label: 'Your email' })
         .when('phone', validator.is().present())
         .run(validator.is().optional())
         .else(validator.is().present("The email is required if phone is not provided"))
@@ -154,7 +154,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present()
+      birthday: validator.field('date').ezMetadata({ label: 'Birthday' }).present()
     }
 
     const initialData = {
@@ -193,7 +193,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }).present("You have to accept our terms")
+      terms: validator.field('boolean').ezMetadata({ label: 'Terms and conditions' }).present("You have to accept our terms")
     }
 
     const initialData = {
@@ -222,7 +222,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      type: validator.field('choice').ezMetada({ label: 'Account type' }).oneOf(['user', 'admin', 'editor'], "You have to select an account type")
+      type: validator.field('choice').ezMetadata({ label: 'Account type' }).oneOf(['user', 'admin', 'editor'], "You have to select an account type")
     }
 
     const initialData = {
@@ -257,7 +257,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      type: validator.field('choice').ezMetada({ label: 'Account type' })
+      type: validator.field('choice').ezMetadata({ label: 'Account type' })
     }
 
     const initialData = {
@@ -274,7 +274,7 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present()
+      birthday: validator.field('date').ezMetadata({ label: 'Birthday' }).present()
     }
 
     uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' />);
@@ -294,8 +294,8 @@ describe('<UiEzForm />', () => {
     });
 
     const schema = {
-      birthday: validator.field('date').ezMetada({ label: 'Birthday' }).present(),
-      description: validator.field('text').ezMetada({ paragraph: true }).present()
+      birthday: validator.field('date').ezMetadata({ label: 'Birthday' }).present(),
+      description: validator.field('text').ezMetadata({ paragraph: true }).present()
     }
 
     uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' useBrowserValidation />);
@@ -322,7 +322,7 @@ describe('<UiEzForm />', () => {
 
   it('Should trigger default submit method when no onSubmit callback is passed and validation passes', () => {
     const schema = {
-      firstName: validator.field('text').ezMetada({ label: 'First Name' })
+      firstName: validator.field('text').ezMetadata({ label: 'First Name' })
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' />);
