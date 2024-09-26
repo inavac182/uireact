@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.4.0...@uireact/validator@2.4.1) (2024-09-26)
+
+
+### Bug Fixes
+
+* **validator:** ezMetadata typo ([#392](https://github.com/inavac182/ui-react/issues/392)) ([124ba90](https://github.com/inavac182/ui-react/commit/124ba906fa3e48036d5fbe31750fa4e2d94e8616))
+
+
+
+
+
 # [2.4.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.3.1...@uireact/validator@2.4.0) (2024-09-26)
 
 
