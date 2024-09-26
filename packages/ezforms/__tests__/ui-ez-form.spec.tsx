@@ -350,4 +350,24 @@ describe('<UiEzForm />', () => {
 
     expect(onCancel).toHaveBeenCalled();
   });
+
+  it('Should render correctly when buttons are stacked', () => {
+    const onCancel = jest.fn();
+    const onSubmit = jest.fn();
+    uiRender(<UiEzForm schema={{ name: validator.field("text") }} cancelLabel='Reset' onCancel={onCancel} onSubmit={onSubmit} submitLabel='Submit' buttonsAlignment='stacked' />);
+
+    expect(screen.getByRole('textbox')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Reset' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeVisible();
+  
+    fireEvent.click(screen.getByRole('button', { name: 'Reset' }));
+
+    expect(onCancel).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onCancel).toHaveBeenCalledTimes(1);
+  });
 });
