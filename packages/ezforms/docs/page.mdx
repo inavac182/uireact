@@ -16,19 +16,19 @@ import { Metadata } from '@uireact/docs-tools';
 
 The EzForm component builds a form automatically out of a `schema`, the form will be automatically validated using the specifics on the schema. The schema is created using the [@uireact/validator](./validator) util:
 
-The `field()` fn exposes a function: `ezMetada()` which is a chainable function that can be used to pass metadata to each of the schema fields:
+The `field()` fn exposes a function: `ezMetadata()` which is a chainable function that can be used to pass metadata to each of the schema fields:
 
 ```ts
 const validator = new UiValidator();
 
 const schema = {
-  name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).present(),
-  birthday: validator.field('date').ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
-  age: validator.field('numeric').ezMetada({ label: 'How old are you?', icon: 'Sun' }).present().greaterThan(18, "You have to be older than 18 years old"),
-  email: validator.field('email').ezMetada({ label: 'Enter your email', icon: 'Mail' }).present(),
-  type: validator.field('choice').ezMetada({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
-  description: validator.field('text').ezMetada({ label: 'Description', paragraph: true }).optional(),
-  terms: validator.field('boolean').ezMetada({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions")
+  name: validator.field('text').ezMetadata({ label: 'First Name', icon: 'User' }).present(),
+  birthday: validator.field('date').ezMetadata({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
+  age: validator.field('numeric').ezMetadata({ label: 'How old are you?', icon: 'Sun' }).present().greaterThan(18, "You have to be older than 18 years old"),
+  email: validator.field('email').ezMetadata({ label: 'Enter your email', icon: 'Mail' }).present(),
+  type: validator.field('choice').ezMetadata({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
+  description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).optional(),
+  terms: validator.field('boolean').ezMetadata({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions")
 };
 ```
 From there you can continue to add any specific validation to each field.
@@ -47,39 +47,39 @@ const validator = new UiValidator();
 const schema = {
   name: validator
     .field('text')
-    .ezMetada({ label: 'First Name', icon: 'User' })
+    .ezMetadata({ label: 'First Name', icon: 'User' })
     .present(),
   birthday: validator
     .field('date')
-    .ezMetada({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' })
+    .ezMetadata({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' })
     .present(),
   age: validator
     .field('numeric')
-    .ezMetada({ label: 'How old are you?', icon: 'Sun' })
+    .ezMetadata({ label: 'How old are you?', icon: 'Sun' })
     .present()
     .greaterThan(18, "You have to be older than 18 years old"),
   phone: validator
     .field('phone')
-    .ezMetada({ label: 'Your phone' })
+    .ezMetadata({ label: 'Your phone' })
     .optional(),
   email: validator
     .field('email')
-    .ezMetada({ label: 'Your email', icon: 'Mail' }).present()
+    .ezMetadata({ label: 'Your email', icon: 'Mail' }).present()
     .when('phone', validator.is().present())
     .run(validator.is().optional())
     .else(validator.is().present("The email is required if you don't provide your phone number.")),
   type: validator
     .field('choice')
-    .ezMetada({ label: 'Account type' })
+    .ezMetadata({ label: 'Account type' })
     .present("You have to select the type of account")
     .oneOf(['user', 'admin', 'editor']),
   description: validator
     .field('text')
-    .ezMetada({ label: 'Description', paragraph: true })
+    .ezMetadata({ label: 'Description', paragraph: true })
     .optional(),
   terms: validator
     .field('boolean')
-    .ezMetada({ label: 'Accept terms and conditions' })
+    .ezMetadata({ label: 'Accept terms and conditions' })
     .present("You have to accept our terms and conditions")
 };
 
@@ -129,7 +129,7 @@ For instance, for this schema:
 
 ```ts
 const schema = {
-  name: validator.field('text').ezMetada({ label: 'First Name', icon: 'User' }).present()
+  name: validator.field('text').ezMetadata({ label: 'First Name', icon: 'User' }).present()
 };
 ```
 
@@ -179,17 +179,17 @@ If you want to let the browser to continue with its normal submit then you don't
 
 ## Button alignment
 
-#### Inline (Default) 
+#### Inline (Default)
 
 By default the form buttons render inline:
 
 ```jsx live scope={{UiEzForm, UiValidator}}
-  <UiEzForm 
+  <UiEzForm
     schema={{
-      name: new UiValidator().field("text").ezMetada({ label: "Name:" })
+      name: new UiValidator().field("text").ezMetadata({ label: "Name:" })
     }}
-    submitLabel='Save' 
-    cancelLabel='Cancel' 
+    submitLabel='Save'
+    cancelLabel='Cancel'
   />
 ```
 
@@ -200,7 +200,7 @@ By default the form buttons render inline, although you can pass `buttonsAlignme
 ```jsx live scope={{UiEzForm, UiValidator}}
   <UiEzForm 
     schema={{
-      name: new UiValidator().field("text").ezMetada({ label: "Name:" })
+      name: new UiValidator().field("text").ezMetadata({ label: "Name:" })
     }}
     buttonsAlignment='stacked'
     submitLabel='Save' 

@@ -21,7 +21,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is().present())
           .run(validator.is().present())
       }
@@ -40,7 +40,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is().present())
           .run(validator.is().present())
           .else(validator.is().present().length(5, 10))
@@ -60,7 +60,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is().present())
           .run(validator.is().present())
       }
@@ -167,7 +167,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('some-name', validator.is().present())
           .run(validator.is().present())
           .else(validator.is().optional())
@@ -189,7 +189,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is())
           .run(validator.is().present())
           .else(validator.is().optional())
@@ -212,7 +212,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is().present())
       }
   
@@ -235,7 +235,7 @@ describe('When', () => {
         firstName: validator.field('text'),
         lastName: validator
           .field('text')
-          .ezMetada({})
+          .ezMetadata({})
           .when('firstName', validator.is().present())
           .run(validator.is().present())
       }

@@ -19,7 +19,7 @@ export class UiValidatorField extends UiValidatorRules {
   }
 
   /** Used to set up EzForms field metadata */
-  ezMetada(options: UiValidatorFieldMetadata) {
+  ezMetadata(options: UiValidatorFieldMetadata) {
     this.metadata = { ...options };
     return this;
   }
