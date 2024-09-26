@@ -1,5 +1,7 @@
 import { UiIcon } from '@uireact/icons';
 import { UiReactViewRotating } from '@uireact/framer-animations';
+import { UiValidator } from '@uireact/validator';
+import { UiEzForm } from '@uireact/ezforms';
 
 import { EzFormExample } from './example';
 
@@ -145,6 +147,8 @@ The EzForm will run validations when user clicks submits the form, all validatio
 
 Each of the validation functions can get their own error message, so if you haven't already you should check the [@uireact/validator](./validator) doc page to learn how to set up the schema.
 
+The conditional validations are also supported, so if you use `.when()` the validations in the form will be ran conditionally, to learn more about this go to [Conditional validations](./validator#conditionally-running%20validations);
+
 ## Submit
 
 #### Client side 
@@ -173,3 +177,17 @@ export const YourFormComponent = () => {
 
 If you want to let the browser to continue with its normal submit then you don't need to pass any and the form will be triggered and submitted as usual. **Important**, make sure you pass the **action** and **method** prop so the submit goes as you plan to where you plan it to go.
 
+## Button alignemnt
+
+By default the form buttons render inline, although you can pass `buttonAlignemnt` prop as `stacked` and the buttons are going to render stacked:
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      name: new UiValidator().field("text").ezMetada({ label: "Name:" })
+    }}
+    buttonsAlignment='stacked'
+    submitLabel='Save' 
+    cancelLabel='Cancel' 
+  />
+```

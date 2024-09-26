@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 
-import { UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
+import { UiButtonProps, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid } from '@uireact/flex';
 import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorField, UiValidatorSchema } from '@uireact/validator';
 
@@ -8,6 +8,7 @@ import { EzFormField, generateInitialData } from './private';
 
 export type UiEzFormProps = {
   action?: string;
+  buttonsAlignment?: 'stacked' | 'inline';
   method?: string;
   schema: UiValidatorSchema;
   initialData?: UiValidatorData;
@@ -20,8 +21,11 @@ export type UiEzFormProps = {
 
 const validator = new UiValidator();
 
+const inlineButtonSpacing: UiButtonProps['padding'] = { inline: 'four', block: 'two' };
+
 export const UiEzForm: React.FC<UiEzFormProps> = ({ 
   action,
+  buttonsAlignment = 'inline',
   schema, 
   method,
   initialData,
@@ -93,13 +97,28 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             useBrowserValidation={useBrowserValidation}
           />
         )}
-        <UiPrimaryButton type='submit'>
-          {submitLabel}
-        </UiPrimaryButton>
-        {cancelLabel && (
-          <UiTertiaryButton onClick={onCancel}>
-            {cancelLabel}
-          </UiTertiaryButton>
+        {buttonsAlignment === 'stacked' ? (
+          <>
+            <UiPrimaryButton type='submit'>
+              {submitLabel}
+            </UiPrimaryButton>
+            {cancelLabel && (
+              <UiTertiaryButton onClick={onCancel}>
+                {cancelLabel}
+              </UiTertiaryButton>
+            )}
+          </>
+        ) : (
+          <UiFlexGrid gap='four'>
+            <UiPrimaryButton type='submit' padding={inlineButtonSpacing}>
+              {submitLabel}
+            </UiPrimaryButton>
+            {cancelLabel && (
+              <UiTertiaryButton onClick={onCancel} padding={inlineButtonSpacing}>
+                {cancelLabel}
+              </UiTertiaryButton>
+            )}
+          </UiFlexGrid>
         )}
       </UiFlexGrid>
     </form>
