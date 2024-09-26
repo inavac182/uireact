@@ -81,7 +81,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
         {Object.keys(schema).map((schemaField, index) => 
           <EzFormField
             key={`ezform-field-${index}`}
-            field={schema[schemaField] as UiValidatorField}
+            field={schema[schemaField]}
             value={data[schemaField]}
             name={schemaField}
             error={errors?.[schemaField]?.[0]?.message}

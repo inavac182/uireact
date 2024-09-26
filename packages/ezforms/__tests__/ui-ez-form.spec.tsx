@@ -12,9 +12,14 @@ const validator = new UiValidator();
 const schema = {
   firstName: validator.field('text').ezMetada({ label: 'First Name' }).present(),
   age: validator.field('numeric').ezMetada({ label: 'Your age' }),
-  email: validator.field('email').ezMetada({ label: 'Your email', icon: 'Mail' }),
   birthday: validator.field('date').ezMetada({ label: 'Birthday' }),
-  phone: validator.field('phone').ezMetada({ label: 'Your Phone' }),
+  phone: validator.field('phone').ezMetada({ label: 'Your Phone' }).optional(),
+  email: validator
+    .field('email')
+    .ezMetada({ label: 'Your email', icon: 'Mail' }).present()
+    .when('phone', validator.is().present())
+    .run(validator.is().optional())
+    .else(validator.is().present("The email is required if you don't provide your phone number.")),
   terms: validator.field('boolean').ezMetada({ label: 'Terms and conditions' }),
   type: validator.field('choice').ezMetada({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
   description: validator.field('text').ezMetada({ label: 'Description', paragraph: true })
@@ -105,6 +110,40 @@ describe('<UiEzForm />', () => {
 
     expect(screen.queryByText('This is required')).not.toBeInTheDocument();
     expect(screen.queryByText('Description is required')).not.toBeInTheDocument();
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should render errors on submit when there conditional errors', () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      phone: validator.field('text').ezMetada({ label: 'Your phone' }).optional(),
+      email: validator
+        .field('text')
+        .ezMetada({ label: 'Your email' })
+        .when('phone', validator.is().present())
+        .run(validator.is().optional())
+        .else(validator.is().present("The email is required if phone is not provided"))
+    }
+
+    uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+
+    expect(screen.getByText('The email is required if phone is not provided')).toBeVisible();
+
+    const input = screen.getByRole('textbox', { name: 'Your phone' });
+
+    fireEvent.change(input, { target: { value: '1111111' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.queryByText('The email is required if phone is not provided')).not.toBeInTheDocument();
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
