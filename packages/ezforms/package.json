@@ -3,7 +3,7 @@
   "description": "EzForm is a package published from @UiReact library that helps to speed up forms creation",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public"
   },
@@ -28,8 +28,8 @@
     "@uireact/button": "workspace:*",
     "@uireact/datepicker": "workspace:*",
     "@uireact/flex": "workspace:*",
-    "@uireact/foundation": "workspace:*",
     "@uireact/form": "workspace:*",
+    "@uireact/foundation": "workspace:*",
     "@uireact/icons": "workspace:*",
     "@uireact/text": "workspace:*",
     "@uireact/validator": "workspace:*"
@@ -38,8 +38,8 @@
     "@uireact/button": ">= 3",
     "@uireact/datepicker": ">= 3",
     "@uireact/flex": ">= 3",
-    "@uireact/foundation": ">= 3",
     "@uireact/form": ">= 3",
+    "@uireact/foundation": ">= 3",
     "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3",
     "@uireact/validator": ">= 2.2.0",
