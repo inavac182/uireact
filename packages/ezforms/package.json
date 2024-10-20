@@ -1,6 +1,5 @@
 {
   "name": "@uireact/ezforms",
-  "private": true,
   "description": "EzForm is a package published from @UiReact library that helps to speed up forms creation",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
