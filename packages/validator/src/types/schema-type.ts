@@ -86,6 +86,8 @@ export type UiValidatorFieldMetadata = {
   icon?: string;
   dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
   paragraph?: boolean;
+  /** Tells EzForms to display field as password */
+  protected?: boolean;
 }
 
 /** Set of possible rules for each field */

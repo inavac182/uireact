@@ -60,8 +60,9 @@ export const EzFormField = ({
     rules.type.expected === 'phone';
   const inputType = 
     rules.type.expected === 'numeric' ? 'number' : 
-    rules.type.expected === 'email' ? 'email' : 
-    undefined
+    rules.type.expected === 'email' ? 'email' :
+    ezMetadata.protected ? 'password' :
+    undefined;
 
   if (isTextInput) {
     if (ezMetadata.paragraph) {

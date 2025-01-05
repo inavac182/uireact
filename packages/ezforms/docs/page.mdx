@@ -112,6 +112,7 @@ The `field()` function will set a initial type for that specific field in the sc
 ```ts
   text -> <UiInput type="text" />
   text with .ezMetadata({ paragraph: true }) -> <UiTextarea />
+  text with .ezMetadata({ protected: true }) -> <UiInput type="password" />
   numeric -> <UiInput type="number" />
   email -> <UiInput type="email" />
   phone -> <UiInput type="text" />
@@ -204,6 +205,22 @@ By default the form buttons render inline, although you can pass `buttonsAlignme
     }}
     buttonsAlignment='stacked'
     submitLabel='Save' 
+    cancelLabel='Cancel' 
+  />
+```
+
+#### Passwords 
+
+In order to use a password field, we need to tell in the metadata that the field is protected, this ONLY works for text inputs.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
+      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
+    }}
+    buttonsAlignment='stacked'
+    submitLabel='Log in' 
     cancelLabel='Cancel' 
   />
 ```
