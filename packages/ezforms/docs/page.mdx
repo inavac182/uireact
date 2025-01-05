@@ -112,6 +112,7 @@ The `field()` function will set a initial type for that specific field in the sc
 ```ts
   text -> <UiInput type="text" />
   text with .ezMetadata({ paragraph: true }) -> <UiTextarea />
+  text with .ezMetadata({ protected: true }) -> <UiInput type="password" />
   numeric -> <UiInput type="number" />
   email -> <UiInput type="email" />
   phone -> <UiInput type="text" />
