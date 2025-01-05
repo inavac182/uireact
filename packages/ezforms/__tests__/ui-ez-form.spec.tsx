@@ -22,7 +22,8 @@ const schema = {
     .else(validator.is().present("The email is required if you don't provide your phone number.")),
   terms: validator.field('boolean').ezMetadata({ label: 'Terms and conditions' }),
   type: validator.field('choice').ezMetadata({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
-  description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true })
+  description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }),
+  password: validator.field('text').ezMetadata({ label: 'Password', protected: true })
 }
 
 describe('<UiEzForm />', () => {
@@ -47,6 +48,8 @@ describe('<UiEzForm />', () => {
     expect(screen.getByRole('textbox', { name: 'Your Phone' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
     expect(screen.getByRole('combobox', { name: 'Account type' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Password' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Password' })).toHaveAttribute('type', 'password');
   });
 
   it('Should initialize form with given data', () => {
