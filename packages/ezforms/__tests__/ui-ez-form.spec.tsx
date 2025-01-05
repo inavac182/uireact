@@ -48,8 +48,8 @@ describe('<UiEzForm />', () => {
     expect(screen.getByRole('textbox', { name: 'Your Phone' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
     expect(screen.getByRole('combobox', { name: 'Account type' })).toBeVisible();
-    expect(screen.getByRole('textbox', { name: 'Password' })).toBeVisible();
-    expect(screen.getByRole('textbox', { name: 'Password' })).toHaveAttribute('type', 'password');
+    expect(screen.getByLabelText('Password')).toBeVisible();
+    expect(screen.getByLabelText('Password')).toHaveAttribute('type', 'password');
   });
 
   it('Should initialize form with given data', () => {
