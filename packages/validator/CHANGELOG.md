@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.5.0 (2025-01-05)
+
+
+### Features
+
+* **ezforms:** adding password field ([#393](https://github.com/inavac182/ui-react/issues/393)) ([38ba566](https://github.com/inavac182/ui-react/commit/38ba566ee3f7322a5475c6d0fd3fd7dbe92b3f03))
+
+
+
+
+
 ## [2.4.1](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.4.0...@uireact/validator@2.4.1) (2024-09-26)
 
 
