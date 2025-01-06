@@ -6,6 +6,11 @@ import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorField, UiVa
 
 import { EzFormField, generateInitialData } from './private';
 
+export type UiEzFormDecoratorsPositions = {
+  aboveActions?: React.ReactNode;
+  belowActions?: React.ReactNode;
+}
+
 export type UiEzFormProps = {
   action?: string;
   buttonsAlignment?: 'stacked' | 'inline';
@@ -17,7 +22,8 @@ export type UiEzFormProps = {
   onSubmit?: (e: FormEvent<HTMLFormElement>, data: UiValidatorData) => void;
   onCancel?: () => void;
   useBrowserValidation?: boolean;
-}
+  decorators?: UiEzFormDecoratorsPositions;
+};
 
 const validator = new UiValidator();
 
@@ -32,6 +38,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   cancelLabel,
   submitLabel,
   useBrowserValidation,
+  decorators,
   onSubmit, 
   onCancel
 }) => {
@@ -97,6 +104,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             useBrowserValidation={useBrowserValidation}
           />
         )}
+        {decorators?.aboveActions}
         {buttonsAlignment === 'stacked' ? (
           <>
             <UiPrimaryButton type='submit'>
@@ -120,6 +128,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             )}
           </UiFlexGrid>
         )}
+        {decorators?.belowActions}
       </UiFlexGrid>
     </form>
   );

@@ -1,4 +1,5 @@
 import { UiIcon } from '@uireact/icons';
+import { UiText } from '@uireact/text';
 import { UiReactViewRotating } from '@uireact/framer-animations';
 import { UiValidator } from '@uireact/validator';
 import { UiEzForm } from '@uireact/ezforms';
@@ -222,5 +223,21 @@ In order to use a password field, we need to tell in the metadata that the field
     buttonsAlignment='stacked'
     submitLabel='Log in' 
     cancelLabel='Cancel' 
+  />
+```
+
+#### Decorators 
+
+Sometimes we need to add elements around the form to decorate our forms and give more information to users. So, this prop is used to pass react components as props that get rendered based on the position of the decorator.
+
+```jsx live scope={{UiEzForm, UiValidator, UiText}}
+  <UiEzForm 
+    schema={{
+      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
+      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
+    }}
+    decorators={{ aboveActions: <UiText>Terms and conditions</UiText>, belowActions: <UiText align='center'>30 days free</UiText> }}
+    buttonsAlignment='stacked'
+    submitLabel='Sign up' 
   />
 ```
