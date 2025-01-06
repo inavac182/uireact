@@ -5,7 +5,8 @@ import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { UiValidator } from '@uireact/validator';
 
 import { uiRender } from '../../../__tests__/utils';
-import { UiEzForm } from '../src';
+import { UiEzForm, UiEzFormDecoratorsPositions } from '../src';
+import { UiText } from '@uireact/text';
 
 const validator = new UiValidator();
 
@@ -372,5 +373,17 @@ describe('<UiEzForm />', () => {
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
     expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should render correctly the decorators', () => {
+    const decorators: UiEzFormDecoratorsPositions = {
+      aboveActions: <UiText>Above actions decorator</UiText>,
+      belowActions: <UiText>Below actions decorator</UiText>
+    };
+
+    uiRender(<UiEzForm schema={{ name: validator.field("text") }} cancelLabel='Reset' submitLabel='Submit' decorators={decorators} />);
+
+    expect(screen.getByText('Above actions decorator')).toBeVisible();
+    expect(screen.getByText('Below actions decorator')).toBeVisible();
   });
 });
