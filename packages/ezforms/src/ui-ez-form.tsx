@@ -12,7 +12,7 @@ export type UiEzFormDecoratorsPositions = {
 }
 
 export type UiEzFormProps = {
-  action?: string;
+  action?: any;
   buttonsAlignment?: 'stacked' | 'inline';
   method?: string;
   schema: UiValidatorSchema;
