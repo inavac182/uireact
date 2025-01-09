@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.6.0 (2025-01-09)
+
+
+### Features
+
+* **ezforms:** adding digits support ([#396](https://github.com/inavac182/ui-react/issues/396)) ([5434c87](https://github.com/inavac182/ui-react/commit/5434c87018166fc114e3fa1abd33e2739443f389))
+
+
+
+
+
 # 2.5.0 (2025-01-05)
 
 
