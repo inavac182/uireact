@@ -104,6 +104,8 @@ export type UiValidatorFieldMetadata = {
   protected?: boolean;
   /** Tells EzForms to display as a UiDigitsInputs */
   code?: boolean;
+  /** Tells EzForms to display input as hidden */
+  hidden?: boolean;
 }
 
 /** Set of possible rules for each field */

@@ -502,4 +502,22 @@ describe('<UiEzForm />', () => {
     expect(screen.getByText('Above actions decorator')).toBeVisible();
     expect(screen.getByText('Below actions decorator')).toBeVisible();
   });
+
+  it('Should render correctly hidden inputs', () => {
+    const schema = {
+      token: validator.field('text').ezMetadata({ hidden: true })
+    }
+    const onSubmit = jest.fn();
+
+    uiRender(<UiEzForm schema={schema} initialData={{ token: 'some-hidden-value' }} submitLabel='Submit' onSubmit={onSubmit} />);
+
+    expect(screen.getByTestId("ezforms-hidden-input")).not.toBeVisible();
+    expect(screen.getByTestId("ezforms-hidden-input")).toBeInTheDocument();
+    expect(screen.getByTestId("ezforms-hidden-input")).toHaveValue('some-hidden-value');
+
+    fireEvent.click(screen.getByRole('button'));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit.mock.calls[0][1]).toStrictEqual({ token: 'some-hidden-value' });
+  });
 });

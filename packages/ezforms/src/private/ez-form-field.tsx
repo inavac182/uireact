@@ -72,6 +72,12 @@ export const EzFormField = ({
     undefined;
 
   if (isTextInput) {
+    if (ezMetadata.hidden) {
+      return (
+        <input type='hidden' value={value} name={name} data-testid="ezforms-hidden-input" />
+      )
+    }
+
     if (ezMetadata.paragraph) {
       return (
         <UiTextArea 
