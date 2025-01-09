@@ -172,6 +172,16 @@ export class UiValidator {
     return present && value !== null && value !== undefined;
   }
 
+  private isEqualTo(compareToFieldName: string, value: unknown, data: UiValidatorData): boolean {
+    if (!data || !data[compareToFieldName]) {
+      console.error(`UiValidator - field ${compareToFieldName} NOT found in data.`);
+
+      return false;
+    }
+
+    return data[compareToFieldName] === value;
+  }
+
   /**
    * @param baseline The value used as baseline for the comparisson
    * @param action The action taken for comparisson
@@ -346,9 +356,9 @@ export class UiValidator {
         let result;
 
         if (preConditionsPassed && rules) {
-          result = this.runValidations(value, field, rules);
+          result = this.runValidations(value, field, rules, data);
         } else if (!preConditionsPassed && fallbackRules) {
-          result = this.runValidations(value, field, fallbackRules);
+          result = this.runValidations(value, field, fallbackRules, data);
         }
 
         if (result?.errors && result.errors.length > 0) {
@@ -364,7 +374,7 @@ export class UiValidator {
 
       // This is a field WITH OUT pre conditions
       const rules = schemaField.getRules();
-      const result = this.runValidations(value, field, rules);
+      const result = this.runValidations(value, field, rules, data);
 
       if (result.errors.length > 0) {
         errors[field] = result.errors;
@@ -392,7 +402,15 @@ export class UiValidator {
     return new UiValidatorRules();
   }
 
-  private runValidations(value: unknown, field: string, rules: UiValidatorFieldRules, strict?: boolean): { errors: UiValidatorError[], hasError: boolean } {
+  private runValidations(
+    value: unknown, 
+    field: string,
+    rules: UiValidatorFieldRules, 
+    data: UiValidatorData
+  ): { 
+    errors: UiValidatorError[], 
+    hasError: boolean 
+  } {
     let hasError = false;
 
     const fieldErrors: UiValidatorError[] = [];
@@ -470,6 +488,15 @@ export class UiValidator {
       }
     }
 
+    if (rules.equalsTo) {
+      ruleMatched = true;
+
+      if (!this.isEqualTo(rules.equalsTo.name, value, data)) {
+        hasError = true;
+        fieldErrors.push(rules.equalsTo.error);
+      }
+    }
+
     if (!ruleMatched) {
       console.error(`UiValidator - Field ${field} has NOT valid rules`);
       hasError = true;
@@ -492,7 +519,7 @@ export class UiValidator {
       const value = data[observedField];
       const rules = conditionData.getRules();
 
-      const result = this.runValidations(value, observedField, rules);
+      const result = this.runValidations(value, observedField, rules, data);
 
       if (result.hasError) {
         passed = false;

@@ -135,6 +135,21 @@ export class UiValidatorRules {
     return this;
   }
 
+  equalsTo(name: string, errorMessage?: string) {
+    this.rules.equalsTo = {
+      name: name,
+      error: errorMessage
+      ? {
+          message: errorMessage,
+        }
+      : {
+          message: `The value doesn't match`,
+        }
+    }
+
+    return this;
+  }
+
   /** @private For validation purposes, don't use it. */
   getRules(): UiValidatorFieldRules {
     return this.rules;
