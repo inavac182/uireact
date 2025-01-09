@@ -22,14 +22,11 @@ These are the breaking changes that came with the validator V2:
 
 - The `ruler()` has been removed and replaced with `field()`
 - The `.type()` function is removed and `field()` replaces it. E.g.: `validator.field('email')`
-- The `.present()` function is deprecated and `present()` replaces it.
-- The `.optional()` function is deprecated and `optional()` replaces it.
-- Recognizing texts has changed from `.type('string')` has being changed to `.field('text')`.
-- The `validator.field()` will expose a few more support functions that will be used from `EzForm` component to automatically generate forms from a schema. 
+- The `.required()` function is deprecated and `present()` replaces it.
+- Recognizing texts has changed from `.type('string')` to `.field('text')`.
+- The `validator.field()` will expose a few more support functions that will be used from [EzForm](./ezforms) component to automatically generate forms from a schema. 
 - The strict mode is now enabled by default.
 - Introducing `when()`, `run()`, `and()`, `else()` for conditional validations, see [docs here](#conditionally-running%20validations)
-
-For the EzForms more information will be coming as we have progress on the EzForm and UiValidator updates.
 </UiExpandoCard>
 
 <br />
@@ -412,7 +409,7 @@ Example using a component that receives the schema and the data and then renders
 
 The function `when()` provides capabilities to run validations conditionally based on another field. When you use the function `when()` you will be able to add a conditional to it on what you want to check before running the validation.
 
-The conditions can be built using the function `is()` like this:
+The conditions to verify on the `when()` case are built using the function `is()` like this:
 
 ```ts
 const schema = { 
@@ -439,7 +436,7 @@ const schema = {
 ```
 ###### run()
 
-Once you completed your pre conditions now you **HAVE** to set your validation:
+The validations to run when the pre-conditions are achieved are set using `run()`:
 
 ```ts
 const schema = { 
@@ -447,14 +444,19 @@ const schema = {
     .field('text')
     .when('fieldB', validator.is().present())
     .and('fieldC', validator.is().present())
-    .run(validator.is().present("This field is required when fieldB and fieldC are present.").length(1, 10, "This field has to be at least 1 and max 10 characters big.")), 
+    .run(
+      validator
+        .is()
+        .present("This field is required when fieldB and fieldC are present.")
+        .length(1, 10, "This field has to be at least 1 and max 10 characters big.")
+    ), 
   fieldB: ...,
   fieldC: ...
 }
 ```
 ###### else()
 
-If a fallback validation is needed when the pre condition is not met, then you can use the function `else()`
+If the pre-condtions are not achieved and you want to run a fallback set of validations then use the function `else()` to set them.
 
 ```ts
 const schema = { 
@@ -462,7 +464,12 @@ const schema = {
     .field('text')
     .when('fieldB', validator.is().present())
     .and('fieldC', validator.is().present())
-    .run(validator.is().present("This field is required when fieldB and fieldC are present.").length(1, 10, "This field has to be at least 1 and max 10 characters big."))
+    .run(
+      validator
+        .is()
+        .present("This field is required when fieldB and fieldC are present.")
+        .length(1, 10, "This field has to be at least 1 and max 10 characters big.")
+    )
     .else(validator.is().optional()), 
   fieldB: ...,
   fieldC: ...
