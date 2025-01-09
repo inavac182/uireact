@@ -82,12 +82,18 @@ export type UiValidatorFieldRules = {
 
 /** Metadata information used from EzForms */
 export type UiValidatorFieldMetadata = {
+  /** The input label to use */
   label?: string;
+  /** The icon name to use in the text input */
   icon?: string;
+  /** Tells UiDatepickerInput the date format to use */
   dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
+  /** Tells EzForms to display a textarea rather than a text input */
   paragraph?: boolean;
   /** Tells EzForms to display field as password */
   protected?: boolean;
+  /** Tells EzForms to display as a UiDigitsInputs */
+  code?: boolean;
 }
 
 /** Set of possible rules for each field */

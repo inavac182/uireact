@@ -29,7 +29,8 @@ const schema = {
   email: validator.field('email').ezMetadata({ label: 'Enter your email', icon: 'Mail' }).present(),
   type: validator.field('choice').ezMetadata({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
   description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).optional(),
-  terms: validator.field('boolean').ezMetadata({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions")
+  terms: validator.field('boolean').ezMetadata({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions"),
+  code: validator.field('numeric').ezMetadata({ label: 'Code sent to your phone', code: true }).present("The code should be present")
 };
 ```
 From there you can continue to add any specific validation to each field.
@@ -81,7 +82,12 @@ const schema = {
   terms: validator
     .field('boolean')
     .ezMetadata({ label: 'Accept terms and conditions' })
-    .present("You have to accept our terms and conditions")
+    .present("You have to accept our terms and conditions"),
+  code: validator
+    .field('numeric')
+    .ezMetadata({ label: 'Code sent to your phone', code: true })
+    .present("The code is required")
+    .length(6, 6, "The code need to be 6 characters long")
 };
 
 export const EzFormExample = () => {  
@@ -115,11 +121,57 @@ The `field()` function will set a initial type for that specific field in the sc
   text with .ezMetadata({ paragraph: true }) -> <UiTextarea />
   text with .ezMetadata({ protected: true }) -> <UiInput type="password" />
   numeric -> <UiInput type="number" />
+  numeric with .ezMetadata({ code: true }).length(n, n) -> <UiDigitsInput /> // YOU HAVE TO PROVIDE THE LENGHT RULE
   email -> <UiInput type="email" />
   phone -> <UiInput type="text" />
   date -> <UiDatepicker />
   boolean -> <UiSwitch />
   choice -> <UiSelect />
+```
+
+#### Passwords 
+
+In order to use a password field, we need to tell in the metadata that the field is protected, this ONLY works for text inputs.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
+      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
+    }}
+    buttonsAlignment='stacked'
+    submitLabel='Log in' 
+    cancelLabel='Cancel' 
+  />
+```
+
+#### Digits input 
+
+If you want to render a digits input, for instance for a numeric code then you need to tell the schema that the numeric field is a `code` AND also you need to provide a `length` rule because that will tell the inputs how many digits it has. If you don't provide one of those two properties then it WON'T render the digits input.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      code: new UiValidator().field("numeric").ezMetadata({ label: "Your code:", code: true }).present("The code is required").length(6,6, "Code has to be 6 characters long"),
+    }}
+    submitLabel='Submit' 
+  />
+```
+
+## Decorators 
+
+These are used to inject React elements around the form and customize what and how we need to render an input. The decorator name will tell the position where that React component will be rendered.
+
+```jsx live scope={{UiEzForm, UiValidator, UiText}}
+  <UiEzForm 
+    schema={{
+      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
+      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
+    }}
+    decorators={{ aboveActions: <UiText>Terms and conditions</UiText>, belowActions: <UiText align='center'>30 days free</UiText> }}
+    buttonsAlignment='stacked'
+    submitLabel='Sign up' 
+  />
 ```
 
 ## Initial data
@@ -207,37 +259,5 @@ By default the form buttons render inline, although you can pass `buttonsAlignme
     buttonsAlignment='stacked'
     submitLabel='Save' 
     cancelLabel='Cancel' 
-  />
-```
-
-#### Passwords 
-
-In order to use a password field, we need to tell in the metadata that the field is protected, this ONLY works for text inputs.
-
-```jsx live scope={{UiEzForm, UiValidator}}
-  <UiEzForm 
-    schema={{
-      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
-      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
-    }}
-    buttonsAlignment='stacked'
-    submitLabel='Log in' 
-    cancelLabel='Cancel' 
-  />
-```
-
-#### Decorators 
-
-Sometimes we need to add elements around the form to decorate our forms and give more information to users. So, this prop is used to pass react components as props that get rendered based on the position of the decorator.
-
-```jsx live scope={{UiEzForm, UiValidator, UiText}}
-  <UiEzForm 
-    schema={{
-      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }),
-      password: new UiValidator().field("text").ezMetadata({ label: "Password:", protected: true })
-    }}
-    decorators={{ aboveActions: <UiText>Terms and conditions</UiText>, belowActions: <UiText align='center'>30 days free</UiText> }}
-    buttonsAlignment='stacked'
-    submitLabel='Sign up' 
   />
 ```
