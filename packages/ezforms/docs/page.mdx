@@ -120,6 +120,7 @@ The `field()` function will set a initial type for that specific field in the sc
   text -> <UiInput type="text" />
   text with .ezMetadata({ paragraph: true }) -> <UiTextarea />
   text with .ezMetadata({ protected: true }) -> <UiInput type="password" />
+  text with .ezMetadata({ hidden: true }) -> <input type="hidden" />
   numeric -> <UiInput type="number" />
   numeric with .ezMetadata({ code: true }).length(n, n) -> <UiDigitsInput /> // YOU HAVE TO PROVIDE THE LENGHT RULE
   email -> <UiInput type="email" />
@@ -157,6 +158,30 @@ If you want to render a digits input, for instance for a numeric code then you n
     submitLabel='Submit' 
   />
 ```
+
+#### Hidden inputs 
+
+In some forms we want to render hidden inputs to hold data that will be submitted alongside with the form, for this we can use the `hidden` property:
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      newPassword: new UiValidator().field("text").ezMetadata({ label: "New password:", protected: true }).present("New password is needed"),
+      token: new UiValidator().field("text").ezMetadata({ hidden: true })
+    }}
+    initialData={{ token: 'some-super-secure-token', newPassword: '' }}
+    submitLabel='Submit' 
+    onSubmit={(e, data) => {e.preventDefault(); console.log(data);}}
+  />
+```
+
+In the previous example, there is only 1 input visible for the new password, although hidden, there is another input thinking that we might carry a token submitted alongside with the new password. 
+
+If you inspect the form you will see a hidden input with the value `some-super-secure-token` as that is what we are setting from the initial data. 
+
+If you check the javascript console, once you submit the form you will see the data object carrying the "new password" and the token together.
+
+**IMPORTANT:** Only `text` fields are supported.
 
 ## Decorators 
 

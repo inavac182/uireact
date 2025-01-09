@@ -48,7 +48,10 @@ const schema = {
     .field('numeric')
     .ezMetadata({ label: 'Code sent to your phone', code: true })
     .present("The code is required")
-    .length(6, 6, "The code need to be 6 characters long")
+    .length(6, 6, "The code need to be 6 characters long"),
+  token: validator
+    .field('text')
+    .ezMetadata({ hidden: true })
 };
 
 export const EzFormExample = () => {  
