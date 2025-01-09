@@ -19,6 +19,14 @@ export type UiValidatorComparisonRule = {
   error: UiValidatorError;
 };
 
+/** Rule that compares a value with another field in the same schema */
+export type UiValidatorEqualsToRule = {
+  /** The name of the field to be compared with */
+  name: string;
+  /** The error message to provide in the response if this check doesn't pass */
+  error: UiValidatorError;
+};
+
 /** Rule that holds a value to compare with a baseline */
 export type UiValidatorChoicesRule = {
   /** The expected value for this rule */
@@ -78,6 +86,8 @@ export type UiValidatorFieldRules = {
   lessThan?: UiValidatorComparisonRule;
   /** Validates that a choice field is one of a given set of values */
   oneOf?: UiValidatorChoicesRule;
+  /** Validates value matches another with another field by its name. */
+  equalsTo?: UiValidatorEqualsToRule;
 };
 
 /** Metadata information used from EzForms */
