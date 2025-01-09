@@ -71,6 +71,11 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     setData({ ...data, [name]: value });
   }, [data]);
 
+  const onDigitsInputChange = useCallback((value: string, name: string) => {
+    setErrors({});
+    setData({ ...data, [name]: value });
+  }, [data]);
+
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
     setLoading(true);
@@ -101,6 +106,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             onDateInputChange={onDateInputChange}
             onBooleanToogle={onBooleanToogle}
             onSelectInputChange={onSelectChange}
+            onDigitsInputChange={onDigitsInputChange}
             useBrowserValidation={useBrowserValidation}
           />
         )}

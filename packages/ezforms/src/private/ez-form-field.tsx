@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
-import { UiInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
+import { UiDigitsInput, UiInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import type { UiValidatorField, UiValidatorWhen } from '@uireact/validator';
 import { getFieldData } from './get-field-data';
@@ -18,6 +18,7 @@ type EzFormFieldProps = {
   onSelectInputChange: (value: string, name: string) => void;
   onDateInputChange: (date: string, name: string) => void;
   onBooleanToogle: (value: boolean, name: string) => void;
+  onDigitsInputChange: (value: string, name: string) => void;
 }
 
 export const EzFormField = ({ 
@@ -30,7 +31,8 @@ export const EzFormField = ({
   onTextAreaChange,
   onDateInputChange,
   onBooleanToogle,
-  onSelectInputChange
+  onSelectInputChange,
+  onDigitsInputChange
 }: EzFormFieldProps) => {
   const fieldData = getFieldData(field);
   const ezMetadata = fieldData.getEzMetadata() || {};
@@ -47,6 +49,11 @@ export const EzFormField = ({
   const onBooleanToogleWrapper = useCallback(() => {
     onBooleanToogle(!value, name);
   }, [name, value, onBooleanToogle]);
+
+  const onDigitsChangeWrapper = useCallback((value?: string) => {
+    // istanbul ignore next
+    onDigitsInputChange(value || "", name);
+  }, [name, onDigitsInputChange]);
 
   // istanbul ignore next
   if (!rules || !rules.type) {
@@ -78,6 +85,24 @@ export const EzFormField = ({
           required={useBrowserValidation && rules.required?.expected}
         />
       )
+    }
+
+    if (ezMetadata.code) {
+      if (rules.length?.max) {
+        return (
+          <UiDigitsInput 
+            label={ezMetadata.label}
+            category={error ? 'error' : undefined}
+            error={error}
+            digits={rules.length.max}
+            name={name}
+            onChange={onDigitsChangeWrapper}
+            required={useBrowserValidation && rules.required?.expected}
+          />
+        )
+      }
+      
+      console.error('EzForms - Field using CODE property need to include a length rule to set the number of expected digits.');
     }
 
     return (

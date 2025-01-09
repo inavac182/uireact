@@ -24,7 +24,8 @@ const schema = {
   terms: validator.field('boolean').ezMetadata({ label: 'Terms and conditions' }),
   type: validator.field('choice').ezMetadata({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
   description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }),
-  password: validator.field('text').ezMetadata({ label: 'Password', protected: true })
+  password: validator.field('text').ezMetadata({ label: 'Password', protected: true }),
+  code: validator.field('numeric').ezMetadata({ label: 'Code', code: true }).length(5,5)
 }
 
 describe('<UiEzForm />', () => {
@@ -253,6 +254,121 @@ describe('<UiEzForm />', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should save correctly digits change', async () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      code: validator
+        .field('numeric')
+        .ezMetadata({ label: 'Your code', code: true })
+        .present("The code is required")
+        .length(2,2, 'The code has to be 2 digits long')
+    }
+
+    const initialData = {
+      code: ''
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' />);
+
+    const firstInput = screen.getAllByRole('textbox')[0];
+    const secondInput = screen.getAllByRole('textbox')[1];
+
+    expect(firstInput).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).not.toHaveBeenCalled();
+
+    expect(screen.getByText('The code is required')).toBeVisible();
+
+    fireEvent.change(firstInput, { target: { value: '1' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.getByText('The code has to be 2 digits long')).toBeVisible();
+
+
+    fireEvent.change(secondInput, { target: { value: '2' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it('Should prevent submit when using browser validation and digits change', async () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      code: validator
+        .field('numeric')
+        .ezMetadata({ label: 'Your code', code: true })
+        .present("The code is required")
+        .length(2,2, 'The code has to be 2 digits long')
+    }
+
+    const initialData = {
+      code: ''
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' useBrowserValidation />);
+
+    const firstInput = screen.getAllByRole('textbox')[0];
+
+    expect(firstInput).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.queryByText('The code is required')).not.toBeInTheDocument();
+    expect(onSubmit).not.toHaveBeenCalled();
+
+    
+  });
+
+  it('Should fallback to numeric input if no length is provided', async () => {
+    const consoleError = console.error;
+    console.error = jest.fn();
+
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      code: validator
+        .field('numeric')
+        .ezMetadata({ label: 'Your code', code: true })
+        .present("The code is required")
+    }
+
+    const initialData = {
+      code: ''
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} initialData={initialData} submitLabel='Submit' />);
+
+    const input = screen.getByRole('spinbutton', { name: 'Your code' });
+
+    expect(input).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).not.toHaveBeenCalled();
+    expect(console.error).toHaveBeenCalled();
+
+    expect(screen.getByText('The code is required')).toBeVisible();
+
+    fireEvent.change(input, { target: { value: '1' } });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    console.error = consoleError;
   });
 
   it('Should NOT render when choice field does NOT have options', async () => {
