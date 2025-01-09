@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.7.0...@uireact/validator@2.8.0) (2025-01-09)
+
+
+### Features
+
+* **ezforms:** adding hidden inputs support ([#398](https://github.com/inavac182/ui-react/issues/398)) ([83ef33d](https://github.com/inavac182/ui-react/commit/83ef33d5768a30b84d3864e4ee3c867159e441c1))
+
+
+
+
+
 # [2.7.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.6.0...@uireact/validator@2.7.0) (2025-01-09)
 
 

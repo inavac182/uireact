@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.4.1...@uireact/ezforms@0.5.0) (2025-01-09)
+
+
+### Features
+
+* **ezforms:** adding hidden inputs support ([#398](https://github.com/inavac182/uireact/issues/398)) ([83ef33d](https://github.com/inavac182/uireact/commit/83ef33d5768a30b84d3864e4ee3c867159e441c1))
+
+
+
+
+
 ## [0.4.1](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.4.0...@uireact/ezforms@0.4.1) (2025-01-09)
 
 **Note:** Version bump only for package @uireact/ezforms
