@@ -171,6 +171,7 @@ In some forms we want to render hidden inputs to hold data that will be submitte
     }}
     initialData={{ token: 'some-super-secure-token', newPassword: '' }}
     submitLabel='Submit' 
+    loading
     onSubmit={(e, data) => {e.preventDefault(); console.log(data);}}
   />
 ```
