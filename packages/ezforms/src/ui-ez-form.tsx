@@ -2,10 +2,10 @@ import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiButtonProps, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid } from '@uireact/flex';
-import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorField, UiValidatorSchema } from '@uireact/validator';
+import { UiIcon } from '@uireact/icons';
+import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchema } from '@uireact/validator';
 
 import { EzFormField, generateInitialData } from './private';
-import { UiIcon } from '@uireact/icons';
 
 export type UiEzFormDecoratorsPositions = {
   aboveActions?: React.ReactNode;
