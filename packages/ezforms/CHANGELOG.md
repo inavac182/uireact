@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.5.0...@uireact/ezforms@0.6.0) (2025-01-13)
+
+
+### Features
+
+* **ezforms:** show loading spinner ([#399](https://github.com/inavac182/uireact/issues/399)) ([b744e02](https://github.com/inavac182/uireact/commit/b744e025ab82b7674e0693b9b7b4789d0eea7efa))
+
+
+
+
+
 # [0.5.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.4.1...@uireact/ezforms@0.5.0) (2025-01-09)
 
 
