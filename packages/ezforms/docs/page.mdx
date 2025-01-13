@@ -171,6 +171,7 @@ In some forms we want to render hidden inputs to hold data that will be submitte
     }}
     initialData={{ token: 'some-super-secure-token', newPassword: '' }}
     submitLabel='Submit' 
+    loading
     onSubmit={(e, data) => {e.preventDefault(); console.log(data);}}
   />
 ```
@@ -284,5 +285,22 @@ By default the form buttons render inline, although you can pass `buttonsAlignme
     buttonsAlignment='stacked'
     submitLabel='Save' 
     cancelLabel='Cancel' 
+  />
+```
+
+## Loading
+
+The EzForm component exposes a `loading` prop that when passed it will render a loading spinner in the primary button. The primary button will also be disabled. You are responsible for setting its value as true / false to showcase loading behavior.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      newPassword: new UiValidator().field("text").ezMetadata({ label: "New password:", protected: true }).present("New password is needed"),
+      token: new UiValidator().field("text").ezMetadata({ hidden: true })
+    }}
+    initialData={{ token: 'some-super-secure-token', newPassword: '' }}
+    submitLabel='Submit' 
+    loading
+    onSubmit={(e, data) => {e.preventDefault(); console.log(data);}}
   />
 ```

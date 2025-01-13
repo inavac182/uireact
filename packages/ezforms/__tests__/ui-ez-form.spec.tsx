@@ -520,4 +520,30 @@ describe('<UiEzForm />', () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
     expect(onSubmit.mock.calls[0][1]).toStrictEqual({ token: 'some-hidden-value' });
   });
+
+  it('Should disabled submit button if is loading', () => {
+    const schema = {
+      name: validator.field('text').ezMetadata({ label: 'Some input' })
+    }
+    const onSubmit = jest.fn();
+
+    uiRender(<UiEzForm schema={schema} loading submitLabel='Submit' onSubmit={onSubmit} />);
+
+    expect(screen.getByRole('textbox', { name: 'Some input' })).toBeVisible();
+
+    expect(screen.getByRole('button')).toBeDisabled();
+  });
+
+  it('Should disabled submit button if is loading and stacked', () => {
+    const schema = {
+      name: validator.field('text').ezMetadata({ label: 'Some input' })
+    }
+    const onSubmit = jest.fn();
+
+    uiRender(<UiEzForm schema={schema} loading submitLabel='Submit' onSubmit={onSubmit} buttonsAlignment='stacked' />);
+
+    expect(screen.getByRole('textbox', { name: 'Some input' })).toBeVisible();
+
+    expect(screen.getByRole('button')).toBeDisabled();
+  });
 });

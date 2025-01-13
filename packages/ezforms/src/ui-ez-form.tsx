@@ -2,7 +2,8 @@ import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiButtonProps, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiFlexGrid } from '@uireact/flex';
-import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorField, UiValidatorSchema } from '@uireact/validator';
+import { UiIcon } from '@uireact/icons';
+import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchema } from '@uireact/validator';
 
 import { EzFormField, generateInitialData } from './private';
 
@@ -23,6 +24,7 @@ export type UiEzFormProps = {
   onCancel?: () => void;
   useBrowserValidation?: boolean;
   decorators?: UiEzFormDecoratorsPositions;
+  loading?: boolean;
 };
 
 const validator = new UiValidator();
@@ -39,12 +41,12 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   submitLabel,
   useBrowserValidation,
   decorators,
+  loading,
   onSubmit, 
   onCancel
 }) => {
   const [data, setData] = useState<UiValidatorData>(generateInitialData(schema, initialData));
   const [errors, setErrors] = useState<UiValidatorErrors>();
-  const [loading, setLoading] = useState(false);
 
   const onTextInputChange = useCallback((e: FormEvent<HTMLInputElement>) => {
     setErrors({});
@@ -78,7 +80,6 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
 
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
-    setLoading(true);
     const result = validator.validate(schema, data);
 
     if (result.passed) {
@@ -87,7 +88,6 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
       e.preventDefault();
 
       setErrors(result.errors);
-      setLoading(false);
     }
   }, [data, onSubmit, schema]);
 
@@ -113,8 +113,8 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
         {decorators?.aboveActions}
         {buttonsAlignment === 'stacked' ? (
           <>
-            <UiPrimaryButton type='submit'>
-              {submitLabel}
+            <UiPrimaryButton type='submit' disabled={loading}>
+              {submitLabel} {loading && <UiIcon icon="LoadingSpinner" inverseColoration />}
             </UiPrimaryButton>
             {cancelLabel && (
               <UiTertiaryButton onClick={onCancel}>
@@ -124,8 +124,8 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
           </>
         ) : (
           <UiFlexGrid gap='four'>
-            <UiPrimaryButton type='submit' padding={inlineButtonSpacing}>
-              {submitLabel}
+            <UiPrimaryButton type='submit' padding={inlineButtonSpacing} disabled={loading}>
+              {submitLabel} {loading && <UiIcon icon="LoadingSpinner" inverseColoration />}
             </UiPrimaryButton>
             {cancelLabel && (
               <UiTertiaryButton onClick={onCancel} padding={inlineButtonSpacing}>
