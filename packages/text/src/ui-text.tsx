@@ -17,7 +17,8 @@ export const UiText: React.FC<UiTextProps> = ({
   inverseColoration,
   wrap = 'normal',
   margin,
-  padding
+  padding,
+  ...props
 }: UiTextProps) => {
   let classes = `${className} ${styles.text} color-${inverseColoration ? 'inverse-' : ''}${category}-100 size-${size}`;
 
@@ -54,7 +55,7 @@ export const UiText: React.FC<UiTextProps> = ({
   }
 
   return (
-    <p className={classes}>
+    <p className={classes} {...props}>
       {children}
     </p>
   );

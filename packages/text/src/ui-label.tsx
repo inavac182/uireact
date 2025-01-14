@@ -12,7 +12,8 @@ export const UiLabel: React.FC<UiLabelProps> = ({
   size = 'small',
   category = 'fonts',
   margin,
-  padding
+  padding,
+  ...props
 }: UiLabelProps) => {
   let classes = `${className} color-${category}-100 size-${size}`;
 
@@ -25,7 +26,7 @@ export const UiLabel: React.FC<UiLabelProps> = ({
   }
 
   return (
-    <label htmlFor={htmlFor} className={classes}>
+    <label htmlFor={htmlFor} className={classes} {...props}>
       {children}
     </label>
   );

@@ -16,7 +16,8 @@ export const UiLink: React.FC<UiLinkProps> = ({
   size = 'regular',
   wrap = 'normal',
   margin,
-  padding
+  padding,
+  ...props
 }: UiLinkProps) => {
   let classes = `${className} color-${category}-100 size-${size}`;
 
@@ -41,7 +42,7 @@ export const UiLink: React.FC<UiLinkProps> = ({
   }
 
   if (children && React.isValidElement(children)) {
-    return React.cloneElement(children as React.ReactElement, { className: classes });
+    return React.cloneElement(children as React.ReactElement, { className: classes, ...props });
   }
 
   return null;
