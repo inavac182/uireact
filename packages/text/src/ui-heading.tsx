@@ -19,7 +19,8 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   margin,
   padding,
   gradient,
-  animated
+  animated,
+  ...props
 }: UiHeadingProps) => {
   let classes = `${className}`;
 
@@ -52,43 +53,43 @@ export const UiHeading: React.FC<UiHeadingProps> = ({
   switch (level) {
     case 1:
       return (
-        <h1 className={classes}>
+        <h1 className={classes} {...props}>
           {children}
         </h1>
       );
     case 2:
       return (
-        <h2 className={classes}>
+        <h2 className={classes} {...props}>
           {children}
         </h2>
       );
     case 3:
       return (
-        <h3 className={classes}>
+        <h3 className={classes} {...props}>
           {children}
         </h3>
       );
     case 4:
       return (
-        <h4 className={classes}>
+        <h4 className={classes} {...props}>
           {children}
         </h4>
       );
     case 5:
       return (
-        <h5 className={classes}>
+        <h5 className={classes} {...props}>
           {children}
         </h5>
       );
     case 6:
       return (
-        <h6 className={classes}>
+        <h6 className={classes} {...props}>
           {children}
         </h6>
       );
     default:
       return (
-        <h3 className={classes}>
+        <h3 className={classes} {...props}>
           {children}
         </h3>
       );
