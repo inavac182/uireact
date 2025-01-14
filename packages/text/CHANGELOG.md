@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.5.4 (2025-01-14)
+
+
+### Bug Fixes
+
+* **text:** render all props in text elements ([#400](https://github.com/inavac182/ui-react/issues/400)) ([789d107](https://github.com/inavac182/ui-react/commit/789d1079f402b6fffcd816536ec7680f8cb17e34))
+
+
+
+
+
 ## 3.5.3 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/text

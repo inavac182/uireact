@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.15 (2025-01-14)
+
+**Note:** Version bump only for package @uireact/confirm-dialog
+
+
+
+
+
 ## 3.1.14 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/confirm-dialog
