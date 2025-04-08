@@ -3,7 +3,7 @@
   "description": "menu package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "3.3.17",
+  "version": "3.3.18",
   "publishConfig": {
     "access": "public"
   },

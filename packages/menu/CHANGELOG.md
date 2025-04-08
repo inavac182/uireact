@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.18 (2025-04-08)
+
+**Note:** Version bump only for package @uireact/menu
+
+
+
+
+
 ## 3.3.17 (2025-01-14)
 
 **Note:** Version bump only for package @uireact/menu
