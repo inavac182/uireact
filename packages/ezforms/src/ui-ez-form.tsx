@@ -13,17 +13,31 @@ export type UiEzFormDecoratorsPositions = {
 }
 
 export type UiEzFormProps = {
+  /** Action prop for the Form element */
   action?: any;
+  /** Alignment of buttons */
   buttonsAlignment?: 'stacked' | 'inline';
+  /** Method used to submit form when doing a browser submit */
   method?: string;
+  /** The schema that will be used to create the EzForm */
   schema: UiValidatorSchema;
+  /** Used to render an initial data inside the form fields */
   initialData?: UiValidatorData;
+  /** Label to be rendered on the submit action */
   submitLabel: string;
+  /** Label to be rendered on the cancel action */
   cancelLabel?: string;
+  /** Triggered when the form is submitted by the user */
   onSubmit?: (e: FormEvent<HTMLFormElement>, data: UiValidatorData) => void;
+  /** Triggered when there is a change in the form */
+  onChange?: (data: UiValidatorData) => void;
+  /** Triggered when user clicks on cancel action */
   onCancel?: () => void;
+  /** Uses the default built-in browser validation */
   useBrowserValidation?: boolean;
+  /** Used to render elements inside the form component */
   decorators?: UiEzFormDecoratorsPositions;
+  /** Marks the form as loading, submit button is disabled */
   loading?: boolean;
 };
 
@@ -43,40 +57,53 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
   decorators,
   loading,
   onSubmit, 
-  onCancel
+  onCancel,
+  onChange
 }) => {
   const [data, setData] = useState<UiValidatorData>(generateInitialData(schema, initialData));
   const [errors, setErrors] = useState<UiValidatorErrors>();
 
   const onTextInputChange = useCallback((e: FormEvent<HTMLInputElement>) => {
+    const newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
     setErrors({});
-    setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
-  }, [data]);
+    setData(newData);
+    onChange?.(newData);
+  }, [data, onChange]);
 
   const onTextAreaChange = useCallback((e: FormEvent<HTMLTextAreaElement>) => {
+    const newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
     setErrors({});
-    setData({ ...data, [e.currentTarget.name]: e.currentTarget.value });
-  }, [data]);
+    setData(newData);
+    onChange?.(newData);
+  }, [data, onChange]);
 
   const onDateInputChange = useCallback((date: string, name: string) => {
+    const newData = { ...data, [name]: date };
     setErrors({});
-    setData({ ...data, [name]: date });
-  }, [data]);
+    setData(newData);
+    onChange?.(newData);
+  }, [data, onChange]);
 
   const onBooleanToogle = useCallback((value: Boolean, name: string) => {
+    const newData = { ...data, [name]: value };
     setErrors({});
-    setData({ ...data, [name]: value });
-  },[data]);
+    setData(newData);
+    onChange?.(newData);
+  },[data, onChange]);
 
   const onSelectChange = useCallback((value: string, name: string) => {
+    const newData = { ...data, [name]: value };
     setErrors({});
-    setData({ ...data, [name]: value });
-  }, [data]);
+    setData(newData);
+    onChange?.(newData);
+  }, [data, onChange]);
 
   const onDigitsInputChange = useCallback((value: string, name: string) => {
+    const newData = { ...data, [name]: value };
     setErrors({});
-    setData({ ...data, [name]: value });
-  }, [data]);
+    setData(newData);
+    onChange?.(newData);
+  }, [data, onChange]);
 
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});

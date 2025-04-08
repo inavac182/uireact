@@ -64,11 +64,15 @@ export const EzFormExample = () => {
   const onCancel = useCallback(() => {
     console.log('Cancel triggered');
   }, []);
+  const onChange = useCallback((data: UiValidatorData) => {
+    console.log('Change triggered');
+    console.log(data);
+  }, []);
 
   return (
     <UiFlexGrid direction='column' gap='four'>
       {isSubmited && <UiCard category='positive'>Form has submitted successfully</UiCard>}
-      <UiEzForm schema={schema} submitLabel='Save' cancelLabel='Cancel' onSubmit={onSubmit} onCancel={onCancel} initialData={{ birthday: '1992/12/03' }} />
+      <UiEzForm schema={schema} submitLabel='Save' cancelLabel='Cancel' onSubmit={onSubmit} onCancel={onCancel} onChange={onChange} initialData={{ birthday: '1992/12/03' }} />
     </UiFlexGrid>
   )
 }

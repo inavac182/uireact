@@ -546,4 +546,20 @@ describe('<UiEzForm />', () => {
 
     expect(screen.getByRole('button')).toBeDisabled();
   });
+
+  it('Should trigger onChange callback when the form changes', () => {
+    const schema = {
+      name: validator.field('text').ezMetadata({ label: 'Some input' })
+    }
+    const onChange = jest.fn();
+
+    uiRender(<UiEzForm schema={schema} loading submitLabel='Submit' onChange={onChange} buttonsAlignment='stacked' />);
+
+    const input = screen.getByRole('textbox', { name: 'Some input' });
+
+    fireEvent.change(input, { target: { value: 'Some value' } });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalledWith({ name: 'Some value' });
+  });
 });

@@ -98,6 +98,10 @@ export const EzFormExample = () => {
   const onCancel = useCallback(() => {
     console.log('Cancel triggered');
   }, []);
+  const onChange = useCallback((data: UiValidatorData) => {
+    console.log('Change triggered');
+    console.log(data);
+  }, []);
 
   return (
     <UiEzForm 
