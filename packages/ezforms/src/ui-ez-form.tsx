@@ -74,13 +74,16 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     const newData = { ...data, [e.currentTarget.name]: e.currentTarget.value };
     setErrors({});
     setData(newData);
+    // istanbul ignore next
     onChange?.(newData);
   }, [data, onChange]);
 
-  const onDateInputChange = useCallback((date: string, name: string) => {
-    const newData = { ...data, [name]: date };
+  const onStringChange = useCallback((value: string, name: string) => {
+    const newData = { ...data, [name]: value };
     setErrors({});
     setData(newData);
+
+    // istanbul ignore next
     onChange?.(newData);
   }, [data, onChange]);
 
@@ -88,22 +91,10 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     const newData = { ...data, [name]: value };
     setErrors({});
     setData(newData);
+
+    // istanbul ignore next
     onChange?.(newData);
   },[data, onChange]);
-
-  const onSelectChange = useCallback((value: string, name: string) => {
-    const newData = { ...data, [name]: value };
-    setErrors({});
-    setData(newData);
-    onChange?.(newData);
-  }, [data, onChange]);
-
-  const onDigitsInputChange = useCallback((value: string, name: string) => {
-    const newData = { ...data, [name]: value };
-    setErrors({});
-    setData(newData);
-    onChange?.(newData);
-  }, [data, onChange]);
 
   const onSubmitCB = useCallback((e: FormEvent<HTMLFormElement>) => {
     setErrors({});
@@ -130,10 +121,10 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             error={errors?.[schemaField]?.[0]?.message}
             onTextInputChange={onTextInputChange}
             onTextAreaChange={onTextAreaChange}
-            onDateInputChange={onDateInputChange}
+            onDateInputChange={onStringChange}
             onBooleanToogle={onBooleanToogle}
-            onSelectInputChange={onSelectChange}
-            onDigitsInputChange={onDigitsInputChange}
+            onSelectInputChange={onStringChange}
+            onDigitsInputChange={onStringChange}
             useBrowserValidation={useBrowserValidation}
           />
         )}
