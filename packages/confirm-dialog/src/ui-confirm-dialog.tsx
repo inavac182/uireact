@@ -28,7 +28,7 @@ const animation: MotionProps = {
   }
 };
 
-const confirmButtonPadding: UiSpacingProps['padding'] = { block: 'four', inline: 'six' };
+const confirmButtonPadding: UiSpacingProps['padding'] = { block: 'two', inline: 'four' };
 
 export const UiConfirmDialog: React.FC = () => {
   const [confirmLoading, setConfirmLoading] = useState(false);
