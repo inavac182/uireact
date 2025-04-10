@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 
 import { UiButtonProps, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
-import { UiFlexGrid } from '@uireact/flex';
+import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
 import { UiIcon } from '@uireact/icons';
 import { UiValidator, UiValidatorData, UiValidatorErrors, UiValidatorSchema } from '@uireact/validator';
 
@@ -15,6 +15,8 @@ export type UiEzFormDecoratorsPositions = {
 export type UiEzFormProps = {
   /** Action prop for the Form element */
   action?: any;
+  /** The form elements direction */
+  direction?: 'stacked' | 'inline';
   /** Alignment of buttons */
   buttonsAlignment?: 'stacked' | 'inline';
   /** Method used to submit form when doing a browser submit */
@@ -47,6 +49,7 @@ const inlineButtonSpacing: UiButtonProps['padding'] = { inline: 'four', block: '
 
 export const UiEzForm: React.FC<UiEzFormProps> = ({ 
   action,
+  direction,
   buttonsAlignment = 'inline',
   schema, 
   method,
@@ -111,7 +114,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
 
   return (
     <form onSubmit={onSubmitCB} action={action} method={method}>
-      <UiFlexGrid gap='three' direction='column'>
+      <UiFlexGrid gap='three' direction={direction && direction === 'inline' ? 'row' : 'column'}>
         {Object.keys(schema).map((schemaField, index) => 
           <EzFormField
             key={`ezform-field-${index}`}
@@ -141,16 +144,18 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             )}
           </>
         ) : (
-          <UiFlexGrid gap='four'>
-            <UiPrimaryButton type='submit' padding={inlineButtonSpacing} disabled={loading}>
-              {submitLabel} {loading && <UiIcon icon="LoadingSpinner" inverseColoration />}
-            </UiPrimaryButton>
-            {cancelLabel && (
-              <UiTertiaryButton onClick={onCancel} padding={inlineButtonSpacing}>
-                {cancelLabel}
-              </UiTertiaryButton>
-            )}
-          </UiFlexGrid>
+          <UiFlexGridItem align={direction && direction === 'inline' ? 'flex-end' : 'flex-start'}>
+            <UiFlexGrid gap='four'>
+              <UiPrimaryButton type='submit' padding={inlineButtonSpacing} disabled={loading}>
+                {submitLabel} {loading && <UiIcon icon="LoadingSpinner" inverseColoration />}
+              </UiPrimaryButton>
+              {cancelLabel && (
+                <UiTertiaryButton onClick={onCancel} padding={inlineButtonSpacing}>
+                  {cancelLabel}
+                </UiTertiaryButton>
+              )}
+            </UiFlexGrid>
+          </UiFlexGridItem>
         )}
         {decorators?.belowActions}
       </UiFlexGrid>

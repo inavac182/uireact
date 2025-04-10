@@ -54,6 +54,19 @@ describe('<UiEzForm />', () => {
     expect(screen.getByLabelText('Password')).toHaveAttribute('type', 'password');
   });
 
+  it('Should render correctly inlined', () => {
+    uiRender(<UiEzForm schema={schema} useBrowserValidation submitLabel='Submit' direction='inline' />);
+
+    expect(screen.getByRole('textbox', { name: 'First Name' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Birthday' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Your email' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Your Phone' })).toBeVisible();
+    expect(screen.getByRole('textbox', { name: 'Description' })).toBeVisible();
+    expect(screen.getByRole('combobox', { name: 'Account type' })).toBeVisible();
+    expect(screen.getByLabelText('Password')).toBeVisible();
+    expect(screen.getByLabelText('Password')).toHaveAttribute('type', 'password');
+  });
+
   it('Should initialize form with given data', () => {
     uiRender(<UiEzForm schema={schema} initialData={{ firstName: 'Some initial value' }} submitLabel='Submit' />);
 

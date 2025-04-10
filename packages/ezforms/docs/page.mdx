@@ -261,6 +261,22 @@ export const YourFormComponent = () => {
 
 If you want to let the browser to continue with its normal submit then you don't need to pass any and the form will be triggered and submitted as usual. **Important**, make sure you pass the **action** and **method** prop so the submit goes as you plan to where you plan it to go.
 
+## Form direction
+
+By default the form renders with all its elements stacked, but if you need an inline form then you can pass a prop to make it render inline.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm
+    schema={{
+      firstName: new UiValidator().field("text").ezMetadata({ label: "First name:" }),
+      lastName: new UiValidator().field("text").ezMetadata({ label: "Last name:" }),
+    }}
+    direction='inline'
+    submitLabel='Save'
+    cancelLabel='Cancel'
+  />
+```
+
 ## Button alignment
 
 #### Inline (Default)
