@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2025-04-10)
+
+
+### Features
+
+* **ezform:** inline elements ([#404](https://github.com/inavac182/uireact/issues/404)) ([55564fb](https://github.com/inavac182/uireact/commit/55564fb11b7e275ddac4fb3f3086dc08bd3c37d3))
+
+
+
+
+
 ## [0.7.1](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.7.0...@uireact/ezforms@0.7.1) (2025-04-08)
 
 **Note:** Version bump only for package @uireact/ezforms

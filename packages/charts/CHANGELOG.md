@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.26 (2025-04-10)
+
+**Note:** Version bump only for package @uireact/charts
+
+
+
+
+
 ## 3.0.25 (2025-01-14)
 
 **Note:** Version bump only for package @uireact/charts
