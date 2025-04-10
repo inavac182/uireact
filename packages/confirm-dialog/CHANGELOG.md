@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.16 (2025-04-10)
+
+
+### Bug Fixes
+
+* **confirm-dialog:** buttons spacing ([#402](https://github.com/inavac182/uireact/issues/402)) ([182dc6c](https://github.com/inavac182/uireact/commit/182dc6c3d9b8c0e353bf7950f3b0dff71b493fbc))
+
+
+
+
+
 ## 3.1.15 (2025-01-14)
 
 **Note:** Version bump only for package @uireact/confirm-dialog
