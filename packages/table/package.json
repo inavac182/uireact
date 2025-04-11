@@ -37,8 +37,8 @@
     "@uireact/foundation": ">= 3",
     "@uireact/grid": ">= 3",
     "@uireact/icons": ">= 3",
-    "react": ">= 17 < 19",
-    "react-dom": ">= 17 < 19",
+    "react": ">= 17 < 20",
+    "react-dom": ">= 17 < 20",
     "tslib": "^2.5.0"
   }
 }
