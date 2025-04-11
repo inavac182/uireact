@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.9.0...@uireact/ezforms@0.9.1) (2025-04-11)
+
+
+### Bug Fixes
+
+* include theme classes on theme generator ([dcf6556](https://github.com/inavac182/uireact/commit/dcf6556db01817442055a85af18afabd54ba5ccf))
+
+
+
+
+
 # [0.9.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.8.2...@uireact/ezforms@0.9.0) (2025-04-11)
 
 
