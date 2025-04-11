@@ -30,6 +30,6 @@
   "peerDependencies": {
     "@uireact/foundation": ">= 3",
     "framer-motion": ">= 11",
-    "react": ">= 17 < 19"
+    "react": ">= 17 < 20"
   }
 }

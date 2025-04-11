@@ -43,8 +43,8 @@
     "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3",
     "@uireact/validator": ">= 2.2.0",
-    "react": ">= 17 < 19",
-    "react-dom": ">= 17 < 19",
+    "react": ">= 17 < 20",
+    "react-dom": ">= 17 < 20",
     "tslib": "^2.5.0"
   }
 }
