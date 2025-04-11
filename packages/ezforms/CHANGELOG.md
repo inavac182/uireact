@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.8.2...@uireact/ezforms@0.9.0) (2025-04-11)
+
+
+### Features
+
+* **validator:** adding check for secure phrases ([#408](https://github.com/inavac182/uireact/issues/408)) ([6a8cfb7](https://github.com/inavac182/uireact/commit/6a8cfb7832e490a345cc342d163057a07c5e8553))
+
+
+
+
+
 ## [0.8.2](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.8.1...@uireact/ezforms@0.8.2) (2025-04-11)
 
 **Note:** Version bump only for package @uireact/ezforms

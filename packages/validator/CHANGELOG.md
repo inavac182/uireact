@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.9.0 (2025-04-11)
+
+
+### Features
+
+* **validator:** adding check for secure phrases ([#408](https://github.com/inavac182/ui-react/issues/408)) ([6a8cfb7](https://github.com/inavac182/ui-react/commit/6a8cfb7832e490a345cc342d163057a07c5e8553))
+
+
+
+
+
 # [2.8.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.7.0...@uireact/validator@2.8.0) (2025-01-09)
 
 

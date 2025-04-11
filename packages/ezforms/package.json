@@ -3,7 +3,7 @@
   "description": "EzForm is a package published from @UiReact library that helps to speed up forms creation",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "publishConfig": {
     "access": "public"
   },
