@@ -24,11 +24,11 @@ export const getDialogClasses = (
         borderClasses = `${styles.bottomRadius}`;
 
         if (gradientBorder === 'all') {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.borderedBottom}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.borderedBottom}`;
         } else if (gradientBorder === 'dark' && isDarkEnabled) {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.borderedBottom}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.borderedBottom}`;
         } else if (gradientBorder === 'light' && !isDarkEnabled) {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.borderedBottom}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.borderedBottom}`;
         }
   
         return {
@@ -42,11 +42,11 @@ export const getDialogClasses = (
         borderClasses = `${styles.centeredRadius}`;
   
         if (gradientBorder === 'all') {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.bordered}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.bordered}`;
         } else if (gradientBorder === 'dark' && isDarkEnabled) {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.bordered}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.bordered}`;
         } else if (gradientBorder === 'light' && !isDarkEnabled) {
-          borderClasses = `${borderClasses} ${styles.border} ${styles.bordered}`;
+          borderClasses = `${styles.border} ${borderClasses} ${styles.bordered}`;
         }
   
         return {
