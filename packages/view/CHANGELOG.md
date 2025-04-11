@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.6.0 (2025-04-11)
+
+
+### Features
+
+* theme styles to use media query ([#405](https://github.com/inavac182/uireact/issues/405)) ([d0cb925](https://github.com/inavac182/uireact/commit/d0cb9255c850a505d72e0ef88cf42f27b0873065))
+
+
+
+
+
 ## 3.5.3 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/view
