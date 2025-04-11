@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/inavac182/uireact/compare/@uireact/view@3.6.0...@uireact/view@4.1.0) (2025-04-11)
+
+
+### Features
+
+* remove theme context from library ([#406](https://github.com/inavac182/uireact/issues/406)) ([f3520a5](https://github.com/inavac182/uireact/commit/f3520a5ab2f775f08189b6ea1135bd1954a34441))
+
+
+
+
+
 # 3.6.0 (2025-04-11)
 
 

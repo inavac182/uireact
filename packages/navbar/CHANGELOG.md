@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.5 (2025-04-11)
+
+**Note:** Version bump only for package @uireact/navbar
+
+
+
+
+
 ## 3.1.4 (2024-09-13)
 
 **Note:** Version bump only for package @uireact/navbar

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.7.2 (2025-04-11)
+
+**Note:** Version bump only for package @uireact/expando
+
+
+
+
+
 ## 2.7.1 (2025-01-14)
 
 **Note:** Version bump only for package @uireact/expando
