@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 
 import { motion as MotionParent } from 'framer-motion';
-import { ThemeContext } from '@uireact/foundation';
 
 import { privateUiDialogProps } from '../types';
 import { getDialogClasses } from './utils/get-dialog-classes';
+import { useThemeDetector } from './utils/use-theme-detector';
 
 export const DialogContent: React.FC<privateUiDialogProps> = ({ children, motion, gradientBorder, type }: privateUiDialogProps) => {
-  const themeContext = useContext(ThemeContext);
-  const classes = getDialogClasses(type, gradientBorder, themeContext.selectedTheme);
+  const isDarkEnabled = useThemeDetector();
+  const classes = getDialogClasses(type, gradientBorder, isDarkEnabled);
 
   return (
     <MotionParent.div className={classes.wrapper} role="dialog" {...motion} data-testid="UiDialogContentWrapper">
