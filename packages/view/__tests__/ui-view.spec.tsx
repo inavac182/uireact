@@ -42,12 +42,10 @@ const DialogComponent = () => {
 
 const MockedComponent = (props: MockedComponentProps) => (
   <UiView
-    selectedTheme={props.selectedTheme}
     dialogController={customDialogController}
     className={props.className}
     centeredContent={props.centeredContent}
     noBackground={props.noBackground}
-    skipThemeDetector={props.skipThemeDetector}
   >
     Content
     <DialogComponent />
@@ -56,7 +54,6 @@ const MockedComponent = (props: MockedComponentProps) => (
 
 const MockedComponentWithDialog = (props: MockedComponentProps) => (
   <UiView
-    selectedTheme={ThemeColor.dark}
     className={props.className}
     centeredContent={props.centeredContent}
   >
@@ -94,20 +91,8 @@ describe('<UiView />', () => {
     expect(screen.getByTestId('UiView')).toHaveClass('uireactViewContainer bg-primary-100');
   });
 
-  it('renders fine with skip theme detector', () => {
-    render(<MockedComponent  skipThemeDetector selectedTheme={ThemeColor.light} />);
-
-    expect(screen.getByText('Content')).toBeVisible();
-  });
-
   it('renders fine with skip font name', () => {
     render(<MockedComponent selectedTheme={ThemeColor.light} skipFontName />);
-
-    expect(screen.getByText('Content')).toBeVisible();
-  });
-
-  it('renders fine with selected light color', () => {
-    render(<MockedComponent selectedTheme={ThemeColor.light} />);
 
     expect(screen.getByText('Content')).toBeVisible();
   });

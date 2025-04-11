@@ -24,11 +24,11 @@ export type UiDialogProps = {
   /** CB to be triggered when dialog is closed */
   handleDialogClose?: () => void;
   /** Based on selected theme dialog renders with gradient border */
-  gradientBorder?: 'all' | 'light' | 'dark';
+  gradientBorder?: 'all' | 'light' | 'dark' | 'none';
 } & UiReactElementProps;
 
 export type privateUiDialogProps = {
   type?: UiDialogType;
   motion?: MotionProps;
-  gradientBorder?: 'all' | 'light' | 'dark';
+  gradientBorder?: 'all' | 'light' | 'dark' | 'none';
 } & UiReactElementProps;

@@ -44,6 +44,7 @@ export const SideBar = ({ isFloatingNavbar }: SideBarProps) => {
             <SidebarInnerContent>
                 <NavbarSection title='Installation' icon='Heart' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={13} selected={selected} link="/" />
                 <NavbarSection title='The Basics' icon='CodeSimple' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={1} selected={selected} link="/basics" />
+                <NavbarSection title='Themes' icon='LoadingBars' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={1} selected={selected} link="/theme" />
                 <NavbarSection title='Colorations' icon='Opacity' items={[]} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={1} selected={selected} link="/colorations" />
                 <UiSpacing padding={{ block: 'three'}}>
                     <hr />

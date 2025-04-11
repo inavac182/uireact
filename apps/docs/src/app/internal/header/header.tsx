@@ -9,7 +9,6 @@ import { UiLink } from '@uireact/text';
 
 import { Logo } from '../logo';
 import { HeaderNavbar } from './navbar';
-import { ThemeSwitcher } from '@/app/docs/components/theme-switcher';
 
 const HeaderSpacing: UiSpacingProps['padding'] = { inline: 'six' };
 
@@ -31,7 +30,6 @@ export const Header = () => {
                   <UiIcon icon='BrandsGithub' />
                 </a>
               </UiLink>
-              <ThemeSwitcher />
             </UiFlexGrid>
           </UiFlexGridItem>
         </UiFlexGrid>

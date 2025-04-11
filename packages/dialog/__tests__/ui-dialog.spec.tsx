@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
-import { ThemeColor, ThemeContext } from '@uireact/foundation';
+import { ThemeColor } from '@uireact/foundation';
 
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiDialog, UiDialogType, useDialog } from '../src';
@@ -60,13 +60,11 @@ const MockedNotCorrectlySetupComponent = () => {
 
   return (
     <>
-      <ThemeContext.Provider value={{ selectedTheme: ThemeColor.dark }}>
-        <button onClick={openCB}>Open Dialog</button>
-        <button onClick={openSecondCB}>Open Second Dialog</button>
-        <UiDialog closeLabel="Close button" dialogId="mockedDialog">
-          <p>Dialog content</p>
-        </UiDialog>
-      </ThemeContext.Provider>
+      <button onClick={openCB}>Open Dialog</button>
+      <button onClick={openSecondCB}>Open Second Dialog</button>
+      <UiDialog closeLabel="Close button" dialogId="mockedDialog">
+        <p>Dialog content</p>
+      </UiDialog>
     </>
   );
 };

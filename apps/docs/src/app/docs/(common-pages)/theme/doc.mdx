@@ -1,0 +1,25 @@
+import Image from 'next/image';
+import { UiIcon } from '@uireact/icons';
+import { UiReactViewDancing } from '@uireact/framer-animations';
+
+import themeSwitch from '../../../../../public/theme-switch.gif';
+
+# <UiIcon icon="LoadingBars" size='xlarge' motion={{...UiReactViewDancing}} /> Theme selection
+
+Our library supports 2 colorations in the themes: Dark and Light. When you generate a new theme in the [Create theme](/create-theme) page it will have everything set up for this handling.
+
+## Switch between colorations
+
+Starting on v4 of the library we have removed all support for theme manipulation in JS and we have moved to using CSS media queries to retrieve the correct theme preference from the user's device. 
+
+Relying on CSS allow us to simplify theme detection and also allows SSR to render with the correct coloration. Previously when using JS as we didn't know what was the user's selection on SSR in some cases there was a quick flash of coloration before JS kicked in and selected the correct coloration.
+
+Example of the user's appearance changing based on its settings:
+
+<center>
+  <Image src={themeSwitch} alt="Theme switch" width="350" />
+</center>
+
+So, whatever the user has selected on its device settings will be reflected in our components.
+
+To read more about each of the colors inside each theme you can go to [Colorations doc](./colorations).
