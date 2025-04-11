@@ -35,9 +35,11 @@ export const UiView: React.FC<UiViewProps> = ({
     if (selectedTheme === ThemeColor.light) {
       setSelectedTheme(ThemeColor.light);
       document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     } else {
       setSelectedTheme(ThemeColor.dark);
       document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
     }
   }, [selectedTheme]);
 
@@ -48,9 +50,11 @@ export const UiView: React.FC<UiViewProps> = ({
 
     if (isDarkEnabled) {
       setSelectedTheme(ThemeColor.dark);
+      document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
     } else {
       setSelectedTheme(ThemeColor.light);
+      document.documentElement.classList.remove('dark');
       document.documentElement.classList.add('light');
     }
   }, [isDarkEnabled, skipThemeDetector]);

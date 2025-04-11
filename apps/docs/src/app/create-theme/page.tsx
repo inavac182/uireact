@@ -67,7 +67,11 @@ export default function CreateThemeToolPage () {
                         <br />
                     </UiListItem>
                     <UiListItem>
-                        <UiText>We suggest you follow the <UiText inline fontStyle="bold" category="tertiary">60-30-10 rule</UiText>.</UiText>
+                        <UiText>In your app, the theme coloration will be selected up based on the user&apos;s device theme preference.</UiText>
+                        <br />
+                    </UiListItem>
+                    <UiListItem>
+                        <UiText>When using your theme in your app, we suggest you follow the <UiText inline fontStyle="bold" category="tertiary">60-30-10 rule</UiText>.</UiText>
                         <br />
                         <UiSpacing padding={listSpacing}>
                             <UiList type="BULLETED">
@@ -80,14 +84,14 @@ export default function CreateThemeToolPage () {
                     </UiListItem>
                     <UiListItem>
                         <UiText>
-                            The font name used in the theme <UiText inline fontStyle="bold" category="tertiary">only set it up in the CSS rules, it doesn&apos;t install it</UiText>. If you will use a font from the web e.g. google fonts, remember to add it to your page via {`<link />`} tag, CSS {`@import`}, etc...
+                            The font name used in the theme <UiText inline fontStyle="bold" category="tertiary">only set it up in the CSS rules, it doesn&apos;t install it</UiText>. You are still responsible for providing the actual font to your app.
                         </UiText>
                         <br />
                     </UiListItem>
                 </UiList>
                 <UiText>If you want to learn more about how to choose your colorations you can head to this doc page:{" "}
                     <UiLink>
-                        <Link href="/docs/colorations">
+                        <Link href="/docs/colorations" target="_blank">
                             Colorations information
                         </Link>
                     </UiLink>
@@ -98,7 +102,7 @@ export default function CreateThemeToolPage () {
             <ContinueLink text="Start" url={`./create-theme/colors?theme=${btoa(JSON.stringify(generatedTheme))}`} />
             <br />
             <UiText size="small">
-                <UiIcon icon="Info" /> The theme will be encoded in the URL so if you want to share it with colleagues you can share the URL and they will see the same theme you created.
+                <UiIcon icon="Info" /> The theme will be encoded in the URL so if you want to share it with colleagues or just save it to come back to it later on, you can share/store the URL and it will include all your selections.
             </UiText>
         </>
     )

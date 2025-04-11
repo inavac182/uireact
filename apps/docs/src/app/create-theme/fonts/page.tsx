@@ -70,7 +70,7 @@ p {
                 {isFontsComplete ? (
                     <ContinueLink text="Continue" url={`./sizes?theme=${btoa(JSON.stringify(themeParameter))}`} />
                 ) : (
-                    <UiText fontStyle="bold">You still need to complete all selections in this page.</UiText>
+                    <UiText fontStyle="bold">Please add your font name and select all colors in this section.</UiText>
                 )}
                 <br />
             </UiSpacing>
