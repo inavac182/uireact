@@ -51,17 +51,12 @@ export default function VerifyPage () {
 /**********
  * 
  * @UiReact generated theme variables
- *  Make sure these are part of your app bundle
+ * Import this file into your app's styles
+ *
  * 
  **********/
 
-/**
- * Defaulting to dark coloration on SSR
- * **/
-
 :root {
-    ${darkVariables}
-
     /**
     * Texts / Headings Sizes properties
     * **/
@@ -76,16 +71,29 @@ export default function VerifyPage () {
 /**
  * Dark coloration class
  * **/
-.dark {
+@media (prefers-color-scheme: dark) {
+    :root {
+${darkVariables}
+    }
+}
+
+html.dark {
     ${darkVariables}
 }
 
 /**
  * Light coloration class
  * **/
-.light {
+@media (prefers-color-scheme: light) {
+    :root {
+${lightVariables}
+    }
+}
+
+html.light {
     ${lightVariables}
 }
+
     `;
     }, [theme]);
 
@@ -119,7 +127,7 @@ export default function VerifyPage () {
             <br />
             <UiText fontStyle="bold">Let&apos;s make sure all properties you configured are looking great in this example page:</UiText>
             <br />
-            <UiText size="small"><UiIcon icon="ArrowSquareLeft" size="small" /> You can use the left side bar to navigate to the each theme property if you need to update any, if you think everything is looking great then you can just copy it</UiText>
+            <UiText size="small"><UiIcon icon="ArrowSquareLeft" size="small" /> You can use the left side bar to navigate to the each theme property if you need to update any, if you think everything is looking great then you can just copy it into a CSS file in your app:</UiText>
             <br />
             {isCopied && (
                 <UiCard category="positive" weight="10">

@@ -6,128 +6,299 @@
  * 
  **********/
 
+:root {
+    /**
+    * Texts / Headings Sizes properties
+    * **/
+    --texts-xsmall: 0.8rem;
+    --texts-small: 1rem;
+    --texts-regular: 1.2rem;
+    --texts-large: 1.5rem;
+    --texts-xlarge: 2rem;
+
+    --headings-level1: 4rem;
+    --headings-level2: 3rem;
+    --headings-level3: 2.5rem;
+    --headings-level4: 2rem;
+    --headings-level5: 1.5rem;
+    --headings-level6: 1.2rem;
+  
+    /**
+    * Spacing properties
+    * **/
+    --spacing-one: 0.2rem;
+    --spacing-two: 0.4rem;
+    --spacing-three: 1rem;
+    --spacing-four: 1.2rem;
+    --spacing-five: 1.5rem;
+    --spacing-six: 2rem;
+    --spacing-seven: 2.5rem;
+}
+
 /**
- * Defaulting to dark coloration on SSR
  * Dark coloration
  * **/
 
- :root, .dark {
-  --error-token_10: #d03434;
-  --error-token_50: #a92727;
-  --error-token_100: #8d2020;
-  --error-token_150: #711a1a;
-  --error-token_200: #471010;
-  --warning-token_10: #cfc400;
-  --warning-token_50: #a59d00;
-  --warning-token_100: #8a8300;
-  --warning-token_150: #6e6900;
-  --warning-token_200: #454100;
-  --negative-token_10: #d4d4d4;
-  --negative-token_50: #7f7f7f;
-  --negative-token_100: #2a2a2a;
-  --negative-token_150: #151515;
-  --negative-token_200: #000000;
-  --positive-token_10: #55ff70;
-  --positive-token_50: #00cc21;
-  --positive-token_100: #00440b;
-  --positive-token_150: #002205;
-  --positive-token_200: #000000;
-  --fonts-token_10: #ffffff;
-  --fonts-token_50: #f6f6fe;
-  --fonts-token_100: #ededfd;
-  --fonts-token_150: #babaff;
-  --fonts-token_200: #9999fa;
-  --primary-token_10: #12225f;
-  --primary-token_50: #081339;
-  --primary-token_100: #050d2a;
-  --primary-token_150: #04091e;
-  --primary-token_200: #030717;
-  --secondary-token_10: #bfc6fb;
-  --secondary-token_50: #aeb7fa;
-  --secondary-token_100: #7988f9;
-  --secondary-token_150: #5d70fc;
-  --secondary-token_200: #455af8;
-  --tertiary-token_10: #eebaf6;
-  --tertiary-token_50: #da8de6;
-  --tertiary-token_100: #d65aea;
-  --tertiary-token_150: #c323db;
-  --tertiary-token_200: #8c0d9f;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --error-token_10: #d03434;
+        --error-token_50: #a92727;
+        --error-token_100: #8d2020;
+        --error-token_150: #711a1a;
+        --error-token_200: #471010;
+        --warning-token_10: #cfc400;
+        --warning-token_50: #a59d00;
+        --warning-token_100: #8a8300;
+        --warning-token_150: #6e6900;
+        --warning-token_200: #454100;
+        --negative-token_10: #d4d4d4;
+        --negative-token_50: #7f7f7f;
+        --negative-token_100: #2a2a2a;
+        --negative-token_150: #151515;
+        --negative-token_200: #000000;
+        --positive-token_10: #55ff70;
+        --positive-token_50: #00cc21;
+        --positive-token_100: #00440b;
+        --positive-token_150: #002205;
+        --positive-token_200: #000000;
+        --fonts-token_10: #ffffff;
+        --fonts-token_50: #f6f6fe;
+        --fonts-token_100: #ededfd;
+        --fonts-token_150: #babaff;
+        --fonts-token_200: #9999fa;
+        --primary-token_10: #12225f;
+        --primary-token_50: #081339;
+        --primary-token_100: #050d2a;
+        --primary-token_150: #04091e;
+        --primary-token_200: #030717;
+        --secondary-token_10: #bfc6fb;
+        --secondary-token_50: #aeb7fa;
+        --secondary-token_100: #7988f9;
+        --secondary-token_150: #5d70fc;
+        --secondary-token_200: #455af8;
+        --tertiary-token_10: #eebaf6;
+        --tertiary-token_50: #da8de6;
+        --tertiary-token_100: #d65aea;
+        --tertiary-token_150: #c323db;
+        --tertiary-token_200: #8c0d9f;
+        
+        --inverse-error-token_10: #ffffff;
+        --inverse-error-token_50: #fdbbbb;
+        --inverse-error-token_100: #fc7474;
+        --inverse-error-token_150: #fa2c2c;
+        --inverse-error-token_200: #b30404;
+        --inverse-warning-token_10: #fcfcdc;
+        --inverse-warning-token_50: #f3f386;
+        --inverse-warning-token_100: #eeee4c;
+        --inverse-warning-token_150: #e5e516;
+        --inverse-warning-token_200: #8f8f0e;
+        --inverse-negative-token_10: #ffffff;
+        --inverse-negative-token_50: #f1f0f0;
+        --inverse-negative-token_100: #e2e0e0;
+        --inverse-negative-token_150: #746e6e;
+        --inverse-negative-token_200: #2e2c2c;
+        --inverse-positive-token_10: #8ff872;
+        --inverse-positive-token_50: #59f42d;
+        --inverse-positive-token_100: #3ce50b;
+        --inverse-positive-token_150: #30b809;
+        --inverse-positive-token_200: #1e7306;
+        --inverse-fonts-token_10: #0101a1;
+        --inverse-fonts-token_50: #010194;
+        --inverse-fonts-token_100: #000041;
+        --inverse-fonts-token_150: #000020;
+        --inverse-fonts-token_200: #000000;
+        --inverse-primary-token_10: #ffffff;
+        --inverse-primary-token_50: #f7f8fd;
+        --inverse-primary-token_100: #eff1fc;
+        --inverse-primary-token_150: #e7ebff;
+        --inverse-primary-token_200: #d3dafa;
+        --inverse-secondary-token_10: #a5b1fb;
+        --inverse-secondary-token_50: #91a0fe;
+        --inverse-secondary-token_100: #4f67fd;
+        --inverse-secondary-token_150: #425afa;
+        --inverse-secondary-token_200: #3e50c4;
+        --inverse-tertiary-token_10: #f7ccfd;
+        --inverse-tertiary-token_50: #ea74f9;
+        --inverse-tertiary-token_100: #e13af6;
+        --inverse-tertiary-token_150: #d00ae9;
+        --inverse-tertiary-token_200: #820692;   
+    }
+}
 
-  --inverse-error-token_10: #ffffff;
-  --inverse-error-token_50: #fdbbbb;
-  --inverse-error-token_100: #fc7474;
-  --inverse-error-token_150: #fa2c2c;
-  --inverse-error-token_200: #b30404;
-  --inverse-warning-token_10: #fcfcdc;
-  --inverse-warning-token_50: #f3f386;
-  --inverse-warning-token_100: #eeee4c;
-  --inverse-warning-token_150: #e5e516;
-  --inverse-warning-token_200: #8f8f0e;
-  --inverse-negative-token_10: #ffffff;
-  --inverse-negative-token_50: #f1f0f0;
-  --inverse-negative-token_100: #e2e0e0;
-  --inverse-negative-token_150: #746e6e;
-  --inverse-negative-token_200: #2e2c2c;
-  --inverse-positive-token_10: #8ff872;
-  --inverse-positive-token_50: #59f42d;
-  --inverse-positive-token_100: #3ce50b;
-  --inverse-positive-token_150: #30b809;
-  --inverse-positive-token_200: #1e7306;
-  --inverse-fonts-token_10: #0101a1;
-  --inverse-fonts-token_50: #010194;
-  --inverse-fonts-token_100: #000041;
-  --inverse-fonts-token_150: #000020;
-  --inverse-fonts-token_200: #000000;
-  --inverse-primary-token_10: #ffffff;
-  --inverse-primary-token_50: #f7f8fd;
-  --inverse-primary-token_100: #eff1fc;
-  --inverse-primary-token_150: #e7ebff;
-  --inverse-primary-token_200: #d3dafa;
-  --inverse-secondary-token_10: #a5b1fb;
-  --inverse-secondary-token_50: #91a0fe;
-  --inverse-secondary-token_100: #4f67fd;
-  --inverse-secondary-token_150: #425afa;
-  --inverse-secondary-token_200: #3e50c4;
-  --inverse-tertiary-token_10: #f7ccfd;
-  --inverse-tertiary-token_50: #ea74f9;
-  --inverse-tertiary-token_100: #e13af6;
-  --inverse-tertiary-token_150: #d00ae9;
-  --inverse-tertiary-token_200: #820692;
-  
-      /**
-      * Texts / Headings Sizes properties
-      * **/
-      
-  --texts-xsmall: 0.8rem;
-  --texts-small: 1rem;
-  --texts-regular: 1.2rem;
-  --texts-large: 1.5rem;
-  --texts-xlarge: 2rem;
+html.dark {
+    --error-token_10: #d03434;
+    --error-token_50: #a92727;
+    --error-token_100: #8d2020;
+    --error-token_150: #711a1a;
+    --error-token_200: #471010;
+    --warning-token_10: #cfc400;
+    --warning-token_50: #a59d00;
+    --warning-token_100: #8a8300;
+    --warning-token_150: #6e6900;
+    --warning-token_200: #454100;
+    --negative-token_10: #d4d4d4;
+    --negative-token_50: #7f7f7f;
+    --negative-token_100: #2a2a2a;
+    --negative-token_150: #151515;
+    --negative-token_200: #000000;
+    --positive-token_10: #55ff70;
+    --positive-token_50: #00cc21;
+    --positive-token_100: #00440b;
+    --positive-token_150: #002205;
+    --positive-token_200: #000000;
+    --fonts-token_10: #ffffff;
+    --fonts-token_50: #f6f6fe;
+    --fonts-token_100: #ededfd;
+    --fonts-token_150: #babaff;
+    --fonts-token_200: #9999fa;
+    --primary-token_10: #12225f;
+    --primary-token_50: #081339;
+    --primary-token_100: #050d2a;
+    --primary-token_150: #04091e;
+    --primary-token_200: #030717;
+    --secondary-token_10: #bfc6fb;
+    --secondary-token_50: #aeb7fa;
+    --secondary-token_100: #7988f9;
+    --secondary-token_150: #5d70fc;
+    --secondary-token_200: #455af8;
+    --tertiary-token_10: #eebaf6;
+    --tertiary-token_50: #da8de6;
+    --tertiary-token_100: #d65aea;
+    --tertiary-token_150: #c323db;
+    --tertiary-token_200: #8c0d9f;
+    
+    --inverse-error-token_10: #ffffff;
+    --inverse-error-token_50: #fdbbbb;
+    --inverse-error-token_100: #fc7474;
+    --inverse-error-token_150: #fa2c2c;
+    --inverse-error-token_200: #b30404;
+    --inverse-warning-token_10: #fcfcdc;
+    --inverse-warning-token_50: #f3f386;
+    --inverse-warning-token_100: #eeee4c;
+    --inverse-warning-token_150: #e5e516;
+    --inverse-warning-token_200: #8f8f0e;
+    --inverse-negative-token_10: #ffffff;
+    --inverse-negative-token_50: #f1f0f0;
+    --inverse-negative-token_100: #e2e0e0;
+    --inverse-negative-token_150: #746e6e;
+    --inverse-negative-token_200: #2e2c2c;
+    --inverse-positive-token_10: #8ff872;
+    --inverse-positive-token_50: #59f42d;
+    --inverse-positive-token_100: #3ce50b;
+    --inverse-positive-token_150: #30b809;
+    --inverse-positive-token_200: #1e7306;
+    --inverse-fonts-token_10: #0101a1;
+    --inverse-fonts-token_50: #010194;
+    --inverse-fonts-token_100: #000041;
+    --inverse-fonts-token_150: #000020;
+    --inverse-fonts-token_200: #000000;
+    --inverse-primary-token_10: #ffffff;
+    --inverse-primary-token_50: #f7f8fd;
+    --inverse-primary-token_100: #eff1fc;
+    --inverse-primary-token_150: #e7ebff;
+    --inverse-primary-token_200: #d3dafa;
+    --inverse-secondary-token_10: #a5b1fb;
+    --inverse-secondary-token_50: #91a0fe;
+    --inverse-secondary-token_100: #4f67fd;
+    --inverse-secondary-token_150: #425afa;
+    --inverse-secondary-token_200: #3e50c4;
+    --inverse-tertiary-token_10: #f7ccfd;
+    --inverse-tertiary-token_50: #ea74f9;
+    --inverse-tertiary-token_100: #e13af6;
+    --inverse-tertiary-token_150: #d00ae9;
+    --inverse-tertiary-token_200: #820692;
+}
 
-  --headings-level1: 4rem;
-  --headings-level2: 3rem;
-  --headings-level3: 2.5rem;
-  --headings-level4: 2rem;
-  --headings-level5: 1.5rem;
-  --headings-level6: 1.2rem;
-  
-      /**
-      * Spacing properties
-      * **/
-      
-  --spacing-one: 0.2rem;
-  --spacing-two: 0.4rem;
-  --spacing-three: 1rem;
-  --spacing-four: 1.2rem;
-  --spacing-five: 1.5rem;
-  --spacing-six: 2rem;
-  --spacing-seven: 2.5rem;
-  }
-
-  /**
-   * Light coloration class
+ /**
+   * Light coloration
    * **/
-  .light {
+ @media (prefers-color-scheme: light) {
+    :root {
+        --error-token_10: #ffffff;
+        --error-token_50: #fdbbbb;
+        --error-token_100: #fc7474;
+        --error-token_150: #fa2c2c;
+        --error-token_200: #b30404;
+        --warning-token_10: #fcfcdc;
+        --warning-token_50: #f3f386;
+        --warning-token_100: #eeee4c;
+        --warning-token_150: #e5e516;
+        --warning-token_200: #8f8f0e;
+        --negative-token_10: #ffffff;
+        --negative-token_50: #f1f0f0;
+        --negative-token_100: #e2e0e0;
+        --negative-token_150: #746e6e;
+        --negative-token_200: #2e2c2c;
+        --positive-token_10: #8ff872;
+        --positive-token_50: #59f42d;
+        --positive-token_100: #3ce50b;
+        --positive-token_150: #30b809;
+        --positive-token_200: #1e7306;
+        --fonts-token_10: #0101a1;
+        --fonts-token_50: #010194;
+        --fonts-token_100: #000041;
+        --fonts-token_150: #000020;
+        --fonts-token_200: #000000;
+        --primary-token_10: #ffffff;
+        --primary-token_50: #f7f8fd;
+        --primary-token_100: #eff1fc;
+        --primary-token_150: #e7ebff;
+        --primary-token_200: #d3dafa;
+        --secondary-token_10: #a5b1fb;
+        --secondary-token_50: #91a0fe;
+        --secondary-token_100: #4f67fd;
+        --secondary-token_150: #425afa;
+        --secondary-token_200: #3e50c4;
+        --tertiary-token_10: #f7ccfd;
+        --tertiary-token_50: #ea74f9;
+        --tertiary-token_100: #e13af6;
+        --tertiary-token_150: #d00ae9;
+        --tertiary-token_200: #820692;
+
+        --inverse-error-token_10: #d03434;
+        --inverse-error-token_50: #a92727;
+        --inverse-error-token_100: #8d2020;
+        --inverse-error-token_150: #711a1a;
+        --inverse-error-token_200: #471010;
+        --inverse-warning-token_10: #cfc400;
+        --inverse-warning-token_50: #a59d00;
+        --inverse-warning-token_100: #8a8300;
+        --inverse-warning-token_150: #6e6900;
+        --inverse-warning-token_200: #454100;
+        --inverse-negative-token_10: #d4d4d4;
+        --inverse-negative-token_50: #7f7f7f;
+        --inverse-negative-token_100: #2a2a2a;
+        --inverse-negative-token_150: #151515;
+        --inverse-negative-token_200: #000000;
+        --inverse-positive-token_10: #55ff70;
+        --inverse-positive-token_50: #00cc21;
+        --inverse-positive-token_100: #00440b;
+        --inverse-positive-token_150: #002205;
+        --inverse-positive-token_200: #000000;
+        --inverse-fonts-token_10: #ffffff;
+        --inverse-fonts-token_50: #f6f6fe;
+        --inverse-fonts-token_100: #ededfd;
+        --inverse-fonts-token_150: #babaff;
+        --inverse-fonts-token_200: #9999fa;
+        --inverse-primary-token_10: #12225f;
+        --inverse-primary-token_50: #081339;
+        --inverse-primary-token_100: #050d2a;
+        --inverse-primary-token_150: #04091e;
+        --inverse-primary-token_200: #030717;
+        --inverse-secondary-token_10: #bfc6fb;
+        --inverse-secondary-token_50: #aeb7fa;
+        --inverse-secondary-token_100: #7988f9;
+        --inverse-secondary-token_150: #5d70fc;
+        --inverse-secondary-token_200: #455af8;
+        --inverse-tertiary-token_10: #eebaf6;
+        --inverse-tertiary-token_50: #da8de6;
+        --inverse-tertiary-token_100: #d65aea;
+        --inverse-tertiary-token_150: #c323db;
+        --inverse-tertiary-token_200: #8c0d9f;
+    }
+}
+
+html.light {
     --error-token_10: #ffffff;
     --error-token_50: #fdbbbb;
     --error-token_100: #fc7474;
@@ -210,7 +381,7 @@
     --inverse-tertiary-token_150: #c323db;
     --inverse-tertiary-token_200: #8c0d9f;
 }
-  
+ 
 
 @import url(../../node_modules/@uireact/view/dist/index.css);
 @import url(../../node_modules/@uireact/badge/dist/index.css);

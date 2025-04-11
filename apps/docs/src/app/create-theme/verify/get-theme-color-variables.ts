@@ -12,7 +12,7 @@ export const getThemeColorVariables = (theme: Theme, coloration: ThemeColor) => 
 
             if (color) {
                 variables = `${variables}
---${colorKey}-${colorToken}: ${color};`;
+        --${colorKey}-${colorToken}: ${color};`;
             }
         });
     });
@@ -25,7 +25,7 @@ export const getThemeColorVariables = (theme: Theme, coloration: ThemeColor) => 
 
             if (color) {
                 variables = `${variables}
---inverse-${colorKey}-${colorToken}: ${color};`;
+        --inverse-${colorKey}-${colorToken}: ${color};`;
             }
         });
     });

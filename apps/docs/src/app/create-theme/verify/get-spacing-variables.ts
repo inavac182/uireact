@@ -7,7 +7,7 @@ export const getSpacingVariables = (theme: Theme) => {
         const spacing = theme.spacing[spacingLevel as Sizing];
 
         variables = `${variables}
---spacing-${spacingLevel}: ${spacing};`;
+    --spacing-${spacingLevel}: ${spacing};`;
     });
 
     return variables;

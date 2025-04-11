@@ -7,14 +7,14 @@ export const getSizesVariables = (theme: Theme): string => {
         const size = theme.sizes.texts[textSize as TextSize];
 
         variables = `${variables}
---texts-${textSize}: ${size};`;
+    --texts-${textSize}: ${size};`;
     });
 
     Object.keys(theme.sizes.headings).map(headingSize => {
         const size = theme.sizes.headings[headingSize as HeadingLevel];
 
         variables = `${variables}
---texts-${headingSize}: ${size};`;
+    --texts-${headingSize}: ${size};`;
     });
 
     return variables;
