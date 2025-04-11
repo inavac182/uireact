@@ -36,7 +36,7 @@
   },
   "peerDependencies": {
     "@uireact/button": ">= 3",
-    "@uireact/datepicker": ">= 3",
+    "@uireact/datepicker": ">= 0",
     "@uireact/flex": ">= 3",
     "@uireact/form": ">= 3",
     "@uireact/foundation": ">= 3",

@@ -38,6 +38,8 @@ export default function VerifyPage () {
         return null;
     }, [searchParams]);
     const themeVariables = useMemo(() => {
+        const themeUrl = searchParams.get('theme');
+
         if (!theme) {
             return '';
         }
@@ -77,7 +79,7 @@ ${darkVariables}
     }
 }
 
-html.dark {
+html.dark, .dark {
     ${darkVariables}
 }
 
@@ -90,12 +92,15 @@ ${lightVariables}
     }
 }
 
-html.light {
+html.light, .light {
     ${lightVariables}
 }
 
+/**
+ * Come back to this theme generator at: https://uireact.io/create-theme/verify?theme=${themeUrl}
+ * /
     `;
-    }, [theme]);
+    }, [theme, searchParams]);
 
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(themeVariables);
