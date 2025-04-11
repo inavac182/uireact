@@ -63,20 +63,6 @@ export const Footer = () => {
                     </UiLink>
                 </UiFlexGrid>
                 <br />
-                <UiFlexGrid direction="column">
-                    <UiLink>
-                        <a href="https://github.com/saudelog">
-                            <UiIcon icon="BrandsGithub" /> Sergio Ortiz
-                        </a>
-                    </UiLink>
-                    <UiLink>
-                        <a href="https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/">
-                            <UiIcon icon="BrandsLinkedin" /> Sergio Ortiz
-                        </a>
-                    </UiLink>
-                </UiFlexGrid>
-                <br />
-                <br />
                 <Logo />
             </div>
         </FooterWrapper>
