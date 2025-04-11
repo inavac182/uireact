@@ -8,9 +8,11 @@ import {
   UiValidatorSchema,
   UiValidatorFieldTypes,
   UiValidatorFieldRules,
-  UiValidatorWhenValidation
+  UiValidatorWhenValidation,
+  UiValidatorSecureLevel
 } from './types';
 import { UiValidatorRules } from './ui-validator-rules';
+import { secureCheck } from './helper';
 
 export class UiValidator {
   private getComparableOption(option: string | number) {
@@ -306,6 +308,10 @@ export class UiValidator {
     return valid;
   }
 
+  private isSecure(level: UiValidatorSecureLevel, value: unknown): boolean {
+    return secureCheck(level, value as string);
+  }
+
   /**
    * 
    * @param schema - The schema with each field's rules
@@ -494,6 +500,15 @@ export class UiValidator {
       if (!this.isEqualTo(rules.equalsTo.name, value, data)) {
         hasError = true;
         fieldErrors.push(rules.equalsTo.error);
+      }
+    }
+
+    if (rules.secureLevel) {
+      ruleMatched = true;
+
+      if (!this.isSecure(rules.secureLevel.level, value)) {
+        hasError = true;
+        fieldErrors.push(rules.secureLevel.error);
       }
     }
 
