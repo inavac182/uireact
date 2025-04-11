@@ -266,6 +266,26 @@ Example using a component that receives the schema and the data and then renders
         </td>
       </tr>
       <tr>
+        <td>secure()</td>
+        <td>
+          <UiList>
+            <li> ❗️ level</li>
+            <li> ❓ errorMessage</li>
+            <li><br />DEFAULT For weak: `This is not secure, please provide letter and numbers`</li>
+            <li><br />DEFAULT For mid: `This is not secure, please provide letter, numbers and at least 1 symbol` </li>
+            <li><br />DEFAULT For strong: `This is not secure, please provide a mix of lowercase and uppercase letters, numbers and symbols`</li>
+          </UiList>
+        </td>
+        <td>
+          <UiList>
+            <li>✅ For weak, if the value has letters and numbers.</li>
+            <li>✅ For mid, if the value has letters, numbers and a symbol.</li>
+            <li>✅ For strong, if the value has mix of lowercases and uppercases, numbers, symbols.</li>
+            <li>❌ Everything else</li>
+          </UiList>
+        </td>
+      </tr>
+      <tr>
         <td>range()</td>
         <td>
           <UiList>
@@ -495,6 +515,33 @@ That will ensure that either phone or email are provided.
 
 <br />
 <br />
+
+## For passwords
+
+You can validate passwords using the `secure()` and `length()` functions.
+
+<UiExpandoCard expandLabel='Verifying passwords' collapseLabel='Verifying passwords'>
+There are 3 levels for secureness:
+- **weak** - This validates that phrase has letters and numbers
+- **mid** - This validates that phrase has letters, numbers and symbols
+- **strong** - This validates that phrase has uppercases, lowercases, numbers and symbols
+
+You can decide which one you use, mix it with the length function and you have a solid password validator:
+
+```tsx
+  const schema = {
+    test: validator.field('text').secure('mid').length(6, 12),
+  };
+  const data = {
+    test: 'secure123',
+  };
+```
+
+</UiExpandoCard>
+
+<br />
+<br />
+
 
 ## greaterThan() and lessThan()
 

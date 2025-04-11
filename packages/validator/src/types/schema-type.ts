@@ -65,6 +65,15 @@ export type UiValidatorDateRangeRule = {
   error: UiValidatorError;
 };
 
+export type UiValidatorSecureLevel = 'weak' | 'mid' | 'strong';
+
+export type UiValidatorSecureRule = {
+  /** The level of secureness that we want to validate */
+  level: UiValidatorSecureLevel;
+  /** The error message to provide in the response if this check doesn't pass */
+  error: UiValidatorError;
+}
+
 /** The possible field types for each rule */
 export type UiValidatorFieldTypes = 'text' | 'numeric' | 'email' | 'phone' | 'date' | 'boolean' | 'choice';
 
@@ -88,6 +97,8 @@ export type UiValidatorFieldRules = {
   oneOf?: UiValidatorChoicesRule;
   /** Validates value matches another with another field by its name. */
   equalsTo?: UiValidatorEqualsToRule;
+  /** Validates the value matches a specific secure level */
+  secureLevel?: UiValidatorSecureRule;
 };
 
 /** Metadata information used from EzForms */

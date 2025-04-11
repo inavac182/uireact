@@ -1,4 +1,4 @@
-import { UiValidatorFieldRules, UiValidatorFieldTypes } from "./types";
+import { UiValidatorFieldRules, UiValidatorFieldTypes, UiValidatorSecureLevel } from "./types";
 
 export class UiValidatorRules {
   private rules:  UiValidatorFieldRules;
@@ -148,6 +148,31 @@ export class UiValidatorRules {
     }
 
     return this;
+  }
+
+  secure(level: UiValidatorSecureLevel, errorMessage?: string) {
+    this.rules.secureLevel = {
+      level,
+      error: errorMessage 
+        ? {
+          message: errorMessage,
+        }
+        : {
+          message: this.getSecureLevelMessage(level)
+        }
+    }
+
+    return this;
+  }
+
+  private getSecureLevelMessage(level: UiValidatorSecureLevel) {
+    if (level === "weak") {
+      return "This is not secure, please provide letter and numbers";
+    } else if (level === "mid") {
+      return "This is not secure, please provide letter, numbers and at least 1 symbol";
+    }
+
+    return "This is not secure, please provide a mix of lowercase and uppercase letters, numbers and symbols";
   }
 
   /** @private For validation purposes, don't use it. */
