@@ -1,5 +1,5 @@
 import { ColorCategory, ColorToken, SizesProp, UiReactElementProps } from '@uireact/foundation';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 import * as SvgsComponent from '../public/svgs';
 import { AriaAttributes } from 'react';

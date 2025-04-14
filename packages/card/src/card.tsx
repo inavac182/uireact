@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 
-import { motion as MotionParent } from 'framer-motion';
+import { motion as MotionParent } from 'motion/react';
 import { UiSpacingProps, getSpacingClass } from '@uireact/foundation';
 
 import styles from './ui-card.scss';

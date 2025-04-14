@@ -1,5 +1,5 @@
 import { UiReactElementProps, UiReactPrivateElementProps } from '@uireact/foundation';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 export type UiNavbarItemProps = {
   children?: React.ReactNode;

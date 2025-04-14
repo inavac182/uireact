@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.15 (2025-04-14)
+
+**Note:** Version bump only for package @uireact/card
+
+
+
+
+
 ## [3.7.14](https://github.com/inavac182/uireact/compare/@uireact/card@3.7.13...@uireact/card@3.7.14) (2025-04-11)
 
 **Note:** Version bump only for package @uireact/card

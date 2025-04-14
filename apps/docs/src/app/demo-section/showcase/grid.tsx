@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useScroll } from "framer-motion";
+import { useScroll } from "motion/react";
 
 import { UiViewport, Breakpoints } from "@uireact/foundation";
 import { UiGrid } from "@uireact/grid";

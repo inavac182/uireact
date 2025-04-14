@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion as MotionParent } from 'framer-motion';
+import { motion as MotionParent } from 'motion/react';
 
 import { UiNavbarProps } from './types';
 import styles from './ui-navbar.scss';

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.28 (2025-04-14)
+
+**Note:** Version bump only for package @uireact/tooltip
+
+
+
+
+
 ## [3.0.27](https://github.com/inavac182/uireact/compare/@uireact/tooltip@3.0.26...@uireact/tooltip@3.0.27) (2025-04-11)
 
 **Note:** Version bump only for package @uireact/tooltip

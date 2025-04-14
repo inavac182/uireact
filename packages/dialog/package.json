@@ -3,7 +3,7 @@
   "description": "Dialogs package from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "publishConfig": {
     "access": "public"
   },
@@ -37,7 +37,7 @@
     "@uireact/framer-animations": ">= 0",
     "@uireact/icons": ">= 3",
     "@uireact/text": ">= 3",
-    "framer-motion": ">= 11",
+    "motion": ">= 12",
     "react": ">= 17 < 20",
     "react-dom": ">= 17 < 20",
     "tslib": "^2.5.0"

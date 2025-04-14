@@ -1,5 +1,5 @@
 import { ColorCategory, ColorToken, SpacingDistribution, UiReactElementProps } from "@uireact/foundation";
-import { MotionProps } from "framer-motion";
+import { MotionProps } from "motion/react";
 
 export type UiCardProps = UiReactElementProps & {
     /** on click handler used for handling custom card clicks, when passed cursor pointer is used */

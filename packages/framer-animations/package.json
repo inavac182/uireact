@@ -3,7 +3,7 @@
   "description": "Packges from @uireact library containing framer motion animations",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "publishConfig": {
     "access": "public"
   },
@@ -25,6 +25,6 @@
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "peerDependencies": {
-    "framer-motion": ">= 11"
+    "motion": ">= 12"
   }
 }

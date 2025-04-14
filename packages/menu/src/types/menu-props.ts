@@ -1,5 +1,5 @@
 import { UiReactElementProps } from '@uireact/foundation';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 export type UiMenuProps = {
   /** Close label for dialog on small devices */

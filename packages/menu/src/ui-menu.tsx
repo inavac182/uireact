@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useEffect } from 'react';
 
-import { motion as MotionParent } from 'framer-motion';
+import { motion as MotionParent } from 'motion/react';
 
 import { Breakpoints, UiViewport, useViewport } from '@uireact/foundation';
 import { UiDialog, UiDialogType, useDialog } from '@uireact/dialog';
