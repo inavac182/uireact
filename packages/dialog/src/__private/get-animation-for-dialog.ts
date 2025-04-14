@@ -1,5 +1,5 @@
 import { UiReactFadeLeft, UiReactFadeRight } from "@uireact/framer-animations";
-import { MotionProps } from "framer-motion";
+import { MotionProps } from "motion/react";
 import { UiDialogType } from "../types";
 
 export const getAnimationForDialog = (type: UiDialogType): MotionProps | undefined => {

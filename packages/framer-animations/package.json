@@ -25,6 +25,6 @@
     "watch": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "peerDependencies": {
-    "framer-motion": ">= 11"
+    "motion": ">= 12"
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 import styled from "styled-components";
-import { MotionProps, motion } from "framer-motion";
+import { MotionProps, motion } from "motion/react";
 
 import { UiCard } from "@uireact/card";
 import { UiFlexGrid } from "@uireact/flex";

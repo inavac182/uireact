@@ -1,4 +1,4 @@
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 import { UiReactElementProps } from '@uireact/foundation';
 

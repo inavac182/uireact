@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MotionProps, motion } from 'framer-motion';
+import { MotionProps, motion } from 'motion/react';
 
 import { UiNavbar, UiNavbarItem } from '@uireact/navbar';
 import { UiIcon } from '@uireact/icons';

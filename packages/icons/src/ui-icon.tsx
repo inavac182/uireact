@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { motion as MotionParent } from 'framer-motion';
+import { motion as MotionParent } from 'motion/react';
 
 import { UiIconProps } from './types';
 import { IconComponent } from './public';

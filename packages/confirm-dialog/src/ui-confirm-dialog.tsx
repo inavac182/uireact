@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react';
-import { MotionProps, motion as MotionParent } from 'framer-motion';
+import { MotionProps, motion as MotionParent } from 'motion/react';
 
 import { UiConfirmDialogContext, UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import { UiHeading, UiText } from '@uireact/text';
