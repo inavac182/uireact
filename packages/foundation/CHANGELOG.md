@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.2 (2025-04-14)
+
+
+### Bug Fixes
+
+* default theme css ([#410](https://github.com/inavac182/uireact/issues/410)) ([7c353bd](https://github.com/inavac182/uireact/commit/7c353bdd972430be87f3fbaa3b0ff8dbb7b1931e))
+
+
+
+
+
 ## [4.1.1](https://github.com/inavac182/uireact/compare/@uireact/foundation@4.1.0...@uireact/foundation@4.1.1) (2025-04-11)
 
 **Note:** Version bump only for package @uireact/foundation
