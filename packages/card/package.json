@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@uireact/foundation": ">= 3",
-    "framer-motion": ">= 11",
+    "framer-motion": ">= 12",
     "react": ">= 17 < 20"
   }
 }

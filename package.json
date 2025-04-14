@@ -76,7 +76,7 @@
     "@changesets/cli": "^2.27.1",
     "concurrently": "^8.2.2",
     "esbuild-sass-plugin": "^3.3.0",
-    "framer-motion": "^11.0.18",
+    "motion": "^12.6.5",
     "lerna": "^8.1.2",
     "nodemon": "^3.1.0",
     "react": "^18",
