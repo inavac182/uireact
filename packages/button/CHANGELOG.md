@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.12 (2025-04-14)
+
+**Note:** Version bump only for package @uireact/button
+
+
+
+
+
 ## [3.2.11](https://github.com/inavac182/uireact/compare/@uireact/button@3.2.10...@uireact/button@3.2.11) (2025-04-11)
 
 **Note:** Version bump only for package @uireact/button

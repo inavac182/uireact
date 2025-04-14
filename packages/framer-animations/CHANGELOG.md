@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.8.3 (2025-04-14)
+
+**Note:** Version bump only for package @uireact/framer-animations
+
+
+
+
+
 ## 0.8.2 (2024-05-15)
 
 
