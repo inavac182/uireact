@@ -45,7 +45,7 @@
     "@uireact/icons": ">= 3",
     "@uireact/menu": ">= 3",
     "@uireact/text": ">= 3",
-    "framer-motion": ">= 11",
+    "motion": ">= 12",
     "react": ">= 17 < 20",
     "react-dom": ">= 17 < 20",
     "tslib": "^2.5.0"

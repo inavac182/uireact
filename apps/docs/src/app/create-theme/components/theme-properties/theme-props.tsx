@@ -1,7 +1,7 @@
 'use client';
 import { useMemo } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 

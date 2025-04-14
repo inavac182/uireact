@@ -1,7 +1,7 @@
 import { AriaAttributes, MouseEvent } from 'react';
 
 import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 export type UiButtonProps = {
   /** onClick Handler */

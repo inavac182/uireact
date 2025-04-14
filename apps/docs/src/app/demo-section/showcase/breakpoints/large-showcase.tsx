@@ -1,4 +1,4 @@
-import { MotionValue, motion } from "framer-motion";
+import { MotionValue, motion } from "motion/react";
 import styled from "styled-components";
 
 import { UiGridItem } from "@uireact/grid";

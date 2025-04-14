@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
-import { motion, useScroll, useMotionTemplate, useMotionValue, animate } from 'framer-motion';
+import { motion, useScroll, useMotionTemplate, useMotionValue, animate } from 'motion/react';
 import styled from 'styled-components';
 
 import { useParallax } from '../hooks';

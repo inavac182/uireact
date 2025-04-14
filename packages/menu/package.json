@@ -33,7 +33,7 @@
     "@uireact/dialog": ">= 3",
     "@uireact/foundation": ">= 3",
     "@uireact/framer-animations": ">= 0",
-    "framer-motion": ">= 11",
+    "motion": ">= 12",
     "react": ">= 17 < 20",
     "react-dom": ">= 17 < 20",
     "tslib": "^2.5.0"

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { UiText } from '@uireact/text';
 import { UiIcon } from '@uireact/icons';

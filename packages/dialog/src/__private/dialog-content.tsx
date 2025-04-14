@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { motion as MotionParent } from 'framer-motion';
+import { motion as MotionParent } from 'motion/react';
 
 import { privateUiDialogProps } from '../types';
 import { getDialogClasses } from './utils/get-dialog-classes';

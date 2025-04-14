@@ -1,7 +1,7 @@
 import { AriaAttributes } from 'react';
 
 import { ColorCategory, SpacingType, UiReactElementProps } from '@uireact/foundation';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 export type NavbarOrientation = 'stacked' | 'inline';
 export type NavbarColoration = 'light' | 'dark';

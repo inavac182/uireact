@@ -49,13 +49,6 @@ console.log(`${txtColors.orange}Styling: ${txtColors.blue}Styled-Components`);
 console.log(`${txtColors.orange}Library: ${txtColors.blue}@UiReact`);
 console.log('\n');
 
-const filesInPath = fs.readdirSync('./', { withFileTypes: true });
-
-if (filesInPath.length > 0) {
-  console.error(`${txtColors.red} ❌ The current folder is not empty! Please execute this command in an empty folder`);
-  process.exit();
-}
-
 try {
   execSync('git clone https://github.com/inavac182/next-js-w-uireact.git');
 } catch (e) {

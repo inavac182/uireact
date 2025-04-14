@@ -11,7 +11,7 @@ import { UiSpacing, UiSpacingProps } from '@uireact/foundation';
 import useHash from '@/app/hooks/use-hatch';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import { UiFlexGrid } from '@uireact/flex';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { UiReactHoverScaleUp, UiReactTapScaleDown } from '@uireact/framer-animations';
 
 const Container = styled.div`

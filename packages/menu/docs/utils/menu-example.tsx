@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 
 import { UiButton, UiPrimaryButton, UiTertiaryButton } from '@uireact/button';
 import { UiCard } from '@uireact/card';
