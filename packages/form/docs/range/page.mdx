@@ -1,0 +1,78 @@
+import { UiRangeInput } from '@uireact/form';
+import { UiIcon } from '@uireact/icons';
+import { UiSpacing } from '@uireact/foundation';
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+import { RangeExample } from './example';
+
+# UiRangeInput
+<Metadata packageName='form' packageJson={packageJson} />
+
+> Component used to render range inputs with a slider
+
+## Installation
+
+> npm i @uireact/foundation @uireact/form
+
+## UiRangeInput
+
+This renders an input type "range" and wraps it with the library styling so it looks and feels consistently across browsers.
+
+```jsx live scope={{UiRangeInput}}
+  <UiRangeInput min="-10" max="100"
+    showRangeLabels
+    label="Select a value:"
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+```
+
+## With colorations
+
+The category prop is used to select the desired coloration based on the theme.
+
+```jsx live scope={{UiRangeInput}}
+<div>
+  <UiRangeInput min="-10" max="100" category="tertiary" value="20" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="-10" max="100" category="secondary" value="60" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="-10" max="100" category="positive" value="90" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="-10" max="100" category="error" value="0" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+</div>
+```
+
+## UiRangeInput with label on top and icon
+
+```jsx live scope={{UiRangeInput, UiIcon}}
+  <UiRangeInput min="-10" max="100"
+    showRangeLabels
+    label="Select a value:"
+    labelOnTop
+    icon={<UiIcon icon="CreditCard" size="xlarge" />}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+```
+
+## Example with controlled inputs
+
+```jsx live scope={{RangeExample}}
+  <RangeExample />
+```
