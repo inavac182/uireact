@@ -27,6 +27,7 @@
   background: transparent;
   cursor: pointer;
   padding-top: 1em;
+  width: 100%;
 
   &::-webkit-slider-runnable-track {
     background: var(--tertiary-token_10);
@@ -227,11 +228,11 @@
 
 .error {
   &::-webkit-slider-runnable-track {
-    background: var(--error-token_10);
+    background: var(--error-token_50);
   }
 
   &::-moz-range-track {
-    background: var(--error-token_10);
+    background: var(--error-token_50);
   }
 
   &::-webkit-slider-thumb {
@@ -253,15 +254,29 @@
 
 .inputContainer {
   display: flex;
-  flex-direction: column;
-}
-
-.rangeLabelsContainer {
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--spacing-two);
+}
+
+.rangeContainer {
+  flex-grow: 1;
 }
 
 .inputIcon {
   padding-left: calc(var(--texts-xlarge) * 1.55) !important;
+}
+
+.selectedValueLabelContainer {
+  position: relative;
+  width: 100%;
+  height: 35px;
+}
+
+.selectedValueLabel {
+  position: absolute;
+  background: var(--primary-token_150);
+  color: var(--color-token_100);
+  padding: 5px;
 }

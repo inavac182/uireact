@@ -1,6 +1,11 @@
 import { ColorCategory, SizesProp, SpacingDistribution, UiReactElementProps } from '@uireact/foundation';
 import { AriaAttributes } from 'react';
 
+export type UiRangeInputTick = {
+  value: number;
+  label?: string;
+}
+
 export type UiRangeInputProps = {
   /** Input field disabled state */
   disabled?: boolean;
@@ -24,12 +29,16 @@ export type UiRangeInputProps = {
   min: number;
   /** Max value in range */
   max: number;
+  /** The value of each step in the rage */
+  step?: number;
   /** Renders the min and max values as labels */
   showRangeLabels?: boolean;
   /** Input field value */
-  value?: HTMLInputElement['value'];
+  value: number;
   /** To override the default input padding */
   padding?: SpacingDistribution;
   /** If input is required */
   required?: boolean;
+  /** The ticks information to render in the range */
+  ticks?: UiRangeInputTick[];
 } & UiReactElementProps & AriaAttributes;
