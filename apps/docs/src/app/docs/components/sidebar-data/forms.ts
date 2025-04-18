@@ -18,6 +18,10 @@ export const FormsSideBarData: NavbarItem[] = [
         title: 'UiInputDatepicker'
     },
     {
+        link: '/range',
+        title: 'UiRangeInput'
+    },
+    {
         link: '/select',
         title: 'UiSelect'
     },
