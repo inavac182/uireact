@@ -6,7 +6,7 @@ import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 import { UiRangeInputProps } from './types';
 import styles from './ui-range.scss';
 import inputStyles from './ui-input.scss';
-import { getRangePosition } from '__private';
+import { getRangePosition } from './__private';
 
 const defaultPadding: SpacingDistribution = { block: 'one', inline: 'one' };
 
@@ -18,7 +18,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   icon,
   label,
   labelOnTop,
-  name = 'input-name',
+  name,
   ref,
   category,
   min,
@@ -37,11 +37,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   const alignment = labelOnTop ? "Start" : showRangeLabels ? "End" : "Center";
 
   const internalOnChange = useCallback((value: FormEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(value);
-    } else {
-      console.log("Missing onChange Callback for UiRangeInput");
-    }
+    onChange(value);
   }, [onChange]);
 
   useEffect(() => {

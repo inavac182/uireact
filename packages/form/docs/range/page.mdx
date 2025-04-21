@@ -85,12 +85,14 @@ The step prop tells each clickable step value for the range.
   />
 ```
 
-<UiCard category='warning' weight='100'>
-**WARNING:** When using steps it might happen that you set up a value that is NOT selectable, for instance in a range of:  **50 to 100**
-if you set a step of **20**, the only selectable values are: **50, 70 and 90**, So, if you set the value to 80, as it's not selectable the bullet will go to **90**, although the value won't change as user hasn't done any selection.
 
-Example:
+<UiCard category='warning' weight='100'>
+### Warning, unselectable values
+
+When using steps it might happen that you set up a value that is NOT selectable, for instance in a range of:  **50 to 100**
+if you set a step of **20**, the only selectable values are: **50, 70 and 90**, So, if you set the value to 80, as it's not selectable the bullet will go to **90**, although the value won't change as user hasn't done any selection.
 </UiCard>
+
 
 ```jsx live scope={{RangeNotSelectableExample}}
   <RangeNotSelectableExample />

@@ -14,13 +14,13 @@ export type UiRangeInputProps = {
   /** An icon element to be rendered inside the input */
   icon?: React.ReactElement;
   /** Input name for form submittion */
-  name?: string;
+  name: string;
   /** Label for input field */
   label?: string;
   /** Label on top of field */
   labelOnTop?: boolean;
   /** CB for when value in input changes */
-  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChange: (e: React.FormEvent<HTMLInputElement>) => void;
   /* React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Input field theme */
