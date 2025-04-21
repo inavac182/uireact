@@ -1,0 +1,115 @@
+import { UiRangeInput } from '@uireact/form';
+import { UiIcon } from '@uireact/icons';
+import { UiSpacing } from '@uireact/foundation';
+import { UiCard } from '@uireact/card';
+
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+import { RangeExample, RangeNotSelectableExample } from './example';
+
+# UiRangeInput
+<Metadata packageName='form' packageJson={packageJson} />
+
+> Component used to render range inputs with a slider
+
+## Installation
+
+> npm i @uireact/foundation @uireact/form
+
+## UiRangeInput
+
+This renders an input type "range" and wraps it with the library styling so it looks and feels consistently across browsers. 
+
+This is a controlled component which means you have to handle the value and provide a `onChange` callback.
+
+```jsx live scope={{RangeExample}}
+  <RangeExample />
+```
+
+## With colorations
+
+The category prop is used to select the desired coloration based on the theme.
+
+```jsx live scope={{UiRangeInput}}
+<div>
+  <UiRangeInput min="0" max="100" category="tertiary" value="20" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="0" max="100" category="secondary" value="60" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="0" max="100" category="positive" value="90" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+  <UiRangeInput min="0" max="100" category="error" value="0" padding={{ block: 'three' }}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+</div>
+```
+
+## UiRangeInput with label on top and icon
+
+The icon and labelOnTop prop adds styling to the slider so those elements can render propertly.
+
+```jsx live scope={{UiRangeInput, UiIcon}}
+  <UiRangeInput min="0" max="100"
+    showRangeLabels
+    label="Select a value:"
+    labelOnTop
+    icon={<UiIcon icon="CreditCard" size="xlarge" />}
+    value={50}
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+```
+
+## UiRangeInput with steps
+
+The step prop tells each clickable step value for the range.
+
+```jsx live scope={{UiRangeInput, UiIcon}}
+  <UiRangeInput min="50" max="100"
+    showRangeLabels
+    step={10}
+    value={60}
+    icon={<UiIcon icon="CreditCard" size="xlarge" />}
+  />
+```
+
+
+<UiCard category='warning' weight='100'>
+### Warning, unselectable values
+
+When using steps it might happen that you set up a value that is NOT selectable, for instance in a range of:  **50 to 100**
+if you set a step of **20**, the only selectable values are: **50, 70 and 90**, So, if you set the value to 80, as it's not selectable the bullet will go to **90**, although the value won't change as user hasn't done any selection.
+</UiCard>
+
+
+```jsx live scope={{RangeNotSelectableExample}}
+  <RangeNotSelectableExample />
+```
+```tsx
+export const RangeNotSelectableExample = () => {
+  const [value, setValue] = useState(80);
+
+  const onChange = useCallback((event: FormEvent<HTMLInputElement>) => {
+    setValue(parseInt(event.currentTarget.value));
+  }, []);
+
+  return (
+    <div>
+      <p>Value: {value}</p>
+      <UiRangeInput value={value} onChange={onChange} min={50} max={100} step={20} />
+    </div>
+  )
+}
+```
