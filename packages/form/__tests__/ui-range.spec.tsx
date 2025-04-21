@@ -36,7 +36,7 @@ describe('<Component />', () => {
   });
 
   it('renders fine with category', () => {
-    uiRender(<UiRangeInput category='primary' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
+    uiRender(<UiRangeInput category='error' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
 
     expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
     expect(screen.getByText('50')).toBeVisible();

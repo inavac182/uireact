@@ -66,7 +66,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
       data-testid={testId}
     >
       {label && (
-          <UiLabel htmlFor={name} category={category === 'primary' ? 'fonts' : category}>
+          <UiLabel htmlFor={name} category={category !== 'error' ? 'fonts' : category}>
             {label} &nbsp;
           </UiLabel>
       )}

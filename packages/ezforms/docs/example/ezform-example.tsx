@@ -40,6 +40,10 @@ const schema = {
     .field('text')
     .ezMetadata({ label: 'Description', paragraph: true })
     .optional(),
+  money: validator
+    .field('numeric')
+    .ezMetadata({ label: 'How much would you like to invest?' })
+    .range(0, 100),
   terms: validator
     .field('boolean')
     .ezMetadata({ label: 'Accept terms and conditions' })
