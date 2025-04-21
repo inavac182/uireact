@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.4.5...@uireact/form@3.5.0) (2025-04-21)
+
+
+### Features
+
+* adding slider component ([#411](https://github.com/inavac182/ui-react/issues/411)) ([3de94cb](https://github.com/inavac182/ui-react/commit/3de94cb58f3471235d9d125c3d50c293634ef79d))
+
+
+
+
+
 ## 3.4.5 (2025-04-14)
 
 **Note:** Version bump only for package @uireact/form
