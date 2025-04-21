@@ -13,7 +13,7 @@ export const RangeExample = () => {
   return (
     <div>
       <p>Value: {value}</p>
-      <UiRangeInput value={value} onChange={onChange} min={20} max={100} />
+      <UiRangeInput value={value} onChange={onChange} name="range-input-1" min={20} max={100} />
     </div>
   )
 }
@@ -28,7 +28,7 @@ export const RangeNotSelectableExample = () => {
   return (
     <div>
       <p>Value: {value}</p>
-      <UiRangeInput value={value} onChange={onChange} min={50} max={100} step={20} />
+      <UiRangeInput value={value} onChange={onChange} name="range-input-2" min={50} max={100} step={20} />
     </div>
   )
 }
