@@ -31,7 +31,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   required,
   ...props
 }: UiRangeInputProps) => {
-  const [innerValue, setInnerValue] = useState(value);
+  const [innerValue, setInnerValue] = useState<number>(value || min);
   const [position, setPosition] = useState(0);
   const paddingClass = getSpacingClass('padding', padding);
   const alignment = labelOnTop ? "Start" : showRangeLabels ? "End" : "Center";
@@ -45,18 +45,20 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   }, [min, max, value, step]);
 
   useEffect(() => {
+    const cleanedValue = value || min;
+
     if (step) {
-      const baseValue = value - min;
+      const baseValue = cleanedValue - min;
       const isSelectable = (baseValue % step) === 0;
 
       if (isSelectable) {
-        setInnerValue(value);
+        setInnerValue(cleanedValue);
       } else {
-        const nextSelectable = value + (baseValue % step);
+        const nextSelectable = cleanedValue + (baseValue % step);
         setInnerValue(nextSelectable);
       }
     } else {
-      setInnerValue(value);
+      setInnerValue(cleanedValue);
     }
   }, [value, step, min]);
 
@@ -88,7 +90,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
                   onChange={internalOnChange}
                   ref={ref}
                   type="range"
-                  value={value}
+                  value={innerValue}
                   required={required}
                   min={min}
                   max={max}

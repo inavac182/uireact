@@ -42,6 +42,7 @@ const schema = {
     .optional(),
   money: validator
     .field('numeric')
+    .present("Please select a value")
     .ezMetadata({ label: 'How much would you like to invest?' })
     .range(0, 100),
   terms: validator
