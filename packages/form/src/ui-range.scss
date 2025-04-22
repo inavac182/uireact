@@ -32,41 +32,39 @@
   &::-webkit-slider-runnable-track {
     background: var(--tertiary-token_10);
     height: 0.5rem;
+    border-radius: .25rem;
   }
 
   &::-moz-range-track {
     background: var(--tertiary-token_10);
     height: 0.5rem;
+    border-radius: .25rem;
   }
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     margin-top: -12px; /* Centers thumb on the track */
-    background-color: var(--tertiary-token_100);
+    background-color: transparent;
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
+    z-index: 10;
+    position: relative;
  }
 
  &::-moz-range-thumb {
     border: none; /*Removes extra border that FF applies*/
     border-radius: 50%;
-    background-color: var(--tertiary-token_100);
+    background-color: transparent;
     height: 2rem;
     width: 2rem;
+    z-index: 10;
+    position: relative;
   }
 
   &:focus {
     outline: none;
-  }  
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--tertiary-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--tertiary-token_150);
   }
 }
 
@@ -78,22 +76,6 @@
   &::-moz-range-track {
     background: var(--tertiary-token_10);
   }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--tertiary-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--tertiary-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--tertiary-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--tertiary-token_150);
-  }
 }
 
 .secondary {
@@ -103,22 +85,6 @@
 
   &::-moz-range-track {
     background: var(--secondary-token_10);
-  }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--secondary-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--secondary-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--secondary-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--secondary-token_150);
   }
 }
 
@@ -130,22 +96,6 @@
   &::-moz-range-track {
     background: var(--primary-token_150);
   }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--primary-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--primary-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--primary-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--primary-token_150);
-  }
 }
 
 .positive {
@@ -155,22 +105,6 @@
 
   &::-moz-range-track {
     background: var(--positive-token_10);
-  }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--positive-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--positive-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--positive-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--positive-token_150);
   }
 }
 
@@ -182,22 +116,6 @@
   &::-moz-range-track {
     background: var(--negative-token_10);
   }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--negative-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--negative-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--negative-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--negative-token_150);
-  }
 }
 
 .warning {
@@ -208,22 +126,6 @@
   &::-moz-range-track {
     background: var(--warning-token_10);
   }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--warning-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--warning-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--warning-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--warning-token_150);
-  }
 }
 
 .error {
@@ -233,22 +135,6 @@
 
   &::-moz-range-track {
     background: var(--error-token_50);
-  }
-
-  &::-webkit-slider-thumb {
-    background-color: var(--error-token_100);
- }
-
- &::-moz-range-thumb {
-    background-color: var(--error-token_100);
-  }
-
-  &:focus::-webkit-slider-thumb {
-    background-color: var(--error-token_150);
-  }
-
-  :focus::-moz-range-thumb {
-    background-color: var(--error-token_150);
   }
 }
 
@@ -271,12 +157,16 @@
 .selectedValueLabelContainer {
   position: relative;
   width: 100%;
-  height: 35px;
 }
 
 .selectedValueLabel {
   position: absolute;
-  background: var(--primary-token_150);
+  background: var(--primary-token_100);
+  border: 2px solid var(--primary-token_150);
   color: var(--color-token_100);
   padding: 5px;
+  border-radius: 10px;
+  top: 100%;
+  z-index: 5;
+  transition: .1s left;
 }
