@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.7.0...@uireact/form@3.7.1) (2025-04-22)
+
+
+### Bug Fixes
+
+* range thumb shadow ([0f0c133](https://github.com/inavac182/ui-react/commit/0f0c1334d5a603e2823ff4bfef371f8d7f00b027))
+
+
+
+
+
 # [3.7.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.6.0...@uireact/form@3.7.0) (2025-04-22)
 
 
