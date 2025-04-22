@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.5.0...@uireact/form@3.6.0) (2025-04-22)
+
+
+### Features
+
+* **ezform:** render slider ([#412](https://github.com/inavac182/ui-react/issues/412)) ([02ef51d](https://github.com/inavac182/ui-react/commit/02ef51d63536cb48d75357e271882e2865638212))
+
+
+
+
+
 # [3.5.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.4.5...@uireact/form@3.5.0) (2025-04-21)
 
 
