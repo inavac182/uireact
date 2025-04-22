@@ -1,5 +1,5 @@
-export const getRangePosition = (min: number, max: number, value: number, step?: number) => {
-  if (value === 0) {
+export const getRangePosition = (min: number, max: number, value?: number, step?: number) => {
+  if (value === 0 || !value) {
     return 0;
   }
 

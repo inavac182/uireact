@@ -16,6 +16,16 @@ describe('<Component />', () => {
     expect(screen.getByText('70')).toBeVisible();
   });
 
+  it('renders fine without value', () => {
+    //@ts-ignore
+    uiRender(<UiRangeInput label="Input" name="MyInput" max={100} min={50} showRangeLabels onChange={jest.fn()} />);
+
+    expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
+    expect(screen.getAllByText('50')[0]).toBeVisible();
+    expect(screen.getAllByText('50')[1]).toBeVisible();
+    expect(screen.getByText('100')).toBeVisible();
+  });
+
   it('renders fine with error', () => {
     uiRender(<UiRangeInput label="Input" error='Some error' name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
 
@@ -36,7 +46,7 @@ describe('<Component />', () => {
   });
 
   it('renders fine with category', () => {
-    uiRender(<UiRangeInput category='primary' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
+    uiRender(<UiRangeInput category='error' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
 
     expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
     expect(screen.getByText('50')).toBeVisible();

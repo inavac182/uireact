@@ -25,7 +25,8 @@ const schema = {
   type: validator.field('choice').ezMetadata({ label: 'Account type' }).oneOf(['user', 'admin', 'editor']),
   description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }),
   password: validator.field('text').ezMetadata({ label: 'Password', protected: true }),
-  code: validator.field('numeric').ezMetadata({ label: 'Code', code: true }).length(5,5)
+  code: validator.field('numeric').ezMetadata({ label: 'Code', code: true }).length(5,5),
+  invest: validator.field('numeric').range(0, 100).ezMetadata({ label: 'Investment' })
 }
 
 describe('<UiEzForm />', () => {
@@ -104,7 +105,8 @@ describe('<UiEzForm />', () => {
 
     const schema = {
       firstName: validator.field('text').ezMetadata({ label: 'First Name' }).present(),
-      description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).present("Description is required")
+      description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).present("Description is required"),
+      invest: validator.field('numeric').range(0, 100).ezMetadata({ label: 'Investment' }).present("Select investment")
     }
 
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
@@ -114,15 +116,19 @@ describe('<UiEzForm />', () => {
     expect(onSubmit).toHaveBeenCalledTimes(0);
     expect(screen.getByText('This is required')).toBeVisible();
     expect(screen.getByText('Description is required')).toBeVisible();
+    expect(screen.getByText('Select investment')).toBeVisible();
 
     const input = screen.getByRole('textbox', { name: 'First Name' });
     const textArea = screen.getByRole('textbox', { name: 'Description' });
+    const slider = screen.getByRole('slider');
 
+    fireEvent.change(slider, { target: { value: 80 } });
     fireEvent.change(input, { target: { value: 'Some value' } });
     fireEvent.change(textArea, { target: { value: 'Some description' } });fireEvent.change(textArea, { target: { value: 'Some description' } });
 
     expect(input).toHaveValue('Some value');
     expect(textArea).toHaveValue('Some description');
+    expect(slider).toHaveValue("80");
 
     fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
 

@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
-import { UiDigitsInput, UiInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
+import { UiDigitsInput, UiInput, UiRangeInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
 import type { UiValidatorField, UiValidatorWhen } from '@uireact/validator';
 import { getFieldData } from './get-field-data';
@@ -75,6 +75,23 @@ export const EzFormField = ({
     if (ezMetadata.hidden) {
       return (
         <input type='hidden' value={value} name={name} data-testid="ezforms-hidden-input" />
+      )
+    }
+
+    if (rules.range) {
+      return (
+        <UiRangeInput 
+          label={ezMetadata.label} 
+          labelOnTop
+          showRangeLabels
+          name={name} 
+          value={value} 
+          onChange={onTextInputChange} 
+          min={rules.range.min}
+          max={rules.range.max}
+          error={error}
+          category={error ? 'error' : 'secondary'}
+        />
       )
     }
 
