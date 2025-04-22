@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.6.0...@uireact/form@3.7.0) (2025-04-22)
+
+
+### Features
+
+* slider styling ([#413](https://github.com/inavac182/ui-react/issues/413)) ([cb5233b](https://github.com/inavac182/ui-react/commit/cb5233b3af2db59e5f1aff4b6095cfec7d03f301))
+
+
+
+
+
 # [3.6.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.5.0...@uireact/form@3.6.0) (2025-04-22)
 
 
