@@ -29,12 +29,16 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   showRangeLabels,
   step,
   required,
+  prefix,
   ...props
 }: UiRangeInputProps) => {
   const [innerValue, setInnerValue] = useState<number>(value || min);
   const [position, setPosition] = useState(0);
   const paddingClass = getSpacingClass('padding', padding);
   const alignment = labelOnTop ? "Start" : showRangeLabels ? "End" : "Center";
+  const minLabel = prefix ? `${prefix}${min}` : min;
+  const maxLabel = prefix ? `${prefix}${max}` : max;
+  const valueLabel = prefix ? `${prefix}${innerValue}` : innerValue;
 
   const internalOnChange = useCallback((value: FormEvent<HTMLInputElement>) => {
     onChange(value);
@@ -76,10 +80,10 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
         <div className={inputStyles.inputContentDiv}>
           {icon && <div className={inputStyles.inputIconContainer} aria-hidden>{icon}</div>}
           <div className={`${styles.inputContainer} ${icon ? styles.inputIcon : ''} ${paddingClass}`}>
-            {showRangeLabels && <p>{min}</p>}
+            {showRangeLabels && <p>{minLabel}</p>}
               <div className={styles.rangeContainer}>
                 <div className={styles.selectedValueLabelContainer}>
-                  <p className={styles.selectedValueLabel} style={{ left: `${position}%`, transform: `translateX(-${position}%)` }}>{innerValue}</p>
+                  <p className={styles.selectedValueLabel} style={{ left: `${position}%`, transform: `translateX(-${position}%)` }}>{valueLabel}</p>
                 </div>
                 <input
                   disabled={disabled}
@@ -97,7 +101,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
                   {...props}
                 />
               </div>
-              {showRangeLabels && <p>{max}</p>}
+              {showRangeLabels && <p>{maxLabel}</p>}
           </div>
         </div>
         {error && <UiText category={category}>{error}</UiText>}

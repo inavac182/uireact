@@ -15,33 +15,15 @@ import { Metadata } from '@uireact/docs-tools';
 
 ## Usage
 
-The EzForm component builds a form automatically out of a `schema`, the form will be automatically validated using the specifics on the schema. The schema is created using the [@uireact/validator](./validator) util:
+The EzForm component builds a form automatically out of a `schema`, the form will be automatically validated using the specifics on the schema. The schema is created using the [@uireact/validator](./validator) util.
 
-The `field()` fn exposes a function: `ezMetadata()` which is a chainable function that can be used to pass metadata to each of the schema fields:
-
-```ts
-const validator = new UiValidator();
-
-const schema = {
-  name: validator.field('text').ezMetadata({ label: 'First Name', icon: 'User' }).present(),
-  birthday: validator.field('date').ezMetadata({ label: 'When is your birthday?', icon: 'Party', dateFormat: 'yyyy/mm/dd' }).present(),
-  age: validator.field('numeric').ezMetadata({ label: 'How old are you?', icon: 'Sun' }).present().greaterThan(18, "You have to be older than 18 years old"),
-  email: validator.field('email').ezMetadata({ label: 'Enter your email', icon: 'Mail' }).present(),
-  type: validator.field('choice').ezMetadata({ label: 'Account type' }).present("You have to select the type of account").oneOf(['user', 'admin', 'editor']),
-  description: validator.field('text').ezMetadata({ label: 'Description', paragraph: true }).optional(),
-  terms: validator.field('boolean').ezMetadata({ label: 'Accept terms and conditions' }).present("You have to accept our terms and conditions"),
-  code: validator.field('numeric').ezMetadata({ label: 'Code sent to your phone', code: true }).present("The code should be present")
-};
-```
-From there you can continue to add any specific validation to each field.
-
-Once the schema is complete we can pass it as a prop and this will be the outcome:
+The `field()` fn exposes a function: `ezMetadata()` which is a chainable function that can be used to pass metadata to each of the schema fields. You need to create a schema and pass it to the `< EzForm />` component:
 
 ```jsx live scope={{EzFormExample}}
   <EzFormExample />
 ```
 
-The complete code for the `EzFormExample`:
+Example code:
 
 ```tsx
 const validator = new UiValidator();
@@ -82,7 +64,7 @@ const schema = {
   money: validator
     .field('numeric')
     .present("Please select a value")
-    .ezMetadata({ label: 'How much would you like to invest?' })
+    .ezMetadata({ label: 'How much would you like to invest?', prefix: '$' })
     .range(0, 100),
   terms: validator
     .field('boolean')
@@ -119,6 +101,51 @@ export const EzFormExample = () => {
     />
   )
 };
+```
+
+## ezMetadata
+
+This is a function exposed as part of the validator class that help you to set up properties used in the EzForms
+
+Options:
+
+```tsx
+/** Metadata information used from EzForms */
+export type UiValidatorFieldMetadata = {
+  /** The input label to use */
+  label?: string;
+  /** The icon name to use in the text input */
+  icon?: string;
+  /** Tells UiDatepickerInput the date format to use */
+  dateFormat?: 'yyyy/mm/dd' | 'yyyy-mm-dd' | 'mm/dd/yyyy' | 'dd/mm/yyyy';
+  /** Tells EzForms to display a textarea rather than a text input */
+  paragraph?: boolean;
+  /** Tells EzForms to display field as password */
+  protected?: boolean;
+  /** Tells EzForms to display as a UiDigitsInputs */
+  code?: boolean;
+  /** Tells EzForms to display input as hidden */
+  hidden?: boolean;
+  /** Tells EzForms to display a prefix on a range input */
+  prefix?: string;
+}
+```
+
+Example of usage:
+
+```tsx
+const schema = {
+  newPassword: new UiValidator()
+    .field("text")
+    .ezMetadata({ 
+      label: "New password:", 
+      protected: true 
+    })
+    .present("New password is needed"),
+  token: new UiValidator()
+    .field("text")
+    .ezMetadata({ hidden: true })
+}
 ```
 
 ## Field types
