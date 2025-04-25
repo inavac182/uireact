@@ -11,9 +11,10 @@ import styles from './ui-linear-chart.scss';
 
 export type UiLinearChartProps = {
   data: UiLinearChartData;
+  rounded?: boolean;
 } & UiReactElementProps;
 
-export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId, data }: UiLinearChartProps) => {
+export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, rounded, testId, data }: UiLinearChartProps) => {
   const [currentWidth, setCurrentWidth] = useState(0);
   const currentColorClass = getCategoryClass(data.current.color) || '';
   const limitColorClass = getCategoryClass(data.limit.color) || '';
@@ -27,6 +28,11 @@ export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, testId,
 
   if (!data.limit.color) {
     limitClasses = `${limitClasses} bg-primary-100`;
+  }
+
+  if (rounded) {
+    currentClasses = `${currentClasses} ${styles.rounded}`;
+    limitClasses = `${limitClasses} ${styles.rounded}`;
   }
 
   const currentStyles = useMemo(() => {
