@@ -47,8 +47,8 @@
     margin-top: -12px; /* Centers thumb on the track */
     background-color: transparent;
     border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     z-index: 10;
     position: relative;
     box-shadow: none;
@@ -58,8 +58,8 @@
     border: none; /*Removes extra border that FF applies*/
     border-radius: 50%;
     background-color: transparent;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     z-index: 10;
     position: relative;
     box-shadow: none;
@@ -170,6 +170,5 @@
   border-radius: 10px;
   top: 100%;
   z-index: 5;
-  transition: .1s left;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }

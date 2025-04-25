@@ -53,7 +53,7 @@ describe('<UiLinearChart />', () => {
       },
     };
 
-    uiRender(<UiLinearChart data={data} />);
+    uiRender(<UiLinearChart rounded data={data} />);
 
     expect(screen.getByText('Limit label')).toBeVisible();
     expect(screen.getByTestId('UiLinearChartLimitBlock')).toHaveClass('limit bg-primary-100');
