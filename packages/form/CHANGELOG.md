@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.7.1...@uireact/form@3.8.0) (2025-04-25)
+
+
+### Features
+
+* rounded chart ([#414](https://github.com/inavac182/ui-react/issues/414)) ([eb2d7a8](https://github.com/inavac182/ui-react/commit/eb2d7a8a3b6ce10c159e045b728506a583f42649))
+
+
+
+
+
 ## [3.7.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.7.0...@uireact/form@3.7.1) (2025-04-22)
 
 
