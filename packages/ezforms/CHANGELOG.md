@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.10.3...@uireact/ezforms@0.11.0) (2025-04-25)
+
+
+### Features
+
+* adding prefix to range input ([#415](https://github.com/inavac182/uireact/issues/415)) ([451677b](https://github.com/inavac182/uireact/commit/451677b23030391214e17673c898d07f86c17f4d))
+
+
+
+
+
 ## [0.10.3](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.10.2...@uireact/ezforms@0.10.3) (2025-04-25)
 
 **Note:** Version bump only for package @uireact/ezforms

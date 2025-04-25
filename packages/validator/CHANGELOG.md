@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.10.0 (2025-04-25)
+
+
+### Features
+
+* adding prefix to range input ([#415](https://github.com/inavac182/ui-react/issues/415)) ([451677b](https://github.com/inavac182/ui-react/commit/451677b23030391214e17673c898d07f86c17f4d))
+
+
+
+
+
 # 2.9.0 (2025-04-11)
 
 
