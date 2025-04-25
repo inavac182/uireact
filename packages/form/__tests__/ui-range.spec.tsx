@@ -16,6 +16,15 @@ describe('<Component />', () => {
     expect(screen.getByText('70')).toBeVisible();
   });
 
+  it('renders fine with prefix', () => {
+    uiRender(<UiRangeInput label="Input" name="MyInput" prefix='$' max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
+
+    expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
+    expect(screen.getByText('$50')).toBeVisible();
+    expect(screen.getByText('$100')).toBeVisible();
+    expect(screen.getByText('$70')).toBeVisible();
+  });
+
   it('renders fine without value', () => {
     //@ts-ignore
     uiRender(<UiRangeInput label="Input" name="MyInput" max={100} min={50} showRangeLabels onChange={jest.fn()} />);

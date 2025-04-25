@@ -91,6 +91,7 @@ export const EzFormField = ({
           max={rules.range.max}
           error={error}
           category={error ? 'error' : 'secondary'}
+          prefix={ezMetadata.prefix}
         />
       )
     }

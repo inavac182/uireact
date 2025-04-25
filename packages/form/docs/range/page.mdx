@@ -55,7 +55,7 @@ The category prop is used to select the desired coloration based on the theme.
 </div>
 ```
 
-## UiRangeInput with label on top and icon
+## UiRangeInput with label on top, icon and prefix
 
 The icon and labelOnTop prop adds styling to the slider so those elements can render propertly.
 
@@ -65,6 +65,7 @@ The icon and labelOnTop prop adds styling to the slider so those elements can re
     label="Select a value:"
     labelOnTop
     icon={<UiIcon icon="CreditCard" size="xlarge" />}
+    prefix="$"
     value={50}
     onChange={(value) => {
       console.log(value);

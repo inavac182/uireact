@@ -25,6 +25,8 @@ export type UiRangeInputProps = {
   ref?: React.Ref<HTMLInputElement>;
   /** Input field theme */
   category?: ColorCategory;
+  /** Prefix to display on value labels */
+  prefix?: string;
   /** Min value in range */
   min: number;
   /** Max value in range */
