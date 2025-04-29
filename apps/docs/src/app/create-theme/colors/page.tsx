@@ -93,6 +93,9 @@ export default function Colors () {
                                     <UiListItem>
                                         <UiText>Secondary color is used to separate content sections.</UiText>
                                     </UiListItem>
+                                    <UiListItem>
+                                        <UiText>In some use cases this is used to render an inverse coloration, for instance, if you are in dark coloration, the text color will be white-ish, but if your secondary color is lighter then you would render an inverse color font in this area.</UiText>
+                                    </UiListItem>
                                 </UiList>
                             </UiListItem>
                             <UiListItem>

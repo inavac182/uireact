@@ -1,13 +1,13 @@
+import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 import styled from "styled-components";
-import { useSearchParams } from "next/navigation";
 
-import { ColorCategories, ThemeColor } from "@uireact/foundation"
 import { UiFlexGrid } from "@uireact/flex";
+import { ColorCategories, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 
-import { ColorBoxPicker } from "./color-box-picker";
 import { isCompletedColoration } from "../utils";
+import { ColorBoxPicker } from "./color-box-picker";
 
 type ColorationsFormProps = {
     $coloration: ThemeColor;
@@ -60,6 +60,8 @@ export const ColorationsForm = ({ $coloration }: ColorationsFormProps) => {
                    <p>Colors should mainly be in the lighter end as is usually used during daylight or under sun light, so colors should be bright to help against reflections.</p>
                 </> 
             )}
+            <br />
+            <p>The secondary color has an inverse switch so you can see how it would look like with inverse font color if you go with an inverse color.</p>
             <br />
             <strong>Main colors</strong>
             <br />

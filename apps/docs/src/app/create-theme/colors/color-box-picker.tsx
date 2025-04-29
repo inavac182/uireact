@@ -10,6 +10,7 @@ import { ColorCategories, ColorTokens, ThemeColor } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
 import { UiMenu } from "@uireact/menu";
 
+import { UiSwitch } from "@uireact/form";
 import { MergeTokens, generateColorTokens, generateThemeStructure } from "../utils";
 import { getColorFromUrl, getTokensFromUrl } from "../utils/get-color-from-url";
 
@@ -56,11 +57,25 @@ const ColorBox = styled.div<{ $coloration: ThemeColor, color?: string }>`
     border-radius: 30px;
 `;
 
-const ColorText = styled.p<{ $coloration: ThemeColor }>`
+const ColorText = styled.p<{ $coloration: ThemeColor, $inverse: boolean }>`
     text-align: center;
     font-weight: bold;
 
-    color: ${(props) => props.$coloration === ThemeColor.dark ? '#ffffff' : '#000000'}
+    color: ${(props) => {
+        if (props.$coloration === ThemeColor.dark) {
+            if (props.$inverse) {
+                return baseLightColor;    
+            }
+
+            return baseDarkColor;
+        }
+
+        if (props.$inverse) {
+            return baseDarkColor;
+        }
+
+        return baseLightColor;
+    }}
 `;
 
 const ColorTokensBox = styled.div<{ $coloration: ThemeColor, $category?: ColorCategories }>`
@@ -91,6 +106,7 @@ const ColorToken = styled.div<{ $color: string }>`
 
 export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) => {
     const [colorPickerVisible, setColorPickerVisible] = useState(false);
+    const [inverse, setInverse] = useState(false);
     const pathname = usePathname()
     const searchParams = useSearchParams();
     const router = useRouter();
@@ -128,21 +144,28 @@ export const ColorBoxPicker = ({ category, $coloration }: ColorBoxPickerProps) =
         router.push(`${pathname}?theme=${encodedTheme}`, { scroll: false });
     }, [$coloration, category, pathname, router, searchParams]);
 
-    const textColor = category === 'secondary' ? $coloration === 'light' ? 'dark' : 'light' : $coloration === 'light' ? 'light' : 'dark';
-
     return (
         <ColorWrapper>
             <ColorBox $coloration={$coloration} color={color}>
                 <UiFlexGrid alignItems="center" justifyContent="space-between">
-                    <ColorText $coloration={$coloration}>{category}</ColorText>
+                    <ColorText $coloration={$coloration} $inverse={inverse}>{category}</ColorText>
                     <UiButton styling="icon" onClick={tooglePicker} category="tertiary">
                         <UiIcon icon="BarsProgress" />
                     </UiButton>
                 </UiFlexGrid>
+                <UiFlexGrid alignItems="center" justifyContent="space-between">
+                    {category === 'secondary' && (
+                        <UiSwitch 
+                        name={`coloration-${$coloration}-${category}-inverse`} 
+                        checked={inverse} 
+                        onChange={() => setInverse(!inverse)} 
+                        label="Inverse font color?"
+                    />)}
+                </UiFlexGrid>
                 <UiMenu visible={colorPickerVisible} closeMenuCB={tooglePicker}>
                     <SketchPicker onChangeComplete={setColorCB} color={color} />
                 </UiMenu>
-                <ColorText $coloration={$coloration}>{color ? color : ''}</ColorText>
+                <ColorText $coloration={$coloration} $inverse={inverse}>{color ? color : ''}</ColorText>
             </ColorBox>
             {tokens && tokens.token_100 !== '' && (
                 <>
