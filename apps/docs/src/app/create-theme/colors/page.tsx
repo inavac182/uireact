@@ -1,21 +1,21 @@
 'use client';
-import { Suspense, useCallback, useMemo } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useCallback, useMemo } from "react";
 
+import { UiButton } from "@uireact/button";
+import { UiCard } from "@uireact/card";
+import { UiExpandoText } from "@uireact/expando";
 import { UiFlexGrid } from "@uireact/flex";
-import { UiSpacingProps, UiSpacing, ThemeColor } from "@uireact/foundation";
+import { ThemeColor, UiSpacing, UiSpacingProps } from "@uireact/foundation";
 import { UiIcon } from "@uireact/icons";
+import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiButtonLink, UiText } from "@uireact/text";
-import { UiButton, UiPrimaryButton } from "@uireact/button";
-import { UiExpandoText } from "@uireact/expando";
-import { UiList, UiListItem } from "@uireact/list";
-import { UiCard } from "@uireact/card";
 
-import { ColorationsForm } from "./colorations-form";
-import { generateThemeStructure, isCompletedColoration } from "../utils";
 import { ContinueLink } from "../components";
+import { generateThemeStructure, isCompletedColoration } from "../utils";
+import { ColorationsForm } from "./colorations-form";
 
 import { Heading } from "@/app/internal";
 
@@ -91,14 +91,7 @@ export default function Colors () {
                                 <UiText fontStyle="bold" category="tertiary">Secondary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
-                                        <UiText>Secondary color is used to contrast content, so it should be capable of rendering the inverse theme coloration.</UiText>
-                                    </UiListItem>
-                                    <UiListItem>
-                                        <UiText>An example of this would be the <UiText inline fontStyle="bold">UiPrimaryButton</UiText>. The main color is the secondary color and the font is using the inverse font color:</UiText>
-                                        <UiPrimaryButton margin={{ block: 'four' }}>
-                                            <p>Example button</p>
-                                        </UiPrimaryButton>
-                                        <UiText>E.g. When light theme is enabled, secondary color from light theme is used and the font uses the color from the dark theme.</UiText>
+                                        <UiText>Secondary color is used to separate content sections.</UiText>
                                     </UiListItem>
                                 </UiList>
                             </UiListItem>
@@ -106,7 +99,7 @@ export default function Colors () {
                                 <UiText fontStyle="bold" category="tertiary">Tertiary</UiText>
                                 <UiList type="BULLETED">
                                     <UiListItem>
-                                        <UiText>This is usually your brand&apos;s color or like an accent color, used ONLY in the arounr 10% of your app.</UiText>
+                                        <UiText>This is usually your brand&apos;s color or like an accent color, used ONLY 10% of your app.</UiText>
                                     </UiListItem>
                                     <UiListItem>
                                         <UiText>It&apos;s commonly used to highlight icons, buttons, links, in some designs used to render headings with personality.</UiText>
