@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.10.0 (2025-05-08)
+
+
+### Features
+
+* adding text input to range slider ([#417](https://github.com/inavac182/ui-react/issues/417)) ([c70a121](https://github.com/inavac182/ui-react/commit/c70a12121dce2e74636aed5c303c26e2aeb8d21e))
+
+
+
+
+
 # [3.9.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.8.0...@uireact/form@3.9.0) (2025-04-25)
 
 
