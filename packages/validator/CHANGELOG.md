@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.10.0...@uireact/validator@2.11.0) (2025-05-08)
+
+
+### Features
+
+* adding labelled options to oneOf ([#416](https://github.com/inavac182/ui-react/issues/416)) ([1e2d3f8](https://github.com/inavac182/ui-react/commit/1e2d3f80d8427af84b58ac599dd0bc97484ed2cd))
+
+
+
+
+
 # 2.10.0 (2025-04-25)
 
 

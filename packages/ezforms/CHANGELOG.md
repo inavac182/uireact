@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.11.0...@uireact/ezforms@0.12.0) (2025-05-08)
+
+
+### Features
+
+* adding labelled options to oneOf ([#416](https://github.com/inavac182/uireact/issues/416)) ([1e2d3f8](https://github.com/inavac182/uireact/commit/1e2d3f80d8427af84b58ac599dd0bc97484ed2cd))
+
+
+
+
+
 # [0.11.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.10.3...@uireact/ezforms@0.11.0) (2025-04-25)
 
 
