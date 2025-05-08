@@ -1,7 +1,6 @@
-import { UiValidatorError } from './validator-result';
-import { UiValidatorRules } from '../ui-validator-rules';
-import { UiValidatorWhen } from '../ui-validator-when';
 import { UiValidatorField } from '../ui-validator-field';
+import { UiValidatorWhen } from '../ui-validator-when';
+import { UiValidatorError } from './validator-result';
 
 /** The value for each rule */
 export type UiValidatorExpectationRule<T> = {
@@ -27,10 +26,17 @@ export type UiValidatorEqualsToRule = {
   error: UiValidatorError;
 };
 
+export type UiValidatorChoicesLabeledValue = {
+  label: string;
+  value: string;
+}
+
+export type UiValidatorChoicesRuleOption = string | number | UiValidatorChoicesLabeledValue;
+
 /** Rule that holds a value to compare with a baseline */
 export type UiValidatorChoicesRule = {
   /** The expected value for this rule */
-  options: Array<string | number>;
+  options: Array<UiValidatorChoicesRuleOption>;
   /** The error message to provide in the response if this check doesn't pass */
   error: UiValidatorError;
 };

@@ -1,4 +1,4 @@
-import { UiValidatorFieldRules, UiValidatorFieldTypes, UiValidatorSecureLevel } from "./types";
+import { UiValidatorChoicesRuleOption, UiValidatorFieldRules, UiValidatorFieldTypes, UiValidatorSecureLevel } from "./types";
 
 export class UiValidatorRules {
   private rules:  UiValidatorFieldRules;
@@ -120,7 +120,7 @@ export class UiValidatorRules {
     return this;
   }
 
-  oneOf(options: Array<string | number>, errorMessage?: string) {
+  oneOf(options: Array<UiValidatorChoicesRuleOption>, errorMessage?: string) {
     this.rules.oneOf = {
       options,
       error: errorMessage
@@ -128,7 +128,7 @@ export class UiValidatorRules {
             message: errorMessage,
           }
         : {
-            message: `This is not valid, only possible values are: ${options.map(option => option)}`,
+            message: `This is not valid, only possible values are: ${options.map(option => typeof option === "object" ? option.label : option)}`,
           },
     };
 
