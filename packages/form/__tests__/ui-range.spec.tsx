@@ -72,6 +72,17 @@ describe('<Component />', () => {
     expect(screen.getByText('70')).toBeVisible();
   });
 
+  it('renders fine with text input', () => {
+    uiRender(<UiRangeInput icon={<UiIcon icon="Add" />} category='primary' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} showTextInput />);
+
+    expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
+    expect(screen.getByRole('textbox')).toBeVisible();
+    expect(screen.getByRole('textbox')).toHaveValue("70");
+    expect(screen.getByText('50')).toBeVisible();
+    expect(screen.getByText('100')).toBeVisible();
+    expect(screen.getByText('70')).toBeVisible();
+  });
+
   it('triggerd on change successfully when value is changed', () => {
     const onChangeSpy = jest.fn();
     uiRender(<UiRangeInput label="Input" name="MyInput" max={100} min={50} value={70} onChange={onChangeSpy} />);
