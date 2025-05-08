@@ -182,7 +182,12 @@ export const EzFormField = ({
       <UiSelect name={name} value={value} onChange={onSelectChangeWrapper} error={error} category={error ? 'error' : undefined} label={ezMetadata.label} labelOnTop>
         <option value=""></option>
         {
-          rules.oneOf.options.map((option, index) => <option key={`${name}-option-select-${index}`} value={option}>{option}</option>)
+          rules.oneOf.options.map((option, index) => {
+            const label = typeof option === 'object' ? option.label : option;
+            const value = typeof option === 'object' ? option.value : option;
+
+            return <option key={`${name}-option-select-${index}`} value={value}>{label}</option>
+          })
         }
       </UiSelect>
     );

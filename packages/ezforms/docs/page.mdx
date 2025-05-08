@@ -220,6 +220,37 @@ If you check the javascript console, once you submit the form you will see the d
 
 **IMPORTANT:** Only `text` fields are supported.
 
+#### Select with labeled Options
+
+The `oneOf` function in the schema accepts 3 types: `string` | `number` | `UiValidatorChoicesLabeledValue`. The latter is an object with 2 options `label` and `value`. So, if you want to render a select with the options value being different than the label then use this type.
+
+Very useful when you need the value to be some sort of id and the label to describe that id.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      username: new UiValidator().field("text").ezMetadata({ label: "Username:" }).present(),
+      favoriteColor: new UiValidator().field("choice").ezMetadata({ label: "Choose your favorit color:" }).oneOf([
+        {
+          value: 1,
+          label: 'blue'
+        },
+        {
+          value: 1,
+          label: 'green'
+        },
+        {
+          value: 1,
+          label: 'red'
+        }
+      ]),
+    }}
+    onSubmit={(e, data) => {e.preventDefault();console.log(data)}}
+    buttonsAlignment='stacked'
+    submitLabel='Submit color'
+  />
+```
+
 ## Decorators 
 
 These are used to inject React elements around the form and customize what and how we need to render an input. The decorator name will tell the position where that React component will be rendered.

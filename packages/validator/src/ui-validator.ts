@@ -1,25 +1,28 @@
-import { UiValidatorField } from './ui-validator-field';
+import { secureCheck } from './helper';
 import {
+  UiValidatorChoicesRuleOption,
   UiValidatorData,
   UiValidatorError,
   UiValidatorErrors,
   UiValidatorExpectationRule,
+  UiValidatorFieldRules,
+  UiValidatorFieldTypes,
   UiValidatorResult,
   UiValidatorSchema,
-  UiValidatorFieldTypes,
-  UiValidatorFieldRules,
-  UiValidatorWhenValidation,
-  UiValidatorSecureLevel
+  UiValidatorSecureLevel,
+  UiValidatorWhenValidation
 } from './types';
+import { UiValidatorField } from './ui-validator-field';
 import { UiValidatorRules } from './ui-validator-rules';
-import { secureCheck } from './helper';
 
 export class UiValidator {
-  private getComparableOption(option: string | number) {
+  private getComparableOption(option: UiValidatorChoicesRuleOption) {
     if (typeof option === 'string') {
       return option.toLowerCase();
-    } else {
+    } else if (typeof option === 'number') {
       return option;
+    } else {
+      return option.value;
     }
   }
 
@@ -228,7 +231,7 @@ export class UiValidator {
     return false;
   }
 
-  private validOption(options: Array<string | number>, value: unknown): boolean {
+  private validOption(options: Array<UiValidatorChoicesRuleOption>, value: unknown): boolean {
     let comparableValue: string | number | null = null;
 
     if (typeof value === 'string') {
@@ -239,7 +242,7 @@ export class UiValidator {
       comparableValue = value;
     }
 
-    return options.filter(option => this.getComparableOption(option) === comparableValue).length > 0;
+    return options.filter(option => comparableValue && this.getComparableOption(option).toString() === comparableValue.toString()).length > 0;
   }
 
   private validSchema(schema: UiValidatorSchema, data: UiValidatorData): boolean {

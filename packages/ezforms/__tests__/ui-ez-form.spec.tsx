@@ -407,6 +407,40 @@ describe('<UiEzForm />', () => {
     expect(screen.queryByRole('combobox')).not.toBeInTheDocument();
   });
 
+  it('Should retrieve correct choice selected when using labeled options', () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      colors: validator.field('choice').ezMetadata({ label: 'Favorite colors' }).oneOf([
+        {
+          value: '1',
+          label: 'red'
+        },
+        {
+          value: '2',
+          label: 'green'
+        }
+      ])
+    }
+
+    uiRender(<UiEzForm schema={schema} onSubmit={onSubmit} submitLabel='Submit' />);
+
+    const select = screen.getByRole('combobox', { name: 'Favorite colors' });
+
+    expect(select).toBeVisible();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.getByText('This is not valid, only possible values are: red,green')).toBeVisible();
+
+    fireEvent.change(select, { target: { value: '1' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  })
+
   it('Should render errors on datepicker input', async () => {
     const onSubmit = jest.fn().mockImplementation((e) => {
       e.preventDefault();

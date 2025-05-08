@@ -1,6 +1,7 @@
 'use client';
-import styled from "styled-components";
 import { MotionProps, motion } from "motion/react";
+import Link from "next/link";
+import styled from "styled-components";
 
 import { UiCard } from "@uireact/card";
 import { UiFlexGrid } from "@uireact/flex";
@@ -9,9 +10,9 @@ import { UiIcon } from "@uireact/icons";
 import { UiList, UiListItem } from "@uireact/list";
 import { UiLineSeparator } from "@uireact/separator";
 import { UiLink, UiText } from "@uireact/text";
+
 import { ContinueLink } from "./components";
 import { generateThemeStructure } from "./utils";
-import Link from "next/link";
 
 const headingSpacing: UiSpacingProps['padding'] = { block: 'five' };
 const listSpacing: UiSpacingProps['padding'] = {inline: 'five'};
