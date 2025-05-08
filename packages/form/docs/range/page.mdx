@@ -73,6 +73,25 @@ The icon and labelOnTop prop adds styling to the slider so those elements can re
   />
 ```
 
+## UiRangeInput with text input
+
+Sometimes in mobile devices is hard to move accurately the slider when the values are too separated. So, a text input could help improve the experience.
+
+```jsx live scope={{UiRangeInput, UiIcon}}
+  <UiRangeInput min="0" max="100"
+    showRangeLabels
+    label="Select a value:"
+    labelOnTop
+    icon={<UiIcon icon="CreditCard" size="xlarge" />}
+    prefix="$"
+    value={50}
+    showTextInput
+    onChange={(value) => {
+      console.log(value);
+    }}
+  />
+```
+
 ## UiRangeInput with steps
 
 The step prop tells each clickable step value for the range.

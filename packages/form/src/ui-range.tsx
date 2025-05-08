@@ -7,6 +7,7 @@ import { UiRangeInputProps } from './types';
 import styles from './ui-range.scss';
 import inputStyles from './ui-input.scss';
 import { getRangePosition } from './__private';
+import { UiInput } from './ui-input';
 
 const defaultPadding: SpacingDistribution = { block: 'one', inline: 'one' };
 
@@ -30,6 +31,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   step,
   required,
   prefix,
+  showTextInput,
   ...props
 }: UiRangeInputProps) => {
   const [innerValue, setInnerValue] = useState<number>(value || min);
@@ -102,6 +104,13 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
                 />
               </div>
               {showRangeLabels && <p>{maxLabel}</p>}
+              {showTextInput && <UiInput 
+                value={innerValue.toString()} 
+                category={category}
+                className={styles.rangeTextInput} 
+                onChange={internalOnChange} 
+                />
+              }
           </div>
         </div>
         {error && <UiText category={category}>{error}</UiText>}

@@ -43,4 +43,6 @@ export type UiRangeInputProps = {
   required?: boolean;
   /** The ticks information to render in the range */
   ticks?: UiRangeInputTick[];
+  /** If a text input should be rendered next to the range to type in the value */
+  showTextInput?: boolean;
 } & UiReactElementProps & AriaAttributes;
