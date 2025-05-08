@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.36](https://github.com/inavac182/ui-react/compare/@uireact/table@2.1.35...@uireact/table@2.1.36) (2025-05-08)
+
+**Note:** Version bump only for package @uireact/table
+
+
+
+
+
 ## 2.1.35 (2025-05-08)
 
 **Note:** Version bump only for package @uireact/table
