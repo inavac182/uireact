@@ -34,7 +34,7 @@ export const UiSwitch: React.FC<UiSwitchProps> = ({
       <label htmlFor={name} className={styles.switchLabel} tabIndex={0}>
         <>
           {labelPosition === 'start' && <span>{label}</span>}
-          <span className={`${styles.checkboxPillWrapper} ${checked ? `bg-${category}-100` : 'bg-fonts-100'}`} >
+          <span className={`${styles.checkboxPillWrapper} ${checked ? `bg-${category}-100` : 'bg-primary-100'} border-primary-200`} >
             <span className={`${styles.checkboxPillDot}  ${checked ? styles.checkedDot : ''}`} />
           </span>
           {labelPosition === 'end' && <span>{label}</span>}

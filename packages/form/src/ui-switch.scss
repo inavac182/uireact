@@ -23,6 +23,8 @@
     border-radius: 50px;
     position: relative;
     transition: background-color 0.2s;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .checkboxPillDot {
@@ -35,7 +37,7 @@
     border-radius: 20px;
     transition: 0.2s;
     box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
-    background-color: var(--inverse-fonts-token_100);
+    background-color: var(--inverse-primary-token_100);
 }
 
 .checkedDot {
