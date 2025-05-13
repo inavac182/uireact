@@ -159,7 +159,7 @@ describe('<UiEzForm />', () => {
     expect(screen.getByText('Select investment')).toBeVisible();
 
     const slider = screen.getByRole('slider');
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 80 } });
+    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: 80 } });
 
     expect(slider).toHaveValue("80");
 
