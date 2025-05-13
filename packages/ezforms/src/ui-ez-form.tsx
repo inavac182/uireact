@@ -90,7 +90,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     onChange?.(newData);
   }, [data, onChange]);
 
-  const onNumericInputChange = useCallback((value: number, name: string) => {
+  const onNumericInputChange = useCallback((name: string, value: number) => {
     const newData = { ...data, [name]: value };
     setErrors({});
     setData(newData);

@@ -74,8 +74,8 @@ describe('<Component />', () => {
 
   it('renders fine with text input', () => {
     const onChangeSpy = jest.fn();
-    const Component = ({ onChangeSpy }: { onChangeSpy: (value: number, name: string) => void }) => {
-      const [value, setValue] = useState(70);
+    const Component = ({ onChangeSpy }: { onChangeSpy: (name: string, value: number) => void }) => {
+      const [value, setValue] = useState<number>(70);
 
       return (
         <UiRangeInput 
@@ -88,7 +88,7 @@ describe('<Component />', () => {
           min={50} 
           value={value} 
           showRangeLabels 
-          onChange={(value, name) => { setValue(value); onChangeSpy(value, name); }} 
+          onChange={(name, value) => { setValue(value); onChangeSpy(name, value); }} 
           showTextInput
         />
       )
@@ -97,20 +97,61 @@ describe('<Component />', () => {
     uiRender(<Component onChangeSpy={onChangeSpy}  />);
 
     expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toBeVisible();
-    expect(screen.getByRole('textbox')).toBeVisible();
-    expect(screen.getByRole('textbox')).toHaveValue("70");
+    expect(screen.getByRole('spinbutton')).toBeVisible();
+    expect(screen.getByRole('spinbutton')).toHaveValue(70);
 
     expect(screen.getByText('50')).toBeVisible();
     expect(screen.getByText('100')).toBeVisible();
     expect(screen.getByText('70')).toBeVisible();
 
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 90 } });
+    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: 90 } });
 
-    expect(screen.getByRole('textbox')).toHaveValue("90");
+    expect(screen.getByRole('spinbutton')).toHaveValue(90);
     expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toHaveValue("90");
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
-    expect(onChangeSpy).toHaveBeenCalledWith(90, "MyInput");
+    expect(onChangeSpy).toHaveBeenCalledWith("MyInput", 90);
+  });
+
+    it('gets correct inner and real value when text input is cleaned up', () => {
+    const onChangeSpy = jest.fn();
+    const Component = ({ onChangeSpy }: { onChangeSpy: (name: string, value: number) => void }) => {
+      const [value, setValue] = useState<number>(70);
+
+      return (
+        <UiRangeInput 
+          icon={<UiIcon icon="Add" />} 
+          category='primary' 
+          label="MyRangeInput" 
+          labelOnTop 
+          name="MyInput" 
+          max={100} 
+          min={50} 
+          value={value} 
+          showRangeLabels 
+          onChange={(name, value) => { setValue(value); onChangeSpy(name, value); }} 
+          showTextInput
+        />
+      )
+    }
+
+    uiRender(<Component onChangeSpy={onChangeSpy}  />);
+
+    expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toBeVisible();
+    expect(screen.getByRole('spinbutton')).toBeVisible();
+    expect(screen.getByRole('spinbutton')).toHaveValue(70);
+
+    expect(screen.getByText('50')).toBeVisible();
+    expect(screen.getByText('100')).toBeVisible();
+    expect(screen.getByText('70')).toBeVisible();
+
+    fireEvent.change(screen.getByRole('spinbutton'), { target: { value: "" } });
+
+    expect(screen.getByRole('spinbutton')).toHaveValue(0);
+    expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toHaveValue("50");
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
+    expect(onChangeSpy).toHaveBeenCalledWith("MyInput", 0);
   });
 
   it('triggerd on change successfully when value is changed', () => {
@@ -122,7 +163,7 @@ describe('<Component />', () => {
     fireEvent.change(screen.getByRole('slider'), { target: { value: 80 } });
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
-    expect(onChangeSpy).toHaveBeenCalledWith(80, "MyInput");
+    expect(onChangeSpy).toHaveBeenCalledWith("MyInput", 80);
   });
 
   it('renders fine with label, step and value is selectable', () => {
