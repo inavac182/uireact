@@ -35,6 +35,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   ...props
 }: UiRangeInputProps) => {
   const [innerValue, setInnerValue] = useState<number>(value || min);
+  const [visibleValue, setVisibleValue] = useState<number>(value || min);
   const [position, setPosition] = useState(0);
   const paddingClass = getSpacingClass('padding', padding);
   const alignment = labelOnTop ? "Start" : showRangeLabels ? "End" : "Center";
@@ -43,7 +44,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   const valueLabel = prefix ? `${prefix}${innerValue}` : innerValue;
 
   const internalOnChange = useCallback((value: FormEvent<HTMLInputElement>) => {
-    onChange(parseInt(value.currentTarget.value), name);
+    onChange(name, parseInt(value.currentTarget.value || "0"));
   }, [onChange, name]);
 
   useEffect(() => {
@@ -51,20 +52,24 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   }, [min, max, value, step]);
 
   useEffect(() => {
-    const cleanedValue = value || min;
-
-    if (step) {
-      const baseValue = cleanedValue - min;
+    if (!value) {
+      setVisibleValue(0);
+      setInnerValue(min);
+    } else if (step) {
+      const baseValue = value - min;
       const isSelectable = (baseValue % step) === 0;
 
       if (isSelectable) {
-        setInnerValue(cleanedValue);
+        setInnerValue(value);
+        setVisibleValue(value);
       } else {
-        const nextSelectable = cleanedValue + (baseValue % step);
+        const nextSelectable = value + (baseValue % step);
         setInnerValue(nextSelectable);
+        setVisibleValue(nextSelectable);
       }
     } else {
-      setInnerValue(cleanedValue);
+      setInnerValue(value);
+      setVisibleValue(value);
     }
   }, [value, step, min]);
 
@@ -105,9 +110,10 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
               </div>
               {showRangeLabels && <p>{maxLabel}</p>}
               {showTextInput && <UiInput 
-                value={innerValue.toString()} 
+                value={visibleValue.toString()} 
                 name={`text-input-for-${name}`}
                 category={category}
+                type='number'
                 className={styles.rangeTextInput} 
                 onChange={internalOnChange} 
                 />

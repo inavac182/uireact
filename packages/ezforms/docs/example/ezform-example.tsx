@@ -44,7 +44,7 @@ const schema = {
     .field('numeric')
     .present("Please select a value")
     .ezMetadata({ label: 'How much would you like to invest?', prefix: '$', rangeWithTextInput: true })
-    .range(0, 100, "Only values between $0 and $100 are valid."),
+    .range(1, 100, "Only values between $1 and $100 are valid."),
   terms: validator
     .field('boolean')
     .ezMetadata({ label: 'Accept terms and conditions' })

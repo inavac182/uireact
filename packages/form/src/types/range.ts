@@ -20,7 +20,7 @@ export type UiRangeInputProps = {
   /** Label on top of field */
   labelOnTop?: boolean;
   /** CB for when value in input changes */
-  onChange: (value: number, name: string) => void;
+  onChange: (name: string, value: number) => void;
   /* React ref */
   ref?: React.Ref<HTMLInputElement>;
   /** Input field theme */
