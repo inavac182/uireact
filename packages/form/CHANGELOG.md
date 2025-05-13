@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.11.0 (2025-05-13)
+
+
+### Features
+
+* **ezforms:** text input inside range input ([#419](https://github.com/inavac182/ui-react/issues/419)) ([6947172](https://github.com/inavac182/ui-react/commit/6947172c176fca973a952737c99a9d6d7257af26))
+
+
+
+
+
 ## [3.10.2](https://github.com/inavac182/ui-react/compare/@uireact/form@3.10.1...@uireact/form@3.10.2) (2025-05-08)
 
 **Note:** Version bump only for package @uireact/form
