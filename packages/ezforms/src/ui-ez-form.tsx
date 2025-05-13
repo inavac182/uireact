@@ -90,6 +90,15 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     onChange?.(newData);
   }, [data, onChange]);
 
+  const onNumericInputChange = useCallback((value: number, name: string) => {
+    const newData = { ...data, [name]: value };
+    setErrors({});
+    setData(newData);
+
+    // istanbul ignore next
+    onChange?.(newData);
+  }, [data, onChange]);
+
   const onBooleanToogle = useCallback((value: Boolean, name: string) => {
     const newData = { ...data, [name]: value };
     setErrors({});
@@ -126,6 +135,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             onTextAreaChange={onTextAreaChange}
             onDateInputChange={onStringChange}
             onBooleanToogle={onBooleanToogle}
+            onNumericInputChange={onNumericInputChange}
             onSelectInputChange={onStringChange}
             onDigitsInputChange={onStringChange}
             useBrowserValidation={useBrowserValidation}

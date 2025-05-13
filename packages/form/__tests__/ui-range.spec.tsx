@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { screen, fireEvent } from '@testing-library/react';
 
@@ -73,14 +73,44 @@ describe('<Component />', () => {
   });
 
   it('renders fine with text input', () => {
-    uiRender(<UiRangeInput icon={<UiIcon icon="Add" />} category='primary' label="Input" labelOnTop name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} showTextInput />);
+    const onChangeSpy = jest.fn();
+    const Component = ({ onChangeSpy }: { onChangeSpy: (value: number, name: string) => void }) => {
+      const [value, setValue] = useState(70);
 
-    expect(screen.getByRole('slider', { name: 'Input' })).toBeVisible();
+      return (
+        <UiRangeInput 
+          icon={<UiIcon icon="Add" />} 
+          category='primary' 
+          label="MyRangeInput" 
+          labelOnTop 
+          name="MyInput" 
+          max={100} 
+          min={50} 
+          value={value} 
+          showRangeLabels 
+          onChange={(value, name) => { setValue(value); onChangeSpy(value, name); }} 
+          showTextInput
+        />
+      )
+    }
+
+    uiRender(<Component onChangeSpy={onChangeSpy}  />);
+
+    expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toBeVisible();
     expect(screen.getByRole('textbox')).toBeVisible();
     expect(screen.getByRole('textbox')).toHaveValue("70");
+
     expect(screen.getByText('50')).toBeVisible();
     expect(screen.getByText('100')).toBeVisible();
     expect(screen.getByText('70')).toBeVisible();
+
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 90 } });
+
+    expect(screen.getByRole('textbox')).toHaveValue("90");
+    expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toHaveValue("90");
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
+    expect(onChangeSpy).toHaveBeenCalledWith(90, "MyInput");
   });
 
   it('triggerd on change successfully when value is changed', () => {
@@ -92,6 +122,7 @@ describe('<Component />', () => {
     fireEvent.change(screen.getByRole('slider'), { target: { value: 80 } });
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
+    expect(onChangeSpy).toHaveBeenCalledWith(80, "MyInput");
   });
 
   it('renders fine with label, step and value is selectable', () => {

@@ -125,6 +125,8 @@ export type UiValidatorFieldMetadata = {
   hidden?: boolean;
   /** Tells EzForms to display a prefix on a range input */
   prefix?: string;
+  /** Tells EzForms to use the range input with a text input */
+  rangeWithTextInput?: boolean;
 }
 
 /** Set of possible rules for each field */

@@ -43,8 +43,8 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   const valueLabel = prefix ? `${prefix}${innerValue}` : innerValue;
 
   const internalOnChange = useCallback((value: FormEvent<HTMLInputElement>) => {
-    onChange(value);
-  }, [onChange]);
+    onChange(parseInt(value.currentTarget.value), name);
+  }, [onChange, name]);
 
   useEffect(() => {
     setPosition(getRangePosition(min, max, value, step));
@@ -106,6 +106,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
               {showRangeLabels && <p>{maxLabel}</p>}
               {showTextInput && <UiInput 
                 value={innerValue.toString()} 
+                name={`text-input-for-${name}`}
                 category={category}
                 className={styles.rangeTextInput} 
                 onChange={internalOnChange} 

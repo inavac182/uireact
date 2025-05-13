@@ -6,8 +6,8 @@ import { UiRangeInput } from '@uireact/form';
 export const RangeExample = () => {
   const [value, setValue] = useState(50);
 
-  const onChange = useCallback((event: FormEvent<HTMLInputElement>) => {
-    setValue(parseInt(event.currentTarget.value));
+  const onChange = useCallback((value: number) => {
+    setValue(value);
   }, []);
 
   return (
@@ -21,8 +21,8 @@ export const RangeExample = () => {
 export const RangeNotSelectableExample = () => {
   const [value, setValue] = useState(80);
 
-  const onChange = useCallback((event: FormEvent<HTMLInputElement>) => {
-    setValue(parseInt(event.currentTarget.value));
+  const onChange = useCallback((value: number) => {
+    setValue(value);
   }, []);
 
   return (
