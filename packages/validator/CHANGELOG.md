@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.12.0...@uireact/validator@2.13.0) (2025-05-13)
+
+
+### Features
+
+* **ezforms:** text input inside range input ([#419](https://github.com/inavac182/ui-react/issues/419)) ([6947172](https://github.com/inavac182/ui-react/commit/6947172c176fca973a952737c99a9d6d7257af26))
+
+
+
+
+
 # 2.12.0 (2025-05-13)
 
 
