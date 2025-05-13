@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.11.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.11.0...@uireact/form@3.11.1) (2025-05-13)
+
+
+### Bug Fixes
+
+* min value range w text input ([#420](https://github.com/inavac182/ui-react/issues/420)) ([cfbca78](https://github.com/inavac182/ui-react/commit/cfbca7881b2042fdcc9f25e4c3b3e826ec068633))
+
+
+
+
+
 # 3.11.0 (2025-05-13)
 
 
