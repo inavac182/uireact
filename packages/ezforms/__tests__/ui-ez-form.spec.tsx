@@ -138,6 +138,38 @@ describe('<UiEzForm />', () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
+  it('Should update data correctly when using text input in range input', () => {
+    const onSubmit = jest.fn().mockImplementation((e) => {
+      e.preventDefault();
+    });
+
+    const schema = {
+      invest: validator
+        .field('numeric')
+        .range(0, 100)
+        .ezMetadata({ label: 'Investment', rangeWithTextInput: true })
+        .present("Select investment")
+    }
+
+    uiRender(<UiEzForm schema={schema} submitLabel='Submit' onSubmit={onSubmit} />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    expect(screen.getByText('Select investment')).toBeVisible();
+
+    const slider = screen.getByRole('slider');
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 80 } });
+
+    expect(slider).toHaveValue("80");
+
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+    expect(screen.queryByText('Select investment')).not.toBeInTheDocument();
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
   it('Should render errors on submit when there conditional errors', () => {
     const onSubmit = jest.fn().mockImplementation((e) => {
       e.preventDefault();

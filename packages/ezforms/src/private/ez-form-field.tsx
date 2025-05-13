@@ -16,6 +16,7 @@ type EzFormFieldProps = {
   onTextInputChange: (e: FormEvent<HTMLInputElement>) => void;
   onTextAreaChange: (e: FormEvent<HTMLTextAreaElement>) => void;
   onSelectInputChange: (value: string, name: string) => void;
+  onNumericInputChange: (value: number, name: string) => void;
   onDateInputChange: (date: string, name: string) => void;
   onBooleanToogle: (value: boolean, name: string) => void;
   onDigitsInputChange: (value: string, name: string) => void;
@@ -28,6 +29,7 @@ export const EzFormField = ({
   value, 
   useBrowserValidation, 
   onTextInputChange,
+  onNumericInputChange,
   onTextAreaChange,
   onDateInputChange,
   onBooleanToogle,
@@ -86,12 +88,13 @@ export const EzFormField = ({
           showRangeLabels
           name={name} 
           value={value} 
-          onChange={onTextInputChange} 
+          onChange={onNumericInputChange} 
           min={rules.range.min}
           max={rules.range.max}
           error={error}
           category={error ? 'error' : 'secondary'}
           prefix={ezMetadata.prefix}
+          showTextInput={ezMetadata.rangeWithTextInput}
         />
       )
     }

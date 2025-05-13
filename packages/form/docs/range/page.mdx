@@ -20,7 +20,7 @@ import { RangeExample, RangeNotSelectableExample } from './example';
 
 This renders an input type "range" and wraps it with the library styling so it looks and feels consistently across browsers. 
 
-This is a controlled component which means you have to handle the value and provide a `onChange` callback.
+This is a controlled component which means you have to handle the value and provide an `onChange` callback. The `onChange` callback will receive 2 properties: 1 the value as a number type, 2 the name of the given range field.
 
 ```jsx live scope={{RangeExample}}
   <RangeExample />
