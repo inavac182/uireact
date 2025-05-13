@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.12.0 (2025-05-13)
+
+
+### Features
+
+* export labelled option  type ([821bf5e](https://github.com/inavac182/ui-react/commit/821bf5e747380ed307b4d7dda825b48900ea89eb))
+
+
+
+
+
 # [2.11.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.10.0...@uireact/validator@2.11.0) (2025-05-08)
 
 
