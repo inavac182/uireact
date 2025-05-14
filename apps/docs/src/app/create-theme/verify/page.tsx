@@ -98,7 +98,7 @@ html.light, .light {
 
 /**
  * Come back to this theme generator at: https://uireact.io/create-theme/verify?theme=${themeUrl}
- * /
+ */
     `;
     }, [theme, searchParams]);
 

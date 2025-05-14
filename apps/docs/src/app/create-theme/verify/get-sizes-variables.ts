@@ -14,7 +14,7 @@ export const getSizesVariables = (theme: Theme): string => {
         const size = theme.sizes.headings[headingSize as HeadingLevel];
 
         variables = `${variables}
-    --texts-${headingSize}: ${size};`;
+    --headings-${headingSize}: ${size};`;
     });
 
     return variables;
