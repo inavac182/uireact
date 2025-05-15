@@ -20,7 +20,7 @@ const toBeEncrypted = "Whatever-I-want-encrypted";
 const code = "1234";
 
 const encrypted = UiAESEncrypter(toBeEncrypted, code);
-// Whatever-I-want-encrypted
+// U2FsdGVkX1/x4zehLGF+up3a+Ig9i3pOPwgrgzunTDQq/XmJhTOQzdFXakRbc5k3
 
 const decrypted = UiAESDecrypter(encrypted, code);
 // Whatever-I-want-encrypted
