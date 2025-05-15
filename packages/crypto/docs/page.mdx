@@ -1,0 +1,24 @@
+import { UiText } from '@uireact/text';
+import { UiAESDecrypt, UiAESEncrypt } from '@uireact/crypto';
+
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+
+# @uireact/crypto
+
+<Metadata packageName='crypto' packageJson={packageJson} includeInformation description='Functions to do AES encryption and decryption of a given string. The functions require a secret to successfully encrypt and decrypt the phrase.' />
+
+<br />
+
+## Usage
+
+`UiAESEncrypt` -> encrypts
+`UiAESDecrypt` -> decrypts
+
+```jsx live scope={{UiAESEncrypt, UiAESDecrypt, UiText}}
+  <>
+    <UiText>{UiAESEncrypt("Whatever-I-want-encrypted", "1234")}</UiText>
+    <hr />
+    <UiText>{UiAESDecrypt("U2FsdGVkX195Rf8jq7T4jLAlnek5jMuybgvn05AsJJbsfiea/WDwnDKyj0nOlfV3", "1234")}</UiText>
+  </>
+```

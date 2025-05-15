@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mdx"
+  ],
+  "exclude": [
+    "coverage",
+    "node_modules",
+    "dist",
+    "__tests__",
+    "docs",
+    "jest.config.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "types": [
+      "node"
+    ]
+  },
+}
