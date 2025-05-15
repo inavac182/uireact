@@ -25,6 +25,7 @@
     "@uireact/charts": "workspace:*",
     "@uireact/confirm-dialog": "workspace:*",
     "@uireact/create-next-app": "workspace:*",
+    "@uireact/crypto": "workspace:*",
     "@uireact/datepicker": "workspace:*",
     "@uireact/dialog": "workspace:*",
     "@uireact/docs-tools": "workspace:*",
