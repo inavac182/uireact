@@ -3,7 +3,7 @@
   "description": "UiEncrypter for AES encryptions",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "access": "public"
   },
