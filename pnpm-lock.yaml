@@ -246,6 +246,9 @@ importers:
       '@uireact/create-next-app':
         specifier: workspace:*
         version: link:../../executables/create-next-app
+      '@uireact/crypto':
+        specifier: workspace:*
+        version: link:../../packages/crypto
       '@uireact/datepicker':
         specifier: workspace:*
         version: link:../../packages/datepicker
