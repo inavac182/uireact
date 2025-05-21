@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.13.4...@uireact/ezforms@0.14.0) (2025-05-21)
+
+
+### Features
+
+* **form:** range to render text input underneath ([#423](https://github.com/inavac182/uireact/issues/423)) ([b3e01c7](https://github.com/inavac182/uireact/commit/b3e01c7b1d6081602b790dd2602b4ceb3191da6f))
+
+
+
+
+
 ## [0.13.4](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.13.3...@uireact/ezforms@0.13.4) (2025-05-21)
 
 **Note:** Version bump only for package @uireact/ezforms

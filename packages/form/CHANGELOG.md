@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/inavac182/ui-react/compare/@uireact/form@3.12.1...@uireact/form@3.13.0) (2025-05-21)
+
+
+### Features
+
+* **form:** range to render text input underneath ([#423](https://github.com/inavac182/ui-react/issues/423)) ([b3e01c7](https://github.com/inavac182/ui-react/commit/b3e01c7b1d6081602b790dd2602b4ceb3191da6f))
+
+
+
+
+
 ## [3.12.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.12.0...@uireact/form@3.12.1) (2025-05-21)
 
 **Note:** Version bump only for package @uireact/form
