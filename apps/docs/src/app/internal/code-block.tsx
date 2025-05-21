@@ -30,7 +30,7 @@ const LiveEditorStyled = styled(LiveEditor)`
 
 const LiveProviderWrapper = styled.div`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -76,7 +76,7 @@ export default function CodeBlock({ children, className, live, scope, language }
   }
 
   return (
-    <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines>
+    <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines codeTagProps={{ style: {whiteSpace: 'break-spaces'} }}>
       {code}
     </SyntaxHighlighter>
   )
