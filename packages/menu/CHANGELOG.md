@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.4.0 (2025-05-21)
+
+
+### Features
+
+* **menu:** bg token ([bb0d43f](https://github.com/inavac182/ui-react/commit/bb0d43fba66b3adac15a5057ad5e6dc53bd27bba))
+
+
+
+
+
 ## [3.3.22](https://github.com/inavac182/ui-react/compare/@uireact/menu@3.3.21...@uireact/menu@3.3.22) (2025-04-14)
 
 **Note:** Version bump only for package @uireact/menu
