@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { UiText, UiLabel } from '@uireact/text';
-import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
+import { SpacingDistribution, getSpacingClass, useViewport } from '@uireact/foundation';
 
 import { UiRangeInputProps } from './types';
 import styles from './ui-range.scss';
@@ -34,6 +34,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   showTextInput,
   ...props
 }: UiRangeInputProps) => {
+  const { isSmall } = useViewport();
   const [innerValue, setInnerValue] = useState<number>(value || min);
   const [visibleValue, setVisibleValue] = useState<number>(value || min);
   const [position, setPosition] = useState(0);
@@ -109,7 +110,7 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
                 />
               </div>
               {showRangeLabels && <p>{maxLabel}</p>}
-              {showTextInput && <UiInput 
+              {showTextInput && !isSmall && <UiInput 
                 value={visibleValue.toString()} 
                 name={`text-input-for-${name}`}
                 category={category}
@@ -119,6 +120,15 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
                 />
               }
           </div>
+          {showTextInput && isSmall && <UiInput 
+              value={visibleValue.toString()} 
+              name={`text-input-for-${name}`}
+              category={category}
+              type='number'
+              className={styles.rangeTextInput} 
+              onChange={internalOnChange} 
+              />
+            }
         </div>
         {error && <UiText category={category}>{error}</UiText>}
       </div>

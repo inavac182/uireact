@@ -175,4 +175,9 @@
 
 .rangeTextInput {
   max-width: 100px;
+
+  @media screen and (max-width: 580px) {
+    margin-top: var(--spacing-three);
+    max-width: 100%;
+  }
 }

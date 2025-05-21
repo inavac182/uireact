@@ -5,8 +5,13 @@ import { screen, fireEvent } from '@testing-library/react';
 import { uiRender } from '../../../__tests__/utils/render';
 import { UiRangeInput } from '../src';
 import { UiIcon } from '@uireact/icons';
+import { BreakpointsSizes } from '@uireact/foundation/src/responsive/breakpoints-sizes';
 
 describe('<Component />', () => {
+  beforeEach(() => {
+    global.innerWidth = BreakpointsSizes.l.min;
+  });
+
   it('renders fine with label', () => {
     uiRender(<UiRangeInput label="Input" name="MyInput" max={100} min={50} value={70} showRangeLabels onChange={jest.fn()} />);
 
@@ -113,7 +118,37 @@ describe('<Component />', () => {
     expect(onChangeSpy).toHaveBeenCalledWith("MyInput", 90);
   });
 
-    it('gets correct inner and real value when text input is cleaned up', () => {
+  it('renders fine with text input on small', () => {
+    global.innerWidth = BreakpointsSizes.s.max;
+    const onChangeSpy = jest.fn();
+    const Component = ({ onChangeSpy }: { onChangeSpy: (name: string, value: number) => void }) => {
+      const [value, setValue] = useState<number>(70);
+
+      return (
+        <UiRangeInput 
+          icon={<UiIcon icon="Add" />} 
+          category='primary' 
+          label="MyRangeInput" 
+          labelOnTop 
+          name="MyInput" 
+          max={100} 
+          min={50} 
+          value={value} 
+          showRangeLabels 
+          onChange={(name, value) => { setValue(value); onChangeSpy(name, value); }} 
+          showTextInput
+        />
+      )
+    }
+
+    uiRender(<Component onChangeSpy={onChangeSpy}  />);
+
+    expect(screen.getByRole('slider', { name: 'MyRangeInput' })).toBeVisible();
+    expect(screen.getByRole('spinbutton')).toBeVisible();
+    expect(screen.getByRole('spinbutton')).toHaveValue(70);
+  });
+
+  it('gets correct inner and real value when text input is cleaned up', () => {
     const onChangeSpy = jest.fn();
     const Component = ({ onChangeSpy }: { onChangeSpy: (name: string, value: number) => void }) => {
       const [value, setValue] = useState<number>(70);
