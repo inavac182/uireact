@@ -34,7 +34,6 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
   showTextInput,
   ...props
 }: UiRangeInputProps) => {
-  const { isSmall } = useViewport();
   const [innerValue, setInnerValue] = useState<number>(value || min);
   const [visibleValue, setVisibleValue] = useState<number>(value || min);
   const [position, setPosition] = useState(0);
@@ -85,53 +84,45 @@ export const UiRangeInput: React.FC<UiRangeInputProps> = ({
           </UiLabel>
       )}
       <div className={inputStyles.inputDiv}>
-        <div className={inputStyles.inputContentDiv}>
-          {icon && <div className={inputStyles.inputIconContainer} aria-hidden>{icon}</div>}
-          <div className={`${styles.inputContainer} ${icon ? styles.inputIcon : ''} ${paddingClass}`}>
-            {showRangeLabels && <p>{minLabel}</p>}
-              <div className={styles.rangeContainer}>
-                <div className={styles.selectedValueLabelContainer}>
-                  <p className={styles.selectedValueLabel} style={{ left: `${position}%`, transform: `translateX(-${position}%)` }}>{valueLabel}</p>
-                </div>
-                <input
-                  disabled={disabled}
-                  className={`${className} ${category ? styles[category] : "tertiary"} ${styles.uiRangeInput}`}
-                  id={name}
-                  name={name}
-                  step={step}
-                  onChange={internalOnChange}
-                  ref={ref}
-                  type="range"
-                  value={innerValue}
-                  required={required}
-                  min={min}
-                  max={max}
-                  {...props}
-                />
+        <div className={`${styles.inputContainer} ${paddingClass}`}>
+          {showRangeLabels && <p>{minLabel}</p>}
+            <div className={styles.rangeContainer}>
+              <div className={styles.selectedValueLabelContainer}>
+                <p className={styles.selectedValueLabel} style={{ left: `${position}%`, transform: `translateX(-${position}%)` }}>{valueLabel}</p>
               </div>
-              {showRangeLabels && <p>{maxLabel}</p>}
-              {showTextInput && !isSmall && <UiInput 
-                value={visibleValue.toString()} 
-                name={`text-input-for-${name}`}
-                category={category}
-                type='number'
-                className={styles.rangeTextInput} 
-                onChange={internalOnChange} 
-                />
-              }
-          </div>
-          {showTextInput && isSmall && <UiInput 
+              <input
+                disabled={disabled}
+                className={`${className} ${category ? styles[category] : "tertiary"} ${styles.uiRangeInput}`}
+                id={name}
+                name={name}
+                step={step}
+                onChange={internalOnChange}
+                ref={ref}
+                type="range"
+                value={innerValue}
+                required={required}
+                min={min}
+                max={max}
+                {...props}
+              />
+            </div>
+            {showRangeLabels && <p>{maxLabel}</p>}
+        </div>
+        {showTextInput && (
+          <div className={styles.smallInputWrapper}>
+            <UiInput 
               value={visibleValue.toString()} 
               name={`text-input-for-${name}`}
+              icon={icon}
               category={category}
               type='number'
               className={styles.rangeTextInput} 
               onChange={internalOnChange} 
               />
-            }
-        </div>
-        {error && <UiText category={category}>{error}</UiText>}
+            </div>
+        )}
       </div>
+      {error && <UiText category={category}>{error}</UiText>}
     </div>
   );
 };
