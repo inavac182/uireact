@@ -89,10 +89,11 @@ export const EzFormField = ({
           name={name} 
           value={value} 
           onChange={onNumericInputChange} 
+          icon={icon}
           min={rules.range.min}
           max={rules.range.max}
           error={error}
-          category={error ? 'error' : 'secondary'}
+          category={error ? 'error' : undefined}
           prefix={ezMetadata.prefix}
           showTextInput={ezMetadata.rangeWithTextInput}
         />
