@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.12.0 (2025-05-21)
+
+
+### Features
+
+* **form:** render input under range on small ([#422](https://github.com/inavac182/ui-react/issues/422)) ([427a26a](https://github.com/inavac182/ui-react/commit/427a26aa51eef03a0aa6828751afceb5b73134de))
+
+
+
+
+
 ## [3.11.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.11.0...@uireact/form@3.11.1) (2025-05-13)
 
 
