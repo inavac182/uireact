@@ -48,5 +48,6 @@ packages/**/dist/**
 packages/**/coverage
 packages/**/docs/**/package-metadata.json
 packages/**/docs/package-metadata.json
+packages/icons/svgs/*
 
 apps/docs/src/app/docs/(pages)/*

@@ -1,7 +1,7 @@
 import React, { FormEvent, useCallback, useEffect, useState } from 'react';
 
 import { UiText, UiLabel } from '@uireact/text';
-import { SpacingDistribution, getSpacingClass, useViewport } from '@uireact/foundation';
+import { SpacingDistribution, getSpacingClass } from '@uireact/foundation';
 
 import { UiRangeInputProps } from './types';
 import styles from './ui-range.scss';
