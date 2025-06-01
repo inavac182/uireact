@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.4 (2025-06-01)
+
+**Note:** Version bump only for package @uireact/dialog
+
+
+
+
+
 ## [4.1.3](https://github.com/inavac182/uireact/compare/@uireact/dialog@4.1.2...@uireact/dialog@4.1.3) (2025-04-14)
 
 **Note:** Version bump only for package @uireact/dialog
