@@ -230,10 +230,7 @@ describe('<UiEzForm />', () => {
 
     fireEvent.click(screen.getByRole('button', { name: '1' }));
 
-    expect(screen.getByRole('menu')).toBeVisible();
-
-    const datepicker = screen.getByRole('menu');
-    fireEvent.keyDown(datepicker, { key: 'Escape', code: 'Escape' });
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
 
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'Birthday' })).toBeVisible();

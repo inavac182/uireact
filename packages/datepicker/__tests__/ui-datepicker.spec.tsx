@@ -152,7 +152,8 @@ describe('<UiDatepicker />', () => {
 
   it('gets selected date', async () => {
     const onSelectedDate = jest.fn();
-    uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} isOpen />);
+    const onClose = jest.fn();
+    uiRender(<UiDatepicker date={date} onSelectDate={onSelectedDate} isOpen onClose={onClose} />);
 
     await waitFor(() => {
       expect(screen.getByText('January 2028')).toBeVisible();
@@ -162,6 +163,7 @@ describe('<UiDatepicker />', () => {
 
     expect(onSelectedDate).toHaveBeenCalledTimes(1);
     expect(onSelectedDate.mock.calls[0][0]).toStrictEqual(new Date(2028, 0, 15));
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('call on close CB when menu is closed', async () => {
