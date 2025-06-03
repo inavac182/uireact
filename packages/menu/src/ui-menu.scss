@@ -1,11 +1,18 @@
 .menu {
-    background-color: var(--primary-token_50);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     position: absolute;
     border-radius: 5px;
     width: max-content;
     z-index: 10;
     margin-top: 5px;
+}
+
+.menuBg {
+    background-color: var(--primary-token_50);
+}
+
+.inverseMenu {
+    background-color: var(--inverse-primary-token_10);
 }
 
 .wrapper {

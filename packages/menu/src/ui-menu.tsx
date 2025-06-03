@@ -21,13 +21,14 @@ export const UiMenu: React.FC<UiMenuProps> = ({
   motion = UiReactFadeUp,
   visible,
   testId,
+  inverse,
 }: UiMenuProps) => {
   const dialogId = menuId || 'menu-component';
   const menuRef = React.useRef<HTMLDivElement>(null);
   const [isOffset, setIsOffset] = React.useState(false);
   const { isSmall } = useViewport();
   const { isOpen, actions } = useDialog(dialogId);
-  let menuClasses = `${styles.menu} ${className}`;
+  let menuClasses = `${styles.menu} ${className} ${inverse ? styles.inverseMenu : styles.menuBg}`;
 
   //istanbul ignore next
   if (isOffset) {

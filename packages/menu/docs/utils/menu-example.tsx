@@ -16,7 +16,11 @@ const buttonSpacing: UiSpacingProps['padding'] = {
   block: 'four'
 }
 
-export const MenuExample: React.FC = () => {
+type MenuExampleProps = {
+  inverse?: boolean;
+}
+
+export const MenuExample: React.FC = ({ inverse }: MenuExampleProps) => {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const handleMenuOpen = React.useCallback(() => {
@@ -32,9 +36,9 @@ export const MenuExample: React.FC = () => {
       <div>
         <UiButton category='tertiary' onClick={handleMenuOpen}>Open Menu</UiButton>
       </div>
-      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall>
+      <UiMenu visible={isVisible} closeMenuCB={closeMenu} fullscreenOnSmall inverse={inverse}>
         <UiSpacing margin={{ all: 'five' }}>
-          <UiText align='center'>Menu Content</UiText>
+          <UiText align='center' inverseColoration={inverse}>Menu Content</UiText>
           <div>
             <UiPrimaryButton onClick={closeMenu} fullWidth>
               Close menu
@@ -42,7 +46,7 @@ export const MenuExample: React.FC = () => {
           </div>
         </UiSpacing>
         <UiSpacing margin={{ all: 'five' }}>
-          <UiText align='center'>Menu Content</UiText>
+          <UiText align='center' inverseColoration={inverse}>Menu Content</UiText>
           <div>
             <UiTertiaryButton fullWidth>
               Some other button

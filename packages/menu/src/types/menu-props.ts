@@ -14,4 +14,6 @@ export type UiMenuProps = {
   visible: boolean;
   /** CB for when menu is closed */
   closeMenuCB: () => void;
+  /** If menu should render with inverse BG */
+  inverse?: boolean;
 } & UiReactElementProps;
