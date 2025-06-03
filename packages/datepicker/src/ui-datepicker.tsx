@@ -73,8 +73,9 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
     (date: Date) => {
       setSelectedDate(date);
       onSelectDate(date);
+      onClose?.();
     },
-    [setSelectedDate, onSelectDate]
+    [setSelectedDate, onSelectDate, onClose]
   );
 
   const HeadingSection = useMemo(() => (
