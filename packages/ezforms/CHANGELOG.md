@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.14.1...@uireact/ezforms@0.15.0) (2025-06-03)
+
+
+### Features
+
+* **datepicker:** trigger on close when date is selected ([#425](https://github.com/inavac182/uireact/issues/425)) ([34be899](https://github.com/inavac182/uireact/commit/34be899c71a59437767668636660a8662e08f4ba))
+
+
+
+
+
 ## [0.14.1](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.14.0...@uireact/ezforms@0.14.1) (2025-06-01)
 
 **Note:** Version bump only for package @uireact/ezforms

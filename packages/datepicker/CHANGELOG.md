@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.21.10...@uireact/datepicker@0.22.0) (2025-06-03)
+
+
+### Features
+
+* **datepicker:** trigger on close when date is selected ([#425](https://github.com/inavac182/ui-react/issues/425)) ([34be899](https://github.com/inavac182/ui-react/commit/34be899c71a59437767668636660a8662e08f4ba))
+
+
+
+
+
 ## 0.21.10 (2025-06-01)
 
 **Note:** Version bump only for package @uireact/datepicker
