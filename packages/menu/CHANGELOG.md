@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.5.0 (2025-06-03)
+
+
+### Features
+
+* **menu:** inverse coloration ([#426](https://github.com/inavac182/ui-react/issues/426)) ([63e6ea4](https://github.com/inavac182/ui-react/commit/63e6ea41955f1d221dc76861b34ef866b6941ece))
+
+
+
+
+
 ## 3.4.1 (2025-06-01)
 
 **Note:** Version bump only for package @uireact/menu
