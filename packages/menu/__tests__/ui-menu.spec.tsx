@@ -14,9 +14,10 @@ type MockedComponentProps = {
   fullscreenOnSmall?: boolean;
   visible?: boolean;
   closeMenuSpy?: () => void;
+  inverse?: boolean;
 };
 
-const MockedComponent = ({ visible = false, fullscreenOnSmall = false, closeMenuSpy }: MockedComponentProps) => {
+const MockedComponent = ({ visible = false, fullscreenOnSmall = false, inverse = false, closeMenuSpy }: MockedComponentProps) => {
   const [isVisible, setIsVisible] = React.useState(visible);
 
   const handleMenuOpen = React.useCallback(() => {
@@ -40,6 +41,7 @@ const MockedComponent = ({ visible = false, fullscreenOnSmall = false, closeMenu
         closeMenuCB={closeMenu}
         fullscreenOnSmall={fullscreenOnSmall}
         testId="UiMenu"
+        inverse={inverse}
       >
         <UiSpacing margin={{ all: 'five' }}>
           <UiText align='center'>Menu Content</UiText>
@@ -77,7 +79,7 @@ describe('<UiMenu />', () => {
   });
 
   it('menu component closes ONLY when esc key is pressed', async () => {
-    uiRender(<MockedComponent />);
+    uiRender(<MockedComponent inverse />);
 
     expect(screen.queryByText('Menu Content')).not.toBeInTheDocument();
 
