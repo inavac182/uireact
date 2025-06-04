@@ -1,0 +1,68 @@
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+
+import { UiCard } from '@uireact/card';
+
+import { ThemeDetectorExample } from './example/theme-detector';
+
+# useThemeDetector()
+<Metadata packageName='tools' packageJson={packageJson} description='Hook used to determine the current active device theme' includeInformation />
+
+## Usage
+
+Just calling the hook on a React component will give you the current theme that is active. You can test this out in the next example, try changing your device appearance in the settings to see how this value changes:
+
+```jsx live scope={{ThemeDetectorExample}}
+<>
+  <ThemeDetectorExample />
+</>
+```
+
+Code:
+```jsx
+'use client';
+import React from 'react';
+import { useThemeDetector } from "@uireact/tools";
+
+export const ThemeDetectorExample = () => {
+  const theme = useThemeDetector();
+
+  return (
+    <p>Theme: {theme}</p>
+  )
+};
+```
+
+The response type is a string with 2 possible values: **dark** | **light**.
+We recommend using this hook **ONLY** for a few things, specially when they render client side. Please read the next part for SSR considerations.
+
+## SSR Styles
+
+We **DO NOT** recommend using this hook for styling something that will be built server side, the reason is because on SSR we don't have access to the window object, so the `dark` value is defaulted. So, when light team is enabled, users will see a dark flash before client side rendering kicks in which might not be the ideal experience.
+
+So, for styling we recommend using these media queries: 
+
+```css
+@media (prefers-color-scheme: dark) {
+  // Your dark theme styles
+}
+
+@media (prefers-color-scheme: light) {
+  // Your light theme styles
+}
+```
+
+This is what we use in our themes to decide what token is assigned to a CSS variable for instance:
+
+```css
+
+@media (prefers-color-scheme: dark) {
+  --font-color: "#ffffff";
+}
+
+@media (prefers-color-scheme: light) {
+  --font-color: "#000000";
+}
+
+```
+

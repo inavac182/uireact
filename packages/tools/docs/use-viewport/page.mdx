@@ -1,0 +1,69 @@
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+
+import { UiCard } from '@uireact/card';
+
+import { UseViewportExample } from './example/use-viewport';
+
+# useViewport()
+<Metadata packageName='tools' packageJson={packageJson} description='Hook used to get information about the viewport being used.' includeInformation />
+
+## Usage
+
+<UiCard category='warning'>
+  We recommend using this hook **ONLY** for **client side** rendering. During **SSR** we don't have access to the **window** object, so, we default to the large breakpoint values during SSR. So, the SSR output will be large as `true`.
+</UiCard>
+
+Just calling the hook on a React component will give you the current viewport being used:
+
+```jsx live scope={{UseViewportExample}}
+<>
+  <UseViewportExample />
+</>
+```
+
+## Large and XLarge
+
+It's very important to understand that a screen bigger than medium will **ALWAYS** be large. Although we introduced XLarge due to some use cases that wanted to add another step after large for ultra width screens.
+
+If you use the default viewport values in the library then:
+
+```
+- Large will be true when screen width is larger then `990px`
+- XLarge will be true when screen width is large then `1440px`
+ - Large will remain true in this case
+```
+
+## SSR Implications
+
+**We recommend** to use this hook in components that **ONLY render client side**. The reason for this is because SSR doesn't have access to the **window** object which brings information about the screen size.
+
+So, if this is used in a SSR component, the users will see a flickering as we default to **large** during SSR. For SSR components We highly suggest using CSS Media queries.
+
+## Customize viewport values
+
+These are the default values we use as the breakpoints size limit:
+
+```ts
+{
+  small: 580,
+  medium: 990,
+  large: 1440
+}
+```
+<small>The values are in pixels.</small>
+
+If you want to customize this values in your app, you can set up your own values using the `UiViewportProvider`.
+
+```jsx
+  import { UiViewportProvider } from '@uireact/tools';
+
+  export const AppWrapper = () => {
+    return (
+      <UiViewportProvider data={{ small: 700, medium: 1000, large: 1800 }}>
+        <p>Your react app</p>
+      </UiViewportProvider>
+    )
+  }
+```
+
