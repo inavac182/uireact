@@ -5,7 +5,7 @@ import { useViewport } from './hooks';
 
 type UiBreakpointsMixture = 's|m' | 'm|l';
 
-interface ViewportProps {
+export type UiViewportProps = {
   children?: React.ReactNode;
   /** The viewport breaking where the content of this component should be rendered */
   criteria: UiBreakpointsMixture | 'small' | 'medium' | 'large' | 'xlarge';
@@ -13,7 +13,7 @@ interface ViewportProps {
   skipSSr?: boolean;
 }
 
-export const UiViewport: React.FC<ViewportProps> = ({ children, criteria, skipSSr }: ViewportProps) => {
+export const UiViewport: React.FC<UiViewportProps> = ({ children, criteria, skipSSr }: UiViewportProps) => {
   const [hydrated, setHydrated] = React.useState(false);
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();
 
@@ -48,7 +48,7 @@ export const UiViewport: React.FC<ViewportProps> = ({ children, criteria, skipSS
   }
 
   if (isMedium) {
-    const matchesCriteria = criteria === 'medium' || criteria === 'm|l';
+    const matchesCriteria = criteria === 'medium' || criteria === 'm|l' || criteria === 's|m';
 
     if (matchesCriteria) {
       return <>{children}</>;

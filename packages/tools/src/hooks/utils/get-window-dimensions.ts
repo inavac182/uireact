@@ -1,5 +1,5 @@
 'use client';
-import { UiViewportData } from "contexts";
+import { UiViewportData } from "../../contexts";
 
 export interface UiWindowDimensions {
   width: number;
@@ -16,8 +16,9 @@ export const getUiWindowDimensions = (): UiWindowDimensions => {
     };
   }
 
+  // istanbul ignore next
   return {
-    width: UiViewportData.large.min,
-    height: UiViewportData.large.max,
+    width: UiViewportData.large,
+    height: UiViewportData.large,
   };
 };

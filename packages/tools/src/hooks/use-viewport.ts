@@ -19,7 +19,7 @@ export const useViewport = (): UseViewportResponse => {
     const isSmall = width <= small;
     const isMedium = width <= medium && width > small;
     const isLarge = width > medium;
-    const isXLarge = width >= large;
+    const isXLarge = width > large;
 
     return {
       isSmall,
