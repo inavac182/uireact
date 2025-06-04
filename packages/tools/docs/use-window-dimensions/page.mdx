@@ -6,12 +6,12 @@ import { UiCard } from '@uireact/card';
 import { WindowDimensionExample } from './example/window-dimensions';
 
 # useWindowDimensions()
-<Metadata packageName='tools' packageJson={packageJson} description='React hook used to retrieve the user window dimension' includeInformation />
+<Metadata packageName='tools' packageJson={packageJson} description='React hook used to retrieve the user window dimensions.' includeInformation />
 
 ## Usage
 
 <UiCard category='warning'>
-  We recommend using this hook **ONLY** for **client side** rendering. During **SSR** we don't have access to the **window** object we default to the large breakpoint values during SSR. This might or might not work for your use case.
+  We recommend using this hook **ONLY** for **client side** rendering. During **SSR** we don't have access to the **window** object, so, we default to the large breakpoint values during SSR. This might or might not work for your use case.
 </UiCard>
 
 Just calling the hook on a React component will give you the users window dimensions:

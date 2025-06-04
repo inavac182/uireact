@@ -6,12 +6,12 @@ import { UiCard } from '@uireact/card';
 import { UseViewportExample } from './example/use-viewport';
 
 # useViewport()
-<Metadata packageName='tools' packageJson={packageJson} description='Component used to render extra information on top of texts or icons when hovered.' includeInformation />
+<Metadata packageName='tools' packageJson={packageJson} description='Hook used to get information about the viewport being used.' includeInformation />
 
 ## Usage
 
 <UiCard category='warning'>
-  We recommend using this hook **ONLY** for **client side** rendering. During **SSR** we don't have access to the **window** object we default to the large breakpoint values during SSR. So, the SSR output will be large as `true`.
+  We recommend using this hook **ONLY** for **client side** rendering. During **SSR** we don't have access to the **window** object, so, we default to the large breakpoint values during SSR. So, the SSR output will be large as `true`.
 </UiCard>
 
 Just calling the hook on a React component will give you the current viewport being used:
