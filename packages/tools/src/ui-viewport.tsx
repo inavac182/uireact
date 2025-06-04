@@ -7,7 +7,7 @@ type UiBreakpointsMixture = 's|m' | 'm|l';
 
 export type UiViewportProps = {
   children?: React.ReactNode;
-  /** The viewport breaking where the content of this component should be rendered */
+  /** The viewport breakpoint where the content of this component should be rendered */
   criteria: UiBreakpointsMixture | 'small' | 'medium' | 'large' | 'xlarge';
   /* As we are defaulting to large when we are in SSR this prop is useful if you prefer to just render nothing in SSR */
   skipSSr?: boolean;

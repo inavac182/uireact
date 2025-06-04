@@ -64,3 +64,30 @@ These are the valid values for the criteria prop:
 ## Large and XLarge
 
 When you use the `large` criteria that content will render in Large and XLarge breakpoints. The XLarge criteria is intended to be used when you you want to render extra content for wide screens, but being in a XLarge screen won't remove the content with criteria Large, as large will always be `true` on screens larger than medium breakpoint.
+
+## Customize viewport values
+
+These are the default values we use as the breakpoints size limit:
+
+```ts
+{
+  small: 580,
+  medium: 990,
+  large: 1440
+}
+```
+<small>The values are in pixels.</small>
+
+If you want to customize this values in your app, you can set up your own values using the `UiViewportProvider`.
+
+```jsx
+  import { UiViewportProvider } from '@uireact/tools';
+
+  export const AppWrapper = () => {
+    return (
+      <UiViewportProvider data={{ small: 700, medium: 1000, large: 1800 }}>
+        <p>Your react app</p>
+      </UiViewportProvider>
+    )
+  }
+```

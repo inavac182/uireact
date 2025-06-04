@@ -56,13 +56,13 @@ These are the default values we use as the breakpoints size limit:
 If you want to customize this values in your app, you can set up your own values using the `UiViewportProvider`.
 
 ```jsx
-  import { ViewportProvider } from '@uireact/tools';
+  import { UiViewportProvider } from '@uireact/tools';
 
   export const AppWrapper = () => {
     return (
-      <ViewportProvider data={{ small: 700, medium: 1000, large: 1800 }}>
+      <UiViewportProvider data={{ small: 700, medium: 1000, large: 1800 }}>
         <p>Your react app</p>
-      </ViewportProvider>
+      </UiViewportProvider>
     )
   }
 ```
