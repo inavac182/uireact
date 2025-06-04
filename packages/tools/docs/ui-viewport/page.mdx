@@ -1,0 +1,66 @@
+import packageJson from './package-metadata.json';
+import { Metadata } from '@uireact/docs-tools';
+
+import { UiViewportExample } from './example/ui-viewport-example';
+
+# UiTooltip
+<Metadata packageName='tools' packageJson={packageJson} description='Component used to render content in specific breakpoints.' includeInformation />
+
+## Usage
+
+Simply wrap any React component in the `<UiViewport />` component and it will render whenever the `criteria` prop is matched.
+
+```jsx live scope={{UiViewportExample}}
+<>
+  <UiViewportExample />
+</>
+```
+
+Code:
+```tsx
+import React from 'react';
+import { UiViewport } from "@uireact/tools";
+
+export const UiViewportExample = () => {
+  return (
+    <>
+      <UiViewport criteria='small'>
+        <p>I render in small</p>
+      </UiViewport>
+      <UiViewport criteria='s|m'>
+        <p>I render in small AND medium</p>
+      </UiViewport>
+      <UiViewport criteria='medium'>
+        <p>I render in medium</p>
+      </UiViewport>
+      <UiViewport criteria='m|l'>
+        <p>I render in medium AND large AND xlarge</p>
+      </UiViewport>
+      <UiViewport criteria='large'>
+        <p>I render in large AND xlarge</p>
+      </UiViewport>
+      <UiViewport criteria='xlarge'>
+        <p>I render in xlarge</p>
+      </UiViewport>
+    </>
+  )
+};
+
+```
+
+## Criteria prop
+
+These are the valid values for the criteria prop:
+
+```tsx
+  's|m' | // Small AND Medium
+  'm|l' | // Medium AND Large
+  'small' | // ONLY small
+  'medium' | // Only medium
+  'large' | // Large AND XLarge
+  'xlarge' // Only XLarge
+```
+
+## Large and XLarge
+
+When you use the `large` criteria that content will render in Large and XLarge breakpoints. The XLarge criteria is intended to be used when you you want to render extra content for wide screens, but being in a XLarge screen won't remove the content with criteria Large, as large will always be `true` on screens larger than medium breakpoint.

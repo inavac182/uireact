@@ -65,7 +65,7 @@ export const SideBar = ({ isFloatingNavbar }: SideBarProps) => {
                 <UiSpacing padding={{ block: 'three'}}>
                     <hr />
                 </UiSpacing>
-                <NavbarSection title='Utils' icon='Settings' items={UtilsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={10} selected={selected} />
+                <NavbarSection title='Tools' icon='Settings' items={UtilsSideBarData} isFloatingNavbar={isFloatingNavbar} onSelectMenu={onSelectMenu} id={10} selected={selected} />
                 <UiSpacing padding={{ block: 'three'}}>
                     <hr />
                 </UiSpacing>
