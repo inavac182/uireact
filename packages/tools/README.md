@@ -4,7 +4,7 @@ The tools package exports multiple hooks and components used in React applicatio
 
 **NOTE:** YOU DO NOT NEED TO USE @UiReact library in order to use these tools. Any React / Typescript project can freely use this tools.
 
-## <UiViewport />
+## < UiViewport />
 
 This component renders its children **ONLY** when the given criteria is matched.
 
