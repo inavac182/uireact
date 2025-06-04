@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { UiViewportContext, ViewportContextData } from '../contexts';
+import { UiViewportContext, UiViewportContextData } from '../contexts';
 
 export type UiViewportContextProviderProps = {
-  data: ViewportContextData;
+  data: UiViewportContextData;
   children: React.ReactNode
 }
 
