@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.2.0 (2025-06-05)
+
+
+### Features
+
+* **charts:** prop to skip animation linear chart ([#429](https://github.com/inavac182/uireact/issues/429)) ([807a0df](https://github.com/inavac182/uireact/commit/807a0df003315a6345ca96395ad2c7ecaecea35d))
+
+
+
+
+
 # 3.1.0 (2025-04-25)
 
 
