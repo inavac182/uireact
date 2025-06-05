@@ -34,7 +34,7 @@ describe('<UiLinearChart />', () => {
       },
     };
 
-    uiRender(<UiLinearChart data={data} testId="linear-chart" />);
+    uiRender(<UiLinearChart data={data} testId="linear-chart" animated={false} />);
 
     expect(screen.getByTestId('linear-chart')).toBeVisible();
     expect(screen.getByTestId('UiLinearChartLimitBlock')).toHaveClass('limit bg-primary-100');

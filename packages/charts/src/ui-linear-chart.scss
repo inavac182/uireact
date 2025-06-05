@@ -13,8 +13,11 @@
     position: absolute;
     top: 0;
     height: 100%;
-    transition: width 1s;
     width: 0;
+}
+
+.animated {
+    transition: width 1s;
 }
 
 .wrapper {
