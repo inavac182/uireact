@@ -12,14 +12,15 @@ import styles from './ui-linear-chart.scss';
 export type UiLinearChartProps = {
   data: UiLinearChartData;
   rounded?: boolean;
+  animated?: boolean;
 } & UiReactElementProps;
 
-export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, rounded, testId, data }: UiLinearChartProps) => {
+export const UiLinearChart: React.FC<UiLinearChartProps> = ({ className, rounded, testId, data, animated = true }: UiLinearChartProps) => {
   const [currentWidth, setCurrentWidth] = useState(0);
   const currentColorClass = getCategoryClass(data.current.color) || '';
   const limitColorClass = getCategoryClass(data.limit.color) || '';
 
-  let currentClasses = `${styles.current} ${currentColorClass ? currentColorClass : ''}`;
+  let currentClasses = `${styles.current} ${currentColorClass ? currentColorClass : ''} ${animated ? styles.animated : ''}`;
   let limitClasses = `${styles.limit} ${limitColorClass ? limitColorClass : ''}`;
 
   if (!data.current.color) {

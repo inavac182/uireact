@@ -4,13 +4,7 @@ import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiLinearChart
-<Metadata packageName='button' packageJson={packageJson} />
-
-> Linear chart that represents the percentage of a current value inside a limit value.
-
-## Installation ⚙️
-
-> npm i @uireact/foundation @uireact/flex @uireact/charts
+<Metadata packageName='button' packageJson={packageJson} includeInformation description='Linear chart that represents the percentage of a current value inside a limit value.' />
 
 ## Usage
 
@@ -51,12 +45,13 @@ The limit label appears at the chart's top right corner, the current label rende
   />
 ```
 
-### With static label position
+### With static label position and none animated
 
-When static label is used the label for the current value will be static at the bottom of the chart
+When static label is used the label for the current value will be static at the bottom of the chart. The animated prop can be set up to false if you don't want the animation on load.
 
 ```jsx live scope={{UiLinearChart}}
   <UiLinearChart
+    animated={false}
     data={{
       current: {
         label: '300 lbs',
