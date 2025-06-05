@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.12 (2025-06-05)
+
+
+### Bug Fixes
+
+* use flex-end instead of end ([#428](https://github.com/inavac182/uireact/issues/428)) ([8562c1b](https://github.com/inavac182/uireact/commit/8562c1b28ad991821b402fda004a15c1810c6e7a))
+
+
+
+
+
 ## 3.0.11 (2025-04-14)
 
 **Note:** Version bump only for package @uireact/grid

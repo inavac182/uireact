@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.13.2 (2025-06-05)
+
+
+### Bug Fixes
+
+* use flex-end instead of end ([#428](https://github.com/inavac182/ui-react/issues/428)) ([8562c1b](https://github.com/inavac182/ui-react/commit/8562c1b28ad991821b402fda004a15c1810c6e7a))
+
+
+
+
+
 ## [3.13.1](https://github.com/inavac182/ui-react/compare/@uireact/form@3.13.0...@uireact/form@3.13.1) (2025-06-01)
 
 **Note:** Version bump only for package @uireact/form
