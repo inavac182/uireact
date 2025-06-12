@@ -106,10 +106,6 @@ We have a page dedicated to this hook [@uireact/tools useThemeDetector](https://
 # @UiReact
 ![UiReact icon](https://www.uireact.io/_next/static/media/sunglasses_cat.a5f3369a.gif)
 
-Wanna learn more about this library?
-
-This is a React UI library, that defines a customizable theme object that powers all colorations, texts, sizes, etc.. Across your react application.
-
-We are built using framer-motion for great animations and styled-components for easy CSS management.
+This is a React UI library, that defines a customizable but organized theme in a CSS file that organizes your colorations, texts, sizes, spaces, etc. Across your react application.
 
 You should visit our docs page for all information [@uireact docs](https://uireact.io).

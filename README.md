@@ -1,19 +1,9 @@
 [![Build and Deploy](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml/badge.svg)](https://github.com/inavac182/uireact/actions/workflows/pipeline.yml)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 ![Next JS](https://img.shields.io/badge/next-js-blue?logo=nextjs)
 ![Turbo](https://img.shields.io/badge/turbo-black?logo=turbo)
 ![Pnpm](https://img.shields.io/badge/pnpm-green?logo=pnpm)
 ![TS](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-
-# ATTENTION!!!
-
-## V3 is here, From Styles components to SCSS modules.
-
-### We moved away from styled-components to SCSS modules, so we can get all the benefits of server components in JS frameworks such as Remix and Next JS.
-
-Issue: [Move to SCSS Modules](https://github.com/inavac182/uireact/issues/346).
-
 
 # @UiReact.io <img src="/public/sunglasses_cat.gif" alt="icon" width="30px" />
 
@@ -58,11 +48,13 @@ const App = ({ children }) => (
 
 3. Link the packages styles to your global styles files:
 
-```
-// In CSS: Update the route based on your project.
+```css
+ // In CSS: Update the route based on your project.
+ // If you want to use the default theme add this:
   @import url('../node_modules/@uireact/foundation/dist/index.css'); 
 
-  // Include all packages styles
+  /* Include all @UiReact packages styles: */
+
   @import url('../node_modules/@uireact/view/dist/index.css'); 
 ```
 
@@ -75,7 +67,3 @@ If you want to reach out to us these are our public social networks:
 - [Felipe Nava](https://www.linkedin.com/in/inavac/)
 - [Felipe's Twitter](https://twitter.com/FelipeNava92)
 - [Felipe's gh](https://github.com/inavac182/)
-- [Sergio Ortiz](https://www.linkedin.com/in/sergio-audel-ortiz-gutierrez-1698b158/)
-- [Sergio's gh](https://github.com/saudelog)
-
-

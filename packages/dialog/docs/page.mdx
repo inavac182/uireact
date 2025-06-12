@@ -5,16 +5,7 @@ import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiDialog
-<Metadata packageName='dialog' packageJson={packageJson} />
-
-> Renders a dialog on top of the content
-
-The dialogs currently uses a default controller that keep track of dialogs using a react state, if you prefer to use your own logic
-you can follow up this [doc](./custom-dialog-controller) to create you own custom dialogs controller.
-
-## Installation ⚙️
-
-> npm i @uireact/foundation @uireact/dialog
+<Metadata packageName='dialog' packageJson={packageJson} description='Renders a dialog on top of the content' includeInformation />
 
 ## useDialog 📡
 
@@ -29,6 +20,8 @@ The `useDialog` hook is used to instantiate a dialog and be able to communicate 
   }
 };
 ```
+
+The dialogs currently uses a default controller that keep track of dialogs using a react state, if you prefer to use your own logic you can follow up this [doc](./custom-dialog-controller) to create you own custom dialogs controller.
 
 ## Example 🤓
 

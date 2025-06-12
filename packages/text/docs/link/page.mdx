@@ -6,16 +6,12 @@ import Link from 'next/link';
 
 # UiLink
 
-<Metadata packageName='text' packageJson={packageJson} />
+<Metadata packageName='text' packageJson={packageJson} description='Component to wrap links and provide it with proper styling.' includeInformation />
 
-> Component to render a wrapper around links to provide styling, you have to provide the link element, this was done so we could support
-> multiple use cases Link from react router, or Link from next JS or any other router you are using.
-
-## Installation
-
-> npm i -S @uireact/text
 
 ## UiLink
+
+You have to provide the link element as a children of this component. This component will clone it and add some styling to it. This was done so we could support different link components for instance: Link from react router, or Link from next JS or any other router you are using.
 
 ```jsx live scope={{UiLink}}
   <UiLink>
