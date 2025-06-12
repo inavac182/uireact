@@ -3,7 +3,7 @@
   "description": "table package from @uireact library",
   "repository": "https://github.com/inavac182/ui-react",
   "license": "GNU",
-  "version": "2.1.45",
+  "version": "2.1.46",
   "publishConfig": {
     "access": "public"
   },
