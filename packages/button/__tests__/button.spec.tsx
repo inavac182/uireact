@@ -96,7 +96,7 @@ describe('<UiButton />', () => {
     uiRender(<UiButton styling="clear">MyButton</UiButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('button buttonClear hover-bg-primary-10 active-bg-primary-50 buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('button buttonClear clear-bg hover-bg-primary-100 active-bg-primary-200 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders full height', () => {
@@ -209,6 +209,6 @@ describe('<UiButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('button buttonOutlined border-primary-100 hover-bg-primary-10 active-bg-primary-50 color-primary-100 hover-color-primary-100 buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('button buttonOutlined border-primary-100 hover-bg-primary-100 active-bg-primary-200 active-border-primary-200 color-primary-100 hover-color-primary-100 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 });
