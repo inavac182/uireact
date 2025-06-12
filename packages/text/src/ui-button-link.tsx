@@ -6,7 +6,7 @@ import { UiButtonLinkProps } from './types';
 import { getButtonLinkStyling } from './utils';
 import styles from './ui-text.scss';
 
-const defaultPadding: SpacingDistribution = { inline: 'four', block: 'three'};
+const defaultPadding: SpacingDistribution = { inline: 'three', block: 'two'};
 
 export const UiButtonLink: React.FC<UiButtonLinkProps> = ({
   category = 'tertiary',

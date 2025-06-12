@@ -25,7 +25,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 ### Primary
 
 ```jsx live scope={{UiPrimaryButton, UiSpacing, Sizing}}
-  <UiPrimaryButton margin={{ all: 'two' }}>
+  <UiPrimaryButton>
     Primary button
   </UiPrimaryButton>
 ```
@@ -34,7 +34,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 
 ```jsx live scope={{UiSecondaryButton, UiSpacing, Sizing, UiFlexGrid, UiIcon}}
   <UiFlexGrid alignItems="center" gap="four">
-    <UiSecondaryButton margin={{ all: 'three' }}>
+    <UiSecondaryButton>
       Secondary button
     </UiSecondaryButton>
     <UiSecondaryButton icon>
@@ -47,7 +47,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 
 ```jsx live scope={{UiTertiaryButton, UiSpacing, Sizing, UiFlexGrid, UiText}}
   <UiFlexGrid alignItems="center" gap="four">
-    <UiTertiaryButton margin={{ all: 'three' }}>
+    <UiTertiaryButton>
       Tertiary button
     </UiTertiaryButton>
     <UiTertiaryButton rounded size="large">
@@ -63,7 +63,7 @@ These buttons already have and uses a cohesive styling that helps improve the us
 This is simulating a disabled button that is waiting on a triggered action:
 
 ```jsx live scope={{UiPrimaryButton, UiSpacing, Sizing, UiIcon}}
-  <UiPrimaryButton margin={{ all: 'two' }} padding={{ inline: 'four', block: 'two' }} disabled>
+  <UiPrimaryButton disabled>
     <UiIcon icon="LoadingSpinner" category="secondary" weight="200" />
   </UiPrimaryButton>
 ```
@@ -122,7 +122,7 @@ These are options available to the different button components to customize thei
 
 ```jsx live scope={{UiButton}}
   <form>
-    <UiButton theme="secondary" type="submit">
+    <UiButton category="secondary" type="submit">
       Button! 💅🏾
     </UiButton>
   </form>
@@ -152,7 +152,9 @@ These are options available to the different button components to customize thei
   <UiCard category="primary">
     <UiFlexGrid gap="three" alignItems="center">
       <UiButton category="tertiary" styling="clear">
-        Button! ✨
+        <UiText>
+          Button! ✨
+        </UiText>
       </UiButton>
       <UiText>Some content</UiText>
     </UiFlexGrid>
