@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.15.3 (2025-06-12)
+
+**Note:** Version bump only for package @uireact/ezforms
+
+
+
+
+
 ## 0.15.2 (2025-06-05)
 
 **Note:** Version bump only for package @uireact/ezforms

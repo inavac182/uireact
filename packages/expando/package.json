@@ -3,7 +3,7 @@
   "description": "Expando component from @uireact library",
   "repository": "https://github.com/inavac182/uireact",
   "license": "GNU",
-  "version": "2.7.6",
+  "version": "2.7.7",
   "publishConfig": {
     "access": "public"
   },
