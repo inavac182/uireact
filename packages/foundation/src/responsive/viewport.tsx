@@ -14,6 +14,7 @@ interface ViewportProps {
   skipSSr?: boolean;
 }
 
+/** @deprecated Migrate over to UiViewport in "@uireact/tools" - this will be removed in the next major version. */
 export const UiViewport: React.FC<ViewportProps> = ({ children, criteria, skipSSr }: ViewportProps) => {
   const [hydrated, setHydrated] = React.useState(false);
   const { isSmall, isMedium, isLarge, isXLarge } = useViewport();

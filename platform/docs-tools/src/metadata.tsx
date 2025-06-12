@@ -15,6 +15,7 @@ import { DocSubHeading } from './doc-subheading';
 type MetadataProps = {
   description: string;
   includeInformation: boolean;
+  deprecated?: boolean;
   packageName: string;
   packageJson: {
     version: string,
@@ -55,7 +56,7 @@ const badgesInfo: BadgesInfo = {
   }
 }
 
-export const Metadata = ({ packageName, packageJson, includeInformation, description }: MetadataProps) => {
+export const Metadata = ({ packageName, packageJson, includeInformation, description, deprecated }: MetadataProps) => {
   const peers = Object.keys(packageJson.peerDependencies);
   const version = packageJson.version;
   const badges = [];
@@ -86,6 +87,7 @@ export const Metadata = ({ packageName, packageJson, includeInformation, descrip
           </UiLink>
         </sup>
         {badges.map((badge, index) => badge && <UiBadge category={badge.category} key={`metadata-version-${index}`}>{badge.text}</UiBadge>)}
+        {deprecated && <UiBadge category='warning' >⚠️ Deprecated</UiBadge>}
       </UiFlexGrid>
       {includeInformation && (
         <>

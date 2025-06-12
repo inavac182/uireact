@@ -10,6 +10,7 @@ export type useViewportResponse = {
   isXLarge: boolean;
 };
 
+/** @deprecated Migrate over to UiViewport in "@uireact/tools" - this will be removed in the next major version. */
 export const useViewport = (): useViewportResponse => {
   const { width } = useWindowDimensions();
   const [hydratred, setHydrated] = useState(false);
