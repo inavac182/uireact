@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.17](https://github.com/inavac182/uireact/compare/@uireact/button@3.2.16...@uireact/button@3.2.17) (2025-06-12)
+
+
+### Bug Fixes
+
+* color prop in button style ([0915f3f](https://github.com/inavac182/uireact/commit/0915f3fd4a061c2802f8a1d9234cf5ae411eb362))
+
+
+
+
+
 ## [3.2.16](https://github.com/inavac182/uireact/compare/@uireact/button@3.2.15...@uireact/button@3.2.16) (2025-06-12)
 
 **Note:** Version bump only for package @uireact/button
