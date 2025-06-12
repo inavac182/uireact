@@ -1,17 +1,21 @@
 import { UiViewport, Breakpoints, ThemeContext } from '@uireact/foundation';
 
 import { UiCard } from '@uireact/card';
+import { UiHeading, UiText } from '@uireact/text';
 
 import packageJson from './package-metadata.json';
 import { Metadata } from '@uireact/docs-tools';
 
 # UiViewport
 
-<Metadata packageName='foundation' packageJson={packageJson} description='This component make it easy to render/remove components from the DOM based on the breakpoint.' includeInformation />
-
-This component is exported as part of **@uireact/foundation** so if you have already set up the library you can just import it from the foundation package.
+<Metadata packageName='foundation' packageJson={packageJson} description='This component make it easy to render/remove components from the DOM based on the breakpoint.' includeInformation deprecated />
 
 ## Usages 🛠️
+
+<UiCard category='warning'>
+  <UiHeading>Deprecated</UiHeading>
+  <UiText>This component has been deprecated and will be removed in the next major version. Migrate over to the one exported from [@uireact/tools](./ui-viewport)</UiText>
+</UiCard>
 
 ### Specific breakpoint
 
