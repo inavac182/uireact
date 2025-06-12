@@ -125,7 +125,7 @@
     }
 }
 
-html.dark {
+html.dark, .dark {
     --error-token_10: #d03434;
     --error-token_50: #a92727;
     --error-token_100: #8d2020;
@@ -298,7 +298,7 @@ html.dark {
     }
 }
 
-html.light {
+html.light, .light {
     --error-token_10: #ffffff;
     --error-token_50: #fdbbbb;
     --error-token_100: #fc7474;

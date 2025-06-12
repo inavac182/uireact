@@ -49,7 +49,7 @@ describe('<UiSecondaryButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-one padding-bottom-one padding-left-two padding-right-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders disabled icon', () => {
@@ -60,7 +60,7 @@ describe('<UiSecondaryButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-one padding-bottom-one padding-left-two padding-right-two buttonIcon');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonIcon');
   });
 
   test('renders full width', () => {
@@ -122,6 +122,6 @@ describe('<UiSecondaryButton />', () => {
       </UiSecondaryButton>
     );
 
-    expect(screen.getByRole('button')).toHaveClass('size-large button bg-primary-100 border-primary-150 hover-bg-primary-150 hover-border-primary-200 active-bg-primary-200 active-border-primary-200 color-secondary-100 padding-top-one padding-bottom-one padding-left-two padding-right-two radius-large');
+    expect(screen.getByRole('button')).toHaveClass('size-large button bg-primary-100 border-primary-150 hover-bg-primary-150 hover-border-primary-200 active-bg-primary-200 active-border-primary-200 color-secondary-100 padding-top-two padding-bottom-two padding-left-three padding-right-three radius-large');
   }); 
 });

@@ -32,7 +32,7 @@ describe('<UiPrimaryButton />', () => {
     uiRender(<UiPrimaryButton>MyButton</UiPrimaryButton>);
 
     expect(screen.getByRole('button', { name: 'MyButton' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-one padding-bottom-one padding-left-two padding-right-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders data test id', () => {
@@ -49,7 +49,7 @@ describe('<UiPrimaryButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-one padding-bottom-one padding-left-two padding-right-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders disabled icon', () => {
@@ -60,21 +60,21 @@ describe('<UiPrimaryButton />', () => {
     );
 
     expect(screen.getByTestId('my-button')).toBeDisabled();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-one padding-bottom-one padding-left-two padding-right-two buttonIcon');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-50 border-secondary-100 color-inverse-fonts-50 padding-top-two padding-bottom-two padding-left-three padding-right-three buttonIcon');
   });
 
   test('renders full width', () => {
     uiRender(<UiPrimaryButton fullWidth>MyButton</UiPrimaryButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 buttonFullWidth padding-top-one padding-bottom-one padding-left-two padding-right-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 buttonFullWidth padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders full height', () => {
     uiRender(<UiPrimaryButton fullHeight>MyButton</UiPrimaryButton>);
 
     expect(screen.getByRole('button')).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 buttonFullHeight padding-top-one padding-bottom-one padding-left-two padding-right-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 buttonFullHeight padding-top-two padding-bottom-two padding-left-three padding-right-three buttonRadius');
   });
 
   test('renders class name', () => {
@@ -112,7 +112,7 @@ describe('<UiPrimaryButton />', () => {
     );
 
     expect(screen.getByRole('button', { name: 'Button' })).toBeVisible();
-    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-one padding-bottom-one padding-left-two padding-right-two margin-two buttonRadius');
+    expect(screen.getByRole('button')).toHaveClass('size-regular button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-two padding-bottom-two padding-left-three padding-right-three margin-two buttonRadius');
   });
 
   test('renders rounded', () => {
@@ -122,6 +122,6 @@ describe('<UiPrimaryButton />', () => {
       </UiPrimaryButton>
     );
 
-    expect(screen.getByRole('button')).toHaveClass('size-small button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-one padding-bottom-one padding-left-two padding-right-two radius-small');
+    expect(screen.getByRole('button')).toHaveClass('size-small button bg-secondary-100 border-secondary-150 hover-bg-secondary-150 hover-border-secondary-200 active-bg-secondary-200 active-border-secondary-200 color-inverse-fonts-10 padding-top-two padding-bottom-two padding-left-three padding-right-three radius-small');
   }); 
 });

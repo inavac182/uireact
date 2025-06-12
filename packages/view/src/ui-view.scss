@@ -60,9 +60,6 @@ GLOBAL STYLES
             :global(.#{$state}-color-#{$category}-#{$token}) {
                 &:#{$state} {
                     color: var(--#{$category}-token_#{$token});
-                    svg {
-                        fill: var(--#{$category}-token_#{$token});
-                    }
                 }
             }
     

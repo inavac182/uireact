@@ -8,7 +8,7 @@ import { getSecondaryClasses } from './helpers';
 
 import styles from './ui-button.scss';
 
-const defaultPadding: SpacingDistribution = { block: 'one', inline: 'two' };
+const defaultPadding: SpacingDistribution = { block: 'two', inline: 'three' };
 
 export const UiSecondaryButton: React.FC<UiSecondaryButtonProps> = ({
   onClick,

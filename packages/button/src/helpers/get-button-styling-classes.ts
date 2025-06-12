@@ -15,7 +15,7 @@ export const getButtonStylingClasses = (styling: 'filled' | 'clear' | 'icon' | '
             return `${styles.buttonClear} bg-${category}-10`;
         }
 
-        return `${styles.buttonClear} clear-bg hover-bg-${category}-10 active-bg-${category}-50`;
+        return `${styles.buttonClear} clear-bg hover-bg-${category}-100 active-bg-${category}-200`;
     }
 
     if (styling === 'outlined') {
@@ -23,7 +23,7 @@ export const getButtonStylingClasses = (styling: 'filled' | 'clear' | 'icon' | '
             return `${styles.buttonOutlined} border-${category}-10`;
         }
 
-        return `${styles.buttonOutlined} border-${category}-100 hover-bg-${category}-10 active-bg-${category}-50 color-${category}-100 hover-color-${category}-100`;
+        return `${styles.buttonOutlined} border-${category}-100 hover-bg-${category}-100 active-bg-${category}-200 active-border-${category}-200 color-${category}-100 hover-color-${category}-100`;
     }
 
     if (disabled) {

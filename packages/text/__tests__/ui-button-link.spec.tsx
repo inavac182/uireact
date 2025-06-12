@@ -20,7 +20,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link')).toHaveClass(' buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 border-tertiary-100 hover-border-tertiary-150 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular padding-top-two padding-bottom-two padding-left-three padding-right-three buttonLinkRadius');
   });
 
   it('renders fine with spacing', () => {
@@ -42,7 +42,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 hover-bg-positive-150 active-bg-positive-200 fullWidth bold color-inverse-fonts-100 size-large wrap padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 border-positive-100 hover-border-positive-150 hover-bg-positive-150 active-bg-positive-200 color-inverse-fonts-100 size-large fullWidth bold wrap padding-top-two padding-bottom-two padding-left-three padding-right-three buttonLinkRadius');
   });
 
   it('renders fine with rounded', () => {
@@ -53,7 +53,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 border-positive-100 hover-border-positive-150 hover-bg-positive-150 active-bg-positive-200 color-fonts-100 size-large padding-top-three padding-bottom-three padding-left-four padding-right-four radius-large');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-positive-100 border-positive-100 hover-border-positive-150 hover-bg-positive-150 active-bg-positive-200 color-fonts-100 size-large padding-top-two padding-bottom-two padding-left-three padding-right-three radius-large');
   });
 
   it('renders fine with font style bold', () => {
@@ -64,7 +64,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 bold color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 border-tertiary-100 hover-border-tertiary-150 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular bold padding-top-two padding-bottom-two padding-left-three padding-right-three buttonLinkRadius');
   });
 
   it('renders fine with font style italic', () => {
@@ -75,7 +75,7 @@ describe('<UiLink />', () => {
     );
 
     expect(screen.getByRole('link', { name: 'Link' })).toBeVisible();
-    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 hover-bg-tertiary-150 active-bg-tertiary-200 italic color-fonts-100 size-regular padding-top-three padding-bottom-three padding-left-four padding-right-four');
+    expect(screen.getByRole('link')).toHaveClass('buttonLink bg-tertiary-100 border-tertiary-100 hover-border-tertiary-150 hover-bg-tertiary-150 active-bg-tertiary-200 color-fonts-100 size-regular italic padding-top-two padding-bottom-two padding-left-three padding-right-three buttonLinkRadius');
   });
 
   it('renders fine with dark coloration', () => {
