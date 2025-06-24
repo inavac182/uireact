@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/inavac182/uireact/compare/@uireact/flex@3.1.6...@uireact/flex@3.2.0) (2025-06-24)
+
+
+### Features
+
+* **flex:** full height prop ([#433](https://github.com/inavac182/uireact/issues/433)) ([8714bd9](https://github.com/inavac182/uireact/commit/8714bd90ee959632eb996986a2747198a4d855e9))
+
+
+
+
+
 ## [3.1.6](https://github.com/inavac182/uireact/compare/@uireact/flex@3.1.5...@uireact/flex@3.1.6) (2025-06-12)
 
 **Note:** Version bump only for package @uireact/flex
