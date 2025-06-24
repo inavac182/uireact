@@ -31,6 +31,16 @@
     padding: 5px;
     height: 100%;
     min-height: 100px;
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.children {
+    padding: var(--spacing-three);
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .centered {
@@ -132,7 +142,7 @@
     padding: 2px 2px 0 2px;
 }
 
-.toobar {
+.toolbar {
     display: flex;
     gap: 10px;
     border-color: var(--primary-token_100);

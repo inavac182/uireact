@@ -52,7 +52,9 @@ export const UiDialog: React.FC<UiDialogProps> = ({
     return (
       <DialogContent type={type} className={className} data-testid={testId} motion={animation} gradientBorder={gradientBorder}>
         <DialogToolbar title={title} hideCloseIcon={hideCloseIcon} closeCB={closeCB} closeLabel={closeLabel} />
-        {children}
+        <div className={styles.children}>
+          {children}
+        </div>
       </DialogContent>
     );
   }
@@ -69,7 +71,9 @@ export const UiDialog: React.FC<UiDialogProps> = ({
             closeLabel={closeLabel}
             data-testid="UiDialogToolbar"
           />
-          {children}
+          <div className={styles.children}>
+            {children}
+          </div>
         </DialogContent>
       </>
     </div>

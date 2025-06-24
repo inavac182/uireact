@@ -19,4 +19,6 @@ export type UiFlexGridProps = {
   rowGap?: SpacingType;
   /** Flex grid wrap */
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
+  /** If flex grid should take all height */
+  fullHeight?: boolean;
 } & UiReactElementProps;

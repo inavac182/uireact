@@ -85,4 +85,17 @@ describe('<UiFlexGrid />', () => {
     expect(screen.getByText('Item 2')).toBeVisible();
     expect(screen.getByTestId('grid')).toHaveClass('flexGrid nowrap');
   });
+
+    it('renders fine with fullHeight', () => {
+    uiRender(
+      <UiFlexGrid wrap="nowrap" testId="grid" fullHeight>
+        <UiFlexGridItem>Item 1</UiFlexGridItem>
+        <UiFlexGridItem>Item 2</UiFlexGridItem>
+      </UiFlexGrid>
+    );
+
+    expect(screen.getByText('Item 1')).toBeVisible();
+    expect(screen.getByText('Item 2')).toBeVisible();
+    expect(screen.getByTestId('grid')).toHaveClass('flexGrid nowrap fullHeight');
+  });
 });
