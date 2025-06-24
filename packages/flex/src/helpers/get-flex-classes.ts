@@ -38,5 +38,9 @@ export const getFlexClasses = (props: UiFlexGridProps): string => {
         classes = `${classes} ${styles[`justify-${props.justifyContent}`]}`;
     }
 
+    if (props.fullHeight) {
+        classes = `${classes} ${styles.fullHeight}`;
+    }
+
     return classes;
 };

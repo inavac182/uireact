@@ -4,7 +4,7 @@ import { UiIcon } from '@uireact/icons';
 import { UiButton } from '@uireact/button';
 import { UiHeading } from '@uireact/text';
 
-import styles from 'ui-dialog.scss';
+import styles from '../ui-dialog.scss';
 
 type DialogToolbarProps = {
   closeLabel?: string;
