@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/inavac182/uireact/compare/@uireact/dialog@4.2.0...@uireact/dialog@4.2.1) (2025-06-25)
+
+
+### Bug Fixes
+
+* **dialogs:** content overflow ([#434](https://github.com/inavac182/uireact/issues/434)) ([c7f42ba](https://github.com/inavac182/uireact/commit/c7f42baaac8c16c16b4b78d5fc7c6a4d2b7a3264))
+
+
+
+
+
 # [4.2.0](https://github.com/inavac182/uireact/compare/@uireact/dialog@4.1.8...@uireact/dialog@4.2.0) (2025-06-24)
 
 

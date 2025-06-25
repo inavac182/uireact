@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.8](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.7...@uireact/ezforms@0.15.8) (2025-06-25)
+
+**Note:** Version bump only for package @uireact/ezforms
+
+
+
+
+
 ## [0.15.7](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.6...@uireact/ezforms@0.15.7) (2025-06-24)
 
 **Note:** Version bump only for package @uireact/ezforms
