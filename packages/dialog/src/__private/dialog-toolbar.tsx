@@ -21,9 +21,11 @@ export const DialogToolbar: React.FC<DialogToolbarProps> = ({
 }: DialogToolbarProps) => (
   <div className={styles.toolbar} data-testid="UiDialogToolbar">
     {!hideCloseIcon && (
-      <UiButton onClick={closeCB} aria-label={closeLabel} styling='icon'>
-        <UiIcon icon="X" size='small' />
-      </UiButton>
+      <div>
+        <UiButton onClick={closeCB} aria-label={closeLabel} styling='icon'>
+          <UiIcon icon="X" size='small' />
+        </UiButton>
+      </div>
     )}
     {title && (
       <UiHeading centered>{title}</UiHeading>
