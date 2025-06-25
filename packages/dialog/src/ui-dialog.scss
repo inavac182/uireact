@@ -32,7 +32,6 @@
     height: 100%;
     min-height: 100px;
     box-sizing: border-box;
-    overflow: auto;
     display: flex;
     flex-direction: column;
 }
@@ -50,6 +49,11 @@
     transform: translateY(-50%) translateX(-50%);
     border-radius: 5px;
     position: absolute;
+
+    .children {
+        max-height: 400px;
+        overflow: auto;
+    }
 }
 
 .left {
@@ -59,6 +63,10 @@
     position: fixed;
     height: 100%;
     min-width: 20%;
+
+    .children {
+        overflow: auto;
+    }
 }
 
 .right {
@@ -68,6 +76,10 @@
     position: fixed;
     height: 100%;
     min-width: 20%;
+
+    .children {
+        overflow: auto;
+    }
 }
 
 .bottom {
@@ -79,6 +91,16 @@
     position: fixed;
     min-width: 579px;
     min-height: 100px;
+    max-height: 400px;
+
+    .content {
+        max-height: 400px;
+    }
+
+    .children {
+        overflow: auto;
+        position: relative;
+    }
 
     @media screen and (max-width: 579px) {
         width: 100%;
@@ -92,6 +114,10 @@
     position: fixed;
     height: 100%;
     width: 100%;
+
+    .children {
+        overflow: auto;
+    }
 }
 
 .border {
@@ -144,7 +170,8 @@
 
 .toolbar {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: var(--spacing-two);
     border-color: var(--primary-token_100);
     border-style: solid;
     border-width: 0 0 2px 0;
