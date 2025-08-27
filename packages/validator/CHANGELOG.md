@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.13.1 (2025-08-27)
+
+
+### Bug Fixes
+
+* **validator:** case sensitive valid option ([#435](https://github.com/inavac182/ui-react/issues/435)) ([a19745f](https://github.com/inavac182/ui-react/commit/a19745f0b31fc61b21de7e6ecf50d57202c47e9a))
+
+
+
+
+
 # [2.13.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.12.0...@uireact/validator@2.13.0) (2025-05-13)
 
 

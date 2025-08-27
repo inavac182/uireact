@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.9](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.8...@uireact/ezforms@0.15.9) (2025-08-27)
+
+
+### Bug Fixes
+
+* **validator:** case sensitive valid option ([#435](https://github.com/inavac182/uireact/issues/435)) ([a19745f](https://github.com/inavac182/uireact/commit/a19745f0b31fc61b21de7e6ecf50d57202c47e9a))
+
+
+
+
+
 ## [0.15.8](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.7...@uireact/ezforms@0.15.8) (2025-06-25)
 
 **Note:** Version bump only for package @uireact/ezforms
