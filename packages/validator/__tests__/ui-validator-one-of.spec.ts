@@ -81,6 +81,36 @@ describe('isOneOf', () => {
     });
   });
 
+    describe('labelled options with strings', () => {
+    const schema = {
+      color: validator.field('choice').present().oneOf([{
+        label: 'blue',
+        value: 'B'
+      }, {
+        label: 'red',
+        value: 'R'
+      }])
+    };
+
+    it('Should be true if the given value is one of the provided labelled options', () => {
+      const data = {
+        color: 'B'
+      };
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toStrictEqual(true);
+    });
+  
+    it('Should be false if the given value is NOT a valid value', () => {
+      const data = {
+        color: 'b'
+      };
+      const result = validator.validate(schema, data);
+
+      expect(result.passed).toStrictEqual(false);
+    });
+  });
+
   describe('numbers', () => {
     const schema = {
       color: validator.field('numeric').oneOf([1, 2, 3], 'The option is not valid')
