@@ -232,15 +232,15 @@ Very useful when you need the value to be some sort of id and the label to descr
       username: new UiValidator().field("text").ezMetadata({ label: "Username:" }).present(),
       favoriteColor: new UiValidator().field("choice").ezMetadata({ label: "Choose your favorit color:" }).oneOf([
         {
-          value: 1,
+          value: "B",
           label: 'blue'
         },
         {
-          value: 1,
+          value: "G",
           label: 'green'
         },
         {
-          value: 1,
+          value: "R",
           label: 'red'
         }
       ]),

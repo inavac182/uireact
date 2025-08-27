@@ -18,7 +18,7 @@ import { UiValidatorRules } from './ui-validator-rules';
 export class UiValidator {
   private getComparableOption(option: UiValidatorChoicesRuleOption) {
     if (typeof option === 'string') {
-      return option.toLowerCase();
+      return option;
     } else if (typeof option === 'number') {
       return option;
     } else {
@@ -235,14 +235,16 @@ export class UiValidator {
     let comparableValue: string | number | null = null;
 
     if (typeof value === 'string') {
-      comparableValue = value.toLowerCase();
+      comparableValue = value;
     }
 
     if (typeof value === 'number') {
       comparableValue = value;
     }
 
-    return options.filter(option => comparableValue && this.getComparableOption(option).toString() === comparableValue.toString()).length > 0;
+    return options.filter(option => {
+      return comparableValue && this.getComparableOption(option).toString() === comparableValue.toString()
+    }).length > 0;
   }
 
   private validSchema(schema: UiValidatorSchema, data: UiValidatorData): boolean {
