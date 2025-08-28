@@ -25,6 +25,16 @@ export class UiValidatorRules {
     return this;
   }
 
+  /** Fn that allows to change the field type during conditional validations */
+  mutate(type: UiValidatorFieldTypes, message?: string) {
+    this.rules.type = {
+      expected: type,
+      error: message ? { message } : { message: `This is not a valid ${type}` }
+    };
+
+    return this;
+  }
+
   present(errorMessage?: string) {
     this.rules.required = {
       expected: true,
@@ -144,6 +154,21 @@ export class UiValidatorRules {
         }
       : {
           message: `The value doesn't match`,
+        }
+    }
+
+    return this;
+  }
+
+  equals(value: string | number, errorMessage?: string) {
+    this.rules.equals = {
+      expected: value,
+      error: errorMessage
+      ? {
+          message: errorMessage,
+        }
+      : {
+          message: `The value is not equal to: ${value}`,
         }
     }
 

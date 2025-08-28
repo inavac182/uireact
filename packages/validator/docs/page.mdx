@@ -398,6 +398,22 @@ Example using a component that receives the schema and the data and then renders
         </td>
       </tr>
       <tr>
+        <td>equals()</td>
+        <td>
+          <UiList>
+            <li> ❗️ value: string | number</li>
+            <li> ❓ errorMessage</li>
+            <li>DEFAULT: "The value is not equal to: (value)"</li>
+          </UiList>
+        </td>
+        <td>
+          <UiList>
+            <li>✅ When the passed value matches the expected value</li>
+            <li>❌ Everything else</li>
+          </UiList>
+        </td>
+      </tr>
+      <tr>
         <td>equalsTo()</td>
         <td>
           <UiList>
@@ -515,6 +531,23 @@ That will ensure that either phone or email are provided.
 
 <br />
 <br />
+
+#### mutate field types
+
+There are use cases when depending in some values we need to mutate the field type of a field, for this we have the `mutate()` function.
+
+```ts
+const schema = {
+  method: validator.field('choice').oneOf(['phone', 'email']),
+  contact: validator
+    .field('phone')
+    .when('method', validator.is().equals('phone'))
+    .run(validator.is().present())
+    .else(validator.is().mutate('email').present())
+}
+```
+
+That schema will validate a phone is passed when the method selected is "phone", otherwise it will validate a valid email is passed.
 
 ## For passwords
 

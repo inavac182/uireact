@@ -187,6 +187,10 @@ export class UiValidator {
     return data[compareToFieldName] === value;
   }
 
+  private isEquals(expected: string | number, value: unknown): boolean {
+    return value === expected;
+  }
+
   /**
    * @param baseline The value used as baseline for the comparisson
    * @param action The action taken for comparisson
@@ -505,6 +509,15 @@ export class UiValidator {
       if (!this.isEqualTo(rules.equalsTo.name, value, data)) {
         hasError = true;
         fieldErrors.push(rules.equalsTo.error);
+      }
+    }
+
+    if (rules.equals) {
+      ruleMatched = true;
+      
+      if (!this.isEquals(rules.equals.expected, value)) {
+        hasError = true;
+        fieldErrors.push(rules.equals.error);
       }
     }
 
