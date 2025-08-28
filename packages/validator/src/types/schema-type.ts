@@ -105,6 +105,9 @@ export type UiValidatorFieldRules = {
   equalsTo?: UiValidatorEqualsToRule;
   /** Validates the value matches a specific secure level */
   secureLevel?: UiValidatorSecureRule;
+  equals?: UiValidatorExpectationRule<string | number>;
+  /** Mutate field type */
+  mutate?: UiValidatorExpectationRule<UiValidatorFieldTypes>;
 };
 
 /** Metadata information used from EzForms */

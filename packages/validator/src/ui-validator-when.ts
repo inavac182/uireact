@@ -35,7 +35,10 @@ export class UiValidatorWhen {
   else(rules: UiValidatorRules): UiValidatorWhen {
     const fieldDataRules = this.fieldData.getRules();
     this.fallBackRules = rules.getRules();
-    this.fallBackRules.type = fieldDataRules.type;
+
+    if (!this.fallBackRules.type) {
+      this.fallBackRules.type = fieldDataRules.type;
+    }
 
     return this;
   }
