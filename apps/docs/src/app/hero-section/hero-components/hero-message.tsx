@@ -1,6 +1,6 @@
 'use client';
 import { useViewport } from '@uireact/foundation';
-import { AnimatePresence, AnimationProps, motion, Variants } from 'motion/react';
+import { AnimatePresence, motion, Variants } from 'motion/react';
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 
