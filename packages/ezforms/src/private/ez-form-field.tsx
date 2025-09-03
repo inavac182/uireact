@@ -1,11 +1,13 @@
-import React, { FormEvent, useCallback } from 'react';
+import React, { FormEvent, useCallback, useMemo } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
 import { UiDigitsInput, UiInput, UiRangeInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
-import type { UiValidatorField, UiValidatorWhen } from '@uireact/validator';
+import type { UiValidatorData, UiValidatorField, UiValidatorWhen } from '@uireact/validator';
+
 import { getFieldData } from './get-field-data';
 import { getFieldRules } from './get-field-rules';
+import { getFieldType } from './get-field-type';
 
 type EzFormFieldProps = {
   field: UiValidatorField | UiValidatorWhen;
@@ -13,6 +15,7 @@ type EzFormFieldProps = {
   name: string;
   value?: any;
   useBrowserValidation?: boolean;
+  allData?: UiValidatorData;
   onTextInputChange: (e: FormEvent<HTMLInputElement>) => void;
   onTextAreaChange: (e: FormEvent<HTMLTextAreaElement>) => void;
   onSelectInputChange: (value: string, name: string) => void;
@@ -28,6 +31,7 @@ export const EzFormField = ({
   name, 
   value, 
   useBrowserValidation, 
+  allData,
   onTextInputChange,
   onNumericInputChange,
   onTextAreaChange,
@@ -57,19 +61,23 @@ export const EzFormField = ({
     onDigitsInputChange(value || "", name);
   }, [name, onDigitsInputChange]);
 
+  const fieldType = useMemo(() => {
+    return getFieldType(field, allData);
+  }, [field, allData]);
+
   // istanbul ignore next
-  if (!rules || !rules.type) {
+  if (!rules || !fieldType) {
     console.error(`UiEzForm - There are missing rules on field ${name}`)
     return null;
   }
 
-  const isTextInput = rules.type.expected === 'text' || 
-    rules.type.expected === 'numeric' ||
-    rules.type.expected === 'email' ||
-    rules.type.expected === 'phone';
+  const isTextInput = fieldType === 'text' || 
+    fieldType === 'numeric' ||
+    fieldType === 'email' ||
+    fieldType === 'phone';
   const inputType = 
-    rules.type.expected === 'numeric' ? 'number' : 
-    rules.type.expected === 'email' ? 'email' :
+    fieldType === 'numeric' ? 'number' : 
+    fieldType === 'email' ? 'email' :
     ezMetadata.protected ? 'password' :
     undefined;
 
@@ -149,7 +157,7 @@ export const EzFormField = ({
     )
   }
 
-  if (rules.type.expected === 'date') {
+  if (fieldType === 'date') {
     const selectedDate = value ? new Date(`${value} 00:00:00`) : undefined;
 
     return (
@@ -168,7 +176,7 @@ export const EzFormField = ({
     )
   }
 
-  if(rules.type.expected === 'boolean') {
+  if(fieldType === 'boolean') {
     return (
       <UiSwitch 
         label={ezMetadata.label}
@@ -181,7 +189,7 @@ export const EzFormField = ({
     )
   }
 
-  if(rules.type.expected === 'choice' && rules.oneOf?.options) {
+  if(fieldType === 'choice' && rules.oneOf?.options) {
     return (
       <UiSelect name={name} value={value} onChange={onSelectChangeWrapper} error={error} category={error ? 'error' : undefined} label={ezMetadata.label} labelOnTop>
         <option value=""></option>

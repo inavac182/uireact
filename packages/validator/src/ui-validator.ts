@@ -366,7 +366,7 @@ export class UiValidator {
           return;
         }
 
-        const preConditionsPassed = this.runPreconditions(preConditions, data);
+        const preConditionsPassed = this.verifyPreconditions(preConditions, data);
 
         let result;
 
@@ -541,7 +541,8 @@ export class UiValidator {
     };
   }
 
-  private runPreconditions(
+  /** @private - Do not use, only used from EzForms */
+  verifyPreconditions(
     preConditions: UiValidatorWhenValidation, 
     data: UiValidatorData
   ): boolean {
