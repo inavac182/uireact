@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.10...@uireact/ezforms@0.16.0) (2025-09-03)
+
+
+### Features
+
+* **ezforms:** mutate field type ([#437](https://github.com/inavac182/uireact/issues/437)) ([6a86ffc](https://github.com/inavac182/uireact/commit/6a86ffca718555ad1c7b18f3f359e94e13fde26a))
+
+
+
+
+
 ## [0.15.10](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.9...@uireact/ezforms@0.15.10) (2025-08-28)
 
 **Note:** Version bump only for package @uireact/ezforms

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.14.0...@uireact/validator@2.15.0) (2025-09-03)
+
+
+### Features
+
+* **ezforms:** mutate field type ([#437](https://github.com/inavac182/ui-react/issues/437)) ([6a86ffc](https://github.com/inavac182/ui-react/commit/6a86ffca718555ad1c7b18f3f359e94e13fde26a))
+
+
+
+
+
 # [2.14.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.13.1...@uireact/validator@2.14.0) (2025-08-28)
 
 
