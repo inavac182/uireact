@@ -251,6 +251,27 @@ Very useful when you need the value to be some sort of id and the label to descr
   />
 ```
 
+#### Mutating field types
+
+Using the `mutate()` function we can change the a field's type based on the validations that you set up. For instance in this example we have a field that is a select element but changes to text element when the the `transport` field changes its values.
+
+```jsx live scope={{UiEzForm, UiValidator}}
+  <UiEzForm 
+    schema={{
+      transport: new UiValidator().field("choice").ezMetadata({ label: "Transport:" }).present().oneOf(['Car', 'Boat']),
+      part: new UiValidator()
+        .field('choice')
+        .ezMetadata({ label: 'Part:' })
+        .when('transport', new UiValidator().is().equals('Car'))
+        .run(new UiValidator().is().oneOf(['Tire', 'Wheels'], 'Please select a valid part of a car'))
+        .else(new UiValidator().is().mutate('text').present('Please mention a part of a Boat'))
+    }}
+    onSubmit={(e, data) => {e.preventDefault();console.log(data)}}
+    buttonsAlignment='stacked'
+    submitLabel='Submit'
+  />
+```
+
 ## Decorators 
 
 These are used to inject React elements around the form and customize what and how we need to render an input. The decorator name will tell the position where that React component will be rendered.

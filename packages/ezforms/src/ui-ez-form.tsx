@@ -126,6 +126,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
       <UiFlexGrid gap='three' direction={direction && direction === 'inline' ? 'row' : 'column'}>
         {Object.keys(schema).map((schemaField, index) => 
           <EzFormField
+            allData={data}
             key={`ezform-field-${index}`}
             field={schema[schemaField]}
             value={data[schemaField]}
