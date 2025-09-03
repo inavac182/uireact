@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.13.1...@uireact/validator@2.14.0) (2025-08-28)
+
+
+### Features
+
+* **validator:** adding mutate fn ([#436](https://github.com/inavac182/ui-react/issues/436)) ([3a1c3bb](https://github.com/inavac182/ui-react/commit/3a1c3bb6e72be01abe07245009e3bd92320309ad))
+
+
+
+
+
 ## 2.13.1 (2025-08-27)
 
 
