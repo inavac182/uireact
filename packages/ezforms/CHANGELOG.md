@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.16.0...@uireact/ezforms@0.17.0) (2025-09-04)
+
+
+### Features
+
+* **ezforms:** clear data of field when field type mutates ([#438](https://github.com/inavac182/uireact/issues/438)) ([8e7a59d](https://github.com/inavac182/uireact/commit/8e7a59d11d5c964262ec7ca021a7cb74ce42a834))
+
+
+
+
+
 # [0.16.0](https://github.com/inavac182/uireact/compare/@uireact/ezforms@0.15.10...@uireact/ezforms@0.16.0) (2025-09-03)
 
 
