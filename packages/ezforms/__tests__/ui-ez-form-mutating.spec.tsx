@@ -24,11 +24,11 @@ const schema = {
 }
 
 describe('Mutating fields', () => {
-  it('Should render text field', () => {
+  it('Should render combobox field as no data is present and choice is the main rule', () => {
     uiRender(<UiEzForm schema={schema} submitLabel='Submit' />);
 
     expect(screen.getByRole('combobox', { name: 'Country' })).toBeVisible();
-    expect(screen.getByRole('textbox', { name: 'State' })).toBeVisible();
+    expect(screen.getByRole('combobox', { name: 'State' })).toBeVisible();
   });
 
   it('Should mutate correctly between different types', () => {
@@ -36,40 +36,24 @@ describe('Mutating fields', () => {
 
     // Verify first render
     const countrySelect = screen.getByRole('combobox', { name: 'Country' });
-    const stateInput = screen.getByRole('textbox', { name: 'State' });
+    const stateSelect = screen.getByRole('combobox', { name: 'State' });
 
     // Add some value and verify the text element
-    fireEvent.change(stateInput, { target: { value: 'Washington' } });
+    fireEvent.change(stateSelect, { target: { value: 'Colima' } });
 
     expect(countrySelect).toBeVisible();
 
-    expect(screen.getByRole('textbox', { name: 'State' })).toBeVisible();
-    expect(screen.getByRole('textbox', { name: 'State' })).toHaveValue('Washington');
+    expect(screen.getByRole('combobox', { name: 'State' })).toBeVisible();
+    expect(screen.getByRole('combobox', { name: 'State' })).toHaveValue('Colima');
 
     // Change country to the value that triggers mutation
 
-    fireEvent.change(countrySelect, { target: { value: '1' } });
-
-    // Verify mutated field
-
-    expect(screen.queryByRole('textbox', { name: 'State' })).not.toBeInTheDocument();
-    expect(screen.getByRole('combobox', { name: 'State' })).toBeVisible();
-    expect(screen.getByRole('combobox', { name: 'State' })).toHaveValue('');
-
-    // Select an option in the mutated field
-
-    const stateSelect = screen.getByRole('combobox', { name: 'State' });
-    fireEvent.change(stateSelect, { target: { value: 'Colima' } });
-
-    expect(stateSelect).toHaveValue('Colima');
-
-    // Change country to another value that triggers basic type to be rendered
-
     fireEvent.change(countrySelect, { target: { value: '2' } });
 
-    // Verify default field renders
+    // Verify mutated field renders
     expect(screen.queryByRole('combobox', { name: 'State' })).not.toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: 'State' })).toBeVisible();
     expect(screen.getByRole('textbox', { name: 'State' })).toHaveValue('');
+  
   });
 });

@@ -3,6 +3,7 @@ import { UiValidator, UiValidatorData, UiValidatorField, UiValidatorFieldTypes, 
 const validator = new UiValidator();
 
 export const getFieldType = (field: UiValidatorField | UiValidatorWhen, data?: UiValidatorData) => {
+  debugger;
   if (!field) {
     return null;
   }
@@ -30,6 +31,18 @@ export const getFieldType = (field: UiValidatorField | UiValidatorWhen, data?: U
   }
 
   const preConditions = field.getPreConditions();
+
+  let isEmptyData = true;
+  Object.keys(preConditions).map((observedField) => {
+    if(data[observedField]) {
+      isEmptyData = false;
+    }
+  });
+
+  if (isEmptyData) {
+    return mainRules;
+  }
+
   const useMainType = validator.verifyPreconditions(preConditions, data);
   
   if (useMainType) {

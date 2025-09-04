@@ -253,40 +253,23 @@ Very useful when you need the value to be some sort of id and the label to descr
 
 #### Mutating field types
 
-Using the `mutate()` function we can change the a field's type based on the validations that you set up. For instance in this example we have a field that is a select element but changes to text element when the `transport` field changes its values.
+Using the `mutate()` function we can change the a field's type based on the validations that you set up. For instance in this example we have a field that is a select element but changes to text element when the `country` field changes to another value1.
 
 ```jsx live scope={{UiEzForm, UiValidator}}
   <UiEzForm 
     schema={{
-    name: new UiValidator()
-      .field('text')
-      .ezMetadata({ label: "Name", icon: "Building" })
-      .present("Name is requried"),
-    phone: new UiValidator()
-      .field('phone')
-      .ezMetadata({ label: "Phone", icon: "CirclePhone" })
-      .present("Phone is required"),
-    country: new UiValidator() 
-      .field('choice')
-      .ezMetadata({ label: "Country", icon: "EarthAmericas" })
-      .present("Country is required")
-      .oneOf([{ label: 'Mexico', value: 1 }, { label: 'Estados Unidos de America', value: 2 }]),
-    state: new UiValidator() 
-      .field('choice')
-      .ezMetadata({ label: "State", icon: "City" })
-      .when('country', new UiValidator().is().equals('1'))
-      .run(new UiValidator().is().present("State is required").oneOf(['Colima', 'Jalisco']))
-      .else(new UiValidator().is().mutate('text').present("State is required")),
-    city: new UiValidator() 
-      .field('text')
-      .ezMetadata({ label: "City", icon: "City" })
-      .present("City is required"),
-    street: new UiValidator() 
-      .field('text')
-      .ezMetadata({ label: "Street", icon: "MapMarker" })
-      .present("Street is required"),
-    bid: new UiValidator().field('text').ezMetadata({ hidden: true }).optional()
-  }}
+      country: new UiValidator() 
+        .field('choice')
+        .ezMetadata({ label: "Country", icon: "EarthAmericas" })
+        .present("Country is required")
+        .oneOf([{ label: 'Mexico', value: 1 }, { label: 'Estados Unidos de America', value: 2 }]),
+      state: new UiValidator() 
+        .field('choice')
+        .ezMetadata({ label: "State", icon: "City" })
+        .when('country', new UiValidator().is().equals('1'))
+        .run(new UiValidator().is().present("State is required").oneOf([{ label: 'Colima', value: 1 }, { label: 'Jalisco', value: 2 }]))
+        .else(new UiValidator().is().mutate('text').present("State is required"))
+    }}
     onSubmit={(e, data) => {e.preventDefault();console.log(data)}}
     buttonsAlignment='stacked'
     submitLabel='Submit'

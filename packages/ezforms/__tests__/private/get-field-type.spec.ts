@@ -31,7 +31,7 @@ describe('getFieldType()', () => {
 
     const type = getFieldType(schema.card, data);
 
-    expect(type).toBe('choice');
+    expect(type).toBe('text');
   });
 
 
