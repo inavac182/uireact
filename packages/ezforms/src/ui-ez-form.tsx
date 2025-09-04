@@ -121,6 +121,15 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
     }
   }, [data, onSubmit, schema]);
 
+  const onClear = useCallback((name: string) => {
+    const newData = { ...data, [name]: "" };
+    setErrors({});
+    setData(newData);
+
+    // istanbul ignore next
+    onChange?.(newData);
+  }, [data, onChange]);
+
   return (
     <form onSubmit={onSubmitCB} action={action} method={method}>
       <UiFlexGrid gap='three' direction={direction && direction === 'inline' ? 'row' : 'column'}>
@@ -140,6 +149,7 @@ export const UiEzForm: React.FC<UiEzFormProps> = ({
             onSelectInputChange={onStringChange}
             onDigitsInputChange={onStringChange}
             useBrowserValidation={useBrowserValidation}
+            clearData={onClear}
           />
         )}
         {decorators?.aboveActions}
