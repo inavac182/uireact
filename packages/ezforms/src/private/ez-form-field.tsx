@@ -1,9 +1,9 @@
-import React, { FormEvent, useCallback, useMemo } from 'react';
+import React, { FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { UiInputDatepicker } from '@uireact/datepicker';
 import { UiDigitsInput, UiInput, UiRangeInput, UiSelect, UiSwitch, UiTextArea } from '@uireact/form';
 import { UiIcon, UiIconProps } from '@uireact/icons';
-import type { UiValidatorData, UiValidatorField, UiValidatorWhen } from '@uireact/validator';
+import type { UiValidatorData, UiValidatorField, UiValidatorFieldTypes, UiValidatorWhen } from '@uireact/validator';
 
 import { getFieldData } from './get-field-data';
 import { getFieldRules } from './get-field-rules';
@@ -23,6 +23,7 @@ type EzFormFieldProps = {
   onDateInputChange: (date: string, name: string) => void;
   onBooleanToogle: (value: boolean, name: string) => void;
   onDigitsInputChange: (value: string, name: string) => void;
+  clearData: (name: string) => void;
 }
 
 export const EzFormField = ({ 
@@ -38,11 +39,13 @@ export const EzFormField = ({
   onDateInputChange,
   onBooleanToogle,
   onSelectInputChange,
-  onDigitsInputChange
+  onDigitsInputChange,
+  clearData
 }: EzFormFieldProps) => {
   const fieldData = getFieldData(field);
   const ezMetadata = fieldData.getEzMetadata() || {};
   const rules = getFieldRules(field);
+  const [fieldType, setFieldType] = useState(getFieldType(field, allData));
   const icon = ezMetadata.icon ? <UiIcon icon={ezMetadata.icon as UiIconProps['icon']} /> : undefined;
   const onDateChangeWrapper = useCallback((date: string) => {
     onDateInputChange(date, name);
@@ -61,9 +64,17 @@ export const EzFormField = ({
     onDigitsInputChange(value || "", name);
   }, [name, onDigitsInputChange]);
 
-  const fieldType = useMemo(() => {
-    return getFieldType(field, allData);
-  }, [field, allData]);
+  useEffect(() => {
+    const type = getFieldType(field, allData);
+
+    if (type !== fieldType) {
+      clearData(name);
+    }
+
+    if (type) {
+      setFieldType(type);
+    }
+  }, [field, allData, fieldType, name]);
 
   // istanbul ignore next
   if (!rules || !fieldType) {
