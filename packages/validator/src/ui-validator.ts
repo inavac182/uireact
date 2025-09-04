@@ -188,7 +188,7 @@ export class UiValidator {
   }
 
   private isEquals(expected: string | number, value: unknown): boolean {
-    return value === expected;
+    return value == expected;
   }
 
   /**
