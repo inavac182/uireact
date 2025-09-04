@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.16.0 (2025-09-04)
+
+
+### Features
+
+* **ezforms:** default to main rules for mutating fields ([#439](https://github.com/inavac182/ui-react/issues/439)) ([ac8bb61](https://github.com/inavac182/ui-react/commit/ac8bb61c086f16e3031bce0aeb09a9bbdca65344))
+
+
+
+
+
 # [2.15.0](https://github.com/inavac182/ui-react/compare/@uireact/validator@2.14.0...@uireact/validator@2.15.0) (2025-09-03)
 
 
