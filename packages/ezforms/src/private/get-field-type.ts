@@ -3,7 +3,6 @@ import { UiValidator, UiValidatorData, UiValidatorField, UiValidatorFieldTypes, 
 const validator = new UiValidator();
 
 export const getFieldType = (field: UiValidatorField | UiValidatorWhen, data?: UiValidatorData) => {
-  debugger;
   if (!field) {
     return null;
   }
