@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.20 (2025-11-18)
+
+
+### Bug Fixes
+
+* color inside outlined card ([#440](https://github.com/inavac182/uireact/issues/440)) ([852dce8](https://github.com/inavac182/uireact/commit/852dce8795afb12ba0905f63c27cab34528c8be8))
+
+
+
+
+
 ## [3.7.19](https://github.com/inavac182/uireact/compare/@uireact/card@3.7.18...@uireact/card@3.7.19) (2025-06-12)
 
 **Note:** Version bump only for package @uireact/card
