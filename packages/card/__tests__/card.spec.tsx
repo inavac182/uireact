@@ -59,7 +59,7 @@ describe('UiCard', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'Heading' })).toBeVisible();
-    expect(screen.getByTestId('UiCard')).toHaveClass('card cardOutlined border-secondary-100 padding-three');
+    expect(screen.getByTestId('UiCard')).toHaveClass('card cardOutlined border-secondary-50 padding-three');
   });
 
   test('renders card with header, content and footer', () => {
