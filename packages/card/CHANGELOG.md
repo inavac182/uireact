@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.21](https://github.com/inavac182/uireact/compare/@uireact/card@3.7.20...@uireact/card@3.7.21) (2025-12-26)
+
+
+### Bug Fixes
+
+* fixed weight in styled uicard ([#441](https://github.com/inavac182/uireact/issues/441)) ([ee829cd](https://github.com/inavac182/uireact/commit/ee829cd1639e40300a1c2b61b0342de5350cc481))
+
+
+
+
+
 ## 3.7.20 (2025-11-18)
 
 
