@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.7 (2025-12-29)
+
+**Note:** Version bump only for package @uireact/view
+
+
+
+
+
 ## [4.1.6](https://github.com/inavac182/uireact/compare/@uireact/view@4.1.5...@uireact/view@4.1.6) (2025-06-12)
 
 **Note:** Version bump only for package @uireact/view

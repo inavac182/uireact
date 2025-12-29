@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.2.0 (2025-12-29)
+
+
+### Features
+
+* adding id to type ([#442](https://github.com/inavac182/uireact/issues/442)) ([5af3716](https://github.com/inavac182/uireact/commit/5af37168424f82c7daa18af69dd7042ef1677e9e))
+
+
+
+
+
 ## [4.1.5](https://github.com/inavac182/uireact/compare/@uireact/foundation@4.1.4...@uireact/foundation@4.1.5) (2025-06-12)
 
 **Note:** Version bump only for package @uireact/foundation

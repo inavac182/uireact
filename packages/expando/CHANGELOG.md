@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.13](https://github.com/inavac182/uireact/compare/@uireact/expando@2.7.12...@uireact/expando@2.7.13) (2025-12-29)
+
+**Note:** Version bump only for package @uireact/expando
+
+
+
+
+
 ## [2.7.12](https://github.com/inavac182/uireact/compare/@uireact/expando@2.7.11...@uireact/expando@2.7.12) (2025-12-26)
 
 **Note:** Version bump only for package @uireact/expando
