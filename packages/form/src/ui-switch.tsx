@@ -18,6 +18,7 @@ export const UiSwitch: React.FC<UiSwitchProps> = ({
   ref,
   category = 'tertiary',
   onChange,
+  ...props
 }: UiSwitchProps) => (
   <div className={`${className} ${styles.switch}`} data-testid={testId}>
     <div>
@@ -30,6 +31,7 @@ export const UiSwitch: React.FC<UiSwitchProps> = ({
         ref={ref}
         onChange={onChange}
         className={styles.checkboxInput}
+        {...props}
       />
       <label htmlFor={name} className={styles.switchLabel} tabIndex={0}>
         <>
