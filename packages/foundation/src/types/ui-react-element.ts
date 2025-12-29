@@ -8,6 +8,8 @@ export interface UiReactElementProps {
   className?: string;
   /** Test id attribute used for UI Automation testing */
   testId?: string;
+  /** ID for HTML element */
+  id?: string;
 }
 
 export type UiReactPrivateElementProps = UiReactElementProps & {

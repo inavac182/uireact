@@ -23,6 +23,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
   value,
   onChange,
   required,
+  ...props
 }: UiTextAreaProps) => (
   <div className={`${className} ${styles.textareaWrapper} ${labelOnTop ? styles.textAreaWrapperColumn : ''}`} data-testid={testId}>
     {label && (
@@ -47,6 +48,7 @@ export const UiTextArea: React.FC<UiTextAreaProps> = ({
           rows={rows}
           value={value}
           required={required}
+          {...props}
         />
         {error && <UiText category={category}>{error}</UiText>}
       </div>
