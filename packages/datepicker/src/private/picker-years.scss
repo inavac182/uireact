@@ -1,0 +1,41 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: var(--fonts-token_100);
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-token_100);
+  }
+
+  &:active {
+    background-color: var(--primary-token_200);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.buttonHighlight {
+  background-color: var(--primary-token_50);
+}
