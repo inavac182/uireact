@@ -2,21 +2,17 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { UiMenu } from '@uireact/menu';
-import { UiFlexGrid, UiFlexGridItem } from '@uireact/flex';
-import { UiIcon } from '@uireact/icons';
-import { UiButton, UiPrimaryButton, UiSecondaryButton } from '@uireact/button';
-import { UiText } from '@uireact/text';
+import { UiPrimaryButton } from '@uireact/button';
 import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 
 import { UiDatepickerProps } from './types';
-import { PickerMonth } from './private/picker-month';
-import { getLocalizedMonthLabel, getMonthTitle } from './utils';
+import { PickerHeading } from 'private/picker-heading';
+import { DatepickerView, PickerSection } from 'private/picker-section';
+
 import styles from './ui-datepicker.scss';
 
-const titleSpacing: UiSpacingProps['padding'] = { all: 'three' };
 const buttonContentSpacing: UiSpacingProps['padding'] = { block: 'two', inline: 'three' };
 const buttonPadding: UiSpacingProps['padding'] = { block: 'two', right: 'two' };
-const nextMonthSpacing: UiSpacingProps['padding'] = { block: 'five' };
 
 export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   date,
@@ -34,8 +30,9 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   isOpen = false,
   selectInitDate = false,
   localizedLabels,
-  flatPicker = false
+  flatPicker = false,
 }: UiDatepickerProps) => {
+  const [view, setView] = useState<DatepickerView>('days');
   const { isSmall } = useViewport();
   const today = useMemo(() => new Date(), []);
   const [focusDate, setFocusDate] = useState<Date>(date || today);
@@ -78,94 +75,88 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
     [setSelectedDate, onSelectDate, onClose]
   );
 
-  const HeadingSection = useMemo(() => (
-    <UiSpacing padding={titleSpacing}>
-      <UiFlexGrid alignItems="center" justifyContent="center">
-        <UiFlexGridItem>
-          <UiButton styling="icon" onClick={onSelectPrevMonth} testId="datepicker-previous-month-button">
-            <UiIcon icon="AngleCircleLeft" />
-          </UiButton>
-        </UiFlexGridItem>
-        <UiFlexGridItem grow={1}>
-          <UiText align='center' fontStyle="bold">
-            {localizedLabels ? 
-              getLocalizedMonthLabel(focusDate.getMonth(), localizedLabels) 
-              : 
-              getMonthTitle(focusDate.getMonth(), monthTitlesFormat)
-            } {focusDate.getFullYear()}
-          </UiText>
-        </UiFlexGridItem>
-        {showNextMonth && !isSmall && (
-          <UiFlexGridItem grow={1}>
-            <UiText align='center' fontStyle="bold">
-              {localizedLabels ? 
-                getLocalizedMonthLabel(nextFocusDate.getMonth(), localizedLabels) 
-                : 
-                getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)
-              } {nextFocusDate.getFullYear()}
-            </UiText>
-          </UiFlexGridItem>
-        )}
-        <UiFlexGridItem>
-          <UiButton styling="icon" onClick={onSelectNextMonth} testId="datepicker-next-month-button">
-            <UiIcon icon="AngleCircleRight" />
-          </UiButton>
-        </UiFlexGridItem>
-      </UiFlexGrid>
-    </UiSpacing>
-  ), [focusDate, isSmall, localizedLabels, monthTitlesFormat, nextFocusDate, onSelectNextMonth, onSelectPrevMonth, showNextMonth]);
+  const onChangeMonthClicked = useCallback(() => {
+    if (view !== 'month') {
+      setView('month');
+    } else {
+      setView('days');
+    }
+  }, [view]);
 
-  const PickerSection = useMemo(() => (
-    <UiFlexGrid direction={isSmall ? 'column' : 'row'}>
-        <UiFlexGridItem grow={1}>
-          <PickerMonth
-            today={today}
-            focusDate={focusDate}
-            dayTitlesFormat={dayTitlesFormat}
-            highlightToday={highlightToday}
-            onSelectDate={onSelectInternalDate}
-            selectedDate={selectedDate}
-            disablePastDates={disablePastDates}
-            localizedLabels={localizedLabels}
-          />
-        </UiFlexGridItem>
-        {showNextMonth && (
-          <div className={styles.monthWrapper}>
-            {isSmall && (
-              <UiSpacing padding={nextMonthSpacing}>
-                <UiText align='center' fontStyle="bold">
-                  {getMonthTitle(nextFocusDate.getMonth(), monthTitlesFormat)} {nextFocusDate.getFullYear()}
-                </UiText>
-              </UiSpacing>
-            )}
-            <PickerMonth
-              today={today}
-              focusDate={nextFocusDate}
-              dayTitlesFormat={dayTitlesFormat}
-              highlightToday={highlightToday}
-              onSelectDate={onSelectInternalDate}
-              selectedDate={selectedDate}
-              disablePastDates={disablePastDates}
-              localizedLabels={localizedLabels}
-            />
-          </div>
-        )}
-      </UiFlexGrid>
-  ), [dayTitlesFormat, disablePastDates, focusDate, highlightToday, isSmall, localizedLabels, monthTitlesFormat, nextFocusDate, onSelectInternalDate, selectedDate, showNextMonth, today]);
+  const onChangeYearClicked = useCallback(() => {
+    if (view !== 'year') {
+      setView('year');
+    } else {
+      setView('days');
+    }
+  }, [view]);
+
+  const onMonthSelected = useCallback((month: number) => {}, []);
+
+  const Picker = useMemo(() => {
+    return (
+      <>
+        <PickerHeading
+          focusDate={focusDate}
+          monthTitlesFormat={monthTitlesFormat}
+          nextFocusDate={nextFocusDate}
+          onSelectNextMonth={onSelectNextMonth}
+          onSelectPrevMonth={onSelectPrevMonth}
+          localizedLabels={localizedLabels}
+          showNextMonth={showNextMonth}
+          onMonthClicked={onChangeMonthClicked}
+          onYearClicked={onChangeYearClicked}
+        />
+        <PickerSection
+          view={view}
+          dayTitlesFormat={dayTitlesFormat}
+          disablePastDates={disablePastDates}
+          focusDate={focusDate}
+          onMonthSelect={onMonthSelected}
+          highlightToday={highlightToday}
+          localizedLabels={localizedLabels}
+          monthTitlesFormat={monthTitlesFormat}
+          nextFocusDate={nextFocusDate}
+          onSelectInternalDate={onSelectInternalDate}
+          showNextMonth={showNextMonth}
+          today={today}
+          selectedDate={selectedDate}
+        />
+      </>
+    );
+  }, [
+    dayTitlesFormat,
+    disablePastDates,
+    focusDate,
+    highlightToday,
+    localizedLabels,
+    monthTitlesFormat,
+    nextFocusDate,
+    onChangeMonthClicked,
+    onChangeYearClicked,
+    onMonthSelected,
+    onSelectInternalDate,
+    onSelectNextMonth,
+    onSelectPrevMonth,
+    selectedDate,
+    showNextMonth,
+    today,
+    view,
+  ]);
 
   if (flatPicker) {
-    return (
-      <div className={className}>
-        {HeadingSection}
-        {PickerSection}
-      </div>
-    )
+    return <div className={className}>{Picker}</div>;
   }
 
   return (
-    <UiMenu visible={isOpen} closeMenuCB={onCloseMenu} testId={testId} fullscreenOnSmall={useDialogOnSmall} className={className}>
-      {HeadingSection}
-      {PickerSection}
+    <UiMenu
+      visible={isOpen}
+      closeMenuCB={onCloseMenu}
+      testId={testId}
+      fullscreenOnSmall={useDialogOnSmall}
+      className={className}
+    >
+      {Picker}
       {closeLabel && !isDialogShown && (
         <div className={styles.closeButtonWrapperMenu}>
           <UiSpacing padding={buttonPadding}>
