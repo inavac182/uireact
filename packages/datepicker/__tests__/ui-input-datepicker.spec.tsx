@@ -50,7 +50,7 @@ describe('<UiDatepicker />', () => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
     
-    expect(screen.getByText('January 2028')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'January' })).toBeVisible();
   });
 
   it('renders fine with localized strings', async () => {
@@ -67,7 +67,7 @@ describe('<UiDatepicker />', () => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
     
-    expect(screen.getByText('Enero 2028')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Enero' })).toBeVisible();
     expect(screen.getByText('Domingo')).toBeVisible();
   });
 
@@ -85,8 +85,8 @@ describe('<UiDatepicker />', () => {
       expect(screen.getByRole('menu')).toBeVisible();
     });
     
-    expect(screen.getByText('Enero 2028')).toBeVisible();
-    expect(screen.getByText('Febrero 2028')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Enero' })).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Febrero' })).toBeVisible();
     expect(screen.getAllByText('Domingo')[0]).toBeVisible();
     expect(screen.getAllByText('Domingo')[1]).toBeVisible();
   });

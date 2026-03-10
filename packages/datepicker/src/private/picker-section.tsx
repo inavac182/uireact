@@ -8,12 +8,15 @@ import { DateTitleFormats, UiDatepickerLocalizedLabels } from 'types';
 
 import styles from '../ui-datepicker.scss';
 import { PickerYear } from './picker-year';
+import { PickerYears } from './picker-years';
 
 export type DatepickerView = 'days' | 'month' | 'year';
 
 type PickerSectionProps = {
   onSelectInternalDate: (date: Date) => void;
   onMonthSelect: (month: number) => void;
+  onYearSelect: (year: number) => void;
+  yearOffset: number;
   today: Date;
   focusDate: Date;
   dayTitlesFormat: DateTitleFormats;
@@ -37,6 +40,8 @@ export const PickerSection = ({
   localizedLabels,
   onSelectInternalDate,
   onMonthSelect,
+  onYearSelect,
+  yearOffset,
   today,
   selectedDate,
   showNextMonth,
@@ -73,7 +78,15 @@ export const PickerSection = ({
             localizedLabels={localizedLabels}
           />
         )}
-        {view === 'year' && <UiText>Year</UiText>}
+        {view === 'year' && (
+          <PickerYears
+            today={today}
+            focusDate={focusDate}
+            disablePastDates={disablePastDates}
+            onYearSelect={onYearSelect}
+            yearOffset={yearOffset}
+          />
+        )}
       </UiFlexGridItem>
       {showNextMonth && (
         <div className={styles.monthWrapper}>

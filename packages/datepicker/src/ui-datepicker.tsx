@@ -8,6 +8,7 @@ import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 import { UiDatepickerProps } from './types';
 import { PickerHeading } from 'private/picker-heading';
 import { DatepickerView, PickerSection } from 'private/picker-section';
+import { YEARS_BEFORE, YEARS_COUNT } from 'private/picker-years';
 
 import styles from './ui-datepicker.scss';
 
@@ -33,6 +34,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   flatPicker = false,
 }: UiDatepickerProps) => {
   const [view, setView] = useState<DatepickerView>('days');
+  const [yearOffset, setYearOffset] = useState(0);
   const { isSmall } = useViewport();
   const today = useMemo(() => new Date(), []);
   const [focusDate, setFocusDate] = useState<Date>(date || today);
@@ -85,13 +87,35 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
 
   const onChangeYearClicked = useCallback(() => {
     if (view !== 'year') {
+      setYearOffset(0);
       setView('year');
-    } else {
-      setView('days');
     }
   }, [view]);
 
-  const onMonthSelected = useCallback((month: number) => {}, []);
+  const onPrevYearPage = useCallback(() => setYearOffset((prev) => prev - 1), []);
+  const onNextYearPage = useCallback(() => setYearOffset((prev) => prev + 1), []);
+
+  const isPrevYearPageDisabled =
+    !!disablePastDates &&
+    focusDate.getFullYear() - YEARS_BEFORE + yearOffset * YEARS_COUNT <= today.getFullYear();
+
+  const onMonthSelected = useCallback(
+    (month: number) => {
+      setFocusDate(new Date(focusDate.getFullYear(), month, 1));
+      setNextFocusDate(new Date(focusDate.getFullYear(), month + 1, 1));
+      setView('days');
+    },
+    [focusDate]
+  );
+
+  const onYearSelected = useCallback(
+    (year: number) => {
+      setFocusDate(new Date(year, focusDate.getMonth(), 1));
+      setNextFocusDate(new Date(year, focusDate.getMonth() + 1, 1));
+      setView('month');
+    },
+    [focusDate]
+  );
 
   const Picker = useMemo(() => {
     return (
@@ -102,10 +126,15 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           nextFocusDate={nextFocusDate}
           onSelectNextMonth={onSelectNextMonth}
           onSelectPrevMonth={onSelectPrevMonth}
+          onSelectPrevYearPage={onPrevYearPage}
+          onSelectNextYearPage={onNextYearPage}
           localizedLabels={localizedLabels}
           showNextMonth={showNextMonth}
           onMonthClicked={onChangeMonthClicked}
           onYearClicked={onChangeYearClicked}
+          view={view}
+          yearOffset={yearOffset}
+          isPrevYearPageDisabled={isPrevYearPageDisabled}
         />
         <PickerSection
           view={view}
@@ -113,6 +142,8 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
           disablePastDates={disablePastDates}
           focusDate={focusDate}
           onMonthSelect={onMonthSelected}
+          onYearSelect={onYearSelected}
+          yearOffset={yearOffset}
           highlightToday={highlightToday}
           localizedLabels={localizedLabels}
           monthTitlesFormat={monthTitlesFormat}
@@ -135,6 +166,10 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
     onChangeMonthClicked,
     onChangeYearClicked,
     onMonthSelected,
+    onYearSelected,
+    onPrevYearPage,
+    onNextYearPage,
+    isPrevYearPageDisabled,
     onSelectInternalDate,
     onSelectNextMonth,
     onSelectPrevMonth,
@@ -142,6 +177,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
     showNextMonth,
     today,
     view,
+    yearOffset,
   ]);
 
   if (flatPicker) {
