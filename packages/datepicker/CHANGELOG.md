@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/inavac182/ui-react/compare/@uireact/datepicker@0.22.9...@uireact/datepicker@0.23.0) (2026-03-10)
+
+
+### Features
+
+* **datepicker:** enable month and year changes ([#443](https://github.com/inavac182/ui-react/issues/443)) ([161c4d1](https://github.com/inavac182/ui-react/commit/161c4d14495aeb879ad08d6aed84a241ba10d651))
+
+
+
+
+
 ## 0.22.9 (2025-12-29)
 
 **Note:** Version bump only for package @uireact/datepicker
