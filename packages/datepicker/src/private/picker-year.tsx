@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { DateTitleFormats, UiDatepickerLocalizedLabels } from 'types';
-import { getLocalizedMonthLabel, getMonthTitle } from 'utils';
+import { DateTitleFormats, UiDatepickerLocalizedLabels } from '../types';
+import { getLocalizedMonthLabel, getMonthTitle } from '../utils';
 
 import styles from './picker-year.scss';
 
@@ -40,8 +40,7 @@ export const PickerYear = ({
           ? getLocalizedMonthLabel(index, localizedLabels)
           : getMonthTitle(index, monthTitlesFormat);
         const isDisabled =
-          disablePastDates &&
-          (focusYear < todayYear || (focusYear === todayYear && index < todayMonth));
+          disablePastDates && (focusYear < todayYear || (focusYear === todayYear && index < todayMonth));
         return (
           <div key={`datepicker-month-${index}`} className={styles.buttonContainer}>
             <button

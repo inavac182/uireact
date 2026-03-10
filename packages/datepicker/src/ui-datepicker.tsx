@@ -6,9 +6,9 @@ import { UiPrimaryButton } from '@uireact/button';
 import { UiSpacing, UiSpacingProps, useViewport } from '@uireact/foundation';
 
 import { UiDatepickerProps } from './types';
-import { PickerHeading } from 'private/picker-heading';
-import { DatepickerView, PickerSection } from 'private/picker-section';
-import { YEARS_BEFORE, YEARS_COUNT } from 'private/picker-years';
+import { PickerHeading } from './private/picker-heading';
+import { DatepickerView, PickerSection } from './private/picker-section';
+import { YEARS_BEFORE, YEARS_COUNT } from './private/picker-years';
 
 import styles from './ui-datepicker.scss';
 
@@ -96,8 +96,7 @@ export const UiDatepicker: React.FC<UiDatepickerProps> = ({
   const onNextYearPage = useCallback(() => setYearOffset((prev) => prev + 1), []);
 
   const isPrevYearPageDisabled =
-    !!disablePastDates &&
-    focusDate.getFullYear() - YEARS_BEFORE + yearOffset * YEARS_COUNT <= today.getFullYear();
+    !!disablePastDates && focusDate.getFullYear() - YEARS_BEFORE + yearOffset * YEARS_COUNT <= today.getFullYear();
 
   const onMonthSelected = useCallback(
     (month: number) => {

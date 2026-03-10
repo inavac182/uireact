@@ -4,7 +4,7 @@ import { UiText } from '@uireact/text';
 import React from 'react';
 import { getMonthTitle } from 'utils';
 import { PickerMonth } from './picker-month';
-import { DateTitleFormats, UiDatepickerLocalizedLabels } from 'types';
+import { DateTitleFormats, UiDatepickerLocalizedLabels } from '../types';
 
 import styles from '../ui-datepicker.scss';
 import { PickerYear } from './picker-year';
